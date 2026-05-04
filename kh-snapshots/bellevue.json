@@ -1,0 +1,95 @@
+{
+  "fetched_at": "2026-05-04T10:36:33+00:00",
+  "property_uuid": "ec859cd9-8eac-44a3-afe4-0013b9ea393d",
+  "property_name": "★ Le Bellevue ★",
+  "topics": [
+    {
+      "name": "Access codes",
+      "items": [
+        { "content": "Lockbox instructions: To retrieve the keys, find the lockbox labeled 'L. Bellevue' in the mailbox to the left of the gate upon entering. Enter code 8848 to open. Do not forget to close the lockbox before leaving.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "Amenities",
+      "items": [
+        { "content": "Baby equipment:\n- Lit parapluie and high chair are available.\n- The travel crib is stored in the storage bed chest in the street-facing bedroom or sometimes behind the couch near the plant.\n- Mattress covers are provided with the crib.", "is_edited": true },
+        { "content": "Kitchen consumables and equipment:\n- Nespresso capsule machine and filter coffee maker provided; initial capsules and tea supplied for the first night.\n- Two rolls of toilet paper and dishwasher tablets provided for the first stay.\n- No dish rack; guests are expected to use the dishwasher for drying dishes.", "is_edited": false },
+        { "content": "Other provided items:\n- Shower gel, shampoo, and soap.\n- Hair dryer, iron, and ironing board.\n- Cleaning products and drying rack for clothing.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "Appliances",
+      "items": [
+        { "content": "Washer-dryer: Whirlpool. The washing machine has a drying function; the separate tumble dryer sometimes runs post-cleaning and stops automatically after about 1 h 30 min.", "is_edited": false },
+        { "content": "Dishwasher: Dishwasher tablets are provided; guests should load and operate the machine as usual.", "is_edited": false },
+        { "content": "Shower drain maintenance: If the shower drains slowly, a drain-unblocking product is available under the kitchen sink or in the cabinet next to the couch (PassPass code 1973).", "is_edited": false },
+        { "content": "Electric cooktop: Ikea brand.", "is_edited": false },
+        { "content": "Dishwasher: Ikea brand.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "Arrival",
+      "items": [
+        { "content": "Check-in times:\n- Standard check-in time: 17:00.\n- Early check-in may be possible (typically around 14:00–15:00) if the apartment is available and cleaned.\n- Late check-in (even around midnight) is fine as the process is autonomous.", "is_edited": false },
+        { "content": "Location: The property is located at 2 avenue Maréchal Foch, 25000 Besançon, in the Parc des Glacis opposite the train station. Entry is through a green gate marked with the number 2 on the post, secured by a digicode. Puis prendre l'escalier rouge à gauche.", "is_edited": true }
+      ]
+    },
+    {
+      "name": "Departure",
+      "items": [
+        { "content": "Check-out deadlines:\n- Standard check-out time: 11:00.\n- Late check-out requests (e.g., 12:00 or later) depend on cleaner availability; guests should request in advance.", "is_edited": true },
+        { "content": "Upon arrival: enter through the green gate (digicode 24097), then climb the red external stairs up to the first floor and enter through the first door on the left. Upon departure: return the keys to the same key box (left of the main entrance door), ensure the lid is securely closed before leaving, take out the trash, and you may depart at any time.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "Heating & Cooling",
+      "items": [
+        { "content": "Central heating: Radiators are controlled by the building's central system; individual radiator valves are absent in some rooms (e.g., bathroom). The bathroom radiator may remain hot until the central heating season ends.", "is_edited": false },
+        { "content": "Cooling and ventilation: Guests can lower roller shutters and use a plastic adapter to block heat in summer. Portable fans and a mobile air conditioner are available for guest use.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "Parking",
+      "items": [
+        { "content": "Remparts parking: Free parking areas around the old town at the foot of the ramparts.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "Rules & Regulations",
+      "items": [
+        { "content": "House rules:\n- No smoking anywhere inside the property.\n- No parties or events are allowed.\n- A decibel detector connected to an alarm and a camera on the landing monitor noise levels.\n- Please respect neighbors and observe quiet hours after 22:00.\n- Do not attempt to disconnect or tamper with the CO₂ sensor.\n- No pets allowed, to protect future guests with allergies.", "is_edited": false },
+        { "content": "Number of guests: Only the guests listed on the reservation are permitted. To add anyone, please regularize the reservation promptly.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "Things to Do & See Nearby",
+      "items": [
+        { "content": "Restaurants:\n• Samouraï Sushis – next to the apartment, view of the park.\n• Grande Pizzeria – opposite the station.\n• Le Bouillon du Commerce (700 m) – Art Déco restaurant from 1850. 31 Rue des Granges. https://lebouillonducommerce.fr/\n• Le Saint Cerf (600 m) – Contemporary bistro with seasonal, vegetarian options. 1 Rue Megevand. 03 81 50 10 20.\n• L'Affineur Comtois (400 m) – Fromage specialties: cancoillotte, fondue, tartiflette. 82 Rue Battant. https://www.restaurant-laffineurcomtois.fr/\n• Loiseau du Temps (500 m) – Burgundy-Franche-Comté terroir. 27 Rue des Boucheries.\n• Le Vauban (1200 m) – Lunch or dinner cruise on the Doubs. https://www.bateau-besancon.fr/croisieres-repas/\n• Le Parc (1000 m) – Gastronomic table overlooking Parc Micaud.\n• La Petite Adresse – Budget-friendly: franc-comtoises specialties. 28 Rue Claude Pouillet. 03 81 82 35 09.\n• La Grange – Authentic French cuisine: cheese fondue. 17 Av. Elisée Cusenier.", "is_edited": false },
+        { "content": "Attractions:\n• La Citadelle de Besançon – Vauban masterpiece, UNESCO World Heritage site.\n• Musée Comtois – Comtois heritage and identity.\n• Musée de la Résistance et de la Déportation – Reopened 8 September 2023.\n• Muséum – Biodiversity museum with zoo, aquarium, insectarium, noctarium.\n• Le musée du Temps (600 m) – Palais Granvelle. 96 Grande Rue.\n• Horloge astronomique (1000 m) – 19th-century astronomical clock in St-Jean Cathedral.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "Transportation",
+      "items": [
+        { "content": "Street and free parking: Paid street parking next to the train station, with frequent enforcement. Free public parking 'Battant' 200 m away with over 1000 spaces. Paid street parking is free on Sundays.", "is_edited": false },
+        { "content": "Public transport: Apartment faces the train station (Gare Viotte), 150 m walk. Shuttle train from Gare Viotte to TGV station in about 10 minutes. Tram lines T1 and T2 and Ginko buses stop 100 m in front of the station. www.ginko.voyage. Pay by card on board.", "is_edited": false },
+        { "content": "Taxi: Uber does not serve Besançon. Contact Taxis Radio at 03 81 88 80 80.", "is_edited": false },
+        { "content": "Bikes: Vélocité self-service for short trips or daily rentals from local agencies. Tel. 03 81 21 32 60.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "TV & Streaming",
+      "items": [
+        { "content": "Living room TV: Tuned to French TNT channels.", "is_edited": false },
+        { "content": "Bedroom TV: Smart Samsung TV with Molotov TV app for French channels. Pre-installed apps include Netflix, Molotov, and myCanal. AirPlay (iPhone) and Chromecast (Android) are supported.", "is_edited": false }
+      ]
+    },
+    {
+      "name": "Wifi/Internet",
+      "items": [
+        { "content": "Network credentials:\n- SSID: SFR_F9C0\n- Password: thdu7uam96nush8enb82", "is_edited": false },
+        { "content": "Troubleshooting:\n- The internet box is located in the street-facing bedroom beside the bedside table.\n- Unplug and replug the box or press the power button at the back.\n- Check that the circuit breaker has not tripped.\n- Press the Wi-Fi button on the box and verify the indicator lights.", "is_edited": true }
+      ]
+    }
+  ]
+}
