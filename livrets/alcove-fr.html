@@ -1,10 +1,11 @@
+<!-- BUILT for alcove-fr at 2026-05-04T12:20:18.654Z | extracted: {"wifi_ssid":null,"wifi_password":null,"building_digicode":null,"property_address":null,"maps_url":null,"video_tour_id":null} -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5efe6">
-<title>{{property_name}} · Votre séjour</title>
+<title>L'Alcove · Votre séjour</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -33,10 +34,10 @@
     --font-display: 'Fraunces', Georgia, serif;
     --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   }
- 
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
- 
+
   body {
     font-family: var(--font-body);
     background: var(--bg);
@@ -50,7 +51,7 @@
       radial-gradient(ellipse at bottom left, rgba(90,110,63,0.03), transparent 60%);
     background-attachment: fixed;
   }
- 
+
   body::before {
     content: '';
     position: fixed;
@@ -60,9 +61,9 @@
     opacity: 0.4;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.12 0 0 0 0 0.11 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
- 
+
   .app { position: relative; z-index: 2; }
- 
+
   /* TOPBAR */
   .topbar {
     position: sticky;
@@ -138,7 +139,7 @@
   }
   .lang-menu a:hover { background: var(--bg); }
   .lang-menu a.active { background: var(--accent-soft); color: var(--accent-deep); font-weight: 500; }
- 
+
   /* HERO */
   .hero { position: relative; overflow: hidden; }
   .hero-img {
@@ -225,14 +226,14 @@
     line-height: 1;
   }
   .hero-countdown-label { font-size: 14px; color: var(--fg-muted); }
- 
+
   /* MAIN */
   main {
     max-width: 720px;
     margin: 0 auto;
     padding: 32px 20px 80px;
   }
- 
+
   /* QUICK INFOS */
   .quick-grid {
     display: grid;
@@ -270,7 +271,7 @@
     line-height: 1.2;
   }
   .quick-sub { font-size: 12px; color: var(--fg-soft); }
- 
+
   /* SECTION */
   .section { margin-bottom: 48px; scroll-margin-top: 70px; }
   .section-eyebrow {
@@ -307,7 +308,7 @@
     margin-bottom: 20px;
     line-height: 1.6;
   }
- 
+
   /* VIDEO EMBED */
   .video-wrap {
     position: relative;
@@ -342,7 +343,7 @@
     margin-bottom: 10px;
   }
   .video-label svg { color: var(--accent); }
- 
+
   /* STEPS */
   .steps { position: relative; }
   .step {
@@ -415,7 +416,7 @@
     color: var(--accent);
     font-variation-settings: "opsz" 12, "SOFT" 0;
   }
- 
+
   /* CODE BOX */
   .codebox {
     display: flex;
@@ -473,7 +474,7 @@
     font-weight: 400;
   }
   .codebox-keybox.locked .codebox-copy { display: none; }
- 
+
   .step-tip {
     margin-top: 10px;
     padding: 12px 14px;
@@ -487,7 +488,7 @@
   .step-tip strong { color: var(--success); font-weight: 600; }
   .step-tip.warn { background: rgba(200,133,61,0.1); border-color: var(--warning); }
   .step-tip.warn strong { color: var(--warning); }
- 
+
   .step-button {
     display: inline-flex;
     align-items: center;
@@ -505,7 +506,7 @@
   .step-button:hover { background: var(--accent); transform: translateY(-1px); }
   .step-button .arrow { font-size: 11px; transition: transform 0.18s; }
   .step-button:hover .arrow { transform: translateX(2px); }
- 
+
   /* STEP MEDIA - Photos d'accompagnement par étape */
   .step-photo {
     width: 100%;
@@ -577,7 +578,7 @@
     background: var(--bg-card);
   }
   .step-photo-frame-cap strong { color: var(--fg); font-weight: 500; }
- 
+
   /* GALLERIE */
   .gallery {
     display: grid;
@@ -618,7 +619,7 @@
     font-weight: 500;
     letter-spacing: 0.04em;
   }
- 
+
   /* ROOM TILES */
   .rooms {
     display: grid;
@@ -658,7 +659,7 @@
     font-variation-settings: "opsz" 18, "SOFT" 40;
   }
   .room-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
- 
+
   /* INFO CARDS */
   .cards-grid {
     display: grid;
@@ -732,7 +733,7 @@
   }
   .info-copy-btn:hover { background: var(--accent); }
   .info-copy-btn.copied { background: var(--success); }
- 
+
   /* TRANSPORT GRID */
   .transport-grid {
     display: grid;
@@ -758,7 +759,7 @@
   }
   .transport-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
   .transport-distance { font-size: 11px; color: var(--accent); font-weight: 500; margin-top: 4px; }
- 
+
   /* RECOS */
   .recos-toc {
     display: flex;
@@ -783,7 +784,7 @@
     white-space: nowrap;
   }
   .recos-toc-link:hover { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-soft); }
- 
+
   .reco-cat-title {
     font-family: var(--font-display);
     font-size: 22px;
@@ -809,7 +810,7 @@
     font-weight: 400;
     letter-spacing: 0.04em;
   }
- 
+
   .recos-list {
     display: flex;
     flex-direction: column;
@@ -901,7 +902,7 @@
     align-self: flex-start;
   }
   .reco-link:hover { text-decoration: underline; }
- 
+
   .reco-tip {
     background: rgba(184,85,45,0.06);
     border: 1px solid var(--accent-soft);
@@ -923,7 +924,7 @@
     line-height: 1.5;
   }
   .reco-tip-text strong { color: var(--fg); font-weight: 500; }
- 
+
   /* CHECKLIST */
   .checklist {
     background: var(--bg-card);
@@ -974,7 +975,7 @@
     user-select: none;
   }
   .checklist-bullet.checked + .checklist-text { color: var(--fg-soft); text-decoration: line-through; }
- 
+
   /* CONTACT */
   .contact-card {
     background: linear-gradient(135deg, var(--fg) 0%, #383229 100%);
@@ -1036,7 +1037,7 @@
   .contact-btn:hover { background: rgba(255,255,255,0.18); transform: translateY(-1px); }
   .contact-btn.primary { background: var(--accent); border-color: var(--accent); }
   .contact-btn.primary:hover { background: var(--accent-deep); }
- 
+
   footer {
     text-align: center;
     padding: 32px 20px 24px;
@@ -1053,7 +1054,7 @@
     margin-bottom: 6px;
     font-variation-settings: "opsz" 24, "SOFT" 80;
   }
- 
+
   .toast {
     position: fixed;
     bottom: 24px;
@@ -1072,7 +1073,7 @@
     pointer-events: none;
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
- 
+
   .reveal {
     opacity: 0;
     transform: translateY(12px);
@@ -1085,7 +1086,7 @@
   .reveal:nth-child(4) { animation-delay: 0.28s; }
   .reveal:nth-child(5) { animation-delay: 0.36s; }
   .reveal:nth-child(6) { animation-delay: 0.44s; }
- 
+
   @media (max-width: 480px) {
     .hero-content { margin-top: -64px; }
     .hero-card { padding: 22px 20px 20px; border-radius: 16px; }
@@ -1099,7 +1100,7 @@
 </head>
 <body>
 <div class="app">
- 
+
   <div class="topbar">
     <div class="topbar-inner">
       <div class="brand">u-citybreak<span class="brand-dot">.</span></div>
@@ -1119,17 +1120,17 @@
       </div>
     </div>
   </div>
- 
+
   <div class="hero">
-    <img class="hero-img" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80&auto=format&fit=crop" alt="{{property_name}}">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80&auto=format&fit=crop" alt="L'Alcove">
     <div class="hero-overlay"></div>
   </div>
- 
+
   <div class="hero-content">
     <div class="hero-card reveal">
       <div class="hero-eyebrow">Votre séjour</div>
-      <h1 class="hero-title">{{property_name}}</h1>
-      <p class="hero-sub">{{property_tagline}}</p>
+      <h1 class="hero-title">L'Alcove</h1>
+      <p class="hero-sub">Au cœur des Terreaux, Lyon</p>
       <div class="hero-divider"></div>
       <p class="hero-greeting">Bonjour <strong>{{guest_name}}</strong>, ravis de vous accueillir.</p>
       <div class="hero-countdown">
@@ -1137,9 +1138,9 @@
       </div>
     </div>
   </div>
- 
+
   <main>
- 
+
     <!-- QUICK -->
     <div class="quick-grid reveal">
       <div class="quick-card">
@@ -1159,24 +1160,24 @@
       </div>
       <div class="quick-card highlight">
         <div class="quick-label">Wifi</div>
-        <div class="quick-value">{{wifi_ssid}}</div>
+        <div class="quick-value">SFR_7CFF</div>
         <div class="quick-sub">Mot de passe ↓</div>
       </div>
     </div>
- 
+
     <!-- ARRIVÉE -->
     <section class="section reveal" id="arriver">
       <div class="section-eyebrow">Étape par étape</div>
       <h2 class="section-title">Arriver <em>au logement</em></h2>
- 
+
       <div class="steps">
- 
+
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Trouver l'adresse</h3>
-            <p class="step-text">Vous arrivez au <strong>{{property_address}}</strong>. Depuis les Terreaux, accédez par la rue Paul Chenavard et Major Martin (à l'angle du Café des Fédérations) — ou par la rue de la Plâtrière à l'angle du Franprix.</p>
-            <a href="{{maps_url}}" target="_blank" class="step-button">
+            <p class="step-text">Vous arrivez au <strong>3 rue de la Valfenière, Lyon 1<sup>er</sup></strong>. Depuis les Terreaux, accédez par la rue Paul Chenavard et Major Martin (à l'angle du Café des Fédérations) — ou par la rue de la Plâtrière à l'angle du Franprix.</p>
+            <a href="https://www.google.com/maps/place/3+Rue+de+la+Valfeni%C3%A8re,+69001+Lyon/" target="_blank" class="step-button">
               Ouvrir dans Maps <span class="arrow">→</span>
             </a>
             <div class="video-card">
@@ -1190,29 +1191,29 @@
             </div>
           </div>
         </div>
- 
+
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-content">
             <h3 class="step-title">Le digicode de l'immeuble</h3>
             <p class="step-text">Devant la porte d'entrée et la grille, composez le <strong>digicode</strong>.</p>
             <img class="step-photo" src="https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?w=600&q=80&auto=format&fit=crop" alt="Porte d'entrée du bâtiment">
-            <p class="step-photo-caption">La porte d&rsquo;entrée du {{property_address_short}}</p>
+            <p class="step-photo-caption">La porte d'entrée du 3 rue de la Valfenière</p>
             <div class="codebox">
               <span class="codebox-label">Digicode</span>
-              <span class="codebox-value">{{building_digicode}}</span>
-              <button class="codebox-copy" onclick="copyCode(this, '{{building_digicode}}')">Copier</button>
+              <span class="codebox-value">3175</span>
+              <button class="codebox-copy" onclick="copyCode(this, '3175')">Copier</button>
             </div>
             <div class="step-tip"><strong>💡 Bon à savoir</strong> · C'est une porte ancienne. En été elle peut se dilater avec la chaleur — si elle ne s'ouvre pas, tirez-la légèrement vers vous pour réenclencher la gâchette électrique.</div>
           </div>
         </div>
- 
+
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
             <h3 class="step-title">Le sas et la boîte à clé</h3>
             <p class="step-text">Une fois la grille passée, suivez ce parcours photo pour rejoindre la porte de l'appartement :</p>
- 
+
             <div class="step-photo-sequence">
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">1</span>
@@ -1227,7 +1228,7 @@
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">3</span>
                 <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Palier">
-                <div class="step-photo-frame-cap">La <strong>porte en face</strong>, avec le panonceau « {{property_name}} »</div>
+                <div class="step-photo-frame-cap">La <strong>porte en face</strong>, avec le panonceau « L'Alcove »</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">4</span>
@@ -1235,27 +1236,27 @@
                 <div class="step-photo-frame-cap">La <strong>boîte à clé Igloohome</strong>, à droite de la porte</div>
               </div>
             </div>
- 
+
             <div class="step-tip"><strong>👀 Astuce</strong> · Faites glisser les photos pour suivre le parcours pas à pas.</div>
           </div>
         </div>
- 
+
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-content">
             <h3 class="step-title">Ouvrir la boîte Igloohome</h3>
             <p class="step-text">Voici à quoi ressemble la boîte et comment l'utiliser :</p>
- 
+
             <img class="step-photo" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80&auto=format&fit=crop" alt="Boîte à clé Igloohome">
             <p class="step-photo-caption">La boîte à clé électronique Igloohome, à droite de la porte</p>
- 
+
             <div class="step-substeps">
               <div class="step-substep"><span class="step-substep-num">1</span><span>Placez la <strong style="color:var(--fg);">paume de la main</strong> sur le clavier pour réveiller l'appareil</span></div>
               <div class="step-substep"><span class="step-substep-num">2</span><span>Entrez votre <strong style="color:var(--fg);">code à 7 chiffres</strong>, puis appuyez sur le logo cadenas au centre</span></div>
               <div class="step-substep"><span class="step-substep-num">3</span><span>Attendez le bip et le bruit d'ouverture</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>Tirez sur le côté pour ouvrir la boîte et récupérez la clé</span></div>
             </div>
- 
+
             <div class="video-card">
               <div class="video-label">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1265,14 +1266,14 @@
                 <iframe src="https://www.youtube.com/embed/DwyeCH4FSWo" allowfullscreen></iframe>
               </div>
             </div>
- 
+
             <p class="step-text" style="margin-top:14px;">Votre code unique pour cette boîte :</p>
- 
+
             {{smartlock_codebox}}
             <div class="step-tip warn"><strong>⏰ Pour votre sécurité</strong> · Ce code change à chaque réservation et reste valable pour toute la durée de votre séjour.</div>
           </div>
         </div>
- 
+
         <div class="step">
           <div class="step-num">5</div>
           <div class="step-content">
@@ -1280,20 +1281,20 @@
             <p class="step-text">Refermez la boîte (un quart de tour suffit), puis ouvrez la porte du logement. <strong>Bienvenue chez vous</strong> ✨</p>
           </div>
         </div>
- 
+
       </div>
     </section>
- 
+
     <!-- DÉCOUVRIR -->
     <section class="section reveal" id="decouvrir">
       <div class="section-eyebrow">Découvrir le logement</div>
-      <h2 class="section-title">{{property_name}} en <em>quelques pas</em></h2>
-      <p class="section-intro">{{property_intro}}</p>
- 
+      <h2 class="section-title">L'Alcove en <em>quelques pas</em></h2>
+      <p class="section-intro">Studio mezzanine atypique au cœur des Terreaux. Tout l'essentiel sur un plateau, et un coin chambre douillet sous les toits.</p>
+
       <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/{{video_tour_id}}" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Ed_4ON2EUmc" allowfullscreen></iframe>
       </div>
- 
+
       <div class="rooms">
         <div class="room">
           <div class="room-icon">🪑</div>
@@ -1324,7 +1325,7 @@
           </div>
         </div>
       </div>
- 
+
       <div class="gallery">
         <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=80&auto=format&fit=crop" alt="Salon"><span class="gallery-caption">Salon</span></div>
         <div class="gallery-item"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80&auto=format&fit=crop" alt="Mezzanine"><span class="gallery-caption">Mezzanine</span></div>
@@ -1336,20 +1337,20 @@
         <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=400&q=80&auto=format&fit=crop" alt="Cuisine 2"><span class="gallery-caption">Cuisine</span></div>
       </div>
     </section>
- 
+
     <!-- PRATIQUE -->
     <section class="section reveal" id="pratique">
       <div class="section-eyebrow">Pendant votre séjour</div>
       <h2 class="section-title">L'essentiel <em>pratique</em></h2>
- 
+
       <div class="cards-grid">
         <div class="info-card">
           <div class="info-icon">📶</div>
           <h4 class="info-title">Wifi</h4>
-          <p class="info-text">Réseau : <code>{{wifi_ssid}}</code></p>
+          <p class="info-text">Réseau : <code>SFR_7CFF</code></p>
           <div class="info-copy-row">
-            <code style="flex:1;">{{wifi_password}}</code>
-            <button class="info-copy-btn" onclick="copyCode(this, '{{wifi_password}}')">Copier</button>
+            <code style="flex:1;">h85xkgpudi4xfri279rb</code>
+            <button class="info-copy-btn" onclick="copyCode(this, 'h85xkgpudi4xfri279rb')">Copier</button>
           </div>
         </div>
         <div class="info-card">
@@ -1379,13 +1380,13 @@
         </div>
       </div>
     </section>
- 
+
     <!-- POUBELLES -->
     <section class="section reveal" id="poubelles">
       <div class="section-eyebrow">Tri sélectif</div>
       <h2 class="section-title">Les <em>poubelles</em></h2>
       <p class="section-intro">Par respect pour notre personnel de ménage, merci d'évacuer vos poubelles lors de votre départ.</p>
- 
+
       <div class="info-card" style="display:flex; gap:14px; align-items:center;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
@@ -1394,12 +1395,12 @@
         </div>
       </div>
     </section>
- 
+
     <!-- BOUGER -->
     <section class="section reveal" id="bouger">
       <div class="section-eyebrow">Bouger</div>
       <h2 class="section-title">Se déplacer <em>en ville</em></h2>
- 
+
       <div class="transport-grid">
         <div class="transport-card">
           <div class="transport-icon">🚇</div>
@@ -1430,26 +1431,26 @@
           <div class="transport-desc">Rhône Express jusqu'à Vaux-en-Velin La Soie, puis Métro A jusqu'à Hôtel de Ville. Alternative : ligne bus C200. Uber/Taxi : ~45 min.</div>
         </div>
       </div>
- 
+
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ Stationnement</div>
         <div class="reco-tip-text">Le centre dispose de peu de places en surface. Nous recommandons le <strong>parking LPA des Terreaux</strong> (payant). Les parkings <strong>St Antoine</strong> et <strong>Cordelier</strong> proposent des forfaits weekend (vendredi au lundi), un peu plus éloignés mais plus économiques.</div>
       </div>
     </section>
- 
+
     <!-- RECOS -->
     <section class="section reveal" id="recos">
       <div class="section-eyebrow">Nos coups de cœur</div>
       <h2 class="section-title">À découvrir <em>autour</em></h2>
- 
+
       <div class="recos-toc">
         <a href="#restos" class="recos-toc-link">🍷 Restaurants</a>
         <a href="#tourisme" class="recos-toc-link">🏛️ À visiter</a>
         <a href="#commerces" class="recos-toc-link">🛒 Commerces</a>
       </div>
- 
+
       <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 4 adresses</span></h3>
- 
+
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80&auto=format&fit=crop" alt="">
@@ -1461,7 +1462,7 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&q=80&auto=format&fit=crop" alt="">
           <div class="reco-body">
@@ -1471,7 +1472,7 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&q=80&auto=format&fit=crop" alt="">
           <div class="reco-body">
@@ -1481,15 +1482,15 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco-tip">
           <div class="reco-tip-title">Pour vous balader</div>
           <div class="reco-tip-text">Lyon compte un restaurant pour 250 habitants. Certaines rues sont entièrement dédiées à la restauration : <strong>rue Mercière</strong>, <strong>rue de l'Arbre Sec</strong>, <strong>rue des Marronniers</strong>, et le <strong>Vieux Lyon</strong> en partie.</div>
         </div>
       </div>
- 
+
       <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> À visiter <span class="reco-cat-count">· 6 incontournables</span></h3>
- 
+
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=400&q=80&auto=format&fit=crop" alt="">
@@ -1501,7 +1502,7 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=400&q=80&auto=format&fit=crop" alt="">
           <div class="reco-body">
@@ -1511,7 +1512,7 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1564631027894-5bdb17618445?w=400&q=80&auto=format&fit=crop" alt="">
           <div class="reco-body">
@@ -1521,7 +1522,7 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1606639386377-a3a7d076ec4d?w=400&q=80&auto=format&fit=crop" alt="">
           <div class="reco-body">
@@ -1531,7 +1532,7 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1605649461784-edc01e9adb5f?w=400&q=80&auto=format&fit=crop" alt="">
           <div class="reco-body">
@@ -1541,7 +1542,7 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&q=80&auto=format&fit=crop" alt="">
           <div class="reco-body">
@@ -1553,9 +1554,9 @@
           </div>
         </div>
       </div>
- 
+
       <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Commerces de proximité <span class="reco-cat-count">· 3 adresses</span></h3>
- 
+
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&q=80&auto=format&fit=crop" alt="">
@@ -1566,7 +1567,7 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=400&q=80&auto=format&fit=crop" alt="">
           <div class="reco-body">
@@ -1576,7 +1577,7 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
- 
+
         <div class="reco">
           <img class="reco-img" src="https://images.unsplash.com/photo-1568254183919-78a4f43a2877?w=400&q=80&auto=format&fit=crop" alt="">
           <div class="reco-body">
@@ -1589,12 +1590,12 @@
         </div>
       </div>
     </section>
- 
+
     <!-- DÉPART -->
     <section class="section reveal" id="depart">
       <div class="section-eyebrow">Au moment du départ</div>
       <h2 class="section-title">Avant de <em>partir</em></h2>
- 
+
       <div class="checklist">
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1626,7 +1627,7 @@
         </div>
       </div>
     </section>
- 
+
     <!-- CONTACT -->
     <section class="section reveal">
       <div class="contact-card">
@@ -1642,18 +1643,18 @@
         </div>
       </div>
     </section>
- 
+
     <footer>
-      <div class="signature">Bon séjour à {{city}}</div>
+      <div class="signature">Bon séjour à Lyon</div>
       <div>U-citybreak · Conciergerie Lyon · Besançon</div>
     </footer>
- 
+
   </main>
- 
+
 </div>
- 
+
 <div class="toast" id="toast">Copié ✓</div>
- 
+
 <script>
   function toggleLangMenu(e) {
     e.stopPropagation();
@@ -1662,7 +1663,7 @@
   document.addEventListener('click', () => {
     document.getElementById('lang-menu').classList.remove('open');
   });
- 
+
   function copyCode(btn, code) {
     navigator.clipboard.writeText(code).then(() => {
       const orig = btn.textContent;
@@ -1675,18 +1676,18 @@
       }, 2000);
     });
   }
- 
+
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2200);
   }
- 
+
   function toggleCheck(el) {
     el.classList.toggle('checked');
   }
 </script>
- 
+
 </body>
 </html>
