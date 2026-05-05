@@ -1938,7 +1938,7 @@
 <div class="video-modal" id="videoModal" onclick="closeVideo(event)">
   <div class="video-modal-content" onclick="event.stopPropagation()">
     <button class="video-modal-close" onclick="closeVideo()" aria-label="Fermer la vidéo">✕</button>
-    <iframe id="videoFrame" src="" title="Visite virtuelle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe id="videoFrame" src="" title="Visite virtuelle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <div class="video-modal-fallback">
       La vidéo ne se lance pas ? <a id="videoFallback" href="" target="_blank" rel="noopener">Voir sur YouTube ↗</a>
     </div>
