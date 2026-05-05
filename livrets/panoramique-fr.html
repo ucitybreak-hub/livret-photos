@@ -1,4 +1,4 @@
-<!-- BUILT for panoramique-fr at 2026-05-05T12:00:43.696Z | photos: 5 ok / 2 missing / 3 ext-fixed -->
+<!-- BUILT for panoramique-fr at 2026-05-05T12:23:14.236Z | photos: 5 ok / 2 missing / 3 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -335,6 +335,112 @@
     width: 100%;
     height: 100%;
     border: none;
+  }
+
+  /* Thumbnail cliquable */
+  .video-trigger { cursor: pointer; transition: transform 0.2s ease; }
+  .video-trigger:hover { transform: translateY(-2px); }
+  .video-trigger:hover .video-play { transform: translate(-50%, -50%) scale(1.1); background: var(--accent); }
+  .video-thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .video-play svg { margin-left: 4px; }
+  .video-label {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Modale vidéo popup */
+  .video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.25s ease;
+  }
+  .video-modal.open { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .video-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .video-modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .video-modal-close {
+    position: absolute;
+    top: -52px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s;
+    font-size: 20px;
+    line-height: 1;
+  }
+  .video-modal-close:hover { background: rgba(255,255,255,0.22); transform: scale(1.05); }
+  .video-modal-fallback {
+    position: absolute;
+    bottom: -36px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+  }
+  .video-modal-fallback a { color: white; text-decoration: underline; }
+  @media (max-width: 600px) {
+    .video-play { width: 56px; height: 56px; }
+    .video-label { font-size: 12px; bottom: 10px; left: 10px; padding: 4px 10px; }
   }
   .video-card {
     background: var(--bg-card);
@@ -1356,10 +1462,13 @@
       <h2 class="section-title">Le Panoramique en <em>quelques pas</em></h2>
       <p class="section-intro">Appartement traversant et lumineux au cœur de Besançon, sur la rue piétonne des Granges. Capacité 6 personnes (une chambre fermée et une en mezzanine + canapé-lit), climatisation et vue panoramique sur les toits de la ville.</p>
 
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/SklwOF3S61M" title="Visite virtuelle - Le Panoramique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+      <div class="video-wrap video-trigger" onclick="openVideo('SklwOF3S61M')" role="button" tabindex="0" aria-label="Lire la visite virtuelle">
+        <img src="https://img.youtube.com/vi/SklwOF3S61M/maxresdefault.jpg" alt="Visite virtuelle - Le Panoramique" class="video-thumb" loading="lazy" onerror="this.src='https://img.youtube.com/vi/SklwOF3S61M/hqdefault.jpg'">
+        <div class="video-play">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <span class="video-label">Visite virtuelle · 1:45</span>
       </div>
-      <p style="text-align:center; margin-top:8px; font-size:13px; color:var(--fg-muted);">La vidéo ne se lance pas ? <a href="https://www.youtube.com/watch?v=SklwOF3S61M" target="_blank" style="color:var(--accent); font-weight:500;">Voir sur YouTube ↗</a></p>
 
       <div class="rooms">
         <div class="room">
@@ -1816,6 +1925,17 @@
 
 <div class="toast" id="toast">Copié ✓</div>
 
+<!-- Modale vidéo -->
+<div class="video-modal" id="videoModal" onclick="closeVideo(event)">
+  <div class="video-modal-content" onclick="event.stopPropagation()">
+    <button class="video-modal-close" onclick="closeVideo()" aria-label="Fermer la vidéo">✕</button>
+    <iframe id="videoFrame" src="" title="Visite virtuelle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="video-modal-fallback">
+      La vidéo ne se lance pas ? <a id="videoFallback" href="" target="_blank" rel="noopener">Voir sur YouTube ↗</a>
+    </div>
+  </div>
+</div>
+
 <script>
   function toggleLangMenu(e) {
     e.stopPropagation();
@@ -1848,6 +1968,41 @@
   function toggleCheck(el) {
     el.classList.toggle('checked');
   }
+
+  // === Modale vidéo YouTube ===
+  function openVideo(videoId) {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
+    const fallback = document.getElementById('videoFallback');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    fallback.href = `https://www.youtube.com/watch?v=${videoId}`;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideo(event) {
+    if (event && event.target.id !== 'videoModal' && event.target.className !== 'video-modal-close' && !event.target.closest('.video-modal-close')) {
+      // clic à l'intérieur de la vidéo → ne pas fermer
+      if (event.target.closest('.video-modal-content') && !event.target.closest('.video-modal-close')) return;
+    }
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
+    iframe.src = ''; // stop la vidéo
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Fermer avec Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeVideo();
+  });
+  // Permettre l'ouverture au clavier (accessibilité)
+  document.querySelectorAll('.video-trigger').forEach(el => {
+    el.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        el.click();
+      }
+    });
+  });
 
   // Confirmation visuelle après clic sur le bouton départ
   // (le clic ouvre la page de remerciement dans un nouvel onglet,
