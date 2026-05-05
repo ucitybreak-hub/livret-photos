@@ -312,12 +312,21 @@
   .video-wrap {
     position: relative;
     width: 100%;
+    padding-bottom: 56.25%; /* fallback 16:9 pour anciens navigateurs */
     aspect-ratio: 16/9;
-    background: var(--fg);
+    height: 0; /* nécessaire avec padding-bottom */
+    background: #000;
     border-radius: var(--radius-md);
     overflow: hidden;
     margin-top: 14px;
     box-shadow: var(--shadow-md);
+  }
+  /* Si aspect-ratio est supporté, on annule le padding-bottom */
+  @supports (aspect-ratio: 16/9) {
+    .video-wrap {
+      padding-bottom: 0;
+      height: auto;
+    }
   }
   .video-wrap iframe {
     position: absolute;
@@ -1213,8 +1222,7 @@
             <a href="{{maps_url}}" target="_blank" class="step-button">
               Ouvrir dans Maps <span class="arrow">→</span>
             </a>
-            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-1.jpg" alt="Le quartier autour de l'immeuble" style="max-width: 100%;">
-            <p class="step-photo-caption">La rue des Granges, entre Northface et Biocoop</p>
+            
           </div>
         </div>
 
@@ -1223,43 +1231,63 @@
           <div class="step-content">
             <h3 class="step-title">Le digicode de l'immeuble</h3>
             <p class="step-text">Devant la porte d'entrée, composez le <strong>digicode</strong>.</p>
-            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-2.jpg" alt="Porte d'entrée du bâtiment">
-            <p class="step-photo-caption">L'entrée au n°18, entre Northface et Biocoop</p>
             <div class="codebox">
               <span class="codebox-label">Digicode</span>
               <span class="codebox-value">{{building_digicode}}</span>
-              <button class="codebox-copy" onclick="copyCode(this, '{{building_digicode}}')">Copier</button>
             </div>
-            <div class="step-tip"><strong>💡 Bon à savoir</strong> · Une fois entré, traversez le <strong>long couloir</strong> jusqu'à la porte vitrée intérieure. Vous aurez besoin du badge noir (fourni avec les clés) pour la franchir.</div>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h3 class="step-title">Accès à l'appartement</h3>
-            <p class="step-text">Une fois la grille passée, suivez ce parcours photo pour rejoindre la porte de l'appartement :</p>
+            <h3 class="step-title">Récupérer les clés et le badge</h3>
+            <p class="step-text">Juste après être entré dans l'immeuble, trouvez la boîte à clés située <strong>à côté des boîtes aux lettres</strong>. Pour l'ouvrir, entrez le code ci-dessous. <strong>N'oubliez pas de refermer la boîte avant de partir.</strong></p>
+
+            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/lockbox.jpg" alt="Lockbox" style="max-width:320px;">
+            <p class="step-photo-caption">La lockbox, à côté des boîtes aux lettres</p>
+
+            <div class="step-substeps">
+              <div class="step-substep"><span class="step-substep-num">1</span><span>Composez le <strong style="color:var(--fg);">code à 4 chiffres</strong> sur les molettes du cadenas</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Tirez sur le <strong style="color:var(--fg);">corps du cadenas</strong> pour l'ouvrir</span></div>
+              <div class="step-substep"><span class="step-substep-num">3</span><span>Récupérez les <strong style="color:var(--fg);">clés et le badge noir</strong> à l'intérieur</span></div>
+              <div class="step-substep"><span class="step-substep-num">4</span><span>Refermez la lockbox et <strong style="color:var(--fg);">brouillez les molettes</strong></span></div>
+            </div>
+
+            <p class="step-text" style="margin-top:14px;">Votre code pour cette boîte :</p>
+
+            {{lockbox_codebox}}
+
+            <div class="step-tip warn"><strong>🔑 Important</strong> · Pensez bien à <strong>brouiller les molettes</strong> après usage pour des raisons de sécurité.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3 class="step-title">Rejoindre l'appartement</h3>
+            <p class="step-text">Une fois les clés en main, suivez ce parcours pour rejoindre la porte de l'appartement :</p>
 
             <div class="step-photo-sequence">
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">1</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-3.jpg" alt="Le couloir">
-                <div class="step-photo-frame-cap">Une fois la porte passée, traversez le <strong>long couloir</strong> jusqu'à la porte vitrée</div>
+                <div class="step-photo-frame-cap">Traversez le <strong>long couloir</strong> jusqu'à la porte vitrée</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">2</span>
-                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-4.jpg" alt="Cour intérieure">
+                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-4.jpg" alt="Porte vitrée">
                 <div class="step-photo-frame-cap">Franchissez la <strong>porte vitrée</strong> grâce au badge noir (lecteur sur la droite)</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">3</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-5.jpg" alt="Cage d'escalier">
-                <div class="step-photo-frame-cap">Montez l'<strong>escalier (ancien)</strong> jusqu'au dernier étage</div>
+                <div class="step-photo-frame-cap">Montez tous les étages — la <strong>cage d'escalier est vétuste</strong>, on essaie de convaincre la copropriété de la refaire 😉</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">4</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-6.jpg" alt="Porte de l'appartement">
-                <div class="step-photo-frame-cap">La <strong>porte de l'appartement</strong> à droite, panonceau « Le Panoramique »</div>
+                <div class="step-photo-frame-cap">La porte de l'appartement est sur le <strong>dernier palier, à droite</strong>, avec le panneau « Le Panoramique »</div>
               </div>
             </div>
 
@@ -1268,36 +1296,10 @@
         </div>
 
         <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h3 class="step-title">Ouvrir la lockbox</h3>
-            <p class="step-text">Pour récupérer les clés du logement, trouvez la boîte à clés située <strong>à côté des boîtes aux lettres</strong>. Pour l'ouvrir, entrez le code ci-dessous. <strong>N'oubliez pas de refermer la boîte avant de partir.</strong></p>
-
-            <div class="step-substeps">
-              <div class="step-substep"><span class="step-substep-num">1</span><span>Composez le <strong style="color:var(--fg);">code à 4 chiffres</strong> sur les molettes du cadenas</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Tirez sur le <strong style="color:var(--fg);">corps du cadenas</strong> pour l'ouvrir</span></div>
-              <div class="step-substep"><span class="step-substep-num">3</span><span>Récupérez les <strong style="color:var(--fg);">clés de l'appartement</strong> à l'intérieur</span></div>
-              <div class="step-substep"><span class="step-substep-num">4</span><span>Refermez la lockbox et <strong style="color:var(--fg);">brouillez les chiffres</strong> avant de partir</span></div>
-            </div>
-
-            <p class="step-text" style="margin-top:14px;">Votre code unique pour cette boîte :</p>
-
-            <div class="codebox codebox-keybox">
-              <span class="codebox-label">Code lockbox</span>
-              <span class="codebox-value">2578</span>
-              <button class="codebox-copy" onclick="copyCode(this, '2578')">Copier</button>
-            </div>
-            <div class="step-tip warn"><strong>🔑 Note</strong> · Ce code lockbox est permanent. Merci de bien <strong>brouiller les molettes</strong> après chaque utilisation pour des raisons de sécurité.</div>
-          </div>
-        </div>
-
-        <div class="step">
           <div class="step-num">5</div>
           <div class="step-content">
             <h3 class="step-title">Entrer dans le logement</h3>
-            <p class="step-text">Empruntez le <strong>long couloir</strong> jusqu'à la porte vitrée, puis montez tous les étages (la cage d'escalier est vétuste, on essaie de convaincre la copropriété de la refaire 😉). L'appartement est sur le <strong>dernier palier, à droite</strong> (panneau « Le Panoramique » sur la porte).</p>
-            <div class="step-tip warn"><strong>⚠️ N'oubliez pas</strong> · pensez bien à <strong>récupérer les clés avant de monter</strong> à l'appartement !</div>
-            <p class="step-text" style="margin-top:14px;"><strong>Bienvenue chez vous</strong> ✨</p>
+            <p class="step-text">Ouvrez la porte avec la clé. <strong>Bienvenue chez vous</strong> ✨</p>
           </div>
         </div>
 
@@ -1311,8 +1313,9 @@
       <p class="section-intro">{{property_intro}}</p>
 
       <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/SklwOF3S61M" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SklwOF3S61M?rel=0&modestbranding=1" title="Visite virtuelle - Le Panoramique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
+      <p style="text-align:center; margin-top:8px; font-size:13px; color:var(--fg-muted);">La vidéo ne se lance pas ? <a href="https://www.youtube.com/watch?v=SklwOF3S61M" target="_blank" style="color:var(--accent); font-weight:500;">Voir sur YouTube ↗</a></p>
 
       <div class="rooms">
         <div class="room">
@@ -1337,17 +1340,17 @@
           </div>
         </div>
         <div class="room">
-          <div class="room-icon">🛏️</div>
+          <div class="room-icon">🪜</div>
           <div>
-            <div class="room-name">Chambre 2</div>
-            <div class="room-desc">1 lit double 160×200</div>
+            <div class="room-name">Chambre 2 · mezzanine</div>
+            <div class="room-desc">1 lit 140×190</div>
           </div>
         </div>
         <div class="room">
-          <div class="room-icon">🛁</div>
+          <div class="room-icon">🚿</div>
           <div>
             <div class="room-name">Salle de bain</div>
-            <div class="room-desc">Douche · WC privatifs</div>
+            <div class="room-desc">Douche à l'italienne · WC inclus</div>
           </div>
         </div>
         <div class="room">
@@ -1367,8 +1370,8 @@
         <div class="room">
           <div class="room-icon">🧺</div>
           <div>
-            <div class="room-name">Lave-linge & sèche-linge</div>
-            <div class="room-desc">2 machines · fonction séchage incluse</div>
+            <div class="room-name">Lave-linge séchant</div>
+            <div class="room-desc">1 machine · fonction séchage incluse (sèche la moitié de la capacité du tambour)</div>
           </div>
         </div>
       </div>
@@ -1421,6 +1424,16 @@
           <p class="info-text">Draps et serviettes prêts à l'emploi. Les <strong>draps du canapé-lit</strong> se trouvent dans la <strong>méridienne du canapé</strong> ou dans l'armoire du salon.</p>
         </div>
         <div class="info-card">
+          <div class="info-icon">💨</div>
+          <h4 class="info-title">Sèche-linge privatif</h4>
+          <p class="info-text">Un sèche-linge <strong>réservé au ménage</strong> est présent dans l'appartement. Il peut arriver qu'il termine son cycle après votre arrivée — vous pouvez l'ouvrir sans problème.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌙</div>
+          <h4 class="info-title">Lave-linge · respect du voisinage</h4>
+          <p class="info-text">Le lave-linge séchant se <strong>coupe automatiquement de 20h à 8h</strong> pour respecter le voisinage. Lancez vos cycles en journée pour qu'ils se terminent avant 20h.</p>
+        </div>
+        <div class="info-card">
           <div class="info-icon">🌬️</div>
           <h4 class="info-title">Climatisation (été)</h4>
           <p class="info-text">Climatiseur mobile sur la <strong>mezzanine</strong>. Pour mieux refroidir : fermez les stores Velux, ouvrez les fenêtres opposées pour créer un courant d'air. Patientez plusieurs heures pour passer de 28°C à 26°C.</p>
@@ -1448,7 +1461,15 @@
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
           <h4 class="info-title" style="margin-bottom:2px;">Local poubelles</h4>
-          <p class="info-text">En bas de l'escalier, dans la <strong>cour intérieure</strong>.</p>
+          <p class="info-text">À l'intérieur de la copropriété, dans le <strong>couloir de sortie au RDC</strong>.</p>
+        </div>
+      </div>
+
+      <div class="info-card" style="display:flex; gap:14px; align-items:center; margin-top:10px;">
+        <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">♻️</div>
+        <div>
+          <h4 class="info-title" style="margin-bottom:2px;">Tri sélectif (verre, etc.)</h4>
+          <p class="info-text">Points d'apport volontaire à <strong>moins de 50 m</strong>, à l'angle de la <strong>rue des Granges</strong> et de la <strong>rue Gambetta</strong>.</p>
         </div>
       </div>
     </section>
@@ -1462,8 +1483,8 @@
         <div class="transport-card">
           <div class="transport-icon">🚊</div>
           <div class="transport-name">Bus / Tram Ginko</div>
-          <div class="transport-desc">Arrêt tram <strong>Vieil Picard</strong></div>
-          <div class="transport-distance">5 min à pied</div>
+          <div class="transport-desc">Arrêt <strong>Place de la Révolution</strong></div>
+          <div class="transport-distance">200 m</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚆</div>
