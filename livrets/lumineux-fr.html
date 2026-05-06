@@ -1,4 +1,4 @@
-<!-- BUILT for lumineux-fr at 2026-05-06T11:49:14.614Z | photos: 0 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for lumineux-fr at 2026-05-06T12:29:45.348Z | photos: 18 ok / 5 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -320,29 +320,51 @@
     margin-top: 14px;
     box-shadow: var(--shadow-md);
   }
-  .video-wrap iframe {
+  .video-trigger { cursor: pointer; transition: transform 0.2s ease; display: block; text-decoration: none; }
+  .video-trigger:hover { transform: translateY(-2px); }
+  .video-trigger:hover .video-play { transform: translate(-50%, -50%) scale(1.1); background: var(--accent); }
+  .video-thumb {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    border: none;
+    object-fit: cover;
   }
-  .video-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    padding: 14px;
-    margin-top: 14px;
-  }
-  .video-label {
+  .video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    color: white;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--fg-muted);
-    margin-bottom: 10px;
+    justify-content: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   }
-  .video-label svg { color: var(--accent); }
+  .video-play svg { margin-left: 4px; }
+  .video-label {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 600px) {
+    .video-play { width: 56px; height: 56px; }
+    .video-label { font-size: 12px; bottom: 10px; left: 10px; padding: 4px 10px; }
+  }
 
   /* STEPS */
   .steps { position: relative; }
@@ -579,34 +601,39 @@
   }
   .step-photo-frame-cap strong { color: var(--fg); font-weight: 500; }
 
-  /* GALLERIE */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    margin-top: 16px;
+  /* GALLERIE SCROLL HORIZONTALE */
+  .gallery-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 0 12px;
+    margin: 16px -4px 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
   }
-  @media (min-width: 480px) {
-    .gallery { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  }
-  .gallery-item {
-    aspect-ratio: 1;
+  .gallery-scroll::-webkit-scrollbar { height: 4px; }
+  .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .gallery-scroll-item {
+    flex: 0 0 auto;
+    width: 220px;
+    aspect-ratio: 4/3;
     overflow: hidden;
-    border-radius: 8px;
-    background: var(--border-soft);
+    border-radius: var(--radius-md);
+    scroll-snap-align: start;
     cursor: pointer;
     position: relative;
+    background: var(--border-soft);
     transition: transform 0.2s;
   }
-  .gallery-item:hover { transform: scale(0.98); }
-  .gallery-item img {
+  .gallery-scroll-item:hover { transform: scale(0.98); }
+  .gallery-scroll-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
   }
-  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-scroll-item:hover img { transform: scale(1.05); }
   .gallery-caption {
     position: absolute;
     bottom: 0;
@@ -1038,6 +1065,49 @@
   .contact-btn.primary { background: var(--accent); border-color: var(--accent); }
   .contact-btn.primary:hover { background: var(--accent-deep); }
 
+  /* CHECKOUT BLOCK */
+  .checkout-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--accent-light);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--accent-soft);
+    text-align: center;
+  }
+  .checkout-block-text {
+    color: var(--fg-soft);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .checkout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.18s;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+  }
+  .checkout-btn:hover {
+    background: var(--accent-deep);
+    border-color: var(--accent-deep);
+    transform: translateY(-1px);
+  }
+  .checkout-btn.confirmed {
+    background: #5a8559;
+    border-color: #5a8559;
+    pointer-events: none;
+    cursor: default;
+  }
+
   footer {
     text-align: center;
     padding: 32px 20px 24px;
@@ -1158,11 +1228,11 @@
         <div class="quick-value">2 personnes</div>
         <div class="quick-sub">studio mezzanine</div>
       </div>
-      <div class="quick-card highlight">
+      <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
         <div class="quick-label">Wifi</div>
         <div class="quick-value">SFR-F561</div>
         <div class="quick-sub">Mot de passe ↓</div>
-      </div>
+      </a>
     </div>
 
     <!-- ARRIVÉE -->
@@ -1180,15 +1250,14 @@
             <a href="https://www.google.com/maps/place/10+Rue+de+la+Madeleine,+25000+Besan%C3%A7on/" target="_blank" class="step-button">
               Ouvrir dans Maps <span class="arrow">→</span>
             </a>
-            <div class="video-card">
-              <div class="video-label">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                <span>Visionnez l'arrivée en vidéo (1 min)</span>
+
+            <a href="https://www.youtube.com/watch?v=DwyeCH4FSWo" target="_blank" rel="noopener" class="video-wrap video-trigger" aria-label="Voir la vidéo d'arrivée sur YouTube">
+              <img src="https://img.youtube.com/vi/DwyeCH4FSWo/maxresdefault.jpg" alt="Vidéo d'arrivée" class="video-thumb" loading="lazy" onerror="this.src='https://img.youtube.com/vi/DwyeCH4FSWo/hqdefault.jpg'">
+              <div class="video-play">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </div>
-              <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/DwyeCH4FSWo" allowfullscreen></iframe>
-              </div>
-            </div>
+              <span class="video-label">Visionner l'arrivée · 1 min · YouTube ↗</span>
+            </a>
           </div>
         </div>
 
@@ -1196,9 +1265,7 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <h3 class="step-title">Le digicode de l'immeuble</h3>
-            <p class="step-text">Devant la porte d'entrée et la grille, composez le <strong>digicode</strong>.</p>
-            <img class="step-photo" src="https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?w=600&q=80&auto=format&fit=crop" alt="Porte d'entrée du bâtiment">
-            <p class="step-photo-caption">La porte d&rsquo;entrée du 10 Rue de la Madeleine</p>
+            <p class="step-text">Devant la porte d'entrée, composez le <strong>digicode</strong>.</p>
             <div class="codebox">
               <span class="codebox-label">Digicode</span>
               <span class="codebox-value">3589</span>
@@ -1214,31 +1281,9 @@
             <h3 class="step-title">Le sas et la boîte à clé</h3>
             <p class="step-text">Une fois la grille passée, suivez ce parcours photo pour rejoindre la porte de l'appartement :</p>
 
-            <div class="step-photo-sequence">
-              <div class="step-photo-frame">
-                <span class="step-photo-frame-num">1</span>
-                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80&auto=format&fit=crop" alt="Hall d'entrée">
-                <div class="step-photo-frame-cap">Le <strong>hall d'entrée</strong> avec les boîtes aux lettres</div>
-              </div>
-              <div class="step-photo-frame">
-                <span class="step-photo-frame-num">2</span>
-                <img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=600&q=80&auto=format&fit=crop" alt="Escalier">
-                <div class="step-photo-frame-cap">Prenez l'<strong>escalier à droite</strong> jusqu'au 1<sup>er</sup> étage</div>
-              </div>
-              <div class="step-photo-frame">
-                <span class="step-photo-frame-num">3</span>
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Palier">
-                <div class="step-photo-frame-cap">La <strong>porte en face</strong>, avec le panonceau « Le Lumineux »</div>
-              </div>
-              <div class="step-photo-frame">
-                <span class="step-photo-frame-num">4</span>
-                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80&auto=format&fit=crop" alt="Boîte à clé">
-                <div class="step-photo-frame-cap">La <strong>boîte à clé Igloohome</strong>, à droite de la porte</div>
-              </div>
-            </div>
+            
 
-            <div class="step-tip"><strong>👀 Astuce</strong> · Faites glisser les photos pour suivre le parcours pas à pas.</div>
-          </div>
+            </div>
         </div>
 
         <div class="step">
@@ -1247,25 +1292,20 @@
             <h3 class="step-title">Ouvrir la boîte Igloohome</h3>
             <p class="step-text">Voici à quoi ressemble la boîte et comment l'utiliser :</p>
 
-            <img class="step-photo" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80&auto=format&fit=crop" alt="Boîte à clé Igloohome">
-            <p class="step-photo-caption">La boîte à clé électronique Igloohome, à droite de la porte</p>
-
             <div class="step-substeps">
               <div class="step-substep"><span class="step-substep-num">1</span><span>Placez la <strong style="color:var(--fg);">paume de la main</strong> sur le clavier pour réveiller l'appareil</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Entrez votre <strong style="color:var(--fg);">code à 7 chiffres</strong>, puis appuyez sur le logo cadenas au centre</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Entrez votre <strong style="color:var(--fg);">code à 4 chiffres</strong>, puis appuyez sur le logo cadenas au centre</span></div>
               <div class="step-substep"><span class="step-substep-num">3</span><span>Attendez le bip et le bruit d'ouverture</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>Tirez sur le côté pour ouvrir la boîte et récupérez la clé</span></div>
             </div>
 
-            <div class="video-card">
-              <div class="video-label">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                <span>Démo en vidéo (30 secondes)</span>
+            <a href="https://www.youtube.com/watch?v=T3InNiScQLc" target="_blank" rel="noopener" class="video-wrap video-trigger" aria-label="Voir la démo Igloohome sur YouTube">
+              <img src="https://img.youtube.com/vi/T3InNiScQLc/maxresdefault.jpg" alt="Démo Igloohome" class="video-thumb" loading="lazy" onerror="this.src='https://img.youtube.com/vi/T3InNiScQLc/hqdefault.jpg'">
+              <div class="video-play">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </div>
-              <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/DwyeCH4FSWo" allowfullscreen></iframe>
-              </div>
-            </div>
+              <span class="video-label">Démo Igloohome · 30 sec · YouTube ↗</span>
+            </a>
 
             <p class="step-text" style="margin-top:14px;">Votre code unique pour cette boîte :</p>
 
@@ -1290,10 +1330,6 @@
       <div class="section-eyebrow">Découvrir le logement</div>
       <h2 class="section-title">Le Lumineux en <em>quelques pas</em></h2>
       <p class="section-intro">Appartement lumineux et cosy au cœur du quartier Battant, l'un des plus animés de Besançon. À deux pas des bistrots, des commerces et des balades sur les remparts.</p>
-
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/" allowfullscreen></iframe>
-      </div>
 
       <div class="rooms">
         <div class="room">
@@ -1326,15 +1362,15 @@
         </div>
       </div>
 
-      <div class="gallery">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=80&auto=format&fit=crop" alt="Salon"><span class="gallery-caption">Salon</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80&auto=format&fit=crop" alt="Mezzanine"><span class="gallery-caption">Mezzanine</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1556909190-eccf4a8bf97a?w=400&q=80&auto=format&fit=crop" alt="Cuisine"><span class="gallery-caption">Cuisine</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&q=80&auto=format&fit=crop" alt="Salle de bain"><span class="gallery-caption">SDB</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80&auto=format&fit=crop" alt="Détail"><span class="gallery-caption">Détail</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=400&q=80&auto=format&fit=crop" alt="Vue"><span class="gallery-caption">Vue</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=400&q=80&auto=format&fit=crop" alt="Salon 2"><span class="gallery-caption">Coin lecture</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=400&q=80&auto=format&fit=crop" alt="Cuisine 2"><span class="gallery-caption">Cuisine</span></div>
+      <div class="gallery-scroll">
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/2djvwnzZ5OGqp9f4MlWY9RCcyo5PYAml7YKcM6cJ.jpg" alt="Salon"><span class="gallery-caption">Salon</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/NhTOcpiAJeJvfGAsT0JIuTM301X1JzLCZERYm2Hz.jpg" alt="Vue"><span class="gallery-caption">Vue</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/sRYEHj6jYx4byRWUzf2gDlH61tPwl9DriicezkeN.jpg" alt="Coin repas"><span class="gallery-caption">Coin repas</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/N1NikwVqMFK4Dh6o7YiYLxpusFAgb6RBKRDPkRzP.jpg" alt="Cuisine"><span class="gallery-caption">Cuisine</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/zmRrXXnYKOizScuDKEmMKGZIdBlFmE6BD8OBLNXx.jpg" alt="Nespresso"><span class="gallery-caption">Nespresso</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/cysW9OtAmhfj9Y8iTUseQRZUHZz4hTJvsHT2xEMe.jpg" alt="Mezzanine"><span class="gallery-caption">Mezzanine</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/Vg1PkjbW56IKPJJNykj4n579AQLmBaoYOH21oPUG.jpg" alt="Chambre"><span class="gallery-caption">Chambre</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/az8Vlf269VaUCOVrlneXGYjVcMBcyPAEDmH9l6i4.jpg" alt="Salle de bain"><span class="gallery-caption">Salle de bain</span></div>
       </div>
     </section>
 
@@ -1361,7 +1397,7 @@
         <div class="info-card">
           <div class="info-icon">🍳</div>
           <h4 class="info-title">Plaque de cuisson</h4>
-          <p class="info-text">Plaque vitrocéramique. Tournez le bouton sur 1 à 9, et patientez quelques secondes. Sécurité enfant : appui long.</p>
+          <p class="info-text">Plaque <strong>vitrocéramique tactile</strong>. Appuyez sur les commandes pour ajuster la puissance de 1 à 9. Sécurité enfant : appui long sur le bouton de verrouillage.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌡️</div>
@@ -1372,6 +1408,21 @@
           <div class="info-icon">🛏️</div>
           <h4 class="info-title">Linge fourni</h4>
           <p class="info-text">Draps et serviettes prêts à l'emploi. Couvertures supplémentaires dans le rangement de la mezzanine.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🛋️</div>
+          <h4 class="info-title">Canapé-lit</h4>
+          <p class="info-text">Le canapé-lit du salon est de type <strong>rapido</strong> mais ancien — convient pour une nuit de dépannage. Pour un séjour confortable à 2, privilégiez la chambre mezzanine.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🧺</div>
+          <h4 class="info-title">Lave-linge séchant</h4>
+          <p class="info-text">Une machine à laver avec <strong>fonction séchage incluse</strong> est à votre disposition.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💨</div>
+          <h4 class="info-title">Sèche-linge privatif</h4>
+          <p class="info-text">Un sèche-linge <strong>réservé au ménage</strong> peut être présent. S'il termine son cycle après votre arrivée, vous pouvez l'<strong>arrêter</strong> si nécessaire, mais merci de <strong>ne pas l'ouvrir</strong>.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
@@ -1391,7 +1442,15 @@
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
           <h4 class="info-title" style="margin-bottom:2px;">Local poubelles</h4>
-          <p class="info-text">En bas de l'escalier en colimaçon, juste après le sas d'entrée.</p>
+          <p class="info-text">À l'intérieur de la copropriété, dans le <strong>couloir de sortie au RDC</strong>.</p>
+        </div>
+      </div>
+
+      <div class="info-card" style="display:flex; gap:14px; align-items:center; margin-top:10px;">
+        <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">♻️</div>
+        <div>
+          <h4 class="info-title" style="margin-bottom:2px;">Tri sélectif (verre, etc.)</h4>
+          <p class="info-text">Points d'apport volontaire à <strong>moins de 50 m</strong>, à l'angle de la <strong>rue des Granges</strong> et de la <strong>rue Gambetta</strong>.</p>
         </div>
       </div>
     </section>
@@ -1403,16 +1462,16 @@
 
       <div class="transport-grid">
         <div class="transport-card">
-          <div class="transport-icon">🚌</div>
+          <div class="transport-icon">🚊</div>
           <div class="transport-name">Bus / Tram Ginko</div>
-          <div class="transport-desc">Place de la Révolution</div>
-          <div class="transport-distance">200 m</div>
+          <div class="transport-desc">Arrêt tram <strong>Vieil Picard</strong></div>
+          <div class="transport-distance">5 min à pied</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚆</div>
           <div class="transport-name">Gare Viotte</div>
-          <div class="transport-desc">Accessible à pied via la passerelle et le parc des glacis</div>
-          <div class="transport-distance">10 min à pied</div>
+          <div class="transport-desc">Par la rue Battant et la passerelle du parc des glacis</div>
+          <div class="transport-distance">15 min à pied</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚄</div>
@@ -1423,7 +1482,7 @@
         <div class="transport-card">
           <div class="transport-icon">🚖</div>
           <div class="transport-name">Taxi</div>
-          <div class="transport-desc">Uber ne dessert pas Besançon. Taxis Radio : 03 81 88 80 80, ou VTC pour la gare TGV.</div>
+          <div class="transport-desc">Uber ne dessert pas Besançon. Taxis Radio : <strong>03 81 88 80 80</strong>, ou VTC pour la gare TGV.</div>
         </div>
         <div class="transport-card" style="grid-column: span 2;">
           <div class="transport-icon">🚲</div>
@@ -1433,8 +1492,27 @@
       </div>
 
       <div class="reco-tip" style="margin-top:18px;">
-        <div class="reco-tip-title">🅿️ Stationnement</div>
-        <div class="reco-tip-text">L'appartement est en zone piétonne, vous ne pouvez pas vous garer directement à la porte. Stationnement gratuit aux parkings <strong>Robelin</strong> et <strong>Battant</strong>, à 5 minutes à pied (sous les remparts). Pour le déchargement des bagages, les bornes piétonnes sont parfois ouvertes jusqu'à 11h.</div>
+        <div class="reco-tip-title">🅿️ Parkings recommandés</div>
+        <div class="reco-tip-text">Le quartier Battant étant entièrement <strong>piéton</strong>, il est <strong>impératif</strong> de se garer dans les parkings ci-dessous, à environ <strong>300 m à pied</strong> de l'appartement. Stationnement gratuit aux parkings <strong>Robelin</strong>, <strong>Battant</strong> et <strong>Cusenier Beaux Arts</strong>. Pour le déchargement des bagages uniquement, les bornes piétonnes sont parfois ouvertes jusqu'à 11h.</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:14px;">
+        <a href="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Carte%20des%20stationnements.png" target="_blank" style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden; text-decoration:none; color:inherit; display:block; transition: all 0.18s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Carte%20des%20stationnements.png" alt="Carte des parkings" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Carte des parkings</strong> · cliquer pour agrandir 🔍</div>
+        </a>
+        <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Robelin.png" alt="Parking Robelin" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parking Robelin</strong> · 5 min à pied</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Battant.png" alt="Parking Battant" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parking Battant</strong> · 5 min à pied</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Cusselier%20Beaux%20Arts.png" alt="Parking Cusenier Beaux Arts" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Cusenier Beaux Arts</strong> · 7 min à pied</div>
+        </div>
       </div>
     </section>
 
@@ -1449,24 +1527,24 @@
         <a href="#commerces" class="recos-toc-link">🛒 Commerces</a>
       </div>
 
-      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 4 adresses</span></h3>
+      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 5 adresses</span></h3>
 
       <div class="recos-list">
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Bouillon%20du%20commerce.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Brasserie · Art Déco</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Brasserie · Art Déco</span><span class="reco-meta-sep">·</span><span class="reco-distance">à 30 secondes</span></div>
             <div class="reco-name">Le Bouillon du Commerce</div>
             <span class="reco-tag">Notre coup de cœur</span>
-            <p class="reco-desc">Magnifique restaurant Art Déco datant de 1850. Le cadre seul vaut le déplacement. Réservation conseillée. Cuisine bistrot française classique et bien réalisée.</p>
+            <p class="reco-desc">Juste en bas de l'immeuble — magnifique restaurant Art Déco de 1850. Le cadre seul vaut le déplacement. Réservation conseillée. Cuisine bistrot française classique et bien réalisée.</p>
             <a href="https://lebouillonducommerce.fr/" target="_blank" class="reco-link">Voir le site →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20saint%20Cerf.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Bistrot contemporain</span><span class="reco-meta-sep">·</span><span class="reco-distance">600 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Bistrot contemporain</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
             <div class="reco-name">Le Saint Cerf</div>
             <p class="reco-desc">Bistrot moderne avec une carte saisonnière aux influences asiatiques. Belle proposition végétarienne. À l'angle du Quartier Battant. 03 81 50 10 20.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
@@ -1474,9 +1552,9 @@
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20Parc.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Gastronomique</span><span class="reco-meta-sep">·</span><span class="reco-distance">1 km</span></div>
+            <div class="reco-meta"><span class="reco-cat">Gastronomique</span><span class="reco-meta-sep">·</span><span class="reco-distance">650 m</span></div>
             <div class="reco-name">Le Parc</div>
             <p class="reco-desc">Table gastronomique du chef Francesco di Marzio. Cuisine fusion dans un cadre face au Parc Micaud et au Doubs. Belle expérience pour un dîner soigné.</p>
             <a href="https://leparcbesancon.com/fr/" target="_blank" class="reco-link">Voir le site →</a>
@@ -1484,9 +1562,19 @@
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Loiseau%20du%20temps.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Spécialités comtoises</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Bistrot chic · Bourgogne-FC</span><span class="reco-meta-sep">·</span><span class="reco-distance">350 m</span></div>
+            <div class="reco-name">Loiseau du Temps</div>
+            <p class="reco-desc">Bistrot chic célébrant le terroir Bourgogne-Franche-Comté dans un bâtiment historique du Conservatoire. Maison Bernard Loiseau.</p>
+            <a href="https://www.bernard-loiseau.com/fr/loiseaudutemps.html" target="_blank" class="reco-link">Voir le site →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/REstaurant%20l%27affineur%20Comtois.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Spécialités comtoises</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
             <div class="reco-name">L'Affineur Comtois</div>
             <p class="reco-desc">Toutes les spécialités fromagères de Franche-Comté : cancoillotte, croûte forestière, fondue comté-morbier, tartiflette. Réservation recommandée.</p>
             <a href="https://www.restaurant-laffineurcomtois.fr/" target="_blank" class="reco-link">Voir le site →</a>
@@ -1499,13 +1587,13 @@
         </div>
       </div>
 
-      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> À visiter <span class="reco-cat-count">· 5 incontournables</span></h3>
+      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> À visiter <span class="reco-cat-count">· 6 incontournables</span></h3>
 
       <div class="recos-list">
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20La%20citadelle%20Vauban.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Patrimoine UNESCO</span><span class="reco-meta-sep">·</span><span class="reco-distance">2 km</span></div>
+            <div class="reco-meta"><span class="reco-cat">Patrimoine UNESCO</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,2 km</span></div>
             <div class="reco-name">La Citadelle</div>
             <span class="reco-tag">Incontournable</span>
             <p class="reco-desc">Chef-d'œuvre de Vauban inscrit au Patrimoine mondial de l'UNESCO. Plus grande citadelle d'Europe orientale, abrite trois musées : Comtois, Résistance et Déportation, Muséum (avec aquarium).</p>
@@ -1514,9 +1602,9 @@
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1564631027894-5bdb17618445?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Le%20musee%20du%20temps.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Musée · Horlogerie</span><span class="reco-meta-sep">·</span><span class="reco-distance">600 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Musée · Horlogerie</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
             <div class="reco-name">Le Musée du Temps</div>
             <p class="reco-desc">Installé dans le splendide Palais Granvelle (Renaissance). Retrace l'histoire de l'horlogerie bisontine. Une institution incontournable de la ville.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
@@ -1524,9 +1612,9 @@
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20L%27horloge%20astronomique.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Monument · Mécanique</span><span class="reco-meta-sep">·</span><span class="reco-distance">1 km</span></div>
+            <div class="reco-meta"><span class="reco-cat">Monument · Mécanique</span><span class="reco-meta-sep">·</span><span class="reco-distance">950 m</span></div>
             <div class="reco-name">L'Horloge Astronomique</div>
             <p class="reco-desc">À la cathédrale Saint-Jean. Mécanisme de plus de 30 000 pièces conçu par Auguste Lucien Vérité (1858-1860). Affiche calendriers, mouvements planétaires et bien plus.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
@@ -1534,9 +1622,9 @@
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Trousime%20-%20la%20maison%20victor%20Hugo.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Maison d'écrivain</span><span class="reco-meta-sep">·</span><span class="reco-distance">1.3 km</span></div>
+            <div class="reco-meta"><span class="reco-cat">Maison d'écrivain</span><span class="reco-meta-sep">·</span><span class="reco-distance">750 m</span></div>
             <div class="reco-name">La Maison Victor Hugo</div>
             <p class="reco-desc">Maison natale de Victor Hugo, au 140 Grande Rue. Scénographie contemporaine intégrant des éléments multimédias. Visite émouvante et bien conçue.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
@@ -1544,13 +1632,23 @@
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20Vauban.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Croisière · Doubs</span><span class="reco-meta-sep">·</span><span class="reco-distance">1.2 km</span></div>
+            <div class="reco-meta"><span class="reco-cat">Croisière · Doubs</span><span class="reco-meta-sep">·</span><span class="reco-distance">450 m</span></div>
             <div class="reco-name">Bateau Le Vauban</div>
             <span class="reco-tag">Vue panoramique</span>
             <p class="reco-desc">Croisière-déjeuner (2h) ou dîner (2h30) commentée sur le Doubs, avec passage d'écluses et tunnel sous la Citadelle. Terrasse au pont supérieur. Réservation obligatoire.</p>
             <a href="https://www.bateau-besancon.fr/croisieres-repas/" target="_blank" class="reco-link">Voir le site →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Musee%20des%20maisons%20comtoises.png" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Musée · Plein air</span><span class="reco-meta-sep">·</span><span class="reco-distance">8 km</span></div>
+            <div class="reco-name">Musée des maisons comtoises</div>
+            <p class="reco-desc">Écomusée à ciel ouvert à Nancray. Découverte de l'habitat traditionnel franc-comtois à travers une trentaine de bâtiments authentiques. Idéal pour une demi-journée nature et patrimoine.</p>
+            <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
       </div>
@@ -1559,33 +1657,33 @@
 
       <div class="recos-list">
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Superette%20Casino.jpeg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Bio · Supermarché</span><span class="reco-meta-sep">·</span><span class="reco-distance">à côté</span></div>
-            <div class="reco-name">Biocoop Battant</div>
+            <div class="reco-name">Biocoop La Canopée</div>
             <span class="reco-tag">À deux pas</span>
-            <p class="reco-desc">Juste à côté de l'immeuble. Produits bio, frais, locaux. Idéal pour faire vos courses sans bouger trop loin.</p>
+            <p class="reco-desc">Au 20 rue des Granges, juste à côté de l'immeuble. Produits bio, frais, locaux. Idéal pour faire vos courses sans bouger trop loin.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1568254183919-78a4f43a2877?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Boulangerie%20Filet.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Boulangerie · Pâtisserie</span><span class="reco-meta-sep">·</span><span class="reco-distance">5 min</span></div>
-            <div class="reco-name">Les boulangeries de Battant</div>
+            <div class="reco-meta"><span class="reco-cat">Boulangerie · Pâtisserie</span><span class="reco-meta-sep">·</span><span class="reco-distance">30 sec</span></div>
+            <div class="reco-name">Caillier Cyril</div>
             <span class="reco-tag">Pour le matin</span>
-            <p class="reco-desc">Plusieurs adresses dans le quartier pour le petit-déjeuner. Pains, viennoiseries et café à emporter.</p>
+            <p class="reco-desc">Au 12 rue des Granges, à quelques pas de l'appartement. Pains, viennoiseries et pâtisseries pour le petit-déjeuner ou un en-cas. Possibilité de manger sur place.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Pharmacie%20Battant.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Pharmacie</span><span class="reco-meta-sep">·</span><span class="reco-distance">3 min</span></div>
-            <div class="reco-name">Pharmacies du quartier Battant</div>
-            <p class="reco-desc">Plusieurs pharmacies à proximité immédiate de l'appartement. En cas d'urgence, le service de garde est affiché en vitrine.</p>
+            <div class="reco-meta"><span class="reco-cat">Pharmacie</span><span class="reco-meta-sep">·</span><span class="reco-distance">30 sec</span></div>
+            <div class="reco-name">Pharmacie Dupont</div>
+            <p class="reco-desc">Au 13 rue des Granges, juste en face de l'immeuble. Équipe attentive et bonne sélection de produits. En cas d'urgence, le service de garde est affiché en vitrine.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
@@ -1612,7 +1710,7 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Évacuer vos poubelles dans le local au bas de l'escalier en colimaçon</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Évacuer vos poubelles dans le local au RDC</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1626,6 +1724,13 @@
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
           <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Remettre la clé dans la boîte Igloohome · même code</div>
         </div>
+      </div>
+
+      <div class="checkout-block">
+        <p class="checkout-block-text">Tout est prêt ? Un petit clic nous permet de savoir que vous êtes parti·e en toute sécurité.</p>
+        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
+          👋 J'informe l'hôte de mon départ
+        </a>
       </div>
     </section>
 
@@ -1688,6 +1793,18 @@
   function toggleCheck(el) {
     el.classList.toggle('checked');
   }
+
+  // Confirmation visuelle après clic sur le bouton départ
+  (function() {
+    const btn = document.getElementById('checkoutBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Départ confirmé · merci !';
+      }, 600);
+    });
+  })();
 </script>
 
 </body>
