@@ -1,0 +1,1868 @@
+<!-- BUILT for bellevue-fr at 2026-05-06T09:01:06.476Z | photos: 0 ok / 4 missing / 0 ext-fixed -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5efe6">
+<title>Le Bellevue · Votre séjour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5efe6;
+    --bg-card: #fefcf7;
+    --bg-elevated: #ffffff;
+    --fg: #211f1c;
+    --fg-muted: #6b6053;
+    --fg-soft: #9a8d7d;
+    --accent: #b8552d;
+    --accent-soft: #e8c7b3;
+    --accent-deep: #8a3d1d;
+    --accent-light: #fef4eb;
+    --border: #d8cfc0;
+    --border-soft: #ebe3d3;
+    --success: #5a6e3f;
+    --warning: #c8853d;
+    --shadow-sm: 0 1px 2px rgba(33,31,28,0.04), 0 1px 3px rgba(33,31,28,0.06);
+    --shadow-md: 0 4px 6px rgba(33,31,28,0.05), 0 10px 15px rgba(33,31,28,0.08);
+    --shadow-lg: 0 10px 25px rgba(33,31,28,0.10), 0 20px 40px rgba(33,31,28,0.12);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse at top right, rgba(184,85,45,0.04), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(90,110,63,0.03), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.12 0 0 0 0 0.11 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .app { position: relative; z-index: 2; }
+
+  /* TOPBAR */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background: rgba(245, 239, 230, 0.85);
+    border-bottom: 1px solid rgba(216, 207, 192, 0.6);
+  }
+  .topbar-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 17px;
+    letter-spacing: 0.01em;
+    color: var(--fg);
+    font-variation-settings: "opsz" 14, "SOFT" 30;
+  }
+  .brand-dot { color: var(--accent); }
+  .lang-switcher { position: relative; }
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fg);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-btn:hover { background: var(--bg-elevated); transform: translateY(-1px); }
+  .lang-btn .flag { font-size: 14px; }
+  .lang-btn .chev { font-size: 9px; opacity: 0.5; margin-left: 2px; }
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 6px;
+    box-shadow: var(--shadow-lg);
+    min-width: 160px;
+    display: none;
+    z-index: 60;
+  }
+  .lang-menu.open { display: block; animation: dropIn 0.18s ease-out; }
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+  .lang-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: var(--fg);
+    text-decoration: none;
+    border-radius: 8px;
+  }
+  .lang-menu a:hover { background: var(--bg); }
+  .lang-menu a.active { background: var(--accent-soft); color: var(--accent-deep); font-weight: 500; }
+
+  /* HERO */
+  .hero { position: relative; overflow: hidden; }
+  .hero-img {
+    width: 100%;
+    height: 52vh;
+    min-height: 320px;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(33,31,28,0) 30%, rgba(33,31,28,0.6) 100%);
+    pointer-events: none;
+  }
+  .hero-content {
+    max-width: 720px;
+    margin: -80px auto 0;
+    padding: 0 20px;
+    position: relative;
+    z-index: 3;
+  }
+  .hero-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px 24px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-soft);
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(34px, 8vw, 48px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  .hero-sub {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--fg-muted);
+    font-variation-settings: "opsz" 24, "SOFT" 60;
+  }
+  .hero-divider {
+    height: 1px;
+    background: var(--border-soft);
+    margin: 18px 0 16px;
+  }
+  .hero-greeting { font-size: 15px; color: var(--fg-muted); margin-bottom: 6px; }
+  .hero-greeting strong { color: var(--fg); font-weight: 500; }
+  .hero-countdown {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .hero-countdown-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--accent);
+    font-variation-settings: "opsz" 72, "SOFT" 30;
+    line-height: 1;
+  }
+  .hero-countdown-label { font-size: 14px; color: var(--fg-muted); }
+
+  /* MAIN */
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+
+  /* QUICK INFOS */
+  .quick-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .quick-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .quick-card.highlight {
+    background: linear-gradient(135deg, var(--accent-soft) 0%, #f4d4be 100%);
+    border-color: var(--accent-soft);
+  }
+  .quick-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+    font-weight: 500;
+  }
+  .quick-card.highlight .quick-label { color: var(--accent-deep); }
+  .quick-value {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--fg);
+    font-variation-settings: "opsz" 24, "SOFT" 30;
+    line-height: 1.2;
+  }
+  .quick-sub { font-size: 12px; color: var(--fg-soft); }
+
+  /* SECTION */
+  .section { margin-bottom: 48px; scroll-margin-top: 70px; }
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--fg-muted);
+    margin-bottom: 10px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--fg-muted);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    margin-bottom: 22px;
+    font-variation-settings: "opsz" 60, "SOFT" 40;
+  }
+  .section-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+  .section-intro {
+    font-size: 15px;
+    color: var(--fg-muted);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  /* VIDEO EMBED */
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* fallback 16:9 pour anciens navigateurs */
+    aspect-ratio: 16/9;
+    height: 0; /* nécessaire avec padding-bottom */
+    background: #000;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-top: 14px;
+    box-shadow: var(--shadow-md);
+  }
+  /* Si aspect-ratio est supporté, on annule le padding-bottom */
+  @supports (aspect-ratio: 16/9) {
+    .video-wrap {
+      padding-bottom: 0;
+      height: auto;
+    }
+  }
+  .video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Thumbnail cliquable */
+  .video-trigger { cursor: pointer; transition: transform 0.2s ease; display: block; text-decoration: none; }
+  .video-trigger:hover { transform: translateY(-2px); }
+  .video-trigger:hover .video-play { transform: translate(-50%, -50%) scale(1.1); background: var(--accent); }
+  .video-thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .video-play svg { margin-left: 4px; }
+  .video-label {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 600px) {
+    .video-play { width: 56px; height: 56px; }
+    .video-label { font-size: 12px; bottom: 10px; left: 10px; padding: 4px 10px; }
+  }
+  .video-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    margin-top: 14px;
+  }
+  .video-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--fg-muted);
+    margin-bottom: 10px;
+  }
+  .video-label svg { color: var(--accent); }
+
+  /* STEPS */
+  .steps { position: relative; }
+  .step {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    padding-bottom: 32px;
+    position: relative;
+  }
+  .step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 17px;
+    top: 36px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-soft), var(--border-soft));
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(184,85,45,0.3);
+    z-index: 2;
+    font-variation-settings: "opsz" 24, "SOFT" 30;
+  }
+  .step-content { padding-top: 4px; }
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 24, "SOFT" 40;
+  }
+  .step-text {
+    font-size: 15px;
+    color: var(--fg-muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .step-text strong { color: var(--fg); font-weight: 500; }
+  .step-substeps {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 12px 14px 12px 16px;
+    margin: 10px 0;
+  }
+  .step-substep {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .step-substep-num {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--accent);
+    font-variation-settings: "opsz" 12, "SOFT" 0;
+  }
+
+  /* CODE BOX */
+  .codebox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    margin-top: 8px;
+  }
+  .codebox-label {
+    font-size: 12px;
+    color: var(--fg-muted);
+    flex-shrink: 0;
+  }
+  .codebox-value {
+    flex: 1;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    color: var(--fg);
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+  }
+  .codebox-copy {
+    background: var(--fg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .codebox-copy:hover { background: var(--accent); transform: translateY(-1px); }
+  .codebox-copy.copied { background: var(--success); }
+  .codebox-keybox {
+    background: linear-gradient(135deg, #fff8ed 0%, #f9e7d0 100%);
+    border: 1px solid var(--accent-soft);
+    border-style: solid;
+  }
+  .codebox-keybox.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .codebox-keybox.locked .codebox-value {
+    color: var(--fg-soft);
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+  .codebox-keybox.locked .codebox-copy { display: none; }
+
+  .step-tip {
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: rgba(90, 110, 63, 0.08);
+    border-left: 3px solid var(--success);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .step-tip strong { color: var(--success); font-weight: 600; }
+  .step-tip.warn { background: rgba(200,133,61,0.1); border-color: var(--warning); }
+  .step-tip.warn strong { color: var(--warning); }
+
+  .step-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: var(--fg);
+    color: white;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 4px;
+    transition: all 0.18s;
+  }
+  .step-button:hover { background: var(--accent); transform: translateY(-1px); }
+  .step-button .arrow { font-size: 11px; transition: transform 0.18s; }
+  .step-button:hover .arrow { transform: translateX(2px); }
+
+  /* STEP MEDIA - Photos d'accompagnement par étape */
+  .step-photo {
+    width: 100%;
+    max-width: 320px;
+    border-radius: var(--radius-md);
+    margin-top: 12px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-soft);
+    display: block;
+  }
+  .step-photo-caption {
+    font-size: 12px;
+    color: var(--fg-soft);
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+  .step-photo-sequence {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 0 12px;
+    margin: 6px -4px 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .step-photo-sequence::-webkit-scrollbar { height: 4px; }
+  .step-photo-sequence::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .step-photo-frame {
+    flex: 0 0 auto;
+    width: 78%;
+    max-width: 280px;
+    scroll-snap-align: start;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .step-photo-frame img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .step-photo-frame-num {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(33,31,28,0.78);
+    color: white;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .step-photo-frame-cap {
+    padding: 8px 10px 9px;
+    font-size: 11px;
+    color: var(--fg-muted);
+    line-height: 1.35;
+    background: var(--bg-card);
+  }
+  .step-photo-frame-cap strong { color: var(--fg); font-weight: 500; }
+
+  /* GALLERIE */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 16px;
+  }
+  @media (min-width: 480px) {
+    .gallery { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  }
+  .gallery-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--border-soft);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .gallery-item:hover { transform: scale(0.98); }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 6px 8px 5px;
+    background: linear-gradient(to top, rgba(33,31,28,0.85), transparent);
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ROOM TILES */
+  .rooms {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  @media (min-width: 480px) {
+    .rooms { grid-template-columns: repeat(2, 1fr); }
+  }
+  .room {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .room-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .room-name {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 1px;
+    font-variation-settings: "opsz" 18, "SOFT" 40;
+  }
+  .room-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
+
+  /* INFO CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media (min-width: 640px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    transition: all 0.18s;
+  }
+  .info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border);
+  }
+  .info-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .info-title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 24, "SOFT" 40;
+  }
+  .info-text {
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .info-text code {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--fg);
+  }
+  .info-copy-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .info-copy-btn {
+    background: var(--fg);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .info-copy-btn:hover { background: var(--accent); }
+  .info-copy-btn.copied { background: var(--success); }
+
+  /* TRANSPORT GRID */
+  .transport-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .transport-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px;
+  }
+  .transport-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .transport-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    font-variation-settings: "opsz" 18, "SOFT" 30;
+  }
+  .transport-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
+  .transport-distance { font-size: 11px; color: var(--accent); font-weight: 500; margin-top: 4px; }
+
+  /* RECOS */
+  .recos-toc {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 18px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .recos-toc::-webkit-scrollbar { display: none; }
+  .recos-toc-link {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--fg);
+    text-decoration: none;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .recos-toc-link:hover { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-soft); }
+
+  .reco-cat-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    font-style: italic;
+    margin: 32px 0 12px;
+    font-variation-settings: "opsz" 36, "SOFT" 60;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    scroll-margin-top: 70px;
+  }
+  .reco-cat-title:first-child { margin-top: 0; }
+  .reco-cat-title .icon {
+    font-style: normal;
+    font-size: 20px;
+  }
+  .reco-cat-count {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 12px;
+    color: var(--fg-soft);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .recos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .reco {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.18s;
+  }
+  .reco:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .reco-img {
+    width: 100px;
+    height: 100%;
+    min-height: 120px;
+    object-fit: cover;
+    background: var(--border-soft);
+  }
+  .reco-body {
+    padding: 14px 14px 14px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .reco-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .reco-cat {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .reco-meta-sep {
+    color: var(--fg-soft);
+  }
+  .reco-distance {
+    color: var(--fg-muted);
+    font-weight: 500;
+  }
+  .reco-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 24, "SOFT" 40;
+    line-height: 1.2;
+  }
+  .reco-desc {
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.45;
+    margin-bottom: 8px;
+    flex: 1;
+  }
+  .reco-tag {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent-deep);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+    align-self: flex-start;
+  }
+  .reco-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+  .reco-link:hover { text-decoration: underline; }
+
+  .reco-tip {
+    background: rgba(184,85,45,0.06);
+    border: 1px solid var(--accent-soft);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    margin-top: 12px;
+  }
+  .reco-tip-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent-deep);
+    margin-bottom: 4px;
+  }
+  .reco-tip-text {
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .reco-tip-text strong { color: var(--fg); font-weight: 500; }
+
+  /* CHECKLIST */
+  .checklist {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+  }
+  .checklist-item {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .checklist-bullet {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 5px;
+    margin-top: 4px;
+    transition: all 0.15s;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+  }
+  .checklist-bullet.checked {
+    background: var(--success);
+    border-color: var(--success);
+  }
+  .checklist-bullet.checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .checklist-text {
+    font-size: 14px;
+    color: var(--fg);
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+  }
+  .checklist-bullet.checked + .checklist-text { color: var(--fg-soft); text-decoration: line-through; }
+
+  /* CONTACT */
+  .contact-card {
+    background: linear-gradient(135deg, var(--fg) 0%, #383229 100%);
+    color: var(--bg);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(184,85,45,0.25), transparent 70%);
+    pointer-events: none;
+  }
+  .contact-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.7;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .contact-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 14px;
+    font-variation-settings: "opsz" 36, "SOFT" 80;
+    position: relative;
+  }
+  .contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+  }
+  .contact-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.18s;
+  }
+  .contact-btn:hover { background: rgba(255,255,255,0.18); transform: translateY(-1px); }
+  .contact-btn.primary { background: var(--accent); border-color: var(--accent); }
+  .contact-btn.primary:hover { background: var(--accent-deep); }
+
+  /* === Bouton départ (checkout) === */
+  .checkout-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--accent-light);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--accent-soft);
+    text-align: center;
+  }
+  .checkout-block-text {
+    color: var(--fg-soft);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .checkout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.18s;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+  }
+  .checkout-btn:hover {
+    background: var(--accent-deep);
+    border-color: var(--accent-deep);
+    transform: translateY(-1px);
+  }
+  .checkout-btn:active {
+    transform: translateY(0);
+  }
+  .checkout-btn.confirmed {
+    background: #5a8559;
+    border-color: #5a8559;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px 20px 24px;
+    color: var(--fg-soft);
+    font-size: 12px;
+    border-top: 1px solid var(--border-soft);
+    margin-top: 40px;
+  }
+  footer .signature {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--fg-muted);
+    margin-bottom: 6px;
+    font-variation-settings: "opsz" 24, "SOFT" 80;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--fg);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+  .reveal:nth-child(1) { animation-delay: 0.05s; }
+  .reveal:nth-child(2) { animation-delay: 0.12s; }
+  .reveal:nth-child(3) { animation-delay: 0.20s; }
+  .reveal:nth-child(4) { animation-delay: 0.28s; }
+  .reveal:nth-child(5) { animation-delay: 0.36s; }
+  .reveal:nth-child(6) { animation-delay: 0.44s; }
+
+  /* GALLERIE SCROLL HORIZONTALE */
+  .gallery-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 0 12px;
+    margin: 16px -4px 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .gallery-scroll::-webkit-scrollbar { height: 4px; }
+  .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .gallery-scroll-item {
+    flex: 0 0 auto;
+    width: 220px;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    scroll-snap-align: start;
+    cursor: pointer;
+    position: relative;
+    background: var(--border-soft);
+    transition: transform 0.2s;
+  }
+  .gallery-scroll-item:hover { transform: scale(0.98); }
+  .gallery-scroll-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .gallery-scroll-item:hover img { transform: scale(1.05); }
+
+  @media (max-width: 480px) {
+    .hero-content { margin-top: -64px; }
+    .hero-card { padding: 22px 20px 20px; border-radius: 16px; }
+    .quick-grid { gap: 8px; }
+    .quick-card { padding: 12px 14px; }
+    .section-title { font-size: 26px; }
+    .reco { grid-template-columns: 88px 1fr; }
+    .reco-img { width: 88px; min-height: 110px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">u-citybreak<span class="brand-dot">.</span></div>
+      <div class="lang-switcher">
+        <button class="lang-btn" onclick="toggleLangMenu(event)">
+          <span class="flag">🇫🇷</span><span>FR</span><span class="chev">▾</span>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <a href="#" class="active"><span>🇫🇷</span> Français</a>
+          <a href="#"><span>🇬🇧</span> English</a>
+          <a href="#"><span>🇩🇪</span> Deutsch</a>
+          <a href="#"><span>🇮🇹</span> Italiano</a>
+          <a href="#"><span>🇪🇸</span> Español</a>
+          <a href="#"><span>🇷🇺</span> Русский</a>
+          <a href="#"><span>🇨🇳</span> 中文</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img class="hero-img" src="https://assets.hospitable.com/property_images/2076394/knXk5o9NQxdbwbPHBAnyFrRxOzzifyNSX8gS0vAS.jpg" alt="Le Bellevue">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-card reveal">
+      <div class="hero-eyebrow">Votre séjour</div>
+      <h1 class="hero-title">Le Bellevue</h1>
+      <p class="hero-sub">Face à la gare Viotte, Besançon</p>
+      <div class="hero-divider"></div>
+      <p class="hero-greeting">Bonjour <strong>{{guest_name}}</strong>, ravis de vous accueillir.</p>
+      <div class="hero-countdown">
+        {{countdown}}
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- QUICK -->
+    <div class="quick-grid reveal">
+      <div class="quick-card">
+        <div class="quick-label">Arrivée</div>
+        <div class="quick-value">1<sup>er</sup> mai</div>
+        <div class="quick-sub">à partir de 17h00</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-label">Départ</div>
+        <div class="quick-value">3 mai</div>
+        <div class="quick-sub">avant 11h00</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-label">Voyageurs</div>
+        <div class="quick-value">2 personnes</div>
+        <div class="quick-sub">Face à la gare Viotte</div>
+      </div>
+      <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
+        <div class="quick-label">Wifi</div>
+        <div class="quick-value">SFR_F9C0</div>
+        <div class="quick-sub">Mot de passe ↓</div>
+      </a>
+    </div>
+
+    <!-- ARRIVÉE -->
+    <section class="section reveal" id="arriver">
+      <div class="section-eyebrow">Étape par étape</div>
+      <h2 class="section-title">Arriver <em>au logement</em></h2>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3 class="step-title">Trouver l'adresse</h3>
+            <p class="step-text">Vous arrivez au <strong></strong>, dans le <strong>Parc des Glacis</strong>, juste en face de la <strong>gare Viotte</strong>. Cherchez le <strong>portail vert</strong> avec le numéro 2 sur le poteau.</p>
+            <a href="#" target="_blank" class="step-button">
+              Ouvrir dans Maps <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3 class="step-title">Le digicode du portail</h3>
+            <p class="step-text">Devant le <strong>portail vert</strong>, composez le digicode pour entrer.</p>
+            <div class="codebox">
+              <span class="codebox-label">Digicode</span>
+              <span class="codebox-value">24097</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3 class="step-title">Récupérer les clés</h3>
+            <p class="step-text">Une fois le portail franchi, repérez la <strong>boîte aux lettres à gauche du portail</strong>. La lockbox étiquetée <strong>« L. Bellevue »</strong> s'y trouve. <strong>N'oubliez pas de refermer la boîte avant de partir.</strong></p>
+
+            <div class="step-substeps">
+              <div class="step-substep"><span class="step-substep-num">1</span><span>Composez le <strong style="color:var(--fg);">code à 4 chiffres</strong> sur les molettes</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Ouvrez la lockbox et récupérez les <strong style="color:var(--fg);">clés</strong></span></div>
+              <div class="step-substep"><span class="step-substep-num">3</span><span>Refermez la lockbox et <strong style="color:var(--fg);">brouillez les molettes</strong></span></div>
+            </div>
+
+            <p class="step-text" style="margin-top:14px;">Votre code pour cette boîte :</p>
+
+            {{lockbox_codebox}}
+
+            <div class="step-tip warn"><strong>🔑 Important</strong> · Pensez bien à <strong>brouiller les molettes</strong> après usage pour des raisons de sécurité.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3 class="step-title">Rejoindre l'appartement</h3>
+            <p class="step-text">Une fois les clés en main, le parcours est simple :</p>
+
+            
+
+            </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3 class="step-title">Entrer dans le logement</h3>
+            <p class="step-text">Ouvrez la porte avec la clé. <strong>Bienvenue chez vous</strong> ✨</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DÉCOUVRIR -->
+    <section class="section reveal" id="decouvrir">
+      <div class="section-eyebrow">Découvrir le logement</div>
+      <h2 class="section-title">Le Bellevue en <em>quelques pas</em></h2>
+      <p class="section-intro">TODO</p>
+
+      <a href="https://www.youtube.com/watch?v=VXjKQsULDsM" target="_blank" rel="noopener" class="video-wrap video-trigger" aria-label="Voir la visite virtuelle sur YouTube">
+        <img src="https://img.youtube.com/vi/VXjKQsULDsM/maxresdefault.jpg" alt="Visite virtuelle - Le Bellevue" class="video-thumb" loading="lazy" onerror="this.src='https://img.youtube.com/vi/VXjKQsULDsM/hqdefault.jpg'">
+        <div class="video-play">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <span class="video-label">Visite virtuelle · 1:45 · YouTube ↗</span>
+      </a>
+
+      <div class="rooms">
+        <div class="room">
+          <div class="room-icon">🛋️</div>
+          <div>
+            <div class="room-name">Salon &amp; salle à manger</div>
+            <div class="room-desc">Canapé · TV TNT · Coin repas</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🍳</div>
+          <div>
+            <div class="room-name">Cuisine équipée</div>
+            <div class="room-desc">Plaque électrique · Four · Micro-ondes · Nespresso · Cafetière filtre · Lave-vaisselle</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🛏️</div>
+          <div>
+            <div class="room-name">Chambre côté rue</div>
+            <div class="room-desc">Smart TV · Lit avec coffre de rangement (où peut se trouver le lit parapluie)</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🛌</div>
+          <div>
+            <div class="room-name">Chambre côté cour</div>
+            <div class="room-desc">Plus calme, idéale pour les nuits paisibles</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🚿</div>
+          <div>
+            <div class="room-name">Salle de bain</div>
+            <div class="room-desc">Douche · Sèche-cheveux · Produits d'accueil</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🌬️</div>
+          <div>
+            <div class="room-name">Climatiseur mobile</div>
+            <div class="room-desc">+ ventilateurs portables (été)</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">👶</div>
+          <div>
+            <div class="room-name">Équipement bébé</div>
+            <div class="room-desc">Lit parapluie · Chaise haute · Alèses</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🧺</div>
+          <div>
+            <div class="room-name">Lave-linge + sèche-linge</div>
+            <div class="room-desc">Machine à laver Whirlpool + sèche-linge séparé</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Galerie : à interpoler runtime via get-property-images Hospitable. Placeholder image héro pour l'instant. -->
+      <div style="margin-top:24px; border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-md);">
+        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-664312006964266088/original/9da476e5-4082-47bc-9f9e-ca20aa0c93d3.jpeg" alt="Le Bellevue" style="width:100%; display:block;">
+      </div>
+    </section>
+
+    <!-- PRATIQUE -->
+    <section class="section reveal" id="pratique">
+      <div class="section-eyebrow">Pendant votre séjour</div>
+      <h2 class="section-title">L'essentiel <em>pratique</em></h2>
+
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="info-icon">📶</div>
+          <h4 class="info-title">Wifi</h4>
+          <p class="info-text">Réseau : <code>SFR_F9C0</code></p>
+          <div class="info-copy-row">
+            <code style="flex:1;"></code>
+            <button class="info-copy-btn" onclick="copyCode(this, '')">Copier</button>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📺</div>
+          <h4 class="info-title">Télévision</h4>
+          <p class="info-text">Deux TV : la <strong>TV du salon</strong> est branchée sur l'<strong>antenne TNT</strong>. La <strong>Smart TV de la chambre</strong> intègre <strong>Netflix, Molotov et myCanal</strong> (utilisez vos identifiants si vous en avez). <strong>AirPlay</strong> et <strong>Chromecast</strong> sont aussi disponibles.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🍳</div>
+          <h4 class="info-title">Plaque de cuisson</h4>
+          <p class="info-text">Plaque <strong>électrique</strong> Ikea. Quelques minutes de préchauffage nécessaires.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌡️</div>
+          <h4 class="info-title">Chauffage</h4>
+          <p class="info-text">Chauffage central de l'immeuble. Quelques radiateurs ont des vannes individuelles, d'autres pas (notamment la salle de bain). Inactif l'été.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🛏️</div>
+          <h4 class="info-title">Linge fourni</h4>
+          <p class="info-text">Draps et serviettes prêts à l'emploi.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💨</div>
+          <h4 class="info-title">Sèche-linge privatif</h4>
+          <p class="info-text">Un sèche-linge <strong>réservé au ménage</strong> est présent dans l'appartement. S'il termine son cycle après votre arrivée, vous pouvez l'<strong>arrêter</strong> si nécessaire, mais merci de <strong>ne pas l'ouvrir</strong>.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">👶</div>
+          <h4 class="info-title">Équipement bébé</h4>
+          <p class="info-text">Un <strong>lit parapluie</strong> et une <strong>chaise haute</strong> sont disponibles. Le lit se trouve dans le <strong>coffre du lit</strong> de la chambre côté rue, ou parfois derrière le canapé. Alèses fournies.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌬️</div>
+          <h4 class="info-title">Été · rafraîchir</h4>
+          <p class="info-text"><strong>Climatiseur mobile</strong> + ventilateurs disponibles. Baissez les volets roulants en journée et utilisez l'adaptateur plastique fourni pour bloquer la chaleur.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📋</div>
+          <h4 class="info-title">Règles maison</h4>
+          <p class="info-text">Non-fumeur · Pas d'animaux (futurs voyageurs allergiques) · Pas d'événements · Capteur décibels + caméra palier · Calme après 22h.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POUBELLES -->
+    <section class="section reveal" id="poubelles">
+      <div class="section-eyebrow">Tri sélectif</div>
+      <h2 class="section-title">Les <em>poubelles</em></h2>
+      <p class="section-intro">Par respect pour notre personnel de ménage, merci d'évacuer vos poubelles lors de votre départ.</p>
+
+      <div class="info-card" style="display:flex; gap:14px; align-items:center;">
+        <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
+        <div>
+          <h4 class="info-title" style="margin-bottom:2px;">Local poubelles</h4>
+          <p class="info-text">Bacs collectifs dans la <strong>cour intérieure</strong>, en bas de l'escalier rouge.</p>
+        </div>
+      </div>
+
+      <div class="info-card" style="display:flex; gap:14px; align-items:center; margin-top:10px;">
+        <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">♻️</div>
+        <div>
+          <h4 class="info-title" style="margin-bottom:2px;">Tri sélectif (verre, etc.)</h4>
+          <p class="info-text">Points d'apport volontaire à proximité, autour du <strong>Parc des Glacis</strong> et de la <strong>gare Viotte</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOUGER -->
+    <section class="section reveal" id="bouger">
+      <div class="section-eyebrow">Bouger</div>
+      <h2 class="section-title">Se déplacer <em>en ville</em></h2>
+
+      <div class="transport-grid">
+        <div class="transport-card">
+          <div class="transport-icon">🚆</div>
+          <div class="transport-name">Gare Viotte</div>
+          <div class="transport-desc">Juste en face de l'appartement</div>
+          <div class="transport-distance">150 m · 2 min</div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">🚊</div>
+          <div class="transport-name">Tram T1 / T2 · Bus Ginko</div>
+          <div class="transport-desc">Arrêts devant la gare</div>
+          <div class="transport-distance">100 m</div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">🚄</div>
+          <div class="transport-name">Gare TGV (Auxon)</div>
+          <div class="transport-desc">Navette train depuis Viotte</div>
+          <div class="transport-distance">~10 min en train</div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">🚖</div>
+          <div class="transport-name">Taxi</div>
+          <div class="transport-desc">Uber ne dessert pas Besançon. Taxis Radio : <strong>03 81 88 80 80</strong>, ou VTC pour la gare TGV.</div>
+        </div>
+        <div class="transport-card" style="grid-column: span 2;">
+          <div class="transport-icon">🚲</div>
+          <div class="transport-name">Vélos · VéloCité</div>
+          <div class="transport-desc">Service de vélos en libre-service pour les courts trajets, ou location à la journée auprès d'agences locales. Parkings souterrains gratuits avec box sécurisé (pièce d'identité requise) — Tél. 03 81 21 32 60.</div>
+        </div>
+      </div>
+
+      <div class="reco-tip" style="margin-top:18px;">
+        <div class="reco-tip-title">🅿️ Parking</div>
+        <div class="reco-tip-text">Stationnement payant en rue devant l'immeuble (gratuit le dimanche), avec contrôles fréquents. Pour stationner plus longtemps, rejoignez le <strong>parking gratuit Battant</strong> (1 000+ places, 200 m) en tournant à droite au rond-point devant l'appartement.</div>
+      </div>
+
+      <div style="margin-top:14px; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
+        <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Battant.png" alt="Parking Battant" style="width:100%; aspect-ratio:16/9; object-fit:cover; display:block;">
+        <div style="padding:10px 14px; font-size:13px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parking Battant gratuit</strong> · 200 m · 1 000+ places · à droite au rond-point</div>
+      </div>
+    </section>
+
+    <!-- RECOS -->
+    <section class="section reveal" id="recos">
+      <div class="section-eyebrow">Nos coups de cœur</div>
+      <h2 class="section-title">À découvrir <em>autour</em></h2>
+
+      <div class="recos-toc">
+        <a href="#restos" class="recos-toc-link">🍷 Restaurants</a>
+        <a href="#tourisme" class="recos-toc-link">🏛️ À visiter</a>
+        <a href="#commerces" class="recos-toc-link">🛒 Commerces</a>
+      </div>
+
+      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 5 adresses</span></h3>
+
+      <div class="recos-list">
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Bouillon%20du%20commerce.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Brasserie · Art Déco</span><span class="reco-meta-sep">·</span><span class="reco-distance">à 30 secondes</span></div>
+            <div class="reco-name">Le Bouillon du Commerce</div>
+            <span class="reco-tag">Notre coup de cœur</span>
+            <p class="reco-desc">Juste en bas de l'immeuble — magnifique restaurant Art Déco de 1850. Le cadre seul vaut le déplacement. Réservation conseillée. Cuisine bistrot française classique et bien réalisée.</p>
+            <a href="https://lebouillonducommerce.fr/" target="_blank" class="reco-link">Voir le site →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20saint%20Cerf.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Bistrot contemporain</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
+            <div class="reco-name">Le Saint Cerf</div>
+            <p class="reco-desc">Bistrot moderne avec une carte saisonnière aux influences asiatiques. Belle proposition végétarienne. À l'angle du Quartier Battant. 03 81 50 10 20.</p>
+            <a href="#" class="reco-link">Voir sur la carte →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20Parc.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Gastronomique</span><span class="reco-meta-sep">·</span><span class="reco-distance">650 m</span></div>
+            <div class="reco-name">Le Parc</div>
+            <p class="reco-desc">Table gastronomique du chef Francesco di Marzio. Cuisine fusion dans un cadre face au Parc Micaud et au Doubs. Belle expérience pour un dîner soigné.</p>
+            <a href="https://leparcbesancon.com/fr/" target="_blank" class="reco-link">Voir le site →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Loiseau%20du%20temps.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Bistrot chic · Bourgogne-FC</span><span class="reco-meta-sep">·</span><span class="reco-distance">350 m</span></div>
+            <div class="reco-name">Loiseau du Temps</div>
+            <p class="reco-desc">Bistrot chic célébrant le terroir Bourgogne-Franche-Comté dans un bâtiment historique du Conservatoire. Maison Bernard Loiseau.</p>
+            <a href="https://www.bernard-loiseau.com/fr/loiseaudutemps.html" target="_blank" class="reco-link">Voir le site →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/REstaurant%20l%27affineur%20Comtois.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Spécialités comtoises</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
+            <div class="reco-name">L'Affineur Comtois</div>
+            <p class="reco-desc">Toutes les spécialités fromagères de Franche-Comté : cancoillotte, croûte forestière, fondue comté-morbier, tartiflette. Réservation recommandée.</p>
+            <a href="https://www.restaurant-laffineurcomtois.fr/" target="_blank" class="reco-link">Voir le site →</a>
+          </div>
+        </div>
+
+        <div class="reco-tip">
+          <div class="reco-tip-title">Pour vous balader</div>
+          <div class="reco-tip-text">L'appartement profite d'une <strong>position idéale</strong> : à 2 minutes de la gare, vous êtes au cœur du <strong>Parc des Glacis</strong>, et à seulement 10 minutes à pied du centre historique UNESCO. La <strong>passerelle des Glacis</strong> mène directement à la <strong>Grande Rue</strong> et la <strong>Place de la Révolution</strong>.</div>
+        </div>
+      </div>
+
+      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> À visiter <span class="reco-cat-count">· 6 incontournables</span></h3>
+
+      <div class="recos-list">
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20La%20citadelle%20Vauban.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Patrimoine UNESCO</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,2 km</span></div>
+            <div class="reco-name">La Citadelle</div>
+            <span class="reco-tag">Incontournable</span>
+            <p class="reco-desc">Chef-d'œuvre de Vauban inscrit au Patrimoine mondial de l'UNESCO. Plus grande citadelle d'Europe orientale, abrite trois musées : Comtois, Résistance et Déportation, Muséum (avec aquarium).</p>
+            <a href="#" class="reco-link">Voir sur la carte →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Le%20musee%20du%20temps.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Musée · Horlogerie</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
+            <div class="reco-name">Le Musée du Temps</div>
+            <p class="reco-desc">Installé dans le splendide Palais Granvelle (Renaissance). Retrace l'histoire de l'horlogerie bisontine. Une institution incontournable de la ville.</p>
+            <a href="#" class="reco-link">Voir sur la carte →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20L%27horloge%20astronomique.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Monument · Mécanique</span><span class="reco-meta-sep">·</span><span class="reco-distance">950 m</span></div>
+            <div class="reco-name">L'Horloge Astronomique</div>
+            <p class="reco-desc">À la cathédrale Saint-Jean. Mécanisme de plus de 30 000 pièces conçu par Auguste Lucien Vérité (1858-1860). Affiche calendriers, mouvements planétaires et bien plus.</p>
+            <a href="#" class="reco-link">Voir sur la carte →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Trousime%20-%20la%20maison%20victor%20Hugo.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Maison d'écrivain</span><span class="reco-meta-sep">·</span><span class="reco-distance">750 m</span></div>
+            <div class="reco-name">La Maison Victor Hugo</div>
+            <p class="reco-desc">Maison natale de Victor Hugo, au 140 Grande Rue. Scénographie contemporaine intégrant des éléments multimédias. Visite émouvante et bien conçue.</p>
+            <a href="#" class="reco-link">Voir sur la carte →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20Vauban.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Croisière · Doubs</span><span class="reco-meta-sep">·</span><span class="reco-distance">450 m</span></div>
+            <div class="reco-name">Bateau Le Vauban</div>
+            <span class="reco-tag">Vue panoramique</span>
+            <p class="reco-desc">Croisière-déjeuner (2h) ou dîner (2h30) commentée sur le Doubs, avec passage d'écluses et tunnel sous la Citadelle. Terrasse au pont supérieur. Réservation obligatoire.</p>
+            <a href="https://www.bateau-besancon.fr/croisieres-repas/" target="_blank" class="reco-link">Voir le site →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Musee%20des%20maisons%20comtoises.png" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Musée · Plein air</span><span class="reco-meta-sep">·</span><span class="reco-distance">8 km</span></div>
+            <div class="reco-name">Musée des maisons comtoises</div>
+            <p class="reco-desc">Écomusée à ciel ouvert à Nancray. Découverte de l'habitat traditionnel franc-comtois à travers une trentaine de bâtiments authentiques. Idéal pour une demi-journée nature et patrimoine.</p>
+            <a href="#" class="reco-link">Voir sur la carte →</a>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Commerces de proximité <span class="reco-cat-count">· 3 adresses</span></h3>
+
+      <div class="recos-list">
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Boulangerie%20Filet.png" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Boulangerie · Pâtisserie</span><span class="reco-meta-sep">·</span><span class="reco-distance">5 min · 350 m</span></div>
+            <div class="reco-name">Au Pain d'Antan</div>
+            <span class="reco-tag">Pour le matin</span>
+            <p class="reco-desc">Au 2 rue du Chasnot, ouvert <strong>tous les jours</strong> de 6h à 19h30. Pains, viennoiseries et pâtisseries faits maison. Possibilité de prendre un café accompagné d'une pâtisserie.</p>
+            <a href="https://www.google.com/maps/place/Au+Pain+d'Antan/@47.247349,6.027339,17z" target="_blank" class="reco-link">Voir sur la carte →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Pharmacie%20Battant.png" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Pharmacie</span><span class="reco-meta-sep">·</span><span class="reco-distance">10 min · 750 m</span></div>
+            <div class="reco-name">Pharmacie de Saint-Claude</div>
+            <p class="reco-desc">Au 47 rue de Vesoul. Équipe à l'écoute et conseils de qualité. En cas d'urgence en dehors des horaires, le service de garde est affiché en vitrine.</p>
+            <a href="https://www.google.com/maps/place/Pharmacie+De+Saint-Claude/@47.252804,6.016241,17z" target="_blank" class="reco-link">Voir sur la carte →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Superette%20Casino.jpeg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Dépannage 24/7</span><span class="reco-meta-sep">·</span><span class="reco-distance">2 min · gare</span></div>
+            <div class="reco-name">Relay · Gare Viotte</div>
+            <span class="reco-tag">Très tôt / très tard</span>
+            <p class="reco-desc">Le Relay de la gare est ouvert tous les jours, de 5h à 20h en semaine, et même le dimanche. Idéal pour un dépannage de dernière minute (boissons, snacks, presse).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÉPART -->
+    <section class="section reveal" id="depart">
+      <div class="section-eyebrow">Au moment du départ</div>
+      <h2 class="section-title">Avant de <em>partir</em></h2>
+
+      <div class="checklist">
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Rassembler vos affaires personnelles · vérifiez les tiroirs et les chambres</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Vider le frigo · les denrées périssables, merci</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Évacuer vos poubelles dans le local au bas de l'escalier, dans la cour intérieure</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Fermer les fenêtres et la porte</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Remettre la clé dans la lockbox · brouiller les molettes après</div>
+        </div>
+      </div>
+
+      <div class="checkout-block">
+        <p class="checkout-block-text">Tout est prêt ? Un petit clic nous permet de savoir que vous êtes parti·e en toute sécurité.</p>
+        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
+          👋 J'informe l'hôte de mon départ
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section reveal">
+      <div class="contact-card">
+        <div class="contact-eyebrow">Une question ?</div>
+        <h3 class="contact-title">Nous sommes là, à toute heure</h3>
+        <div class="contact-actions">
+          <a href="https://wa.me/33600000000" class="contact-btn primary">
+            💬 Écrire sur WhatsApp
+          </a>
+          <a href="tel:+33600000000" class="contact-btn">
+            📞 Appeler · +33 6 00 00 00 00
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="signature">Bon séjour à Besançon</div>
+      <div>U-citybreak · Conciergerie Lyon · Besançon</div>
+    </footer>
+
+  </main>
+
+</div>
+
+<div class="toast" id="toast">Copié ✓</div>
+
+<script>
+  function toggleLangMenu(e) {
+    e.stopPropagation();
+    document.getElementById('lang-menu').classList.toggle('open');
+  }
+  document.addEventListener('click', () => {
+    document.getElementById('lang-menu').classList.remove('open');
+  });
+
+  function copyCode(btn, code) {
+    navigator.clipboard.writeText(code).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Copié ✓';
+      btn.classList.add('copied');
+      showToast('Copié dans le presse-papier');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+  }
+
+  // Confirmation visuelle après clic sur le bouton départ
+  // (le clic ouvre la page de remerciement dans un nouvel onglet,
+  //  on transforme le bouton localement pour confirmer au voyageur que c'est fait)
+  (function() {
+    const btn = document.getElementById('checkoutBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Départ confirmé · merci !';
+      }, 600);
+    });
+  })();
+</script>
+
+</body>
+</html>
