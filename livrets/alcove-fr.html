@@ -1,4 +1,4 @@
-<!-- BUILT for alcove-fr at 2026-05-04T12:20:18.654Z | extracted: {"wifi_ssid":null,"wifi_password":null,"building_digicode":null,"property_address":null,"maps_url":null,"video_tour_id":null} -->
+<!-- BUILT for alcove-fr at 2026-05-07T10:47:39.932Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -58,7 +58,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.4;
+    opacity: 0.1;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.12 0 0 0 0 0.11 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
@@ -1038,6 +1038,49 @@
   .contact-btn.primary { background: var(--accent); border-color: var(--accent); }
   .contact-btn.primary:hover { background: var(--accent-deep); }
 
+  /* CHECKOUT BLOCK */
+  .checkout-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--accent-light);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--accent-soft);
+    text-align: center;
+  }
+  .checkout-block-text {
+    color: var(--fg-soft);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .checkout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.18s;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+  }
+  .checkout-btn:hover {
+    background: var(--accent-deep);
+    border-color: var(--accent-deep);
+    transform: translateY(-1px);
+  }
+  .checkout-btn.confirmed {
+    background: #5a8559;
+    border-color: #5a8559;
+    pointer-events: none;
+    cursor: default;
+  }
+
   footer {
     text-align: center;
     padding: 32px 20px 24px;
@@ -1087,6 +1130,40 @@
   .reveal:nth-child(5) { animation-delay: 0.36s; }
   .reveal:nth-child(6) { animation-delay: 0.44s; }
 
+  /* GALLERIE SCROLL HORIZONTALE */
+  .gallery-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 0 12px;
+    margin: 16px -4px 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .gallery-scroll::-webkit-scrollbar { height: 4px; }
+  .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .gallery-scroll-item {
+    flex: 0 0 auto;
+    width: 220px;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    scroll-snap-align: start;
+    cursor: pointer;
+    position: relative;
+    background: var(--border-soft);
+    transition: transform 0.2s;
+  }
+  .gallery-scroll-item:hover { transform: scale(0.98); }
+  .gallery-scroll-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .gallery-scroll-item:hover img { transform: scale(1.05); }
+
   @media (max-width: 480px) {
     .hero-content { margin-top: -64px; }
     .hero-card { padding: 22px 20px 20px; border-radius: 16px; }
@@ -1122,7 +1199,7 @@
   </div>
 
   <div class="hero">
-    <img class="hero-img" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80&auto=format&fit=crop" alt="L'Alcove">
+    <img class="hero-img" src="https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg" alt="L'Alcove">
     <div class="hero-overlay"></div>
   </div>
 
@@ -1155,14 +1232,14 @@
       </div>
       <div class="quick-card">
         <div class="quick-label">Voyageurs</div>
-        <div class="quick-value">2 personnes</div>
-        <div class="quick-sub">studio mezzanine</div>
+        <div class="quick-value">4 personnes</div>
+        <div class="quick-sub">Studio mezzanine</div>
       </div>
-      <div class="quick-card highlight">
+      <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
         <div class="quick-label">Wifi</div>
         <div class="quick-value">SFR_7CFF</div>
         <div class="quick-sub">Mot de passe ↓</div>
-      </div>
+      </a>
     </div>
 
     <!-- ARRIVÉE -->
@@ -1176,19 +1253,22 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Trouver l'adresse</h3>
-            <p class="step-text">Vous arrivez au <strong>3 rue de la Valfenière, Lyon 1<sup>er</sup></strong>. Depuis les Terreaux, accédez par la rue Paul Chenavard et Major Martin (à l'angle du Café des Fédérations) — ou par la rue de la Plâtrière à l'angle du Franprix.</p>
+            <p class="step-text">Vous arrivez au <strong>3 rue de la Valfenière, Lyon 1er</strong>, en plein cœur des <strong>Terreaux</strong>. Quelques repères pour vous guider :</p>
+            <ul style="margin:8px 0 14px 18px; padding:0; color:var(--fg-soft); font-size:14.5px; line-height:1.7;">
+              <li><strong>Depuis la place des Terreaux</strong> : prenez la rue Paul Chenavard puis la rue Major Martin (à l'angle du <strong>Café des Fédérations</strong>).</li>
+              <li><strong>Depuis la rue de la Plâtrière</strong> : à l'angle du <strong>Franprix Marché Presqu'île</strong>.</li>
+            </ul>
             <a href="https://www.google.com/maps/place/3+Rue+de+la+Valfeni%C3%A8re,+69001+Lyon/" target="_blank" class="step-button">
               Ouvrir dans Maps <span class="arrow">→</span>
             </a>
-            <div class="video-card">
-              <div class="video-label">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                <span>Visionnez l'arrivée en vidéo (1 min)</span>
+
+            <a href="https://www.youtube.com/watch?v=DwveCH4FSWo" target="_blank" rel="noopener" aria-label="Voir la vidéo d'arrivée sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-top:14px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+              <img src="https://img.youtube.com/vi/DwveCH4FSWo/maxresdefault.jpg" alt="Vidéo d'arrivée" loading="lazy" onerror="this.src='https://img.youtube.com/vi/DwveCH4FSWo/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+              <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
               </div>
-              <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/DwyeCH4FSWo" allowfullscreen></iframe>
-              </div>
-            </div>
+            </a>
+            <p class="step-photo-caption">▶ Vidéo d'arrivée · trouver l'entrée du bâtiment</p>
           </div>
         </div>
 
@@ -1196,75 +1276,39 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <h3 class="step-title">Le digicode de l'immeuble</h3>
-            <p class="step-text">Devant la porte d'entrée et la grille, composez le <strong>digicode</strong>.</p>
-            <img class="step-photo" src="https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?w=600&q=80&auto=format&fit=crop" alt="Porte d'entrée du bâtiment">
-            <p class="step-photo-caption">La porte d'entrée du 3 rue de la Valfenière</p>
+            <p class="step-text">L'immeuble dispose de <strong>deux portes successives</strong> avec le <strong>même code</strong>. Tapez le digicode sur la première, puis à nouveau sur la seconde pour accéder au sas.</p>
             <div class="codebox">
-              <span class="codebox-label">Digicode</span>
+              <span class="codebox-label">Digicode · 1<sup>re</sup> et 2<sup>e</sup> porte</span>
               <span class="codebox-value">3175</span>
-              <button class="codebox-copy" onclick="copyCode(this, '3175')">Copier</button>
             </div>
-            <div class="step-tip"><strong>💡 Bon à savoir</strong> · C'est une porte ancienne. En été elle peut se dilater avec la chaleur — si elle ne s'ouvre pas, tirez-la légèrement vers vous pour réenclencher la gâchette électrique.</div>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h3 class="step-title">Le sas et la boîte à clé</h3>
-            <p class="step-text">Une fois la grille passée, suivez ce parcours photo pour rejoindre la porte de l'appartement :</p>
+            <h3 class="step-title">Ouvrir la boîte à clé Igloohome</h3>
+            <p class="step-text">Une fois passé les deux portes, vous arrivez dans le <strong>sas</strong>. La boîte à clé Igloohome est <strong>fixée sur la porte du sas</strong>. Voici comment l'utiliser :</p>
 
-            <div class="step-photo-sequence">
-              <div class="step-photo-frame">
-                <span class="step-photo-frame-num">1</span>
-                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80&auto=format&fit=crop" alt="Hall d'entrée">
-                <div class="step-photo-frame-cap">Le <strong>hall d'entrée</strong> avec les boîtes aux lettres</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; margin-top:8px;">
+              <div>
+                <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Lockbox.jpg" alt="Boîte à clé Igloohome" style="margin-top:0; max-width:100%; aspect-ratio:1/1; object-fit:cover;">
+                <p class="step-photo-caption">La boîte à clé Igloohome, sur la <strong>porte du sas</strong></p>
               </div>
-              <div class="step-photo-frame">
-                <span class="step-photo-frame-num">2</span>
-                <img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=600&q=80&auto=format&fit=crop" alt="Escalier">
-                <div class="step-photo-frame-cap">Prenez l'<strong>escalier à droite</strong> jusqu'au 1<sup>er</sup> étage</div>
-              </div>
-              <div class="step-photo-frame">
-                <span class="step-photo-frame-num">3</span>
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Palier">
-                <div class="step-photo-frame-cap">La <strong>porte en face</strong>, avec le panonceau « L'Alcove »</div>
-              </div>
-              <div class="step-photo-frame">
-                <span class="step-photo-frame-num">4</span>
-                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80&auto=format&fit=crop" alt="Boîte à clé">
-                <div class="step-photo-frame-cap">La <strong>boîte à clé Igloohome</strong>, à droite de la porte</div>
-              </div>
+              <a href="https://www.youtube.com/watch?v=T3InNiScQLc" target="_blank" rel="noopener" aria-label="Voir la démo Igloohome sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:1/1; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.querySelector('.video-play-icon').style.background='var(--accent)'; this.querySelector('.video-play-icon').style.transform='translate(-50%, -50%) scale(1.1)';" onmouseout="this.style.transform='none'; this.querySelector('.video-play-icon').style.background='rgba(0,0,0,0.65)'; this.querySelector('.video-play-icon').style.transform='translate(-50%, -50%) scale(1)';">
+                <img src="https://img.youtube.com/vi/T3InNiScQLc/maxresdefault.jpg" alt="Démo Igloohome" loading="lazy" onerror="this.src='https://img.youtube.com/vi/T3InNiScQLc/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+                <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:56px; height:56px; border-radius:50%; background:rgba(0,0,0,0.65); backdrop-filter:blur(8px); color:white; display:flex; align-items:center; justify-content:center; transition:all 0.25s ease; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-left:3px;"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </a>
             </div>
-
-            <div class="step-tip"><strong>👀 Astuce</strong> · Faites glisser les photos pour suivre le parcours pas à pas.</div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h3 class="step-title">Ouvrir la boîte Igloohome</h3>
-            <p class="step-text">Voici à quoi ressemble la boîte et comment l'utiliser :</p>
-
-            <img class="step-photo" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80&auto=format&fit=crop" alt="Boîte à clé Igloohome">
-            <p class="step-photo-caption">La boîte à clé électronique Igloohome, à droite de la porte</p>
+            <p class="step-photo-caption" style="text-align:center; margin-top:6px;">▶ Démo en vidéo · 30 sec · ouvre YouTube ↗</p>
 
             <div class="step-substeps">
               <div class="step-substep"><span class="step-substep-num">1</span><span>Placez la <strong style="color:var(--fg);">paume de la main</strong> sur le clavier pour réveiller l'appareil</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Entrez votre <strong style="color:var(--fg);">code à 7 chiffres</strong>, puis appuyez sur le logo cadenas au centre</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Entrez votre <strong style="color:var(--fg);">code à 4 chiffres</strong>, puis appuyez sur le logo cadenas au centre</span></div>
               <div class="step-substep"><span class="step-substep-num">3</span><span>Attendez le bip et le bruit d'ouverture</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>Tirez sur le côté pour ouvrir la boîte et récupérez la clé</span></div>
-            </div>
-
-            <div class="video-card">
-              <div class="video-label">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                <span>Démo en vidéo (30 secondes)</span>
-              </div>
-              <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/DwyeCH4FSWo" allowfullscreen></iframe>
-              </div>
             </div>
 
             <p class="step-text" style="margin-top:14px;">Votre code unique pour cette boîte :</p>
@@ -1275,10 +1319,10 @@
         </div>
 
         <div class="step">
-          <div class="step-num">5</div>
+          <div class="step-num">4</div>
           <div class="step-content">
             <h3 class="step-title">Entrer dans le logement</h3>
-            <p class="step-text">Refermez la boîte (un quart de tour suffit), puis ouvrez la porte du logement. <strong>Bienvenue chez vous</strong> ✨</p>
+            <p class="step-text">Refermez la boîte (appuyez doucement sur la trappe jusqu'au clic), puis ouvrez la porte du studio avec la clé. <strong>Bienvenue à L'Alcove</strong> ✨</p>
           </div>
         </div>
 
@@ -1289,53 +1333,72 @@
     <section class="section reveal" id="decouvrir">
       <div class="section-eyebrow">Découvrir le logement</div>
       <h2 class="section-title">L'Alcove en <em>quelques pas</em></h2>
-      <p class="section-intro">Studio mezzanine atypique au cœur des Terreaux. Tout l'essentiel sur un plateau, et un coin chambre douillet sous les toits.</p>
 
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/Ed_4ON2EUmc" allowfullscreen></iframe>
-      </div>
+      <!-- Visite virtuelle -->
+      <a href="https://www.youtube.com/watch?v=Ed_4ON2EUmc" target="_blank" rel="noopener" aria-label="Voir la visite virtuelle sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:28px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+        <img src="https://img.youtube.com/vi/Ed_4ON2EUmc/maxresdefault.jpg" alt="Visite virtuelle" loading="lazy" onerror="this.src='https://img.youtube.com/vi/Ed_4ON2EUmc/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </a>
+      <p style="text-align:center; color:var(--fg-soft); font-size:14px; margin:-18px 0 24px 0;">▶ Visite virtuelle · découvrez l'appartement en vidéo</p>
 
       <div class="rooms">
         <div class="room">
-          <div class="room-icon">🪑</div>
+          <div class="room-icon">🛋️</div>
           <div>
-            <div class="room-name">Salon &amp; kitchenette</div>
-            <div class="room-desc">Canapé-lit · TV · Coin repas</div>
+            <div class="room-name">Salon</div>
+            <div class="room-desc">Canapé-lit · TV box Android SFR</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🍳</div>
+          <div>
+            <div class="room-name">Coin cuisine</div>
+            <div class="room-desc">Plaque · Frigo · Cafetière filtre · Bouilloire</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🪜</div>
+          <div>
+            <div class="room-name">Mezzanine</div>
+            <div class="room-desc">Lit double · Hauteur 1,25 m (cocon)</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🛁</div>
           <div>
             <div class="room-name">Salle de bain</div>
-            <div class="room-desc">Douche · WC privatifs</div>
+            <div class="room-desc">Sèche-cheveux · Sèche-serviettes</div>
           </div>
         </div>
         <div class="room">
-          <div class="room-icon">🛏️</div>
+          <div class="room-icon">🧺</div>
           <div>
-            <div class="room-name">Chambre mezzanine</div>
-            <div class="room-desc">Lit double · 1,5 m de hauteur ⚠️</div>
+            <div class="room-name">Lave-linge</div>
+            <div class="room-desc">Prise dédiée en SDB (au-dessus du miroir)</div>
           </div>
         </div>
         <div class="room">
-          <div class="room-icon">🍳</div>
+          <div class="room-icon">👔</div>
           <div>
-            <div class="room-name">Cuisine équipée</div>
-            <div class="room-desc">Plaque · Frigo · Vaisselle</div>
+            <div class="room-name">Fer à repasser</div>
+            <div class="room-desc">Dans le grand placard au-dessus de la cuisine</div>
           </div>
         </div>
       </div>
 
-      <div class="gallery">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=80&auto=format&fit=crop" alt="Salon"><span class="gallery-caption">Salon</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80&auto=format&fit=crop" alt="Mezzanine"><span class="gallery-caption">Mezzanine</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1556909190-eccf4a8bf97a?w=400&q=80&auto=format&fit=crop" alt="Cuisine"><span class="gallery-caption">Cuisine</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&q=80&auto=format&fit=crop" alt="Salle de bain"><span class="gallery-caption">SDB</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80&auto=format&fit=crop" alt="Détail"><span class="gallery-caption">Détail</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=400&q=80&auto=format&fit=crop" alt="Vue"><span class="gallery-caption">Vue</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=400&q=80&auto=format&fit=crop" alt="Salon 2"><span class="gallery-caption">Coin lecture</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=400&q=80&auto=format&fit=crop" alt="Cuisine 2"><span class="gallery-caption">Cuisine</span></div>
+      <div class="gallery-scroll">
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg" alt="Studio"><span class="gallery-caption">Studio</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/be91NsSW46YFcnEYK60FS6DAxEGGkTlo8mKjAg3J.jpg" alt="Vue salon"><span class="gallery-caption">Salon</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ZcDQbp6p06N5BQ5sN8aJSZXShSlJ3kzZCGxeWS5V.jpg" alt="Mezzanine 1,25m"><span class="gallery-caption">Mezzanine · 1,25 m</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/j2SV9Psctu6Xbw2SsEodnHX2uFplufvAdzyGXTus.jpg" alt="Vue 4"><span class="gallery-caption">Coin cuisine</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/sERnbOq6tL4OabO36QlCv6TGh4S5d3SXCsm0s3IX.jpg" alt="Vue 5"><span class="gallery-caption">Espace de vie</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/zLBCdkWMSydgNwOpC9EiNl9SNflTCEp2qZaSF8Qv.jpg" alt="Vue 6"><span class="gallery-caption">Détail</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/a6hsmoW48NsyF0t27XBGv99ndeRVdpd9Kvq0BrM2.jpg" alt="Salle de bain"><span class="gallery-caption">Salle de bain</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/rhXzbhDExVwz2g5FqwnNwqL9jjrywyuQ4aBiT8hZ.jpg" alt="Vue 8"><span class="gallery-caption">Vue d'ensemble</span></div>
       </div>
+
     </section>
 
     <!-- PRATIQUE -->
@@ -1356,27 +1419,42 @@
         <div class="info-card">
           <div class="info-icon">📺</div>
           <h4 class="info-title">Télévision</h4>
-          <p class="info-text">Box Android SFR TV. Utilisez la <strong>2<sup>e</sup> télécommande</strong> (la plus petite) pour naviguer dans les chaînes et applications.</p>
+          <p class="info-text">Utilisez la <strong>box Android SFR TV</strong> avec la <strong>deuxième télécommande</strong>.</p>
         </div>
         <div class="info-card">
-          <div class="info-icon">🍳</div>
-          <h4 class="info-title">Plaque de cuisson</h4>
-          <p class="info-text">Plaque vitrocéramique. Tournez le bouton sur 1 à 9, et patientez quelques secondes. Sécurité enfant : appui long.</p>
+          <div class="info-icon">☕</div>
+          <h4 class="info-title">Café & boissons chaudes</h4>
+          <p class="info-text">Cafetière <strong>filtre</strong> et bouilloire à disposition. Pas de machine à dosettes ni capsules.</p>
         </div>
         <div class="info-card">
-          <div class="info-icon">🌡️</div>
-          <h4 class="info-title">Chauffage</h4>
-          <p class="info-text">Radiateurs muraux. Idéalement entre 19 et 21°C en hiver pour préserver l'énergie.</p>
+          <div class="info-icon">🧺</div>
+          <h4 class="info-title">Lave-linge</h4>
+          <p class="info-text">Branchez-le sur la prise située en <strong>haut à gauche du miroir</strong> de la salle de bain.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">👕</div>
+          <h4 class="info-title">Fer à repasser</h4>
+          <p class="info-text">Rangé dans le <strong>grand placard au-dessus de la cuisine</strong>.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
           <h4 class="info-title">Linge fourni</h4>
-          <p class="info-text">Draps et serviettes prêts à l'emploi. Couvertures supplémentaires dans le rangement de la mezzanine.</p>
+          <p class="info-text">Draps et 2 serviettes par couchage. Le canapé-lit n'est <strong>pas fait à l'arrivée</strong> — la parure se trouve sur l'étagère à droite du canapé.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌡️</div>
+          <h4 class="info-title">Sèche-serviettes</h4>
+          <p class="info-text">Le sèche-serviettes peut avoir une <strong>sécurité enfant</strong> activée. Si vous n'arrivez pas à l'allumer, demandez-nous.</p>
+        </div>
+        <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
+          <div class="info-icon" style="background: var(--warning); color: white;">🚪</div>
+          <h4 class="info-title">À la sortie</h4>
+          <p class="info-text">Fermez la porte à clé puis <strong>remettez la clé dans la boîte Igloohome</strong> sur la porte du sas. Le code reste identique à celui d'arrivée.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">Règles maison</h4>
-          <p class="info-text">Non-fumeur · Pas d'événements · Calme après 22h (immeuble ancien).</p>
+          <p class="info-text"><strong>Non-fumeur</strong> · pas d'animaux · pas de fêtes · calme après 22h. Les <strong>2 grandes portes</strong> de placard du salon servent au stockage des produits ménagers : merci de ne pas les ouvrir.</p>
         </div>
       </div>
     </section>
@@ -1387,11 +1465,22 @@
       <h2 class="section-title">Les <em>poubelles</em></h2>
       <p class="section-intro">Par respect pour notre personnel de ménage, merci d'évacuer vos poubelles lors de votre départ.</p>
 
-      <div class="info-card" style="display:flex; gap:14px; align-items:center;">
+      <div class="info-card" style="display:flex; gap:14px; align-items:flex-start;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
-          <h4 class="info-title" style="margin-bottom:2px;">Local poubelles</h4>
-          <p class="info-text">En bas de l'escalier en colimaçon, juste après le sas d'entrée.</p>
+          <h4 class="info-title" style="margin-bottom:6px;">Local poubelles</h4>
+          <p class="info-text">Le local se trouve <strong>en bas de l'escalier en colimaçon</strong>.</p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;">
+        <div>
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/poubelles1.jpeg" alt="Escalier en colimaçon" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm);">
+          <p class="step-photo-caption" style="text-align:center; margin-top:6px;">L'escalier en colimaçon</p>
+        </div>
+        <div>
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/poubelles2.jpeg" alt="Local poubelles" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm);">
+          <p class="step-photo-caption" style="text-align:center; margin-top:6px;">Le local poubelles</p>
         </div>
       </div>
     </section>
@@ -1404,37 +1493,48 @@
       <div class="transport-grid">
         <div class="transport-card">
           <div class="transport-icon">🚇</div>
-          <div class="transport-name">Métro A</div>
-          <div class="transport-desc">Hôtel de Ville</div>
-          <div class="transport-distance">3 min à pied</div>
+          <div class="transport-name">Métro A · Hôtel de Ville</div>
+          <div class="transport-desc">À deux pas, vers Bellecour et Perrache</div>
+          <div class="transport-distance">200 m ⭐</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚌</div>
-          <div class="transport-name">Bus</div>
-          <div class="transport-desc">Terreaux La Feuillée<br>Lignes C3, C13, C14, C18, 19, S6, S12, PL1</div>
+          <div class="transport-name">Bus · Terreaux La Feuillée</div>
+          <div class="transport-desc">Lignes C3, C13, C14, C18, 19, S6, S12, PL1</div>
+          <div class="transport-distance">À deux pas</div>
         </div>
         <div class="transport-card">
-          <div class="transport-icon">🚆</div>
+          <div class="transport-icon">🚄</div>
           <div class="transport-name">Gare Part-Dieu</div>
-          <div class="transport-desc">Métro B puis A</div>
-          <div class="transport-distance">25 min</div>
+          <div class="transport-desc">Métro B puis métro A jusqu'à Hôtel de Ville</div>
+          <div class="transport-distance">~25 min</div>
         </div>
         <div class="transport-card">
-          <div class="transport-icon">🚆</div>
+          <div class="transport-icon">🚄</div>
           <div class="transport-name">Gare Perrache</div>
           <div class="transport-desc">Métro A direct</div>
-          <div class="transport-distance">15 min</div>
+          <div class="transport-distance">~15 min</div>
         </div>
-        <div class="transport-card" style="grid-column: span 2;">
+        <div class="transport-card">
           <div class="transport-icon">✈️</div>
           <div class="transport-name">Aéroport Saint-Exupéry</div>
-          <div class="transport-desc">Rhône Express jusqu'à Vaux-en-Velin La Soie, puis Métro A jusqu'à Hôtel de Ville. Alternative : ligne bus C200. Uber/Taxi : ~45 min.</div>
+          <div class="transport-desc">Rhône Express → Vaulx-en-Velin La Soie → métro A. Bus C200 ou Uber/taxi (~45 min).</div>
         </div>
       </div>
 
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ Stationnement</div>
-        <div class="reco-tip-text">Le centre dispose de peu de places en surface. Nous recommandons le <strong>parking LPA des Terreaux</strong> (payant). Les parkings <strong>St Antoine</strong> et <strong>Cordelier</strong> proposent des forfaits weekend (vendredi au lundi), un peu plus éloignés mais plus économiques.</div>
+        <div class="reco-tip-text">L'appartement se trouve dans le <strong>centre piéton</strong> de Lyon — le stationnement dans la rue est compliqué.<br><br>
+        Plusieurs <strong>parkings souterrains LPA</strong> à proximité :<br>
+        · <strong>Parking Terreaux</strong> · le plus proche (payant)<br>
+        · <strong>Parking Saint-Antoine</strong><br>
+        · <strong>Parking Cordelier</strong> · un peu plus distant<br><br>
+        💡 Des <strong>forfaits multi-jours</strong> ou <strong>weekend</strong> (vendredi-lundi) sont proposés.</div>
+      </div>
+
+      <div class="reco-tip" style="margin-top:12px; background: rgba(90, 110, 63, 0.08); border-color: var(--success);">
+        <div class="reco-tip-title" style="color: var(--success);">🧳 Consigne bagages</div>
+        <div class="reco-tip-text">Si vous avez besoin de stocker vos bagages avant ou après votre séjour : <a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> propose des points de dépôt <strong>partout dans Lyon</strong> à partir de 4,50€/jour. <a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">Autres consignes à Lyon</a>.</div>
       </div>
     </section>
 
@@ -1449,146 +1549,152 @@
         <a href="#commerces" class="recos-toc-link">🛒 Commerces</a>
       </div>
 
-      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 4 adresses</span></h3>
-
+      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 3 adresses</span></h3>
       <div class="recos-list">
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/cafe-des-federations.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Bouchon lyonnais</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Bouchon authentique</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m ⭐</span></div>
             <div class="reco-name">Café des Fédérations</div>
-            <span class="reco-tag">Notre coup de cœur</span>
-            <p class="reco-desc">Élu meilleur bouchon authentique 2019-2020. Cuisine traditionnelle lyonnaise tous les jours, midi et soir, même le dimanche. Ambiance conviviale typique.</p>
-            <a href="#" class="reco-link">Voir sur la carte →</a>
+            <span class="reco-tag">À deux pas</span>
+            <p class="reco-desc">Élu <strong>meilleur bouchon authentique 2019-2020</strong>. Cuisine lyonnaise traditionnelle, ouvert midi et soir, <strong>même le dimanche</strong>. À l'angle de la rue Major Martin.</p>
+            <a href="https://www.google.com/maps/place/Le+Cafe+des+Federations" target="_blank" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Musee-de-l-opera.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Rooftop · Bar</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Brasserie · Vue panoramique</span><span class="reco-meta-sep">·</span><span class="reco-distance">300 m</span></div>
             <div class="reco-name">Les Muses de l'Opéra</div>
-            <p class="reco-desc">La terrasse panoramique incontournable de Lyon, perchée au 7<sup>e</sup> étage de l'Opéra. Vue unique sur Fourvière et les toits de la ville.</p>
-            <a href="#" class="reco-link">Voir sur la carte →</a>
+            <span class="reco-tag">Vue panoramique</span>
+            <p class="reco-desc">Terrasse panoramique au <strong>7<sup>e</sup> étage de l'Opéra</strong> avec vue sur Fourvière. Cadre exceptionnel pour un déjeuner ou un verre.</p>
+            <a href="https://www.google.com/maps/place/Les+Muses" target="_blank" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Len-de-lyon.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Gastronomique</span><span class="reco-meta-sep">·</span><span class="reco-distance">120 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Cuisine soignée</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Léon de Lyon</div>
-            <p class="reco-desc">Cadre chaleureux et intimiste en plein cœur de Lyon. Du mercredi au dimanche. L'équipe met un point d'honneur à rendre l'expérience inoubliable.</p>
-            <a href="#" class="reco-link">Voir sur la carte →</a>
+            <span class="reco-tag">Cadre chaleureux</span>
+            <p class="reco-desc">Ouvert du <strong>mercredi au dimanche</strong>. Cadre chaleureux et cuisine soignée — une institution lyonnaise.</p>
+            <a href="https://www.google.com/maps/place/Restaurant+Leon+de+Lyon" target="_blank" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
+      </div>
 
-        <div class="reco-tip">
-          <div class="reco-tip-title">Pour vous balader</div>
-          <div class="reco-tip-text">Lyon compte un restaurant pour 250 habitants. Certaines rues sont entièrement dédiées à la restauration : <strong>rue Mercière</strong>, <strong>rue de l'Arbre Sec</strong>, <strong>rue des Marronniers</strong>, et le <strong>Vieux Lyon</strong> en partie.</div>
-        </div>
+      <div class="reco-tip" style="margin-top:14px;">
+        <div class="reco-tip-title">🍴 Rues à restaurants</div>
+        <div class="reco-tip-text">Pour explorer la gastronomie lyonnaise, baladez-vous dans la <strong>rue Mercière</strong>, la <strong>rue de l'Arbre-Sec</strong>, la <strong>rue des Marronniers</strong> ou les ruelles piétonnes du <strong>Vieux Lyon</strong>.</div>
       </div>
 
       <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> À visiter <span class="reco-cat-count">· 6 incontournables</span></h3>
-
       <div class="recos-list">
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/terrreaux.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Patrimoine</span><span class="reco-meta-sep">·</span><span class="reco-distance">25 min</span></div>
+            <div class="reco-meta"><span class="reco-cat">Place historique</span><span class="reco-meta-sep">·</span><span class="reco-distance">100 m ⭐</span></div>
+            <div class="reco-name">Place des Terreaux</div>
+            <span class="reco-tag">Juste à côté</span>
+            <p class="reco-desc">Place emblématique de Lyon avec la <strong>fontaine Bartholdi</strong> en son centre. À 1 minute à pied de l'appartement.</p>
+            <a href="https://www.google.com/maps/place/Pl.+des+Terreaux" target="_blank" class="reco-link">Voir sur la carte →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Patrimoine UNESCO</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
+            <div class="reco-name">Le Vieux Lyon</div>
+            <span class="reco-tag">Incontournable</span>
+            <p class="reco-desc">Quartier Renaissance classé UNESCO, accessible par la <strong>montée du Gourguillon</strong> ou par le <strong>funiculaire</strong>. Traboules, places pavées et bouchons traditionnels.</p>
+            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Voir le site →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/basilique.jpg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">Patrimoine · Vue panoramique</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,2 km</span></div>
             <div class="reco-name">Basilique de Fourvière</div>
             <span class="reco-tag">Vue panoramique</span>
-            <p class="reco-desc">Monument iconique de Lyon, 2 millions de visiteurs par an. Le contraste extérieur/intérieur est saisissant. Ne manquez pas la deuxième église dans la crypte et le belvédère.</p>
-            <a href="#" class="reco-link">Voir sur la carte →</a>
+            <p class="reco-desc">Symbole de Lyon perché sur la colline. Visitez la <strong>crypte</strong> et le <strong>belvédère</strong>. Accès par funiculaire depuis Vieux-Lyon.</p>
+            <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">Voir le site →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/lugdunum.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">UNESCO</span><span class="reco-meta-sep">·</span><span class="reco-distance">15 min</span></div>
-            <div class="reco-name">Le Vieux Lyon</div>
-            <p class="reco-desc">Quartier Renaissance entièrement classé au patrimoine de l'UNESCO. Accessible à pied par la montée du Gourguillon ou par le funiculaire.</p>
-            <a href="#" class="reco-link">Voir sur la carte →</a>
+            <div class="reco-meta"><span class="reco-cat">Musée gallo-romain · Gratuit</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,5 km</span></div>
+            <div class="reco-name">Lugdunum · Musée et théâtres romains</div>
+            <span class="reco-tag">Gratuit</span>
+            <p class="reco-desc">Musée archéologique et amphithéâtres antiques, <strong>accès gratuit</strong> pour les théâtres en plein air.</p>
+            <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">Voir le site →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1564631027894-5bdb17618445?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Les-berges.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Musée · Archéo</span><span class="reco-meta-sep">·</span><span class="reco-distance">30 min</span></div>
-            <div class="reco-name">Lugdunum</div>
-            <p class="reco-desc">Musée et théâtres romains au cœur de la cité antique. L'accès aux amphithéâtres est gratuit. Comptez 2 heures pour la visite complète.</p>
-            <a href="#" class="reco-link">Voir sur la carte →</a>
+            <div class="reco-meta"><span class="reco-cat">Promenade · Bars · Restaurants</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
+            <div class="reco-name">Les Berges du Rhône</div>
+            <span class="reco-tag">Pour flâner</span>
+            <p class="reco-desc">Promenade de <strong>5 km</strong> le long du Rhône avec bars, péniches, restaurants et pelouses. Idéal aux beaux jours.</p>
+            <a href="https://www.google.com/maps/place/Berges+du+Rhone+Lyon" target="_blank" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1606639386377-a3a7d076ec4d?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-musee-confluence.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Place historique</span><span class="reco-meta-sep">·</span><span class="reco-distance">3 min</span></div>
-            <div class="reco-name">Place des Terreaux</div>
-            <p class="reco-desc">À deux pas du logement. Place emblématique de Lyon avec la fontaine Bartholdi en son centre. Historique, vivante, magistrale.</p>
-            <a href="#" class="reco-link">Voir sur la carte →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1605649461784-edc01e9adb5f?w=400&q=80&auto=format&fit=crop" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Architecture · Musée</span><span class="reco-meta-sep">·</span><span class="reco-distance">25 min</span></div>
+            <div class="reco-meta"><span class="reco-cat">Anthropologie · Sciences</span><span class="reco-meta-sep">·</span><span class="reco-distance">4 km</span></div>
             <div class="reco-name">Musée des Confluences</div>
-            <p class="reco-desc">Anthropologie et sciences dans une remarquable architecture moderne. Expositions permanentes et temporaires.</p>
-            <a href="#" class="reco-link">Voir sur la carte →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&q=80&auto=format&fit=crop" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Promenade</span><span class="reco-meta-sep">·</span><span class="reco-distance">12 min</span></div>
-            <div class="reco-name">Berges du Rhône</div>
-            <span class="reco-tag">Spot lyonnais</span>
-            <p class="reco-desc">5 km de promenade aménagée le long du Rhône : bars, péniches, restaurants, pelouses. Le rendez-vous des Lyonnais l'été.</p>
-            <a href="#" class="reco-link">Voir sur la carte →</a>
+            <span class="reco-tag">Architecture moderne</span>
+            <p class="reco-desc">Expositions d'anthropologie et de sciences dans une architecture audacieuse à la pointe de la presqu'île.</p>
+            <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">Voir le site →</a>
           </div>
         </div>
       </div>
 
-      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Commerces de proximité <span class="reco-cat-count">· 3 adresses</span></h3>
-
+      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Commerces <span class="reco-cat-count">· 3 adresses</span></h3>
       <div class="recos-list">
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Franprix.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Supermarché</span><span class="reco-meta-sep">·</span><span class="reco-distance">2 min</span></div>
-            <div class="reco-name">Franprix · Marché Presqu'île</div>
-            <p class="reco-desc">Une partie réservée aux produits frais (boucherie, fromagerie) et un supermarché traditionnel pour le reste.</p>
+            <div class="reco-meta"><span class="reco-cat">Supermarché · Produits frais</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m ⭐</span></div>
+            <div class="reco-name">Franprix Marché Presqu'île</div>
+            <span class="reco-tag">Le plus proche</span>
+            <p class="reco-desc">Supermarché de proximité avec produits frais. À l'angle de la rue de la Plâtrière, juste à côté de l'appartement.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/carrefourmarket.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Supérette</span><span class="reco-meta-sep">·</span><span class="reco-distance">3 min</span></div>
+            <div class="reco-meta"><span class="reco-cat">Supermarché</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Carrefour Market</div>
-            <p class="reco-desc">Pour les courses d'appoint et le dépannage du soir.</p>
+            <span class="reco-tag">Courses d'appoint</span>
+            <p class="reco-desc">Pour compléter vos courses ou les achats du quotidien.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
 
         <div class="reco">
-          <img class="reco-img" src="https://images.unsplash.com/photo-1568254183919-78a4f43a2877?w=400&q=80&auto=format&fit=crop" alt="">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/boulangerie.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Boulangerie</span><span class="reco-meta-sep">·</span><span class="reco-distance">2 min</span></div>
+            <div class="reco-meta"><span class="reco-cat">Boulangerie</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Boulangerie Pomponette</div>
             <span class="reco-tag">Pour le matin</span>
-            <p class="reco-desc">La boulangerie la plus proche, avec une très belle variété de pains. Idéal pour le petit-déjeuner.</p>
+            <p class="reco-desc">La boulangerie la plus proche, large variété de pains et viennoiseries pour vos petits-déjeuners.</p>
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
       </div>
+
     </section>
 
     <!-- DÉPART -->
@@ -1599,7 +1705,7 @@
       <div class="checklist">
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Rassembler vos affaires personnelles · vérifiez les tiroirs et la mezzanine</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Rassembler vos affaires personnelles · vérifiez les tiroirs et le coin lit</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1607,15 +1713,11 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Lancer le lave-vaisselle si la vaisselle est sale</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Faire la vaisselle et la ranger dans la cuisine</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Évacuer vos poubelles dans le local au bas de l'escalier en colimaçon</div>
-        </div>
-        <div class="checklist-item">
-          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Baisser le chauffage à 16°C</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Évacuer vos poubelles dans le local (tour du bâtiment, porte à droite du n°6)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1625,6 +1727,13 @@
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
           <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Remettre la clé dans la boîte Igloohome · même code</div>
         </div>
+      </div>
+
+      <div class="checkout-block">
+        <p class="checkout-block-text">Tout est prêt ? Un petit clic nous permet de savoir que vous êtes parti·e en toute sécurité.</p>
+        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
+          👋 J'informe l'hôte de mon départ
+        </a>
       </div>
     </section>
 
@@ -1687,6 +1796,18 @@
   function toggleCheck(el) {
     el.classList.toggle('checked');
   }
+
+  // Confirmation visuelle après clic sur le bouton départ
+  (function() {
+    const btn = document.getElementById('checkoutBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Départ confirmé · merci !';
+      }, 600);
+    });
+  })();
 </script>
 
 </body>
