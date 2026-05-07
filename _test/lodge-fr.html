@@ -1337,7 +1337,15 @@
     <section class="section reveal" id="decouvrir">
       <div class="section-eyebrow">Découvrir le logement</div>
       <h2 class="section-title">{{property_name}} en <em>quelques pas</em></h2>
-      <p class="section-intro">{{property_intro}}</p>
+
+      <!-- Visite virtuelle -->
+      <a href="https://www.youtube.com/watch?v=nUo_RNPQs70" target="_blank" rel="noopener" aria-label="Voir la visite virtuelle sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:28px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+        <img src="https://img.youtube.com/vi/nUo_RNPQs70/maxresdefault.jpg" alt="Visite virtuelle" loading="lazy" onerror="this.src='https://img.youtube.com/vi/nUo_RNPQs70/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </a>
+      <p style="text-align:center; color:var(--fg-soft); font-size:14px; margin:-18px 0 24px 0;">▶ Visite virtuelle · découvrez le studio en vidéo</p>
 
       <div class="rooms">
         <div class="room">
@@ -1393,18 +1401,6 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076402/mGMFxn5IcSkMaVX7itw3Sz5dWQFbihCd6SIqV0Sj.jpg" alt="Vue 6"><span class="gallery-caption">Détail</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076402/QTcca2h2tcLfP8oEA1PeLB1GhambQChFtZ8sYUdE.jpg" alt="Vue 7"><span class="gallery-caption">Salle de bain</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076402/rqM9ULpbKnyOM6IsE1HDZWezSRrxAwCH6XlDlNbY.jpg" alt="Vue 8"><span class="gallery-caption">Vue d'ensemble</span></div>
-      </div>
-
-      <!-- Visite virtuelle -->
-      <div style="margin-top:24px;">
-        <h3 style="font-family:var(--font-serif); font-size:20px; font-weight:500; color:var(--fg); margin:0 0 12px 0;">🎬 Visite virtuelle</h3>
-        <p style="color:var(--fg-soft); font-size:14px; margin:0 0 14px 0;">Découvrez le studio en images avant votre arrivée :</p>
-        <a href="https://www.youtube.com/watch?v=nUo_RNPQs70" target="_blank" rel="noopener" aria-label="Voir la visite virtuelle sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-          <img src="https://img.youtube.com/vi/nUo_RNPQs70/maxresdefault.jpg" alt="Visite virtuelle" loading="lazy" onerror="this.src='https://img.youtube.com/vi/nUo_RNPQs70/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
-          <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </a>
       </div>
 
     </section>
