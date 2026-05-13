@@ -1,4 +1,4 @@
-<!-- BUILT for alcove-fr at 2026-05-13T12:44:26.471Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for alcove-fr at 2026-05-13T12:57:43.724Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1198,6 +1198,45 @@
   }
   .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
   .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+
+  details.section { /* hérite des styles .section existants */ }
+  details.section > summary.section-summary {
+    list-style: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 5;
+  }
+  details.section > summary.section-summary::-webkit-details-marker { display: none; }
+  details.section { position: relative; }
+  details.section > summary.section-summary .section-summary-chevron {
+    position: absolute;
+    right: 4px;
+    top: 8px;
+    font-size: 18px;
+    color: var(--fg-muted);
+    transition: transform 0.25s ease;
+    display: inline-block;
+  }
+  details.section[open] > summary.section-summary .section-summary-chevron {
+    transform: rotate(90deg);
+  }
+  details.section:not([open]) > *:not(summary):not(.section-eyebrow):not(.section-title) {
+    display: none;
+  }
+  details.section:not([open]) {
+    padding-bottom: 16px;
+  }
+  details.section:not([open]) .section-title {
+    margin-bottom: 0;
+  }
+  @media print {
+    details.section { display: block; }
+    details.section > summary.section-summary { display: none; }
+    details.section:not([open]) > * { display: revert !important; }
+  }
 </style>
 </head>
 <body>
@@ -1355,7 +1394,7 @@
     </section>
 
     <!-- DÉCOUVRIR -->
-    <section class="section reveal" id="decouvrir">
+    <details class="section reveal" id="decouvrir"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
       <div class="section-eyebrow">Découvrir le logement</div>
       <h2 class="section-title">L'Alcove en <em>quelques pas</em></h2>
 
@@ -1424,10 +1463,10 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/rhXzbhDExVwz2g5FqwnNwqL9jjrywyuQ4aBiT8hZ.jpg" alt="Vue 8"><span class="gallery-caption">Vue d'ensemble</span></div>
       </div>
 
-    </section>
+    </details>
 
     <!-- PRATIQUE -->
-    <section class="section reveal" id="pratique">
+    <details class="section reveal" id="pratique"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
       <div class="section-eyebrow">Pendant votre séjour</div>
       <h2 class="section-title">L'essentiel <em>pratique</em></h2>
 
@@ -1482,10 +1521,10 @@
           <p class="info-text"><strong>Non-fumeur</strong> · pas d'animaux · pas de fêtes · calme après 22h. Les <strong>2 grandes portes</strong> de placard du salon servent au stockage des produits ménagers : merci de ne pas les ouvrir.</p>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- POUBELLES -->
-    <section class="section reveal" id="poubelles">
+    <details class="section reveal" id="poubelles"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
       <div class="section-eyebrow">Tri sélectif</div>
       <h2 class="section-title">Les <em>poubelles</em></h2>
       <p class="section-intro">Par respect pour notre personnel de ménage, merci d'évacuer vos poubelles lors de votre départ.</p>
@@ -1508,10 +1547,10 @@
           <p class="step-photo-caption" style="text-align:center; margin-top:6px;">Le local poubelles</p>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- BOUGER -->
-    <section class="section reveal" id="bouger">
+    <details class="section reveal" id="bouger"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
       <div class="section-eyebrow">Bouger</div>
       <h2 class="section-title">Se déplacer <em>en ville</em></h2>
 
@@ -1561,10 +1600,10 @@
         <div class="reco-tip-title" style="color: var(--success);">🧳 Consigne bagages</div>
         <div class="reco-tip-text">Si vous avez besoin de stocker vos bagages avant ou après votre séjour : <a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> propose des points de dépôt <strong>partout dans Lyon</strong> à partir de 4,50€/jour. <a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">Autres consignes à Lyon</a>.</div>
       </div>
-    </section>
+    </details>
 
     <!-- RECOS -->
-    <section class="section reveal" id="recos">
+    <details class="section reveal" id="recos"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
       <div class="section-eyebrow">Nos coups de cœur</div>
       <h2 class="section-title">À découvrir <em>autour</em></h2>
 
@@ -1720,10 +1759,10 @@
         </div>
       </div>
 
-    </section>
+    </details>
 
     <!-- DÉPART -->
-    <section class="section reveal" id="depart">
+    <details class="section reveal" id="depart"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
       <div class="section-eyebrow">Au moment du départ</div>
       <h2 class="section-title">Avant de <em>partir</em></h2>
 
@@ -1760,7 +1799,7 @@
           👋 J'informe l'hôte de mon départ
         </a>
       </div>
-    </section>
+    </details>
 
     <!-- CONTACT -->
     <section class="section reveal">
@@ -1776,7 +1815,7 @@
           </a>
         </div>
       </div>
-    </section>
+    </details>
 
     <footer>
       <div class="signature">Bon séjour à Lyon</div>
