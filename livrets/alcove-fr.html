@@ -1,4 +1,4 @@
-<!-- BUILT for alcove-fr at 2026-05-13T12:57:43.724Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for alcove-fr at 2026-05-13T13:13:45.543Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1199,43 +1199,61 @@
   .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
   .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
 
-  details.section { /* hérite des styles .section existants */ }
+  /* === Sections repliables === */
   details.section > summary.section-summary {
     list-style: none;
     cursor: pointer;
-    position: absolute;
-    top: 0; right: 0;
-    width: 100%;
-    height: 60px;
-    z-index: 5;
+    display: block;
+    position: relative;
+    padding-right: 56px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s ease;
   }
   details.section > summary.section-summary::-webkit-details-marker { display: none; }
-  details.section { position: relative; }
-  details.section > summary.section-summary .section-summary-chevron {
+  details.section > summary.section-summary::marker { display: none; }
+  details.section > summary.section-summary:hover {
+    background: rgba(184,85,45,0.03);
+  }
+  details.section .section-summary-chevron {
     position: absolute;
     right: 4px;
-    top: 8px;
-    font-size: 18px;
-    color: var(--fg-muted);
-    transition: transform 0.25s ease;
-    display: inline-block;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    padding-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
+    box-shadow: var(--shadow-sm);
   }
-  details.section[open] > summary.section-summary .section-summary-chevron {
-    transform: rotate(90deg);
+  details.section > summary.section-summary:hover .section-summary-chevron {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    color: var(--accent-deep);
   }
-  details.section:not([open]) > *:not(summary):not(.section-eyebrow):not(.section-title) {
-    display: none;
+  details.section[open] .section-summary-chevron {
+    transform: translateY(-50%) rotate(90deg);
   }
   details.section:not([open]) {
-    padding-bottom: 16px;
+    padding-bottom: 8px;
   }
-  details.section:not([open]) .section-title {
+  details.section:not([open]) .section-summary .section-title {
     margin-bottom: 0;
   }
   @media print {
-    details.section { display: block; }
-    details.section > summary.section-summary { display: none; }
-    details.section:not([open]) > * { display: revert !important; }
+    details.section > summary.section-summary { display: block; }
+    details.section .section-summary-chevron { display: none; }
+    details.section > *:not(summary) { display: revert !important; }
   }
 </style>
 </head>
@@ -1394,9 +1412,12 @@
     </section>
 
     <!-- DÉCOUVRIR -->
-    <details class="section reveal" id="decouvrir"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
-      <div class="section-eyebrow">Découvrir le logement</div>
-      <h2 class="section-title">L'Alcove en <em>quelques pas</em></h2>
+    <details class="section reveal" id="decouvrir">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Découvrir le logement</div>
+        <h2 class="section-title">L'Alcove en <em>quelques pas</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <!-- Visite virtuelle -->
       <a href="https://www.youtube.com/watch?v=Ed_4ON2EUmc" target="_blank" rel="noopener" aria-label="Voir la visite virtuelle sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:28px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
@@ -1466,9 +1487,12 @@
     </details>
 
     <!-- PRATIQUE -->
-    <details class="section reveal" id="pratique"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
-      <div class="section-eyebrow">Pendant votre séjour</div>
-      <h2 class="section-title">L'essentiel <em>pratique</em></h2>
+    <details class="section reveal" id="pratique">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Pendant votre séjour</div>
+        <h2 class="section-title">L'essentiel <em>pratique</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="cards-grid">
         <div class="info-card">
@@ -1524,9 +1548,12 @@
     </details>
 
     <!-- POUBELLES -->
-    <details class="section reveal" id="poubelles"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
-      <div class="section-eyebrow">Tri sélectif</div>
-      <h2 class="section-title">Les <em>poubelles</em></h2>
+    <details class="section reveal" id="poubelles">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Tri sélectif</div>
+        <h2 class="section-title">Les <em>poubelles</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
       <p class="section-intro">Par respect pour notre personnel de ménage, merci d'évacuer vos poubelles lors de votre départ.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:flex-start;">
@@ -1550,9 +1577,12 @@
     </details>
 
     <!-- BOUGER -->
-    <details class="section reveal" id="bouger"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
-      <div class="section-eyebrow">Bouger</div>
-      <h2 class="section-title">Se déplacer <em>en ville</em></h2>
+    <details class="section reveal" id="bouger">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Bouger</div>
+        <h2 class="section-title">Se déplacer <em>en ville</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="transport-grid">
         <div class="transport-card">
@@ -1603,9 +1633,12 @@
     </details>
 
     <!-- RECOS -->
-    <details class="section reveal" id="recos"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
-      <div class="section-eyebrow">Nos coups de cœur</div>
-      <h2 class="section-title">À découvrir <em>autour</em></h2>
+    <details class="section reveal" id="recos">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Nos coups de cœur</div>
+        <h2 class="section-title">À découvrir <em>autour</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="recos-toc">
         <a href="#restos" class="recos-toc-link">🍷 Restaurants</a>
@@ -1762,9 +1795,12 @@
     </details>
 
     <!-- DÉPART -->
-    <details class="section reveal" id="depart"><summary class="section-summary"><span class="section-summary-chevron">▸</span></summary>
-      <div class="section-eyebrow">Au moment du départ</div>
-      <h2 class="section-title">Avant de <em>partir</em></h2>
+    <details class="section reveal" id="depart">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Au moment du départ</div>
+        <h2 class="section-title">Avant de <em>partir</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="checklist">
         <div class="checklist-item">
