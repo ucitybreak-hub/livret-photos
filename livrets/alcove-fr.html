@@ -1,4 +1,4 @@
-<!-- BUILT for alcove-fr at 2026-05-13T13:13:45.543Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for alcove-fr at 2026-05-13T13:20:28.247Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1198,8 +1198,16 @@
   }
   .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
   .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-block.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .arrival-block.locked .arrival-block-text {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin-bottom: 0;
+  }
 
-  /* === Sections repliables === */
   details.section > summary.section-summary {
     list-style: none;
     cursor: pointer;
@@ -1325,9 +1333,12 @@
     </div>
 
     <!-- ARRIVÉE -->
-    <section class="section reveal" id="arriver">
-      <div class="section-eyebrow">Étape par étape</div>
-      <h2 class="section-title">Arriver <em>au logement</em></h2>
+    <details class="section reveal" id="arriver" open>
+      <summary class="section-summary">
+        <div class="section-eyebrow">Étape par étape</div>
+        <h2 class="section-title">Arriver <em>au logement</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="steps">
 
@@ -1403,13 +1414,8 @@
 
       </div>
 
-      <div class="arrival-block">
-        <p class="arrival-block-text">Vous y êtes ? Un petit clic nous permet de savoir que tout s'est bien passé.</p>
-        <a href="{{arrival_url}}" class="arrival-btn" target="_blank" rel="noopener" id="arrivalBtn">
-          ✓ Je préviens l'hôte de mon arrivée
-        </a>
-      </div>
-    </section>
+      {{arrival_block}}
+    </details>
 
     <!-- DÉCOUVRIR -->
     <details class="section reveal" id="decouvrir">
@@ -1910,7 +1916,6 @@
   })();
 
 
-  // Confirmation visuelle après clic sur le bouton arrivée
   (function() {
     const btn = document.getElementById('arrivalBtn');
     if (!btn) return;
