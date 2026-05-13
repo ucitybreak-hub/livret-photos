@@ -1,4 +1,4 @@
-<!-- BUILT for alcove-fr at 2026-05-07T12:58:45.547Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for alcove-fr at 2026-05-13T12:44:26.471Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1173,6 +1173,31 @@
     .reco { grid-template-columns: 88px 1fr; }
     .reco-img { width: 88px; min-height: 110px; }
   }
+
+  .arrival-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(90,110,63,0.25);
+    text-align: center;
+  }
+  .arrival-block-text {
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .arrival-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 14px 28px;
+    background: var(--success); color: white;
+    text-decoration: none; border-radius: var(--radius-md);
+    font-weight: 500; font-size: 15px;
+    transition: all 0.18s; border: 1px solid var(--success);
+  }
+  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
 </style>
 </head>
 <body>
@@ -1319,6 +1344,13 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="arrival-block">
+        <p class="arrival-block-text">Vous y êtes ? Un petit clic nous permet de savoir que tout s'est bien passé.</p>
+        <a href="{{arrival_url}}" class="arrival-btn" target="_blank" rel="noopener" id="arrivalBtn">
+          ✓ Je préviens l'hôte de mon arrivée
+        </a>
       </div>
     </section>
 
@@ -1736,11 +1768,11 @@
         <div class="contact-eyebrow">Une question ?</div>
         <h3 class="contact-title">Nous sommes là, à toute heure</h3>
         <div class="contact-actions">
-          <a href="https://wa.me/33600000000" class="contact-btn primary">
+          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
             💬 Écrire sur WhatsApp
           </a>
-          <a href="tel:+33600000000" class="contact-btn">
-            📞 Appeler · +33 6 00 00 00 00
+          <a href="tel:{{host_phone}}" class="contact-btn">
+            📞 Appeler · {{host_phone_display}}
           </a>
         </div>
       </div>
@@ -1798,6 +1830,19 @@
       setTimeout(function() {
         btn.classList.add('confirmed');
         btn.innerHTML = '✓ Départ confirmé · merci !';
+      }, 600);
+    });
+  })();
+
+
+  // Confirmation visuelle après clic sur le bouton arrivée
+  (function() {
+    const btn = document.getElementById('arrivalBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Arrivée confirmée · merci !';
       }, 600);
     });
   })();
