@@ -1,4 +1,4 @@
-<!-- BUILT for alcove-fr at 2026-05-13T13:40:41.624Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for alcove-fr at 2026-05-13T13:45:02.814Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1333,7 +1333,7 @@
     </div>
 
     <!-- ARRIVÉE -->
-    <details class="section reveal" id="arriver" open>
+    <details class="section reveal" id="arriver">
       <summary class="section-summary">
         <div class="section-eyebrow">Étape par étape</div>
         <h2 class="section-title">Arriver <em>au logement</em></h2>
@@ -1923,6 +1923,26 @@
         btn.innerHTML = '✓ Arrivée confirmée · merci !';
       }, 600);
     });
+  })();
+
+
+  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
+  (function() {
+    function openDetailsForHash(hash) {
+      if (!hash || hash === '#') return;
+      try {
+        const target = document.querySelector(hash);
+        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        openDetailsForHash(a.getAttribute('href'));
+      });
+    });
+    if (window.location.hash) openDetailsForHash(window.location.hash);
   })();
 </script>
 
