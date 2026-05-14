@@ -1,3 +1,4 @@
+<!-- BUILT for alcove-it at 2026-05-14T06:14:58.928Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -1172,6 +1173,96 @@
     .reco { grid-template-columns: 88px 1fr; }
     .reco-img { width: 88px; min-height: 110px; }
   }
+
+  .arrival-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(90,110,63,0.25);
+    text-align: center;
+  }
+  .arrival-block-text {
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .arrival-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 14px 28px;
+    background: var(--success); color: white;
+    text-decoration: none; border-radius: var(--radius-md);
+    font-weight: 500; font-size: 15px;
+    transition: all 0.18s; border: 1px solid var(--success);
+  }
+  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-block.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .arrival-block.locked .arrival-block-text {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin-bottom: 0;
+  }
+
+  details.section > summary.section-summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-right: 56px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s ease;
+  }
+  details.section > summary.section-summary::-webkit-details-marker { display: none; }
+  details.section > summary.section-summary::marker { display: none; }
+  details.section > summary.section-summary:hover {
+    background: rgba(184,85,45,0.03);
+  }
+  details.section .section-summary-chevron {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    padding-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
+    box-shadow: var(--shadow-sm);
+  }
+  details.section > summary.section-summary:hover .section-summary-chevron {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    color: var(--accent-deep);
+  }
+  details.section[open] .section-summary-chevron {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  details.section:not([open]) {
+    padding-bottom: 8px;
+  }
+  details.section:not([open]) .section-summary .section-title {
+    margin-bottom: 0;
+  }
+  @media print {
+    details.section > summary.section-summary { display: block; }
+    details.section .section-summary-chevron { display: none; }
+    details.section > *:not(summary) { display: revert !important; }
+  }
 </style>
 </head>
 <body>
@@ -1206,9 +1297,9 @@
     <div class="hero-card reveal">
       <div class="hero-eyebrow">Il vostro soggiorno</div>
       <h1 class="hero-title">L'Alcove</h1>
-      <p class="hero-sub">Nel cuore dei Terreaux, Lione</p>
+      <p class="hero-sub">Nel cuore di Terreaux, Lione</p>
       <div class="hero-divider"></div>
-      <p class="hero-greeting">Buongiorno <strong>{{guest_name}}</strong>, siamo felici di accogliervi.</p>
+      <p class="hero-greeting">Ciao <strong>{{guest_name}}</strong>, siamo felici di accogliervi.</p>
       <div class="hero-countdown">
         {{countdown}}
       </div>
@@ -1242,9 +1333,12 @@
     </div>
 
     <!-- ARRIVÉE -->
-    <section class="section reveal" id="arriver">
-      <div class="section-eyebrow">Passo dopo passo</div>
-      <h2 class="section-title">Arrivare <em>all'alloggio</em></h2>
+    <details class="section reveal" id="arriver">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Passo dopo passo</div>
+        <h2 class="section-title">Arrivare <em>all'alloggio</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="steps">
 
@@ -1252,7 +1346,7 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Trovare l'indirizzo</h3>
-            <p class="step-text">Arrivate al <strong>3 rue de la Valfenière, Lione 1º arrondissement</strong>, nel cuore dei <strong>Terreaux</strong>. Alcuni punti di riferimento per orientarvi :</p>
+            <p class="step-text">Arrivate al <strong>3 rue de la Valfenière, Lione 1º</strong>, nel cuore di <strong>Terreaux</strong>. Alcuni punti di riferimento per guidarvi :</p>
             <ul style="margin:8px 0 14px 18px; padding:0; color:var(--fg-soft); font-size:14.5px; line-height:1.7;">
               <li><strong>Dalla Place des Terreaux</strong> : prendete la rue Paul Chenavard poi la rue Major Martin (all'angolo del <strong>Café des Fédérations</strong>).</li>
               <li><strong>Dalla rue de la Plâtrière</strong> : all'angolo del <strong>Franprix Marché Presqu'île</strong>.</li>
@@ -1298,7 +1392,7 @@
 
             <div class="step-substeps">
               <div class="step-substep"><span class="step-substep-num">1</span><span>Posizionate il <strong style="color:var(--fg);">palmo della mano</strong> sulla tastiera per attivare il dispositivo</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Inserite il vostro <strong style="color:var(--fg);">codice a 4 cifre</strong>, poi premete il logo del lucchetto al centro</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Digitate il vostro <strong style="color:var(--fg);">codice a 4 cifre</strong>, poi premete il logo del lucchetto al centro</span></div>
               <div class="step-substep"><span class="step-substep-num">3</span><span>Aspettate il bip e il suono di apertura</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>Tirate il lato per aprire la cassetta e recuperate la chiave</span></div>
             </div>
@@ -1319,12 +1413,17 @@
         </div>
 
       </div>
-    </section>
+
+      {{arrival_block}}
+    </details>
 
     <!-- DÉCOUVRIR -->
-    <section class="section reveal" id="decouvrir">
-      <div class="section-eyebrow">Scoprire l'alloggio</div>
-      <h2 class="section-title">L'Alcove in <em>pochi passi</em></h2>
+    <details class="section reveal" id="decouvrir">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Scoprire l'alloggio</div>
+        <h2 class="section-title">L'Alcove in <em>pochi passi</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <!-- Visite virtuelle -->
       <a href="https://www.youtube.com/watch?v=Ed_4ON2EUmc" target="_blank" rel="noopener" aria-label="Guarda il tour virtuale su YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:28px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
@@ -1340,7 +1439,7 @@
           <div class="room-icon">🛋️</div>
           <div>
             <div class="room-name">Soggiorno</div>
-            <div class="room-desc">Divano-letto · TV box Android SFR</div>
+            <div class="room-desc">Divano letto · TV box Android SFR</div>
           </div>
         </div>
         <div class="room">
@@ -1391,12 +1490,15 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/rhXzbhDExVwz2g5FqwnNwqL9jjrywyuQ4aBiT8hZ.jpg" alt="Vista 8"><span class="gallery-caption">Vista d'insieme</span></div>
       </div>
 
-    </section>
+    </details>
 
     <!-- PRATIQUE -->
-    <section class="section reveal" id="pratique">
-      <div class="section-eyebrow">Durante il vostro soggiorno</div>
-      <h2 class="section-title">L'essenziale <em>pratico</em></h2>
+    <details class="section reveal" id="pratique">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Durante il vostro soggiorno</div>
+        <h2 class="section-title">L'essenziale <em>pratico</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="cards-grid">
         <div class="info-card">
@@ -1415,8 +1517,8 @@
         </div>
         <div class="info-card">
           <div class="info-icon">☕</div>
-          <h4 class="info-title">Caffè e bevande calde</h4>
-          <p class="info-text">Caffettiera <strong>filtro</strong> e bollitore a disposizione. Niente macchina a capsule.</p>
+          <h4 class="info-title">Caffè & bevande calde</h4>
+          <p class="info-text">Caffettiera <strong>filtro</strong> e bollitore a disposizione. Nessuna macchina a capsule.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🧺</div>
@@ -1431,7 +1533,7 @@
         <div class="info-card">
           <div class="info-icon">🛏️</div>
           <h4 class="info-title">Biancheria fornita</h4>
-          <p class="info-text">Lenzuola e 2 asciugamani per letto. Il divano-letto <strong>non è preparato all'arrivo</strong> — la biancheria si trova sullo scaffale a destra del divano.</p>
+          <p class="info-text">Lenzuola e 2 asciugamani per letto. Il divano letto <strong>non è preparato all'arrivo</strong> — la biancheria si trova sullo scaffale a destra del divano.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌡️</div>
@@ -1441,21 +1543,24 @@
         <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
           <div class="info-icon" style="background: var(--warning); color: white;">🚪</div>
           <h4 class="info-title">All'uscita</h4>
-          <p class="info-text">Chiudete la porta a chiave poi <strong>rimettete la chiave nella cassetta Igloohome</strong> sulla porta del vestibolo. Il codice rimane lo stesso di quello d'arrivo.</p>
+          <p class="info-text">Chiudete la porta a chiave poi <strong>rimettete la chiave nella cassetta Igloohome</strong> sulla porta del vestibolo. Il codice rimane lo stesso di quello di arrivo.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">Regole della casa</h4>
-          <p class="info-text"><strong>Vietato fumare</strong> · niente animali · niente feste · silenzio dopo le 22:00. Le <strong>2 grandi porte</strong> dell'armadio del soggiorno servono per riporre i prodotti per la pulizia : vi preghiamo di non aprirle.</p>
+          <p class="info-text"><strong>Vietato fumare</strong> · niente animali · niente feste · silenzio dopo le 22:00. I <strong>2 grandi armadi</strong> del soggiorno servono per riporre i prodotti per la pulizia : vi preghiamo di non aprirli.</p>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- POUBELLES -->
-    <section class="section reveal" id="poubelles">
-      <div class="section-eyebrow">Raccolta differenziata</div>
-      <h2 class="section-title">I <em>rifiuti</em></h2>
-      <p class="section-intro">Per rispetto del nostro personale di pulizia, vi preghiamo di svuotare i vostri rifiuti al momento della partenza.</p>
+    <details class="section reveal" id="poubelles">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Raccolta differenziata</div>
+        <h2 class="section-title">I <em>rifiuti</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Per rispetto del nostro personale di pulizia, vi preghiamo di smaltire i vostri rifiuti al momento della partenza.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:flex-start;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
@@ -1475,12 +1580,15 @@
           <p class="step-photo-caption" style="text-align:center; margin-top:6px;">Il locale rifiuti</p>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- BOUGER -->
-    <section class="section reveal" id="bouger">
-      <div class="section-eyebrow">Muoversi</div>
-      <h2 class="section-title">Spostarsi <em>in città</em></h2>
+    <details class="section reveal" id="bouger">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Muoversi</div>
+        <h2 class="section-title">Spostarsi <em>in città</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="transport-grid">
         <div class="transport-card">
@@ -1528,12 +1636,15 @@
         <div class="reco-tip-title" style="color: var(--success);">🧳 Deposito bagagli</div>
         <div class="reco-tip-text">Se avete bisogno di riporre i vostri bagagli prima o dopo il soggiorno : <a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> offre punti di deposito <strong>in tutta Lione</strong> a partire da 4,50€/giorno. <a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">Altri depositi a Lione</a>.</div>
       </div>
-    </section>
+    </details>
 
     <!-- RECOS -->
-    <section class="section reveal" id="recos">
-      <div class="section-eyebrow">I nostri preferiti</div>
-      <h2 class="section-title">Da scoprire <em>intorno</em></h2>
+    <details class="section reveal" id="recos">
+      <summary class="section-summary">
+        <div class="section-eyebrow">I nostri preferiti</div>
+        <h2 class="section-title">Da scoprire <em>intorno</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="recos-toc">
         <a href="#restos" class="recos-toc-link">🍷 Ristoranti</a>
@@ -1570,8 +1681,8 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Cucina raffinata</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Léon de Lyon</div>
-            <span class="reco-tag">Ambiente accogliente</span>
-            <p class="reco-desc">Aperto da <strong>mercoledì a domenica</strong>. Ambiente accogliente e cucina raffinata — un'istituzione lionese.</p>
+            <span class="reco-tag">Atmosfera accogliente</span>
+            <p class="reco-desc">Aperto da <strong>mercoledì a domenica</strong>. Atmosfera accogliente e cucina raffinata — un'istituzione lionese.</p>
             <a href="https://www.google.com/maps/place/Restaurant+Leon+de+Lyon" target="_blank" class="reco-link">Vedi sulla mappa →</a>
           </div>
         </div>
@@ -1579,7 +1690,7 @@
 
       <div class="reco-tip" style="margin-top:14px;">
         <div class="reco-tip-title">🍴 Vie con ristoranti</div>
-        <div class="reco-tip-text">Per esplorare la gastronomia lionese, passeggiare nella <strong>rue Mercière</strong>, la <strong>rue de l'Arbre-Sec</strong>, la <strong>rue des Marronniers</strong> o i vicoli pedonali della <strong>Vieux Lyon</strong>.</div>
+        <div class="reco-tip-text">Per esplorare la gastronomia lionese, passeggiare nella <strong>rue Mercière</strong>, la <strong>rue de l'Arbre-Sec</strong>, la <strong>rue des Marronniers</strong> o i vicoli pedonali del <strong>Vieux Lyon</strong>.</div>
       </div>
 
       <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> Da visitare <span class="reco-cat-count">· 6 imprescindibili</span></h3>
@@ -1599,9 +1710,9 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Patrimonio UNESCO</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
-            <div class="reco-name">La Vieux Lyon</div>
+            <div class="reco-name">Il Vieux Lyon</div>
             <span class="reco-tag">Imprescindibile</span>
-            <p class="reco-desc">Quartiere rinascimentale patrimonio UNESCO, accessibile dalla <strong>montée du Gourguillon</strong> o dalla <strong>funicolare</strong>. Traboule, piazze lastricate e bouchon tradizionali.</p>
+            <p class="reco-desc">Quartiere Rinascimentale patrimonio UNESCO, accessibile dalla <strong>montée du Gourguillon</strong> o dalla <strong>funicolare</strong>. Traboules, piazze pavimentate e bouchon tradizionali.</p>
             <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
@@ -1632,7 +1743,7 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Les-berges.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Passeggiata · Bar · Ristoranti</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
-            <div class="reco-name">Le Rive del Rodano</div>
+            <div class="reco-name">Le Sponde del Rodano</div>
             <span class="reco-tag">Per passeggiare</span>
             <p class="reco-desc">Passeggiata di <strong>5 km</strong> lungo il Rodano con bar, chiatte, ristoranti e prati. Ideale nelle belle giornate.</p>
             <a href="https://www.google.com/maps/place/Berges+du+Rhone+Lyon" target="_blank" class="reco-link">Vedi sulla mappa →</a>
@@ -1669,7 +1780,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Supermercato</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Carrefour Market</div>
-            <span class="reco-tag">Acquisti di integrazione</span>
+            <span class="reco-tag">Acquisti di emergenza</span>
             <p class="reco-desc">Per completare la spesa o gli acquisti quotidiani.</p>
             <a href="#" class="reco-link">Vedi sulla mappa →</a>
           </div>
@@ -1681,18 +1792,21 @@
             <div class="reco-meta"><span class="reco-cat">Panetteria</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Boulangerie Pomponette</div>
             <span class="reco-tag">Per la mattina</span>
-            <p class="reco-desc">La panetteria più vicina, ampia varietà di pani e pasticcini per le vostre colazioni.</p>
+            <p class="reco-desc">La panetteria più vicina, ampia varietà di pani e cornetti per le vostre colazioni.</p>
             <a href="#" class="reco-link">Vedi sulla mappa →</a>
           </div>
         </div>
       </div>
 
-    </section>
+    </details>
 
     <!-- DÉPART -->
-    <section class="section reveal" id="depart">
-      <div class="section-eyebrow">Al momento della partenza</div>
-      <h2 class="section-title">Prima di <em>partire</em></h2>
+    <details class="section reveal" id="depart">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Al momento della partenza</div>
+        <h2 class="section-title">Prima di <em>partire</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="checklist">
         <div class="checklist-item">
@@ -1709,7 +1823,7 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Svuotare i vostri rifiuti nel locale (giro dell'edificio, porta a destra del n°6)</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Smaltite i vostri rifiuti (vedi la sezione rifiuti)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1723,11 +1837,9 @@
 
       <div class="checkout-block">
         <p class="checkout-block-text">Tutto pronto? Un piccolo clic ci permette di sapere che siete partiti in tutta sicurezza.</p>
-        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
-          👋 Informo l'host della mia partenza
-        </a>
+        {{checkout_block}}
       </div>
-    </section>
+    </details>
 
     <!-- CONTACT -->
     <section class="section reveal">
@@ -1735,11 +1847,11 @@
         <div class="contact-eyebrow">Una domanda?</div>
         <h3 class="contact-title">Siamo qui, a qualsiasi ora</h3>
         <div class="contact-actions">
-          <a href="https://wa.me/33600000000" class="contact-btn primary">
-            💬 Scrivete su WhatsApp
+          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
+            💬 Scrivere su WhatsApp
           </a>
-          <a href="tel:+33600000000" class="contact-btn">
-            📞 Chiamate · +33 6 00 00 00 00
+          <a href="tel:{{host_phone}}" class="contact-btn">
+            📞 Chiamare · {{host_phone_display}}
           </a>
         </div>
       </div>
@@ -1789,7 +1901,7 @@
     el.classList.toggle('checked');
   }
 
-  // Confirmation visuale dopo clic su pulsante partenza
+  // Confirmation visuale dopo clic su il pulsante partenza
   (function() {
     const btn = document.getElementById('checkoutBtn');
     if (!btn) return;
@@ -1799,6 +1911,38 @@
         btn.innerHTML = '✓ Partenza confermata · grazie !';
       }, 600);
     });
+  })();
+
+
+  (function() {
+    const btn = document.getElementById('arrivalBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Arrivo confermato · grazie !';
+      }, 600);
+    });
+  })();
+
+
+  // Auto-apre una sezione ripiegata quando si clicca su un link di ancoraggio
+  (function() {
+    function openDetailsForHash(hash) {
+      if (!hash || hash === '#') return;
+      try {
+        const target = document.querySelector(hash);
+        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        openDetailsForHash(a.getAttribute('href'));
+      });
+    });
+    if (window.location.hash) openDetailsForHash(window.location.hash);
   })();
 </script>
 
