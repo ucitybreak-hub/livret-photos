@@ -1,4 +1,3 @@
-<!-- BUILT for panoramique-nl at 2026-05-07T13:54:00.566Z | photos: 5 ok / 2 missing / 3 ext-fixed -->
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -313,16 +312,16 @@
   .video-wrap {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* fallback 16:9 pour anciens navigateurs */
+    padding-bottom: 56.25%; /* fallback 16:9 voor oude browsers */
     aspect-ratio: 16/9;
-    height: 0; /* nécessaire avec padding-bottom */
+    height: 0; /* nodig met padding-bottom */
     background: #000;
     border-radius: var(--radius-md);
     overflow: hidden;
     margin-top: 14px;
     box-shadow: var(--shadow-md);
   }
-  /* Si aspect-ratio est supporté, on annule le padding-bottom */
+  /* Als aspect-ratio wordt ondersteund, annuleer padding-bottom */
   @supports (aspect-ratio: 16/9) {
     .video-wrap {
       padding-bottom: 0;
@@ -563,7 +562,7 @@
   .step-button .arrow { font-size: 11px; transition: transform 0.18s; }
   .step-button:hover .arrow { transform: translateX(2px); }
 
-  /* STEP MEDIA - Photos d'accompagnement par étape */
+  /* STEP MEDIA - Foto's per stap */
   .step-photo {
     width: 100%;
     max-width: 320px;
@@ -1094,7 +1093,7 @@
   .contact-btn.primary { background: var(--accent); border-color: var(--accent); }
   .contact-btn.primary:hover { background: var(--accent-deep); }
 
-  /* === Bouton départ (checkout) === */
+  /* === Vertrekknop (checkout) === */
   .checkout-block {
     margin-top: 32px;
     padding: 24px;
@@ -1189,7 +1188,7 @@
   .reveal:nth-child(5) { animation-delay: 0.36s; }
   .reveal:nth-child(6) { animation-delay: 0.44s; }
 
-  /* GALLERIE SCROLL HORIZONTALE */
+  /* HORIZONTALE GALERIJ SCROLL */
   .gallery-scroll {
     display: flex;
     gap: 8px;
@@ -1232,6 +1231,96 @@
     .reco { grid-template-columns: 88px 1fr; }
     .reco-img { width: 88px; min-height: 110px; }
   }
+
+  .arrival-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(90,110,63,0.25);
+    text-align: center;
+  }
+  .arrival-block-text {
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .arrival-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 14px 28px;
+    background: var(--success); color: white;
+    text-decoration: none; border-radius: var(--radius-md);
+    font-weight: 500; font-size: 15px;
+    transition: all 0.18s; border: 1px solid var(--success);
+  }
+  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-block.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .arrival-block.locked .arrival-block-text {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin-bottom: 0;
+  }
+
+  details.section > summary.section-summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-right: 56px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s ease;
+  }
+  details.section > summary.section-summary::-webkit-details-marker { display: none; }
+  details.section > summary.section-summary::marker { display: none; }
+  details.section > summary.section-summary:hover {
+    background: rgba(184,85,45,0.03);
+  }
+  details.section .section-summary-chevron {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    padding-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
+    box-shadow: var(--shadow-sm);
+  }
+  details.section > summary.section-summary:hover .section-summary-chevron {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    color: var(--accent-deep);
+  }
+  details.section[open] .section-summary-chevron {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  details.section:not([open]) {
+    padding-bottom: 8px;
+  }
+  details.section:not([open]) .section-summary .section-title {
+    margin-bottom: 0;
+  }
+  @media print {
+    details.section > summary.section-summary { display: block; }
+    details.section .section-summary-chevron { display: none; }
+    details.section > *:not(summary) { display: revert !important; }
+  }
 </style>
 </head>
 <body>
@@ -1269,7 +1358,7 @@
       <h1 class="hero-title">Le Panoramique</h1>
       <p class="hero-sub">Rue des Granges, Besançon</p>
       <div class="hero-divider"></div>
-      <p class="hero-greeting">Hallo <strong>{{guest_name}}</strong>, welkom!</p>
+      <p class="hero-greeting">Hallo <strong>{{guest_name}}</strong>, we zijn blij u welkom te heten.</p>
       <div class="hero-countdown">
         {{countdown}}
       </div>
@@ -1288,7 +1377,7 @@
       <div class="quick-card">
         <div class="quick-label">Vertrek</div>
         <div class="quick-value">3 mei</div>
-        <div class="quick-sub">voor 11:00 uur</div>
+        <div class="quick-sub">vóór 11:00 uur</div>
       </div>
       <div class="quick-card">
         <div class="quick-label">Gasten</div>
@@ -1302,10 +1391,13 @@
       </a>
     </div>
 
-    <!-- ARRIVÉE -->
-    <section class="section reveal" id="arriver">
-      <div class="section-eyebrow">Stap voor stap</div>
-      <h2 class="section-title">Aankomst <em>in het logement</em></h2>
+    <!-- AANKOMST -->
+    <details class="section reveal" id="arriver">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Stap voor stap</div>
+        <h2 class="section-title">Aankomst <em>in het logement</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="steps">
 
@@ -1313,7 +1405,7 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Het adres vinden</h3>
-            <p class="step-text">U komt aan op <strong>18 rue des Granges, 25000 Besançon</strong>. Het gebouw bevindt zich in de voetgangersstraat Rue des Granges, die naar het Place de la Révolution leidt. De ingang bevindt zich <strong>tussen de Northface-winkel en de Biocoop</strong>, op nummer 18.</p>
+            <p class="step-text">U arriveert op <strong>18 rue des Granges, 25000 Besançon</strong>. Het gebouw bevindt zich in de voetgangersstraat Rue des Granges, die naar Place de la Révolution leidt. De ingang bevindt zich <strong>tussen de Northface-winkel en de Biocoop</strong>, op nummer 18.</p>
             <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-1.jpg" alt="Het gebouw gezien vanuit de straat" style="max-width: 100%;">
             <p class="step-photo-caption">Het gebouw gezien vanuit Rue des Granges</p>
             <a href="https://www.google.com/maps/place/18+Rue+des+Granges,+25000+Besan%C3%A7on/" target="_blank" class="step-button">
@@ -1327,7 +1419,7 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <h3 class="step-title">De deurcode van het gebouw</h3>
-            <p class="step-text">Voor de ingang voert u de <strong>deurcode</strong> in.</p>
+            <p class="step-text">Voor de voordeur voert u de <strong>deurcode</strong> in.</p>
             <div class="codebox">
               <span class="codebox-label">Deurcode</span>
               <span class="codebox-value">4796</span>
@@ -1339,23 +1431,23 @@
           <div class="step-num">3</div>
           <div class="step-content">
             <h3 class="step-title">Sleutels en badge ophalen</h3>
-            <p class="step-text">Nadat u het gebouw bent binnengegaan, zoekt u de sleutelbox die zich <strong>naast de brievenbus bevindt</strong>. Voer de onderstaande code in om deze te openen. <strong>Vergeet niet de box dicht te doen voordat u vertrekt.</strong></p>
+            <p class="step-text">Vlak nadat u het gebouw bent binnengegaan, vindt u de sleutelkast <strong>naast de brievenbus</strong>. Voer de onderstaande code in om deze te openen. <strong>Vergeet niet de kast dicht te doen voordat u vertrekt.</strong></p>
 
-            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/lockbox.jpg" alt="Lockbox" style="max-width:320px;">
-            <p class="step-photo-caption">De lockbox, naast de brievenbus</p>
+            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/lockbox.jpg" alt="Sleutelkast" style="max-width:320px;">
+            <p class="step-photo-caption">De sleutelkast, naast de brievenbus</p>
 
             <div class="step-substeps">
               <div class="step-substep"><span class="step-substep-num">1</span><span>Voer de <strong style="color:var(--fg);">4-cijferige code</strong> in op de draaiwielen van het hangslot</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Druk op de <strong style="color:var(--fg);">knoppen aan beide zijden</strong> om de lockbox te openen</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Druk op de <strong style="color:var(--fg);">knoppen aan beide zijden</strong> om de kast te openen</span></div>
               <div class="step-substep"><span class="step-substep-num">3</span><span>Haal de <strong style="color:var(--fg);">sleutels en zwarte badge</strong> eruit</span></div>
-              <div class="step-substep"><span class="step-substep-num">4</span><span>Sluit de lockbox en <strong style="color:var(--fg);">zet de draaiwielen door elkaar</strong></span></div>
+              <div class="step-substep"><span class="step-substep-num">4</span><span>Sluit de kast en <strong style="color:var(--fg);">draai de draaiwielen door elkaar</strong></span></div>
             </div>
 
-            <p class="step-text" style="margin-top:14px;">Uw code voor deze box:</p>
+            <p class="step-text" style="margin-top:14px;">Uw code voor deze kast:</p>
 
             {{lockbox_codebox}}
 
-            <div class="step-tip warn"><strong>🔑 Belangrijk</strong> · Zorg ervoor dat u <strong>de draaiwielen door elkaar zet</strong> na gebruik voor veiligheid.</div>
+            <div class="step-tip warn"><strong>🔑 Belangrijk</strong> · Zorg ervoor dat u <strong>de draaiwielen door elkaar draait</strong> na gebruik om veiligheidsredenen.</div>
           </div>
         </div>
 
@@ -1363,23 +1455,23 @@
           <div class="step-num">4</div>
           <div class="step-content">
             <h3 class="step-title">Naar het appartement gaan</h3>
-            <p class="step-text">Zodra u de sleutels hebt, volgt u deze route naar de deur van het appartement:</p>
+            <p class="step-text">Zodra u de sleutels in handen hebt, volgt u deze route naar de deur van het appartement:</p>
 
             <div class="step-photo-sequence">
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">1</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-2.png" alt="De gang met glazen deur">
-                <div class="step-photo-frame-cap">Loop door de <strong>lange gang</strong> naar de glazen deur</div>
+                <div class="step-photo-frame-cap">Loop door de <strong>lange gang</strong> tot aan de glazen deur</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">2</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-5.png" alt="Trappenhuis">
-                <div class="step-photo-frame-cap">Ga alle verdiepingen op — het <strong>trappenhuis is oud</strong> maar renovatie is gestemd 🛠️</div>
+                <div class="step-photo-frame-cap">Klim alle verdiepingen op — het <strong>trappenhuis is oud</strong> maar renovatiewerkzaamheden zijn goedgekeurd 🛠️</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">3</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-6.png" alt="Deur van het appartement">
-                <div class="step-photo-frame-cap">De deur van het appartement is op de <strong>bovenste verdieping, aan de rechterkant</strong>, met het bord « Le Panoramique »</div>
+                <div class="step-photo-frame-cap">De deur van het appartement bevindt zich op de <strong>bovenste overloop, aan de rechterkant</strong>, met het bord « Le Panoramique »</div>
               </div>
             </div>
 
@@ -1396,13 +1488,18 @@
         </div>
 
       </div>
-    </section>
 
-    <!-- DÉCOUVRIR -->
-    <section class="section reveal" id="decouvrir">
-      <div class="section-eyebrow">Het logement ontdekken</div>
-      <h2 class="section-title">Le Panoramique in <em>een paar stappen</em></h2>
-      <p class="section-intro">Doorkijkappartement en licht in het hart van Besançon, aan de voetgangersstraat Rue des Granges. Capaciteit 6 personen (één gesloten slaapkamer en één op zolder + slaapbank), airconditioning en panoramisch uitzicht over de daken van de stad.</p>
+      {{arrival_block}}
+    </details>
+
+    <!-- ONTDEKKEN -->
+    <details class="section reveal" id="decouvrir">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Het logement ontdekken</div>
+        <h2 class="section-title">Le Panoramique in <em>enkele stappen</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Doorgaand en licht appartement in het hart van Besançon, aan de voetgangersstraat Rue des Granges. Capaciteit 6 personen (één gesloten slaapkamer en één op zolder + slaapbank), airconditioning en panoramisch uitzicht over de daken van de stad.</p>
 
       <a href="https://www.youtube.com/watch?v=SklwOF3S61M" target="_blank" rel="noopener" class="video-wrap video-trigger" aria-label="Bekijk de virtuele rondleiding op YouTube">
         <img src="https://img.youtube.com/vi/SklwOF3S61M/maxresdefault.jpg" alt="Virtuele rondleiding - Le Panoramique" class="video-thumb" loading="lazy" onerror="this.src='https://img.youtube.com/vi/SklwOF3S61M/hqdefault.jpg'">
@@ -1474,19 +1571,22 @@
       <div class="gallery-scroll">
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/OGi2v07JnEi0fHPCdmDe4Wk2FDWcVcvFfr8euuo0.jpg" alt="Woonkamer"><span class="gallery-caption">Woonkamer</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/hMXENojvTxL62PjJCkuQUyWhcOIxEhxNmfUZ7dih.jpg" alt="Uitzicht"><span class="gallery-caption">Uitzicht</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/VhAO5jcxfT6m9vNFzOd80mZq9tzfpGPQ7JdvtPl7.jpg" alt="Verblijf"><span class="gallery-caption">Verblijf</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/VhAO5jcxfT6m9vNFzOd80mZq9tzfpGPQ7JdvtPl7.jpg" alt="Zithoek"><span class="gallery-caption">Zithoek</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/F2BU2tY43zQeaQ70NMKKJWhjRaORJib9hBjbLvp9.jpg" alt="Keuken"><span class="gallery-caption">Keuken</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/9s42BkPR9Tx3SDa9w4JYDjOLRPUTHrybQgtRnJNl.jpg" alt="Eethoek"><span class="gallery-caption">Eethoek</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/ICLDHih4nB5sDMFGK248erd5IusF4ySDUd3r4stW.jpg" alt="Slaapkamer"><span class="gallery-caption">Slaapkamer</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/MWcd8j9EbQoIVZcTgLi0aaux7DfKSj4KUjw3fwOm.jpg" alt="Badkamer"><span class="gallery-caption">Badkamer</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/Fw1sJsQW2bMCMTTt4R7ArRHkmiE2R9SdXsDkjqcx.jpg" alt="Zolder"><span class="gallery-caption">Zolder</span></div>
       </div>
-    </section>
+    </details>
 
-    <!-- PRATIQUE -->
-    <section class="section reveal" id="pratique">
-      <div class="section-eyebrow">Tijdens uw verblijf</div>
-      <h2 class="section-title">Het essentiële <em>praktische</em></h2>
+    <!-- PRAKTISCH -->
+    <details class="section reveal" id="pratique">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Tijdens uw verblijf</div>
+        <h2 class="section-title">Het essentiële <em>praktische</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="cards-grid">
         <div class="info-card">
@@ -1501,17 +1601,17 @@
         <div class="info-card">
           <div class="info-icon">📺</div>
           <h4 class="info-title">Televisie</h4>
-          <p class="info-text">Smart TV, standaard aangesloten op <strong>TNT-antenne</strong>. Voor fiberkanalen gebruikt u de <strong>SFR Red-box</strong>. U kunt ook rechtstreeks toegang krijgen tot <strong>ingebouwde apps</strong> (Netflix, enz.).</p>
+          <p class="info-text">Smart TV, standaard ingesteld op <strong>terrestrische antenne</strong>. Voor kabelzenders gebruikt u de <strong>SFR Red box</strong>. U kunt ook rechtstreeks toegang krijgen tot <strong>ingebouwde apps</strong> (Netflix, enz.).</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🍳</div>
           <h4 class="info-title">Kookplaat</h4>
-          <p class="info-text"><strong>Inductie</strong>plaat. De 2 linkervuren geven een knipperend « U » weer als de pandiameter te klein is — gebruik grotere pannen of het rechtervuur dat kleine diameters accepteert.</p>
+          <p class="info-text"><strong>Inductie</strong>plaat. De 2 linker branders tonen een knipperend « U » als de pandiameter te klein is — gebruik grotere pannen of de rechtse brander die kleinere diameters accepteert.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌡️</div>
           <h4 class="info-title">Verwarming</h4>
-          <p class="info-text">Radiatoren met zelfregulerende sensoren op <strong>20°C</strong>. Ze schakelen automatisch uit boven deze temperatuur. Inactief in de zomer.</p>
+          <p class="info-text">Radiatoren met zelfregulerende sensoren ingesteld op <strong>20°C</strong>. Ze schakelen automatisch uit boven deze temperatuur. Inactief in de zomer.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
@@ -1520,59 +1620,65 @@
         </div>
         <div class="info-card">
           <div class="info-icon">💨</div>
-          <h4 class="info-title">Privé droger</h4>
-          <p class="info-text">Een droger <strong>gereserveerd voor schoonmaak</strong> is in het appartement aanwezig. Als deze zijn cyclus na uw aankomst voltooit, kunt u deze <strong>stoppen</strong> indien nodig, maar <strong>open deze niet</strong>.</p>
+          <h4 class="info-title">Privé wasdroger</h4>
+          <p class="info-text">Een wasdroger <strong>gereserveerd voor schoonmaak</strong> is aanwezig in het appartement. Als deze na uw aankomst zijn cyclus voltooit, kunt u deze <strong>stoppen</strong> indien nodig, maar <strong>open deze niet</strong>.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌙</div>
           <h4 class="info-title">Wasmachine · respect voor buren</h4>
-          <p class="info-text">De wasmachine schakelt automatisch <strong>uit van 20:00 tot 08:00 uur</strong> om de buren te respecteren. Start uw cycli overdag zodat ze voor 20:00 uur klaar zijn.</p>
+          <p class="info-text">De wasmachine met droger <strong>schakelt automatisch uit van 20:00 tot 08:00 uur</strong> om respect voor de buren te tonen. Start uw cycli overdag zodat ze vóór 20:00 uur eindigen.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌬️</div>
           <h4 class="info-title">Airconditioning (zomer)</h4>
-          <p class="info-text">Mobiele airconditioner op de <strong>zolder</strong>. Voor beter koelen: sluit de Velux-jaloezieën, open tegenovergestelde ramen voor luchtstroom. Wacht enkele uren om van 28°C naar 26°C te gaan.</p>
+          <p class="info-text">Mobiele airconditioner op de <strong>zolder</strong>. Voor beter koelen: sluit de Velux-jaloeziën, open tegenoverliggende ramen voor luchtstroom. Wacht enkele uren om van 28°C naar 26°C te gaan.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">⚡</div>
           <h4 class="info-title">Elektriciteitskasten</h4>
-          <p class="info-text">Op de overloop (buiten het appartement), in de kast aan de linkerkant. In geval van stroomuitval: controleer of alle schakelaars zijn ingeschakeld en de hoofdschakelaar op 1 staat.</p>
+          <p class="info-text">Op de overloop (buiten het appartement), in de kast aan de linkerkant. Bij stroomuitval: controleer dat alle schakelaars ingeschakeld zijn en de hoofdschakelaar op 1 staat.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">Huisregels</h4>
-          <p class="info-text">Rookvrij (CO2-sensor) · Geen dieren · Geen evenementen (decibelssensor + overloopsensor) · Stilte na 22:00 uur.</p>
+          <p class="info-text">Rookvrij (CO2-sensor) · Geen huisdieren · Geen evenementen (geluidssensor + overloopkamera) · Stilte na 22:00 uur.</p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- POUBELLES -->
-    <section class="section reveal" id="poubelles">
-      <div class="section-eyebrow">Gescheiden afvalinzameling</div>
-      <h2 class="section-title">De <em>afvalbakken</em></h2>
-      <p class="section-intro">Uit respect voor ons schoonmaakpersoneel verzoeken wij u uw afval bij vertrek mee te nemen.</p>
+    <!-- AFVAL -->
+    <details class="section reveal" id="poubelles">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Gescheiden afval</div>
+        <h2 class="section-title">De <em>afvalbakken</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Uit respect voor ons schoonmaakpersoneel verzoeken we u uw afval bij vertrek mee te nemen.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:center;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
           <h4 class="info-title" style="margin-bottom:2px;">Afvalruimte</h4>
-          <p class="info-text">Binnen de appartementsgebouw, in de <strong>uitgangsgang op de begane grond</strong>.</p>
+          <p class="info-text">Binnen de appartementscomplex, in de <strong>uitgangsgang op de begane grond</strong>.</p>
         </div>
       </div>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:center; margin-top:10px;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">♻️</div>
         <div>
-          <h4 class="info-title" style="margin-bottom:2px;">Gescheiden inzameling (glas, enz.)</h4>
+          <h4 class="info-title" style="margin-bottom:2px;">Gescheiden afval (glas, enz.)</h4>
           <p class="info-text">Inzamelpunten op <strong>minder dan 50 m</strong>, op de hoek van <strong>Rue des Granges</strong> en <strong>Rue Gambetta</strong>.</p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- BOUGER -->
-    <section class="section reveal" id="bouger">
-      <div class="section-eyebrow">Verplaatsen</div>
-      <h2 class="section-title">Zich verplaatsen <em>in de stad</em></h2>
+    <!-- VERPLAATSEN -->
+    <details class="section reveal" id="bouger">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Verplaatsen</div>
+        <h2 class="section-title">Door de stad <em>reizen</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="transport-grid">
         <div class="transport-card">
@@ -1596,44 +1702,47 @@
         <div class="transport-card">
           <div class="transport-icon">🚖</div>
           <div class="transport-name">Taxi</div>
-          <div class="transport-desc">Uber bedient Besançon niet. Radio-taxi's: 03 81 88 80 80, of VTC voor het TGV-station.</div>
+          <div class="transport-desc">Uber bedient Besançon niet. Radio Taxi: 03 81 88 80 80, of VTC voor het TGV-station.</div>
         </div>
         <div class="transport-card" style="grid-column: span 2;">
           <div class="transport-icon">🚲</div>
           <div class="transport-name">Fietsen · VéloCité</div>
-          <div class="transport-desc">Zelfbedieningsfietsenservice voor korte ritten, of dagverhuur bij lokale agentschappen. Beveiligde ondergrondse parkeerplaatsen gratis in een veilige box (identiteitsbewijs vereist) — Tel. 03 81 21 32 60.</div>
+          <div class="transport-desc">Zelfbedieningsfietsenservice voor korte ritten, of dagverhuur bij lokale bedrijven. Gratis beveiligde ondergrondse parkeerplaatsen (ID vereist) — Tel. 03 81 21 32 60.</div>
         </div>
       </div>
 
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ Aanbevolen parkeerplaatsen</div>
-        <div class="reco-tip-text">Omdat Rue des Granges volledig <strong>voetgangersgebied</strong> is, is het <strong>verplicht</strong> in een nabijgelegen parkeergarage te parkeren. Keuze uit: <strong>Beaux-Arts</strong> (overdekt en beveiligd, € 1,90 per nacht van 19:00 tot 09:00 uur, op 500 m), of gratis parkeerplaatsen <strong>Robelin</strong> en <strong>Battant</strong> onder de vestingwerken (10 min lopen). Voor het uitladen van bagage alleen, zijn de voetgangerspoorten soms tot 11:00 uur open.</div>
+        <div class="reco-tip-text">Rue des Granges is volledig <strong>voetgangerszone</strong>, dus het is <strong>verplicht</strong> in een nabijgelegen parkeergarage te parkeren. Keuze uit: <strong>Beaux-Arts</strong> (overdekt en beveiligd, €1,90 per nacht van 19:00 tot 09:00 uur, op 500 m), of gratis parkeerplaatsen <strong>Robelin</strong> en <strong>Battant</strong> onder de vestingwerken (10 min lopen). Voor alleen het uitladen van bagage zijn de voetgangerspoorten soms tot 11:00 uur open.</div>
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:14px;">
         <a href="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Carte%20des%20stationnements.png" target="_blank" style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden; text-decoration:none; color:inherit; display:block; transition: all 0.18s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Carte%20des%20stationnements.png" alt="Kaart van parkeerplaatsen" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Kaart van parkeerplaatsen</strong> · klik om in te zoomen 🔍</div>
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Carte%20des%20stationnements.png" alt="Parkeerkaart" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parkeerkaart</strong> · klik om in te zoomen 🔍</div>
         </a>
         <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
-          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Robelin.png" alt="Parkeerplaats Robelin" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parkeerplaats Robelin</strong> · 5 min lopen</div>
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Robelin.png" alt="Parking Robelin" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parking Robelin</strong> · 5 min lopen</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
-          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Battant.png" alt="Parkeerplaats Battant" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parkeerplaats Battant</strong> · 5 min lopen</div>
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Battant.png" alt="Parking Battant" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parking Battant</strong> · 5 min lopen</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
-          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Cusselier%20Beaux%20Arts.png" alt="Parkeerplaats Cusenier Beaux Arts" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Cusselier%20Beaux%20Arts.png" alt="Parking Cusenier Beaux Arts" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
           <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Cusenier Beaux Arts</strong> · 7 min lopen</div>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- RECOS -->
-    <section class="section reveal" id="recos">
-      <div class="section-eyebrow">Onze favorieten</div>
-      <h2 class="section-title">Te ontdekken <em>in de buurt</em></h2>
+    <!-- AANBEVELINGEN -->
+    <details class="section reveal" id="recos">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Onze favorieten</div>
+        <h2 class="section-title">Te ontdekken <em>in de buurt</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="recos-toc">
         <a href="#restos" class="recos-toc-link">🍷 Restaurants</a>
@@ -1647,10 +1756,10 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Bouillon%20du%20commerce.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Brasserie · Art Déco</span><span class="reco-meta-sep">·</span><span class="reco-distance">30 seconden</span></div>
+            <div class="reco-meta"><span class="reco-cat">Brasserie · Art Deco</span><span class="reco-meta-sep">·</span><span class="reco-distance">30 seconden</span></div>
             <div class="reco-name">Le Bouillon du Commerce</div>
             <span class="reco-tag">Onze favoriet</span>
-            <p class="reco-desc">Vlak onder het gebouw — prachtig Art Déco-restaurant uit 1850. Het interieur alleen is al een bezoek waard. Reservering aanbevolen. Klassieke Franse bistrotkeuken, goed bereid.</p>
+            <p class="reco-desc">Vlak onder het gebouw — prachtig Art Deco-restaurant uit 1850. Het interieur alleen is al de moeite waard. Reservering aanbevolen. Klassieke Franse bistrotkeuken en goed bereid.</p>
             <a href="https://lebouillonducommerce.fr/" target="_blank" class="reco-link">Website bezoeken →</a>
           </div>
         </div>
@@ -1658,10 +1767,10 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20saint%20Cerf.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Hedendaags bistrot</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Hedendaags bistro</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
             <div class="reco-name">Le Saint Cerf</div>
-            <p class="reco-desc">Modern bistrot met seizoenskaart met Aziatische invloeden. Mooi vegetarisch aanbod. Op de hoek van wijk Battant. 03 81 50 10 20.</p>
-            <a href="#" class="reco-link">Op kaart zien →</a>
+            <p class="reco-desc">Modern bistro met seizoenskaart met Aziatische invloeden. Mooi vegetarisch aanbod. In de wijk Battant. 03 81 50 10 20.</p>
+            <a href="#" class="reco-link">Op kaart bekijken →</a>
           </div>
         </div>
 
@@ -1670,7 +1779,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Gastronomisch</span><span class="reco-meta-sep">·</span><span class="reco-distance">650 m</span></div>
             <div class="reco-name">Le Parc</div>
-            <p class="reco-desc">Gastronomisch restaurant van chef Francesco di Marzio. Fusiekeuken in een omgeving met uitzicht op Parc Micaud en de Doubs. Mooie ervaring voor een verzorgd diner.</p>
+            <p class="reco-desc">Gastronomisch restaurant van chef Francesco di Marzio. Fusiekeuken in een kader met uitzicht op Parc Micaud en de Doubs. Mooie ervaring voor een verzorgd diner.</p>
             <a href="https://leparcbesancon.com/fr/" target="_blank" class="reco-link">Website bezoeken →</a>
           </div>
         </div>
@@ -1678,9 +1787,9 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Loiseau%20du%20temps.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Chic bistrot · Bourgogne-FC</span><span class="reco-meta-sep">·</span><span class="reco-distance">350 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Chic bistro · Bourgogne-FC</span><span class="reco-meta-sep">·</span><span class="reco-distance">350 m</span></div>
             <div class="reco-name">Loiseau du Temps</div>
-            <p class="reco-desc">Chic bistrot dat het terroir van Bourgogne-Franche-Comté viert in een historisch gebouw van het Conservatorium. Huis Bernard Loiseau.</p>
+            <p class="reco-desc">Chic bistro dat het Bourgogne-Franche-Comté-terroir viert in een historisch gebouw van het Conservatorium. Bernard Loiseau-huis.</p>
             <a href="https://www.bernard-loiseau.com/fr/loiseaudutemps.html" target="_blank" class="reco-link">Website bezoeken →</a>
           </div>
         </div>
@@ -1696,8 +1805,8 @@
         </div>
 
         <div class="reco-tip">
-          <div class="reco-tip-title">Voor een wandeling</div>
-          <div class="reco-tip-text">De wijk <strong>Boucle</strong> is een van de oudste delen van Besançon, met veel verborgen adressen. Het historische centrum tussen <strong>Grande Rue</strong> en <strong>Place de la Révolution</strong> zit ook vol bistrots en brasseries.</div>
+          <div class="reco-tip-title">Om rond te wandelen</div>
+          <div class="reco-tip-text">De wijk <strong>Boucle</strong> is een van de oudste van Besançon, met veel verborgen adressen. Het historische centrum tussen <strong>Grande Rue</strong> en <strong>Place de la Révolution</strong> heeft ook veel bistro's en brasseries.</div>
         </div>
       </div>
 
@@ -1710,18 +1819,18 @@
             <div class="reco-meta"><span class="reco-cat">UNESCO-erfgoed</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,2 km</span></div>
             <div class="reco-name">De Citadel</div>
             <span class="reco-tag">Onmisbaar</span>
-            <p class="reco-desc">Meesterwerk van Vauban ingeschreven op de UNESCO-werelderfgoedlijst. Grootste citadel in Oost-Europa, herbergt drie musea: Comtois, Verzet en Deportatie, Muséum (met aquarium).</p>
-            <a href="#" class="reco-link">Op kaart zien →</a>
+            <p class="reco-desc">Meesterwerk van Vauban ingeschreven in het UNESCO-werelderfgoed. Grootste citadel van Oost-Europa, herbergt drie musea: Comtois, Verzet en Deportatie, Muséum (met aquarium).</p>
+            <a href="#" class="reco-link">Op kaart bekijken →</a>
           </div>
         </div>
 
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Le%20musee%20du%20temps.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Museum · Horloges</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Museum · Horlogewerk</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
             <div class="reco-name">Het Museum van de Tijd</div>
-            <p class="reco-desc">Gevestigd in het prachtige Palais Granvelle (Renaissance). Vertelt het verhaal van de horlogegeschiedenis van Besançon. Een onmisbare instelling van de stad.</p>
-            <a href="#" class="reco-link">Op kaart zien →</a>
+            <p class="reco-desc">Gevestigd in het prachtige Paleis Granvelle (Renaissance). Vertelt het verhaal van de horlogegeschiedenis van Besançon. Een onmisbare instelling van de stad.</p>
+            <a href="#" class="reco-link">Op kaart bekijken →</a>
           </div>
         </div>
 
@@ -1730,18 +1839,18 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Monument · Mechanica</span><span class="reco-meta-sep">·</span><span class="reco-distance">950 m</span></div>
             <div class="reco-name">De Astronomische Klok</div>
-            <p class="reco-desc">In de kathedraal Saint-Jean. Mechanisme met meer dan 30.000 onderdelen ontworpen door Auguste Lucien Vérité (1858-1860). Toont kalenders, planetaire bewegingen en meer.</p>
-            <a href="#" class="reco-link">Op kaart zien →</a>
+            <p class="reco-desc">In de Sint-Jan-kathedraal. Mechanisme met meer dan 30.000 onderdelen ontworpen door Auguste Lucien Vérité (1858-1860). Toont kalenders, planetaire bewegingen en meer.</p>
+            <a href="#" class="reco-link">Op kaart bekijken →</a>
           </div>
         </div>
 
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Trousime%20-%20la%20maison%20victor%20Hugo.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Schrijvershuisje</span><span class="reco-meta-sep">·</span><span class="reco-distance">750 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Schrijverswoning</span><span class="reco-meta-sep">·</span><span class="reco-distance">750 m</span></div>
             <div class="reco-name">Het Huis van Victor Hugo</div>
-            <p class="reco-desc">Geboortehuis van Victor Hugo, op 140 Grande Rue. Hedendaagse scenografie met multimediële elementen. Ontroerend en goed ontworpen bezoek.</p>
-            <a href="#" class="reco-link">Op kaart zien →</a>
+            <p class="reco-desc">Geboortehuis van Victor Hugo, op 140 Grande Rue. Hedendaagse scenografie met multimediële elementen. Ontroerende en goed ontworpen rondleiding.</p>
+            <a href="#" class="reco-link">Op kaart bekijken →</a>
           </div>
         </div>
 
@@ -1751,7 +1860,7 @@
             <div class="reco-meta"><span class="reco-cat">Cruise · Doubs</span><span class="reco-meta-sep">·</span><span class="reco-distance">450 m</span></div>
             <div class="reco-name">Boot Le Vauban</div>
             <span class="reco-tag">Panoramisch uitzicht</span>
-            <p class="reco-desc">Cruise met lunch (2u) of diner (2u30) met commentaar op de Doubs, met sluis en tunnel onder de Citadel. Terras op het bovendek. Reservering verplicht.</p>
+            <p class="reco-desc">Cruise-lunch (2u) of diner (2u30) met commentaar op de Doubs, met sluizen en tunnel onder de Citadel. Terras op het bovendek. Reservering verplicht.</p>
             <a href="https://www.bateau-besancon.fr/croisieres-repas/" target="_blank" class="reco-link">Website bezoeken →</a>
           </div>
         </div>
@@ -1761,8 +1870,8 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Museum · Openlucht</span><span class="reco-meta-sep">·</span><span class="reco-distance">8 km</span></div>
             <div class="reco-name">Museum van Comtoise-huizen</div>
-            <p class="reco-desc">Ecomuseum in de open lucht in Nancray. Ontdekking van traditionele Franche-Comté-woningen door ongeveer dertig authentieke gebouwen. Ideaal voor een halve dag natuur en erfgoed.</p>
-            <a href="#" class="reco-link">Op kaart zien →</a>
+            <p class="reco-desc">Openluchtmuseum in Nancray. Ontdekking van traditionele Franche-Comté-woningen via ongeveer dertig authentieke gebouwen. Ideaal voor een halve dag natuur en erfgoed.</p>
+            <a href="#" class="reco-link">Op kaart bekijken →</a>
           </div>
         </div>
       </div>
@@ -1777,7 +1886,7 @@
             <div class="reco-name">Biocoop La Canopée</div>
             <span class="reco-tag">Vlakbij</span>
             <p class="reco-desc">Op 20 rue des Granges, vlak naast het gebouw. Biologische, verse, lokale producten. Ideaal om boodschappen te doen zonder ver weg te gaan.</p>
-            <a href="#" class="reco-link">Op kaart zien →</a>
+            <a href="#" class="reco-link">Op kaart bekijken →</a>
           </div>
         </div>
 
@@ -1786,9 +1895,9 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Bakkerij · Banketbakkerij</span><span class="reco-meta-sep">·</span><span class="reco-distance">30 sec</span></div>
             <div class="reco-name">Caillier Cyril</div>
-            <span class="reco-tag">Voor 's ochtends</span>
-            <p class="reco-desc">Op 12 rue des Granges, op enkele stappen van het appartement. Brood, gebak en taarten voor het ontbijt of een snack. Mogelijkheid om ter plaatse te eten.</p>
-            <a href="#" class="reco-link">Op kaart zien →</a>
+            <span class="reco-tag">Voor het ontbijt</span>
+            <p class="reco-desc">Op 12 rue des Granges, op enkele stappen van het appartement. Brood, gebak en banketbakkerij voor het ontbijt of een snack. Mogelijkheid om ter plaatse te eten.</p>
+            <a href="#" class="reco-link">Op kaart bekijken →</a>
           </div>
         </div>
 
@@ -1798,47 +1907,48 @@
             <div class="reco-meta"><span class="reco-cat">Apotheek</span><span class="reco-meta-sep">·</span><span class="reco-distance">30 sec</span></div>
             <div class="reco-name">Apotheek Dupont</div>
             <p class="reco-desc">Op 13 rue des Granges, vlak tegenover het gebouw. Attent team en goed assortiment producten. In geval van nood staat de nachtdienst in de etalage.</p>
-            <a href="#" class="reco-link">Op kaart zien →</a>
+            <a href="#" class="reco-link">Op kaart bekijken →</a>
           </div>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- DÉPART -->
-    <section class="section reveal" id="depart">
-      <div class="section-eyebrow">Op het moment van vertrek</div>
-      <h2 class="section-title">Voor u <em>vertrekt</em></h2>
+    <!-- VERTREK -->
+    <details class="section reveal" id="depart">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Bij vertrek</div>
+        <h2 class="section-title">Voordat u <em>vertrekt</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="checklist">
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Verzamel uw persoonlijke spullen · controleer de laden en slaapkamers</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Verzamel uw persoonlijke spullen · controleer laden en kamers</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Leeg de koelkast · bederfbare voedingsmiddelen, alstublieft</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Maak de koelkast leeg · bederfbare voedsel, alstublieft</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Zet uw afval in de ruimte onderaan de trap, in de binnenplaats</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Verwijder uw afval (zie afvalsectie)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Sluit de ramen en deur</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Sluit ramen en deur</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Zet de sleutel in de lockbox · zet de draaiwielen door elkaar</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Plaats de sleutel terug in de sleutelkast · draai de draaiwielen door elkaar daarna</div>
         </div>
       </div>
 
       <div class="checkout-block">
         <p class="checkout-block-text">Alles klaar? Een klein klikje laat ons weten dat u veilig bent vertrokken.</p>
-        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
-          👋 Ik informeer de gastheer van mijn vertrek
-        </a>
+        {{checkout_block}}
       </div>
-    </section>
+    </details>
 
     <!-- CONTACT -->
     <section class="section reveal">
@@ -1846,11 +1956,11 @@
         <div class="contact-eyebrow">Een vraag?</div>
         <h3 class="contact-title">We zijn er, 24/7</h3>
         <div class="contact-actions">
-          <a href="https://wa.me/33600000000" class="contact-btn primary">
-            💬 Schrijf op WhatsApp
+          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
+            💬 Stuur een WhatsApp-bericht
           </a>
-          <a href="tel:+33600000000" class="contact-btn">
-            📞 Bellen · +33 6 00 00 00 00
+          <a href="tel:{{host_phone}}" class="contact-btn">
+            📞 Bellen · {{host_phone_display}}
           </a>
         </div>
       </div>
@@ -1912,6 +2022,38 @@
         btn.innerHTML = '✓ Vertrek bevestigd · dank u!';
       }, 600);
     });
+  })();
+
+
+  (function() {
+    const btn = document.getElementById('arrivalBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Aankomst bevestigd · dank u!';
+      }, 600);
+    });
+  })();
+
+
+  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
+  (function() {
+    function openDetailsForHash(hash) {
+      if (!hash || hash === '#') return;
+      try {
+        const target = document.querySelector(hash);
+        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        openDetailsForHash(a.getAttribute('href'));
+      });
+    });
+    if (window.location.hash) openDetailsForHash(window.location.hash);
   })();
 </script>
 
