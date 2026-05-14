@@ -1,4 +1,4 @@
-<!-- BUILT for alcove-es at 2026-05-07T13:01:16.468Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for alcove-es at 2026-05-14T06:17:42.324Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1173,6 +1173,96 @@
     .reco { grid-template-columns: 88px 1fr; }
     .reco-img { width: 88px; min-height: 110px; }
   }
+
+  .arrival-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(90,110,63,0.25);
+    text-align: center;
+  }
+  .arrival-block-text {
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .arrival-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 14px 28px;
+    background: var(--success); color: white;
+    text-decoration: none; border-radius: var(--radius-md);
+    font-weight: 500; font-size: 15px;
+    transition: all 0.18s; border: 1px solid var(--success);
+  }
+  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-block.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .arrival-block.locked .arrival-block-text {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin-bottom: 0;
+  }
+
+  details.section > summary.section-summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-right: 56px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s ease;
+  }
+  details.section > summary.section-summary::-webkit-details-marker { display: none; }
+  details.section > summary.section-summary::marker { display: none; }
+  details.section > summary.section-summary:hover {
+    background: rgba(184,85,45,0.03);
+  }
+  details.section .section-summary-chevron {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    padding-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
+    box-shadow: var(--shadow-sm);
+  }
+  details.section > summary.section-summary:hover .section-summary-chevron {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    color: var(--accent-deep);
+  }
+  details.section[open] .section-summary-chevron {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  details.section:not([open]) {
+    padding-bottom: 8px;
+  }
+  details.section:not([open]) .section-summary .section-title {
+    margin-bottom: 0;
+  }
+  @media print {
+    details.section > summary.section-summary { display: block; }
+    details.section .section-summary-chevron { display: none; }
+    details.section > *:not(summary) { display: revert !important; }
+  }
 </style>
 </head>
 <body>
@@ -1235,17 +1325,20 @@
         <div class="quick-value">4 personas</div>
         <div class="quick-sub">Estudio con altillo</div>
       </div>
-      <a href="#practico" class="quick-card highlight" style="text-decoration:none; color:inherit;">
+      <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
         <div class="quick-label">Wifi</div>
         <div class="quick-value">SFR_7CFF</div>
         <div class="quick-sub">Contraseña ↓</div>
       </a>
     </div>
 
-    <!-- LLEGADA -->
-    <section class="section reveal" id="llegar">
-      <div class="section-eyebrow">Paso a paso</div>
-      <h2 class="section-title">Llegar <em>al alojamiento</em></h2>
+    <!-- ARRIVÉE -->
+    <details class="section reveal" id="arriver">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Paso a paso</div>
+        <h2 class="section-title">Llegar <em>al alojamiento</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="steps">
 
@@ -1253,9 +1346,9 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Encontrar la dirección</h3>
-            <p class="step-text">Llegas a <strong>3 rue de la Valfenière, Lyon 1er</strong>, en el corazón de <strong>Terreaux</strong>. Algunos puntos de referencia para guiarte :</p>
+            <p class="step-text">Llegas a <strong>3 rue de la Valfenière, Lyon 1er</strong>, en el corazón de <strong>Terreaux</strong>. Algunos puntos de referencia para orientarte :</p>
             <ul style="margin:8px 0 14px 18px; padding:0; color:var(--fg-soft); font-size:14.5px; line-height:1.7;">
-              <li><strong>Desde la plaza de Terreaux</strong> : toma la rue Paul Chenavard y luego la rue Major Martin (en la esquina del <strong>Café des Fédérations</strong>).</li>
+              <li><strong>Desde la Place des Terreaux</strong> : toma la rue Paul Chenavard y luego la rue Major Martin (en la esquina del <strong>Café des Fédérations</strong>).</li>
               <li><strong>Desde la rue de la Plâtrière</strong> : en la esquina del <strong>Franprix Marché Presqu'île</strong>.</li>
             </ul>
             <a href="https://www.google.com/maps/place/3+Rue+de+la+Valfeni%C3%A8re,+69001+Lyon/" target="_blank" class="step-button">
@@ -1268,7 +1361,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
               </div>
             </a>
-            <p class="step-photo-caption">▶ Vídeo de llegada · encontrar la entrada del edificio</p>
+            <p class="step-photo-caption">▶ Vídeo de llegada · cómo encontrar la entrada del edificio</p>
           </div>
         </div>
 
@@ -1276,9 +1369,9 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <h3 class="step-title">El código de acceso del edificio</h3>
-            <p class="step-text">El edificio tiene <strong>dos puertas sucesivas</strong> con el <strong>mismo código</strong>. Introduce el código en la primera, luego nuevamente en la segunda para acceder al vestíbulo.</p>
+            <p class="step-text">El edificio tiene <strong>dos puertas sucesivas</strong> con el <strong>mismo código</strong>. Introduce el código en la primera, y luego en la segunda para acceder al vestíbulo.</p>
             <div class="codebox">
-              <span class="codebox-label">Código · 1<sup>a</sup> y 2<sup>a</sup> puerta</span>
+              <span class="codebox-label">Código · 1<sup>ª</sup> y 2<sup>ª</sup> puerta</span>
               <span class="codebox-value">3175</span>
             </div>
           </div>
@@ -1288,7 +1381,7 @@
           <div class="step-num">3</div>
           <div class="step-content">
             <h3 class="step-title">Abrir la caja de llaves Igloohome</h3>
-            <p class="step-text">Una vez pasadas las dos puertas, llegas al <strong>vestíbulo</strong>. La caja de llaves Igloohome está <strong>fijada en la puerta del vestíbulo</strong>. Aquí te explicamos cómo usarla :</p>
+            <p class="step-text">Una vez pasadas las dos puertas, llegas al <strong>vestíbulo</strong>. La caja de llaves Igloohome está <strong>fijada en la puerta del vestíbulo</strong>. Así es cómo usarla :</p>
 
             <div style="display:flex; justify-content:center; margin-top:8px;">
               <div style="max-width:300px;">
@@ -1298,8 +1391,8 @@
             </div>
 
             <div class="step-substeps">
-              <div class="step-substep"><span class="step-substep-num">1</span><span>Coloca la <strong style="color:var(--fg);">palma de la mano</strong> sobre el teclado para activar el dispositivo</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Introduce tu <strong style="color:var(--fg);">código de 4 dígitos</strong>, luego presiona el logo de candado en el centro</span></div>
+              <div class="step-substep"><span class="step-substep-num">1</span><span>Coloca la <strong style="color:var(--fg);">palma de la mano</strong> sobre el teclado para despertar el dispositivo</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Introduce tu <strong style="color:var(--fg);">código de 4 dígitos</strong>, luego presiona el logo del candado en el centro</span></div>
               <div class="step-substep"><span class="step-substep-num">3</span><span>Espera el sonido y el ruido de apertura</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>Tira del lateral para abrir la caja y recupera la llave</span></div>
             </div>
@@ -1307,7 +1400,7 @@
             <p class="step-text" style="margin-top:14px;">Tu código único para esta caja :</p>
 
             {{smartlock_codebox}}
-            <div class="step-tip warn"><strong>⏰ Por tu seguridad</strong> · Este código cambia en cada reserva y permanece válido durante toda tu estancia.</div>
+            <div class="step-tip warn"><strong>⏰ Por tu seguridad</strong> · Este código cambia en cada reserva y es válido durante toda tu estancia.</div>
           </div>
         </div>
 
@@ -1320,21 +1413,26 @@
         </div>
 
       </div>
-    </section>
 
-    <!-- DESCUBRIR -->
-    <section class="section reveal" id="descubrir">
-      <div class="section-eyebrow">Descubrir el alojamiento</div>
-      <h2 class="section-title">L'Alcove en <em>pocos pasos</em></h2>
+      {{arrival_block}}
+    </details>
 
-      <!-- Visita virtual -->
-      <a href="https://www.youtube.com/watch?v=Ed_4ON2EUmc" target="_blank" rel="noopener" aria-label="Ver la visita virtual en YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:28px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-        <img src="https://img.youtube.com/vi/Ed_4ON2EUmc/maxresdefault.jpg" alt="Visita virtual" loading="lazy" onerror="this.src='https://img.youtube.com/vi/Ed_4ON2EUmc/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <!-- DÉCOUVRIR -->
+    <details class="section reveal" id="decouvrir">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Descubrir el alojamiento</div>
+        <h2 class="section-title">L'Alcove en <em>unos pasos</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+
+      <!-- Visite virtuelle -->
+      <a href="https://www.youtube.com/watch?v=Ed_4ON2EUmc" target="_blank" rel="noopener" aria-label="Ver el tour virtual en YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:28px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+        <img src="https://img.youtube.com/vi/Ed_4ON2EUmc/maxresdefault.jpg" alt="Tour virtual" loading="lazy" onerror="this.src='https://img.youtube.com/vi/Ed_4ON2EUmc/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </a>
-      <p style="text-align:center; color:var(--fg-soft); font-size:14px; margin:-18px 0 24px 0;">▶ Visita virtual · descubre el apartamento en vídeo</p>
+      <p style="text-align:center; color:var(--fg-soft); font-size:14px; margin:-18px 0 24px 0;">▶ Tour virtual · descubre el apartamento en vídeo</p>
 
       <div class="rooms">
         <div class="room">
@@ -1347,7 +1445,7 @@
         <div class="room">
           <div class="room-icon">🍳</div>
           <div>
-            <div class="room-name">Rincón de cocina</div>
+            <div class="room-name">Rincón cocina</div>
             <div class="room-desc">Placa · Frigorífico · Cafetera de filtro · Hervidor</div>
           </div>
         </div>
@@ -1362,7 +1460,7 @@
           <div class="room-icon">🛁</div>
           <div>
             <div class="room-name">Cuarto de baño</div>
-            <div class="room-desc">Secador de pelo · Toallero radiante</div>
+            <div class="room-desc">Secador · Toallero radiante</div>
           </div>
         </div>
         <div class="room">
@@ -1385,19 +1483,22 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg" alt="Estudio"><span class="gallery-caption">Estudio</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/be91NsSW46YFcnEYK60FS6DAxEGGkTlo8mKjAg3J.jpg" alt="Vista salón"><span class="gallery-caption">Salón</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ZcDQbp6p06N5BQ5sN8aJSZXShSlJ3kzZCGxeWS5V.jpg" alt="Altillo 1,25m"><span class="gallery-caption">Altillo · 1,25 m</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/j2SV9Psctu6Xbw2SsEodnHX2uFplufvAdzyGXTus.jpg" alt="Vista 4"><span class="gallery-caption">Rincón de cocina</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/j2SV9Psctu6Xbw2SsEodnHX2uFplufvAdzyGXTus.jpg" alt="Vista 4"><span class="gallery-caption">Rincón cocina</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/sERnbOq6tL4OabO36QlCv6TGh4S5d3SXCsm0s3IX.jpg" alt="Vista 5"><span class="gallery-caption">Espacio de vida</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/zLBCdkWMSydgNwOpC9EiNl9SNflTCEp2qZaSF8Qv.jpg" alt="Vista 6"><span class="gallery-caption">Detalle</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/a6hsmoW48NsyF0t27XBGv99ndeRVdpd9Kvq0BrM2.jpg" alt="Cuarto de baño"><span class="gallery-caption">Cuarto de baño</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/rhXzbhDExVwz2g5FqwnNwqL9jjrywyuQ4aBiT8hZ.jpg" alt="Vista 8"><span class="gallery-caption">Vista general</span></div>
       </div>
 
-    </section>
+    </details>
 
-    <!-- PRÁCTICO -->
-    <section class="section reveal" id="practico">
-      <div class="section-eyebrow">Durante tu estancia</div>
-      <h2 class="section-title">Lo esencial <em>práctico</em></h2>
+    <!-- PRATIQUE -->
+    <details class="section reveal" id="pratique">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Durante tu estancia</div>
+        <h2 class="section-title">Lo esencial <em>práctico</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="cards-grid">
         <div class="info-card">
@@ -1417,12 +1518,12 @@
         <div class="info-card">
           <div class="info-icon">☕</div>
           <h4 class="info-title">Café y bebidas calientes</h4>
-          <p class="info-text">Cafetera de <strong>filtro</strong> e hervidor disponibles. Sin máquina de cápsulas.</p>
+          <p class="info-text">Cafetera de <strong>filtro</strong> e hervidor disponibles. Sin máquina de cápsulas ni monodosis.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🧺</div>
           <h4 class="info-title">Lavadora</h4>
-          <p class="info-text">Enchúfala en la toma ubicada en la <strong>parte superior izquierda del espejo</strong> del baño.</p>
+          <p class="info-text">Enchúfala en la toma situada en la <strong>parte superior izquierda del espejo</strong> del baño.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">👕</div>
@@ -1431,32 +1532,35 @@
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
-          <h4 class="info-title">Ropa de cama proporcionada</h4>
-          <p class="info-text">Sábanas y 2 toallas por cama. El sofá-cama <strong>no viene hecho a la llegada</strong> — la ropa se encuentra en la estantería a la derecha del sofá.</p>
+          <h4 class="info-title">Ropa de cama incluida</h4>
+          <p class="info-text">Sábanas y 2 toallas por cama. El sofá-cama <strong>no viene hecho a la llegada</strong> — la ropa de cama está en la estantería a la derecha del sofá.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌡️</div>
           <h4 class="info-title">Toallero radiante</h4>
-          <p class="info-text">El toallero radiante puede tener un <strong>bloqueo de seguridad infantil</strong> activado. Si no consigues encenderlo, contacta con nosotros.</p>
+          <p class="info-text">El toallero puede tener un <strong>bloqueo de seguridad infantil</strong> activado. Si no consigues encenderlo, avísanos.</p>
         </div>
         <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
           <div class="info-icon" style="background: var(--warning); color: white;">🚪</div>
-          <h4 class="info-title">Al salir</h4>
-          <p class="info-text">Cierra la puerta con llave y <strong>devuelve la llave a la caja Igloohome</strong> en la puerta del vestíbulo. El código sigue siendo el mismo que a la llegada.</p>
+          <h4 class="info-title">A la salida</h4>
+          <p class="info-text">Cierra la puerta con llave y <strong>devuelve la llave en la caja Igloohome</strong> en la puerta del vestíbulo. El código es el mismo que el de llegada.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">Normas de la casa</h4>
-          <p class="info-text"><strong>Sin fumar</strong> · sin animales · sin fiestas · silencio después de las 22:00. Los <strong>2 grandes armarios</strong> del salón se usan para guardar productos de limpieza : por favor no los abras.</p>
+          <p class="info-text"><strong>No fumadores</strong> · sin mascotas · sin fiestas · silencio después de las 22:00. Los <strong>2 grandes armarios</strong> del salón se usan para guardar productos de limpieza : no los abras.</p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- BASURAS -->
-    <section class="section reveal" id="basuras">
-      <div class="section-eyebrow">Reciclaje</div>
-      <h2 class="section-title">Las <em>basuras</em></h2>
-      <p class="section-intro">Por respeto a nuestro personal de limpieza, por favor evacúa tus basuras cuando te vayas.</p>
+    <!-- POUBELLES -->
+    <details class="section reveal" id="poubelles">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Reciclaje</div>
+        <h2 class="section-title">Las <em>basuras</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Por respeto a nuestro personal de limpieza, por favor evacúa tus basuras al salir.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:flex-start;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
@@ -1476,12 +1580,15 @@
           <p class="step-photo-caption" style="text-align:center; margin-top:6px;">La sala de basuras</p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- MOVERSE -->
-    <section class="section reveal" id="moverse">
-      <div class="section-eyebrow">Moverse</div>
-      <h2 class="section-title">Desplazarse <em>por la ciudad</em></h2>
+    <!-- BOUGER -->
+    <details class="section reveal" id="bouger">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Moverse</div>
+        <h2 class="section-title">Desplazarse <em>por la ciudad</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="transport-grid">
         <div class="transport-card">
@@ -1517,8 +1624,8 @@
 
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ Aparcamiento</div>
-        <div class="reco-tip-text">El apartamento se encuentra en la <strong>zona peatonal</strong> de Lyon — el aparcamiento en la calle es complicado.<br><br>
-        Varios <strong>parkings subterráneos LPA</strong> cercanos :<br>
+        <div class="reco-tip-text">El apartamento está en el <strong>centro peatonal</strong> de Lyon — el aparcamiento en la calle es complicado.<br><br>
+        Varios <strong>parkings subterráneos LPA</strong> cerca :<br>
         · <strong>Parking Terreaux</strong> · el más cercano (de pago)<br>
         · <strong>Parking Saint-Antoine</strong><br>
         · <strong>Parking Cordelier</strong> · un poco más lejos<br><br>
@@ -1529,20 +1636,23 @@
         <div class="reco-tip-title" style="color: var(--success);">🧳 Consigna de equipaje</div>
         <div class="reco-tip-text">Si necesitas guardar tu equipaje antes o después de tu estancia : <a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> ofrece puntos de depósito <strong>en toda Lyon</strong> desde 4,50€/día. <a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">Otras consignas en Lyon</a>.</div>
       </div>
-    </section>
+    </details>
 
     <!-- RECOS -->
-    <section class="section reveal" id="recos">
-      <div class="section-eyebrow">Nuestros favoritos</div>
-      <h2 class="section-title">Qué descubrir <em>alrededor</em></h2>
+    <details class="section reveal" id="recos">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Nuestras recomendaciones</div>
+        <h2 class="section-title">Qué descubrir <em>alrededor</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="recos-toc">
-        <a href="#restaurantes" class="recos-toc-link">🍷 Restaurantes</a>
-        <a href="#turismo" class="recos-toc-link">🏛️ Qué visitar</a>
-        <a href="#comercios" class="recos-toc-link">🛒 Comercios</a>
+        <a href="#restos" class="recos-toc-link">🍷 Restaurantes</a>
+        <a href="#tourisme" class="recos-toc-link">🏛️ Qué visitar</a>
+        <a href="#commerces" class="recos-toc-link">🛒 Comercios</a>
       </div>
 
-      <h3 class="reco-cat-title" id="restaurantes"><span class="icon">🍷</span> Restaurantes <span class="reco-cat-count">· 3 direcciones</span></h3>
+      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurantes <span class="reco-cat-count">· 3 direcciones</span></h3>
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/cafe-des-federations.png" alt="">
@@ -1583,13 +1693,13 @@
         <div class="reco-tip-text">Para explorar la gastronomía lyonesa, pasea por la <strong>rue Mercière</strong>, la <strong>rue de l'Arbre-Sec</strong>, la <strong>rue des Marronniers</strong> o las callejuelas peatonales del <strong>Vieux Lyon</strong>.</div>
       </div>
 
-      <h3 class="reco-cat-title" id="turismo"><span class="icon">🏛️</span> Qué visitar <span class="reco-cat-count">· 6 imprescindibles</span></h3>
+      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> Qué visitar <span class="reco-cat-count">· 6 imprescindibles</span></h3>
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/terrreaux.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Plaza histórica</span><span class="reco-meta-sep">·</span><span class="reco-distance">100 m ⭐</span></div>
-            <div class="reco-name">Plaza de Terreaux</div>
+            <div class="reco-name">Place des Terreaux</div>
             <span class="reco-tag">Justo al lado</span>
             <p class="reco-desc">Plaza emblemática de Lyon con la <strong>fuente Bartholdi</strong> en su centro. A 1 minuto a pie del apartamento.</p>
             <a href="https://www.google.com/maps/place/Pl.+des+Terreaux" target="_blank" class="reco-link">Ver en el mapa →</a>
@@ -1602,7 +1712,7 @@
             <div class="reco-meta"><span class="reco-cat">Patrimonio UNESCO</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
             <div class="reco-name">El Vieux Lyon</div>
             <span class="reco-tag">Imprescindible</span>
-            <p class="reco-desc">Barrio renacentista declarado Patrimonio de la Humanidad, accesible por la <strong>montée du Gourguillon</strong> o por el <strong>funicular</strong>. Traboules, plazas empedradas y bouchons tradicionales.</p>
+            <p class="reco-desc">Barrio Renacimiento declarado Patrimonio UNESCO, accesible por la <strong>montée du Gourguillon</strong> o por el <strong>funicular</strong>. Traboules, plazas empedradas y bouchons tradicionales.</p>
             <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Ver el sitio →</a>
           </div>
         </div>
@@ -1621,7 +1731,7 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/lugdunum.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Museo romano · Gratis</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,5 km</span></div>
+            <div class="reco-meta"><span class="reco-cat">Museo galo-romano · Gratis</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,5 km</span></div>
             <div class="reco-name">Lugdunum · Museo y teatros romanos</div>
             <span class="reco-tag">Gratis</span>
             <p class="reco-desc">Museo arqueológico y anfiteatros antiguos, <strong>acceso gratuito</strong> a los teatros al aire libre.</p>
@@ -1652,7 +1762,7 @@
         </div>
       </div>
 
-      <h3 class="reco-cat-title" id="comercios"><span class="icon">🛒</span> Comercios <span class="reco-cat-count">· 3 direcciones</span></h3>
+      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Comercios <span class="reco-cat-count">· 3 direcciones</span></h3>
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Franprix.png" alt="">
@@ -1671,7 +1781,7 @@
             <div class="reco-meta"><span class="reco-cat">Supermercado</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Carrefour Market</div>
             <span class="reco-tag">Compras puntuales</span>
-            <p class="reco-desc">Para completar tus compras o lo que necesites del día a día.</p>
+            <p class="reco-desc">Para completar tus compras o compras del día a día.</p>
             <a href="#" class="reco-link">Ver en el mapa →</a>
           </div>
         </div>
@@ -1682,18 +1792,21 @@
             <div class="reco-meta"><span class="reco-cat">Panadería</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Boulangerie Pomponette</div>
             <span class="reco-tag">Para la mañana</span>
-            <p class="reco-desc">La panadería más cercana, amplia variedad de panes y bollería para tus desayunos.</p>
+            <p class="reco-desc">La panadería más cercana, amplia variedad de panes y pastelería para tus desayunos.</p>
             <a href="#" class="reco-link">Ver en el mapa →</a>
           </div>
         </div>
       </div>
 
-    </section>
+    </details>
 
-    <!-- SALIDA -->
-    <section class="section reveal" id="salida">
-      <div class="section-eyebrow">En el momento de la salida</div>
-      <h2 class="section-title">Antes de <em>irte</em></h2>
+    <!-- DÉPART -->
+    <details class="section reveal" id="depart">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Momento de la salida</div>
+        <h2 class="section-title">Antes de <em>irte</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="checklist">
         <div class="checklist-item">
@@ -1702,7 +1815,7 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Vacía el frigorífico · los alimentos perecederos, por favor</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Vacía el frigorífico · los productos perecederos, por favor</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1710,7 +1823,7 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Evacúa tus basuras en la sala (vuelta del edificio, puerta a la derecha del nº6)</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Evacúa tus residuos (ver la sección basuras)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1718,29 +1831,27 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Devuelve la llave a la caja Igloohome · mismo código</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Devuelve la llave en la caja Igloohome · mismo código</div>
         </div>
       </div>
 
       <div class="checkout-block">
         <p class="checkout-block-text">¿Todo listo? Un pequeño clic nos permite saber que te has ido con seguridad.</p>
-        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
-          👋 Informo al anfitrión de mi salida
-        </a>
+        {{checkout_block}}
       </div>
-    </section>
+    </details>
 
-    <!-- CONTACTO -->
+    <!-- CONTACT -->
     <section class="section reveal">
       <div class="contact-card">
         <div class="contact-eyebrow">¿Una pregunta?</div>
         <h3 class="contact-title">Estamos aquí, a cualquier hora</h3>
         <div class="contact-actions">
-          <a href="https://wa.me/33600000000" class="contact-btn primary">
+          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
             💬 Escribir en WhatsApp
           </a>
-          <a href="tel:+33600000000" class="contact-btn">
-            📞 Llamar · +33 6 00 00 00 00
+          <a href="tel:{{host_phone}}" class="contact-btn">
+            📞 Llamar · {{host_phone_display}}
           </a>
         </div>
       </div>
@@ -1748,7 +1859,7 @@
 
     <footer>
       <div class="signature">Que disfrutes tu estancia en Lyon</div>
-      <div>U-citybreak · Conciergerie Lyon · Besançon</div>
+      <div>U-citybreak · Conciergería Lyon · Besançon</div>
     </footer>
 
   </main>
@@ -1800,6 +1911,38 @@
         btn.innerHTML = '✓ Salida confirmada · ¡gracias!';
       }, 600);
     });
+  })();
+
+
+  (function() {
+    const btn = document.getElementById('arrivalBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Llegada confirmada · ¡gracias!';
+      }, 600);
+    });
+  })();
+
+
+  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
+  (function() {
+    function openDetailsForHash(hash) {
+      if (!hash || hash === '#') return;
+      try {
+        const target = document.querySelector(hash);
+        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        openDetailsForHash(a.getAttribute('href'));
+      });
+    });
+    if (window.location.hash) openDetailsForHash(window.location.hash);
   })();
 </script>
 
