@@ -1,4 +1,4 @@
-<!-- BUILT for lumineux-de at 2026-05-07T12:12:51.259Z | photos: 25 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for lumineux-de at 2026-05-14T07:05:29.422Z | photos: 25 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -1173,6 +1173,96 @@
     .reco { grid-template-columns: 88px 1fr; }
     .reco-img { width: 88px; min-height: 110px; }
   }
+
+  .arrival-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(90,110,63,0.25);
+    text-align: center;
+  }
+  .arrival-block-text {
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .arrival-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 14px 28px;
+    background: var(--success); color: white;
+    text-decoration: none; border-radius: var(--radius-md);
+    font-weight: 500; font-size: 15px;
+    transition: all 0.18s; border: 1px solid var(--success);
+  }
+  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-block.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .arrival-block.locked .arrival-block-text {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin-bottom: 0;
+  }
+
+  details.section > summary.section-summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-right: 56px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s ease;
+  }
+  details.section > summary.section-summary::-webkit-details-marker { display: none; }
+  details.section > summary.section-summary::marker { display: none; }
+  details.section > summary.section-summary:hover {
+    background: rgba(184,85,45,0.03);
+  }
+  details.section .section-summary-chevron {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    padding-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
+    box-shadow: var(--shadow-sm);
+  }
+  details.section > summary.section-summary:hover .section-summary-chevron {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    color: var(--accent-deep);
+  }
+  details.section[open] .section-summary-chevron {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  details.section:not([open]) {
+    padding-bottom: 8px;
+  }
+  details.section:not([open]) .section-summary .section-title {
+    margin-bottom: 0;
+  }
+  @media print {
+    details.section > summary.section-summary { display: block; }
+    details.section .section-summary-chevron { display: none; }
+    details.section > *:not(summary) { display: revert !important; }
+  }
 </style>
 </head>
 <body>
@@ -1233,7 +1323,7 @@
       <div class="quick-card">
         <div class="quick-label">Gäste</div>
         <div class="quick-value">2 Personen</div>
-        <div class="quick-sub">2-Zimmer Quartier Battant</div>
+        <div class="quick-sub">T2 Quartier Battant</div>
       </div>
       <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
         <div class="quick-label">WLAN</div>
@@ -1243,9 +1333,12 @@
     </div>
 
     <!-- ANKUNFT -->
-    <section class="section reveal" id="arriver">
-      <div class="section-eyebrow">Schritt für Schritt</div>
-      <h2 class="section-title">Ankunft <em>in der Unterkunft</em></h2>
+    <details class="section reveal" id="arriver">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Schritt für Schritt</div>
+        <h2 class="section-title">Ankunft <em>in der Unterkunft</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="steps">
 
@@ -1253,12 +1346,12 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Die Adresse finden</h3>
-            <p class="step-text">Sie kommen an unter <strong>10 Rue de la Madeleine, 25000 Besançon</strong>. Das Gebäude befindet sich im Quartier Battant, in der Nähe der Madeleine-Kirche. Die blaue Eingangstür des Gebäudes befindet sich zwischen dem Klaviergeschäft VonArx und einem Friseursalon, unter der Nummer 10.</p>
+            <p class="step-text">Sie kommen an der <strong>10 Rue de la Madeleine, 25000 Besançon</strong> an. Das Gebäude befindet sich im Quartier Battant, in der Nähe der Madeleine-Kirche. Die blaue Eingangstür des Gebäudes befindet sich zwischen dem Klaviergeschäft VonArx und einem Friseursalon unter der Nummer 10.</p>
             <a href="https://www.google.com/maps/place/10+Rue+de+la+Madeleine,+25000+Besan%C3%A7on/" target="_blank" class="step-button">
               In Maps öffnen <span class="arrow">→</span>
             </a>
-            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/arrivee%201.png" alt="Das Viertel um das Gebäude" style="max-width: 100%;">
-            <p class="step-photo-caption">Das Quartier Battant, rund um das Gebäude</p>
+            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/arrivee%201.png" alt="Das Viertel rund um das Gebäude" style="max-width: 100%;">
+            <p class="step-photo-caption">Das Quartier Battant rund um das Gebäude</p>
           </div>
         </div>
 
@@ -1274,7 +1367,7 @@
               <span class="codebox-value">3589</span>
               <button class="codebox-copy" onclick="copyCode(this, '3589')">Kopieren</button>
             </div>
-            <div class="step-tip"><strong>💡 Guter Tipp</strong> · Nach dem Eintreten gehen Sie durch den <strong>langen Flur</strong> bis zum inneren Hof. Nehmen Sie nicht die Treppe auf der rechten Seite.</div>
+            <div class="step-tip"><strong>💡 Gut zu wissen</strong> · Nachdem Sie eingetreten sind, gehen Sie durch den <strong>langen Flur</strong> bis zum Innenhof. Nehmen Sie nicht die Treppe auf der rechten Seite.</div>
           </div>
         </div>
 
@@ -1282,18 +1375,18 @@
           <div class="step-num">3</div>
           <div class="step-content">
             <h3 class="step-title">Zugang zur Wohnung</h3>
-            <p class="step-text">Nachdem Sie das Tor passiert haben, folgen Sie dieser Fotostrecke, um zur Wohnungstür zu gelangen:</p>
+            <p class="step-text">Nachdem Sie das Tor passiert haben, folgen Sie dieser Fotostrecke zur Wohnungstür:</p>
 
             <div class="step-photo-sequence">
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">1</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/arrivee%203%20-%20couloir.jpg" alt="Der Flur">
-                <div class="step-photo-frame-cap">Nach dem Eintreten gehen Sie durch den <strong>langen Flur</strong></div>
+                <div class="step-photo-frame-cap">Nachdem Sie die Tür passiert haben, gehen Sie durch den <strong>langen Flur</strong></div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">2</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Arrivee%204%20-%20cour%20et%20cage%20escalier.jpg" alt="Innenhof">
-                <div class="step-photo-frame-cap">Sie kommen zum <strong>inneren Hof</strong>, nehmen Sie das Treppenhaus vorne links</div>
+                <div class="step-photo-frame-cap">Sie gelangen in den <strong>Innenhof</strong>, nehmen Sie das Treppenhaus links vorne</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">3</span>
@@ -1314,16 +1407,16 @@
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-content">
-            <h3 class="step-title">Igloohome Schlüsselbox öffnen</h3>
+            <h3 class="step-title">Igloohome-Schlüsselbox öffnen</h3>
             <p class="step-text">So sieht die Box aus und wie man sie benutzt:</p>
 
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; margin-top:8px;">
               <div>
-                <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/boite%20a%20clee.png" alt="Igloohome Schlüsselbox" style="margin-top:0; max-width:100%; aspect-ratio:1/1; object-fit:cover;">
-                <p class="step-photo-caption">Die Igloohome Schlüsselbox neben der Tür</p>
+                <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/boite%20a%20clee.png" alt="Igloohome-Schlüsselbox" style="margin-top:0; max-width:100%; aspect-ratio:1/1; object-fit:cover;">
+                <p class="step-photo-caption">Die Igloohome-Schlüsselbox neben der Tür</p>
               </div>
-              <a href="https://www.youtube.com/watch?v=V-5kXRTPRko" target="_blank" rel="noopener" aria-label="Igloohome Demo auf YouTube ansehen" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:1/1; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.querySelector('.video-play-icon').style.background='var(--accent)'; this.querySelector('.video-play-icon').style.transform='translate(-50%, -50%) scale(1.1)';" onmouseout="this.style.transform='none'; this.querySelector('.video-play-icon').style.background='rgba(0,0,0,0.65)'; this.querySelector('.video-play-icon').style.transform='translate(-50%, -50%) scale(1)';">
-                <img src="https://img.youtube.com/vi/V-5kXRTPRko/maxresdefault.jpg" alt="Igloohome Demo" loading="lazy" onerror="this.src='https://img.youtube.com/vi/V-5kXRTPRko/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+              <a href="https://www.youtube.com/watch?v=V-5kXRTPRko" target="_blank" rel="noopener" aria-label="Igloohome-Demo auf YouTube ansehen" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:1/1; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.querySelector('.video-play-icon').style.background='var(--accent)'; this.querySelector('.video-play-icon').style.transform='translate(-50%, -50%) scale(1.1)';" onmouseout="this.style.transform='none'; this.querySelector('.video-play-icon').style.background='rgba(0,0,0,0.65)'; this.querySelector('.video-play-icon').style.transform='translate(-50%, -50%) scale(1)';">
+                <img src="https://img.youtube.com/vi/V-5kXRTPRko/maxresdefault.jpg" alt="Igloohome-Demo" loading="lazy" onerror="this.src='https://img.youtube.com/vi/V-5kXRTPRko/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
                 <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:56px; height:56px; border-radius:50%; background:rgba(0,0,0,0.65); backdrop-filter:blur(8px); color:white; display:flex; align-items:center; justify-content:center; transition:all 0.25s ease; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-left:3px;"><path d="M8 5v14l11-7z"/></svg>
                 </div>
@@ -1332,7 +1425,7 @@
             <p class="step-photo-caption" style="text-align:center; margin-top:6px;">▶ Video-Demo · 30 Sek · öffnet YouTube ↗</p>
 
             <div class="step-substeps">
-              <div class="step-substep"><span class="step-substep-num">1</span><span>Legen Sie die <strong style="color:var(--fg);">Handfläche</strong> auf die Tastatur, um das Gerät zu aktivieren</span></div>
+              <div class="step-substep"><span class="step-substep-num">1</span><span>Legen Sie Ihre <strong style="color:var(--fg);">Handfläche</strong> auf die Tastatur, um das Gerät zu aktivieren</span></div>
               <div class="step-substep"><span class="step-substep-num">2</span><span>Geben Sie Ihren <strong style="color:var(--fg);">4-stelligen Code</strong> ein und drücken Sie das Schlosssymbol in der Mitte</span></div>
               <div class="step-substep"><span class="step-substep-num">3</span><span>Warten Sie auf den Piepton und das Öffnungsgeräusch</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>Ziehen Sie an der Seite, um die Box zu öffnen und den Schlüssel zu entnehmen</span></div>
@@ -1341,7 +1434,7 @@
             <p class="step-text" style="margin-top:14px;">Ihr eindeutiger Code für diese Box:</p>
 
             {{smartlock_codebox}}
-            <div class="step-tip warn"><strong>⏰ Zu Ihrer Sicherheit</strong> · Dieser Code ändert sich bei jeder Buchung und bleibt für die Dauer Ihres Aufenthalts gültig.</div>
+            <div class="step-tip warn"><strong>⏰ Zu Ihrer Sicherheit</strong> · Dieser Code ändert sich bei jeder Reservierung und bleibt für die gesamte Dauer Ihres Aufenthalts gültig.</div>
           </div>
         </div>
 
@@ -1349,18 +1442,23 @@
           <div class="step-num">5</div>
           <div class="step-content">
             <h3 class="step-title">In die Wohnung eintreten</h3>
-            <p class="step-text">Schließen Sie die Box (drücken Sie sanft auf die Klappe, bis es klickt), dann öffnen Sie die Wohnungstür mit dem Schlüssel. <strong>Willkommen zu Hause</strong> ✨</p>
+            <p class="step-text">Schließen Sie die Box (drücken Sie sanft auf die Klappe, bis es klickt), öffnen Sie dann die Wohnungstür mit dem Schlüssel. <strong>Willkommen zu Hause</strong> ✨</p>
           </div>
         </div>
 
       </div>
-    </section>
+
+      {{arrival_block}}
+    </details>
 
     <!-- ENTDECKEN -->
-    <section class="section reveal" id="decouvrir">
-      <div class="section-eyebrow">Die Unterkunft entdecken</div>
-      <h2 class="section-title">Le Lumineux in <em>wenigen Schritten</em></h2>
-      <p class="section-intro">Helle und gemütliche Wohnung im Herzen des Quartier Battant, einem der lebendigsten Viertel von Besançon. Nur wenige Schritte von Bistros, Geschäften und Spaziergängen auf den Stadtmauern entfernt.</p>
+    <details class="section reveal" id="decouvrir">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Die Unterkunft entdecken</div>
+        <h2 class="section-title">Le Lumineux in <em>wenigen Schritten</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Helle und gemütliche Wohnung im Herzen des Quartier Battant, einem der lebendigsten Viertel von Besançon. Nur wenige Schritte von Bistros, Geschäften und Spaziergängen auf den Befestigungsanlagen entfernt.</p>
 
       <div class="rooms">
         <div class="room">
@@ -1374,13 +1472,13 @@
           <div class="room-icon">🍳</div>
           <div>
             <div class="room-name">Ausgestattete Küche</div>
-            <div class="room-desc">Kochfeld · Kühlschrank · Geschirrspüler · Nespresso</div>
+            <div class="room-desc">Kochplatte · Kühlschrank · Geschirrspüler · Nespresso</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🛏️</div>
           <div>
-            <div class="room-name">Doppelschlafzimmer</div>
+            <div class="room-name">Schlafzimmer mit Doppelbett</div>
             <div class="room-desc">1 großes Doppelbett</div>
           </div>
         </div>
@@ -1417,12 +1515,15 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/N1NikwVqMFK4Dh6o7YiYLxpusFAgb6RBKRDPkRzP.jpg" alt="Kochnische"><span class="gallery-caption">Kochnische</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076396/Vg1PkjbW56IKPJJNykj4n579AQLmBaoYOH21oPUG.jpg" alt="Raum"><span class="gallery-caption">Raum</span></div>
       </div>
-    </section>
+    </details>
 
     <!-- PRAKTISCH -->
-    <section class="section reveal" id="pratique">
-      <div class="section-eyebrow">Während Ihres Aufenthalts</div>
-      <h2 class="section-title">Das Wichtigste <em>praktisch</em></h2>
+    <details class="section reveal" id="pratique">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Während Ihres Aufenthalts</div>
+        <h2 class="section-title">Das Wichtigste <em>praktisch</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="cards-grid">
         <div class="info-card">
@@ -1436,23 +1537,23 @@
         </div>
         <div class="info-card">
           <div class="info-icon">📺</div>
-          <h4 class="info-title">Fernseher</h4>
-          <p class="info-text">Android SFR TV Box. Verwenden Sie die <strong>2. Fernbedienung</strong> (die kleinere), um durch Kanäle und Apps zu navigieren.</p>
+          <h4 class="info-title">Fernsehen</h4>
+          <p class="info-text">SFR TV Android-Box. Verwenden Sie die <strong>2. Fernbedienung</strong> (die kleinere), um durch Kanäle und Apps zu navigieren.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🍳</div>
-          <h4 class="info-title">Kochfeld</h4>
-          <p class="info-text"><strong>Glaskochfeld</strong> mit Touchbedienung. Drücken Sie die Tasten, um die Leistung von 1 bis 9 einzustellen. Kindersicherung: langes Drücken der Sperrtaste.</p>
+          <h4 class="info-title">Kochplatte</h4>
+          <p class="info-text"><strong>Berührungsempfindliche</strong> Glaskochplatte. Drücken Sie die Tasten, um die Leistung von 1 bis 9 einzustellen. Kindersicherung: langes Drücken der Sperrtaste.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌡️</div>
           <h4 class="info-title">Heizung</h4>
-          <p class="info-text">Wandheizkörper. Im Winter idealerweise zwischen 19 und 21°C für Energieeffizienz.</p>
+          <p class="info-text">Wandheizkörper. Idealerweise zwischen 19 und 21°C im Winter, um Energie zu sparen.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
           <h4 class="info-title">Bettwäsche vorhanden</h4>
-          <p class="info-text">Laken und Handtücher sind einsatzbereit. Die <strong>Laken für das Schlafsofa</strong> befinden sich im <strong>Schrank rechts neben dem TV</strong>.</p>
+          <p class="info-text">Bettwäsche und Handtücher sind einsatzbereit. Die <strong>Bettwäsche für das Schlafsofa</strong> befindet sich im <strong>Schrank rechts neben dem Fernseher</strong>.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛋️</div>
@@ -1468,88 +1569,97 @@
           <p class="info-text">Nichtraucher · Keine Veranstaltungen · Ruhe nach 22 Uhr (altes Gebäude).</p>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- MÜLL -->
-    <section class="section reveal" id="poubelles">
-      <div class="section-eyebrow">Mülltrennung</div>
-      <h2 class="section-title">Die <em>Mülltonnen</em></h2>
-      <p class="section-intro">Bitte entsorgen Sie Ihren Müll bei der Abreise, um unser Reinigungspersonal zu unterstützen.</p>
+    <details class="section reveal" id="poubelles">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Mülltrennung</div>
+        <h2 class="section-title">Die <em>Mülltonnen</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Aus Respekt vor unserem Reinigungspersonal bitten wir Sie, Ihren Müll bei der Abreise zu entsorgen.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:center;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
           <h4 class="info-title" style="margin-bottom:2px;">Müllraum</h4>
-          <p class="info-text">Unten an der Treppe im <strong>inneren Hof</strong>.</p>
+          <p class="info-text">Unten in der Treppe, im <strong>Innenhof</strong>.</p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- MOBILITÄT -->
-    <section class="section reveal" id="bouger">
-      <div class="section-eyebrow">Mobilität</div>
-      <h2 class="section-title">Sich in der Stadt <em>fortbewegen</em></h2>
+    <!-- FORTBEWEGUNG -->
+    <details class="section reveal" id="bouger">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Fortbewegung</div>
+        <h2 class="section-title">In der Stadt <em>unterwegs</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="transport-grid">
         <div class="transport-card">
           <div class="transport-icon">🚊</div>
           <div class="transport-name">Bus / Straßenbahn Ginko</div>
-          <div class="transport-desc">Haltestelle <strong>Vieil Picard</strong></div>
-          <div class="transport-distance">5 Min zu Fuß</div>
+          <div class="transport-desc">Haltestelle Straßenbahn <strong>Vieil Picard</strong></div>
+          <div class="transport-distance">5 Min. zu Fuß</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚆</div>
           <div class="transport-name">Bahnhof Viotte</div>
           <div class="transport-desc">Über die Rue Battant und die Passerelle des Parc des Glacis</div>
-          <div class="transport-distance">15 Min zu Fuß</div>
+          <div class="transport-distance">15 Min. zu Fuß</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚄</div>
           <div class="transport-name">TGV-Bahnhof</div>
-          <div class="transport-desc">Shuttle oder Zug ab Viotte</div>
-          <div class="transport-distance">~10 Min mit Zug</div>
+          <div class="transport-desc">Shuttle oder Zug von Viotte</div>
+          <div class="transport-distance">~10 Min. mit dem Zug</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚖</div>
           <div class="transport-name">Taxi</div>
-          <div class="transport-desc">Uber bedient Besançon nicht. Funkzentralen: 03 81 88 80 80, oder Mietwagen zum TGV-Bahnhof.</div>
+          <div class="transport-desc">Uber bedient Besançon nicht. Funkzentralen: 03 81 88 80 80, oder Mietwagenservice zum TGV-Bahnhof.</div>
         </div>
         <div class="transport-card" style="grid-column: span 2;">
           <div class="transport-icon">🚲</div>
           <div class="transport-name">Fahrräder · VéloCité</div>
-          <div class="transport-desc">Fahrradverleihservice für kurze Strecken oder Tagesmiete bei lokalen Agenturen. Kostenlose sichere Parkplätze in einem Boxen (Personalausweis erforderlich) — Tel. 03 81 21 32 60.</div>
+          <div class="transport-desc">Fahrrad-Sharing-Service für kurze Strecken oder Tagesmiete bei lokalen Agenturen. Kostenlose Parkplätze in einem gesicherten Kasten (Personalausweis erforderlich) — Tel. 03 81 21 32 60.</div>
         </div>
       </div>
 
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ Parken</div>
-        <div class="reco-tip-text">Die Wohnung liegt in einer Fußgängerzone, Sie können nicht direkt vor der Tür parken. Kostenlose Parkplätze in den Parkhäusern <strong>Robelin</strong>, <strong>Battant</strong> und <strong>Cusenier Beaux Arts</strong>, 5 Gehminuten entfernt. Zum Entladen von Gepäck sind die Fußgängerschranken manchmal bis 11 Uhr morgens offen.</div>
+        <div class="reco-tip-text">Die Wohnung liegt in einer Fußgängerzone, Sie können nicht direkt vor der Tür parken. Kostenlose Parkplätze in den Parkhäusern <strong>Robelin</strong>, <strong>Battant</strong> und <strong>Cusenier Beaux Arts</strong>, 5 Gehminuten entfernt. Zum Ausladen von Gepäck sind die Poller manchmal bis 11 Uhr offen.</div>
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:14px;">
         <a href="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Carte%20des%20stationnements.png" target="_blank" style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden; text-decoration:none; color:inherit; display:block; transition: all 0.18s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
           <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Carte%20des%20stationnements.png" alt="Parkplatzkarte" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parkplatzkarte</strong> · zum Vergrößern klicken 🔍</div>
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parkplatzkarte</strong> · klicken zum Vergrößern 🔍</div>
         </a>
         <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
           <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Robelin.png" alt="Parkhaus Robelin" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parkhaus Robelin</strong> · 5 Min zu Fuß</div>
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parkhaus Robelin</strong> · 5 Min. zu Fuß</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
           <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Battant.png" alt="Parkhaus Battant" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parkhaus Battant</strong> · 5 Min zu Fuß</div>
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parkhaus Battant</strong> · 5 Min. zu Fuß</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
           <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Cusselier%20Beaux%20Arts.png" alt="Parkhaus Cusenier Beaux Arts" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Cusenier Beaux Arts</strong> · 7 Min zu Fuß</div>
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Cusenier Beaux Arts</strong> · 7 Min. zu Fuß</div>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- EMPFEHLUNGEN -->
-    <section class="section reveal" id="recos">
-      <div class="section-eyebrow">Unsere Favoriten</div>
-      <h2 class="section-title">Zu entdecken <em>in der Umgebung</em></h2>
+    <details class="section reveal" id="recos">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Unsere Favoriten</div>
+        <h2 class="section-title">Zu entdecken <em>in der Umgebung</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="recos-toc">
         <a href="#restos" class="recos-toc-link">🍷 Restaurants</a>
@@ -1566,7 +1676,7 @@
             <div class="reco-meta"><span class="reco-cat">Brasserie · Art Déco</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
             <div class="reco-name">Le Bouillon du Commerce</div>
             <span class="reco-tag">Unser Favorit</span>
-            <p class="reco-desc">Wunderschönes Art-Déco-Restaurant aus dem Jahr 1850. Der Rahmen allein ist einen Besuch wert. Reservierung empfohlen. Klassische französische Bistroküche, gut zubereitet.</p>
+            <p class="reco-desc">Wunderschönes Art-Déco-Restaurant aus dem Jahr 1850. Das Ambiente allein ist einen Besuch wert. Reservierung empfohlen. Klassische französische Bistroküche, gut zubereitet.</p>
             <a href="https://lebouillonducommerce.fr/" target="_blank" class="reco-link">Website besuchen →</a>
           </div>
         </div>
@@ -1576,7 +1686,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Modernes Bistrot</span><span class="reco-meta-sep">·</span><span class="reco-distance">600 m</span></div>
             <div class="reco-name">Le Saint Cerf</div>
-            <p class="reco-desc">Modernes Bistrot mit saisonaler Speisekarte mit asiatischen Einflüssen. Gutes vegetarisches Angebot. An der Ecke des Quartier Battant. 03 81 50 10 20.</p>
+            <p class="reco-desc">Modernes Bistrot mit saisonaler Speisekarte mit asiatischen Einflüssen. Schönes vegetarisches Angebot. An der Ecke des Quartier Battant. 03 81 50 10 20.</p>
             <a href="#" class="reco-link">Auf der Karte ansehen →</a>
           </div>
         </div>
@@ -1586,7 +1696,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Gehobene Küche</span><span class="reco-meta-sep">·</span><span class="reco-distance">1 km</span></div>
             <div class="reco-name">Le Parc</div>
-            <p class="reco-desc">Gehobenes Restaurant des Chefs Francesco di Marzio. Fusionsküche in einem Rahmen mit Blick auf den Parc Micaud und die Doubs. Schönes Erlebnis für ein elegantes Abendessen.</p>
+            <p class="reco-desc">Gehobenes Restaurant von Chef Francesco di Marzio. Fusionsküche in einem Ambiente mit Blick auf den Parc Micaud und die Doubs. Schönes Erlebnis für ein besonderes Abendessen.</p>
             <a href="https://leparcbesancon.com/fr/" target="_blank" class="reco-link">Website besuchen →</a>
           </div>
         </div>
@@ -1594,16 +1704,16 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/REstaurant%20l%27affineur%20Comtois.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Franche-Comté Spezialitäten</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Spezialitäten aus der Franche-Comté</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
             <div class="reco-name">L'Affineur Comtois</div>
-            <p class="reco-desc">Alle Käsespezialitäten der Franche-Comté: Cancoillotte, Croûte Forestière, Comté-Morbier Fondue, Tartiflette. Reservierung empfohlen.</p>
+            <p class="reco-desc">Alle Käsespezialitäten der Franche-Comté: Cancoillotte, Croûte Forestière, Fondue Comté-Morbier, Tartiflette. Reservierung empfohlen.</p>
             <a href="https://www.restaurant-laffineurcomtois.fr/" target="_blank" class="reco-link">Website besuchen →</a>
           </div>
         </div>
 
         <div class="reco-tip">
           <div class="reco-tip-title">Zum Spazieren</div>
-          <div class="reco-tip-text">Das Quartier <strong>Battant</strong>, in dem sich die Wohnung befindet, ist eines der lebendigsten Viertel von Besançon mit vielen versteckten Adressen. Die Altstadt zwischen der <strong>Grande Rue</strong> und dem <strong>Place de la Révolution</strong> hat auch viele Bistros und Brasseries.</div>
+          <div class="reco-tip-text">Das Quartier <strong>Battant</strong>, in dem sich die Wohnung befindet, ist eines der lebendigsten Viertel von Besançon mit vielen versteckten Adressen. Die Altstadt zwischen der <strong>Grande Rue</strong> und dem <strong>Place de la Révolution</strong> hat auch viele Bistros und Brasseries zu bieten.</div>
         </div>
       </div>
 
@@ -1615,8 +1725,8 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">UNESCO-Welterbe</span><span class="reco-meta-sep">·</span><span class="reco-distance">2 km</span></div>
             <div class="reco-name">Die Zitadelle</div>
-            <span class="reco-tag">Muss man sehen</span>
-            <p class="reco-desc">Meisterwerk von Vauban, UNESCO-Welterbe. Größte Zitadel Osteuropas mit drei Museen: Comtois, Widerstand und Deportation, Naturkundemuseum (mit Aquarium).</p>
+            <span class="reco-tag">Sehenswert</span>
+            <p class="reco-desc">Meisterwerk von Vauban, UNESCO-Welterbe. Größte Zitadelle Osteuropas, beherbergt drei Museen: Comtois, Widerstand und Deportation, Naturkundemuseum (mit Aquarium).</p>
             <a href="#" class="reco-link">Auf der Karte ansehen →</a>
           </div>
         </div>
@@ -1626,7 +1736,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Museum · Uhrmacherei</span><span class="reco-meta-sep">·</span><span class="reco-distance">600 m</span></div>
             <div class="reco-name">Das Zeitmuseum</div>
-            <p class="reco-desc">Im prächtigen Palais Granvelle (Renaissance) untergebracht. Erzählt die Geschichte der Besançon-Uhrmacherei. Eine unverzichtbare Institution der Stadt.</p>
+            <p class="reco-desc">Im wunderschönen Palais Granvelle (Renaissance) untergebracht. Erzählt die Geschichte der Uhrmacherei in Besançon. Eine unverzichtbare Institution der Stadt.</p>
             <a href="#" class="reco-link">Auf der Karte ansehen →</a>
           </div>
         </div>
@@ -1644,9 +1754,9 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Trousime%20-%20la%20maison%20victor%20Hugo.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Schriftstellerhaus</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,3 km</span></div>
+            <div class="reco-meta"><span class="reco-cat">Schriftsteller-Haus</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,3 km</span></div>
             <div class="reco-name">Das Victor-Hugo-Haus</div>
-            <p class="reco-desc">Geburtshaus von Victor Hugo, in der Grande Rue 140. Moderne Szenografie mit Multimedia-Elementen. Ein ergreifender und gut gestalteter Besuch.</p>
+            <p class="reco-desc">Geburtshaus von Victor Hugo, Grande Rue 140. Moderne Szenographie mit Multimedia-Elementen. Ein ergreifender und gut gestalteter Besuch.</p>
             <a href="#" class="reco-link">Auf der Karte ansehen →</a>
           </div>
         </div>
@@ -1655,9 +1765,9 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20Vauban.jpeg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Flussfahrt · Doubs</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,2 km</span></div>
-            <div class="reco-name">Boot Le Vauban</div>
+            <div class="reco-name">Schiff Le Vauban</div>
             <span class="reco-tag">Panoramablick</span>
-            <p class="reco-desc">Kommentierte Mittagessen- (2h) oder Abendfahrt (2,5h) auf der Doubs mit Schleusenpassage und Tunnel unter der Zitadelle. Oberdeck-Terrasse. Reservierung erforderlich.</p>
+            <p class="reco-desc">Kommentierte Mittagsfahrt (2h) oder Abendfahrt (2,5h) auf der Doubs mit Schleusenpassage und Tunnel unter der Zitadelle. Oberdeck-Terrasse. Reservierung erforderlich.</p>
             <a href="https://www.bateau-besancon.fr/croisieres-repas/" target="_blank" class="reco-link">Website besuchen →</a>
           </div>
         </div>
@@ -1665,9 +1775,9 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Musee%20des%20maisons%20comtoises.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Museum · Freiluft</span><span class="reco-meta-sep">·</span><span class="reco-distance">8 km</span></div>
-            <div class="reco-name">Museum der Franche-Comté-Häuser</div>
-            <p class="reco-desc">Freilichtmuseum in Nancray. Entdeckung traditioneller Franche-Comté-Architektur durch etwa 30 authentische Gebäude. Ideal für einen halben Tag Natur und Kulturerbe.</p>
+            <div class="reco-meta"><span class="reco-cat">Museum · Freilicht</span><span class="reco-meta-sep">·</span><span class="reco-distance">8 km</span></div>
+            <div class="reco-name">Museum der Häuser der Franche-Comté</div>
+            <p class="reco-desc">Freilicht-Ecomuseum in Nancray. Entdeckung der traditionellen Wohnarchitektur der Franche-Comté durch etwa 30 authentische Gebäude. Ideal für einen halben Tag Natur und Kulturerbe.</p>
             <a href="#" class="reco-link">Auf der Karte ansehen →</a>
           </div>
         </div>
@@ -1679,10 +1789,10 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Superette%20Casino.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Bio · Supermarkt</span><span class="reco-meta-sep">·</span><span class="reco-distance">nebenan</span></div>
+            <div class="reco-meta"><span class="reco-cat">Bio · Supermarkt</span><span class="reco-meta-sep">·</span><span class="reco-distance">gleich nebenan</span></div>
             <div class="reco-name">Biocoop Battant</div>
-            <span class="reco-tag">Gleich um die Ecke</span>
-            <p class="reco-desc">Direkt neben dem Gebäude. Bio-Produkte, frisch, lokal. Ideal zum Einkaufen ohne weit zu gehen.</p>
+            <span class="reco-tag">Sehr nah</span>
+            <p class="reco-desc">Direkt neben dem Gebäude. Bio-Produkte, frisch, lokal. Ideal zum Einkaufen, ohne weit zu gehen.</p>
             <a href="#" class="reco-link">Auf der Karte ansehen →</a>
           </div>
         </div>
@@ -1690,10 +1800,10 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Boulangerie%20Filet.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Bäckerei · Konditorei</span><span class="reco-meta-sep">·</span><span class="reco-distance">5 Min</span></div>
+            <div class="reco-meta"><span class="reco-cat">Bäckerei · Konditorei</span><span class="reco-meta-sep">·</span><span class="reco-distance">5 Min.</span></div>
             <div class="reco-name">Die Bäckereien von Battant</div>
             <span class="reco-tag">Zum Frühstück</span>
-            <p class="reco-desc">Mehrere Adressen im Quartier für das Frühstück. Brote, Gebäck und Kaffee zum Mitnehmen.</p>
+            <p class="reco-desc">Mehrere Adressen im Viertel für das Frühstück. Brote, Gebäck und Kaffee zum Mitnehmen.</p>
             <a href="#" class="reco-link">Auf der Karte ansehen →</a>
           </div>
         </div>
@@ -1701,24 +1811,27 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Pharmacie%20Battant.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Apotheke</span><span class="reco-meta-sep">·</span><span class="reco-distance">3 Min</span></div>
+            <div class="reco-meta"><span class="reco-cat">Apotheke</span><span class="reco-meta-sep">·</span><span class="reco-distance">3 Min.</span></div>
             <div class="reco-name">Apotheken im Quartier Battant</div>
             <p class="reco-desc">Mehrere Apotheken in unmittelbarer Nähe der Wohnung. Im Notfall ist der Bereitschaftsdienst im Schaufenster angezeigt.</p>
             <a href="#" class="reco-link">Auf der Karte ansehen →</a>
           </div>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- ABREISE -->
-    <section class="section reveal" id="depart">
-      <div class="section-eyebrow">Bei der Abreise</div>
-      <h2 class="section-title">Bevor Sie <em>gehen</em></h2>
+    <details class="section reveal" id="depart">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Beim Abreisen</div>
+        <h2 class="section-title">Bevor Sie <em>gehen</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="checklist">
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Persönliche Gegenstände sammeln · überprüfen Sie Schubladen und Zimmer</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Ihre persönlichen Gegenstände sammeln · überprüfen Sie Schubladen und Schlafzimmer</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1730,7 +1843,7 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Müll in den Müllraum unten an der Treppe im inneren Hof entsorgen</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Müll entsorgen (siehe Müll-Abschnitt)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1744,11 +1857,9 @@
 
       <div class="checkout-block">
         <p class="checkout-block-text">Alles bereit? Ein kleiner Klick lässt uns wissen, dass Sie sicher abgereist sind.</p>
-        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
-          👋 Ich informiere den Gastgeber über meine Abreise
-        </a>
+        {{checkout_block}}
       </div>
-    </section>
+    </details>
 
     <!-- KONTAKT -->
     <section class="section reveal">
@@ -1756,18 +1867,18 @@
         <div class="contact-eyebrow">Eine Frage?</div>
         <h3 class="contact-title">Wir sind rund um die Uhr für Sie da</h3>
         <div class="contact-actions">
-          <a href="https://wa.me/33600000000" class="contact-btn primary">
+          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
             💬 Auf WhatsApp schreiben
           </a>
-          <a href="tel:+33600000000" class="contact-btn">
-            📞 Anrufen · +33 6 00 00 00 00
+          <a href="tel:{{host_phone}}" class="contact-btn">
+            📞 Anrufen · {{host_phone_display}}
           </a>
         </div>
       </div>
     </section>
 
     <footer>
-      <div class="signature">Schönen Aufenthalt in Besançon</div>
+      <div class="signature">Guten Aufenthalt in Besançon</div>
       <div>U-citybreak · Concierge Lyon · Besançon</div>
     </footer>
 
@@ -1820,6 +1931,38 @@
         btn.innerHTML = '✓ Abreise bestätigt · danke!';
       }, 600);
     });
+  })();
+
+
+  (function() {
+    const btn = document.getElementById('arrivalBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Ankunft bestätigt · danke!';
+      }, 600);
+    });
+  })();
+
+
+  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
+  (function() {
+    function openDetailsForHash(hash) {
+      if (!hash || hash === '#') return;
+      try {
+        const target = document.querySelector(hash);
+        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        openDetailsForHash(a.getAttribute('href'));
+      });
+    });
+    if (window.location.hash) openDetailsForHash(window.location.hash);
   })();
 </script>
 
