@@ -1172,6 +1172,96 @@
     .reco { grid-template-columns: 88px 1fr; }
     .reco-img { width: 88px; min-height: 110px; }
   }
+
+  .arrival-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(90,110,63,0.25);
+    text-align: center;
+  }
+  .arrival-block-text {
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .arrival-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 14px 28px;
+    background: var(--success); color: white;
+    text-decoration: none; border-radius: var(--radius-md);
+    font-weight: 500; font-size: 15px;
+    transition: all 0.18s; border: 1px solid var(--success);
+  }
+  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-block.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .arrival-block.locked .arrival-block-text {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin-bottom: 0;
+  }
+
+  details.section > summary.section-summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-right: 56px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s ease;
+  }
+  details.section > summary.section-summary::-webkit-details-marker { display: none; }
+  details.section > summary.section-summary::marker { display: none; }
+  details.section > summary.section-summary:hover {
+    background: rgba(184,85,45,0.03);
+  }
+  details.section .section-summary-chevron {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    padding-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
+    box-shadow: var(--shadow-sm);
+  }
+  details.section > summary.section-summary:hover .section-summary-chevron {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    color: var(--accent-deep);
+  }
+  details.section[open] .section-summary-chevron {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  details.section:not([open]) {
+    padding-bottom: 8px;
+  }
+  details.section:not([open]) .section-summary .section-title {
+    margin-bottom: 0;
+  }
+  @media print {
+    details.section > summary.section-summary { display: block; }
+    details.section .section-summary-chevron { display: none; }
+    details.section > *:not(summary) { display: revert !important; }
+  }
 </style>
 </head>
 <body>
@@ -1191,7 +1281,7 @@
           <a href="#"><span>🇮🇹</span> Italiano</a>
           <a href="#"><span>🇪🇸</span> Español</a>
           <a href="#"><span>🇷🇺</span> Русский</a>
-          <a href="#"><span>🇨🇳</span> 中文</a>
+          <a href="#" class="active"><span>🇨🇳</span> 中文</a>
         </div>
       </div>
     </div>
@@ -1232,7 +1322,7 @@
       <div class="quick-card">
         <div class="quick-label">Gasten</div>
         <div class="quick-value">4 personen</div>
-        <div class="quick-sub">Studio met mezzanine</div>
+        <div class="quick-sub">Studio mezzanine</div>
       </div>
       <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
         <div class="quick-label">Wifi</div>
@@ -1241,10 +1331,13 @@
       </a>
     </div>
 
-    <!-- ARRIVÉE -->
-    <section class="section reveal" id="arriver">
-      <div class="section-eyebrow">Stap voor stap</div>
-      <h2 class="section-title">Aankomst <em>in het logement</em></h2>
+    <!-- AANKOMST -->
+    <details class="section reveal" id="arriver">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Stap voor stap</div>
+        <h2 class="section-title">Aankomst <em>in de accommodatie</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="steps">
 
@@ -1252,7 +1345,7 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Het adres vinden</h3>
-            <p class="step-text">U arriveert op <strong>3 rue de la Valfenière, Lyon 1er</strong>, in het hart van <strong>Terreaux</strong>. Enkele oriëntatiepunten:</p>
+            <p class="step-text">U arriveert op <strong>3 rue de la Valfenière, Lyon 1er</strong>, in het hart van <strong>Terreaux</strong>. Enkele oriëntatiepunten om u te helpen:</p>
             <ul style="margin:8px 0 14px 18px; padding:0; color:var(--fg-soft); font-size:14.5px; line-height:1.7;">
               <li><strong>Vanaf Place des Terreaux</strong>: neem rue Paul Chenavard en dan rue Major Martin (hoek van <strong>Café des Fédérations</strong>).</li>
               <li><strong>Vanaf rue de la Plâtrière</strong>: hoek van <strong>Franprix Marché Presqu'île</strong>.</li>
@@ -1275,7 +1368,7 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <h3 class="step-title">De digicode van het gebouw</h3>
-            <p class="step-text">Het gebouw heeft <strong>twee opeenvolgende deuren</strong> met <strong>dezelfde code</strong>. Voer de digicode in bij de eerste, dan opnieuw bij de tweede om de sluis in te gaan.</p>
+            <p class="step-text">Het gebouw heeft <strong>twee opeenvolgende deuren</strong> met <strong>dezelfde code</strong>. Voer de digicode in op de eerste, en opnieuw op de tweede om de sluis te bereiken.</p>
             <div class="codebox">
               <span class="codebox-label">Digicode · 1<sup>e</sup> en 2<sup>e</sup> deur</span>
               <span class="codebox-value">3175</span>
@@ -1287,7 +1380,7 @@
           <div class="step-num">3</div>
           <div class="step-content">
             <h3 class="step-title">De Igloohome sleutelkast openen</h3>
-            <p class="step-text">Nadat u beide deuren bent gepasseerd, komt u in de <strong>sluis</strong>. De Igloohome sleutelkast is <strong>bevestigd aan de deur van de sluis</strong>. Hier is hoe u het gebruikt:</p>
+            <p class="step-text">Nadat u beide deuren bent gepasseerd, bereikt u de <strong>sluis</strong>. De Igloohome sleutelkast is <strong>bevestigd aan de deur van de sluis</strong>. Hier is hoe u deze gebruikt:</p>
 
             <div style="display:flex; justify-content:center; margin-top:8px;">
               <div style="max-width:300px;">
@@ -1299,7 +1392,7 @@
             <div class="step-substeps">
               <div class="step-substep"><span class="step-substep-num">1</span><span>Plaats uw <strong style="color:var(--fg);">handpalm</strong> op het toetsenbord om het apparaat in te schakelen</span></div>
               <div class="step-substep"><span class="step-substep-num">2</span><span>Voer uw <strong style="color:var(--fg);">4-cijferige code</strong> in en druk op het slotlogo in het midden</span></div>
-              <div class="step-substep"><span class="step-substep-num">3</span><span>Wacht op de pieptoon en het openingsgeluid</span></div>
+              <div class="step-substep"><span class="step-substep-num">3</span><span>Wacht op de piep en het opengeluid</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>Trek aan de zijkant om de kast te openen en haal de sleutel eruit</span></div>
             </div>
 
@@ -1313,20 +1406,25 @@
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-content">
-            <h3 class="step-title">Het logement binnengaan</h3>
-            <p class="step-text">Sluit de kast (druk zachtjes op het luikje tot u een klik hoort), open vervolgens de studiodeur met de sleutel. <strong>Welkom in L'Alcove</strong> ✨</p>
+            <h3 class="step-title">De accommodatie binnengaan</h3>
+            <p class="step-text">Sluit de kast (druk voorzichtig op het luikje tot u een klik hoort), open vervolgens de studiodeur met de sleutel. <strong>Welkom in L'Alcove</strong> ✨</p>
           </div>
         </div>
 
       </div>
-    </section>
 
-    <!-- DÉCOUVRIR -->
-    <section class="section reveal" id="decouvrir">
-      <div class="section-eyebrow">Het logement ontdekken</div>
-      <h2 class="section-title">L'Alcove in <em>enkele stappen</em></h2>
+      {{arrival_block}}
+    </details>
 
-      <!-- Visite virtuelle -->
+    <!-- ONTDEKKEN -->
+    <details class="section reveal" id="decouvrir">
+      <summary class="section-summary">
+        <div class="section-eyebrow">De accommodatie ontdekken</div>
+        <h2 class="section-title">L'Alcove in <em>enkele stappen</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+
+      <!-- Virtuele rondleiding -->
       <a href="https://www.youtube.com/watch?v=Ed_4ON2EUmc" target="_blank" rel="noopener" aria-label="Bekijk de virtuele rondleiding op YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:28px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
         <img src="https://img.youtube.com/vi/Ed_4ON2EUmc/maxresdefault.jpg" alt="Virtuele rondleiding" loading="lazy" onerror="this.src='https://img.youtube.com/vi/Ed_4ON2EUmc/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
         <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
@@ -1340,7 +1438,7 @@
           <div class="room-icon">🛋️</div>
           <div>
             <div class="room-name">Woonkamer</div>
-            <div class="room-desc">Slaapbank · Android TV box SFR</div>
+            <div class="room-desc">Slaapbank · TV box Android SFR</div>
           </div>
         </div>
         <div class="room">
@@ -1384,19 +1482,22 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg" alt="Studio"><span class="gallery-caption">Studio</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/be91NsSW46YFcnEYK60FS6DAxEGGkTlo8mKjAg3J.jpg" alt="Woonkamer"><span class="gallery-caption">Woonkamer</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ZcDQbp6p06N5BQ5sN8aJSZXShSlJ3kzZCGxeWS5V.jpg" alt="Mezzanine 1,25m"><span class="gallery-caption">Mezzanine · 1,25 m</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/j2SV9Psctu6Xbw2SsEodnHX2uFplufvAdzyGXTus.jpg" alt="Keukenhoek"><span class="gallery-caption">Keukenhoek</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/sERnbOq6tL4OabO36QlCv6TGh4S5d3SXCsm0s3IX.jpg" alt="Leefruimte"><span class="gallery-caption">Leefruimte</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/zLBCdkWMSydgNwOpC9EiNl9SNflTCEp2qZaSF8Qv.jpg" alt="Detail"><span class="gallery-caption">Detail</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/j2SV9Psctu6Xbw2SsEodnHX2uFplufvAdzyGXTus.jpg" alt="Afbeelding 4"><span class="gallery-caption">Keukenhoek</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/sERnbOq6tL4OabO36QlCv6TGh4S5d3SXCsm0s3IX.jpg" alt="Afbeelding 5"><span class="gallery-caption">Leefruimte</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/zLBCdkWMSydgNwOpC9EiNl9SNflTCEp2qZaSF8Qv.jpg" alt="Afbeelding 6"><span class="gallery-caption">Detail</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/a6hsmoW48NsyF0t27XBGv99ndeRVdpd9Kvq0BrM2.jpg" alt="Badkamer"><span class="gallery-caption">Badkamer</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/rhXzbhDExVwz2g5FqwnNwqL9jjrywyuQ4aBiT8hZ.jpg" alt="Overzicht"><span class="gallery-caption">Overzicht</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/rhXzbhDExVwz2g5FqwnNwqL9jjrywyuQ4aBiT8hZ.jpg" alt="Afbeelding 8"><span class="gallery-caption">Overzicht</span></div>
       </div>
 
-    </section>
+    </details>
 
-    <!-- PRATIQUE -->
-    <section class="section reveal" id="pratique">
-      <div class="section-eyebrow">Tijdens uw verblijf</div>
-      <h2 class="section-title">Het essentiële <em>praktische</em></h2>
+    <!-- PRAKTISCH -->
+    <details class="section reveal" id="pratique">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Tijdens uw verblijf</div>
+        <h2 class="section-title">Het <em>praktische</em> essentiële</h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="cards-grid">
         <div class="info-card">
@@ -1411,7 +1512,7 @@
         <div class="info-card">
           <div class="info-icon">📺</div>
           <h4 class="info-title">Televisie</h4>
-          <p class="info-text">Gebruik de <strong>SFR TV Android box</strong> met de <strong>tweede afstandsbediening</strong>.</p>
+          <p class="info-text">Gebruik de <strong>SFR Android TV box</strong> met de <strong>tweede afstandsbediening</strong>.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">☕</div>
@@ -1421,7 +1522,7 @@
         <div class="info-card">
           <div class="info-icon">🧺</div>
           <h4 class="info-title">Wasmachine</h4>
-          <p class="info-text">Sluit aan op het stopcontact dat zich <strong>linksboven op de badkamerspiegel</strong> bevindt.</p>
+          <p class="info-text">Sluit aan op het stopcontact <strong>linksboven de spiegel</strong> in de badkamer.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">👕</div>
@@ -1431,12 +1532,12 @@
         <div class="info-card">
           <div class="info-icon">🛏️</div>
           <h4 class="info-title">Beddengoed</h4>
-          <p class="info-text">Lakens en 2 handdoeken per slaapplaats. De slaapbank is <strong>niet opgemaakt bij aankomst</strong> — het beddengoed ligt op de plank rechts van de bank.</p>
+          <p class="info-text">Lakens en 2 handdoeken per slaapplaats. De slaapbank is <strong>niet opgemaakt bij aankomst</strong> — het beddengoed vindt u op de plank rechts van de bank.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌡️</div>
           <h4 class="info-title">Handdoekradiator</h4>
-          <p class="info-text">De handdoekradiator kan een <strong>kinderslot</strong> hebben ingeschakeld. Kunt u het niet aanzetten, neem dan contact met ons op.</p>
+          <p class="info-text">De handdoekradiator kan een <strong>kinderslot</strong> hebben ingeschakeld. Als u deze niet kunt inschakelen, neem dan contact met ons op.</p>
         </div>
         <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
           <div class="info-icon" style="background: var(--warning); color: white;">🚪</div>
@@ -1446,59 +1547,65 @@
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">Huisregels</h4>
-          <p class="info-text"><strong>Rookvrij</strong> · geen huisdieren · geen feesten · stilte na 22:00 uur. De <strong>2 grote kastdeuren</strong> in de woonkamer dienen voor opslag van schoonmaakproducten: open deze alstublieft niet.</p>
+          <p class="info-text"><strong>Rookvrij</strong> · geen huisdieren · geen feesten · stilte na 22:00 uur. De <strong>2 grote kasten</strong> in de woonkamer dienen voor opslag van schoonmaakproducten: open deze alstublieft niet.</p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- POUBELLES -->
-    <section class="section reveal" id="poubelles">
-      <div class="section-eyebrow">Gescheiden afvalverzameling</div>
-      <h2 class="section-title">De <em>vuilnisbakken</em></h2>
-      <p class="section-intro">Uit respect voor ons schoonmaakpersoneel verzoeken we u uw afval bij vertrek mee te nemen.</p>
+    <!-- AFVAL -->
+    <details class="section reveal" id="poubelles">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Gescheiden afval</div>
+        <h2 class="section-title">De <em>afvalbakken</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Uit respect voor ons schoonmaakpersoneel verzoeken wij u uw afval mee te nemen bij vertrek.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:flex-start;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
           <h4 class="info-title" style="margin-bottom:6px;">Afvalruimte</h4>
-          <p class="info-text">De ruimte bevindt zich <strong>onderaan de spiraaltrappen</strong>.</p>
+          <p class="info-text">De ruimte bevindt zich <strong>onderaan de spiraalvormige trap</strong>.</p>
         </div>
       </div>
 
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;">
         <div>
-          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/poubelles1.jpeg" alt="Spiraaltrappen" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm);">
-          <p class="step-photo-caption" style="text-align:center; margin-top:6px;">De spiraaltrappen</p>
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/poubelles1.jpeg" alt="Spiraalvormige trap" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm);">
+          <p class="step-photo-caption" style="text-align:center; margin-top:6px;">De spiraalvormige trap</p>
         </div>
         <div>
           <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/poubelles2.jpeg" alt="Afvalruimte" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm);">
           <p class="step-photo-caption" style="text-align:center; margin-top:6px;">De afvalruimte</p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- BOUGER -->
-    <section class="section reveal" id="bouger">
-      <div class="section-eyebrow">Verplaatsen</div>
-      <h2 class="section-title">Zich verplaatsen <em>in de stad</em></h2>
+    <!-- VERPLAATSEN -->
+    <details class="section reveal" id="bouger">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Verplaatsen</div>
+        <h2 class="section-title">Door de stad <em>reizen</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="transport-grid">
         <div class="transport-card">
           <div class="transport-icon">🚇</div>
           <div class="transport-name">Metro A · Hôtel de Ville</div>
-          <div class="transport-desc">Op twee stappen, richting Bellecour en Perrache</div>
+          <div class="transport-desc">Vlakbij, richting Bellecour en Perrache</div>
           <div class="transport-distance">200 m ⭐</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚌</div>
           <div class="transport-name">Bus · Terreaux La Feuillée</div>
           <div class="transport-desc">Lijnen C3, C13, C14, C18, 19, S6, S12, PL1</div>
-          <div class="transport-distance">Op twee stappen</div>
+          <div class="transport-distance">Vlakbij</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚄</div>
           <div class="transport-name">Station Part-Dieu</div>
-          <div class="transport-desc">Metro B dan metro A tot Hôtel de Ville</div>
+          <div class="transport-desc">Metro B dan metro A naar Hôtel de Ville</div>
           <div class="transport-distance">~25 min</div>
         </div>
         <div class="transport-card">
@@ -1517,8 +1624,8 @@
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ Parkeren</div>
         <div class="reco-tip-text">Het appartement bevindt zich in het <strong>voetgangerscentrum</strong> van Lyon — parkeren op straat is lastig.<br><br>
-        Verschillende <strong>ondergrondse parkeergarages LPA</strong> in de buurt:<br>
-        · <strong>Parking Terreaux</strong> · het dichtst bij (betaald)<br>
+        Verschillende <strong>ondergrondse LPA-parkeergarages</strong> in de buurt:<br>
+        · <strong>Parking Terreaux</strong> · het dichtst (betaald)<br>
         · <strong>Parking Saint-Antoine</strong><br>
         · <strong>Parking Cordelier</strong> · iets verder weg<br><br>
         💡 <strong>Meerdaagse</strong> of <strong>weekendtarieven</strong> (vrijdag-maandag) zijn beschikbaar.</div>
@@ -1528,12 +1635,15 @@
         <div class="reco-tip-title" style="color: var(--success);">🧳 Bagageopslag</div>
         <div class="reco-tip-text">Als u uw bagage voor of na uw verblijf moet opslaan: <a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> biedt opslagpunten <strong>overal in Lyon</strong> vanaf 4,50€/dag. <a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">Andere bagageopslag in Lyon</a>.</div>
       </div>
-    </section>
+    </details>
 
-    <!-- RECOS -->
-    <section class="section reveal" id="recos">
-      <div class="section-eyebrow">Onze favorieten</div>
-      <h2 class="section-title">Te ontdekken <em>in de buurt</em></h2>
+    <!-- AANBEVELINGEN -->
+    <details class="section reveal" id="recos">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Onze favorieten</div>
+        <h2 class="section-title">Te ontdekken <em>in de buurt</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="recos-toc">
         <a href="#restos" class="recos-toc-link">🍷 Restaurants</a>
@@ -1546,11 +1656,11 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/cafe-des-federations.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Authentiek bouchon (Lyonees restaurant)</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m ⭐</span></div>
+            <div class="reco-meta"><span class="reco-cat">Authentieke bouchon (traditioneel Lyonees restaurant)</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m ⭐</span></div>
             <div class="reco-name">Café des Fédérations</div>
-            <span class="reco-tag">Op twee stappen</span>
+            <span class="reco-tag">Vlakbij</span>
             <p class="reco-desc">Gekozen als <strong>beste authentieke bouchon 2019-2020</strong>. Traditionele Lyonese keuken, open 's middags en 's avonds, <strong>ook op zondag</strong>. Op de hoek van rue Major Martin.</p>
-            <a href="https://www.google.com/maps/place/Le+Cafe+des+Federations" target="_blank" class="reco-link">Zie op kaart →</a>
+            <a href="https://www.google.com/maps/place/Le+Cafe+des+Federations" target="_blank" class="reco-link">Bekijk op kaart →</a>
           </div>
         </div>
 
@@ -1560,26 +1670,26 @@
             <div class="reco-meta"><span class="reco-cat">Brasserie · Panoramisch uitzicht</span><span class="reco-meta-sep">·</span><span class="reco-distance">300 m</span></div>
             <div class="reco-name">Les Muses de l'Opéra</div>
             <span class="reco-tag">Panoramisch uitzicht</span>
-            <p class="reco-desc">Terras met panoramisch uitzicht op de <strong>7e verdieping van de Opera</strong> met uitzicht op Fourvière. Uitzonderlijk kader voor lunch of een drankje.</p>
-            <a href="https://www.google.com/maps/place/Les+Muses" target="_blank" class="reco-link">Zie op kaart →</a>
+            <p class="reco-desc">Panoramisch terras op de <strong>7e verdieping van de Opera</strong> met uitzicht op Fourvière. Uitzonderlijk kader voor lunch of een drankje.</p>
+            <a href="https://www.google.com/maps/place/Les+Muses" target="_blank" class="reco-link">Bekijk op kaart →</a>
           </div>
         </div>
 
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Len-de-lyon.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Verzorgde keuken</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Verfijnde keuken</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Léon de Lyon</div>
-            <span class="reco-tag">Warm interieur</span>
-            <p class="reco-desc">Open <strong>woensdag tot zondag</strong>. Warm interieur en verzorgde keuken — een Lyonese instelling.</p>
-            <a href="https://www.google.com/maps/place/Restaurant+Leon+de+Lyon" target="_blank" class="reco-link">Zie op kaart →</a>
+            <span class="reco-tag">Warm kader</span>
+            <p class="reco-desc">Open <strong>woensdag tot zondag</strong>. Warm kader en verfijnde keuken — een Lyonese instelling.</p>
+            <a href="https://www.google.com/maps/place/Restaurant+Leon+de+Lyon" target="_blank" class="reco-link">Bekijk op kaart →</a>
           </div>
         </div>
       </div>
 
       <div class="reco-tip" style="margin-top:14px;">
         <div class="reco-tip-title">🍴 Restaurantstraten</div>
-        <div class="reco-tip-text">Om de Lyonese gastronomie te verkennen, wandel door <strong>rue Mercière</strong>, <strong>rue de l'Arbre-Sec</strong>, <strong>rue des Marronniers</strong> of de voetgangersstraatjes van <strong>Oud-Lyon</strong>.</div>
+        <div class="reco-tip-text">Om de Lyonese gastronomie te verkennen, wandel door <strong>rue Mercière</strong>, <strong>rue de l'Arbre-Sec</strong>, <strong>rue des Marronniers</strong> of de voetgangersstraatjes van het <strong>Oude Lyon</strong>.</div>
       </div>
 
       <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> Te bezoeken <span class="reco-cat-count">· 6 hoogtepunten</span></h3>
@@ -1590,8 +1700,8 @@
             <div class="reco-meta"><span class="reco-cat">Historisch plein</span><span class="reco-meta-sep">·</span><span class="reco-distance">100 m ⭐</span></div>
             <div class="reco-name">Place des Terreaux</div>
             <span class="reco-tag">Vlakbij</span>
-            <p class="reco-desc">Iconisch plein van Lyon met de <strong>fontein van Bartholdi</strong> in het midden. Op 1 minuut lopen van het appartement.</p>
-            <a href="https://www.google.com/maps/place/Pl.+des+Terreaux" target="_blank" class="reco-link">Zie op kaart →</a>
+            <p class="reco-desc">Emblematisch plein van Lyon met de <strong>Bartholdi-fontein</strong> in het midden. Op 1 minuut lopen van het appartement.</p>
+            <a href="https://www.google.com/maps/place/Pl.+des+Terreaux" target="_blank" class="reco-link">Bekijk op kaart →</a>
           </div>
         </div>
 
@@ -1599,10 +1709,10 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">UNESCO erfgoed</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
-            <div class="reco-name">Oud-Lyon</div>
+            <div class="reco-name">Oud Lyon</div>
             <span class="reco-tag">Onmisbaar</span>
-            <p class="reco-desc">Renaissance wijk op UNESCO werelderfgoedlijst, bereikbaar via <strong>montée du Gourguillon</strong> of met de <strong>tandradbaan</strong>. Traboules, geplaveide pleinen en traditionele restaurants.</p>
-            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Zie website →</a>
+            <p class="reco-desc">Renaissance-wijk met UNESCO-status, bereikbaar via <strong>montée du Gourguillon</strong> of met de <strong>tandradbaan</strong>. Traboules, geplaveide pleinen en traditionele restaurants.</p>
+            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Bekijk website →</a>
           </div>
         </div>
 
@@ -1613,7 +1723,7 @@
             <div class="reco-name">Basiliek van Fourvière</div>
             <span class="reco-tag">Panoramisch uitzicht</span>
             <p class="reco-desc">Symbool van Lyon op de heuvel. Bezoek de <strong>crypte</strong> en het <strong>uitkijkpunt</strong>. Bereikbaar met tandradbaan vanuit Oud-Lyon.</p>
-            <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">Zie website →</a>
+            <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">Bekijk website →</a>
           </div>
         </div>
 
@@ -1624,7 +1734,7 @@
             <div class="reco-name">Lugdunum · Museum en Romeinse theaters</div>
             <span class="reco-tag">Gratis</span>
             <p class="reco-desc">Archeologisch museum en antieke amfitheaters, <strong>gratis toegang</strong> tot de openluchttheaters.</p>
-            <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">Zie website →</a>
+            <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">Bekijk website →</a>
           </div>
         </div>
 
@@ -1632,21 +1742,21 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Les-berges.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Wandeling · Bars · Restaurants</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
-            <div class="reco-name">De Oevers van de Rhône</div>
-            <span class="reco-tag">Voor een wandeling</span>
-            <p class="reco-desc">Wandeling van <strong>5 km</strong> langs de Rhône met bars, woonboten, restaurants en grasvelden. Ideaal in mooi weer.</p>
-            <a href="https://www.google.com/maps/place/Berges+du+Rhone+Lyon" target="_blank" class="reco-link">Zie op kaart →</a>
+            <div class="reco-name">De oevers van de Rhône</div>
+            <span class="reco-tag">Om rond te wandelen</span>
+            <p class="reco-desc">Wandelpad van <strong>5 km</strong> langs de Rhône met bars, binnenschepen, restaurants en grasvelden. Ideaal op mooie dagen.</p>
+            <a href="https://www.google.com/maps/place/Berges+du+Rhone+Lyon" target="_blank" class="reco-link">Bekijk op kaart →</a>
           </div>
         </div>
 
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-musee-confluence.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Antropologie · Wetenschappen</span><span class="reco-meta-sep">·</span><span class="reco-distance">4 km</span></div>
-            <div class="reco-name">Museum Confluences</div>
+            <div class="reco-meta"><span class="reco-cat">Antropologie · Wetenschap</span><span class="reco-meta-sep">·</span><span class="reco-distance">4 km</span></div>
+            <div class="reco-name">Museum van Confluences</div>
             <span class="reco-tag">Moderne architectuur</span>
-            <p class="reco-desc">Tentoonstellingen over antropologie en wetenschappen in een gedurfde architectuur aan de punt van de schiereiland.</p>
-            <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">Zie website →</a>
+            <p class="reco-desc">Tentoonstellingen over antropologie en wetenschap in een gedurfde architectuur aan de punt van de schiereiland.</p>
+            <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">Bekijk website →</a>
           </div>
         </div>
       </div>
@@ -1658,9 +1768,9 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Supermarkt · Verse producten</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m ⭐</span></div>
             <div class="reco-name">Franprix Marché Presqu'île</div>
-            <span class="reco-tag">Het dichtst bij</span>
+            <span class="reco-tag">Het dichtst</span>
             <p class="reco-desc">Buurtsuper met verse producten. Op de hoek van rue de la Plâtrière, vlak naast het appartement.</p>
-            <a href="#" class="reco-link">Zie op kaart →</a>
+            <a href="#" class="reco-link">Bekijk op kaart →</a>
           </div>
         </div>
 
@@ -1671,7 +1781,7 @@
             <div class="reco-name">Carrefour Market</div>
             <span class="reco-tag">Aanvullende boodschappen</span>
             <p class="reco-desc">Voor aanvullende boodschappen of dagelijkse aankopen.</p>
-            <a href="#" class="reco-link">Zie op kaart →</a>
+            <a href="#" class="reco-link">Bekijk op kaart →</a>
           </div>
         </div>
 
@@ -1680,19 +1790,22 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Bakkerij</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Boulangerie Pomponette</div>
-            <span class="reco-tag">Voor het ontbijt</span>
-            <p class="reco-desc">De dichtstbijzijnde bakkerij met een groot assortiment brood en gebak voor uw ontbijt.</p>
-            <a href="#" class="reco-link">Zie op kaart →</a>
+            <span class="reco-tag">Voor 's ochtends</span>
+            <p class="reco-desc">De dichtstbijzijnde bakkerij, groot assortiment brood en gebak voor uw ontbijt.</p>
+            <a href="#" class="reco-link">Bekijk op kaart →</a>
           </div>
         </div>
       </div>
 
-    </section>
+    </details>
 
-    <!-- DÉPART -->
-    <section class="section reveal" id="depart">
-      <div class="section-eyebrow">Bij vertrek</div>
-      <h2 class="section-title">Voor u <em>vertrekt</em></h2>
+    <!-- VERTREK -->
+    <details class="section reveal" id="depart">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Op het moment van vertrek</div>
+        <h2 class="section-title">Voordat u <em>vertrekt</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="checklist">
         <div class="checklist-item">
@@ -1701,15 +1814,15 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Leeg de koelkast · bederfbare producten, alstublieft</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Maak de koelkast leeg · bederfbare producten, alstublieft</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Was af en zet weg in de keuken</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Doe de afwas en zet deze weg in de keuken</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Zet uw afval in de afvalruimte (achter het gebouw, deur rechts van nr. 6)</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Zet uw afval buiten (zie afvalsectie)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1723,11 +1836,9 @@
 
       <div class="checkout-block">
         <p class="checkout-block-text">Alles klaar? Een klein klikje laat ons weten dat u veilig bent vertrokken.</p>
-        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
-          👋 Ik informeer de gastheer van mijn vertrek
-        </a>
+        {{checkout_block}}
       </div>
-    </section>
+    </details>
 
     <!-- CONTACT -->
     <section class="section reveal">
@@ -1735,18 +1846,18 @@
         <div class="contact-eyebrow">Een vraag?</div>
         <h3 class="contact-title">We zijn er, op elk moment</h3>
         <div class="contact-actions">
-          <a href="https://wa.me/33600000000" class="contact-btn primary">
-            💬 Stuur een bericht via WhatsApp
+          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
+            💬 Stuur een WhatsApp
           </a>
-          <a href="tel:+33600000000" class="contact-btn">
-            📞 Bellen · +33 6 00 00 00 00
+          <a href="tel:{{host_phone}}" class="contact-btn">
+            📞 Bellen · {{host_phone_display}}
           </a>
         </div>
       </div>
     </section>
 
     <footer>
-      <div class="signature">Fijne verblijf in Lyon</div>
+      <div class="signature">Fijn verblijf in Lyon</div>
       <div>U-citybreak · Conciergerie Lyon · Besançon</div>
     </footer>
 
@@ -1796,9 +1907,41 @@
     btn.addEventListener('click', function() {
       setTimeout(function() {
         btn.classList.add('confirmed');
-        btn.innerHTML = '✓ Vertrek bevestigd · dank u wel!';
+        btn.innerHTML = '✓ Vertrek bevestigd · dank u!';
       }, 600);
     });
+  })();
+
+
+  (function() {
+    const btn = document.getElementById('arrivalBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Aankomst bevestigd · dank u!';
+      }, 600);
+    });
+  })();
+
+
+  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
+  (function() {
+    function openDetailsForHash(hash) {
+      if (!hash || hash === '#') return;
+      try {
+        const target = document.querySelector(hash);
+        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        openDetailsForHash(a.getAttribute('href'));
+      });
+    });
+    if (window.location.hash) openDetailsForHash(window.location.hash);
   })();
 </script>
 
