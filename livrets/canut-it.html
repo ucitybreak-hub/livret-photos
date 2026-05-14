@@ -1,4 +1,4 @@
-<!-- BUILT for canut-it at 2026-05-07T15:33:23.610Z | photos: 25 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for canut-it at 2026-05-14T05:43:15.057Z | photos: 25 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -1173,6 +1173,96 @@
     .reco { grid-template-columns: 88px 1fr; }
     .reco-img { width: 88px; min-height: 110px; }
   }
+
+  .arrival-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(90,110,63,0.25);
+    text-align: center;
+  }
+  .arrival-block-text {
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .arrival-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 14px 28px;
+    background: var(--success); color: white;
+    text-decoration: none; border-radius: var(--radius-md);
+    font-weight: 500; font-size: 15px;
+    transition: all 0.18s; border: 1px solid var(--success);
+  }
+  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-block.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .arrival-block.locked .arrival-block-text {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin-bottom: 0;
+  }
+
+  details.section > summary.section-summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-right: 56px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s ease;
+  }
+  details.section > summary.section-summary::-webkit-details-marker { display: none; }
+  details.section > summary.section-summary::marker { display: none; }
+  details.section > summary.section-summary:hover {
+    background: rgba(184,85,45,0.03);
+  }
+  details.section .section-summary-chevron {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    padding-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
+    box-shadow: var(--shadow-sm);
+  }
+  details.section > summary.section-summary:hover .section-summary-chevron {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    color: var(--accent-deep);
+  }
+  details.section[open] .section-summary-chevron {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  details.section:not([open]) {
+    padding-bottom: 8px;
+  }
+  details.section:not([open]) .section-summary .section-title {
+    margin-bottom: 0;
+  }
+  @media print {
+    details.section > summary.section-summary { display: block; }
+    details.section .section-summary-chevron { display: none; }
+    details.section > *:not(summary) { display: revert !important; }
+  }
 </style>
 </head>
 <body>
@@ -1209,7 +1299,7 @@
       <h1 class="hero-title">Le Canut</h1>
       <p class="hero-sub">Sulle alture di Fourvière, Lione</p>
       <div class="hero-divider"></div>
-      <p class="hero-greeting">Ciao <strong>{{guest_name}}</strong>, siamo felici di accogliervi.</p>
+      <p class="hero-greeting">Buongiorno <strong>{{guest_name}}</strong>, siamo felici di accogliervi.</p>
       <div class="hero-countdown">
         {{countdown}}
       </div>
@@ -1243,9 +1333,12 @@
     </div>
 
     <!-- ARRIVÉE -->
-    <section class="section reveal" id="arriver">
-      <div class="section-eyebrow">Passo dopo passo</div>
-      <h2 class="section-title">Arrivare <em>all'alloggio</em></h2>
+    <details class="section reveal" id="arriver">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Passo dopo passo</div>
+        <h2 class="section-title">Arrivare <em>all'alloggio</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="steps">
 
@@ -1266,7 +1359,7 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <h3 class="step-title">Il citofono dell'edificio</h3>
-            <p class="step-text">Davanti alla porta d'ingresso, inserite il <strong>codice del citofono</strong>.</p>
+            <p class="step-text">Davanti alla porta d'ingresso, componi il <strong>codice del citofono</strong>.</p>
             <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/porte-immeuble.png" alt="Porta d'ingresso dell'edificio">
             <p class="step-photo-caption">La porta d&rsquo;ingresso del 22 avenue Barthélémy Buyer</p>
             <div class="codebox">
@@ -1281,7 +1374,7 @@
           <div class="step-num">3</div>
           <div class="step-content">
             <h3 class="step-title">Accesso all'appartamento</h3>
-            <p class="step-text">Una volta passata la porta dell'edificio, prendete la <strong>scala a destra</strong> e salite al <strong>1º piano</strong>. La porta si trova di fronte, con la targhetta « Le Canut ».</p>
+            <p class="step-text">Una volta passata la porta dell'edificio, prendete le <strong>scale a destra</strong> e salite al <strong>1º piano</strong>. La porta si trova di fronte, con il cartello « Le Canut ».</p>
 
             <div class="step-photo-sequence">
               <div class="step-photo-frame">
@@ -1291,8 +1384,8 @@
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">2</span>
-                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/arrivee-2.jpeg" alt="Scala a destra">
-                <div class="step-photo-frame-cap">Prendete la <strong>scala a destra</strong> fino al 1º piano</div>
+                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/arrivee-2.jpeg" alt="Scale a destra">
+                <div class="step-photo-frame-cap">Prendete le <strong>scale a destra</strong> fino al 1º piano</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">3</span>
@@ -1302,11 +1395,11 @@
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">4</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/porte-appartement.jpg" alt="Porta dell'appartamento">
-                <div class="step-photo-frame-cap">La <strong>porta dell'appartamento</strong>, targhetta « Le Canut »</div>
+                <div class="step-photo-frame-cap">La <strong>porta dell'appartamento</strong>, cartello « Le Canut »</div>
               </div>
             </div>
 
-            <div class="step-tip"><strong>👀 Consiglio</strong> · Scorrete le foto per seguire il percorso passo dopo passo.</div>
+            <div class="step-tip"><strong>👀 Consiglio</strong> · Scorri le foto per seguire il percorso passo dopo passo.</div>
           </div>
         </div>
 
@@ -1314,7 +1407,7 @@
           <div class="step-num">4</div>
           <div class="step-content">
             <h3 class="step-title">Aprire la cassetta delle chiavi Igloohome</h3>
-            <p class="step-text">Ecco come appare la cassetta e come usarla :</p>
+            <p class="step-text">Ecco come appare la cassetta e come usarla:</p>
 
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; margin-top:8px;">
               <div>
@@ -1332,12 +1425,12 @@
 
             <div class="step-substeps">
               <div class="step-substep"><span class="step-substep-num">1</span><span>Posizionate il <strong style="color:var(--fg);">palmo della mano</strong> sulla tastiera per attivare il dispositivo</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Inserite il vostro <strong style="color:var(--fg);">codice a 4 cifre</strong>, poi premete il logo del lucchetto al centro</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Inserite il vostro <strong style="color:var(--fg);">codice a 4 cifre</strong>, quindi premete il logo del lucchetto al centro</span></div>
               <div class="step-substep"><span class="step-substep-num">3</span><span>Aspettate il bip e il suono di apertura</span></div>
-              <div class="step-substep"><span class="step-substep-num">4</span><span>Tirate il lato per aprire la cassetta e recuperate la chiave</span></div>
+              <div class="step-substep"><span class="step-substep-num">4</span><span>Tirate il lato per aprire la cassetta e recuperare la chiave</span></div>
             </div>
 
-            <p class="step-text" style="margin-top:14px;">Il vostro codice univoco per questa cassetta :</p>
+            <p class="step-text" style="margin-top:14px;">Il vostro codice univoco per questa cassetta:</p>
 
             {{smartlock_codebox}}
             <div class="step-tip warn"><strong>⏰ Per la vostra sicurezza</strong> · Questo codice cambia ad ogni prenotazione e rimane valido per tutta la durata del vostro soggiorno.</div>
@@ -1348,24 +1441,29 @@
           <div class="step-num">5</div>
           <div class="step-content">
             <h3 class="step-title">Entrare nell'alloggio</h3>
-            <p class="step-text">Richiudete la cassetta (premete delicatamente il coperchio fino al clic), poi aprite la porta dell'alloggio con la chiave. <strong>Benvenuti a casa vostra</strong> ✨</p>
+            <p class="step-text">Richiudete la cassetta (premete delicatamente il coperchio fino al clic), quindi aprite la porta dell'alloggio con la chiave. <strong>Benvenuti a casa vostra</strong> ✨</p>
           </div>
         </div>
 
       </div>
-    </section>
+
+      {{arrival_block}}
+    </details>
 
     <!-- DÉCOUVRIR -->
-    <section class="section reveal" id="decouvrir">
-      <div class="section-eyebrow">Scoprire l'alloggio</div>
-      <h2 class="section-title">Le Canut in <em>pochi passi</em></h2>
-      <p class="section-intro">T3 luminoso e attraversante sulla collina di Fourvière, a 10 minuti a piedi dal Vieux Lyon UNESCO. Due camere separate (letto Queen + 2ª camera), perfetto per 4 persone. Vista panoramica e tranquillità del quartiere Saint-Just.</p>
+    <details class="section reveal" id="decouvrir">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Scoprire l'alloggio</div>
+        <h2 class="section-title">Le Canut in <em>pochi passi</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">T3 luminoso e attraversante sulla collina di Fourvière, a 10 minuti a piedi dalla Vecchia Lione UNESCO. Due camere separate (letto Queen + 2ª camera), perfetto per 4 persone. Vista panoramica e tranquillità del quartiere Saint-Just.</p>
 
       <div class="rooms">
         <div class="room">
           <div class="room-icon">🛋️</div>
           <div>
-            <div class="room-name">Salotto &amp; zona pranzo</div>
+            <div class="room-name">Soggiorno &amp; zona pranzo</div>
             <div class="room-desc">Divano · TV Android 43" · Zona pranzo</div>
           </div>
         </div>
@@ -1373,14 +1471,14 @@
           <div class="room-icon">🍳</div>
           <div>
             <div class="room-name">Cucina attrezzata</div>
-            <div class="room-desc">Piastra · Frigo · Nespresso</div>
+            <div class="room-desc">Piano cottura · Frigorifero · Nespresso</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🛏️</div>
           <div>
             <div class="room-name">Camera 1</div>
-            <div class="room-desc">Letto Queen · Finestre sul giardino · Grande cabina armadio</div>
+            <div class="room-desc">Letto Queen · Finestre sul giardino · Ampio armadio</div>
           </div>
         </div>
         <div class="room">
@@ -1401,13 +1499,13 @@
           <div class="room-icon">🧺</div>
           <div>
             <div class="room-name">Lavatrice asciugatrice</div>
-            <div class="room-desc">Combo lavaggio + asciugatura</div>
+            <div class="room-desc">Combinato lavaggio + asciugatura</div>
           </div>
         </div>
       </div>
 
       <div class="gallery-scroll">
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076398/v96kxX8xq9X5K9pbjSJ2cB2YmeR6QBwDdhl9utIR.jpg" alt="Salotto"><span class="gallery-caption">Salotto</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076398/v96kxX8xq9X5K9pbjSJ2cB2YmeR6QBwDdhl9utIR.jpg" alt="Soggiorno"><span class="gallery-caption">Soggiorno</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076398/5bNNQHqfIOdEcj18Dn3VOFlecQH4tetUoDxNh76T.jpg" alt="Cucina"><span class="gallery-caption">Cucina</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076398/bOQ0gJvBoVRIIrbzBZHfczv5b1AQeu9pePAvzAcJ.jpg" alt="Angolo cucina"><span class="gallery-caption">Angolo cucina</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076398/jCrOMjGQj7fnAVDidoJs5t1wszpfGqBCxDdwtawY.jpg" alt="TV Android"><span class="gallery-caption">TV Android 43"</span></div>
@@ -1416,18 +1514,21 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076398/uKrX65lt7JZ8HJ9N0den79r6kxyboixhIryLZ4Ob.jpg" alt="Camera 2"><span class="gallery-caption">Camera 2</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076398/hofzZq2i2nRX1voWmfLYVr9z8Ms6lNnQywYPIdcw.jpg" alt="Bagno"><span class="gallery-caption">Bagno</span></div>
       </div>
-    </section>
+    </details>
 
     <!-- PRATIQUE -->
-    <section class="section reveal" id="pratique">
-      <div class="section-eyebrow">Durante il vostro soggiorno</div>
-      <h2 class="section-title">L'essenziale <em>pratico</em></h2>
+    <details class="section reveal" id="pratique">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Durante il vostro soggiorno</div>
+        <h2 class="section-title">L'essenziale <em>pratico</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="cards-grid">
         <div class="info-card">
           <div class="info-icon">📶</div>
           <h4 class="info-title">Wifi</h4>
-          <p class="info-text">Rete : <code>U-CITYBREAK</code></p>
+          <p class="info-text">Rete: <code>U-CITYBREAK</code></p>
           <div class="info-copy-row">
             <code style="flex:1;">Kigihome6900925270</code>
             <button class="info-copy-btn" onclick="copyCode(this, 'Kigihome6900925270')">Copia</button>
@@ -1436,17 +1537,17 @@
         <div class="info-card">
           <div class="info-icon">📺</div>
           <h4 class="info-title">Televisione</h4>
-          <p class="info-text">TV connessa Android 43". Usate l'applicazione <strong>Molotov TV</strong> per accedere ai canali francesi.</p>
+          <p class="info-text">TV connessa Android 43". Utilizzate l'applicazione <strong>Molotov TV</strong> per accedere ai canali francesi.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🍳</div>
-          <h4 class="info-title">Piastra di cottura</h4>
-          <p class="info-text">Piastra in vetroceramica <strong>tattile</strong>. Premete i comandi per regolare la potenza da 1 a 9. Blocco bambini: premuta lunga sul pulsante di blocco.</p>
+          <h4 class="info-title">Piano cottura</h4>
+          <p class="info-text">Piano in vetroceramica <strong>tattile</strong>. Premete i comandi per regolare la potenza da 1 a 9. Blocco bambini: pressione lunga sul pulsante di blocco.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌡️</div>
           <h4 class="info-title">Riscaldamento</h4>
-          <p class="info-text">Radiatori <strong>connessi</strong>, regolati automaticamente tra 19 e 20°C. Un <strong>radiatore elettrico supplementare</strong> è disponibile in salotto per un comfort aggiuntivo.</p>
+          <p class="info-text">Radiatori <strong>connessi</strong>, regolati automaticamente tra 19 e 20°C. Un <strong>radiatore elettrico supplementare</strong> è disponibile nel soggiorno per maggiore comfort.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
@@ -1456,12 +1557,12 @@
         <div class="info-card">
           <div class="info-icon">🪟</div>
           <h4 class="info-title">Persiane camera</h4>
-          <p class="info-text">Per chiudere le persiane della camera, aprite la finestra e usate la <strong>manovella manuale</strong>.</p>
+          <p class="info-text">Per chiudere le persiane della camera, aprite la finestra e utilizzate la <strong>manovella manuale</strong>.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">💡</div>
-          <h4 class="info-title">Interruttore salotto</h4>
-          <p class="info-text">L'interruttore della luce del salotto si trova <strong>tra i due credenze</strong>, vicino all'ingresso.</p>
+          <h4 class="info-title">Interruttore soggiorno</h4>
+          <p class="info-text">L'interruttore della luce del soggiorno si trova <strong>tra i due credenze</strong>, vicino all'ingresso.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🧺</div>
@@ -1470,22 +1571,25 @@
         </div>
         <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
           <div class="info-icon" style="background: var(--warning); color: white;">🛋️</div>
-          <h4 class="info-title">Divano del salotto</h4>
-          <p class="info-text"><strong>Il divano non è progettato per dormire.</strong> È destinato solo all'uso seduto. Vi prego di rispettare questa indicazione.</p>
+          <h4 class="info-title">Divano del soggiorno</h4>
+          <p class="info-text"><strong>Il divano non è progettato per dormire.</strong> È destinato solo all'uso seduto. Vi preghiamo di rispettare questa regola.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">Regole della casa</h4>
-          <p class="info-text"><strong>Vietato fumare</strong> (sensore CO2 · non staccarlo · allarme connesso) · niente animali · niente feste · silenzio dopo le 22:00. Rilevatore di decibel e telecamera sul pianerottolo.</p>
+          <p class="info-text"><strong>Vietato fumare</strong> (sensore CO2 · non staccate · allarme connesso) · no animali · no feste · silenzio dopo le 22:00. Rilevatore di decibel e telecamera sul pianerottolo.</p>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- POUBELLES -->
-    <section class="section reveal" id="poubelles">
-      <div class="section-eyebrow">Raccolta differenziata</div>
-      <h2 class="section-title">I <em>rifiuti</em></h2>
-      <p class="section-intro">Per rispetto verso il nostro personale di pulizia, vi prego di evacuare i vostri rifiuti al momento della partenza.</p>
+    <details class="section reveal" id="poubelles">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Raccolta differenziata</div>
+        <h2 class="section-title">I <em>rifiuti</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Per rispetto del nostro personale di pulizia, vi preghiamo di svuotare i vostri rifiuti al momento della partenza.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:center;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
@@ -1505,12 +1609,15 @@
           <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Dettaglio</strong> · cliccare per ingrandire 🔍</div>
         </a>
       </div>
-    </section>
+    </details>
 
     <!-- BOUGER -->
-    <section class="section reveal" id="bouger">
-      <div class="section-eyebrow">Muoversi</div>
-      <h2 class="section-title">Spostarsi <em>in città</em></h2>
+    <details class="section reveal" id="bouger">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Muoversi</div>
+        <h2 class="section-title">Spostarsi <em>in città</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="transport-grid">
         <div class="transport-card">
@@ -1528,13 +1635,13 @@
         <div class="transport-card">
           <div class="transport-icon">🚞</div>
           <div class="transport-name">Funicolare F1</div>
-          <div class="transport-desc">Stazione Saint-Just · discesa diretta verso il Vieux Lyon</div>
+          <div class="transport-desc">Stazione Saint-Just · discesa diretta verso la Vecchia Lione</div>
           <div class="transport-distance">500 m · 5 min a piedi</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚇</div>
           <div class="transport-name">Metro D</div>
-          <div class="transport-desc">Vieux Lyon · accessibile via funicolare</div>
+          <div class="transport-desc">Vecchia Lione · accessibile via funicolare</div>
           <div class="transport-distance">5 min in funicolare</div>
         </div>
         <div class="transport-card">
@@ -1552,24 +1659,27 @@
 
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ Parcheggio</div>
-        <div class="reco-tip-text">Diverse opzioni intorno all'appartamento :<br>
+        <div class="reco-tip-text">Diverse opzioni intorno all'appartamento:<br>
         · <strong>Parcheggio gratuito</strong> spesso disponibile nelle strade <strong>St Fiacre</strong>, <strong>4 Colonnes</strong> e <strong>Pépinière</strong> (davanti all'edificio)<br>
         · <strong>Posti a pagamento</strong> rue Pierre Audry<br>
         · <strong>Parcheggio pubblico</strong> all'angolo di rue Pépinière e avenue Barthélémy Buyer<br>
-        · <strong>Garage coperto</strong> rue Radisson, a 400 m : 10€/giorno, 50€/settimana<br>
-        Per il <strong>carico/scarico</strong> : zone di sosta nelle strade o rue St Fiacre, di fronte all'appartamento.</div>
+        · <strong>Garage coperto</strong> rue Radisson, a 400 m: 10€/giorno, 50€/settimana<br>
+        Per il <strong>drop-off</strong>: warnings nella strada o rue St Fiacre, di fronte all'appartamento.</div>
       </div>
 
       <div class="reco-tip" style="margin-top:12px; background: rgba(90, 110, 63, 0.08); border-color: var(--success);">
         <div class="reco-tip-title" style="color: var(--success);">🧳 Deposito bagagli</div>
-        <div class="reco-tip-text">Se avete bisogno di immagazzinare i vostri bagagli prima o dopo il soggiorno : <a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> offre punti di deposito <strong>in tutta Lione</strong> a partire da 4,50€/giorno. <a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">Altri depositi a Lione</a>.</div>
+        <div class="reco-tip-text">Se avete bisogno di depositare i vostri bagagli prima o dopo il soggiorno: <a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> offre punti di deposito <strong>in tutta Lione</strong> a partire da 4,50€/giorno. <a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">Altri depositi a Lione</a>.</div>
       </div>
-    </section>
+    </details>
 
     <!-- RECOS -->
-    <section class="section reveal" id="recos">
-      <div class="section-eyebrow">I nostri preferiti</div>
-      <h2 class="section-title">Da scoprire <em>intorno</em></h2>
+    <details class="section reveal" id="recos">
+      <summary class="section-summary">
+        <div class="section-eyebrow">I nostri preferiti</div>
+        <h2 class="section-title">Da scoprire <em>intorno</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="recos-toc">
         <a href="#restos" class="recos-toc-link">🍷 Ristoranti</a>
@@ -1583,11 +1693,11 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/hotel-fourviere.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Bistronomico · Hotel</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Bistronomia · Hotel</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m</span></div>
             <div class="reco-name">Hôtel Fourvière · Les Téléphones</div>
             <span class="reco-tag">A due passi</span>
             <p class="reco-desc">Il ristorante bistronomico « Les Téléphones » e il bar « Les Collections » dell'hotel Fourvière, proprio accanto all'appartamento. 23 rue Roger Radisson · 04 74 70 07 00.</p>
-            <a href="https://www.fourviere-hotel.com/fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://www.fourviere-hotel.com/fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1596,19 +1706,19 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Bistrot · Terrazza ombreggiata</span><span class="reco-meta-sep">·</span><span class="reco-distance">300 m</span></div>
             <div class="reco-name">L'Esprit Bistrot</div>
-            <span class="reco-tag">Nostro preferito</span>
+            <span class="reco-tag">Il nostro preferito</span>
             <p class="reco-desc">Bistrot con terrazza ombreggiata e sala con camino. 20 rue du Cardinal Gerlier · 04 78 36 73 85.</p>
-            <a href="https://www.lespritbistrot.com/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://www.lespritbistrot.com/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/table-st-just.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Cucina di mercato</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Cucina del mercato</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
             <div class="reco-name">La Table de Saint Just</div>
             <p class="reco-desc">12 rue des Basses Verchères · 04 78 36 06 17.</p>
-            <a href="https://la-table-de-saint-just-lyon.fr/fr" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://la-table-de-saint-just-lyon.fr/fr" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1618,7 +1728,7 @@
             <div class="reco-meta"><span class="reco-cat">Cucina tradizionale</span><span class="reco-meta-sep">·</span><span class="reco-distance">800 m</span></div>
             <div class="reco-name">La Petite Auberge</div>
             <p class="reco-desc">2 place Eugène Wernert · 04 78 25 29 33.</p>
-            <a href="https://lanetiteaubergelyon.fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://lanetiteaubergelyon.fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1627,8 +1737,8 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Bouchon lionese (ristorante tradizionale)</span><span class="reco-meta-sep">·</span><span class="reco-distance">800 m</span></div>
             <div class="reco-name">Chez Grand-Mère</div>
-            <p class="reco-desc">Bouchon nel Vieux Lyon, sulla rue du Bœuf. 11 rue du Bœuf · 09 51 61 35 38.</p>
-            <a href="https://chezgrandmere.fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <p class="reco-desc">Bouchon nella Vecchia Lione, sulla rue du Bœuf. 11 rue du Bœuf · 09 51 61 35 38.</p>
+            <a href="https://chezgrandmere.fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1644,7 +1754,7 @@
 
         <div class="reco-tip">
           <div class="reco-tip-title">Per passeggiare</div>
-          <div class="reco-tip-text">Il quartiere Saint-Just / Fourvière è tranquillo e residenziale. Per più scelta, scendete nel <strong>Vieux Lyon</strong> (10 min a piedi con il funicolare) con i suoi bouchon tradizionali, o raggiungete la <strong>penisola</strong> e la place des Terreaux.</div>
+          <div class="reco-tip-text">Il quartiere Saint-Just / Fourvière è tranquillo e residenziale. Per più scelta, scendete nella <strong>Vecchia Lione</strong> (10 min a piedi con il funicolare) con i suoi bouchon tradizionali, o raggiungete la <strong>penisola</strong> e place des Terreaux.</div>
         </div>
       </div>
 
@@ -1656,9 +1766,9 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Patrimonio · Vista panoramica</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
             <div class="reco-name">Basilica di Fourvière</div>
-            <span class="reco-tag">Nostro preferito</span>
+            <span class="reco-tag">Il nostro preferito</span>
             <p class="reco-desc">Simbolo di Lione. Cripta impressionante e vista panoramica sulla città. Accesso facile dall'appartamento.</p>
-            <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1669,7 +1779,7 @@
             <div class="reco-name">Lugdunum</div>
             <span class="reco-tag">Imprescindibile</span>
             <p class="reco-desc">Museo e teatri romani. <strong>Accesso gratuito</strong>. Scenografia magnifica per scoprire la storia antica di Lione.</p>
-            <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1677,10 +1787,10 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Patrimonio UNESCO</span><span class="reco-meta-sep">·</span><span class="reco-distance">900 m</span></div>
-            <div class="reco-name">Vieux Lyon</div>
+            <div class="reco-name">Vecchia Lione</div>
             <span class="reco-tag">Patrimonio UNESCO</span>
-            <p class="reco-desc">Quartiere rinascimentale classificato. Traboule, vicoli pavimentati e bouchon. A 10 minuti a piedi in discesa, o con il funicolare.</p>
-            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Visita il sito →</a>
+            <p class="reco-desc">Quartiere Rinascimentale classificato. Traboule, viuzze acciottolate e bouchon. A 10 minuti a piedi in discesa, o con il funicolare.</p>
+            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1689,7 +1799,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Piazza storica</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,8 km</span></div>
             <div class="reco-name">Place des Terreaux</div>
-            <p class="reco-desc">Cuore della penisola, celebre per la sua fontana Bartholdi e i suoi caffè in terrazza.</p>
+            <p class="reco-desc">Cuore della penisola, celebre per la fontana Bartholdi e i suoi caffè in terrazza.</p>
             <a href="#" class="reco-link">Vedi sulla mappa →</a>
           </div>
         </div>
@@ -1700,7 +1810,7 @@
             <div class="reco-meta"><span class="reco-cat">Museo contemporaneo</span><span class="reco-meta-sep">·</span><span class="reco-distance">4 km</span></div>
             <div class="reco-name">Museo delle Confluenze</div>
             <p class="reco-desc">Architettura spettacolare alla confluenza del Rodano e della Saona. Esposizioni di scienze e società.</p>
-            <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
       </div>
@@ -1726,7 +1836,7 @@
             <div class="reco-name">Boulangerie Henri Gay</div>
             <span class="reco-tag">Per la mattina</span>
             <p class="reco-desc">12 rue de la Favorite, 69005 Lione. Pani, cornetti e pasticcini.</p>
-            <a href="https://maison-hgay-lyon.eatbu.com/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://maison-hgay-lyon.eatbu.com/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1736,7 +1846,7 @@
             <div class="reco-meta"><span class="reco-cat">Macelleria · Salumeria</span><span class="reco-meta-sep">·</span><span class="reco-distance">450 m</span></div>
             <div class="reco-name">Le Domaine de Limagne</div>
             <p class="reco-desc">8 rue de la Favorite, 69005 Lione. Carni di qualità e salumi fini.</p>
-            <a href="https://www.domaine-de-limagne.com/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://www.domaine-de-limagne.com/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1745,7 +1855,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Farmacia</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
             <div class="reco-name">Pharmacie de Trion</div>
-            <p class="reco-desc">91 rue de Trion, 69005 Lione. In caso di emergenza, il servizio di turno è affisso in vetrina.</p>
+            <p class="reco-desc">91 rue de Trion, 69005 Lione. In caso di emergenza, il servizio di guardia è affisso in vetrina.</p>
             <a href="#" class="reco-link">Vedi sulla mappa →</a>
           </div>
         </div>
@@ -1760,12 +1870,15 @@
           </div>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- DÉPART -->
-    <section class="section reveal" id="depart">
-      <div class="section-eyebrow">Al momento della partenza</div>
-      <h2 class="section-title">Prima di <em>partire</em></h2>
+    <details class="section reveal" id="depart">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Al momento della partenza</div>
+        <h2 class="section-title">Prima di <em>partire</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="checklist">
         <div class="checklist-item">
@@ -1774,7 +1887,7 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Svuotare il frigo · gli alimenti deperibili, per favore</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Svuotare il frigorifero · gli alimenti deperibili, per favore</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1782,7 +1895,7 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Evacuare i vostri rifiuti nel locale al piede della scala, al fondo a destra del corridoio</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Svuotate i vostri rifiuti (vedi la sezione rifiuti)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1795,12 +1908,10 @@
       </div>
 
       <div class="checkout-block">
-        <p class="checkout-block-text">Tutto è pronto? Un piccolo clic ci permette di sapere che siete partiti in tutta sicurezza.</p>
-        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
-          👋 Informo l'host della mia partenza
-        </a>
+        <p class="checkout-block-text">Tutto pronto? Un piccolo clic ci permette di sapere che siete partiti in tutta sicurezza.</p>
+        {{checkout_block}}
       </div>
-    </section>
+    </details>
 
     <!-- CONTACT -->
     <section class="section reveal">
@@ -1808,11 +1919,11 @@
         <div class="contact-eyebrow">Una domanda?</div>
         <h3 class="contact-title">Siamo qui, a qualsiasi ora</h3>
         <div class="contact-actions">
-          <a href="https://wa.me/33600000000" class="contact-btn primary">
-            💬 Scrivere su WhatsApp
+          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
+            💬 Scrivi su WhatsApp
           </a>
-          <a href="tel:+33600000000" class="contact-btn">
-            📞 Chiamare · +33 6 00 00 00 00
+          <a href="tel:{{host_phone}}" class="contact-btn">
+            📞 Chiama · {{host_phone_display}}
           </a>
         </div>
       </div>
@@ -1862,16 +1973,48 @@
     el.classList.toggle('checked');
   }
 
-  // Confirmation visuelle après clic sur le bouton départ
+  // Confirmation visuale dopo clic su bottone partenza
   (function() {
     const btn = document.getElementById('checkoutBtn');
     if (!btn) return;
     btn.addEventListener('click', function() {
       setTimeout(function() {
         btn.classList.add('confirmed');
-        btn.innerHTML = '✓ Partenza confermata · grazie !';
+        btn.innerHTML = '✓ Partenza confermata · grazie!';
       }, 600);
     });
+  })();
+
+
+  (function() {
+    const btn = document.getElementById('arrivalBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Arrivo confermato · grazie!';
+      }, 600);
+    });
+  })();
+
+
+  // Auto-apre una sezione ripiegata quando si clicca su un link di ancoraggio
+  (function() {
+    function openDetailsForHash(hash) {
+      if (!hash || hash === '#') return;
+      try {
+        const target = document.querySelector(hash);
+        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        openDetailsForHash(a.getAttribute('href'));
+      });
+    });
+    if (window.location.hash) openDetailsForHash(window.location.hash);
   })();
 </script>
 
