@@ -1,0 +1,1950 @@
+<!-- BUILT for alcove-zh at 2026-05-14T06:23:11.716Z | photos: 10 ok / 0 missing / 0 ext-fixed -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5efe6">
+<title>L'Alcove · 您的住宿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5efe6;
+    --bg-card: #fefcf7;
+    --bg-elevated: #ffffff;
+    --fg: #211f1c;
+    --fg-muted: #6b6053;
+    --fg-soft: #9a8d7d;
+    --accent: #b8552d;
+    --accent-soft: #e8c7b3;
+    --accent-deep: #8a3d1d;
+    --accent-light: #fef4eb;
+    --border: #d8cfc0;
+    --border-soft: #ebe3d3;
+    --success: #5a6e3f;
+    --warning: #c8853d;
+    --shadow-sm: 0 1px 2px rgba(33,31,28,0.04), 0 1px 3px rgba(33,31,28,0.06);
+    --shadow-md: 0 4px 6px rgba(33,31,28,0.05), 0 10px 15px rgba(33,31,28,0.08);
+    --shadow-lg: 0 10px 25px rgba(33,31,28,0.10), 0 20px 40px rgba(33,31,28,0.12);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse at top right, rgba(184,85,45,0.04), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(90,110,63,0.03), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.12 0 0 0 0 0.11 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .app { position: relative; z-index: 2; }
+
+  /* TOPBAR */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background: rgba(245, 239, 230, 0.85);
+    border-bottom: 1px solid rgba(216, 207, 192, 0.6);
+  }
+  .topbar-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 17px;
+    letter-spacing: 0.01em;
+    color: var(--fg);
+    font-variation-settings: "opsz" 14, "SOFT" 30;
+  }
+  .brand-dot { color: var(--accent); }
+  .lang-switcher { position: relative; }
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fg);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-btn:hover { background: var(--bg-elevated); transform: translateY(-1px); }
+  .lang-btn .flag { font-size: 14px; }
+  .lang-btn .chev { font-size: 9px; opacity: 0.5; margin-left: 2px; }
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 6px;
+    box-shadow: var(--shadow-lg);
+    min-width: 160px;
+    display: none;
+    z-index: 60;
+  }
+  .lang-menu.open { display: block; animation: dropIn 0.18s ease-out; }
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+  .lang-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: var(--fg);
+    text-decoration: none;
+    border-radius: 8px;
+  }
+  .lang-menu a:hover { background: var(--bg); }
+  .lang-menu a.active { background: var(--accent-soft); color: var(--accent-deep); font-weight: 500; }
+
+  /* HERO */
+  .hero { position: relative; overflow: hidden; }
+  .hero-img {
+    width: 100%;
+    height: 52vh;
+    min-height: 320px;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(33,31,28,0) 30%, rgba(33,31,28,0.6) 100%);
+    pointer-events: none;
+  }
+  .hero-content {
+    max-width: 720px;
+    margin: -80px auto 0;
+    padding: 0 20px;
+    position: relative;
+    z-index: 3;
+  }
+  .hero-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px 24px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-soft);
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(34px, 8vw, 48px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  .hero-sub {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--fg-muted);
+    font-variation-settings: "opsz" 24, "SOFT" 60;
+  }
+  .hero-divider {
+    height: 1px;
+    background: var(--border-soft);
+    margin: 18px 0 16px;
+  }
+  .hero-greeting { font-size: 15px; color: var(--fg-muted); margin-bottom: 6px; }
+  .hero-greeting strong { color: var(--fg); font-weight: 500; }
+  .hero-countdown {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .hero-countdown-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--accent);
+    font-variation-settings: "opsz" 72, "SOFT" 30;
+    line-height: 1;
+  }
+  .hero-countdown-label { font-size: 14px; color: var(--fg-muted); }
+
+  /* MAIN */
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+
+  /* QUICK INFOS */
+  .quick-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .quick-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .quick-card.highlight {
+    background: linear-gradient(135deg, var(--accent-soft) 0%, #f4d4be 100%);
+    border-color: var(--accent-soft);
+  }
+  .quick-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+    font-weight: 500;
+  }
+  .quick-card.highlight .quick-label { color: var(--accent-deep); }
+  .quick-value {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--fg);
+    font-variation-settings: "opsz" 24, "SOFT" 30;
+    line-height: 1.2;
+  }
+  .quick-sub { font-size: 12px; color: var(--fg-soft); }
+
+  /* SECTION */
+  .section { margin-bottom: 48px; scroll-margin-top: 70px; }
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--fg-muted);
+    margin-bottom: 10px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--fg-muted);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    margin-bottom: 22px;
+    font-variation-settings: "opsz" 60, "SOFT" 40;
+  }
+  .section-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+  .section-intro {
+    font-size: 15px;
+    color: var(--fg-muted);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  /* VIDEO EMBED */
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--fg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-top: 14px;
+    box-shadow: var(--shadow-md);
+  }
+  .video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .video-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    margin-top: 14px;
+  }
+  .video-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--fg-muted);
+    margin-bottom: 10px;
+  }
+  .video-label svg { color: var(--accent); }
+
+  /* STEPS */
+  .steps { position: relative; }
+  .step {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    padding-bottom: 32px;
+    position: relative;
+  }
+  .step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 17px;
+    top: 36px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-soft), var(--border-soft));
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(184,85,45,0.3);
+    z-index: 2;
+    font-variation-settings: "opsz" 24, "SOFT" 30;
+  }
+  .step-content { padding-top: 4px; }
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 24, "SOFT" 40;
+  }
+  .step-text {
+    font-size: 15px;
+    color: var(--fg-muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .step-text strong { color: var(--fg); font-weight: 500; }
+  .step-substeps {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 12px 14px 12px 16px;
+    margin: 10px 0;
+  }
+  .step-substep {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .step-substep-num {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--accent);
+    font-variation-settings: "opsz" 12, "SOFT" 0;
+  }
+
+  /* CODE BOX */
+  .codebox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    margin-top: 8px;
+  }
+  .codebox-label {
+    font-size: 12px;
+    color: var(--fg-muted);
+    flex-shrink: 0;
+  }
+  .codebox-value {
+    flex: 1;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    color: var(--fg);
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+  }
+  .codebox-copy {
+    background: var(--fg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .codebox-copy:hover { background: var(--accent); transform: translateY(-1px); }
+  .codebox-copy.copied { background: var(--success); }
+  .codebox-keybox {
+    background: linear-gradient(135deg, #fff8ed 0%, #f9e7d0 100%);
+    border: 1px solid var(--accent-soft);
+    border-style: solid;
+  }
+  .codebox-keybox.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .codebox-keybox.locked .codebox-value {
+    color: var(--fg-soft);
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+  .codebox-keybox.locked .codebox-copy { display: none; }
+
+  .step-tip {
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: rgba(90, 110, 63, 0.08);
+    border-left: 3px solid var(--success);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .step-tip strong { color: var(--success); font-weight: 600; }
+  .step-tip.warn { background: rgba(200,133,61,0.1); border-color: var(--warning); }
+  .step-tip.warn strong { color: var(--warning); }
+
+  .step-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: var(--fg);
+    color: white;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 4px;
+    transition: all 0.18s;
+  }
+  .step-button:hover { background: var(--accent); transform: translateY(-1px); }
+  .step-button .arrow { font-size: 11px; transition: transform 0.18s; }
+  .step-button:hover .arrow { transform: translateX(2px); }
+
+  /* STEP MEDIA - Photos d'accompagnement par étape */
+  .step-photo {
+    width: 100%;
+    max-width: 320px;
+    border-radius: var(--radius-md);
+    margin-top: 12px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-soft);
+    display: block;
+  }
+  .step-photo-caption {
+    font-size: 12px;
+    color: var(--fg-soft);
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+  .step-photo-sequence {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 0 12px;
+    margin: 6px -4px 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .step-photo-sequence::-webkit-scrollbar { height: 4px; }
+  .step-photo-sequence::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .step-photo-frame {
+    flex: 0 0 auto;
+    width: 78%;
+    max-width: 280px;
+    scroll-snap-align: start;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .step-photo-frame img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .step-photo-frame-num {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(33,31,28,0.78);
+    color: white;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .step-photo-frame-cap {
+    padding: 8px 10px 9px;
+    font-size: 11px;
+    color: var(--fg-muted);
+    line-height: 1.35;
+    background: var(--bg-card);
+  }
+  .step-photo-frame-cap strong { color: var(--fg); font-weight: 500; }
+
+  /* GALLERIE */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 16px;
+  }
+  @media (min-width: 480px) {
+    .gallery { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  }
+  .gallery-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--border-soft);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .gallery-item:hover { transform: scale(0.98); }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 6px 8px 5px;
+    background: linear-gradient(to top, rgba(33,31,28,0.85), transparent);
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ROOM TILES */
+  .rooms {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  @media (min-width: 480px) {
+    .rooms { grid-template-columns: repeat(2, 1fr); }
+  }
+  .room {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .room-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .room-name {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 1px;
+    font-variation-settings: "opsz" 18, "SOFT" 40;
+  }
+  .room-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
+
+  /* INFO CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media (min-width: 640px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    transition: all 0.18s;
+  }
+  .info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border);
+  }
+  .info-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .info-title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 24, "SOFT" 40;
+  }
+  .info-text {
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .info-text code {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--fg);
+  }
+  .info-copy-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .info-copy-btn {
+    background: var(--fg);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .info-copy-btn:hover { background: var(--accent); }
+  .info-copy-btn.copied { background: var(--success); }
+
+  /* TRANSPORT GRID */
+  .transport-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .transport-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px;
+  }
+  .transport-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .transport-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    font-variation-settings: "opsz" 18, "SOFT" 30;
+  }
+  .transport-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
+  .transport-distance { font-size: 11px; color: var(--accent); font-weight: 500; margin-top: 4px; }
+
+  /* RECOS */
+  .recos-toc {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 18px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .recos-toc::-webkit-scrollbar { display: none; }
+  .recos-toc-link {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--fg);
+    text-decoration: none;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .recos-toc-link:hover { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-soft); }
+
+  .reco-cat-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    font-style: italic;
+    margin: 32px 0 12px;
+    font-variation-settings: "opsz" 36, "SOFT" 60;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    scroll-margin-top: 70px;
+  }
+  .reco-cat-title:first-child { margin-top: 0; }
+  .reco-cat-title .icon {
+    font-style: normal;
+    font-size: 20px;
+  }
+  .reco-cat-count {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 12px;
+    color: var(--fg-soft);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .recos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .reco {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.18s;
+  }
+  .reco:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .reco-img {
+    width: 100px;
+    height: 100%;
+    min-height: 120px;
+    object-fit: cover;
+    background: var(--border-soft);
+  }
+  .reco-body {
+    padding: 14px 14px 14px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .reco-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .reco-cat {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .reco-meta-sep {
+    color: var(--fg-soft);
+  }
+  .reco-distance {
+    color: var(--fg-muted);
+    font-weight: 500;
+  }
+  .reco-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 24, "SOFT" 40;
+    line-height: 1.2;
+  }
+  .reco-desc {
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.45;
+    margin-bottom: 8px;
+    flex: 1;
+  }
+  .reco-tag {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent-deep);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+    align-self: flex-start;
+  }
+  .reco-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+  .reco-link:hover { text-decoration: underline; }
+
+  .reco-tip {
+    background: rgba(184,85,45,0.06);
+    border: 1px solid var(--accent-soft);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    margin-top: 12px;
+  }
+  .reco-tip-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent-deep);
+    margin-bottom: 4px;
+  }
+  .reco-tip-text {
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+  .reco-tip-text strong { color: var(--fg); font-weight: 500; }
+
+  /* CHECKLIST */
+  .checklist {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+  }
+  .checklist-item {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .checklist-bullet {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 5px;
+    margin-top: 4px;
+    transition: all 0.15s;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+  }
+  .checklist-bullet.checked {
+    background: var(--success);
+    border-color: var(--success);
+  }
+  .checklist-bullet.checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .checklist-text {
+    font-size: 14px;
+    color: var(--fg);
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+  }
+  .checklist-bullet.checked + .checklist-text { color: var(--fg-soft); text-decoration: line-through; }
+
+  /* CONTACT */
+  .contact-card {
+    background: linear-gradient(135deg, var(--fg) 0%, #383229 100%);
+    color: var(--bg);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(184,85,45,0.25), transparent 70%);
+    pointer-events: none;
+  }
+  .contact-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.7;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .contact-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 14px;
+    font-variation-settings: "opsz" 36, "SOFT" 80;
+    position: relative;
+  }
+  .contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+  }
+  .contact-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.18s;
+  }
+  .contact-btn:hover { background: rgba(255,255,255,0.18); transform: translateY(-1px); }
+  .contact-btn.primary { background: var(--accent); border-color: var(--accent); }
+  .contact-btn.primary:hover { background: var(--accent-deep); }
+
+  /* CHECKOUT BLOCK */
+  .checkout-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--accent-light);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--accent-soft);
+    text-align: center;
+  }
+  .checkout-block-text {
+    color: var(--fg-soft);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .checkout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.18s;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+  }
+  .checkout-btn:hover {
+    background: var(--accent-deep);
+    border-color: var(--accent-deep);
+    transform: translateY(-1px);
+  }
+  .checkout-btn.confirmed {
+    background: #5a8559;
+    border-color: #5a8559;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px 20px 24px;
+    color: var(--fg-soft);
+    font-size: 12px;
+    border-top: 1px solid var(--border-soft);
+    margin-top: 40px;
+  }
+  footer .signature {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--fg-muted);
+    margin-bottom: 6px;
+    font-variation-settings: "opsz" 24, "SOFT" 80;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--fg);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+  .reveal:nth-child(1) { animation-delay: 0.05s; }
+  .reveal:nth-child(2) { animation-delay: 0.12s; }
+  .reveal:nth-child(3) { animation-delay: 0.20s; }
+  .reveal:nth-child(4) { animation-delay: 0.28s; }
+  .reveal:nth-child(5) { animation-delay: 0.36s; }
+  .reveal:nth-child(6) { animation-delay: 0.44s; }
+
+  /* GALLERIE SCROLL HORIZONTALE */
+  .gallery-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 0 12px;
+    margin: 16px -4px 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .gallery-scroll::-webkit-scrollbar { height: 4px; }
+  .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .gallery-scroll-item {
+    flex: 0 0 auto;
+    width: 220px;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    scroll-snap-align: start;
+    cursor: pointer;
+    position: relative;
+    background: var(--border-soft);
+    transition: transform 0.2s;
+  }
+  .gallery-scroll-item:hover { transform: scale(0.98); }
+  .gallery-scroll-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .gallery-scroll-item:hover img { transform: scale(1.05); }
+
+  @media (max-width: 480px) {
+    .hero-content { margin-top: -64px; }
+    .hero-card { padding: 22px 20px 20px; border-radius: 16px; }
+    .quick-grid { gap: 8px; }
+    .quick-card { padding: 12px 14px; }
+    .section-title { font-size: 26px; }
+    .reco { grid-template-columns: 88px 1fr; }
+    .reco-img { width: 88px; min-height: 110px; }
+  }
+
+  .arrival-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(90,110,63,0.25);
+    text-align: center;
+  }
+  .arrival-block-text {
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .arrival-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 14px 28px;
+    background: var(--success); color: white;
+    text-decoration: none; border-radius: var(--radius-md);
+    font-weight: 500; font-size: 15px;
+    transition: all 0.18s; border: 1px solid var(--success);
+  }
+  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-block.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .arrival-block.locked .arrival-block-text {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin-bottom: 0;
+  }
+
+  details.section > summary.section-summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-right: 56px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s ease;
+  }
+  details.section > summary.section-summary::-webkit-details-marker { display: none; }
+  details.section > summary.section-summary::marker { display: none; }
+  details.section > summary.section-summary:hover {
+    background: rgba(184,85,45,0.03);
+  }
+  details.section .section-summary-chevron {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    padding-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
+    box-shadow: var(--shadow-sm);
+  }
+  details.section > summary.section-summary:hover .section-summary-chevron {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    color: var(--accent-deep);
+  }
+  details.section[open] .section-summary-chevron {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  details.section:not([open]) {
+    padding-bottom: 8px;
+  }
+  details.section:not([open]) .section-summary .section-title {
+    margin-bottom: 0;
+  }
+  @media print {
+    details.section > summary.section-summary { display: block; }
+    details.section .section-summary-chevron { display: none; }
+    details.section > *:not(summary) { display: revert !important; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">u-citybreak<span class="brand-dot">.</span></div>
+      <div class="lang-switcher">
+        <button class="lang-btn" onclick="toggleLangMenu(event)">
+          <span class="flag">🇨🇳</span><span>中文</span><span class="chev">▾</span>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <a href="#"><span>🇫🇷</span> Français</a>
+          <a href="#"><span>🇬🇧</span> English</a>
+          <a href="#"><span>🇩🇪</span> Deutsch</a>
+          <a href="#"><span>🇮🇹</span> Italiano</a>
+          <a href="#"><span>🇪🇸</span> Español</a>
+          <a href="#"><span>🇷🇺</span> Русский</a>
+          <a href="#" class="active"><span>🇨🇳</span> 中文</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img class="hero-img" src="https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg" alt="L'Alcove">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-card reveal">
+      <div class="hero-eyebrow">您的住宿</div>
+      <h1 class="hero-title">L'Alcove</h1>
+      <p class="hero-sub">里昂 Terreaux 中心</p>
+      <div class="hero-divider"></div>
+      <p class="hero-greeting">您好 <strong>{{guest_name}}</strong>，欢迎来到我们的公寓。</p>
+      <div class="hero-countdown">
+        {{countdown}}
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- QUICK -->
+    <div class="quick-grid reveal">
+      <div class="quick-card">
+        <div class="quick-label">入住</div>
+        <div class="quick-value">5月1日</div>
+        <div class="quick-sub">下午5点起</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-label">退房</div>
+        <div class="quick-value">5月3日</div>
+        <div class="quick-sub">上午11点前</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-label">住客</div>
+        <div class="quick-value">4人</div>
+        <div class="quick-sub">跃层工作室</div>
+      </div>
+      <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
+        <div class="quick-label">无线网络</div>
+        <div class="quick-value">SFR_7CFF</div>
+        <div class="quick-sub">密码 ↓</div>
+      </a>
+    </div>
+
+    <!-- ARRIVÉE -->
+    <details class="section reveal" id="arriver">
+      <summary class="section-summary">
+        <div class="section-eyebrow">分步指南</div>
+        <h2 class="section-title">到达 <em>公寓</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3 class="step-title">找到地址</h3>
+            <p class="step-text">您将到达 <strong>里昂第一区 Valfenière 街 3 号</strong>，位于 <strong>Terreaux</strong> 中心。以下是一些方向指引：</p>
+            <ul style="margin:8px 0 14px 18px; padding:0; color:var(--fg-soft); font-size:14.5px; line-height:1.7;">
+              <li><strong>从 Terreaux 广场出发</strong>：沿 Paul Chenavard 街，然后沿 Major Martin 街（在 <strong>Café des Fédérations</strong> 角）。</li>
+              <li><strong>从 Plâtrière 街出发</strong>：在 <strong>Franprix Marché Presqu'île</strong> 超市角。</li>
+            </ul>
+            <a href="https://www.google.com/maps/place/3+Rue+de+la+Valfeni%C3%A8re,+69001+Lyon/" target="_blank" class="step-button">
+              在地图中打开 <span class="arrow">→</span>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=DwyeCH4FSWo" target="_blank" rel="noopener" aria-label="在 YouTube 上查看到达视频" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-top:14px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+              <img src="https://img.youtube.com/vi/DwyeCH4FSWo/maxresdefault.jpg" alt="到达视频" loading="lazy" onerror="this.src='https://img.youtube.com/vi/DwyeCH4FSWo/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+              <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </a>
+            <p class="step-photo-caption">▶ 到达视频 · 找到建筑入口</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3 class="step-title">建筑门禁码</h3>
+            <p class="step-text">建筑有 <strong>两扇连续的门</strong>，使用 <strong>相同的密码</strong>。在第一扇门上输入密码，然后在第二扇门上再次输入，以进入门厅。</p>
+            <div class="codebox">
+              <span class="codebox-label">门禁码 · 第1和第2扇门</span>
+              <span class="codebox-value">3175</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3 class="step-title">打开 Igloohome 钥匙盒</h3>
+            <p class="step-text">通过两扇门后，您将进入 <strong>门厅</strong>。Igloohome 钥匙盒 <strong>固定在门厅的门上</strong>。以下是使用方法：</p>
+
+            <div style="display:flex; justify-content:center; margin-top:8px;">
+              <div style="max-width:300px;">
+                <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Lockbox.jpg" alt="Igloohome 钥匙盒" style="margin-top:0; max-width:100%; aspect-ratio:1/1; object-fit:cover;">
+                <p class="step-photo-caption">Igloohome 钥匙盒，在 <strong>门厅的门上</strong></p>
+              </div>
+            </div>
+
+            <div class="step-substeps">
+              <div class="step-substep"><span class="step-substep-num">1</span><span>将 <strong style="color:var(--fg);">手掌</strong> 放在键盘上以唤醒设备</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>输入您的 <strong style="color:var(--fg);">4位数密码</strong>，然后按中间的锁定标志</span></div>
+              <div class="step-substep"><span class="step-substep-num">3</span><span>等待蜂鸣声和打开声</span></div>
+              <div class="step-substep"><span class="step-substep-num">4</span><span>向侧面拉动以打开盒子并取出钥匙</span></div>
+            </div>
+
+            <p class="step-text" style="margin-top:14px;">您的独特密码：</p>
+
+            {{smartlock_codebox}}
+            <div class="step-tip warn"><strong>⏰ 为了您的安全</strong> · 此密码在每次预订时更改，在整个住宿期间有效。</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3 class="step-title">进入公寓</h3>
+            <p class="step-text">关上盒子（轻轻按住盖子直到听到咔哒声），然后用钥匙打开工作室的门。<strong>欢迎来到 L'Alcove</strong> ✨</p>
+          </div>
+        </div>
+
+      </div>
+
+      {{arrival_block}}
+    </details>
+
+    <!-- DÉCOUVRIR -->
+    <details class="section reveal" id="decouvrir">
+      <summary class="section-summary">
+        <div class="section-eyebrow">探索公寓</div>
+        <h2 class="section-title">L'Alcove <em>一览</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+
+      <!-- Visite virtuelle -->
+      <a href="https://www.youtube.com/watch?v=Ed_4ON2EUmc" target="_blank" rel="noopener" aria-label="在 YouTube 上查看虚拟导览" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:28px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+        <img src="https://img.youtube.com/vi/Ed_4ON2EUmc/maxresdefault.jpg" alt="虚拟导览" loading="lazy" onerror="this.src='https://img.youtube.com/vi/Ed_4ON2EUmc/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </a>
+      <p style="text-align:center; color:var(--fg-soft); font-size:14px; margin:-18px 0 24px 0;">▶ 虚拟导览 · 通过视频探索公寓</p>
+
+      <div class="rooms">
+        <div class="room">
+          <div class="room-icon">🛋️</div>
+          <div>
+            <div class="room-name">客厅</div>
+            <div class="room-desc">沙发床 · SFR 电视盒 Android</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🍳</div>
+          <div>
+            <div class="room-name">厨房角</div>
+            <div class="room-desc">炉灶 · 冰箱 · 滤纸咖啡机 · 电热水壶</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🪜</div>
+          <div>
+            <div class="room-name">跃层</div>
+            <div class="room-desc">双人床 · 高度 1.25 米（舒适空间）</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🛁</div>
+          <div>
+            <div class="room-name">浴室</div>
+            <div class="room-desc">吹风机 · 毛巾架</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">🧺</div>
+          <div>
+            <div class="room-name">洗衣机</div>
+            <div class="room-desc">浴室专用插座（镜子上方）</div>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-icon">👔</div>
+          <div>
+            <div class="room-name">熨斗</div>
+            <div class="room-desc">放在厨房上方的大衣柜里</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-scroll">
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg" alt="工作室"><span class="gallery-caption">工作室</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/be91NsSW46YFcnEYK60FS6DAxEGGkTlo8mKjAg3J.jpg" alt="客厅景观"><span class="gallery-caption">客厅</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ZcDQbp6p06N5BQ5sN8aJSZXShSlJ3kzZCGxeWS5V.jpg" alt="跃层 1.25米"><span class="gallery-caption">跃层 · 1.25 米</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/j2SV9Psctu6Xbw2SsEodnHX2uFplufvAdzyGXTus.jpg" alt="景观 4"><span class="gallery-caption">厨房角</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/sERnbOq6tL4OabO36QlCv6TGh4S5d3SXCsm0s3IX.jpg" alt="景观 5"><span class="gallery-caption">生活空间</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/zLBCdkWMSydgNwOpC9EiNl9SNflTCEp2qZaSF8Qv.jpg" alt="景观 6"><span class="gallery-caption">细节</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/a6hsmoW48NsyF0t27XBGv99ndeRVdpd9Kvq0BrM2.jpg" alt="浴室"><span class="gallery-caption">浴室</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/rhXzbhDExVwz2g5FqwnNwqL9jjrywyuQ4aBiT8hZ.jpg" alt="景观 8"><span class="gallery-caption">全景</span></div>
+      </div>
+
+    </details>
+
+    <!-- PRATIQUE -->
+    <details class="section reveal" id="pratique">
+      <summary class="section-summary">
+        <div class="section-eyebrow">住宿期间</div>
+        <h2 class="section-title">实用 <em>信息</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="info-icon">📶</div>
+          <h4 class="info-title">无线网络</h4>
+          <p class="info-text">网络名称：<code>SFR_7CFF</code></p>
+          <div class="info-copy-row">
+            <code style="flex:1;">h85xkgpudi4xfri279rb</code>
+            <button class="info-copy-btn" onclick="copyCode(this, 'h85xkgpudi4xfri279rb')">复制</button>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📺</div>
+          <h4 class="info-title">电视</h4>
+          <p class="info-text">使用 <strong>SFR 电视盒 Android</strong> 和 <strong>第二个遥控器</strong>。</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">☕</div>
+          <h4 class="info-title">咖啡和热饮</h4>
+          <p class="info-text"><strong>滤纸</strong>咖啡机和电热水壶可用。没有胶囊或咖啡豆机。</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🧺</div>
+          <h4 class="info-title">洗衣机</h4>
+          <p class="info-text">将其插入位于 <strong>浴室镜子左上方</strong> 的插座。</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">👕</div>
+          <h4 class="info-title">熨斗</h4>
+          <p class="info-text">放在 <strong>厨房上方的大衣柜</strong> 里。</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🛏️</div>
+          <h4 class="info-title">提供的床上用品</h4>
+          <p class="info-text">每张床提供床单和 2 条毛巾。沙发床到达时 <strong>未铺好</strong> — 床上用品在沙发右侧的架子上。</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌡️</div>
+          <h4 class="info-title">毛巾架</h4>
+          <p class="info-text">毛巾架可能已激活 <strong>儿童安全锁</strong>。如果无法打开，请联系我们。</p>
+        </div>
+        <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
+          <div class="info-icon" style="background: var(--warning); color: white;">🚪</div>
+          <h4 class="info-title">退房时</h4>
+          <p class="info-text">用钥匙锁好门，然后 <strong>将钥匙放回门厅门上的 Igloohome 盒子</strong>。密码与到达时相同。</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📋</div>
+          <h4 class="info-title">房屋规则</h4>
+          <p class="info-text"><strong>禁止吸烟</strong> · 禁止宠物 · 禁止聚会 · 晚上 10 点后保持安静。客厅的 <strong>两扇大衣柜门</strong> 用于存放清洁用品：请勿打开。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- POUBELLES -->
+    <details class="section reveal" id="poubelles">
+      <summary class="section-summary">
+        <div class="section-eyebrow">垃圾分类</div>
+        <h2 class="section-title">垃圾 <em>处理</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">为了尊重我们的清洁人员，请在退房时清空垃圾。</p>
+
+      <div class="info-card" style="display:flex; gap:14px; align-items:flex-start;">
+        <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
+        <div>
+          <h4 class="info-title" style="margin-bottom:6px;">垃圾房</h4>
+          <p class="info-text">垃圾房位于 <strong>螺旋楼梯下方</strong>。</p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;">
+        <div>
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/poubelles1.jpeg" alt="螺旋楼梯" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm);">
+          <p class="step-photo-caption" style="text-align:center; margin-top:6px;">螺旋楼梯</p>
+        </div>
+        <div>
+          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/poubelles2.jpeg" alt="垃圾房" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm);">
+          <p class="step-photo-caption" style="text-align:center; margin-top:6px;">垃圾房</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- BOUGER -->
+    <details class="section reveal" id="bouger">
+      <summary class="section-summary">
+        <div class="section-eyebrow">出行</div>
+        <h2 class="section-title">在城市中 <em>出行</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+
+      <div class="transport-grid">
+        <div class="transport-card">
+          <div class="transport-icon">🚇</div>
+          <div class="transport-name">地铁 A · 市政厅站</div>
+          <div class="transport-desc">近在咫尺，前往 Bellecour 和 Perrache</div>
+          <div class="transport-distance">200 米 ⭐</div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">🚌</div>
+          <div class="transport-name">公交 · Terreaux La Feuillée</div>
+          <div class="transport-desc">C3、C13、C14、C18、19、S6、S12、PL1 线路</div>
+          <div class="transport-distance">近在咫尺</div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">🚄</div>
+          <div class="transport-name">Part-Dieu 火车站</div>
+          <div class="transport-desc">地铁 B 然后地铁 A 至市政厅站</div>
+          <div class="transport-distance">约 25 分钟</div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">🚄</div>
+          <div class="transport-name">Perrache 火车站</div>
+          <div class="transport-desc">直达地铁 A</div>
+          <div class="transport-distance">约 15 分钟</div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">✈️</div>
+          <div class="transport-name">Saint-Exupéry 机场</div>
+          <div class="transport-desc">Rhône Express → Vaulx-en-Velin La Soie → 地铁 A。或 C200 巴士或 Uber/出租车（约 45 分钟）。</div>
+        </div>
+      </div>
+
+      <div class="reco-tip" style="margin-top:18px;">
+        <div class="reco-tip-title">🅿️ 停车</div>
+        <div class="reco-tip-text">公寓位于里昂 <strong>步行街中心</strong> — 街道停车很困难。<br><br>
+        附近有多个 <strong>LPA 地下停车场</strong>：<br>
+        · <strong>Terreaux 停车场</strong> · 最近（收费）<br>
+        · <strong>Saint-Antoine 停车场</strong><br>
+        · <strong>Cordelier 停车场</strong> · 稍远一些<br><br>
+        💡 提供 <strong>多日套餐</strong> 或 <strong>周末套餐</strong>（周五至周一）。</div>
+      </div>
+
+      <div class="reco-tip" style="margin-top:12px; background: rgba(90, 110, 63, 0.08); border-color: var(--success);">
+        <div class="reco-tip-title" style="color: var(--success);">🧳 行李寄存</div>
+        <div class="reco-tip-text">如果您需要在住宿前后存放行李：<a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> 在 <strong>整个里昂</strong> 提供寄存点，起价 4.50€/天。<a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">里昂其他行李寄存处</a>。</div>
+      </div>
+    </details>
+
+    <!-- RECOS -->
+    <details class="section reveal" id="recos">
+      <summary class="section-summary">
+        <div class="section-eyebrow">我们的推荐</div>
+        <h2 class="section-title">周边 <em>探索</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+
+      <div class="recos-toc">
+        <a href="#restos" class="recos-toc-link">🍷 餐厅</a>
+        <a href="#tourisme" class="recos-toc-link">🏛️ 景点</a>
+        <a href="#commerces" class="recos-toc-link">🛒 商店</a>
+      </div>
+
+      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> 餐厅 <span class="reco-cat-count">· 3 家</span></h3>
+      <div class="recos-list">
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/cafe-des-federations.png" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">正宗里昂餐厅</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 米 ⭐</span></div>
+            <div class="reco-name">Café des Fédérations</div>
+            <span class="reco-tag">近在咫尺</span>
+            <p class="reco-desc">被评为 <strong>2019-2020 年最佳正宗里昂餐厅</strong>。传统里昂美食，午餐和晚餐营业，<strong>周日也开放</strong>。位于 Major Martin 街角。</p>
+            <a href="https://www.google.com/maps/place/Le+Cafe+des+Federations" target="_blank" class="reco-link">在地图上查看 →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Musee-de-l-opera.png" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">餐厅 · 全景视野</span><span class="reco-meta-sep">·</span><span class="reco-distance">300 米</span></div>
+            <div class="reco-name">Les Muses de l'Opéra</div>
+            <span class="reco-tag">全景视野</span>
+            <p class="reco-desc">歌剧院 <strong>7 楼的全景露台</strong>，可俯瞰 Fourvière。午餐或饮料的绝佳场所。</p>
+            <a href="https://www.google.com/maps/place/Les+Muses" target="_blank" class="reco-link">在地图上查看 →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Len-de-lyon.jpg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">精致美食</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 米</span></div>
+            <div class="reco-name">Léon de Lyon</div>
+            <span class="reco-tag">温馨氛围</span>
+            <p class="reco-desc"><strong>周三至周日</strong>营业。温馨的氛围和精致的美食 — 里昂的一家老字号餐厅。</p>
+            <a href="https://www.google.com/maps/place/Restaurant+Leon+de+Lyon" target="_blank" class="reco-link">在地图上查看 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reco-tip" style="margin-top:14px;">
+        <div class="reco-tip-title">🍴 餐厅街</div>
+        <div class="reco-tip-text">要探索里昂美食，可以在 <strong>Mercière 街</strong>、<strong>Arbre-Sec 街</strong>、<strong>Marronniers 街</strong> 或 <strong>老城区</strong> 的小巷漫步。</div>
+      </div>
+
+      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> 景点 <span class="reco-cat-count">· 6 个必去</span></h3>
+      <div class="recos-list">
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/terrreaux.jpg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">历史广场</span><span class="reco-meta-sep">·</span><span class="reco-distance">100 米 ⭐</span></div>
+            <div class="reco-name">Terreaux 广场</div>
+            <span class="reco-tag">就在附近</span>
+            <p class="reco-desc">里昂标志性广场，中心是 <strong>Bartholdi 喷泉</strong>。距离公寓仅 1 分钟步行路程。</p>
+            <a href="https://www.google.com/maps/place/Pl.+des+Terreaux" target="_blank" class="reco-link">在地图上查看 →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">联合国教科文组织遗产</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 米</span></div>
+            <div class="reco-name">老城区</div>
+            <span class="reco-tag">必去景点</span>
+            <p class="reco-desc">联合国教科文组织认证的文艺复兴时期街区，可通过 <strong>Gourguillon 上坡道</strong> 或 <strong>缆车</strong> 到达。小巷、铺石广场和正宗里昂餐厅。</p>
+            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">查看网站 →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/basilique.jpg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">遗产 · 全景视野</span><span class="reco-meta-sep">·</span><span class="reco-distance">1.2 公里</span></div>
+            <div class="reco-name">Fourvière 圣殿</div>
+            <span class="reco-tag">全景视野</span>
+            <p class="reco-desc">里昂的象征，坐落在山丘上。参观 <strong>地下室</strong> 和 <strong>观景台</strong>。可从老城区乘坐缆车到达。</p>
+            <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">查看网站 →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/lugdunum.jpg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">罗马博物馆 · 免费</span><span class="reco-meta-sep">·</span><span class="reco-distance">1.5 公里</span></div>
+            <div class="reco-name">Lugdunum · 罗马博物馆和剧院</div>
+            <span class="reco-tag">免费</span>
+            <p class="reco-desc">考古博物馆和古代露天剧场，<strong>露天剧场免费进入</strong>。</p>
+            <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">查看网站 →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Les-berges.jpg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">散步 · 酒吧 · 餐厅</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 米</span></div>
+            <div class="reco-name">Rhône 河畔</div>
+            <span class="reco-tag">散步</span>
+            <p class="reco-desc"><strong>5 公里</strong> 的沿河散步，有酒吧、驳船、餐厅和草坪。天气好时的理想去处。</p>
+            <a href="https://www.google.com/maps/place/Berges+du+Rhone+Lyon" target="_blank" class="reco-link">在地图上查看 →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-musee-confluence.jpg" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">人类学 · 科学</span><span class="reco-meta-sep">·</span><span class="reco-distance">4 公里</span></div>
+            <div class="reco-name">汇流博物馆</div>
+            <span class="reco-tag">现代建筑</span>
+            <p class="reco-desc">人类学和科学展览，位于半岛尖端的大胆建筑中。</p>
+            <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">查看网站 →</a>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> 商店 <span class="reco-cat-count">· 3 家</span></h3>
+      <div class="recos-list">
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Franprix.png" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">超市 · 新鲜产品</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 米 ⭐</span></div>
+            <div class="reco-name">Franprix Marché Presqu'île</div>
+            <span class="reco-tag">最近</span>
+            <p class="reco-desc">便利超市，有新鲜产品。位于 Plâtrière 街角，就在公寓旁边。</p>
+            <a href="#" class="reco-link">在地图上查看 →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/carrefourmarket.png" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">超市</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 米</span></div>
+            <div class="reco-name">Carrefour Market</div>
+            <span class="reco-tag">补充购物</span>
+            <p class="reco-desc">补充购物或日常购物。</p>
+            <a href="#" class="reco-link">在地图上查看 →</a>
+          </div>
+        </div>
+
+        <div class="reco">
+          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/boulangerie.png" alt="">
+          <div class="reco-body">
+            <div class="reco-meta"><span class="reco-cat">面包店</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 米</span></div>
+            <div class="reco-name">Boulangerie Pomponette</div>
+            <span class="reco-tag">早餐</span>
+            <p class="reco-desc">最近的面包店，各种面包和糕点，适合您的早餐。</p>
+            <a href="#" class="reco-link">在地图上查看 →</a>
+          </div>
+        </div>
+      </div>
+
+    </details>
+
+    <!-- DÉPART -->
+    <details class="section reveal" id="depart">
+      <summary class="section-summary">
+        <div class="section-eyebrow">退房时</div>
+        <h2 class="section-title">离开前 <em>检查</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+
+      <div class="checklist">
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">收拾您的个人物品 · 检查抽屉和床周围</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">清空冰箱 · 易腐烂的食物，谢谢</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">洗碗并放回厨房</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">清空垃圾（见垃圾部分）</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">关闭窗户和门</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">将钥匙放回 Igloohome 盒子 · 相同密码</div>
+        </div>
+      </div>
+
+      <div class="checkout-block">
+        <p class="checkout-block-text">一切就绪？点击一下让我们知道您已安全离开。</p>
+        {{checkout_block}}
+      </div>
+    </details>
+
+    <!-- CONTACT -->
+    <section class="section reveal">
+      <div class="contact-card">
+        <div class="contact-eyebrow">有问题吗？</div>
+        <h3 class="contact-title">我们随时准备帮助您</h3>
+        <div class="contact-actions">
+          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
+            💬 在 WhatsApp 上写信
+          </a>
+          <a href="tel:{{host_phone}}" class="contact-btn">
+            📞 致电 · {{host_phone_display}}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="signature">在里昂享受愉快的住宿</div>
+      <div>U-citybreak · 里昂 · 贝桑松 礼宾服务</div>
+    </footer>
+
+  </main>
+
+</div>
+
+<div class="toast" id="toast">已复制 ✓</div>
+
+<script>
+  function toggleLangMenu(e) {
+    e.stopPropagation();
+    document.getElementById('lang-menu').classList.toggle('open');
+  }
+  document.addEventListener('click', () => {
+    document.getElementById('lang-menu').classList.remove('open');
+  });
+
+  function copyCode(btn, code) {
+    navigator.clipboard.writeText(code).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '已复制 ✓';
+      btn.classList.add('copied');
+      showToast('已复制到剪贴板');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+  }
+
+  // Confirmation visuelle après clic sur le bouton départ
+  (function() {
+    const btn = document.getElementById('checkoutBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ 退房已确认 · 谢谢！';
+      }, 600);
+    });
+  })();
+
+
+  (function() {
+    const btn = document.getElementById('arrivalBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ 入住已确认 · 谢谢！';
+      }, 600);
+    });
+  })();
+
+
+  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
+  (function() {
+    function openDetailsForHash(hash) {
+      if (!hash || hash === '#') return;
+      try {
+        const target = document.querySelector(hash);
+        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        openDetailsForHash(a.getAttribute('href'));
+      });
+    });
+    if (window.location.hash) openDetailsForHash(window.location.hash);
+  })();
+</script>
+
+</body>
+</html>
