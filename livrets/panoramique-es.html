@@ -1,4 +1,4 @@
-<!-- BUILT for panoramique-es at 2026-05-07T13:45:22.454Z | photos: 5 ok / 2 missing / 3 ext-fixed -->
+<!-- BUILT for panoramique-es at 2026-05-14T09:13:59.552Z | photos: 5 ok / 2 missing / 3 ext-fixed -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1232,6 +1232,96 @@
     .reco { grid-template-columns: 88px 1fr; }
     .reco-img { width: 88px; min-height: 110px; }
   }
+
+  .arrival-block {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(90,110,63,0.25);
+    text-align: center;
+  }
+  .arrival-block-text {
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .arrival-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 14px 28px;
+    background: var(--success); color: white;
+    text-decoration: none; border-radius: var(--radius-md);
+    font-weight: 500; font-size: 15px;
+    transition: all 0.18s; border: 1px solid var(--success);
+  }
+  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-block.locked {
+    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    border-color: var(--border);
+  }
+  .arrival-block.locked .arrival-block-text {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin-bottom: 0;
+  }
+
+  details.section > summary.section-summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-right: 56px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s ease;
+  }
+  details.section > summary.section-summary::-webkit-details-marker { display: none; }
+  details.section > summary.section-summary::marker { display: none; }
+  details.section > summary.section-summary:hover {
+    background: rgba(184,85,45,0.03);
+  }
+  details.section .section-summary-chevron {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    padding-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
+    box-shadow: var(--shadow-sm);
+  }
+  details.section > summary.section-summary:hover .section-summary-chevron {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    color: var(--accent-deep);
+  }
+  details.section[open] .section-summary-chevron {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  details.section:not([open]) {
+    padding-bottom: 8px;
+  }
+  details.section:not([open]) .section-summary .section-title {
+    margin-bottom: 0;
+  }
+  @media print {
+    details.section > summary.section-summary { display: block; }
+    details.section .section-summary-chevron { display: none; }
+    details.section > *:not(summary) { display: revert !important; }
+  }
 </style>
 </head>
 <body>
@@ -1268,7 +1358,7 @@
       <h1 class="hero-title">Le Panoramique</h1>
       <p class="hero-sub">Rue des Granges, Besançon</p>
       <div class="hero-divider"></div>
-      <p class="hero-greeting">Hola <strong>{{guest_name}}</strong>, nos alegra mucho recibirte.</p>
+      <p class="hero-greeting">Hola <strong>{{guest_name}}</strong>, nos alegra recibirte.</p>
       <div class="hero-countdown">
         {{countdown}}
       </div>
@@ -1302,9 +1392,12 @@
     </div>
 
     <!-- ARRIVÉE -->
-    <section class="section reveal" id="arriver">
-      <div class="section-eyebrow">Paso a paso</div>
-      <h2 class="section-title">Llegar <em>al alojamiento</em></h2>
+    <details class="section reveal" id="arriver">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Paso a paso</div>
+        <h2 class="section-title">Llegar <em>al alojamiento</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="steps">
 
@@ -1312,9 +1405,9 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Encontrar la dirección</h3>
-            <p class="step-text">Llegas al <strong>18 rue des Granges, 25000 Besançon</strong>. El edificio se encuentra en la calle peatonal des Granges, que conduce a la Place de la Révolution. La entrada está <strong>entre la tienda Northface y la Biocoop</strong>, en el número 18.</p>
+            <p class="step-text">Llegas al <strong>18 rue des Granges, 25000 Besançon</strong>. El edificio se encuentra en la calle peatonal rue des Granges, que conduce a la Place de la Révolution. La entrada se encuentra <strong>entre la tienda Northface y la Biocoop</strong>, en el número 18.</p>
             <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-1.jpg" alt="El edificio visto desde la calle" style="max-width: 100%;">
-            <p class="step-photo-caption">El edificio visto desde la rue des Granges</p>
+            <p class="step-photo-caption">El edificio visto desde rue des Granges</p>
             <a href="https://www.google.com/maps/place/18+Rue+des+Granges,+25000+Besan%C3%A7on/" target="_blank" class="step-button">
               Abrir en Maps <span class="arrow">→</span>
             </a>
@@ -1325,7 +1418,7 @@
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-content">
-            <h3 class="step-title">El código de acceso del edificio</h3>
+            <h3 class="step-title">El código de la puerta de entrada</h3>
             <p class="step-text">Frente a la puerta de entrada, introduce el <strong>código de acceso</strong>.</p>
             <div class="codebox">
               <span class="codebox-label">Código</span>
@@ -1337,16 +1430,16 @@
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h3 class="step-title">Recuperar las llaves y la tarjeta</h3>
+            <h3 class="step-title">Recuperar las llaves y el badge</h3>
             <p class="step-text">Justo después de entrar en el edificio, encuentra la caja de llaves ubicada <strong>junto a los buzones</strong>. Para abrirla, introduce el código a continuación. <strong>No olvides cerrar la caja antes de irte.</strong></p>
 
-            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/lockbox.jpg" alt="Caja de llaves" style="max-width:320px;">
+            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/lockbox.jpg" alt="Lockbox" style="max-width:320px;">
             <p class="step-photo-caption">La caja de llaves, junto a los buzones</p>
 
             <div class="step-substeps">
               <div class="step-substep"><span class="step-substep-num">1</span><span>Introduce el <strong style="color:var(--fg);">código de 4 dígitos</strong> en los diales del candado</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Presiona los <strong style="color:var(--fg);">botones a cada lado</strong> para abrir la caja</span></div>
-              <div class="step-substep"><span class="step-substep-num">3</span><span>Recupera las <strong style="color:var(--fg);">llaves y la tarjeta negra</strong> en el interior</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Presiona los <strong style="color:var(--fg);">botones de cada lado</strong> para abrir la caja</span></div>
+              <div class="step-substep"><span class="step-substep-num">3</span><span>Recupera las <strong style="color:var(--fg);">llaves y el badge negro</strong> en el interior</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>Cierra la caja y <strong style="color:var(--fg);">mezcla los diales</strong></span></div>
             </div>
 
@@ -1354,21 +1447,21 @@
 
             {{lockbox_codebox}}
 
-            <div class="step-tip warn"><strong>🔑 Importante</strong> · Recuerda <strong>mezclar los diales</strong> después de usarlos por razones de seguridad.</div>
+            <div class="step-tip warn"><strong>🔑 Importante</strong> · Recuerda <strong>mezclar los diales</strong> después de usarla por razones de seguridad.</div>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-content">
-            <h3 class="step-title">Acceder al apartamento</h3>
-            <p class="step-text">Una vez tengas las llaves, sigue este recorrido para llegar a la puerta del apartamento:</p>
+            <h3 class="step-title">Llegar al apartamento</h3>
+            <p class="step-text">Una vez que tengas las llaves, sigue este recorrido para llegar a la puerta del apartamento:</p>
 
             <div class="step-photo-sequence">
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">1</span>
-                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-2.png" alt="El pasillo con puerta acristalada">
-                <div class="step-photo-frame-cap">Atraviesa el <strong>largo pasillo</strong> hasta la puerta acristalada</div>
+                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/arrivee-2.png" alt="El pasillo con puerta de cristal">
+                <div class="step-photo-frame-cap">Atraviesa el <strong>largo pasillo</strong> hasta la puerta de cristal</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">2</span>
@@ -1395,13 +1488,18 @@
         </div>
 
       </div>
-    </section>
+
+      {{arrival_block}}
+    </details>
 
     <!-- DÉCOUVRIR -->
-    <section class="section reveal" id="decouvrir">
-      <div class="section-eyebrow">Descubrir el alojamiento</div>
-      <h2 class="section-title">Le Panoramique en <em>pocas palabras</em></h2>
-      <p class="section-intro">Apartamento luminoso y atravesante en el corazón de Besançon, en la calle peatonal des Granges. Capacidad para 6 personas (una habitación cerrada y otra en altillo + sofá cama), aire acondicionado y vista panorámica de los tejados de la ciudad.</p>
+    <details class="section reveal" id="decouvrir">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Descubrir el alojamiento</div>
+        <h2 class="section-title">Le Panoramique en <em>pocos pasos</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Apartamento atravesante y luminoso en el corazón de Besançon, en la calle peatonal rue des Granges. Capacidad para 6 personas (un dormitorio cerrado y uno en altillo + sofá cama), aire acondicionado y vistas panorámicas de los tejados de la ciudad.</p>
 
       <a href="https://www.youtube.com/watch?v=SklwOF3S61M" target="_blank" rel="noopener" class="video-wrap video-trigger" aria-label="Ver el tour virtual en YouTube">
         <img src="https://img.youtube.com/vi/SklwOF3S61M/maxresdefault.jpg" alt="Tour virtual - Le Panoramique" class="video-thumb" loading="lazy" onerror="this.src='https://img.youtube.com/vi/SklwOF3S61M/hqdefault.jpg'">
@@ -1451,7 +1549,7 @@
           <div class="room-icon">🌬️</div>
           <div>
             <div class="room-name">Aire acondicionado</div>
-            <div class="room-desc">Aire acondicionado portátil en el altillo (verano)</div>
+            <div class="room-desc">Aire acondicionado portátil en altillo (verano)</div>
           </div>
         </div>
         <div class="room">
@@ -1480,12 +1578,15 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/MWcd8j9EbQoIVZcTgLi0aaux7DfKSj4KUjw3fwOm.jpg" alt="Baño"><span class="gallery-caption">Baño</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076394/Fw1sJsQW2bMCMTTt4R7ArRHkmiE2R9SdXsDkjqcx.jpg" alt="Altillo"><span class="gallery-caption">Altillo</span></div>
       </div>
-    </section>
+    </details>
 
     <!-- PRATIQUE -->
-    <section class="section reveal" id="pratique">
-      <div class="section-eyebrow">Durante tu estancia</div>
-      <h2 class="section-title">Lo esencial <em>práctico</em></h2>
+    <details class="section reveal" id="pratique">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Durante tu estancia</div>
+        <h2 class="section-title">Lo esencial <em>práctico</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="cards-grid">
         <div class="info-card">
@@ -1510,7 +1611,7 @@
         <div class="info-card">
           <div class="info-icon">🌡️</div>
           <h4 class="info-title">Calefacción</h4>
-          <p class="info-text">Radiadores con sensores autorregulados a <strong>20°C</strong>. Se apagan automáticamente por encima de esa temperatura. Inactivos en verano.</p>
+          <p class="info-text">Radiadores con sensores autorregulados a <strong>20°C</strong>. Se apagan automáticamente por encima de esta temperatura. Inactivos en verano.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
@@ -1520,7 +1621,7 @@
         <div class="info-card">
           <div class="info-icon">💨</div>
           <h4 class="info-title">Secadora privada</h4>
-          <p class="info-text">Una secadora <strong>reservada para la limpieza</strong> está presente en el apartamento. Si termina su ciclo después de tu llegada, puedes <strong>detenerla</strong> si es necesario, pero por favor <strong>no la abras</strong>.</p>
+          <p class="info-text">Una secadora <strong>reservada para la limpieza</strong> está presente en el apartamento. Si termina su ciclo después de tu llegada, puedes <strong>apagarla</strong> si es necesario, pero por favor <strong>no la abras</strong>.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌙</div>
@@ -1530,32 +1631,35 @@
         <div class="info-card">
           <div class="info-icon">🌬️</div>
           <h4 class="info-title">Aire acondicionado (verano)</h4>
-          <p class="info-text">Aire acondicionado portátil en el <strong>altillo</strong>. Para enfriar mejor: cierra las persianas Velux, abre las ventanas opuestas para crear una corriente de aire. Espera varias horas para bajar de 28°C a 26°C.</p>
+          <p class="info-text">Aire acondicionado portátil en el <strong>altillo</strong>. Para enfriar mejor: cierra las persianas Velux, abre las ventanas opuestas para crear corriente de aire. Espera varias horas para bajar de 28°C a 26°C.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">⚡</div>
           <h4 class="info-title">Cuadro eléctrico</h4>
-          <p class="info-text">En el rellano (fuera del apartamento), en el armario a la izquierda. En caso de corte: verifica que todos los disyuntores estén activados y el botón principal en 1.</p>
+          <p class="info-text">En el rellano (fuera del apartamento), en el armario de la izquierda. En caso de corte: verifica que todos los disyuntores estén activados y el botón principal en posición 1.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">Reglas de la casa</h4>
-          <p class="info-text">Sin fumar (sensor CO2) · Sin mascotas · Sin eventos (sensor de decibelios + cámara en el rellano) · Silencio después de las 22:00.</p>
+          <p class="info-text">No fumadores (sensor CO2) · Sin mascotas · Sin eventos (sensor de decibelios + cámara en rellano) · Silencio después de las 22:00.</p>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- POUBELLES -->
-    <section class="section reveal" id="poubelles">
-      <div class="section-eyebrow">Reciclaje</div>
-      <h2 class="section-title">Los <em>contenedores</em></h2>
-      <p class="section-intro">Por respeto a nuestro personal de limpieza, por favor evacúa tus residuos al momento de tu partida.</p>
+    <details class="section reveal" id="poubelles">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Reciclaje</div>
+        <h2 class="section-title">Las <em>basuras</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
+      <p class="section-intro">Por respeto a nuestro personal de limpieza, por favor evacúa tus basuras al partir.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:center;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
-          <h4 class="info-title" style="margin-bottom:2px;">Sala de contenedores</h4>
-          <p class="info-text">Dentro de la comunidad de propietarios, en el <strong>pasillo de salida en la planta baja</strong>.</p>
+          <h4 class="info-title" style="margin-bottom:2px;">Zona de basuras</h4>
+          <p class="info-text">Dentro de la comunidad, en el <strong>pasillo de salida en planta baja</strong>.</p>
         </div>
       </div>
 
@@ -1566,24 +1670,27 @@
           <p class="info-text">Puntos de recogida a <strong>menos de 50 m</strong>, en la esquina de la <strong>rue des Granges</strong> y la <strong>rue Gambetta</strong>.</p>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- BOUGER -->
-    <section class="section reveal" id="bouger">
-      <div class="section-eyebrow">Moverse</div>
-      <h2 class="section-title">Desplazarse <em>por la ciudad</em></h2>
+    <details class="section reveal" id="bouger">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Moverse</div>
+        <h2 class="section-title">Desplazarse <em>por la ciudad</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="transport-grid">
         <div class="transport-card">
           <div class="transport-icon">🚊</div>
-          <div class="transport-name">Autobús / Tranvía Ginko</div>
+          <div class="transport-name">Bus / Tranvía Ginko</div>
           <div class="transport-desc">Parada <strong>Place de la Révolution</strong></div>
           <div class="transport-distance">200 m</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚆</div>
           <div class="transport-name">Estación Viotte</div>
-          <div class="transport-desc">Por la rue Battant y la pasarela del parque des glacis</div>
+          <div class="transport-desc">Por rue Battant y el puente del parque des glacis</div>
           <div class="transport-distance">15 min a pie</div>
         </div>
         <div class="transport-card">
@@ -1600,13 +1707,13 @@
         <div class="transport-card" style="grid-column: span 2;">
           <div class="transport-icon">🚲</div>
           <div class="transport-name">Bicicletas · VéloCité</div>
-          <div class="transport-desc">Servicio de bicicletas de libre acceso para trayectos cortos, o alquiler diario en agencias locales. Aparcamientos subterráneos gratuitos en un box seguro (se requiere documento de identidad) — Tel. 03 81 21 32 60.</div>
+          <div class="transport-desc">Servicio de bicicletas de libre acceso para trayectos cortos, o alquiler diario en agencias locales. Aparcamientos subterráneos gratuitos en un box seguro (se requiere identificación) — Tel. 03 81 21 32 60.</div>
         </div>
       </div>
 
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ Aparcamientos recomendados</div>
-        <div class="reco-tip-text">Como la rue des Granges es completamente <strong>peatonal</strong>, es <strong>imprescindible</strong> aparcar en un aparcamiento cercano. A elegir: <strong>Beaux-Arts</strong> (cubierto y seguro, 1,90 € la noche de 19:00 a 9:00, a 500 m), o los aparcamientos gratuitos <strong>Robelin</strong> y <strong>Battant</strong> bajo las murallas (10 min a pie). Para descargar equipaje únicamente, las barreras peatonales a veces están abiertas hasta las 11:00.</div>
+        <div class="reco-tip-text">Como rue des Granges es completamente <strong>peatonal</strong>, es <strong>imprescindible</strong> aparcar en un aparcamiento cercano. A elegir: <strong>Beaux-Arts</strong> (cubierto y seguro, 1,90 € la noche de 19:00 a 9:00, a 500 m), o los aparcamientos gratuitos <strong>Robelin</strong> y <strong>Battant</strong> bajo las murallas (10 min a pie). Para descargar equipaje únicamente, las barreras peatonales a veces están abiertas hasta las 11:00.</div>
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:14px;">
@@ -1627,16 +1734,19 @@
           <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Cusenier Beaux Arts</strong> · 7 min a pie</div>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- RECOS -->
-    <section class="section reveal" id="recos">
-      <div class="section-eyebrow">Nuestras recomendaciones</div>
-      <h2 class="section-title">Qué descubrir <em>alrededor</em></h2>
+    <details class="section reveal" id="recos">
+      <summary class="section-summary">
+        <div class="section-eyebrow">Nuestros favoritos</div>
+        <h2 class="section-title">Qué descubrir <em>alrededor</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="recos-toc">
         <a href="#restos" class="recos-toc-link">🍷 Restaurantes</a>
-        <a href="#tourisme" class="recos-toc-link">🏛️ A visitar</a>
+        <a href="#tourisme" class="recos-toc-link">🏛️ Para visitar</a>
         <a href="#commerces" class="recos-toc-link">🛒 Comercios</a>
       </div>
 
@@ -1649,8 +1759,8 @@
             <div class="reco-meta"><span class="reco-cat">Brasserie · Art Déco</span><span class="reco-meta-sep">·</span><span class="reco-distance">a 30 segundos</span></div>
             <div class="reco-name">Le Bouillon du Commerce</div>
             <span class="reco-tag">Nuestro favorito</span>
-            <p class="reco-desc">Justo debajo del edificio — magnífico restaurante Art Déco de 1850. El marco por sí solo merece la pena. Se recomienda reservar. Cocina bistró francesa clásica y bien ejecutada.</p>
-            <a href="https://lebouillonducommerce.fr/" target="_blank" class="reco-link">Ver el sitio →</a>
+            <p class="reco-desc">Justo debajo del edificio — magnífico restaurante Art Déco de 1850. El marco por sí solo vale la pena. Se recomienda reserva. Cocina bistró francesa clásica y bien ejecutada.</p>
+            <a href="https://lebouillonducommerce.fr/" target="_blank" class="reco-link">Ver sitio →</a>
           </div>
         </div>
 
@@ -1659,7 +1769,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Bistró contemporáneo</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
             <div class="reco-name">Le Saint Cerf</div>
-            <p class="reco-desc">Bistró moderno con menú de temporada con influencias asiáticas. Buena propuesta vegetariana. En la esquina del barrio Battant. 03 81 50 10 20.</p>
+            <p class="reco-desc">Bistró moderno con carta de temporada con influencias asiáticas. Buena propuesta vegetariana. En la esquina del barrio Battant. 03 81 50 10 20.</p>
             <a href="#" class="reco-link">Ver en el mapa →</a>
           </div>
         </div>
@@ -1669,8 +1779,8 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Gastronómico</span><span class="reco-meta-sep">·</span><span class="reco-distance">650 m</span></div>
             <div class="reco-name">Le Parc</div>
-            <p class="reco-desc">Mesa gastronómica del chef Francesco di Marzio. Cocina de fusión en un marco frente al Parque Micaud y al Doubs. Buena experiencia para una cena especial.</p>
-            <a href="https://leparcbesancon.com/fr/" target="_blank" class="reco-link">Ver el sitio →</a>
+            <p class="reco-desc">Mesa gastronómica del chef Francesco di Marzio. Cocina de fusión en un marco frente al Parque Micaud y el Doubs. Buena experiencia para una cena especial.</p>
+            <a href="https://leparcbesancon.com/fr/" target="_blank" class="reco-link">Ver sitio →</a>
           </div>
         </div>
 
@@ -1680,7 +1790,7 @@
             <div class="reco-meta"><span class="reco-cat">Bistró chic · Bourgogne-FC</span><span class="reco-meta-sep">·</span><span class="reco-distance">350 m</span></div>
             <div class="reco-name">Loiseau du Temps</div>
             <p class="reco-desc">Bistró chic que celebra el terroir de Bourgogne-Franche-Comté en un edificio histórico del Conservatorio. Casa Bernard Loiseau.</p>
-            <a href="https://www.bernard-loiseau.com/fr/loiseaudutemps.html" target="_blank" class="reco-link">Ver el sitio →</a>
+            <a href="https://www.bernard-loiseau.com/fr/loiseaudutemps.html" target="_blank" class="reco-link">Ver sitio →</a>
           </div>
         </div>
 
@@ -1689,18 +1799,18 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Especialidades comtoises</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
             <div class="reco-name">L'Affineur Comtois</div>
-            <p class="reco-desc">Todas las especialidades queseras de Franche-Comté: cancoillotte, croûte forestière, fondue comté-morbier, tartiflette. Se recomienda reservar.</p>
-            <a href="https://www.restaurant-laffineurcomtois.fr/" target="_blank" class="reco-link">Ver el sitio →</a>
+            <p class="reco-desc">Todas las especialidades queseras de Franche-Comté: cancoillotte, croûte forestière, fondue comté-morbier, tartiflette. Se recomienda reserva.</p>
+            <a href="https://www.restaurant-laffineurcomtois.fr/" target="_blank" class="reco-link">Ver sitio →</a>
           </div>
         </div>
 
         <div class="reco-tip">
           <div class="reco-tip-title">Para pasear</div>
-          <div class="reco-tip-text">El barrio de la <strong>Boucle</strong> es uno de los más antiguos de Besançon, con muchos lugares escondidos. El centro histórico entre la <strong>Grande Rue</strong> y la <strong>Place de la Révolution</strong> también tiene muchos bistrós y brasseries.</div>
+          <div class="reco-tip-text">El barrio de la <strong>Boucle</strong> es uno de los más antiguos de Besançon, con muchas direcciones ocultas. El centro histórico entre la <strong>Grande Rue</strong> y la <strong>Place de la Révolution</strong> también rebosa de bares y brasseries.</div>
         </div>
       </div>
 
-      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> A visitar <span class="reco-cat-count">· 6 imprescindibles</span></h3>
+      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> Para visitar <span class="reco-cat-count">· 6 imprescindibles</span></h3>
 
       <div class="recos-list">
         <div class="reco">
@@ -1750,8 +1860,8 @@
             <div class="reco-meta"><span class="reco-cat">Crucero · Doubs</span><span class="reco-meta-sep">·</span><span class="reco-distance">450 m</span></div>
             <div class="reco-name">Barco Le Vauban</div>
             <span class="reco-tag">Vista panorámica</span>
-            <p class="reco-desc">Crucero-almuerzo (2h) o cena (2h30) comentada en el Doubs, con paso de esclusas y túnel bajo la Ciudadela. Terraza en la cubierta superior. Reserva obligatoria.</p>
-            <a href="https://www.bateau-besancon.fr/croisieres-repas/" target="_blank" class="reco-link">Ver el sitio →</a>
+            <p class="reco-desc">Crucero-almuerzo (2h) o cena (2h30) comentado en el Doubs, con paso de esclusas y túnel bajo la Ciudadela. Terraza en la cubierta superior. Reserva obligatoria.</p>
+            <a href="https://www.bateau-besancon.fr/croisieres-repas/" target="_blank" class="reco-link">Ver sitio →</a>
           </div>
         </div>
 
@@ -1766,7 +1876,7 @@
         </div>
       </div>
 
-      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Comercios cercanos <span class="reco-cat-count">· 3 direcciones</span></h3>
+      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Comercios de proximidad <span class="reco-cat-count">· 3 direcciones</span></h3>
 
       <div class="recos-list">
         <div class="reco">
@@ -1785,7 +1895,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Panadería · Pastelería</span><span class="reco-meta-sep">·</span><span class="reco-distance">30 seg</span></div>
             <div class="reco-name">Caillier Cyril</div>
-            <span class="reco-tag">Para la mañana</span>
+            <span class="reco-tag">Para el desayuno</span>
             <p class="reco-desc">En el 12 rue des Granges, a pocos pasos del apartamento. Panes, bollería y pasteles para el desayuno o un tentempié. Posibilidad de comer en el lugar.</p>
             <a href="#" class="reco-link">Ver en el mapa →</a>
           </div>
@@ -1796,30 +1906,33 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Farmacia</span><span class="reco-meta-sep">·</span><span class="reco-distance">30 seg</span></div>
             <div class="reco-name">Farmacia Dupont</div>
-            <p class="reco-desc">En el 13 rue des Granges, justo enfrente del edificio. Equipo atento y buena selección de productos. En caso de urgencia, el servicio de guardia está indicado en el escaparate.</p>
+            <p class="reco-desc">En el 13 rue des Granges, justo enfrente del edificio. Equipo atento y buena selección de productos. En caso de emergencia, el servicio de guardia está indicado en el escaparate.</p>
             <a href="#" class="reco-link">Ver en el mapa →</a>
           </div>
         </div>
       </div>
-    </section>
+    </details>
 
     <!-- DÉPART -->
-    <section class="section reveal" id="depart">
-      <div class="section-eyebrow">Al momento de la partida</div>
-      <h2 class="section-title">Antes de <em>irte</em></h2>
+    <details class="section reveal" id="depart">
+      <summary class="section-summary">
+        <div class="section-eyebrow">En el momento de la salida</div>
+        <h2 class="section-title">Antes de <em>partir</em></h2>
+        <span class="section-summary-chevron">›</span>
+      </summary>
 
       <div class="checklist">
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Reúne tus pertenencias · verifica los cajones y las habitaciones</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Reúne tus pertenencias personales · verifica los cajones y las habitaciones</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Vacía el frigorífico · los alimentos perecederos, por favor</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Vacía el frigorífico · los productos perecederos, por favor</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Evacúa tus residuos en la sala de contenedores al pie de las escaleras, en el patio interior</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Evacúa tus basuras (ver la sección de basuras)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1833,11 +1946,9 @@
 
       <div class="checkout-block">
         <p class="checkout-block-text">¿Todo listo? Un pequeño clic nos permite saber que te has ido con seguridad.</p>
-        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
-          👋 Informo al anfitrión de mi partida
-        </a>
+        {{checkout_block}}
       </div>
-    </section>
+    </details>
 
     <!-- CONTACT -->
     <section class="section reveal">
@@ -1845,11 +1956,11 @@
         <div class="contact-eyebrow">¿Una pregunta?</div>
         <h3 class="contact-title">Estamos aquí, a cualquier hora</h3>
         <div class="contact-actions">
-          <a href="https://wa.me/33600000000" class="contact-btn primary">
+          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
             💬 Escribir en WhatsApp
           </a>
-          <a href="tel:+33600000000" class="contact-btn">
-            📞 Llamar · +33 6 00 00 00 00
+          <a href="tel:{{host_phone}}" class="contact-btn">
+            📞 Llamar · {{host_phone_display}}
           </a>
         </div>
       </div>
@@ -1908,9 +2019,41 @@
     btn.addEventListener('click', function() {
       setTimeout(function() {
         btn.classList.add('confirmed');
-        btn.innerHTML = '✓ Partida confirmada · ¡gracias!';
+        btn.innerHTML = '✓ Salida confirmada · ¡gracias!';
       }, 600);
     });
+  })();
+
+
+  (function() {
+    const btn = document.getElementById('arrivalBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      setTimeout(function() {
+        btn.classList.add('confirmed');
+        btn.innerHTML = '✓ Llegada confirmada · ¡gracias!';
+      }, 600);
+    });
+  })();
+
+
+  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
+  (function() {
+    function openDetailsForHash(hash) {
+      if (!hash || hash === '#') return;
+      try {
+        const target = document.querySelector(hash);
+        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        openDetailsForHash(a.getAttribute('href'));
+      });
+    });
+    if (window.location.hash) openDetailsForHash(window.location.hash);
   })();
 </script>
 
