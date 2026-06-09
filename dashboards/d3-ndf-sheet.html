@@ -104,7 +104,7 @@ body.mode-km .tot-eur{display:none}
 
 <script>
 /* Données injectées par le serveur (livret-serve / D3). Repli = exemple démo. */
-const NDF_DATA = /*__NDF_DATA__*/ {
+const NDF_DATA = /*INJECT*/{
   org:"U-citybreak SAS",
   orgSub:"22 avenue Barthélemy Buyer, 69009 Lyon<br>SIREN 901 788 653",
   ref:"NDF-2026-002", dateEmission:"2026-06-08",
@@ -114,7 +114,7 @@ const NDF_DATA = /*__NDF_DATA__*/ {
     {date:"2026-06-04", trip:"Lyon ↔ Besançon (AR)", km:464, taux:0.636, montant:295.10},
     {date:"2026-06-06", trip:"Lyon ↔ Besançon (AR)", km:464, taux:0.636, montant:295.10}
   ]
-};
+}/*END*/;
 
 const eur = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);
 const fdateShort = d => new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'});
