@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFFFFF">
+<title>Frais kilométriques · U-citybreak</title>
+<style>
+:root{
+  --bg:#F5F5F4; --bg-card:#FFFFFF; --fg:#222222; --fg-muted:#717171; --fg-soft:#B0B0B0;
+  --accent:#2D1B4E; --accent-soft:#F0EBF5; --border:#DDDDDD; --border-soft:#EBEBEB;
+  --success:#00A67E; --radius-sm:7px; --radius-md:12px; --radius-lg:16px;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#FFFFFF;color:var(--fg);font-family:var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px 60px}
+
+/* nav UCB (remplacée par ucb-nav.js à l'intégration si souhaité) */
+.nav{background:var(--accent);border-radius:0 0 var(--radius-lg) var(--radius-lg);padding:11px 16px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 -16px 22px}
+.nav .brand{color:#fff;font-weight:600;font-size:14px;margin-right:8px;white-space:nowrap}
+.nav a{padding:7px 13px;border-radius:8px;font-size:13px;color:#CFC6E0;text-decoration:none;white-space:nowrap}
+.nav a.on{background:rgba(255,255,255,.14);color:#fff;font-weight:600}
+
+h1{font-size:21px;font-weight:600;margin:6px 0 2px}
+.sub{font-size:13px;color:var(--fg-muted);margin:0 0 20px}
+
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+@media(max-width:520px){.metrics{grid-template-columns:1fr}}
+.metric{background:var(--bg);border-radius:var(--radius-md);padding:14px}
+.metric .lbl{font-size:12px;color:var(--fg-muted);margin:0 0 5px}
+.metric .val{font-size:23px;font-weight:600;margin:0;line-height:1.1}
+.metric .hint{font-size:11px;color:var(--fg-soft);margin:3px 0 0}
+.metric.accent .val{color:var(--accent)}
+
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px}
+.sec-head h2{font-size:16px;font-weight:600;margin:0}
+.btn{font-family:inherit;cursor:pointer;border-radius:var(--radius-md);font-size:13px;padding:9px 15px;border:1px solid var(--border);background:#fff;color:var(--fg)}
+.btn:hover{background:var(--bg)}
+.btn-primary{background:var(--accent);color:#fff;border:none;font-weight:600;padding:12px 18px;font-size:14px}
+.btn-primary:disabled{background:#D9D4E2;cursor:not-allowed}
+
+.form{display:none;gap:10px;flex-wrap:wrap;align-items:flex-end;background:var(--bg);border-radius:var(--radius-md);padding:14px;margin-bottom:14px}
+.form.show{display:flex}
+.form label{font-size:12px;color:var(--fg-muted);display:block;margin-bottom:4px}
+.form input,.form select{font-family:inherit;font-size:14px;padding:9px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);background:#fff;color:var(--fg)}
+
+.row{display:flex;align-items:center;gap:13px;padding:13px 14px;border:1px solid var(--border-soft);border-radius:var(--radius-md);margin-bottom:8px;background:#fff}
+.row input[type=checkbox]{width:19px;height:19px;cursor:pointer;accent-color:var(--accent);flex:none}
+.row .main{flex:1;min-width:0}
+.row .t{font-size:14px;font-weight:600;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .s{font-size:12px;color:var(--fg-muted);margin:2px 0 0}
+.row .amt{font-size:15px;font-weight:600;color:var(--accent);white-space:nowrap}
+.row .del{background:none;border:none;cursor:pointer;color:var(--fg-soft);font-size:18px;line-height:1;padding:4px}
+.empty{font-size:13px;color:var(--fg-soft);padding:10px 0}
+
+.genbar{display:flex;justify-content:flex-end;margin:14px 0 30px}
+
+.ndf{display:flex;align-items:center;gap:13px;padding:13px 14px;border:1px solid var(--border-soft);border-radius:var(--radius-md);margin-bottom:8px;background:#fff}
+.ndf .main{flex:1;min-width:0}
+.badge{font-size:11px;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.badge.prete{background:var(--accent-soft);color:var(--accent)}
+.badge.transmise{background:#E6EEF7;color:#1A4D8F}
+.badge.rembourse{background:#E1F5EE;color:#0F6E56}
+.ndf .links{display:flex;gap:6px}
+.ndf .links a{font-size:12px;color:var(--accent);text-decoration:none;border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 9px}
+.ndf .links a:hover{background:var(--bg)}
+.ndf .tot{font-size:15px;font-weight:600;min-width:78px;text-align:right}
+.demo{font-size:11px;color:var(--fg-soft);text-align:center;margin-top:20px}
+</style>
+</head>
+<body>
+<nav class="nav" id="ucb-nav">
+  <span class="brand">UCB</span>
+  <a href="/webhook/D0">D0 · Tréso</a>
+  <a href="/webhook/D1">D1 · Supervision</a>
+  <a href="/webhook/D2">D2 · Arrivées</a>
+  <a href="/webhook/D3" class="on">D3 · Frais km</a>
+</nav>
+
+<div class="wrap">
+  <h1>Frais kilométriques</h1>
+  <p class="sub">Saisie au fil de l'eau · barème 5 CV thermique · U-citybreak SAS</p>
+
+  <div class="metrics">
+    <div class="metric"><p class="lbl">À rembourser</p><p class="val" id="m-pool">—</p><p class="hint" id="m-pool-sub"></p></div>
+    <div class="metric accent"><p class="lbl">Sélection</p><p class="val" id="m-sel">0,00 €</p><p class="hint" id="m-sel-sub">0 AR coché</p></div>
+    <div class="metric"><p class="lbl">Cumul 2026</p><p class="val" id="m-km">—</p><p class="hint" id="m-km-sub"></p></div>
+  </div>
+
+  <div class="sec-head">
+    <h2>AR à rembourser</h2>
+    <button class="btn" onclick="toggleForm()">+ Nouvel AR</button>
+  </div>
+
+  <div class="form" id="form">
+    <div><label>Date</label><input type="date" id="f-date"></div>
+    <div><label>Trajet</label><select id="f-trip" onchange="syncKm()"><option value="464">Lyon ↔ Besançon (AR)</option><option value="0">Autre…</option></select></div>
+    <div><label>Km</label><input type="number" id="f-km" value="464" style="width:90px"></div>
+    <button class="btn-primary" onclick="addAR()">Ajouter</button>
+  </div>
+
+  <div id="pool"></div>
+
+  <div class="genbar">
+    <button class="btn-primary" id="gen" disabled onclick="generate()">Générer la note de frais</button>
+  </div>
+
+  <div class="sec-head"><h2>Notes de frais émises</h2></div>
+  <div id="hist"></div>
+
+  <p class="demo" id="demo-flag" style="display:none">Mode démonstration — données fictives (webhook non joignable depuis ce fichier).</p>
+</div>
+
+<script>
+const BASE = location.pathname.includes('/webhook/') ? location.pathname.replace(/\/$/,'') : '/webhook/D3';
+const YEAR = 2026;
+let DEMO = false;
+const eur = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);
+const fdate = d => new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'short'});
+const round2 = n => Math.round(n*100)/100;
+const ikAnnuel = km => km<=5000 ? 0.636*km : km<=20000 ? 0.357*km+1395 : 0.427*km;
+
+let pool=[], hist=[], cumulKm=0;
+
+async function api(action, payload){
+  if(DEMO) return demoApi(action, payload);
+  try{
+    const opt = payload ? {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)} : {};
+    const r = await fetch(BASE+'?action='+action, opt);
+    if(!r.ok) throw new Error(r.status);
+    return await r.json();
+  }catch(e){
+    if(!DEMO){ DEMO=true; document.getElementById('demo-flag').style.display='block'; seedDemo(); }
+    return demoApi(action, payload);
+  }
+}
+
+/* ---------- repli démo (local, sans backend) ---------- */
+function seedDemo(){
+  cumulKm = 928;
+  pool = [
+    {id:'1',date:'2026-06-02',trip:'Lyon ↔ Besançon',km:464,taux:0.636,amt:295.10,sel:false},
+    {id:'2',date:'2026-06-04',trip:'Lyon ↔ Besançon',km:464,taux:0.636,amt:295.10,sel:false},
+    {id:'3',date:'2026-06-06',trip:'Lyon ↔ Besançon',km:464,taux:0.636,amt:295.10,sel:false},
+    {id:'4',date:'2026-06-07',trip:'Lyon ↔ Besançon',km:464,taux:0.636,amt:295.10,sel:false}
+  ];
+  cumulKm += pool.length*464;
+  hist = [{ref:'NDF-2026-001',date:'2026-05-15',n:2,total:590.20,status:'Transmise à Dougs'}];
+}
+let demoUid=100;
+function demoApi(action, p){
+  if(action==='list') return {pool,hist,cumulKm,year:YEAR};
+  if(action==='add'){
+    const amt=round2(ikAnnuel(cumulKm+p.km)-ikAnnuel(cumulKm));
+    const taux=round2(amt/p.km*100)/100;
+    cumulKm+=p.km;
+    pool.push({id:String(++demoUid),date:p.date,trip:p.km===464?'Lyon ↔ Besançon':'Trajet',km:p.km,taux,amt,sel:false});
+    return {pool,hist,cumulKm};
+  }
+  if(action==='del'){ const ar=pool.find(x=>x.id===p.id); if(ar)cumulKm-=ar.km; pool=pool.filter(x=>x.id!==p.id); return {pool,hist,cumulKm}; }
+  if(action==='generate'){
+    const sel=pool.filter(x=>p.ids.includes(x.id));
+    const total=round2(sel.reduce((s,x)=>s+x.amt,0));
+    const ref='NDF-'+YEAR+'-'+String(hist.length+1).padStart(3,'0');
+    hist.unshift({ref,date:new Date().toISOString().slice(0,10),n:sel.length,total,status:'Prête'});
+    pool=pool.filter(x=>!p.ids.includes(x.id));
+    return {pool,hist,cumulKm,ref};
+  }
+  return {pool,hist,cumulKm};
+}
+
+/* ---------- actions UI ---------- */
+function toggleForm(){ document.getElementById('form').classList.toggle('show'); const d=document.getElementById('f-date'); if(!d.value)d.value=new Date().toISOString().slice(0,10); }
+function syncKm(){ const v=document.getElementById('f-trip').value; if(v!=='0')document.getElementById('f-km').value=v; }
+async function addAR(){
+  const date=document.getElementById('f-date').value||new Date().toISOString().slice(0,10);
+  const km=parseInt(document.getElementById('f-km').value||'0',10);
+  if(!km)return;
+  await api('add',{date,km});
+  document.getElementById('form').classList.remove('show');
+  await refresh();
+}
+async function delAR(id){ await api('del',{id}); await refresh(); }
+function toggle(id){ const ar=pool.find(x=>x.id===id); if(ar){ar.sel=!ar.sel; render();} }
+async function generate(){
+  const ids=pool.filter(x=>x.sel).map(x=>x.id); if(!ids.length)return;
+  await api('generate',{ids}); await refresh();
+}
+function openNdf(ref,mode){ window.open(BASE+'?action=ndf&ref='+encodeURIComponent(ref)+'&mode='+mode,'_blank'); }
+
+async function refresh(){ const r=await api('list'); apply(r); }
+
+function apply(r){ if(!r)return; pool=r.pool||pool; hist=r.hist||hist; if(typeof r.cumulKm==='number')cumulKm=r.cumulKm; render(); }
+
+function render(){
+  const poolTotal=pool.reduce((s,p)=>s+p.amt,0);
+  const sel=pool.filter(p=>p.sel);
+  const selTotal=sel.reduce((s,p)=>s+p.amt,0);
+  document.getElementById('m-pool').textContent=eur(poolTotal);
+  document.getElementById('m-pool-sub').textContent=pool.length+' AR en attente';
+  document.getElementById('m-sel').textContent=eur(selTotal);
+  document.getElementById('m-sel-sub').textContent=sel.length+' AR coché'+(sel.length>1?'s':'');
+  document.getElementById('m-km').textContent=cumulKm.toLocaleString('fr-FR')+' km';
+  document.getElementById('m-km-sub').textContent = cumulKm<=5000?'tranche ≤ 5 000 · 0,636 €/km':cumulKm<=20000?'tranche 5–20 k · 0,357 €/km':'tranche > 20 k · 0,427 €/km';
+  const g=document.getElementById('gen'); g.disabled=!sel.length;
+  g.textContent=sel.length?('Générer la note de frais ('+sel.length+' · '+eur(selTotal)+')'):'Générer la note de frais';
+
+  document.getElementById('pool').innerHTML = pool.length ? pool.map(p=>`
+    <div class="row">
+      <input type="checkbox" ${p.sel?'checked':''} onchange="toggle('${p.id}')">
+      <div class="main"><p class="t">${p.trip}</p><p class="s">${fdate(p.date)} · ${p.km} km · ${String(p.taux).replace('.',',')} €/km</p></div>
+      <span class="amt">${eur(p.amt)}</span>
+      <button class="del" onclick="delAR('${p.id}')" aria-label="Supprimer">×</button>
+    </div>`).join('') : '<p class="empty">Aucun AR en attente.</p>';
+
+  document.getElementById('hist').innerHTML = hist.length ? hist.map(h=>{
+    const cls=h.status==='Remboursé'?'rembourse':h.status==='Prête'?'prete':'transmise';
+    return `<div class="ndf">
+      <div class="main"><p class="t">${h.ref}</p><p class="s">${fdate(h.date)} · ${h.n} AR</p></div>
+      <span class="badge ${cls}">${h.status}</span>
+      <div class="links"><a onclick="openNdf('${h.ref}','eur');return false" href="#">€ PDF</a><a onclick="openNdf('${h.ref}','km');return false" href="#">km PDF</a></div>
+      <span class="tot">${eur(h.total)}</span>
+    </div>`;}).join('') : '<p class="empty">Aucune note de frais émise.</p>';
+}
+
+(async()=>{ const r=await api('list'); apply(r); })();
+</script>
+</body>
+</html>
