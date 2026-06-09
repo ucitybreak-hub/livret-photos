@@ -1,364 +1,3 @@
-
-/
-Claude a terminé la réponse.
-frais kilométrique: je souhaiterais suivre mes IK sur un dashboard comme D0, D1 etc avec un menu ucb nav
-pour t'expliquer, je fais souvent des ar Lyon besançon, je dois ensuite me faire une note de frais pour me faire rembourser et transmettre cela a dougs. J'active mes remboursement quand cela m'arrange et j'aimerais pouvoir saisir mes ik au fil de l'eau et pouvoir à un moment me dire, je selectionne ces AR pour me faire rembourser cette somme, je ne suis pas obligé de tout selectionner, je me ferai ensuite rembourser ceci ou cela.  tu piges?
-J'ai besoin aussi de voir combien cela represente en cumulé euro pour savoir quand je déclenche un remoursement
-
-8 juin
-
-Architected dashboard pool-batch system avec barème fiscal et paramètres bloquants
-Architected dashboard pool-batch system avec barème fiscal et paramètres bloquants
-Je pige parfaitement. Tu veux un pool d'AR en attente : tu saisis chaque trajet au fil de l'eau (date + km → montant € calculé), tu vois en permanence le cumul € « à rembourser », et le jour où ça t'arrange tu coches un sous-ensemble d'AR → ça génère une note de frais (montant + récap transmissible à Dougs) et ça bascule ces AR en « remboursé ». Les autres restent dans le pool.
-
-Architecture que je propose (calquée sur D0/D1) :
-
-2 DB Notion : Frais kilométriques (1 ligne = 1 AR : date, trajet, km, taux, montant €, statut À rembourser/Remboursé, lien note de frais, société) + Notes de frais IK (1 ligne = 1 batch : date, total €, AR inclus, statut transmis/remboursé, export Dougs).
-Dashboard D3 - Frais kilométriques (webhook n8n + ucb-nav) : gros cumul « à rembourser » en tête, bouton + AR (trajet Lyon↔Besançon prérempli, km éditable, montant auto), liste cochable, bouton « Générer note de frais (X AR · Y €) », onglet historique des notes émises.
-Le montant se calcule au barème kilométrique officiel (gelé en 2026 = identique 2025), qui dépend de la puissance fiscale et de la motorisation. Distance par défaut Lyon↔Besançon ≈ 464 km l'AR (éditable à chaque saisie).
-
-Avant de tout monter, 3 paramètres que je ne peux pas deviner :
-
-Q : Puissance fiscale de ta voiture (case P.6 carte grise) ?
-R : 5 CV
-
-Q : Motorisation ?
-R : Thermique / hybride
-
-Q : Quelle société te rembourse les IK ?
-R : U-citybreak SAS
-
-8 juin
-
-Orchestrated deployment strategy with key decisions pending
-Orchestrated deployment strategy with key decisions pending
-5 CV thermique, remboursé par U-citybreak SAS. Note importante sur le calcul avant de te montrer la maquette :
-
-Le barème est annuel et dégressif (gelé en 2026). Pour 5 CV : ≤ 5 000 km/an → 0,636 €/km · 5 001–20 000 km → 0,357 €/km + 1 395 € · > 20 000 km → 0,427 €/km. Je calcule donc chaque AR en marginal sur ton cumul de l'année (montant figé à la saisie, remis à zéro chaque 1ᵉʳ janvier). Concrètement, un AR Lyon↔Besançon de 464 km vaut ~295 € tant que tu es sous 5 000 km/an, puis ~166 € au-delà (≈ après ton 11ᵉ AR). La somme de tous les AR de l'année reste exactement le barème officiel — Dougs n'a rien à régulariser.
-
-Voici la maquette interactive du dashboard D3 (données fictives, charte UCB). Coche des AR pour voir la sélection et le déclenchement de remboursement :
-
-V
-
-Connexion à visualize...
-Voilà le principe : tu saisis au fil de l'eau, le pool « à rembourser » se cumule, tu coches ce que tu veux et le bouton génère la note de frais (qui passe dans l'historique). La nav UCB en tête te ramène vers D0/D1/D2.
-
-Si le concept te va, voici ce que je monte (dès ton go) :
-
-Notion — 2 DB : Frais kilométriques IK (date, trajet, km, taux, montant, statut, note de frais liée, société) + Notes de frais IK (réf, date, total, AR liés, statut). Calcul marginal 5 CV intégré côté workflow.
-
-n8n — workflow D3 - Frais kilométriques : webhook /webhook/D3 qui sert ce dashboard (HTML + ucb-nav.js), routes add-ar, toggle, generate-ndf. Le « Générer » crée la note de frais dans Notion et produit un récap (PDF + CSV) prêt à déposer chez Dougs.
-
-Deux détails avant que je construise, sinon je pars sur ces défauts :
-
-Export Dougs : récap PDF (date, liste des AR, km, total, mention barème 5 CV thermique) + CSV par note de frais — OK ? Ou tu préfères un seul des deux ?
-Statuts : je propose 3 états — À rembourser → Note émise (récap généré, transmis à Dougs) → Remboursé (quand tu t'es effectivement viré l'argent, bouton dans l'historique). Suffisant, ou tu veux rester sur 2 ?
-Dis-moi (ou juste « ok » pour les défauts) et je monte tout.
-
-il faudra un justif pour dougs sans doute, on peut reprendre le même principe que D0, une page html avec impression pdf?
-
-8 juin
-a moins que tu saches exporter en pdf depuis
-
-8 juin
-
-Envisaged PDF export option and finalized implementation plan
-Envisaged PDF export option and finalized implementation plan
-Oui — exactement le principe de D0 : une page HTML « note de frais » servie par le workflow, avec bouton Imprimer → PDF du navigateur (Cmd/Ctrl+P → « Enregistrer en PDF »). C'est le plus propre pour Dougs : rendu fidèle via CSS @media print, zéro dépendance, et tu gardes la main sur le moment où tu génères.
-
-Sur ta question « exporter en PDF depuis n8n » : techniquement oui, mais ça impose un moteur de rendu headless (Gotenberg ou Browserless en sidecar Docker sur l'instance, ou une API externe type PDFShift) — Chrome n'est pas embarqué dans n8n. Pour un justif Dougs c'est de la sur-ingénierie : le print HTML donne le même PDF en mieux. Je le garderais en réserve seulement si un jour tu veux joindre le PDF automatiquement (email/drive) sans clic.
-
-Voici la maquette de la feuille imprimable (générée pour la sélection cochée dans le dashboard) :
-
-V
-
-Connexion à visualize...
-Dans la vraie page, ce bouton lance window.print() avec un CSS @media print qui masque la nav UCB et n'imprime que la feuille — PDF propre pour Dougs.
-
-Plan de build verrouillé, j'attends ton go :
-
-Notion : DB Frais kilométriques IK + DB Notes de frais IK (statuts À rembourser → Note émise → Remboursé).
-n8n D3 - Frais kilométriques : webhook /webhook/D3 (dashboard + nav UCB), routes add-ar / toggle / generate-ndf, calcul marginal 5 CV intégré, et une route /webhook/D3/ndf?ref=… qui sert la feuille imprimable ci-dessus.
-Un seul détail pour le justif : le bénéficiaire affiché — je mets « Yann » seul, ou tu veux ton nom complet (prénom + nom) sur la note de frais officielle ? Dis-moi ça + « ok » et je monte tout.
-
-mon nom complet. tu me permettre un export avec euro et un juste les km. il est possible que Dougs ait son propre système de comptage
-
-8 juin
-
-Architected dual export formats and identified missing full name requirement
-Architected dual export formats and identified missing full name requirement
-Bien reçu — donc deux exports, chacun en page imprimable (PDF navigateur) + CSV :
-
-A · Note de frais chiffrée : date, trajet, km, barème, montant €, total — ce qu'on a vu.
-B · Relevé kilométrique seul : date, trajet, km, cumul — sans les montants, pour que Dougs applique son propre comptage s'il préfère.
-Un bouton « € » / « km seuls » sur la feuille, et deux CSV correspondants. C'est trivial à brancher.
-
-Reste juste ton nom complet (prénom + nom) pour l'en-tête du justif — tu ne l'as pas écrit. Donne-le moi et je monte les 2 DB Notion + le workflow D3 dans la foulée.
-
-yann chabod
-
-8 juin
-
-Orchestrating Notion database creation and workflow assembly strategy
-Orchestrating Notion database creation and workflow assembly strategy
-Parfait. Je crée les deux DB Notion, puis j'enchaîne sur le workflow D3.
-
-
-Orchestrated database architecture with relational connections
-Orchestrated database architecture with relational connections
-DB Notes de frais IK créée. Je crée maintenant Frais kilométriques IK avec la relation vers elle :
-
-
-Architected dual databases and strategized workflow delivery approach
-Architected dual databases and strategized workflow delivery approach
-Les deux DB sont créées et reliées. Récap des IDs (à garder) :
-
-Frais kilométriques IK — db d0a6ab8b84f046378e58bb1848874495 · data source d16f4cb9-abdc-4d18-a585-95016257eba9
-Notes de frais IK — db 63d6123f9b8b40269fc378600d1a7916 · data source 27fa35e2-6227-459d-b4be-d575b5d0a62f
-Relation bidirectionnelle posée : Note de frais (côté AR) ↔ AR liés (côté notes).
-Je passe au workflow. Vu tes propres pièges connus (nodes Notion + gros HTML = pas fiable via SDK), je te le livrerai en JSON importable + les 2 pages HTML, tu importes → rebranches la credential Notion native → publies.
-
-Première brique, la vraie page du dashboard D3 (charte UCB, câblée sur /webhook/D3, avec repli démo pour que tu l'ouvres et cliques tout de suite). Je l'écris :
-
-
-Yann Chabod
-Yann Chabod
-Ouvre le fichier : faute de webhook joignable depuis le disque, il bascule en mode démo — tu peux ajouter un AR, cocher, générer une note de frais et voir le cumul/tranche bouger pour de vrai. Une fois servi par n8n sur /webhook/D3, il tapera les vraies routes automatiquement (même code).
-
-Le backend que je monte ensuite répond à ces routes sur le même webhook :
-
-?action=list → lit les 2 DB Notion, renvoie pool + historique + cumul km de l'année
-?action=add → crée l'AR (calcul marginal 5 CV, fige taux + montant + cumul)
-?action=del → supprime un AR du pool
-?action=generate → crée la note de frais, lie les AR, passe leur statut à Note émise
-?action=ndf&ref=…&mode=eur|km → sert la feuille imprimable (les deux variantes)
-Reste à produire : la feuille NDF imprimable (HTML, modes € et km, CSS @media print) + le workflow D3 en JSON importable (webhook → Switch → branches Notion → Respond). Je m'y mets dès que tu me dis que la page te va visuellement — ou je continue directement, dis-moi.
-
-
-D3 dashboard
-Code · HTML 
-très bien, produit le reste
-
-08:33
-
-Orchestrated workflow architecture, weighed implementation risks, resolved delivery strategy
-Orchestrated workflow architecture, weighed implementation risks, resolved delivery strategy
-Je produis la feuille imprimable, puis je monte le workflow.
-
-D'abord la feuille de note de frais (toggle € / km dans la même page, CSS @media print, auto-démo pour preview) :
-
-
-Orchestrated n8n workflow construction via Elestio connector tools
-Orchestrated n8n workflow construction via Elestio connector tools
-La feuille fonctionne en autonomie : bascule Montants € / Km seuls, et « Imprimer / PDF » lance l'impression propre (nav et boutons masqués). Le serveur remplacera juste le bloc NDF_DATA.
-
-Maintenant je monte le workflow sur Elestio. Je charge les outils SDK n8n :
-
-
-Navigated workflow architecture tradeoffs pragmatically
-Navigated workflow architecture tradeoffs pragmatically
-Référence SDK en main. Je monte le workflow sur Elestio en commençant par un cœur validé et vivant — il sert le dashboard, lit Notion (list) et enregistre un AR (add) avec le calcul barème. J'ajoute ndf/del/generate juste après, une fois ce socle vérifié. J'écris et je valide :
-
-
-Orchestrated workflow construction and validation
-Orchestrated workflow construction and validation
-Validé (17 nœuds). Je crée le workflow sur Elestio :
-
-
-Orchestrated workflow setup and debugged dashboard credential handling
-Orchestrated workflow setup and debugged dashboard credential handling
-Workflow créé et validé : D3 - Frais kilométriques (NQQIkLwEkzeeHxmB), projet perso. Comme prévu, les 4 nœuds HTTP attendent leur credential.
-
-Je corrige deux détails du dashboard pour le mode live (les IDs Notion sont des UUID, pas des entiers — il faut les quoter dans les handlers, et rafraîchir depuis Notion après chaque écriture) :
-
-
-Orchestrated workflow finalization steps and GitHub hosting strategy
-Orchestrated workflow finalization steps and GitHub hosting strategy
-Le cœur est en place. État actuel :
-
-2 DB Notion créées et reliées.
-Workflow D3 (NQQIkLwEkzeeHxmB) créé sur Elestio, non publié — routes dashboard + list + add câblées (lecture/écriture Notion + calcul barème 5 CV marginal).
-2 pages HTML livrées : dashboard (corrigé pour le live) + feuille NDF imprimable.
-Pour activer le cœur, 3 gestes côté UI (tes pièges habituels) :
-
-Credential Notion sur les 4 nœuds HTTP (Query AR, Query Notes, Query AR Year, Create AR) → sélectionne Notion API direct (Header Auth). Si elle n'existe pas encore sur Elestio : Header Auth, Authorization = Bearer ntn_… (même token que la native).
-Servir le dashboard — ⚠️ mon HTML contient lui-même des backticks (son <script>), donc on ne le colle pas dans un Code node. Le plus propre, comme livret-serve : pousse d3-dashboard.html sur GitHub (livret-photos/dashboards/) et remplace le node Render dashboard par un HTTP GET sur le raw (…?_={{ $now.toMillis() }}) renvoyé tel quel. (Sinon je te le transforme en node fetch GitHub dans la prochaine passe.)
-Active le workflow → teste GET /webhook/D3 (dashboard), saisis un AR, vérifie qu'il apparaît dans Notion Frais kilométriques IK.
-Ensuite je câble la 2ᵉ passe : ndf (sert la feuille en interpolant NDF_DATA depuis Notion), del (archive un AR) et generate (crée la note de frais, lie les AR, passe leur statut).
-
-Tu rebranches/testes le cœur et je déroule le reste — ou je te bascule directement Render dashboard en fetch GitHub si tu préfères que je continue sans attendre.
-
-
-D3 ndf sheet
-Code · HTML 
-
-D3 dashboard
-Code · HTML 
-je comprends pas ton point 2
-
-10:18
-
-Diagnosed backtick escaping problem, formulated GitHub-fetch solution
-Diagnosed backtick escaping problem, formulated GitHub-fetch solution
-Désolé, je l'ai dit trop vite. Le souci est purement technique :
-
-Dans n8n, pour qu'un nœud renvoie une page HTML, on colle d'habitude le HTML dans un nœud Code, à l'intérieur d'une chaîne de texte délimitée par des backticks ` :
-
-js
-return [{ json: { html: `...tout le HTML ici...` } }];
-Le problème : le JavaScript à l'intérieur de ma page dashboard utilise déjà des backticks (pour construire les lignes de la liste). Du coup, le premier backtick interne « referme » la chaîne trop tôt et tout casse. On ne peut donc pas bêtement coller le fichier dans un nœud Code.
-
-Deux façons de contourner :
-
-La propre (celle de ton livret-serve) : on ne met pas le HTML dans n8n. Tu déposes d3-dashboard.html sur ton repo GitHub public, et le nœud va simplement le télécharger à chaque appel puis le renvoie. Aucun souci d'échappement, et tu peux retoucher le design sans rouvrir n8n.
-La bricolée : coller le HTML quand même mais en remplaçant chaque ` par \` — fastidieux et fragile. À éviter.
-Donc ma proposition : je remplace le nœud Render dashboard par un nœud qui fait un GET sur le fichier GitHub (exactement comme livret-serve, avec le ?_={{ $now.toMillis() }} anti-cache). Il te restera juste à déposer le fichier dans le repo (ex. livret-photos/dashboards/d3-dashboard.html).
-
-Tu veux que je fasse cette bascule maintenant ?
-
-ok
-
-10:20
-
-Deliberated workflow recreation strategy over incremental updates
-Deliberated workflow recreation strategy over incremental updates
-Je recrée le workflow avec le nœud dashboard en fetch GitHub (et j'archive l'ancien pour éviter le doublon). Je valide d'abord :
-
-
-Reorganized workflow and clarified credential requirements
-Reorganized workflow and clarified credential requirements
-Nouveau workflow : 5fSBfxM7cXnoeL7C. J'archive l'ancien doublon :
-
-
-Orchestrated workflow configuration and outlined implementation steps
-Orchestrated workflow configuration and outlined implementation steps
-Bascule faite. État final de cette étape :
-
-Workflow actif 5fSBfxM7cXnoeL7C (ancien archivé) — le dashboard est maintenant servi par un GET GitHub, plus aucun HTML à coller dans n8n.
-
-Tes gestes pour allumer le cœur :
-
-Pousser le dashboard sur GitHub : dépose d3-dashboard.html dans ucitybreak-hub/livret-photos → dashboards/d3-dashboard.html (c'est l'URL que le nœud Fetch dashboard HTML va chercher). Ce nœud n'a pas de credential à brancher (repo public en lecture) — ignore-le dans la note d'auto-assignation.
-Brancher Notion API direct (Header Auth) sur les 4 nœuds Notion : Query AR, Query Notes, Query AR Year, Create AR. Si la credential n'existe pas encore sur Elestio : Header Auth, Authorization = Bearer ntn_….
-Activer le workflow, puis teste :
-https://n8n-d2box-u73867.vm.elestio.app/webhook/D3 → le dashboard s'affiche (plus le bandeau démo).
-Saisis un AR → il doit apparaître dans Notion Frais kilométriques IK avec le bon montant.
-Une fois que tu confirmes que list + add tournent, je câble la 2ᵉ passe : ndf (sert la feuille en injectant NDF_DATA depuis Notion), del (archive un AR), generate (crée la note de frais, lie les AR, bascule leur statut). Dis-moi quand le cœur répond.
-
-
-agences_ffp_base.csv
-csv
-
-c'est une blague? y'a plus les emails
-
-10:24
-
-Clarified conversation mix-up, investigated file discrepancy
-Clarified conversation mix-up, investigated file discrepancy
-Je viens de regarder le fichier que tu m'as envoyé : il a 7 colonnes — nom_agence; ville; departement; region_ffp; aura_bfc; slug; url_fiche — et effectivement aucune colonne email, sur 241 lignes.
-
-Mais ce fichier n'a pas été produit ni modifié ici : dans cette conversation on a travaillé uniquement sur les frais kilométriques (DB Notion + dashboard D3), jamais sur les agences FFP. Donc ce n'est pas moi qui l'ai vidé de ses emails — cette version vient d'ailleurs, probablement d'un autre chat où tu bossais le scraping FFP. Ma mémoire est cloisonnée par projet, je n'ai pas ce contexte sous la main.
-
-Pas grave, on peut reconstruire. Les url_fiche pointent toutes vers les fiches membres (f-f-p.org/membre/<slug>), donc si l'email figure sur la fiche publique, on peut le re-récupérer à partir de cette colonne.
-
-Avant de lancer quoi que ce soit sur 240 fiches : tu veux que je re-scrape les emails depuis les url_fiche pour réenrichir ce CSV, ou tu as une version antérieure avec les emails (dans l'autre conversation) qu'il vaut mieux récupérer ? Dis-moi laquelle des deux et je m'en occupe.
-
-c'est une erreur de discussion :/
-
-10:31
-Pas de souci — ça arrive. 🙂
-
-On reprend où on en était sur le dashboard D3 Frais kilométriques quand tu veux. Pour rappel, la balle est dans ton camp pour allumer le cœur :
-
-Pousser d3-dashboard.html sur GitHub (livret-photos/dashboards/)
-Brancher Notion API direct sur les 4 nœuds Notion
-Activer le workflow 5fSBfxM7cXnoeL7C et tester GET /webhook/D3 + une saisie d'AR
-Dès que tu me confirmes que list + add répondent, je câble la 2ᵉ passe (ndf / del / generate). Et si tu veux que je m'occupe du fichier FFP, c'est dans l'autre discussion que ça se passe.
-
-comment je creer un repertoire sur git?
-
-10:33
-
-Élucidé la création de dossiers Git via chemin de fichier
-Élucidé la création de dossiers Git via chemin de fichier
-Sur Git/GitHub on ne crée pas un dossier vide tout seul — un dossier n'existe que parce qu'un fichier s'y trouve. Tu crées donc le dossier en même temps que le fichier, juste en mettant le / dans le chemin :
-
-Sur ton repo ucitybreak-hub/livret-photos (interface web) :
-
-Bouton Add file → Create new file.
-Dans le champ du nom, tape dashboards/d3-dashboard.html. Dès que tu tapes le /, GitHub crée le dossier dashboards automatiquement.
-Colle le contenu du fichier d3-dashboard.html dans la zone de texte.
-Commit changes (sur la branche main).
-C'est tout — l'URL …/main/dashboards/d3-dashboard.html sera alors valide et le nœud Fetch dashboard HTML la trouvera.
-
-Si tu préfères, je peux aussi le pousser pour toi via n8n (ton workflow d'upload réutilisable DKMPwzBCXw0MXRlb + credential « GitHub livret ») — dis-moi et je lance l'upload, ça t'évite le copier-coller.
-
-je crois que c'est bon
-
-10:36
-
-Deliberated verification strategy for deployed dashboard file
-Deliberated verification strategy for deployed dashboard file
-Je vérifie que le fichier est bien en ligne :
-
-
-Acknowledged limitation and outlined verification steps for user
-Acknowledged limitation and outlined verification steps for user
-Je ne peux pas vérifier l'URL moi-même depuis ici (mon accès réseau est restreint aux liens issus de recherche), mais toi tu peux confirmer en 2 secondes : ouvre dans ton navigateur
-
-https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/dashboards/d3-dashboard.html
-
-Si tu vois le code HTML s'afficher, le fichier est bien en place.
-
-Ensuite, pour que /webhook/D3 serve réellement la page, il reste :
-
-Brancher Notion API direct sur les 4 nœuds Notion (Query AR, Query Notes, Query AR Year, Create AR).
-Activer le workflow 5fSBfxM7cXnoeL7C.
-Tester https://n8n-d2box-u73867.vm.elestio.app/webhook/D3 → le dashboard doit s'afficher sans le bandeau démo, puis saisir un AR et vérifier qu'il atterrit dans Notion.
-Dis-moi ce que donne le test et j'enchaîne sur ndf / del / generate.
-
-Capture d’écran 2026-06-09 à 10.37.14.png
-10:37
-Le fichier est bien en ligne — l'URL raw renvoie le HTML du dashboard. Étape 1 ✅.
-
-Il te reste donc, côté n8n sur le workflow 5fSBfxM7cXnoeL7C :
-
-Brancher Notion API direct sur les 4 nœuds Notion (Query AR, Query Notes, Query AR Year, Create AR).
-Activer le workflow.
-Tester https://n8n-d2box-u73867.vm.elestio.app/webhook/D3 → la page doit s'afficher (sans bandeau démo), puis saisir un AR et vérifier qu'il atterrit dans Notion Frais kilométriques IK.
-Dis-moi ce que donne le test list + add et je câble la 2ᵉ passe (ndf / del / generate).
-
-est ce qu'on peut avoir un séparateur par mois ? et recap (sous total) par mois?
-
-10:39
-
-Architected monthly grouping with subtotals for expense list
-Architected monthly grouping with subtotals for expense list
-Bonne idée — c'est purement côté affichage (le dashboard), donc une modif du HTML, rien à toucher dans n8n. Je regarde le code pour brancher proprement le groupement par mois :
-
-
-Orchestrated monthly grouping with subtotals and styling updates
-Orchestrated monthly grouping with subtotals and styling updates
-Fait. La liste des AR est maintenant groupée par mois : un en-tête par mois (ex. « Juin 2026 ») avec à droite le sous-total du mois (nb AR · km · €), et une case dans l'en-tête pour cocher/décocher tout le mois d'un clic — pratique pour « je rembourse juin ». Ouvre le fichier pour le voir en mode démo.
-
-Pour le mettre en ligne : re-pousse d3-dashboard.html sur GitHub au même chemin (dashboards/d3-dashboard.html) en écrasant l'ancien. Comme le nœud fait un GET avec ?_={{ $now.toMillis() }}, le cache CDN est contourné et la nouvelle version s'affichera tout de suite.
-
-Rien à toucher dans n8n. Quand tu auras testé list + add en live, je câble ndf / del / generate.
-
-
-D3 dashboard
-Code · HTML 
-
-
-
-
-
-
-Claude est une IA et peut faire des erreurs. Veuillez vérifier les réponses.
-
-
-raw
-D3 dashboard · HTML
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -376,16 +15,16 @@ D3 dashboard · HTML
 *{box-sizing:border-box}
 body{margin:0;background:#FFFFFF;color:var(--fg);font-family:var(--font);-webkit-font-smoothing:antialiased}
 .wrap{max-width:680px;margin:0 auto;padding:0 16px 60px}
- 
+
 /* nav UCB (remplacée par ucb-nav.js à l'intégration si souhaité) */
 .nav{background:var(--accent);border-radius:0 0 var(--radius-lg) var(--radius-lg);padding:11px 16px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 -16px 22px}
 .nav .brand{color:#fff;font-weight:600;font-size:14px;margin-right:8px;white-space:nowrap}
 .nav a{padding:7px 13px;border-radius:8px;font-size:13px;color:#CFC6E0;text-decoration:none;white-space:nowrap}
 .nav a.on{background:rgba(255,255,255,.14);color:#fff;font-weight:600}
- 
+
 h1{font-size:21px;font-weight:600;margin:6px 0 2px}
 .sub{font-size:13px;color:var(--fg-muted);margin:0 0 20px}
- 
+
 .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
 @media(max-width:520px){.metrics{grid-template-columns:1fr}}
 .metric{background:var(--bg);border-radius:var(--radius-md);padding:14px}
@@ -393,19 +32,19 @@ h1{font-size:21px;font-weight:600;margin:6px 0 2px}
 .metric .val{font-size:23px;font-weight:600;margin:0;line-height:1.1}
 .metric .hint{font-size:11px;color:var(--fg-soft);margin:3px 0 0}
 .metric.accent .val{color:var(--accent)}
- 
+
 .sec-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px}
 .sec-head h2{font-size:16px;font-weight:600;margin:0}
 .btn{font-family:inherit;cursor:pointer;border-radius:var(--radius-md);font-size:13px;padding:9px 15px;border:1px solid var(--border);background:#fff;color:var(--fg)}
 .btn:hover{background:var(--bg)}
 .btn-primary{background:var(--accent);color:#fff;border:none;font-weight:600;padding:12px 18px;font-size:14px}
 .btn-primary:disabled{background:#D9D4E2;cursor:not-allowed}
- 
+
 .form{display:none;gap:10px;flex-wrap:wrap;align-items:flex-end;background:var(--bg);border-radius:var(--radius-md);padding:14px;margin-bottom:14px}
 .form.show{display:flex}
 .form label{font-size:12px;color:var(--fg-muted);display:block;margin-bottom:4px}
 .form input,.form select{font-family:inherit;font-size:14px;padding:9px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);background:#fff;color:var(--fg)}
- 
+
 .row{display:flex;align-items:center;gap:13px;padding:13px 14px;border:1px solid var(--border-soft);border-radius:var(--radius-md);margin-bottom:8px;background:#fff}
 .row input[type=checkbox]{width:19px;height:19px;cursor:pointer;accent-color:var(--accent);flex:none}
 .row .main{flex:1;min-width:0}
@@ -414,9 +53,9 @@ h1{font-size:21px;font-weight:600;margin:6px 0 2px}
 .row .amt{font-size:15px;font-weight:600;color:var(--accent);white-space:nowrap}
 .row .del{background:none;border:none;cursor:pointer;color:var(--fg-soft);font-size:18px;line-height:1;padding:4px}
 .empty{font-size:13px;color:var(--fg-soft);padding:10px 0}
- 
+
 .genbar{display:flex;justify-content:flex-end;margin:14px 0 30px}
- 
+
 .ndf{display:flex;align-items:center;gap:13px;padding:13px 14px;border:1px solid var(--border-soft);border-radius:var(--radius-md);margin-bottom:8px;background:#fff}
 .ndf .main{flex:1;min-width:0}
 .badge{font-size:11px;padding:3px 9px;border-radius:99px;white-space:nowrap}
@@ -443,41 +82,41 @@ h1{font-size:21px;font-weight:600;margin:6px 0 2px}
   <a href="/webhook/D2">D2 · Arrivées</a>
   <a href="/webhook/D3" class="on">D3 · Frais km</a>
 </nav>
- 
+
 <div class="wrap">
   <h1>Frais kilométriques</h1>
   <p class="sub">Saisie au fil de l'eau · barème 5 CV thermique · U-citybreak SAS</p>
- 
+
   <div class="metrics">
     <div class="metric"><p class="lbl">À rembourser</p><p class="val" id="m-pool">—</p><p class="hint" id="m-pool-sub"></p></div>
     <div class="metric accent"><p class="lbl">Sélection</p><p class="val" id="m-sel">0,00 €</p><p class="hint" id="m-sel-sub">0 AR coché</p></div>
     <div class="metric"><p class="lbl">Cumul 2026</p><p class="val" id="m-km">—</p><p class="hint" id="m-km-sub"></p></div>
   </div>
- 
+
   <div class="sec-head">
     <h2>AR à rembourser</h2>
     <button class="btn" onclick="toggleForm()">+ Nouvel AR</button>
   </div>
- 
+
   <div class="form" id="form">
     <div><label>Date</label><input type="date" id="f-date"></div>
     <div><label>Trajet</label><select id="f-trip" onchange="syncKm()"><option value="464">Lyon ↔ Besançon (AR)</option><option value="0">Autre…</option></select></div>
     <div><label>Km</label><input type="number" id="f-km" value="464" style="width:90px"></div>
     <button class="btn-primary" onclick="addAR()">Ajouter</button>
   </div>
- 
+
   <div id="pool"></div>
- 
+
   <div class="genbar">
     <button class="btn-primary" id="gen" disabled onclick="generate()">Générer la note de frais</button>
   </div>
- 
+
   <div class="sec-head"><h2>Notes de frais émises</h2></div>
   <div id="hist"></div>
- 
+
   <p class="demo" id="demo-flag" style="display:none">Mode démonstration — données fictives (webhook non joignable depuis ce fichier).</p>
 </div>
- 
+
 <script>
 const BASE = location.pathname.includes('/webhook/') ? location.pathname.replace(/\/$/,'') : '/webhook/D3';
 const YEAR = 2026;
@@ -486,9 +125,9 @@ const eur = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}
 const fdate = d => new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'short'});
 const round2 = n => Math.round(n*100)/100;
 const ikAnnuel = km => km<=5000 ? 0.636*km : km<=20000 ? 0.357*km+1395 : 0.427*km;
- 
+
 let pool=[], hist=[], cumulKm=0;
- 
+
 async function api(action, payload){
   if(DEMO) return demoApi(action, payload);
   try{
@@ -501,7 +140,7 @@ async function api(action, payload){
     return demoApi(action, payload);
   }
 }
- 
+
 /* ---------- repli démo (local, sans backend) ---------- */
 function seedDemo(){
   cumulKm = 928;
@@ -535,7 +174,7 @@ function demoApi(action, p){
   }
   return {pool,hist,cumulKm};
 }
- 
+
 /* ---------- actions UI ---------- */
 function toggleForm(){ document.getElementById('form').classList.toggle('show'); const d=document.getElementById('f-date'); if(!d.value)d.value=new Date().toISOString().slice(0,10); }
 function syncKm(){ const v=document.getElementById('f-trip').value; if(v!=='0')document.getElementById('f-km').value=v; }
@@ -555,11 +194,11 @@ async function generate(){
   await api('generate',{ids}); await refresh();
 }
 function openNdf(ref,mode){ window.open(BASE+'?action=ndf&ref='+encodeURIComponent(ref)+'&mode='+mode,'_blank'); }
- 
+
 async function refresh(){ const r=await api('list'); apply(r); }
- 
+
 function apply(r){ if(!r)return; pool=r.pool||pool; hist=r.hist||hist; if(typeof r.cumulKm==='number')cumulKm=r.cumulKm; render(); }
- 
+
 function render(){
   const poolTotal=pool.reduce((s,p)=>s+p.amt,0);
   const sel=pool.filter(p=>p.sel);
@@ -572,7 +211,7 @@ function render(){
   document.getElementById('m-km-sub').textContent = cumulKm<=5000?'tranche ≤ 5 000 · 0,636 €/km':cumulKm<=20000?'tranche 5–20 k · 0,357 €/km':'tranche > 20 k · 0,427 €/km';
   const g=document.getElementById('gen'); g.disabled=!sel.length;
   g.textContent=sel.length?('Générer la note de frais ('+sel.length+' · '+eur(selTotal)+')'):'Générer la note de frais';
- 
+
   const rowHtml = p=>`
     <div class="row">
       <input type="checkbox" ${p.sel?'checked':''} onchange="toggle('${p.id}')">
@@ -601,7 +240,7 @@ function render(){
     }
     document.getElementById('pool').innerHTML = html;
   }
- 
+
   document.getElementById('hist').innerHTML = hist.length ? hist.map(h=>{
     const cls=h.status==='Remboursé'?'rembourse':h.status==='Prête'?'prete':'transmise';
     return `<div class="ndf">
@@ -611,16 +250,8 @@ function render(){
       <span class="tot">${eur(h.total)}</span>
     </div>`;}).join('') : '<p class="empty">Aucune note de frais émise.</p>';
 }
- 
+
 (async()=>{ const r=await api('list'); apply(r); })();
 </script>
 </body>
 </html>
- 
-
-
-
-
-
-
-
