@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Note de frais kilométriques · U-citybreak</title>
+<style>
+:root{--accent:#2D1B4E;--accent-soft:#F0EBF5;--fg:#222;--muted:#717171;--soft:#B0B0B0;--line:#E6E2D9;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;}
+*{box-sizing:border-box}
+body{margin:0;background:#F5F5F4;color:var(--fg);font-family:var(--font);-webkit-font-smoothing:antialiased}
+.actions{max-width:600px;margin:0 auto;padding:18px 16px 0;display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.toggle{display:flex;gap:4px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:3px}
+.toggle button{font-family:inherit;font-size:13px;border:none;background:none;color:var(--muted);padding:7px 14px;border-radius:7px;cursor:pointer}
+.toggle button.on{background:var(--accent);color:#fff;font-weight:600}
+.print{font-family:inherit;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600;cursor:pointer}
+
+.sheet{background:#fff;border:1px solid var(--line);border-radius:12px;max-width:600px;margin:14px auto 40px;padding:30px 32px}
+.head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--accent);padding-bottom:14px;margin-bottom:18px}
+.org{margin:0;font-size:16px;font-weight:600;color:var(--accent)}
+.org-sub{margin:3px 0 0;font-size:12px;color:var(--muted);line-height:1.5}
+.ref{margin:0;font-size:13px;font-weight:600}
+.ref-sub{margin:3px 0 0;font-size:12px;color:var(--muted)}
+.title{margin:0 0 2px;font-size:18px;font-weight:600}
+.title-sub{margin:0 0 18px;font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th,td{padding:9px 8px;font-size:13px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--muted);font-weight:500;font-size:12px}
+.num{text-align:right}
+.amt{font-weight:600}
+.totbar{display:flex;justify-content:space-between;align-items:center;background:var(--accent-soft);border-radius:10px;padding:12px 14px;margin-top:14px}
+.totbar .l{font-size:14px;color:var(--accent);font-weight:600}
+.totbar .v{font-size:20px;color:var(--accent);font-weight:600}
+.legal{margin:18px 0 0;font-size:10.5px;color:#999;line-height:1.6}
+.sign{display:flex;justify-content:space-between;align-items:flex-end;margin-top:22px;padding-top:12px;border-top:1px solid var(--line)}
+.sign p{margin:0;font-size:12px;color:var(--muted)}
+.sign .soft{color:var(--soft)}
+/* mode km : on masque tout ce qui est monétaire */
+body.mode-km .col-eur{display:none}
+body.mode-km .legal-eur{display:none}
+body:not(.mode-km) .legal-km{display:none}
+body:not(.mode-km) .tot-km{display:none}
+body.mode-km .tot-eur{display:none}
+@media print{
+  body{background:#fff}
+  .actions{display:none}
+  .sheet{border:none;border-radius:0;margin:0;max-width:none;padding:0}
+  @page{margin:18mm}
+}
+</style>
+</head>
+<body>
+<div class="actions">
+  <div class="toggle">
+    <button id="b-eur" class="on" onclick="setMode('eur')">Montants €</button>
+    <button id="b-km" onclick="setMode('km')">Km seuls</button>
+  </div>
+  <button class="print" onclick="window.print()">Imprimer / PDF</button>
+</div>
+
+<div class="sheet">
+  <div class="head">
+    <div>
+      <p class="org" id="org">U-citybreak SAS</p>
+      <p class="org-sub" id="org-sub">22 avenue Barthélemy Buyer, 69009 Lyon<br>SIREN 901 788 653</p>
+    </div>
+    <div style="text-align:right">
+      <p class="ref" id="ref">NDF-2026-002</p>
+      <p class="ref-sub" id="ref-sub">émise le 8 juin 2026</p>
+    </div>
+  </div>
+
+  <p class="title" id="title">Note de frais kilométriques</p>
+  <p class="title-sub" id="title-sub">Bénéficiaire : Yann Chabod · Période : juin 2026</p>
+
+  <table>
+    <colgroup>
+      <col style="width:62px"><col>
+      <col style="width:48px"><col class="col-eur" style="width:80px"><col class="col-eur" style="width:84px">
+    </colgroup>
+    <thead><tr>
+      <th>Date</th><th>Trajet</th>
+      <th class="num">Km</th><th class="num col-eur">Barème</th><th class="num col-eur">Montant</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <div class="totbar tot-eur">
+    <span class="l" id="tot-eur-l">Total à rembourser</span>
+    <span class="v" id="tot-eur-v">—</span>
+  </div>
+  <div class="totbar tot-km">
+    <span class="l" id="tot-km-l">Total kilométrique</span>
+    <span class="v" id="tot-km-v">—</span>
+  </div>
+
+  <p class="legal legal-eur">Barème kilométrique fiscal 2026 — véhicule 5 CV thermique (tranche ≤ 5 000 km : 0,636 €/km ; 5 001–20 000 km : 0,357 €/km + 1 395 € ; > 20 000 km : 0,427 €/km). Indemnités calculées en marginal sur le cumul annuel des km professionnels. Péages et stationnement remboursés en sus, sur justificatifs.</p>
+  <p class="legal legal-km">Relevé kilométrique des déplacements professionnels — véhicule 5 CV thermique. Montants à valoriser par le cabinet selon le barème en vigueur. Péages et stationnement sur justificatifs séparés.</p>
+
+  <div class="sign">
+    <p id="sign">Fait à Lyon, le 8 juin 2026<br><span class="soft">Signature</span></p>
+  </div>
+</div>
+
+<script>
+/* Données injectées par le serveur (livret-serve / D3). Repli = exemple démo. */
+const NDF_DATA = /*__NDF_DATA__*/ {
+  org:"U-citybreak SAS",
+  orgSub:"22 avenue Barthélemy Buyer, 69009 Lyon<br>SIREN 901 788 653",
+  ref:"NDF-2026-002", dateEmission:"2026-06-08",
+  beneficiaire:"Yann Chabod", periode:"juin 2026", lieu:"Lyon",
+  items:[
+    {date:"2026-06-02", trip:"Lyon ↔ Besançon (AR)", km:464, taux:0.636, montant:295.10},
+    {date:"2026-06-04", trip:"Lyon ↔ Besançon (AR)", km:464, taux:0.636, montant:295.10},
+    {date:"2026-06-06", trip:"Lyon ↔ Besançon (AR)", km:464, taux:0.636, montant:295.10}
+  ]
+};
+
+const eur = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);
+const fdateShort = d => new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'});
+const fdateLong  = d => new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+
+function setMode(m){
+  document.body.classList.toggle('mode-km', m==='km');
+  document.getElementById('b-eur').classList.toggle('on', m!=='km');
+  document.getElementById('b-km').classList.toggle('on', m==='km');
+}
+
+function fill(){
+  const d=NDF_DATA;
+  document.getElementById('org').textContent=d.org;
+  document.getElementById('org-sub').innerHTML=d.orgSub;
+  document.getElementById('ref').textContent=d.ref;
+  document.getElementById('ref-sub').textContent='émise le '+fdateLong(d.dateEmission);
+  document.getElementById('title-sub').textContent='Bénéficiaire : '+d.beneficiaire+' · Période : '+d.periode;
+  document.getElementById('sign').innerHTML='Fait à '+(d.lieu||'Lyon')+', le '+fdateLong(d.dateEmission)+'<br><span class="soft">Signature</span>';
+
+  const totKm=d.items.reduce((s,i)=>s+i.km,0);
+  const totEur=d.items.reduce((s,i)=>s+i.montant,0);
+  document.getElementById('rows').innerHTML=d.items.map(i=>`
+    <tr>
+      <td>${fdateShort(i.date)}</td><td>${i.trip}</td>
+      <td class="num">${i.km}</td>
+      <td class="num col-eur" style="color:var(--muted)">${String(i.taux).replace('.',',')}</td>
+      <td class="num col-eur amt">${eur(i.montant)}</td>
+    </tr>`).join('');
+
+  document.getElementById('tot-eur-l').textContent='Total à rembourser · '+d.items.length+' AR · '+totKm.toLocaleString('fr-FR')+' km';
+  document.getElementById('tot-eur-v').textContent=eur(totEur);
+  document.getElementById('tot-km-l').textContent='Total kilométrique · '+d.items.length+' AR';
+  document.getElementById('tot-km-v').textContent=totKm.toLocaleString('fr-FR')+' km';
+
+  const m=new URLSearchParams(location.search).get('mode');
+  if(m==='km') setMode('km');
+}
+fill();
+</script>
+</body>
+</html>
