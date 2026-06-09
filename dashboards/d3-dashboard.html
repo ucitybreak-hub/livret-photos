@@ -100,7 +100,12 @@ h1{font-size:21px;font-weight:600;margin:6px 0 2px}
 
   <div class="form" id="form">
     <div><label>Date</label><input type="date" id="f-date"></div>
-    <div><label>Trajet</label><select id="f-trip" onchange="syncKm()"><option value="464">Lyon ↔ Besançon (AR)</option><option value="0">Autre…</option></select></div>
+    <div><label>Trajet</label><select id="f-trip" onchange="syncKm()">
+      <option value="ar">Lyon ↔ Besançon (A/R) · 464 km</option>
+      <option value="aller">Lyon → Besançon (aller) · 232 km</option>
+      <option value="retour">Besançon → Lyon (retour) · 232 km</option>
+      <option value="autre">Autre…</option>
+    </select></div>
     <div><label>Km</label><input type="number" id="f-km" value="464" style="width:90px"></div>
     <button class="btn-primary" onclick="addAR()">Ajouter</button>
   </div>
@@ -128,16 +133,17 @@ const ikAnnuel = km => km<=5000 ? 0.636*km : km<=20000 ? 0.357*km+1395 : 0.427*k
 
 let pool=[], hist=[], cumulKm=0;
 
-async function api(action, payload){
-  if(DEMO) return demoApi(action, payload);
+async function api(action, params){
+  if(DEMO) return demoApi(action, params);
   try{
-    const opt = payload ? {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)} : {};
-    const r = await fetch(BASE+'?action='+action, opt);
+    let url = BASE+'?action='+encodeURIComponent(action);
+    if(params){ for(const k in params){ const v=params[k]; url += '&'+k+'='+encodeURIComponent(Array.isArray(v)?v.join(','):v); } }
+    const r = await fetch(url);
     if(!r.ok) throw new Error(r.status);
     return await r.json();
   }catch(e){
     if(!DEMO){ DEMO=true; document.getElementById('demo-flag').style.display='block'; seedDemo(); }
-    return demoApi(action, payload);
+    return demoApi(action, params);
   }
 }
 
@@ -160,7 +166,7 @@ function demoApi(action, p){
     const amt=round2(ikAnnuel(cumulKm+p.km)-ikAnnuel(cumulKm));
     const taux=round2(amt/p.km*100)/100;
     cumulKm+=p.km;
-    pool.push({id:String(++demoUid),date:p.date,trip:p.km===464?'Lyon ↔ Besançon':'Trajet',km:p.km,taux,amt,sel:false});
+    pool.push({id:String(++demoUid),date:p.date,trip:p.trip||(p.km>=464?'Lyon ↔ Besançon':'Trajet'),km:p.km,taux,amt,sel:false});
     return {pool,hist,cumulKm};
   }
   if(action==='del'){ const ar=pool.find(x=>x.id===p.id); if(ar)cumulKm-=ar.km; pool=pool.filter(x=>x.id!==p.id); return {pool,hist,cumulKm}; }
@@ -177,12 +183,14 @@ function demoApi(action, p){
 
 /* ---------- actions UI ---------- */
 function toggleForm(){ document.getElementById('form').classList.toggle('show'); const d=document.getElementById('f-date'); if(!d.value)d.value=new Date().toISOString().slice(0,10); }
-function syncKm(){ const v=document.getElementById('f-trip').value; if(v!=='0')document.getElementById('f-km').value=v; }
+function syncKm(){ const m={ar:464,aller:232,retour:232}; const v=document.getElementById('f-trip').value; if(m[v]!==undefined)document.getElementById('f-km').value=m[v]; }
 async function addAR(){
   const date=document.getElementById('f-date').value||new Date().toISOString().slice(0,10);
   const km=parseInt(document.getElementById('f-km').value||'0',10);
   if(!km)return;
-  await api('add',{date,km});
+  const labels={ar:'Lyon ↔ Besançon',aller:'Lyon → Besançon',retour:'Besançon → Lyon',autre:'Autre'};
+  const trip=labels[document.getElementById('f-trip').value]||'Autre';
+  await api('add',{date,km,trip});
   document.getElementById('form').classList.remove('show');
   await refresh();
 }
