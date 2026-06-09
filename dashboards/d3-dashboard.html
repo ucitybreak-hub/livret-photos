@@ -178,6 +178,7 @@ function demoApi(action, p){
     pool=pool.filter(x=>!p.ids.includes(x.id));
     return {pool,hist,cumulKm,ref};
   }
+  if(action==='cancel'){ hist=hist.filter(h=>h.ref!==p.ref); return {pool,hist,cumulKm}; }
   return {pool,hist,cumulKm};
 }
 
@@ -195,6 +196,7 @@ async function addAR(){
   await refresh();
 }
 async function delAR(id){ await api('del',{id}); await refresh(); }
+async function cancelNote(ref){ if(!confirm('Supprimer la note '+ref+' ?\nSes AR repartiront dans le pool « à rembourser ».'))return; await api('cancel',{ref}); await refresh(); }
 function toggle(id){ const ar=pool.find(x=>x.id===id); if(ar){ar.sel=!ar.sel; render();} }
 function toggleMonth(k,checked){ pool.forEach(p=>{ if((p.date||'').slice(0,7)===k) p.sel=checked; }); render(); }
 async function generate(){
@@ -256,6 +258,7 @@ function render(){
       <span class="badge ${cls}">${h.status}</span>
       <div class="links"><a onclick="openNdf('${h.ref}','eur');return false" href="#">€ PDF</a><a onclick="openNdf('${h.ref}','km');return false" href="#">km PDF</a></div>
       <span class="tot">${eur(h.total)}</span>
+      <button class="del" onclick="cancelNote('${h.ref}')" aria-label="Supprimer la note">×</button>
     </div>`;}).join('') : '<p class="empty">Aucune note de frais émise.</p>';
 }
 
