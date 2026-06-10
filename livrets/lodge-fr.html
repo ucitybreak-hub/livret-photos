@@ -1322,40 +1322,11 @@
           </div>
         </div>
 
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h3 class="step-title">Le digicode de l'immeuble</h3>
-            <div id="digicode-gate" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}" data-digicode-gated="{{digicode_gated}}">
-              <div class="dg-locked codebox codebox-keybox locked">
-                <span class="codebox-label">🔒 Digicode immeuble</span>
-                <span class="codebox-value">révélé {{checkin_datetime_label}}</span>
-              </div>
-              <div class="dg-open">
-                <p class="step-text">L'entrée extérieure est une <strong>porte vitrée avec un digicode sur la droite</strong>. En général, la porte est <strong>déjà ouverte</strong> en journée.</p>
-                <div class="codebox">
-                  <span class="codebox-label">Si fermée · digicode</span>
-                  <span class="codebox-value">{{building_digicode}}</span>
-                </div>
-
-            <a href="https://www.youtube.com/shorts/3rhg3eOWAz4" target="_blank" rel="noopener" aria-label="Voir la démo du digicode sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-top:14px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-              <img src="https://img.youtube.com/vi/3rhg3eOWAz4/maxresdefault.jpg" alt="Démo digicode" loading="lazy" onerror="this.src='https://img.youtube.com/vi/3rhg3eOWAz4/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
-              <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </a>
-            <p class="step-photo-caption" style="text-align:center; margin-top:6px;">▶ Démo en vidéo · ouvre YouTube ↗</p>
-                <div class="step-tip"><strong>💡 Comment ça marche</strong> · Tapez d'abord <strong>« ON »</strong>, puis <strong>{{building_digicode}}</strong>. Le clavier envoie un signal au <strong>barillet</strong> qui se verrouille — vous pouvez alors tourner la poignée pour ouvrir. Si la poignée tourne dans le vide, c'est que le clavier n'est pas activé : recommencez la séquence.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="accgate" data-state="{{access_state}}">
+        <div id="accgate" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
         <div class="acc-locked">
           <div class="ap-label" style="display:block;margin-bottom:6px">🔒 Accès au logement</div>
           <div class="ap-dots">••• ••• •••</div>
-          <div class="acc-lk-when">Le détail d’accès (boîte à clé, code) s’affichera ici <strong>{{checkin_datetime_label}}</strong></div>
+          <div class="acc-lk-when">Le détail d’accès (digicode, boîte à clé, code) s’affichera ici <strong>{{checkin_datetime_label}}</strong></div>
           {{upsell_arrival_menu}}
           <div class="ap-sep"></div>
           <div class="ap-upsell ap-bag acc-bag">
@@ -1364,6 +1335,25 @@
           </div>
         </div>
         <div class="acc-open">
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3 class="step-title">Le digicode de l'immeuble</h3>
+            <p class="step-text">L'entrée extérieure est une <strong>porte vitrée avec un digicode sur la droite</strong>. En général, la porte est <strong>déjà ouverte</strong> en journée.</p>
+            <div class="codebox">
+              <span class="codebox-label">Si fermée · digicode</span>
+              <span class="codebox-value">{{building_digicode}}</span>
+            </div>
+            <a href="https://www.youtube.com/shorts/3rhg3eOWAz4" target="_blank" rel="noopener" aria-label="Voir la démo du digicode sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-top:14px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+              <img src="https://img.youtube.com/vi/3rhg3eOWAz4/maxresdefault.jpg" alt="Démo digicode" loading="lazy" onerror="this.src='https://img.youtube.com/vi/3rhg3eOWAz4/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+              <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </a>
+            <p class="step-photo-caption" style="text-align:center; margin-top:6px;">▶ Démo en vidéo · ouvre YouTube ↗</p>
+                <div class="step-tip"><strong>💡 Comment ça marche</strong> · Tapez d'abord <strong>« ON »</strong>, puis <strong>{{building_digicode}}</strong>. Le clavier envoie un signal au <strong>barillet</strong> qui se verrouille — vous pouvez alors tourner la poignée pour ouvrir. Si la poignée tourne dans le vide, c'est que le clavier n'est pas activé : recommencez la séquence.</div>
+          </div>
+        </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
@@ -1974,7 +1964,7 @@
       if(rv && Date.now()>=rv){b.setAttribute('data-state','open');}
     }
     function tick(){
-      flip('algopin'); flip('digicode-gate');
+      flip('algopin'); flip('digicode-gate'); flip('accgate');
       var el=document.getElementById('ap-count'); if(!el||!ap){return;}
       var rev=parseInt(ap.getAttribute('data-reveal')||'0',10);
       if(!rev){el.innerHTML='';return;}
