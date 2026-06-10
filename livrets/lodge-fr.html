@@ -1204,6 +1204,8 @@
   .ap-copy{margin-top:10px;background:#007A5C;color:#fff;border:0;border-radius:999px;padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
   #algopin[data-state="locked"] .ap-open{display:none}
   #algopin[data-state="open"] .ap-locked{display:none}
+  #digicode-gate[data-state="locked"] .dg-open{display:none}
+  #digicode-gate[data-state="open"] .dg-locked{display:none}
   .ap-under{font-size:11.5px;color:#B0B0B0;text-align:center;margin:8px 0 14px}
   #accgate .acc-open{display:none}
   #accgate[data-state="open"] .acc-open{display:block}
@@ -1325,9 +1327,15 @@
           <div class="step-content">
             <h3 class="step-title">Le digicode de l'immeuble</h3>
             <p class="step-text">L'entrée extérieure est une <strong>porte vitrée avec un digicode sur la droite</strong>. En général, la porte est <strong>déjà ouverte</strong> en journée.</p>
-            <div class="codebox">
-              <span class="codebox-label">Si fermée · digicode</span>
-              <span class="codebox-value">{{building_digicode}}</span>
+            <div id="digicode-gate" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}" data-digicode-gated="{{digicode_gated}}">
+              <div class="dg-locked codebox codebox-keybox locked">
+                <span class="codebox-label">🔒 Digicode immeuble</span>
+                <span class="codebox-value">révélé {{checkin_datetime_label}}</span>
+              </div>
+              <div class="dg-open codebox">
+                <span class="codebox-label">Si fermée · digicode</span>
+                <span class="codebox-value">{{building_digicode}}</span>
+              </div>
             </div>
 
             <a href="https://www.youtube.com/shorts/3rhg3eOWAz4" target="_blank" rel="noopener" aria-label="Voir la démo du digicode sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-top:14px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
@@ -1958,7 +1966,14 @@
   (function(){
     var ap=document.getElementById('algopin');
     function chip(v,u){return '<div class="ap-chip"><b>'+v+'</b><span>'+u+'</span></div>';}
+    function flip(id){
+      var b=document.getElementById(id); if(!b){return;}
+      if(b.getAttribute('data-digicode-gated')==='false'){b.setAttribute('data-state','open');return;}
+      var rv=parseInt(b.getAttribute('data-reveal')||'0',10);
+      if(rv && Date.now()>=rv){b.setAttribute('data-state','open');}
+    }
     function tick(){
+      flip('algopin'); flip('digicode-gate');
       var el=document.getElementById('ap-count'); if(!el||!ap){return;}
       var rev=parseInt(ap.getAttribute('data-reveal')||'0',10);
       if(!rev){el.innerHTML='';return;}
@@ -1966,7 +1981,7 @@
       var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
       el.innerHTML=(j>0?chip(j,j>1?'jours':'jour'):'')+chip(('0'+h).slice(-2),'heures')+chip(('0'+mn).slice(-2),'min')+(j>0?'':chip(('0'+sc).slice(-2),'sec'));
     }
-    if(ap){tick();setInterval(tick,1000);}
+    tick();setInterval(tick,1000);
 
     // Copier le code : lit la valeur affichée (zéro code en dur)
     var cp=document.getElementById('ap-copy');
