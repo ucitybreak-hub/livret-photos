@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-10T03:00:02.847Z",
+  "fetched_at": "2026-06-10T09:00:03.078Z",
   "property_uuid": "29538904-0724-43a9-83b4-b50c0fa096ee",
   "property_name": "★ Le Panoramique ★",
   "topics": [
@@ -96,6 +96,10 @@
         },
         {
           "content": "Key return: Guests leave the keys back in the lockbox after departure.",
+          "is_edited": false
+        },
+        {
+          "content": "Guests can use Nannybag’s secure luggage storage service nearby by reserving online via their website or app to drop off their bags at the most convenient location.",
           "is_edited": false
         }
       ]
