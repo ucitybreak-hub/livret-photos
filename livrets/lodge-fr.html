@@ -1326,17 +1326,17 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <h3 class="step-title">Le digicode de l'immeuble</h3>
-            <p class="step-text">L'entrée extérieure est une <strong>porte vitrée avec un digicode sur la droite</strong>. En général, la porte est <strong>déjà ouverte</strong> en journée.</p>
             <div id="digicode-gate" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}" data-digicode-gated="{{digicode_gated}}">
               <div class="dg-locked codebox codebox-keybox locked">
                 <span class="codebox-label">🔒 Digicode immeuble</span>
                 <span class="codebox-value">révélé {{checkin_datetime_label}}</span>
               </div>
-              <div class="dg-open codebox">
-                <span class="codebox-label">Si fermée · digicode</span>
-                <span class="codebox-value">{{building_digicode}}</span>
-              </div>
-            </div>
+              <div class="dg-open">
+                <p class="step-text">L'entrée extérieure est une <strong>porte vitrée avec un digicode sur la droite</strong>. En général, la porte est <strong>déjà ouverte</strong> en journée.</p>
+                <div class="codebox">
+                  <span class="codebox-label">Si fermée · digicode</span>
+                  <span class="codebox-value">{{building_digicode}}</span>
+                </div>
 
             <a href="https://www.youtube.com/shorts/3rhg3eOWAz4" target="_blank" rel="noopener" aria-label="Voir la démo du digicode sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-top:14px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
               <img src="https://img.youtube.com/vi/3rhg3eOWAz4/maxresdefault.jpg" alt="Démo digicode" loading="lazy" onerror="this.src='https://img.youtube.com/vi/3rhg3eOWAz4/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
@@ -1345,8 +1345,9 @@
               </div>
             </a>
             <p class="step-photo-caption" style="text-align:center; margin-top:6px;">▶ Démo en vidéo · ouvre YouTube ↗</p>
-
-            <div class="step-tip"><strong>💡 Comment ça marche</strong> · Tapez d'abord <strong>« ON »</strong>, puis <strong>123456</strong>. Le clavier envoie un signal au <strong>barillet</strong> qui se verrouille — vous pouvez alors tourner la poignée pour ouvrir. Si la poignée tourne dans le vide, c'est que le clavier n'est pas activé : recommencez la séquence.</div>
+                <div class="step-tip"><strong>💡 Comment ça marche</strong> · Tapez d'abord <strong>« ON »</strong>, puis <strong>{{building_digicode}}</strong>. Le clavier envoie un signal au <strong>barillet</strong> qui se verrouille — vous pouvez alors tourner la poignée pour ouvrir. Si la poignée tourne dans le vide, c'est que le clavier n'est pas activé : recommencez la séquence.</div>
+              </div>
+            </div>
           </div>
         </div>
 
