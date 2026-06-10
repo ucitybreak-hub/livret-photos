@@ -622,26 +622,23 @@
   /* ROOM TILES */
   .rooms {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
     margin-top: 18px;
-  }
-  @media (min-width: 480px) {
-    .rooms { grid-template-columns: repeat(2, 1fr); }
   }
   .room {
     background: var(--bg-card);
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-md);
-    padding: 14px 16px;
+    padding: 11px 12px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
   .room-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
     background: var(--accent-light);
     color: var(--accent);
     display: flex;
@@ -658,6 +655,28 @@
     font-variation-settings: "opsz" 18, "SOFT" 40;
   }
   .room-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
+  html { scroll-behavior: smooth; }
+  .section[id], .reco-cat-title[id] { scroll-margin-top: 110px; }
+  .jumpbar {
+    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: sticky; top: 54px; z-index: 40;
+    margin: 0 0 14px; padding: 10px 0;
+    background: rgba(255,255,255,0.92);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .stay-zone { position: relative; }
+  .jumpbar::-webkit-scrollbar { display: none; }
+  .jump-pill {
+    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    border: 1px solid var(--border-soft); white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .jump-pill:hover { background: #E6DEF0; }
 
   /* INFO CARDS */
   .cards-grid {
@@ -783,6 +802,9 @@
     white-space: nowrap;
   }
   .recos-toc-link:hover { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-soft); }
+  .recos-toc-link.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .reco-group { display: none; }
+  .reco-group.active { display: block; }
 
   .reco-cat-title {
     font-family: var(--font-display);
@@ -1439,14 +1461,14 @@
           <div class="room-icon">🛋️</div>
           <div>
             <div class="room-name">Coin salon</div>
-            <div class="room-desc">Avec TV</div>
+            <div class="room-desc">Fauteuil Acapulco · espace détente</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🍳</div>
           <div>
             <div class="room-name">Coin cuisine</div>
-            <div class="room-desc">Plaque · Frigo · Micro-ondes · Bouilloire · Nespresso</div>
+            <div class="room-desc">Entièrement équipée</div>
           </div>
         </div>
         <div class="room">
@@ -1492,6 +1514,16 @@
 
     </section>
 
+    <!-- ZONE « Pendant votre séjour » — barre flottante sticky -->
+    <div class="stay-zone">
+      <nav class="jumpbar" aria-label="Accès rapide">
+        <a class="jump-pill" href="#pratique">📶 Wifi & essentiels</a>
+        <a class="jump-pill" href="#poubelles">🗑️ Poubelles</a>
+        <a class="jump-pill" href="#bouger">🚆 Se déplacer</a>
+        <a class="jump-pill" href="#recos">🗺️ Nos adresses</a>
+        <a class="jump-pill" href="#depart">🚪 Départ</a>
+      </nav>
+
     <!-- PRATIQUE -->
     <section class="section reveal" id="pratique">
       <div class="section-eyebrow">Pendant votre séjour</div>
@@ -1521,11 +1553,6 @@
           <div class="info-icon">📡</div>
           <h4 class="info-title">Micro-ondes, bouilloire & Nespresso</h4>
           <p class="info-text">Disponibles à l'entrée pour réchauffer un plat, préparer une boisson chaude ou un café rapide.</p>
-        </div>
-        <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
-          <div class="info-icon" style="background: var(--warning); color: white;">🔐</div>
-          <h4 class="info-title">À la sortie</h4>
-          <p class="info-text">Fermez la porte à clé puis <strong>remettez la clé dans la boîte Igloohome</strong> à droite de la porte. Le code reste identique à celui d'arrivée.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
@@ -1620,12 +1647,13 @@
       <div class="section-eyebrow">Nos coups de cœur</div>
       <h2 class="section-title">À découvrir <em>autour</em></h2>
 
-      <div class="recos-toc">
-        <a href="#restos" class="recos-toc-link">🍷 Restaurants</a>
-        <a href="#tourisme" class="recos-toc-link">🏛️ À visiter</a>
-        <a href="#commerces" class="recos-toc-link">🛒 Commerces</a>
+      <div class="recos-toc" role="tablist">
+        <a class="recos-toc-link active" href="#recos" onclick="showRecoCat('restos',this);return false;">🍷 Restaurants · 7</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('tourisme',this);return false;">🏛️ À visiter · 6</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('commerces',this);return false;">🛒 Commerces · 6</a>
       </div>
 
+      <div class="reco-group active" data-cat="restos">
       <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 7 adresses</span></h3>
 
       <div class="recos-list">
@@ -1708,6 +1736,8 @@
         </div>
       </div>
 
+      </div>
+      <div class="reco-group" data-cat="tourisme">
       <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> À visiter <span class="reco-cat-count">· 6 incontournables</span></h3>
 
       <div class="recos-list">
@@ -1776,6 +1806,8 @@
         </div>
       </div>
 
+      </div>
+      <div class="reco-group" data-cat="commerces">
       <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Commerces de proximité <span class="reco-cat-count">· 6 adresses</span></h3>
 
       <div class="recos-list">
@@ -1842,6 +1874,7 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- DÉPART -->
@@ -1889,6 +1922,7 @@
         </a>
       </div>
     </section>
+    </div><!-- /stay-zone -->
 
     <!-- CONTACT -->
     <section class="section reveal">
@@ -1917,6 +1951,10 @@
     document.getElementById('lang-menu').classList.remove('open');
   });
 
+  function showRecoCat(cat, el) {
+    document.querySelectorAll('.reco-group').forEach(function(g){ g.classList.toggle('active', g.getAttribute('data-cat') === cat); });
+    document.querySelectorAll('.recos-toc-link').forEach(function(a){ a.classList.toggle('active', a === el); });
+  }
   function copyCode(btn, code) {
     navigator.clipboard.writeText(code).then(() => {
       const orig = btn.textContent;
