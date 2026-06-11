@@ -1,38 +1,34 @@
-<!-- BUILT for elegant-fr at 2026-05-14T04:54:21.419Z | photos: 4 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5efe6">
-<title>L'Élégant · Votre séjour</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#FFFFFF">
+<title>{{property_name}} · Votre séjour</title>
 <style>
   :root {
-    --bg: #f5efe6;
-    --bg-card: #fefcf7;
-    --bg-elevated: #ffffff;
-    --fg: #211f1c;
-    --fg-muted: #6b6053;
-    --fg-soft: #9a8d7d;
-    --accent: #b8552d;
-    --accent-soft: #e8c7b3;
-    --accent-deep: #8a3d1d;
-    --accent-light: #fef4eb;
-    --border: #d8cfc0;
-    --border-soft: #ebe3d3;
-    --success: #5a6e3f;
-    --warning: #c8853d;
-    --shadow-sm: 0 1px 2px rgba(33,31,28,0.04), 0 1px 3px rgba(33,31,28,0.06);
-    --shadow-md: 0 4px 6px rgba(33,31,28,0.05), 0 10px 15px rgba(33,31,28,0.08);
-    --shadow-lg: 0 10px 25px rgba(33,31,28,0.10), 0 20px 40px rgba(33,31,28,0.12);
-    --radius-sm: 6px;
+    --bg: #F5F5F4;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #FFFFFF;
+    --fg: #222222;
+    --fg-muted: #717171;
+    --fg-soft: #B0B0B0;
+    --accent: #2D1B4E;
+    --accent-soft: #F0EBF5;
+    --accent-deep: #2D1B4E;
+    --accent-light: #F0EBF5;
+    --border: #DDDDDD;
+    --border-soft: #EBEBEB;
+    --success: #00A67E;
+    --warning: #E8A735;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 1px 2px rgba(0,0,0,.06);
+    --shadow-lg: 0 2px 8px rgba(0,0,0,.08);
+    --radius-sm: 7px;
     --radius-md: 12px;
-    --radius-lg: 20px;
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius-lg: 16px;
+    --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,8 +43,8 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse at top right, rgba(184,85,45,0.04), transparent 60%),
-      radial-gradient(ellipse at bottom left, rgba(90,110,63,0.03), transparent 60%);
+      radial-gradient(ellipse at top right, rgba(45,27,78,0.04), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(45,27,78,0.02), transparent 60%);
     background-attachment: fixed;
   }
 
@@ -71,8 +67,8 @@
     z-index: 50;
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
-    background: rgba(245, 239, 230, 0.85);
-    border-bottom: 1px solid rgba(216, 207, 192, 0.6);
+    background: rgba(255,255,255,0.85);
+    border-bottom: 1px solid var(--border-soft);
   }
   .topbar-inner {
     max-width: 720px;
@@ -153,7 +149,7 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(33,31,28,0) 30%, rgba(33,31,28,0.6) 100%);
+    background: linear-gradient(to bottom, rgba(34,34,34,0) 30%, rgba(34,34,34,0.6) 100%);
     pointer-events: none;
   }
   .hero-content {
@@ -251,7 +247,7 @@
     gap: 4px;
   }
   .quick-card.highlight {
-    background: linear-gradient(135deg, var(--accent-soft) 0%, #f4d4be 100%);
+    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--accent-soft) 100%);
     border-color: var(--accent-soft);
   }
   .quick-label {
@@ -374,7 +370,7 @@
     font-family: var(--font-display);
     font-weight: 500;
     font-size: 16px;
-    box-shadow: 0 2px 8px rgba(184,85,45,0.3);
+    box-shadow: 0 2px 8px rgba(45,27,78,0.22);
     z-index: 2;
     font-variation-settings: "opsz" 24, "SOFT" 30;
   }
@@ -458,12 +454,12 @@
   .codebox-copy:hover { background: var(--accent); transform: translateY(-1px); }
   .codebox-copy.copied { background: var(--success); }
   .codebox-keybox {
-    background: linear-gradient(135deg, #fff8ed 0%, #f9e7d0 100%);
+    background: linear-gradient(135deg, #F0FBF7 0%, #F0FBF7 100%);
     border: 1px solid var(--accent-soft);
     border-style: solid;
   }
   .codebox-keybox.locked {
-    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    background: linear-gradient(135deg, #F5F5F4 0%, #F5F5F4 100%);
     border-color: var(--border);
   }
   .codebox-keybox.locked .codebox-value {
@@ -478,7 +474,7 @@
   .step-tip {
     margin-top: 10px;
     padding: 12px 14px;
-    background: rgba(90, 110, 63, 0.08);
+    background: #F0EBF5;
     border-left: 3px solid var(--success);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     font-size: 13px;
@@ -486,7 +482,7 @@
     line-height: 1.5;
   }
   .step-tip strong { color: var(--success); font-weight: 600; }
-  .step-tip.warn { background: rgba(200,133,61,0.1); border-color: var(--warning); }
+  .step-tip.warn { background: rgba(232,167,53,0.12); border-color: var(--warning); }
   .step-tip.warn strong { color: var(--warning); }
 
   .step-button {
@@ -560,7 +556,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: rgba(33,31,28,0.78);
+    background: rgba(34,34,34,0.78);
     color: white;
     backdrop-filter: blur(8px);
     display: flex;
@@ -613,7 +609,7 @@
     left: 0;
     right: 0;
     padding: 6px 8px 5px;
-    background: linear-gradient(to top, rgba(33,31,28,0.85), transparent);
+    background: linear-gradient(to top, rgba(34,34,34,0.85), transparent);
     color: white;
     font-size: 10px;
     font-weight: 500;
@@ -623,8 +619,8 @@
   /* ROOM TILES */
   .rooms {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
     margin-top: 18px;
   }
   @media (min-width: 480px) {
@@ -634,21 +630,21 @@
     background: var(--bg-card);
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-md);
-    padding: 14px 16px;
+    padding: 11px 12px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
   .room-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
     background: var(--accent-light);
     color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 15px;
     flex-shrink: 0;
   }
   .room-name {
@@ -784,6 +780,9 @@
     white-space: nowrap;
   }
   .recos-toc-link:hover { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-soft); }
+  .recos-toc-link.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .reco-group { display: none; }
+  .reco-group.active { display: block; }
 
   .reco-cat-title {
     font-family: var(--font-display);
@@ -904,7 +903,7 @@
   .reco-link:hover { text-decoration: underline; }
 
   .reco-tip {
-    background: rgba(184,85,45,0.06);
+    background: #F0EBF5;
     border: 1px solid var(--accent-soft);
     border-radius: var(--radius-md);
     padding: 14px 16px;
@@ -978,7 +977,7 @@
 
   /* CONTACT */
   .contact-card {
-    background: linear-gradient(135deg, var(--fg) 0%, #383229 100%);
+    background: linear-gradient(135deg, var(--fg) 0%, #222222 100%);
     color: var(--bg);
     border-radius: var(--radius-lg);
     padding: 28px 24px;
@@ -993,7 +992,7 @@
     right: -20%;
     width: 60%;
     height: 200%;
-    background: radial-gradient(circle, rgba(184,85,45,0.25), transparent 70%);
+    background: radial-gradient(circle, rgba(45,27,78,0.18), transparent 70%);
     pointer-events: none;
   }
   .contact-eyebrow {
@@ -1075,8 +1074,8 @@
     transform: translateY(-1px);
   }
   .checkout-btn.confirmed {
-    background: #5a8559;
-    border-color: #5a8559;
+    background: var(--success);
+    border-color: var(--success);
     pointer-events: none;
     cursor: default;
   }
@@ -1174,95 +1173,86 @@
     .reco-img { width: 88px; min-height: 110px; }
   }
 
-  .arrival-block {
-    margin-top: 32px;
-    padding: 24px;
-    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(90,110,63,0.25);
-    text-align: center;
+  /* ===== UCB overrides (charte V2.1) ===== */
+  body{background:#FFFFFF;background-image:none}
+  body::before{display:none}
+  .brand{color:var(--accent)}
+  .hero-title,.section-title,.quick-value,.codebox-value,.hero-countdown-num{font-weight:600}
+  .hero-sub{font-style:normal}
+  .section-title em{font-style:normal;font-weight:inherit}
+  .quick-card.highlight{background:var(--accent-soft);border-color:var(--border-soft)}
+  .contact-card{background:var(--fg)}
+  .contact-card::before{display:none}
+  .step-tip{background:var(--accent-soft);border-left-color:var(--accent)}
+  .step-tip strong{color:var(--accent)}
+  .step-tip.warn{background:rgba(232,167,53,0.12);border-left-color:var(--warning)}
+  .step-tip.warn strong{color:var(--warning)}
+  .codebox-keybox{background:rgba(0,166,126,0.07);border-color:rgba(0,166,126,0.35)}
+  .codebox-keybox.locked{background:var(--bg);border-color:var(--border)}
+  .section[id], .reco-cat-title[id] { scroll-margin-top: 110px; }
+  .stay-zone { position: relative; }
+  .jumpbar {
+    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: sticky; top: 54px; z-index: 40;
+    margin: 0 0 14px; padding: 10px 0;
+    background: rgba(255,255,255,0.92);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
-  .arrival-block-text {
-    color: var(--fg-muted);
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-  .arrival-btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    gap: 10px; padding: 14px 28px;
-    background: var(--success); color: white;
-    text-decoration: none; border-radius: var(--radius-md);
-    font-weight: 500; font-size: 15px;
-    transition: all 0.18s; border: 1px solid var(--success);
-  }
-  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
-  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
-  .arrival-block.locked {
-    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
-    border-color: var(--border);
-  }
-  .arrival-block.locked .arrival-block-text {
-    font-style: italic;
-    color: var(--fg-soft);
-    margin-bottom: 0;
-  }
-
-  details.section > summary.section-summary {
-    list-style: none;
-    cursor: pointer;
-    display: block;
-    position: relative;
-    padding-right: 56px;
-    border-radius: var(--radius-md);
+  .jumpbar::-webkit-scrollbar { display: none; }
+  .jump-pill {
+    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    border: 1px solid var(--border-soft); white-space: nowrap;
     transition: background 0.15s ease;
   }
-  details.section > summary.section-summary::-webkit-details-marker { display: none; }
-  details.section > summary.section-summary::marker { display: none; }
-  details.section > summary.section-summary:hover {
-    background: rgba(184,85,45,0.03);
-  }
-  details.section .section-summary-chevron {
-    position: absolute;
-    right: 4px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: var(--accent-light);
-    border: 1.5px solid var(--accent-soft);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 1;
-    padding-bottom: 3px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
-    box-shadow: var(--shadow-sm);
-  }
-  details.section > summary.section-summary:hover .section-summary-chevron {
-    background: var(--accent-soft);
-    box-shadow: var(--shadow-md);
-    color: var(--accent-deep);
-  }
-  details.section[open] .section-summary-chevron {
-    transform: translateY(-50%) rotate(90deg);
-  }
-  details.section:not([open]) {
-    padding-bottom: 8px;
-  }
-  details.section:not([open]) .section-summary .section-title {
-    margin-bottom: 0;
-  }
-  @media print {
-    details.section > summary.section-summary { display: block; }
-    details.section .section-summary-chevron { display: none; }
-    details.section > *:not(summary) { display: revert !important; }
-  }
+  .jump-pill:hover { background: #E6DEF0; }
+  /* ===== V2 : gate accès + algoPIN + upsell + nannybag + flottant ===== */
+  .ap-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center}
+  .ap-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .ap-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:#2D1B4E}
+  .ap-badge{font-size:10px;background:#FFFFFF;color:#2D1B4E;border-radius:999px;padding:3px 10px;font-weight:600;white-space:nowrap}
+  .ap-dots{font-size:28px;line-height:1.2;letter-spacing:5px;word-spacing:14px;color:#2D1B4E;padding-left:5px;animation:appulse 2.2s ease-in-out infinite;white-space:nowrap}
+  @keyframes appulse{0%,100%{opacity:.35}50%{opacity:.9}}
+  .ap-when{font-size:13px;color:#717171;margin-top:4px}
+  .ap-when strong{color:#222222;font-weight:600}
+  .ap-count{display:flex;justify-content:center;gap:8px;margin-top:12px}
+  .ap-chip{background:#FFFFFF;border-radius:11px;padding:8px 12px;min-width:54px}
+  .ap-chip b{display:block;font-size:20px;font-weight:600;color:#2D1B4E;line-height:1.1}
+  .ap-chip span{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#717171}
+  .ap-sep{height:1px;background:#DDD3EA;margin:16px 0 14px}
+  .ap-upsell{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
+  .ap-upsell-txt{font-size:13px;color:#717171;line-height:1.45}
+  .ap-upsell-txt strong{color:#222222;font-weight:600}
+  .ap-cta{background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:11px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0}
+  .ap-cta:active{transform:scale(.98)}
+  .ap-open{background:#E8F8F1;border:1px solid #BFE9DC;border-radius:16px;padding:20px 18px;text-align:center}
+  .ap-open .ap-label{color:#007A5C}
+  .ap-open .ap-badge{color:#007A5C}
+  .ap-code{font-size:clamp(26px,8.5vw,38px);font-weight:600;letter-spacing:.1em;word-spacing:.22em;color:#007A5C;line-height:1.3;padding-left:.1em;white-space:nowrap}
+  .ap-copy{margin-top:10px;background:#007A5C;color:#fff;border:0;border-radius:999px;padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+  #algopin[data-state="locked"] .ap-open{display:none}
+  #algopin[data-state="open"] .ap-locked{display:none}
+  .ap-under{font-size:11.5px;color:#B0B0B0;text-align:center;margin:8px 0 14px}
+  #accgate .acc-open{display:none}
+  #accgate[data-state="open"] .acc-open{display:block}
+  #accgate[data-state="open"] .acc-locked{display:none}
+  .acc-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center;margin:4px 0 8px}
+  .acc-lk-when{font-size:13px;color:#717171;margin:6px 0 2px}
+  .acc-lk-when strong{color:#222222;font-weight:600}
+  .acc-bag{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:14px;padding:14px 16px;margin:4px 0 16px}
+  @media(max-width:520px){.ap-upsell{flex-direction:column;align-items:stretch;text-align:left}.ap-cta{width:100%}}
+  .arrival-block{margin-top:32px;padding:24px;background:#FFFFFF;border:1px solid #EBEBEB;border-radius:var(--radius-md);text-align:center;box-shadow:none}
+  .arrival-block-text{color:var(--fg-muted);font-size:14px;line-height:1.5;margin-bottom:16px}
+  .arrival-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:#2D1B4E;color:#fff;text-decoration:none;border-radius:var(--radius-md);font-weight:600;font-size:15px;transition:all .18s;border:1px solid #2D1B4E}
+  .arrival-btn:hover{background:#3D2966}
+  .arrival-btn.confirmed{background:#007A5C;border-color:#007A5C;pointer-events:none}
+  .fab-arrival{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:997;background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:14px 24px;font-size:14px;font-weight:600;font-family:var(--font-body);cursor:pointer;box-shadow:0 6px 20px rgba(45,27,78,.3);display:flex;align-items:center;gap:8px;white-space:nowrap;max-width:calc(100vw - 32px)}
+  .fab-arrival:active{transform:translateX(-50%) scale(.98)}
+  .fab-arrival.hide{display:none}
 </style>
 </head>
 <body>
@@ -1289,15 +1279,15 @@
   </div>
 
   <div class="hero">
-    <img class="hero-img" src="https://assets.hospitable.com/property_images/2076400/IsANmPtSfGhFRaWJS5XCiaaBCHm5pFdH8UFSRblg.jpg" alt="L'Élégant">
+    <img class="hero-img" src="https://assets.hospitable.com/property_images/2076400/IsANmPtSfGhFRaWJS5XCiaaBCHm5pFdH8UFSRblg.jpg" alt="{{property_name}}">
     <div class="hero-overlay"></div>
   </div>
 
   <div class="hero-content">
     <div class="hero-card reveal">
       <div class="hero-eyebrow">Votre séjour</div>
-      <h1 class="hero-title">L'Élégant</h1>
-      <p class="hero-sub">Sur les hauteurs de Fourvière, Lyon</p>
+      <h1 class="hero-title">{{property_name}}</h1>
+      <p class="hero-sub">{{property_tagline}}</p>
       <div class="hero-divider"></div>
       <p class="hero-greeting">Bonjour <strong>{{guest_name}}</strong>, ravis de vous accueillir.</p>
       <div class="hero-countdown">
@@ -1327,18 +1317,15 @@
       </div>
       <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
         <div class="quick-label">Wifi</div>
-        <div class="quick-value">SFR_44E8</div>
+        <div class="quick-value">{{wifi_ssid}}</div>
         <div class="quick-sub">Mot de passe ↓</div>
       </a>
     </div>
 
     <!-- ARRIVÉE -->
-    <details class="section reveal" id="arriver">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Étape par étape</div>
-        <h2 class="section-title">Arriver <em>au logement</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="arriver">
+      <div class="section-eyebrow">Étape par étape</div>
+      <h2 class="section-title">Arriver <em>au logement</em></h2>
 
       <div class="steps">
 
@@ -1346,14 +1333,28 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Trouver l'adresse</h3>
-            <p class="step-text">Vous arrivez au <strong>44 rue Roger Radisson, 69005 Lyon</strong>, copropriété « <strong>Le Clos de Fourvière</strong> ». Le bâtiment se trouve au coin de la rue Pauline Marie Jaricot, <strong>en face de l'Hôtel Fourvière</strong> et à côté du <strong>Parc de la Visitation</strong>.</p>
-            <a href="https://www.google.com/maps/place/44+Rue+Roger+Radisson,+69005+Lyon/" target="_blank" class="step-button">
+            <p class="step-text">Vous arrivez au <strong>{{property_address}}</strong>, copropriété « <strong>Le Clos de Fourvière</strong> ». Le bâtiment se trouve au coin de la rue Pauline Marie Jaricot, <strong>en face de l'Hôtel Fourvière</strong> et à côté du <strong>Parc de la Visitation</strong>.</p>
+            <a href="{{maps_url}}" target="_blank" class="step-button">
               Ouvrir dans Maps <span class="arrow">→</span>
             </a>
             <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/elegant/facade-batiment.png" alt="Façade de l'immeuble" style="max-width: 100%;">
             <p class="step-photo-caption">La façade de la copropriété « Le Clos de Fourvière »</p>
           </div>
         </div>
+
+        <div id="accgate" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
+        <div class="acc-locked">
+          <div class="ap-label" style="display:block;margin-bottom:6px">🔒 Accès au logement</div>
+          <div class="ap-dots">••• ••• •••</div>
+          <div class="acc-lk-when">Le détail d'accès (boîte à clé, code) s'affichera ici <strong>{{checkin_datetime_label}}</strong></div>
+          {{upsell_arrival_menu}}
+          <div class="ap-sep"></div>
+          <div class="ap-upsell ap-bag acc-bag">
+            <div class="ap-upsell-txt"><strong>🧳 Besoin de déposer vos bagages ?</strong><br>Des consignes sécurisées Nannybag existent à Lyon, dès 2,50 €/jour.</div>
+            <a class="ap-cta" href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" rel="noopener" style="text-decoration:none">Voir les consignes</a>
+          </div>
+        </div>
+        <div class="acc-open">
 
         <div class="step">
           <div class="step-num">2</div>
@@ -1394,8 +1395,20 @@
 
             <p class="step-text" style="margin-top:14px;">Votre code unique pour cette boîte :</p>
 
-            {{smartlock_codebox}}
-            <div class="step-tip warn"><strong>⏰ Pour votre sécurité</strong> · Ce code change à chaque réservation et reste valable pour toute la durée de votre séjour.</div>
+            <div id="algopin" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
+              <div class="ap-locked">
+                <div class="ap-head"><span class="ap-label">🔒 Votre code d’accès</span><span class="ap-badge">Généré pour votre séjour</span></div>
+                <div class="ap-dots">••• ••• •••</div>
+                <div class="ap-when">Il s’affichera ici <strong>{{checkin_datetime_label}}</strong>, l’heure de votre check-in</div>
+                <div class="ap-count" id="ap-count"></div>
+              </div>
+              <div class="ap-open">
+                <div class="ap-head"><span class="ap-label">🔓 Code keybox</span><span class="ap-badge">Actif jusqu’à votre départ</span></div>
+                <div class="ap-code">{{algopin_code_grouped}}</div>
+                <button class="ap-copy" id="ap-copy">Copier le code</button>
+              </div>
+            </div>
+            <p class="ap-under">🔐 Ce code est propre à votre réservation — il change à chaque séjour.</p>
           </div>
         </div>
 
@@ -1403,22 +1416,26 @@
           <div class="step-num">4</div>
           <div class="step-content">
             <h3 class="step-title">Entrer dans le logement</h3>
-            <p class="step-text">Refermez la boîte (appuyez doucement sur la trappe jusqu'au clic), puis ouvrez la porte du logement avec la clé. <strong>Bienvenue chez vous</strong> ✨</p>
+            <p class="step-text">Refermez la boîte (appuyez doucement sur la trappe jusqu'au clic), puis ouvrez la porte du logement avec la clé. <strong>Bienvenue dans {{property_name}}</strong> ✨</p>
           </div>
         </div>
 
-      </div>
+        <div class="arrival-block">
+          <p class="arrival-block-text">Vous y êtes ? Un petit clic nous permet de savoir que tout s'est bien passé.</p>
+          <a href="{{arrival_confirm_url}}" class="arrival-btn" target="_blank" rel="noopener" id="arrivalBtn">
+            ✓ Je préviens l'hôte de mon arrivée
+          </a>
+        </div>
+        </div><!--/acc-open-->
+        </div><!--/accgate-->
 
-      {{arrival_block}}
-    </details>
+      </div>
+    </section>
 
     <!-- DÉCOUVRIR -->
-    <details class="section reveal" id="decouvrir">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Découvrir le logement</div>
-        <h2 class="section-title">L'Élégant en <em>quelques pas</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="decouvrir">
+      <div class="section-eyebrow">Découvrir le logement</div>
+      <h2 class="section-title">{{property_name}} en <em>quelques pas</em></h2>
 
       <!-- Visite virtuelle -->
       <a href="https://www.youtube.com/watch?v=1uFsFIGfblQ" target="_blank" rel="noopener" aria-label="Voir la visite virtuelle sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:28px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
@@ -1434,14 +1451,14 @@
           <div class="room-icon">🛋️</div>
           <div>
             <div class="room-name">Salon &amp; coin repas</div>
-            <div class="room-desc">RDC · Canapé-lit · TV · Coin repas</div>
+            <div class="room-desc">RDC · Coin repas</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🍳</div>
           <div>
             <div class="room-name">Cuisine équipée</div>
-            <div class="room-desc">Plaque · Frigo · Lave-vaisselle · Nespresso</div>
+            <div class="room-desc">Entièrement équipée</div>
           </div>
         </div>
         <div class="room">
@@ -1449,13 +1466,6 @@
           <div>
             <div class="room-name">WC séparés</div>
             <div class="room-desc">Au RDC, indépendants</div>
-          </div>
-        </div>
-        <div class="room">
-          <div class="room-icon">🧺</div>
-          <div>
-            <div class="room-name">Lave-linge séchant</div>
-            <div class="room-desc">Beko · placard d'entrée</div>
           </div>
         </div>
         <div class="room">
@@ -1484,24 +1494,31 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/NNZr7K03xYQVR1bKi82sgevjb2CM3OGExSaiNHWU.jpg" alt="Chambre verte"><span class="gallery-caption">Chambre verte</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/1DVblB6WKodYWrMcmetgvZTadN0hZGLWf1OHhRTG.jpg" alt="Salle de bain en suite"><span class="gallery-caption">Salle de bain en suite</span></div>
       </div>
-    </details>
+    </section>
+
+    <!-- ZONE « Pendant votre séjour » — barre flottante sticky -->
+    <div class="stay-zone">
+      <nav class="jumpbar" aria-label="Accès rapide">
+        <a class="jump-pill" href="#pratique">📶 Wifi & essentiels</a>
+        <a class="jump-pill" href="#poubelles">🗑️ Poubelles</a>
+        <a class="jump-pill" href="#bouger">🚆 Se déplacer</a>
+        <a class="jump-pill" href="#recos">🗺️ Nos adresses</a>
+        <a class="jump-pill" href="#depart">🚪 Départ</a>
+      </nav>
 
     <!-- PRATIQUE -->
-    <details class="section reveal" id="pratique">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Pendant votre séjour</div>
-        <h2 class="section-title">L'essentiel <em>pratique</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="pratique">
+      <div class="section-eyebrow">Pendant votre séjour</div>
+      <h2 class="section-title">L'essentiel <em>pratique</em></h2>
 
       <div class="cards-grid">
         <div class="info-card">
           <div class="info-icon">📶</div>
           <h4 class="info-title">Wifi</h4>
-          <p class="info-text">Réseau : <code>SFR_44E8</code></p>
+          <p class="info-text">Réseau : <code>{{wifi_ssid}}</code></p>
           <div class="info-copy-row">
-            <code style="flex:1;">5kbz42fhbf6fxh25qjhe</code>
-            <button class="info-copy-btn" onclick="copyCode(this, '5kbz42fhbf6fxh25qjhe')">Copier</button>
+            <code style="flex:1;">{{wifi_password}}</code>
+            <button class="info-copy-btn" onclick="copyCode(this, '{{wifi_password}}')">Copier</button>
           </div>
         </div>
         <div class="info-card">
@@ -1518,11 +1535,6 @@
           <div class="info-icon">🍽️</div>
           <h4 class="info-title">Lave-vaisselle</h4>
           <p class="info-text">Lave-vaisselle <strong>Howdens</strong>. Pour les instructions détaillées : <a href="https://howdens.fr" target="_blank" style="color: var(--accent);">howdens.fr</a></p>
-        </div>
-        <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
-          <div class="info-icon" style="background: var(--warning); color: white;">🌡️</div>
-          <h4 class="info-title">Chauffage · important</h4>
-          <p class="info-text">Les radiateurs sont à <strong>piloter exclusivement depuis les thermostats muraux</strong>. ⚠️ Merci de <strong>ne pas modifier, éteindre ou allumer</strong> le chauffage directement depuis les radiateurs eux-mêmes.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">☕</div>
@@ -1549,16 +1561,18 @@
           <h4 class="info-title">Règles maison</h4>
           <p class="info-text"><strong>Non-fumeur</strong> (capteur CO2 · ne pas le débrancher · alarme connectée) · pas d'animaux · pas de fêtes · calme après 22h. Détecteur de décibels installé.</p>
         </div>
+        <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
+          <div class="info-icon" style="background: var(--warning); color: white;">🌡️</div>
+          <h4 class="info-title">Chauffage · important</h4>
+          <p class="info-text">Les radiateurs sont à <strong>piloter exclusivement depuis les thermostats muraux</strong>. ⚠️ Merci de <strong>ne pas modifier, éteindre ou allumer</strong> le chauffage directement depuis les radiateurs eux-mêmes.</p>
+        </div>
       </div>
-    </details>
+    </section>
 
     <!-- POUBELLES -->
-    <details class="section reveal" id="poubelles">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Tri sélectif</div>
-        <h2 class="section-title">Les <em>poubelles</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="poubelles">
+      <div class="section-eyebrow">Tri sélectif</div>
+      <h2 class="section-title">Les <em>poubelles</em></h2>
       <p class="section-intro">Par respect pour notre personnel de ménage, merci d'évacuer vos poubelles lors de votre départ.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:flex-start;">
@@ -1581,15 +1595,12 @@
 
         <div class="step-tip" style="margin-top:12px;"><strong>👀 Note</strong> · La vidéo commence par <strong>l'ancienne sortie</strong> de l'appartement, mais le chemin reste identique. Depuis la sortie actuelle, prenez simplement à <strong>gauche</strong> pour rejoindre le parcours filmé.</div>
       </div>
-    </details>
+    </section>
 
     <!-- BOUGER -->
-    <details class="section reveal" id="bouger">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Bouger</div>
-        <h2 class="section-title">Se déplacer <em>en ville</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="bouger">
+      <div class="section-eyebrow">Bouger</div>
+      <h2 class="section-title">Se déplacer <em>en ville</em></h2>
 
       <div class="transport-grid">
         <div class="transport-card">
@@ -1639,26 +1650,24 @@
         ⚠️ <strong>Exception</strong> : pendant le festival des <strong>Nuits de Fourvière</strong> (juin–juillet), le quartier devient beaucoup plus fréquenté.</div>
       </div>
 
-      <div class="reco-tip" style="margin-top:12px; background: rgba(90, 110, 63, 0.08); border-color: var(--success);">
+      <div class="reco-tip" style="margin-top:12px; background: #F0EBF5; border-color: var(--success);">
         <div class="reco-tip-title" style="color: var(--success);">🧳 Consigne bagages</div>
         <div class="reco-tip-text">Si vous avez besoin de stocker vos bagages avant ou après votre séjour : <a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> propose des points de dépôt <strong>partout dans Lyon</strong> à partir de 4,50€/jour. <a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">Autres consignes à Lyon</a>.</div>
       </div>
-    </details>
+    </section>
 
     <!-- RECOS -->
-    <details class="section reveal" id="recos">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Nos coups de cœur</div>
-        <h2 class="section-title">À découvrir <em>autour</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="recos">
+      <div class="section-eyebrow">Nos coups de cœur</div>
+      <h2 class="section-title">À découvrir <em>autour</em></h2>
 
-      <div class="recos-toc">
-        <a href="#restos" class="recos-toc-link">🍷 Restaurants</a>
-        <a href="#tourisme" class="recos-toc-link">🏛️ À visiter</a>
-        <a href="#commerces" class="recos-toc-link">🛒 Commerces</a>
+      <div class="recos-toc" role="tablist">
+        <a class="recos-toc-link active" href="#recos" onclick="showRecoCat('restos',this);return false;">🍷 Restaurants · 7</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('tourisme',this);return false;">🏛️ À visiter · 6</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('commerces',this);return false;">🛒 Commerces · 6</a>
       </div>
 
+      <div class="reco-group active" data-cat="restos">
       <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 7 adresses</span></h3>
 
       <div class="recos-list">
@@ -1741,6 +1750,8 @@
         </div>
       </div>
 
+      </div>
+      <div class="reco-group" data-cat="tourisme">
       <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> À visiter <span class="reco-cat-count">· 6 incontournables</span></h3>
 
       <div class="recos-list">
@@ -1809,6 +1820,8 @@
         </div>
       </div>
 
+      </div>
+      <div class="reco-group" data-cat="commerces">
       <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Commerces de proximité <span class="reco-cat-count">· 6 adresses</span></h3>
 
       <div class="recos-list">
@@ -1875,15 +1888,13 @@
           </div>
         </div>
       </div>
-    </details>
+      </div>
+    </section>
 
     <!-- DÉPART -->
-    <details class="section reveal" id="depart">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Au moment du départ</div>
-        <h2 class="section-title">Avant de <em>partir</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="depart">
+      <div class="section-eyebrow">Au moment du départ</div>
+      <h2 class="section-title">Avant de <em>partir</em></h2>
 
       <div class="checklist">
         <div class="checklist-item">
@@ -1900,7 +1911,7 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Évacuez vos déchets (voir la section poubelles)</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Évacuer vos poubelles dans le local (tour du bâtiment, porte à droite du n°6)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1912,30 +1923,24 @@
         </div>
       </div>
 
-      <div class="checkout-block">
+      <div class="checkout-block" data-checkout-gate="{{checkout_gate_ts}}">
         <p class="checkout-block-text">Tout est prêt ? Un petit clic nous permet de savoir que vous êtes parti·e en toute sécurité.</p>
-        {{checkout_block}}
+        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
+          👋 J'informe l'hôte de mon départ
+        </a>
       </div>
-    </details>
+    </section>
+    </div><!-- /stay-zone -->
 
     <!-- CONTACT -->
     <section class="section reveal">
       <div class="contact-card">
-        <div class="contact-eyebrow">Une question ?</div>
-        <h3 class="contact-title">Nous sommes là, à toute heure</h3>
-        <div class="contact-actions">
-          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
-            💬 Écrire sur WhatsApp
-          </a>
-          <a href="tel:{{host_phone}}" class="contact-btn">
-            📞 Appeler · {{host_phone_display}}
-          </a>
-        </div>
+        {{contact_block}}
       </div>
-    </details>
+    </section>
 
     <footer>
-      <div class="signature">Bon séjour à Lyon</div>
+      <div class="signature">Bon séjour à {{city}}</div>
       <div>U-citybreak · Conciergerie Lyon · Besançon</div>
     </footer>
 
@@ -1954,6 +1959,10 @@
     document.getElementById('lang-menu').classList.remove('open');
   });
 
+  function showRecoCat(cat, el) {
+    document.querySelectorAll('.reco-group').forEach(function(g){ g.classList.toggle('active', g.getAttribute('data-cat') === cat); });
+    document.querySelectorAll('.recos-toc-link').forEach(function(a){ a.classList.toggle('active', a === el); });
+  }
   function copyCode(btn, code) {
     navigator.clipboard.writeText(code).then(() => {
       const orig = btn.textContent;
@@ -1990,36 +1999,71 @@
     });
   })();
 
-
-  (function() {
-    const btn = document.getElementById('arrivalBtn');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-      setTimeout(function() {
-        btn.classList.add('confirmed');
-        btn.innerHTML = '✓ Arrivée confirmée · merci !';
-      }, 600);
-    });
-  })();
-
-
-  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
-  (function() {
-    function openDetailsForHash(hash) {
-      if (!hash || hash === '#') return;
-      try {
-        const target = document.querySelector(hash);
-        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
-          target.open = true;
-        }
-      } catch (e) {}
+  // ===== V2 : countdown / copy / flottant arriv\u00e9e / gate d\u00e9part / poubelles =====
+  (function(){
+    var ap=document.getElementById('algopin');
+    function chip(v,u){return '<div class="ap-chip"><b>'+v+'</b><span>'+u+'</span></div>';}
+    function flip(id){
+      var b=document.getElementById(id); if(!b){return;}
+      var rv=parseInt(b.getAttribute('data-reveal')||'0',10);
+      if(rv && Date.now()>=rv){b.setAttribute('data-state','open');}
     }
-    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-      a.addEventListener('click', function() {
-        openDetailsForHash(a.getAttribute('href'));
-      });
-    });
-    if (window.location.hash) openDetailsForHash(window.location.hash);
+    function gatePoubelles(){
+      var g=document.getElementById('accgate');
+      var rev=g?parseInt(g.getAttribute('data-reveal')||'0',10):0;
+      var hide=rev && Date.now()<rev;
+      var sec=document.getElementById('poubelles');
+      var chip2=document.querySelector('.jump-pill[href="#poubelles"]');
+      if(sec) sec.style.display=hide?'none':'';
+      if(chip2) chip2.style.display=hide?'none':'';
+    }
+    function tick(){
+      flip('algopin'); flip('accgate');
+      gatePoubelles();
+      var el=document.getElementById('ap-count'); if(!el||!ap){return;}
+      var rev=parseInt(ap.getAttribute('data-reveal')||'0',10);
+      if(!rev){el.innerHTML='';return;}
+      var r=Math.max(0,rev-Date.now())/1000;
+      var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
+      el.innerHTML=(j>0?chip(j,j>1?'jours':'jour'):'')+chip(('0'+h).slice(-2),'heures')+chip(('0'+mn).slice(-2),'min')+(j>0?'':chip(('0'+sc).slice(-2),'sec'));
+    }
+    tick();setInterval(tick,1000);
+    var cp=document.getElementById('ap-copy');
+    if(cp){cp.onclick=function(){
+      var c=document.querySelector('#algopin .ap-code');
+      var code=c?c.textContent.replace(/\s/g,''):'';
+      if(code){try{navigator.clipboard.writeText(code);}catch(e){}}
+      cp.textContent='Copi\u00e9 \u2713';setTimeout(function(){cp.textContent='Copier le code';},1800);
+    };}
+    var inlineBtn=document.getElementById('arrivalBtn');
+    if(inlineBtn){
+      inlineBtn.addEventListener('click',function(){setTimeout(function(){inlineBtn.classList.add('confirmed');inlineBtn.innerHTML='\u2713 Arriv\u00e9e confirm\u00e9e \u00b7 merci !';},600);});
+    }
+    var gate=document.getElementById('accgate');
+    var state=gate?(gate.getAttribute('data-state')||'locked'):'locked';
+    if(inlineBtn && state==='open'){
+      var fab=document.createElement('button');fab.className='fab-arrival hide';
+      fab.innerHTML='\u2713 Je pr\u00e9viens l\u2019h\u00f4te de mon arriv\u00e9e';
+      document.body.appendChild(fab);
+      var confirmed=false,inlineVisible=false;
+      function syncFab(){fab.classList.toggle('hide',confirmed||inlineVisible);}
+      fab.onclick=function(){confirmed=true;if(inlineBtn){window.open(inlineBtn.href,'_blank');}fab.innerHTML='Merci, \u00e0 tout de suite \u2713';setTimeout(syncFab,2200);};
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){inlineVisible=es[0].isIntersecting;syncFab();},{threshold:.2}).observe(inlineBtn.closest('.arrival-block')||inlineBtn);
+      }
+    }
+    var cob=document.getElementById('checkoutBtn');
+    if(cob){
+      var cblk=cob.closest('.checkout-block');
+      var cg=cblk?parseInt(cblk.getAttribute('data-checkout-gate')||'0',10):0;
+      if(cg && Date.now()<cg){
+        cob.style.display='none';
+        var note=document.createElement('p');
+        note.className='checkout-block-text';note.style.cssText='font-size:13px;color:#717171;margin:0';
+        note.textContent='Ce bouton s\u2019activera le jour de votre d\u00e9part.';
+        cob.parentNode.insertBefore(note,cob);
+      }
+    }
   })();
 </script>
 

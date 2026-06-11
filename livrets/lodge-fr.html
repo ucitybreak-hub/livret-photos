@@ -1426,7 +1426,7 @@
           <div class="step-num">4</div>
           <div class="step-content">
             <h3 class="step-title">Entrer dans le logement</h3>
-            <p class="step-text">Refermez la boîte (appuyez doucement sur la trappe jusqu'au clic), puis ouvrez la porte du logement avec la clé. <strong>Bienvenue dans Le Lodge</strong> ✨</p>
+            <p class="step-text">Refermez la boîte (appuyez doucement sur la trappe jusqu'au clic), puis ouvrez la porte du logement avec la clé. <strong>Bienvenue dans {{property_name}}</strong> ✨</p>
           </div>
         </div>
 
@@ -2001,8 +2001,18 @@
       var rv=parseInt(b.getAttribute('data-reveal')||'0',10);
       if(rv && Date.now()>=rv){b.setAttribute('data-state','open');}
     }
+    function gatePoubelles(){
+      var g=document.getElementById('accgate');
+      var rev=g?parseInt(g.getAttribute('data-reveal')||'0',10):0;
+      var hide=rev && Date.now()<rev;
+      var sec=document.getElementById('poubelles');
+      var chip2=document.querySelector('.jump-pill[href="#poubelles"]');
+      if(sec) sec.style.display=hide?'none':'';
+      if(chip2) chip2.style.display=hide?'none':'';
+    }
     function tick(){
       flip('algopin'); flip('digicode-gate'); flip('accgate');
+      gatePoubelles();
       var el=document.getElementById('ap-count'); if(!el||!ap){return;}
       var rev=parseInt(ap.getAttribute('data-reveal')||'0',10);
       if(!rev){el.innerHTML='';return;}
