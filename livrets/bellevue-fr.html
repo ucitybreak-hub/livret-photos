@@ -1,30 +1,29 @@
-<!-- BUILT for bellevue-fr at 2026-05-14T08:41:32.643Z | photos: 9 ok / 1 missing / 2 ext-fixed -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5efe6">
-<title>Le Bellevue · Votre séjour</title>
+<meta name="theme-color" content="#FFFFFF">
+<title>{{property_name}} · Votre séjour</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f5efe6;
-    --bg-card: #fefcf7;
+    --bg: #F5F5F4;
+    --bg-card: #FFFFFF;
     --bg-elevated: #ffffff;
-    --fg: #211f1c;
-    --fg-muted: #6b6053;
-    --fg-soft: #9a8d7d;
-    --accent: #b8552d;
-    --accent-soft: #e8c7b3;
-    --accent-deep: #8a3d1d;
-    --accent-light: #fef4eb;
-    --border: #d8cfc0;
-    --border-soft: #ebe3d3;
-    --success: #5a6e3f;
-    --warning: #c8853d;
+    --fg: #222222;
+    --fg-muted: #717171;
+    --fg-soft: #717171;
+    --accent: #2D1B4E;
+    --accent-soft: #F0EBF5;
+    --accent-deep: #2D1B4E;
+    --accent-light: #F0EBF5;
+    --border: #DDDDDD;
+    --border-soft: #EBEBEB;
+    --success: #2D1B4E;
+    --warning: #2D1B4E;
     --shadow-sm: 0 1px 2px rgba(33,31,28,0.04), 0 1px 3px rgba(33,31,28,0.06);
     --shadow-md: 0 4px 6px rgba(33,31,28,0.05), 0 10px 15px rgba(33,31,28,0.08);
     --shadow-lg: 0 10px 25px rgba(33,31,28,0.10), 0 20px 40px rgba(33,31,28,0.12);
@@ -47,8 +46,8 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse at top right, rgba(184,85,45,0.04), transparent 60%),
-      radial-gradient(ellipse at bottom left, rgba(90,110,63,0.03), transparent 60%);
+      radial-gradient(ellipse at top right, rgba(45,27,78,0.03), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(45,27,78,0.02), transparent 60%);
     background-attachment: fixed;
   }
 
@@ -58,7 +57,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.4;
+    opacity: 0.1;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.12 0 0 0 0 0.11 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
@@ -71,8 +70,8 @@
     z-index: 50;
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
-    background: rgba(245, 239, 230, 0.85);
-    border-bottom: 1px solid rgba(216, 207, 192, 0.6);
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid var(--border-soft);
   }
   .topbar-inner {
     max-width: 720px;
@@ -89,7 +88,7 @@
     font-style: italic;
     font-size: 17px;
     letter-spacing: 0.01em;
-    color: var(--fg);
+    color: var(--accent);
     font-variation-settings: "opsz" 14, "SOFT" 30;
   }
   .brand-dot { color: var(--accent); }
@@ -251,7 +250,7 @@
     gap: 4px;
   }
   .quick-card.highlight {
-    background: linear-gradient(135deg, var(--accent-soft) 0%, #f4d4be 100%);
+    background: linear-gradient(135deg, var(--accent-soft) 0%, #F0EBF5 100%);
     border-color: var(--accent-soft);
   }
   .quick-label {
@@ -313,21 +312,12 @@
   .video-wrap {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* fallback 16:9 pour anciens navigateurs */
     aspect-ratio: 16/9;
-    height: 0; /* nécessaire avec padding-bottom */
-    background: #000;
+    background: var(--fg);
     border-radius: var(--radius-md);
     overflow: hidden;
     margin-top: 14px;
     box-shadow: var(--shadow-md);
-  }
-  /* Si aspect-ratio est supporté, on annule le padding-bottom */
-  @supports (aspect-ratio: 16/9) {
-    .video-wrap {
-      padding-bottom: 0;
-      height: auto;
-    }
   }
   .video-wrap iframe {
     position: absolute;
@@ -335,53 +325,6 @@
     width: 100%;
     height: 100%;
     border: none;
-  }
-
-  /* Thumbnail cliquable */
-  .video-trigger { cursor: pointer; transition: transform 0.2s ease; display: block; text-decoration: none; }
-  .video-trigger:hover { transform: translateY(-2px); }
-  .video-trigger:hover .video-play { transform: translate(-50%, -50%) scale(1.1); background: var(--accent); }
-  .video-thumb {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .video-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  }
-  .video-play svg { margin-left: 4px; }
-  .video-label {
-    position: absolute;
-    bottom: 14px;
-    left: 16px;
-    color: white;
-    font-size: 13px;
-    font-weight: 500;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(4px);
-    padding: 6px 12px;
-    border-radius: 20px;
-    letter-spacing: 0.01em;
-  }
-  @media (max-width: 600px) {
-    .video-play { width: 56px; height: 56px; }
-    .video-label { font-size: 12px; bottom: 10px; left: 10px; padding: 4px 10px; }
   }
   .video-card {
     background: var(--bg-card);
@@ -430,7 +373,7 @@
     font-family: var(--font-display);
     font-weight: 500;
     font-size: 16px;
-    box-shadow: 0 2px 8px rgba(184,85,45,0.3);
+    box-shadow: 0 2px 8px rgba(45,27,78,0.3);
     z-index: 2;
     font-variation-settings: "opsz" 24, "SOFT" 30;
   }
@@ -514,12 +457,12 @@
   .codebox-copy:hover { background: var(--accent); transform: translateY(-1px); }
   .codebox-copy.copied { background: var(--success); }
   .codebox-keybox {
-    background: linear-gradient(135deg, #fff8ed 0%, #f9e7d0 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F4 100%);
     border: 1px solid var(--accent-soft);
     border-style: solid;
   }
   .codebox-keybox.locked {
-    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    background: linear-gradient(135deg, #F5F5F4 0%, #EBEBEB 100%);
     border-color: var(--border);
   }
   .codebox-keybox.locked .codebox-value {
@@ -534,7 +477,7 @@
   .step-tip {
     margin-top: 10px;
     padding: 12px 14px;
-    background: rgba(90, 110, 63, 0.08);
+    background: rgba(45,27,78, 0.08);
     border-left: 3px solid var(--success);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     font-size: 13px;
@@ -679,26 +622,23 @@
   /* ROOM TILES */
   .rooms {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
     margin-top: 18px;
-  }
-  @media (min-width: 480px) {
-    .rooms { grid-template-columns: repeat(2, 1fr); }
   }
   .room {
     background: var(--bg-card);
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-md);
-    padding: 14px 16px;
+    padding: 11px 12px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
   .room-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
     background: var(--accent-light);
     color: var(--accent);
     display: flex;
@@ -715,6 +655,28 @@
     font-variation-settings: "opsz" 18, "SOFT" 40;
   }
   .room-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
+  html { scroll-behavior: smooth; }
+  .section[id], .reco-cat-title[id] { scroll-margin-top: 110px; }
+  .jumpbar {
+    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: sticky; top: 54px; z-index: 40;
+    margin: 0 0 14px; padding: 10px 0;
+    background: rgba(255,255,255,0.92);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .stay-zone { position: relative; }
+  .jumpbar::-webkit-scrollbar { display: none; }
+  .jump-pill {
+    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    border: 1px solid var(--border-soft); white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .jump-pill:hover { background: #E6DEF0; }
 
   /* INFO CARDS */
   .cards-grid {
@@ -840,6 +802,9 @@
     white-space: nowrap;
   }
   .recos-toc-link:hover { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-soft); }
+  .recos-toc-link.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .reco-group { display: none; }
+  .reco-group.active { display: block; }
 
   .reco-cat-title {
     font-family: var(--font-display);
@@ -960,7 +925,7 @@
   .reco-link:hover { text-decoration: underline; }
 
   .reco-tip {
-    background: rgba(184,85,45,0.06);
+    background: rgba(45,27,78,0.06);
     border: 1px solid var(--accent-soft);
     border-radius: var(--radius-md);
     padding: 14px 16px;
@@ -1034,7 +999,7 @@
 
   /* CONTACT */
   .contact-card {
-    background: linear-gradient(135deg, var(--fg) 0%, #383229 100%);
+    background: linear-gradient(135deg, var(--fg) 0%, #222222 100%);
     color: var(--bg);
     border-radius: var(--radius-lg);
     padding: 28px 24px;
@@ -1049,7 +1014,7 @@
     right: -20%;
     width: 60%;
     height: 200%;
-    background: radial-gradient(circle, rgba(184,85,45,0.25), transparent 70%);
+    background: radial-gradient(circle, rgba(45,27,78,0.25), transparent 70%);
     pointer-events: none;
   }
   .contact-eyebrow {
@@ -1094,7 +1059,7 @@
   .contact-btn.primary { background: var(--accent); border-color: var(--accent); }
   .contact-btn.primary:hover { background: var(--accent-deep); }
 
-  /* === Bouton départ (checkout) === */
+  /* CHECKOUT BLOCK */
   .checkout-block {
     margin-top: 32px;
     padding: 24px;
@@ -1130,12 +1095,9 @@
     border-color: var(--accent-deep);
     transform: translateY(-1px);
   }
-  .checkout-btn:active {
-    transform: translateY(0);
-  }
   .checkout-btn.confirmed {
-    background: #5a8559;
-    border-color: #5a8559;
+    background: #2D1B4E;
+    border-color: #2D1B4E;
     pointer-events: none;
     cursor: default;
   }
@@ -1233,95 +1195,61 @@
     .reco-img { width: 88px; min-height: 110px; }
   }
 
-  .arrival-block {
-    margin-top: 32px;
-    padding: 24px;
-    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(90,110,63,0.25);
-    text-align: center;
-  }
-  .arrival-block-text {
-    color: var(--fg-muted);
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-  .arrival-btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    gap: 10px; padding: 14px 28px;
-    background: var(--success); color: white;
-    text-decoration: none; border-radius: var(--radius-md);
-    font-weight: 500; font-size: 15px;
-    transition: all 0.18s; border: 1px solid var(--success);
-  }
-  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
-  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
-  .arrival-block.locked {
-    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
-    border-color: var(--border);
-  }
-  .arrival-block.locked .arrival-block-text {
-    font-style: italic;
-    color: var(--fg-soft);
-    margin-bottom: 0;
-  }
+  /* === Charte V2 UCB — fond plat === */
+  body{background:#FFFFFF !important;background-image:none !important;background-attachment:initial !important}
+  body::before{display:none !important}
 
-  details.section > summary.section-summary {
-    list-style: none;
-    cursor: pointer;
-    display: block;
-    position: relative;
-    padding-right: 56px;
-    border-radius: var(--radius-md);
-    transition: background 0.15s ease;
-  }
-  details.section > summary.section-summary::-webkit-details-marker { display: none; }
-  details.section > summary.section-summary::marker { display: none; }
-  details.section > summary.section-summary:hover {
-    background: rgba(184,85,45,0.03);
-  }
-  details.section .section-summary-chevron {
-    position: absolute;
-    right: 4px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: var(--accent-light);
-    border: 1.5px solid var(--accent-soft);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 1;
-    padding-bottom: 3px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
-    box-shadow: var(--shadow-sm);
-  }
-  details.section > summary.section-summary:hover .section-summary-chevron {
-    background: var(--accent-soft);
-    box-shadow: var(--shadow-md);
-    color: var(--accent-deep);
-  }
-  details.section[open] .section-summary-chevron {
-    transform: translateY(-50%) rotate(90deg);
-  }
-  details.section:not([open]) {
-    padding-bottom: 8px;
-  }
-  details.section:not([open]) .section-summary .section-title {
-    margin-bottom: 0;
-  }
-  @media print {
-    details.section > summary.section-summary { display: block; }
-    details.section .section-summary-chevron { display: none; }
-    details.section > *:not(summary) { display: revert !important; }
-  }
+  /* ===== V2 : gate accès + algoPIN + upsell + nannybag + flottant ===== */
+  .ap-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center}
+  .ap-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .ap-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:#2D1B4E}
+  .ap-badge{font-size:10px;background:#FFFFFF;color:#2D1B4E;border-radius:999px;padding:3px 10px;font-weight:600;white-space:nowrap}
+  .ap-dots{font-size:28px;line-height:1.2;letter-spacing:5px;word-spacing:14px;color:#2D1B4E;padding-left:5px;animation:appulse 2.2s ease-in-out infinite;white-space:nowrap}
+  @keyframes appulse{0%,100%{opacity:.35}50%{opacity:.9}}
+  @keyframes apslide{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+  .ap-when{font-size:13px;color:#717171;margin-top:4px}
+  .ap-when strong{color:#222222;font-weight:600}
+  .ap-count{display:flex;justify-content:center;gap:8px;margin-top:12px}
+  .ap-chip{background:#FFFFFF;border-radius:11px;padding:8px 12px;min-width:54px}
+  .ap-chip b{display:block;font-size:20px;font-weight:600;color:#2D1B4E;line-height:1.1}
+  .ap-chip span{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#717171}
+  .ap-sep{height:1px;background:#DDD3EA;margin:16px 0 14px}
+  .ap-upsell{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
+  .ap-upsell-txt{font-size:13px;color:#717171;line-height:1.45}
+  .ap-upsell-txt strong{color:#222222;font-weight:600}
+  .ap-cta{background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:11px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0}
+  .ap-cta:active{transform:scale(.98)}
+  .ap-open{background:#E8F8F1;border:1px solid #BFE9DC;border-radius:16px;padding:20px 18px;text-align:center}
+  .ap-open .ap-label{color:#007A5C}
+  .ap-open .ap-badge{color:#007A5C}
+  .ap-code{font-size:clamp(26px,8.5vw,38px);font-weight:600;letter-spacing:.1em;word-spacing:.22em;color:#007A5C;line-height:1.3;padding-left:.1em;white-space:nowrap}
+  .ap-copy{margin-top:10px;background:#007A5C;color:#fff;border:0;border-radius:999px;padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+  #algopin[data-state="locked"] .ap-open{display:none}
+  #algopin[data-state="open"] .ap-locked{display:none}
+  #digicode-gate[data-state="locked"] .dg-open{display:none}
+  #digicode-gate[data-state="open"] .dg-locked{display:none}
+  .ap-under{font-size:11.5px;color:#B0B0B0;text-align:center;margin:8px 0 14px}
+  #accgate .acc-open{display:none}
+  #accgate[data-state="open"] .acc-open{display:block}
+  #accgate[data-state="open"] .acc-locked{display:none}
+  .acc-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center;margin:4px 0 8px}
+  .acc-lk-when{font-size:13px;color:#717171;margin:6px 0 2px}
+  .acc-lk-when strong{color:#222222;font-weight:600}
+  .acc-bag{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:14px;padding:14px 16px;margin:4px 0 16px}
+  @media(max-width:520px){.ap-upsell{flex-direction:column;align-items:stretch;text-align:left}.ap-cta{width:100%}}
+  /* arrival block (charte plate) + flottant */
+  .arrival-block{margin-top:32px;padding:24px;background:#FFFFFF;border:1px solid #EBEBEB;border-radius:var(--radius-md);text-align:center;box-shadow:none}
+  .arrival-block-text{color:var(--fg-muted);font-size:14px;line-height:1.5;margin-bottom:16px}
+  .arrival-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:#2D1B4E;color:#fff;text-decoration:none;border-radius:var(--radius-md);font-weight:600;font-size:15px;transition:all .18s;border:1px solid #2D1B4E}
+  .arrival-btn:hover{background:#3D2966}
+  .arrival-btn.confirmed{background:#007A5C;border-color:#007A5C;pointer-events:none}
+  .fab-arrival{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:997;background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:14px 24px;font-size:14px;font-weight:600;font-family:var(--font-body);cursor:pointer;box-shadow:0 6px 20px rgba(45,27,78,.3);display:flex;align-items:center;gap:8px;white-space:nowrap;max-width:calc(100vw - 32px)}
+  .fab-arrival:active{transform:translateX(-50%) scale(.98)}
+  .fab-arrival.hide{display:none}
+  /* carte contact V2 : intro + note délai */
+  .contact-lead{font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.80);margin:0 0 16px;position:relative}
+  .contact-lead strong{color:#fff;font-weight:600}
+  .contact-note{font-size:11.5px;color:rgba(255,255,255,.58);margin:12px 0 0;position:relative;line-height:1.45}
 </style>
 </head>
 <body>
@@ -1348,15 +1276,15 @@
   </div>
 
   <div class="hero">
-    <img class="hero-img" src="https://assets.hospitable.com/property_images/2076404/bd8PYBdDUzLVdwqhZEoU7kxbKzTQCsrVpD6j6UPl.jpg" alt="Le Bellevue">
+    <img class="hero-img" src="https://assets.hospitable.com/property_images/2076404/bd8PYBdDUzLVdwqhZEoU7kxbKzTQCsrVpD6j6UPl.jpg" alt="{{property_name}}">
     <div class="hero-overlay"></div>
   </div>
 
   <div class="hero-content">
     <div class="hero-card reveal">
       <div class="hero-eyebrow">Votre séjour</div>
-      <h1 class="hero-title">Le Bellevue</h1>
-      <p class="hero-sub">Face à la gare Viotte, Besançon</p>
+      <h1 class="hero-title">{{property_name}}</h1>
+      <p class="hero-sub">{{property_tagline}}</p>
       <div class="hero-divider"></div>
       <p class="hero-greeting">Bonjour <strong>{{guest_name}}</strong>, ravis de vous accueillir.</p>
       <div class="hero-countdown">
@@ -1381,23 +1309,20 @@
       </div>
       <div class="quick-card">
         <div class="quick-label">Voyageurs</div>
-        <div class="quick-value">2 personnes</div>
-        <div class="quick-sub">Face à la gare Viotte</div>
+        <div class="quick-value">Jusqu'à 6</div>
+        <div class="quick-sub">Appartement · 2 chambres</div>
       </div>
       <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
         <div class="quick-label">Wifi</div>
-        <div class="quick-value">SFR_F9C0</div>
+        <div class="quick-value">{{wifi_ssid}}</div>
         <div class="quick-sub">Mot de passe ↓</div>
       </a>
     </div>
 
     <!-- ARRIVÉE -->
-    <details class="section reveal" id="arriver">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Étape par étape</div>
-        <h2 class="section-title">Arriver <em>au logement</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="arriver">
+      <div class="section-eyebrow">Étape par étape</div>
+      <h2 class="section-title">Arriver <em>au logement</em></h2>
 
       <div class="steps">
 
@@ -1405,14 +1330,28 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Trouver l'adresse</h3>
-            <p class="step-text">Vous arrivez au <strong>2 avenue Maréchal Foch, 25000 Besançon</strong>, dans le <strong>Parc des Glacis</strong>, juste en face de la <strong>gare Viotte</strong>. Cherchez le <strong>portail vert</strong> avec le numéro 2 sur le poteau.</p>
-            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-1.png" alt="Le bâtiment du Bellevue" style="max-width: 100%;">
-            <p class="step-photo-caption">Le bâtiment du Bellevue, face à la gare Viotte</p>
-            <a href="https://www.google.com/maps/place/2+Av.+du+Mar%C3%A9chal+Foch,+25000+Besan%C3%A7on/" target="_blank" class="step-button">
+            <p class="step-text">Vous arrivez au <strong>{{property_address}}</strong>, dans le <strong>Parc des Glacis</strong>, juste en face de la <strong>gare Viotte</strong>. Cherchez le <strong>portail vert</strong> avec le numéro 2 sur le poteau.</p>
+            <a href="{{maps_url}}" target="_blank" class="step-button">
               Ouvrir dans Maps <span class="arrow">→</span>
             </a>
+            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-1.png" alt="Le bâtiment du Bellevue" style="max-width: 100%;">
+            <p class="step-photo-caption">Le bâtiment du Bellevue, face à la gare Viotte</p>
           </div>
         </div>
+
+        <div id="accgate" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
+        <div class="acc-locked">
+          <div class="ap-label" style="display:block;margin-bottom:6px">🔒 Accès au logement</div>
+          <div class="ap-dots">••• ••• •••</div>
+          <div class="acc-lk-when">Le détail d'accès (digicode du portail, parcours, code de la boîte à clé) s'affichera ici <strong>{{checkin_datetime_label}}</strong></div>
+          {{upsell_arrival_menu}}
+          <div class="ap-sep"></div>
+          <div class="ap-upsell ap-bag acc-bag">
+            <div class="ap-upsell-txt"><strong>🧳 Besoin de déposer vos bagages ?</strong><br>Des consignes sécurisées Nannybag existent à Besançon, dès 2,50 €/jour.</div>
+            <a class="ap-cta" href="https://www.nannybag.com/fr/consigne-bagage/besancon" target="_blank" rel="noopener" style="text-decoration:none">Voir les consignes</a>
+          </div>
+        </div>
+        <div class="acc-open">
 
         <div class="step">
           <div class="step-num">2</div>
@@ -1431,31 +1370,8 @@
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h3 class="step-title">Récupérer les clés</h3>
-            <p class="step-text">Une fois le portail franchi, repérez la <strong>boîte aux lettres à gauche du portail</strong>. La lockbox étiquetée <strong>« L. Bellevue »</strong> s'y trouve. <strong>N'oubliez pas de refermer la boîte avant de partir.</strong></p>
-
-            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/lockbox.png" alt="Lockbox" style="max-width:320px;">
-            <p class="step-photo-caption">La lockbox « L. Bellevue », dans la boîte aux lettres à gauche du portail</p>
-
-            <div class="step-substeps">
-              <div class="step-substep"><span class="step-substep-num">1</span><span>Composez le <strong style="color:var(--fg);">code à 4 chiffres</strong> sur les molettes</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Ouvrez la lockbox et récupérez les <strong style="color:var(--fg);">clés</strong></span></div>
-              <div class="step-substep"><span class="step-substep-num">3</span><span>Refermez la lockbox et <strong style="color:var(--fg);">brouillez les molettes</strong></span></div>
-            </div>
-
-            <p class="step-text" style="margin-top:14px;">Votre code pour cette boîte :</p>
-
-            {{lockbox_codebox}}
-
-            <div class="step-tip warn"><strong>🔑 Important</strong> · Pensez bien à <strong>brouiller les molettes</strong> après usage pour des raisons de sécurité.</div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
             <h3 class="step-title">Rejoindre l'appartement</h3>
-            <p class="step-text">Une fois les clés en main, le parcours est simple :</p>
+            <p class="step-text">Une fois le portail franchi, le parcours est simple :</p>
 
             <div class="step-photo-sequence">
               <div class="step-photo-frame">
@@ -1480,90 +1396,132 @@
         </div>
 
         <div class="step">
-          <div class="step-num">5</div>
+          <div class="step-num">4</div>
           <div class="step-content">
-            <h3 class="step-title">Entrer dans le logement</h3>
-            <p class="step-text">Ouvrez la porte avec la clé. <strong>Bienvenue chez vous</strong> ✨</p>
+            <h3 class="step-title">Ouvrir la boîte à clé Igloohome</h3>
+            <p class="step-text">La boîte à clé se trouve <strong>à gauche de la porte de l'appartement</strong>. Voici comment l'utiliser :</p>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; margin-top:8px;">
+              <div>
+                <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/lockbox.png" alt="Boîte à clé Igloohome" style="margin-top:0; max-width:100%; aspect-ratio:1/1; object-fit:cover;">
+                <p class="step-photo-caption">La boîte à clé Igloohome, à <strong>gauche</strong> de la porte</p>
+              </div>
+              <a href="https://www.youtube.com/watch?v=V-5kXRTPRko" target="_blank" rel="noopener" aria-label="Voir la démo Igloohome sur YouTube" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:1/1; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.querySelector('.video-play-icon').style.background='var(--accent)'; this.querySelector('.video-play-icon').style.transform='translate(-50%, -50%) scale(1.1)';" onmouseout="this.style.transform='none'; this.querySelector('.video-play-icon').style.background='rgba(0,0,0,0.65)'; this.querySelector('.video-play-icon').style.transform='translate(-50%, -50%) scale(1)';">
+                <img src="https://img.youtube.com/vi/V-5kXRTPRko/maxresdefault.jpg" alt="Démo Igloohome" loading="lazy" onerror="this.src='https://img.youtube.com/vi/V-5kXRTPRko/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+                <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:56px; height:56px; border-radius:50%; background:rgba(0,0,0,0.65); backdrop-filter:blur(8px); color:white; display:flex; align-items:center; justify-content:center; transition:all 0.25s ease; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-left:3px;"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </a>
+            </div>
+            <p class="step-photo-caption" style="text-align:center; margin-top:6px;">▶ Démo en vidéo · 30 sec · ouvre YouTube ↗</p>
+
+            <div class="step-substeps">
+              <div class="step-substep"><span class="step-substep-num">1</span><span>Placez la <strong style="color:var(--fg);">paume de la main</strong> sur le clavier pour réveiller l'appareil</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>Entrez votre <strong style="color:var(--fg);">code à 4 chiffres</strong>, puis appuyez sur le logo cadenas au centre</span></div>
+              <div class="step-substep"><span class="step-substep-num">3</span><span>Attendez le bip et le bruit d'ouverture</span></div>
+              <div class="step-substep"><span class="step-substep-num">4</span><span>Tirez sur le côté pour ouvrir la boîte et récupérez la clé</span></div>
+            </div>
+
+            <p class="step-text" style="margin-top:14px;">Votre code unique pour cette boîte :</p>
+
+            <div id="algopin" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
+              <div class="ap-locked">
+                <div class="ap-head"><span class="ap-label">🔒 Votre code d'accès</span><span class="ap-badge">Généré pour votre séjour</span></div>
+                <div class="ap-dots">••• ••• •••</div>
+                <div class="ap-when">Il s'affichera ici <strong>{{checkin_datetime_label}}</strong>, l'heure de votre check-in</div>
+                <div class="ap-count" id="ap-count"></div>
+              </div>
+              <div class="ap-open">
+                <div class="ap-head"><span class="ap-label">🔓 Code keybox</span><span class="ap-badge">Actif jusqu'à votre départ</span></div>
+                <div class="ap-code">{{algopin_code_grouped}}</div>
+                <button class="ap-copy" id="ap-copy">Copier le code</button>
+              </div>
+            </div>
+            <p class="ap-under">🔐 Ce code est propre à votre réservation — il change à chaque séjour.</p>
           </div>
         </div>
 
-      </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3 class="step-title">Entrer dans le logement</h3>
+            <p class="step-text">Refermez la boîte (appuyez doucement sur la trappe jusqu'au clic), puis ouvrez la porte du logement avec la clé. <strong>Bienvenue à {{property_name}}</strong> ✨</p>
+          </div>
+        </div>
 
-      {{arrival_block}}
-    </details>
+        <div class="arrival-block">
+          <p class="arrival-block-text">Vous y êtes ? Un petit clic nous permet de savoir que tout s'est bien passé.</p>
+          <a href="{{arrival_confirm_url}}" class="arrival-btn" target="_blank" rel="noopener" id="arrivalBtn">
+            ✓ Je préviens l'hôte de mon arrivée
+          </a>
+        </div>
+        </div><!--/acc-open-->
+        </div><!--/accgate-->
+
+      </div>
+    </section>
 
     <!-- DÉCOUVRIR -->
-    <details class="section reveal" id="decouvrir">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Découvrir le logement</div>
-        <h2 class="section-title">Le Bellevue en <em>quelques pas</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
-      <p class="section-intro">Appartement face à la gare Viotte, dans le Parc des Glacis. À 10 minutes à pied du centre historique UNESCO. Capacité jusqu'à 6 personnes, équipement bébé disponible.</p>
-
-      <a href="https://www.youtube.com/watch?v=VXjKQsULDsM" target="_blank" rel="noopener" class="video-wrap video-trigger" aria-label="Voir la visite virtuelle sur YouTube">
-        <img src="https://img.youtube.com/vi/VXjKQsULDsM/maxresdefault.jpg" alt="Visite virtuelle - Le Bellevue" class="video-thumb" loading="lazy" onerror="this.src='https://img.youtube.com/vi/VXjKQsULDsM/hqdefault.jpg'">
-        <div class="video-play">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <span class="video-label">Visite virtuelle · 1:45 · YouTube ↗</span>
-      </a>
+    <section class="section reveal" id="decouvrir">
+      <div class="section-eyebrow">Découvrir le logement</div>
+      <h2 class="section-title">{{property_name}} en <em>quelques pas</em></h2>
+      <p class="section-intro">{{property_intro}}</p>
 
       <div class="rooms">
         <div class="room">
           <div class="room-icon">🛋️</div>
           <div>
             <div class="room-name">Salon &amp; salle à manger</div>
-            <div class="room-desc">Canapé · TV TNT · Coin repas</div>
+            <div class="room-desc">Canapé-lit · 2 TV · Espace de vie</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🍳</div>
           <div>
             <div class="room-name">Cuisine équipée</div>
-            <div class="room-desc">Plaque électrique · Four · Micro-ondes · Nespresso · Cafetière filtre · Lave-vaisselle</div>
+            <div class="room-desc">Plaque · Frigo · Lave-vaisselle · Nespresso</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🛏️</div>
           <div>
             <div class="room-name">Chambre côté rue</div>
-            <div class="room-desc">Lit avec coffre de rangement (où peut se trouver le lit parapluie)</div>
+            <div class="room-desc">1 lit double (160)</div>
           </div>
         </div>
         <div class="room">
-          <div class="room-icon">🛌</div>
+          <div class="room-icon">🛏️</div>
           <div>
             <div class="room-name">Chambre côté jardin</div>
-            <div class="room-desc">Smart TV · plus calme, idéale pour les nuits paisibles</div>
+            <div class="room-desc">1 lit double (160) · Smart TV</div>
           </div>
         </div>
         <div class="room">
-          <div class="room-icon">🚿</div>
+          <div class="room-icon">🛁</div>
           <div>
             <div class="room-name">Salle de bain</div>
-            <div class="room-desc">Douche · Sèche-cheveux · Produits d'accueil</div>
+            <div class="room-desc">Grande douche · double vasque</div>
           </div>
         </div>
         <div class="room">
-          <div class="room-icon">🌬️</div>
+          <div class="room-icon">❄️</div>
           <div>
             <div class="room-name">Climatiseur mobile</div>
-            <div class="room-desc">+ ventilateurs portables (été)</div>
+            <div class="room-desc">+ ventilateurs pour l'été</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">👶</div>
           <div>
             <div class="room-name">Équipement bébé</div>
-            <div class="room-desc">Lit parapluie · Chaise haute · Alèses</div>
+            <div class="room-desc">Lit parapluie · chaise haute</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🧺</div>
           <div>
             <div class="room-name">Lave-linge séchant</div>
-            <div class="room-desc">Combo Whirlpool · cycles lavage et séchage</div>
+            <div class="room-desc">À votre disposition</div>
           </div>
         </div>
       </div>
@@ -1578,24 +1536,31 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076404/oOTcvUGjzqzQfSIcdtOUcTnX8VzLZ1lYQCOGP9hh.jpg" alt="Salle de bain"><span class="gallery-caption">Salle de bain</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076404/kwYVYEi7e4Bozepn3wkG9NahJyORIP9OGxLBsgNJ.jpg" alt="Vue extérieure"><span class="gallery-caption">Vue</span></div>
       </div>
-    </details>
+    </section>
+
+    <!-- ZONE « Pendant votre séjour » — barre flottante sticky -->
+    <div class="stay-zone">
+      <nav class="jumpbar" aria-label="Accès rapide">
+        <a class="jump-pill" href="#pratique">📶 Wifi & essentiels</a>
+        <a class="jump-pill" href="#poubelles">🗑️ Poubelles</a>
+        <a class="jump-pill" href="#bouger">🚆 Se déplacer</a>
+        <a class="jump-pill" href="#recos">🗺️ Nos adresses</a>
+        <a class="jump-pill" href="#depart">🚪 Départ</a>
+      </nav>
 
     <!-- PRATIQUE -->
-    <details class="section reveal" id="pratique">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Pendant votre séjour</div>
-        <h2 class="section-title">L'essentiel <em>pratique</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="pratique">
+      <div class="section-eyebrow">Pendant votre séjour</div>
+      <h2 class="section-title">L'essentiel <em>pratique</em></h2>
 
       <div class="cards-grid">
         <div class="info-card">
           <div class="info-icon">📶</div>
           <h4 class="info-title">Wifi</h4>
-          <p class="info-text">Réseau : <code>SFR_F9C0</code></p>
+          <p class="info-text">Réseau : <code>{{wifi_ssid}}</code></p>
           <div class="info-copy-row">
-            <code style="flex:1;">thdu7uam96nush8enb82</code>
-            <button class="info-copy-btn" onclick="copyCode(this, 'thdu7uam96nush8enb82')">Copier</button>
+            <code style="flex:1;">{{wifi_password}}</code>
+            <button class="info-copy-btn" onclick="copyCode(this, '{{wifi_password}}')">Copier</button>
           </div>
         </div>
         <div class="info-card">
@@ -1639,15 +1604,12 @@
           <p class="info-text">Non-fumeur · Pas d'animaux (futurs voyageurs allergiques) · Pas d'événements · Capteur décibels + caméra palier · Calme après 22h.</p>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- POUBELLES -->
-    <details class="section reveal" id="poubelles">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Tri sélectif</div>
-        <h2 class="section-title">Les <em>poubelles</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="poubelles">
+      <div class="section-eyebrow">Tri sélectif</div>
+      <h2 class="section-title">Les <em>poubelles</em></h2>
       <p class="section-intro">Par respect pour notre personnel de ménage, merci d'évacuer vos poubelles lors de votre départ.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:center;">
@@ -1665,15 +1627,12 @@
           <p class="info-text">Le bac à verre le plus proche se trouve au <strong>début de la rue Battant</strong> (juste après le rond-point, à 5 min à pied). D'autres bornes sont réparties le long du quartier Battant.</p>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- BOUGER -->
-    <details class="section reveal" id="bouger">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Bouger</div>
-        <h2 class="section-title">Se déplacer <em>en ville</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="bouger">
+      <div class="section-eyebrow">Bouger</div>
+      <h2 class="section-title">Se déplacer <em>en ville</em></h2>
 
       <div class="transport-grid">
         <div class="transport-card">
@@ -1702,7 +1661,7 @@
         <div class="transport-card" style="grid-column: span 2;">
           <div class="transport-icon">🚲</div>
           <div class="transport-name">Vélos · VéloCité</div>
-          <div class="transport-desc">Service de vélos en libre-service pour les courts trajets, ou location à la journée auprès d'agences locales. Parkings souterrains gratuits avec box sécurisé (pièce d'identité requise) — Tél. 03 81 21 32 60.</div>
+          <div class="transport-desc">Service de vélos en libre-service pour les courts trajets, ou location à la journée auprès d'agences locales. Box vélo sécurisé en parking souterrain (pièce d'identité requise) — Tél. 03 81 21 32 60.</div>
         </div>
       </div>
 
@@ -1715,24 +1674,21 @@
         <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Battant.png" alt="Parking Battant" style="width:100%; aspect-ratio:16/9; object-fit:cover; display:block;">
         <div style="padding:10px 14px; font-size:13px; color:var(--fg-muted);"><strong style="color:var(--fg);">Parking Battant gratuit</strong> · 200 m · 1 000+ places · à droite au rond-point</div>
       </div>
-    </details>
+    </section>
 
     <!-- RECOS -->
-    <details class="section reveal" id="recos">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Nos coups de cœur</div>
-        <h2 class="section-title">À découvrir <em>autour</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="recos">
+      <div class="section-eyebrow">Nos coups de cœur</div>
+      <h2 class="section-title">À découvrir <em>autour</em></h2>
 
-      <div class="recos-toc">
-        <a href="#restos" class="recos-toc-link">🍷 Restaurants</a>
-        <a href="#tourisme" class="recos-toc-link">🏛️ À visiter</a>
-        <a href="#commerces" class="recos-toc-link">🛒 Commerces</a>
+      <div class="recos-toc" role="tablist">
+        <a class="recos-toc-link active" href="#recos" onclick="showRecoCat('restos',this);return false;">🍷 Restaurants · 7</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('tourisme',this);return false;">🏛️ À visiter · 6</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('commerces',this);return false;">🛒 Commerces · 3</a>
       </div>
 
+      <div class="reco-group active" data-cat="restos">
       <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 7 adresses</span></h3>
-
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/Samourai%20Shushi.png" alt="">
@@ -1744,7 +1700,6 @@
             <a href="https://www.google.com/maps/place/Samourai+Sushis/@47.245992,6.022905,17z" target="_blank" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/Signorizza%20Pizza.png" alt="">
           <div class="reco-body">
@@ -1755,7 +1710,6 @@
             <a href="https://www.google.com/maps/place/Signorizza+Pizzeria+Restaurant+Besan%C3%A7on/@47.246666,6.02306,17z" target="_blank" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Bouillon%20du%20commerce.jpeg" alt="">
           <div class="reco-body">
@@ -1765,7 +1719,6 @@
             <a href="https://lebouillonducommerce.fr/" target="_blank" class="reco-link">Voir le site →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20saint%20Cerf.jpeg" alt="">
           <div class="reco-body">
@@ -1775,7 +1728,6 @@
             <a href="https://www.google.com/maps/place/Le+Saint+Cerf/@47.234567,6.022123,17z" target="_blank" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Loiseau%20du%20temps.jpeg" alt="">
           <div class="reco-body">
@@ -1785,7 +1737,6 @@
             <a href="https://www.bernard-loiseau.com/fr/loiseaudutemps.html" target="_blank" class="reco-link">Voir le site →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/REstaurant%20l%27affineur%20Comtois.jpeg" alt="">
           <div class="reco-body">
@@ -1795,7 +1746,6 @@
             <a href="https://www.restaurant-laffineurcomtois.fr/" target="_blank" class="reco-link">Voir le site →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20Parc.jpeg" alt="">
           <div class="reco-body">
@@ -1805,15 +1755,15 @@
             <a href="https://leparcbesancon.com/fr/" target="_blank" class="reco-link">Voir le site →</a>
           </div>
         </div>
-
-        <div class="reco-tip">
-          <div class="reco-tip-title">Pour vous balader</div>
-          <div class="reco-tip-text">L'appartement profite d'une <strong>position idéale</strong> : à 2 minutes de la gare, vous êtes au cœur du <strong>Parc des Glacis</strong>, et à seulement 10 minutes à pied du centre historique UNESCO. La <strong>passerelle des Glacis</strong> mène directement à la <strong>Grande Rue</strong> et la <strong>Place de la Révolution</strong>.</div>
-        </div>
+      </div>
+      <div class="reco-tip" style="margin-top:14px;">
+        <div class="reco-tip-title">Pour vous balader</div>
+        <div class="reco-tip-text">L'appartement profite d'une <strong>position idéale</strong> : à 2 minutes de la gare, vous êtes au cœur du <strong>Parc des Glacis</strong>, et à seulement 10 minutes à pied du centre historique UNESCO. La <strong>passerelle des Glacis</strong> mène directement à la <strong>Grande Rue</strong> et la <strong>Place de la Révolution</strong>.</div>
+      </div>
       </div>
 
+      <div class="reco-group" data-cat="tourisme">
       <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> À visiter <span class="reco-cat-count">· 6 incontournables</span></h3>
-
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20La%20citadelle%20Vauban.jpeg" alt="">
@@ -1825,7 +1775,6 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Le%20musee%20du%20temps.jpeg" alt="">
           <div class="reco-body">
@@ -1835,7 +1784,6 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20L%27horloge%20astronomique.jpeg" alt="">
           <div class="reco-body">
@@ -1845,7 +1793,6 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Trousime%20-%20la%20maison%20victor%20Hugo.jpeg" alt="">
           <div class="reco-body">
@@ -1855,7 +1802,6 @@
             <a href="#" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20Vauban.jpeg" alt="">
           <div class="reco-body">
@@ -1866,7 +1812,6 @@
             <a href="https://www.bateau-besancon.fr/croisieres-repas/" target="_blank" class="reco-link">Voir le site →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Musee%20des%20maisons%20comtoises.png" alt="">
           <div class="reco-body">
@@ -1877,9 +1822,10 @@
           </div>
         </div>
       </div>
+      </div>
 
+      <div class="reco-group" data-cat="commerces">
       <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Commerces de proximité <span class="reco-cat-count">· 3 adresses</span></h3>
-
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/au%20pain%20d'antant%20rue%20belfort.png" alt="">
@@ -1891,7 +1837,6 @@
             <a href="https://www.google.com/maps/place/Au+Pain+d'Antan/@47.247349,6.027339,17z" target="_blank" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Pharmacie%20Battant.png" alt="">
           <div class="reco-body">
@@ -1901,7 +1846,6 @@
             <a href="https://www.google.com/maps/place/Pharmacie+De+Saint-Claude/@47.252804,6.016241,17z" target="_blank" class="reco-link">Voir sur la carte →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/relais%20de%20la%20gare.png" alt="">
           <div class="reco-body">
@@ -1912,15 +1856,13 @@
           </div>
         </div>
       </div>
-    </details>
+      </div>
+    </section>
 
     <!-- DÉPART -->
-    <details class="section reveal" id="depart">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Au moment du départ</div>
-        <h2 class="section-title">Avant de <em>partir</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
+    <section class="section reveal" id="depart">
+      <div class="section-eyebrow">Au moment du départ</div>
+      <h2 class="section-title">Avant de <em>partir</em></h2>
 
       <div class="checklist">
         <div class="checklist-item">
@@ -1933,7 +1875,7 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Évacuez vos déchets (voir la section poubelles)</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Évacuer vos poubelles (voir la section poubelles)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1941,39 +1883,38 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Remettre la clé dans la lockbox · brouiller les molettes après</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Remettre la clé dans la boîte Igloohome · même code</div>
         </div>
       </div>
 
-      <div class="checkout-block">
-        <p class="checkout-block-text">Tout est prêt ? Un petit clic nous permet de savoir que vous êtes parti·e en toute sécurité.</p>
-        {{checkout_block}}
+      {{upsell_departure_menu}}
+      <div class="ap-upsell ap-bag acc-bag">
+        <div class="ap-upsell-txt"><strong>🧳 Bagages après le départ ?</strong><br>Consignes Nannybag à Besançon, dès 2,50 €/jour — pratique pour profiter de la ville jusqu'au train.</div>
+        <a class="ap-cta" href="https://www.nannybag.com/fr/consigne-bagage/besancon" target="_blank" rel="noopener" style="text-decoration:none">Voir les consignes</a>
       </div>
-    </details>
+
+      <div class="checkout-block" data-checkout-gate="{{checkout_gate_ts}}">
+        <p class="checkout-block-text">Tout est prêt ? Un petit clic nous permet de savoir que vous êtes parti·e en toute sécurité.</p>
+        <a href="{{checkout_url}}" class="checkout-btn" target="_blank" rel="noopener" id="checkoutBtn">
+          👋 J'informe l'hôte de mon départ
+        </a>
+      </div>
+    </section>
+    </div><!-- /stay-zone -->
 
     <!-- CONTACT -->
     <section class="section reveal">
       <div class="contact-card">
-        <div class="contact-eyebrow">Une question ?</div>
-        <h3 class="contact-title">Nous sommes là, à toute heure</h3>
-        <div class="contact-actions">
-          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
-            💬 Écrire sur WhatsApp
-          </a>
-          <a href="tel:{{host_phone}}" class="contact-btn">
-            📞 Appeler · {{host_phone_display}}
-          </a>
-        </div>
+        {{contact_block}}
       </div>
-    </details>
+    </section>
 
     <footer>
-      <div class="signature">Bon séjour à Besançon</div>
+      <div class="signature">Bon séjour à {{city}}</div>
       <div>U-citybreak · Conciergerie Lyon · Besançon</div>
     </footer>
 
   </main>
-
 </div>
 
 <div class="toast" id="toast">Copié ✓</div>
@@ -1987,6 +1928,10 @@
     document.getElementById('lang-menu').classList.remove('open');
   });
 
+  function showRecoCat(cat, el) {
+    document.querySelectorAll('.reco-group').forEach(function(g){ g.classList.toggle('active', g.getAttribute('data-cat') === cat); });
+    document.querySelectorAll('.recos-toc-link').forEach(function(a){ a.classList.toggle('active', a === el); });
+  }
   function copyCode(btn, code) {
     navigator.clipboard.writeText(code).then(() => {
       const orig = btn.textContent;
@@ -2012,8 +1957,6 @@
   }
 
   // Confirmation visuelle après clic sur le bouton départ
-  // (le clic ouvre la page de remerciement dans un nouvel onglet,
-  //  on transforme le bouton localement pour confirmer au voyageur que c'est fait)
   (function() {
     const btn = document.getElementById('checkoutBtn');
     if (!btn) return;
@@ -2025,36 +1968,78 @@
     });
   })();
 
-
-  (function() {
-    const btn = document.getElementById('arrivalBtn');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-      setTimeout(function() {
-        btn.classList.add('confirmed');
-        btn.innerHTML = '✓ Arrivée confirmée · merci !';
-      }, 600);
-    });
-  })();
-
-
-  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
-  (function() {
-    function openDetailsForHash(hash) {
-      if (!hash || hash === '#') return;
-      try {
-        const target = document.querySelector(hash);
-        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
-          target.open = true;
-        }
-      } catch (e) {}
+  // ===== V2 : countdown / copy / flottant arrivée / gate départ =====
+  (function(){
+    var ap=document.getElementById('algopin');
+    function chip(v,u){return '<div class="ap-chip"><b>'+v+'</b><span>'+u+'</span></div>';}
+    function flip(id){
+      var b=document.getElementById(id); if(!b){return;}
+      if(b.getAttribute('data-digicode-gated')==='false'){b.setAttribute('data-state','open');return;}
+      var rv=parseInt(b.getAttribute('data-reveal')||'0',10);
+      if(rv && Date.now()>=rv){b.setAttribute('data-state','open');}
     }
-    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-      a.addEventListener('click', function() {
-        openDetailsForHash(a.getAttribute('href'));
-      });
-    });
-    if (window.location.hash) openDetailsForHash(window.location.hash);
+    function gatePoubelles(){
+      var g=document.getElementById('accgate');
+      var rev=g?parseInt(g.getAttribute('data-reveal')||'0',10):0;
+      var hide=rev && Date.now()<rev;
+      var sec=document.getElementById('poubelles');
+      var chip2=document.querySelector('.jump-pill[href="#poubelles"]');
+      if(sec) sec.style.display=hide?'none':'';
+      if(chip2) chip2.style.display=hide?'none':'';
+    }
+    function tick(){
+      flip('algopin'); flip('digicode-gate'); flip('accgate');
+      gatePoubelles();
+      var el=document.getElementById('ap-count'); if(!el||!ap){return;}
+      var rev=parseInt(ap.getAttribute('data-reveal')||'0',10);
+      if(!rev){el.innerHTML='';return;}
+      var r=Math.max(0,rev-Date.now())/1000;
+      var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
+      el.innerHTML=(j>0?chip(j,j>1?'jours':'jour'):'')+chip(('0'+h).slice(-2),'heures')+chip(('0'+mn).slice(-2),'min')+(j>0?'':chip(('0'+sc).slice(-2),'sec'));
+    }
+    tick();setInterval(tick,1000);
+
+    // Copier le code : lit la valeur affichée (zéro code en dur)
+    var cp=document.getElementById('ap-copy');
+    if(cp){cp.onclick=function(){
+      var c=document.querySelector('#algopin .ap-code');
+      var code=c?c.textContent.replace(/\s/g,''):'';
+      if(code){try{navigator.clipboard.writeText(code);}catch(e){}}
+      cp.textContent='Copié ✓';setTimeout(function(){cp.textContent='Copier le code';},1800);
+    };}
+
+    // Confirmation arrivée + bouton flottant (uniquement si accès débloqué)
+    var inlineBtn=document.getElementById('arrivalBtn');
+    if(inlineBtn){
+      inlineBtn.addEventListener('click',function(){setTimeout(function(){inlineBtn.classList.add('confirmed');inlineBtn.innerHTML='✓ Arrivée confirmée · merci !';},600);});
+    }
+    var gate=document.getElementById('accgate');
+    var state=gate?(gate.getAttribute('data-state')||'locked'):'locked';
+    if(inlineBtn && state==='open'){
+      var fab=document.createElement('button');fab.className='fab-arrival hide';
+      fab.innerHTML='✓ Je préviens l’hôte de mon arrivée';
+      document.body.appendChild(fab);
+      var confirmed=false,inlineVisible=false;
+      function syncFab(){fab.classList.toggle('hide',confirmed||inlineVisible);}
+      fab.onclick=function(){confirmed=true;if(inlineBtn){window.open(inlineBtn.href,'_blank');}fab.innerHTML='Merci, à tout de suite ✓';setTimeout(syncFab,2200);};
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){inlineVisible=es[0].isIntersecting;syncFab();},{threshold:.2}).observe(inlineBtn.closest('.arrival-block')||inlineBtn);
+      }
+    }
+
+    // Bouton départ gaté à minuit le jour J
+    var cob=document.getElementById('checkoutBtn');
+    if(cob){
+      var cblk=cob.closest('.checkout-block');
+      var cg=cblk?parseInt(cblk.getAttribute('data-checkout-gate')||'0',10):0;
+      if(cg && Date.now()<cg){
+        cob.style.display='none';
+        var note=document.createElement('p');
+        note.className='checkout-block-text';note.style.cssText='font-size:13px;color:#717171;margin:0';
+        note.textContent='Ce bouton s’activera le jour de votre départ.';
+        cob.parentNode.insertBefore(note,cob);
+      }
+    }
   })();
 </script>
 
