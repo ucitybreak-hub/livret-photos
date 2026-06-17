@@ -1,38 +1,35 @@
-<!-- BUILT for lumineux-zh at 2026-05-14T07:16:53.666Z | photos: 25 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for lumineux-zh at 2026-06-17T14:34:55.177Z | UCB theme V2 | photos: 25 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5efe6">
+<meta name="theme-color" content="#FFFFFF">
 <title>Le Lumineux · 您的住宿</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f5efe6;
-    --bg-card: #fefcf7;
-    --bg-elevated: #ffffff;
-    --fg: #211f1c;
-    --fg-muted: #6b6053;
-    --fg-soft: #9a8d7d;
-    --accent: #b8552d;
-    --accent-soft: #e8c7b3;
-    --accent-deep: #8a3d1d;
-    --accent-light: #fef4eb;
-    --border: #d8cfc0;
-    --border-soft: #ebe3d3;
-    --success: #5a6e3f;
-    --warning: #c8853d;
-    --shadow-sm: 0 1px 2px rgba(33,31,28,0.04), 0 1px 3px rgba(33,31,28,0.06);
-    --shadow-md: 0 4px 6px rgba(33,31,28,0.05), 0 10px 15px rgba(33,31,28,0.08);
-    --shadow-lg: 0 10px 25px rgba(33,31,28,0.10), 0 20px 40px rgba(33,31,28,0.12);
-    --radius-sm: 6px;
+    --bg: #F5F5F4;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #FFFFFF;
+    --fg: #222222;
+    --fg-muted: #717171;
+    --fg-soft: #B0B0B0;
+    --accent: #2D1B4E;
+    --accent-soft: #F0EBF5;
+    --accent-deep: #2D1B4E;
+    --accent-light: #F0EBF5;
+    --border: #DDDDDD;
+    --border-soft: #EBEBEB;
+    --success: #00A67E;
+    --warning: #E8A735;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 1px 2px rgba(0,0,0,.06);
+    --shadow-lg: 0 2px 8px rgba(0,0,0,.08);
+    --radius-sm: 7px;
     --radius-md: 12px;
-    --radius-lg: 20px;
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius-lg: 16px;
+    --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,8 +44,8 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse at top right, rgba(184,85,45,0.04), transparent 60%),
-      radial-gradient(ellipse at bottom left, rgba(90,110,63,0.03), transparent 60%);
+      radial-gradient(ellipse at top right, rgba(45,27,78,0.03), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(45,27,78,0.02), transparent 60%);
     background-attachment: fixed;
   }
 
@@ -58,7 +55,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.4;
+    opacity: 0.1;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.12 0 0 0 0 0.11 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
@@ -71,8 +68,8 @@
     z-index: 50;
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
-    background: rgba(245, 239, 230, 0.85);
-    border-bottom: 1px solid rgba(216, 207, 192, 0.6);
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid var(--border-soft);
   }
   .topbar-inner {
     max-width: 720px;
@@ -89,7 +86,7 @@
     font-style: italic;
     font-size: 17px;
     letter-spacing: 0.01em;
-    color: var(--fg);
+    color: var(--accent);
     font-variation-settings: "opsz" 14, "SOFT" 30;
   }
   .brand-dot { color: var(--accent); }
@@ -153,7 +150,7 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(33,31,28,0) 30%, rgba(33,31,28,0.6) 100%);
+    background: linear-gradient(to bottom, rgba(34,34,34,0) 30%, rgba(34,34,34,0.6) 100%);
     pointer-events: none;
   }
   .hero-content {
@@ -251,7 +248,7 @@
     gap: 4px;
   }
   .quick-card.highlight {
-    background: linear-gradient(135deg, var(--accent-soft) 0%, #f4d4be 100%);
+    background: linear-gradient(135deg, var(--accent-soft) 0%, #F0EBF5 100%);
     border-color: var(--accent-soft);
   }
   .quick-label {
@@ -374,7 +371,7 @@
     font-family: var(--font-display);
     font-weight: 500;
     font-size: 16px;
-    box-shadow: 0 2px 8px rgba(184,85,45,0.3);
+    box-shadow: 0 2px 8px rgba(45,27,78,0.3);
     z-index: 2;
     font-variation-settings: "opsz" 24, "SOFT" 30;
   }
@@ -458,12 +455,12 @@
   .codebox-copy:hover { background: var(--accent); transform: translateY(-1px); }
   .codebox-copy.copied { background: var(--success); }
   .codebox-keybox {
-    background: linear-gradient(135deg, #fff8ed 0%, #f9e7d0 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F4 100%);
     border: 1px solid var(--accent-soft);
     border-style: solid;
   }
   .codebox-keybox.locked {
-    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    background: linear-gradient(135deg, #F5F5F4 0%, #EBEBEB 100%);
     border-color: var(--border);
   }
   .codebox-keybox.locked .codebox-value {
@@ -478,7 +475,7 @@
   .step-tip {
     margin-top: 10px;
     padding: 12px 14px;
-    background: rgba(90, 110, 63, 0.08);
+    background: rgba(45,27,78, 0.08);
     border-left: 3px solid var(--success);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     font-size: 13px;
@@ -486,7 +483,7 @@
     line-height: 1.5;
   }
   .step-tip strong { color: var(--success); font-weight: 600; }
-  .step-tip.warn { background: rgba(200,133,61,0.1); border-color: var(--warning); }
+  .step-tip.warn { background: rgba(232,167,53,0.12); border-color: var(--warning); }
   .step-tip.warn strong { color: var(--warning); }
 
   .step-button {
@@ -560,7 +557,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: rgba(33,31,28,0.78);
+    background: rgba(34,34,34,0.78);
     color: white;
     backdrop-filter: blur(8px);
     display: flex;
@@ -613,7 +610,7 @@
     left: 0;
     right: 0;
     padding: 6px 8px 5px;
-    background: linear-gradient(to top, rgba(33,31,28,0.85), transparent);
+    background: linear-gradient(to top, rgba(34,34,34,0.85), transparent);
     color: white;
     font-size: 10px;
     font-weight: 500;
@@ -623,26 +620,23 @@
   /* ROOM TILES */
   .rooms {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
     margin-top: 18px;
-  }
-  @media (min-width: 480px) {
-    .rooms { grid-template-columns: repeat(2, 1fr); }
   }
   .room {
     background: var(--bg-card);
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-md);
-    padding: 14px 16px;
+    padding: 11px 12px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
   .room-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
     background: var(--accent-light);
     color: var(--accent);
     display: flex;
@@ -659,6 +653,28 @@
     font-variation-settings: "opsz" 18, "SOFT" 40;
   }
   .room-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
+  html { scroll-behavior: smooth; }
+  .section[id], .reco-cat-title[id] { scroll-margin-top: 110px; }
+  .jumpbar {
+    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: sticky; top: 54px; z-index: 40;
+    margin: 0 0 14px; padding: 10px 0;
+    background: rgba(255,255,255,0.92);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .stay-zone { position: relative; }
+  .jumpbar::-webkit-scrollbar { display: none; }
+  .jump-pill {
+    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    border: 1px solid var(--border-soft); white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .jump-pill:hover { background: #E6DEF0; }
 
   /* INFO CARDS */
   .cards-grid {
@@ -784,6 +800,9 @@
     white-space: nowrap;
   }
   .recos-toc-link:hover { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-soft); }
+  .recos-toc-link.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .reco-group { display: none; }
+  .reco-group.active { display: block; }
 
   .reco-cat-title {
     font-family: var(--font-display);
@@ -904,7 +923,7 @@
   .reco-link:hover { text-decoration: underline; }
 
   .reco-tip {
-    background: rgba(184,85,45,0.06);
+    background: rgba(45,27,78,0.06);
     border: 1px solid var(--accent-soft);
     border-radius: var(--radius-md);
     padding: 14px 16px;
@@ -978,7 +997,7 @@
 
   /* CONTACT */
   .contact-card {
-    background: linear-gradient(135deg, var(--fg) 0%, #383229 100%);
+    background: linear-gradient(135deg, var(--fg) 0%, #222222 100%);
     color: var(--bg);
     border-radius: var(--radius-lg);
     padding: 28px 24px;
@@ -993,7 +1012,7 @@
     right: -20%;
     width: 60%;
     height: 200%;
-    background: radial-gradient(circle, rgba(184,85,45,0.25), transparent 70%);
+    background: radial-gradient(circle, rgba(45,27,78,0.25), transparent 70%);
     pointer-events: none;
   }
   .contact-eyebrow {
@@ -1075,8 +1094,8 @@
     transform: translateY(-1px);
   }
   .checkout-btn.confirmed {
-    background: #5a8559;
-    border-color: #5a8559;
+    background: #2D1B4E;
+    border-color: #2D1B4E;
     pointer-events: none;
     cursor: default;
   }
@@ -1174,12 +1193,89 @@
     .reco-img { width: 88px; min-height: 110px; }
   }
 
+  /* === Charte V2 UCB — fond plat === */
+  body{background:#FFFFFF !important;background-image:none !important;background-attachment:initial !important}
+  body::before{display:none !important}
+
+  /* ===== V2 : gate accès + algoPIN + upsell + nannybag + flottant ===== */
+  .ap-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center}
+  .ap-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .ap-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:#2D1B4E}
+  .ap-badge{font-size:10px;background:#FFFFFF;color:#2D1B4E;border-radius:999px;padding:3px 10px;font-weight:600;white-space:nowrap}
+  .ap-dots{font-size:28px;line-height:1.2;letter-spacing:5px;word-spacing:14px;color:#2D1B4E;padding-left:5px;animation:appulse 2.2s ease-in-out infinite;white-space:nowrap}
+  @keyframes appulse{0%,100%{opacity:.35}50%{opacity:.9}}
+  @keyframes apslide{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+  .ap-when{font-size:13px;color:#717171;margin-top:4px}
+  .ap-when strong{color:#222222;font-weight:600}
+  .ap-count{display:flex;justify-content:center;gap:8px;margin-top:12px}
+  .ap-chip{background:#FFFFFF;border-radius:11px;padding:8px 12px;min-width:54px}
+  .ap-chip b{display:block;font-size:20px;font-weight:600;color:#2D1B4E;line-height:1.1}
+  .ap-chip span{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#717171}
+  .ap-sep{height:1px;background:#DDD3EA;margin:16px 0 14px}
+  .ap-upsell{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
+  .ap-upsell-txt{font-size:13px;color:#717171;line-height:1.45}
+  .ap-upsell-txt strong{color:#222222;font-weight:600}
+  .ap-cta{background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:11px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0}
+  .ap-cta:active{transform:scale(.98)}
+  .ap-open{background:#E8F8F1;border:1px solid #BFE9DC;border-radius:16px;padding:20px 18px;text-align:center}
+  .ap-open .ap-label{color:#007A5C}
+  .ap-open .ap-badge{color:#007A5C}
+  .ap-code{font-size:clamp(26px,8.5vw,38px);font-weight:600;letter-spacing:.1em;word-spacing:.22em;color:#007A5C;line-height:1.3;padding-left:.1em;white-space:nowrap}
+  .ap-copy{margin-top:10px;background:#007A5C;color:#fff;border:0;border-radius:999px;padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+  #algopin[data-state="locked"] .ap-open{display:none}
+  #algopin[data-state="open"] .ap-locked{display:none}
+  #digicode-gate[data-state="locked"] .dg-open{display:none}
+  #digicode-gate[data-state="open"] .dg-locked{display:none}
+  .ap-under{font-size:11.5px;color:#B0B0B0;text-align:center;margin:8px 0 14px}
+  #accgate .acc-open{display:none}
+  #accgate[data-state="open"] .acc-open{display:block}
+  #accgate[data-state="open"] .acc-locked{display:none}
+  .acc-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center;margin:4px 0 8px}
+  .acc-lk-when{font-size:13px;color:#717171;margin:6px 0 2px}
+  .acc-lk-when strong{color:#222222;font-weight:600}
+  .acc-bag{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:14px;padding:14px 16px;margin:4px 0 16px}
+  @media(max-width:520px){.ap-upsell{flex-direction:column;align-items:stretch;text-align:left}.ap-cta{width:100%}}
+  /* arrival block (charte plate) + flottant */
+  .arrival-block{margin-top:32px;padding:24px;background:#FFFFFF;border:1px solid #EBEBEB;border-radius:var(--radius-md);text-align:center;box-shadow:none}
+  .arrival-block-text{color:var(--fg-muted);font-size:14px;line-height:1.5;margin-bottom:16px}
+  .arrival-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:#2D1B4E;color:#fff;text-decoration:none;border-radius:var(--radius-md);font-weight:600;font-size:15px;transition:all .18s;border:1px solid #2D1B4E}
+  .arrival-btn:hover{background:#3D2966}
+  .arrival-btn.confirmed{background:#007A5C;border-color:#007A5C;pointer-events:none}
+  .fab-arrival{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:997;background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:14px 24px;font-size:14px;font-weight:600;font-family:var(--font-body);cursor:pointer;box-shadow:0 6px 20px rgba(45,27,78,.3);display:flex;align-items:center;gap:8px;white-space:nowrap;max-width:calc(100vw - 32px)}
+  .fab-arrival:active{transform:translateX(-50%) scale(.98)}
+  .fab-arrival.hide{display:none}
+  /* carte contact V2 : intro + note délai */
+  .contact-lead{font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.80);margin:0 0 16px;position:relative}
+  .contact-lead strong{color:#fff;font-weight:600}
+  .contact-note{font-size:11.5px;color:rgba(255,255,255,.58);margin:12px 0 0;position:relative;line-height:1.45}
+
+  /* ===== UCB overrides (spec V2 §1 + §7) ===== */
+  body{background:#FFFFFF;background-image:none}
+  body::before{display:none}
+  .hero-title,.section-title,.quick-value,.codebox-value,.hero-countdown-num{font-weight:600}
+  .hero-sub{font-style:normal}
+  .section-title em{font-style:normal;font-weight:inherit}
+  .quick-card.highlight{background:var(--accent-soft);border-color:var(--border-soft)}
+  .contact-card{background:var(--fg)}
+  .contact-card::before{display:none}
+  .step-tip{background:var(--accent-soft);border-left-color:var(--accent)}
+  .step-tip strong{color:var(--accent)}
+  .step-tip.warn{background:rgba(232,167,53,0.12);border-left-color:var(--warning)}
+  .step-tip.warn strong{color:var(--warning)}
+  .codebox-keybox{background:rgba(0,166,126,0.07);border-color:rgba(0,166,126,0.35)}
+  .codebox-keybox.locked{background:var(--bg);border-color:var(--border)}
+  .wifi-card{cursor:pointer;transition:box-shadow .2s ease}
+  .wifi-card.copied{box-shadow:inset 0 0 0 2px var(--success)}
+  .wifi-card.copied .quick-sub{color:var(--success);font-weight:500}
+  .swipe-arrow{display:inline-block;animation:swipeHint 1.6s ease-in-out infinite}
+  @keyframes swipeHint{0%,100%{transform:translateX(0);opacity:.55}50%{transform:translateX(6px);opacity:1}}
+
   .arrival-block {
     margin-top: 32px;
     padding: 24px;
-    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    background: var(--bg-card);
     border-radius: var(--radius-md);
-    border: 1px solid rgba(90,110,63,0.25);
+    border: 1px solid var(--border);
     text-align: center;
   }
   .arrival-block-text {
@@ -1191,16 +1287,16 @@
   .arrival-btn {
     display: inline-flex; align-items: center; justify-content: center;
     gap: 10px; padding: 14px 28px;
-    background: var(--success); color: white;
+    background: var(--accent); color: white;
     text-decoration: none; border-radius: var(--radius-md);
     font-weight: 500; font-size: 15px;
-    transition: all 0.18s; border: 1px solid var(--success);
+    transition: all 0.18s; border: 1px solid var(--accent);
   }
-  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
-  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: var(--success); border-color: var(--success); pointer-events: none; }
   .arrival-block.locked {
-    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
-    border-color: var(--border);
+    background: var(--bg);
+    border-color: var(--border-soft);
   }
   .arrival-block.locked .arrival-block-text {
     font-style: italic;
@@ -1220,7 +1316,7 @@
   details.section > summary.section-summary::-webkit-details-marker { display: none; }
   details.section > summary.section-summary::marker { display: none; }
   details.section > summary.section-summary:hover {
-    background: rgba(184,85,45,0.03);
+    background: rgba(45,27,78,0.03);
   }
   details.section .section-summary-chevron {
     position: absolute;
@@ -1236,7 +1332,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 28px;
     font-weight: 500;
     line-height: 1;
@@ -1297,7 +1393,7 @@
     <div class="hero-card reveal">
       <div class="hero-eyebrow">您的住宿</div>
       <h1 class="hero-title">Le Lumineux</h1>
-      <p class="hero-sub">Battant 街区，贝桑松</p>
+      <p class="hero-sub">贝桑松 Battant 街区</p>
       <div class="hero-divider"></div>
       <p class="hero-greeting">您好 <strong>{{guest_name}}</strong>，欢迎来到我们的公寓。</p>
       <div class="hero-countdown">
@@ -1313,30 +1409,30 @@
       <div class="quick-card">
         <div class="quick-label">入住</div>
         <div class="quick-value">5月1日</div>
-        <div class="quick-sub">下午5点起</div>
+        <div class="quick-sub">下午 17:00 起</div>
       </div>
       <div class="quick-card">
         <div class="quick-label">退房</div>
         <div class="quick-value">5月3日</div>
-        <div class="quick-sub">上午11点前</div>
+        <div class="quick-sub">上午 11:00 前</div>
       </div>
       <div class="quick-card">
         <div class="quick-label">住客</div>
-        <div class="quick-value">2人</div>
-        <div class="quick-sub">T2 Battant街区</div>
+        <div class="quick-value">最多 6 人</div>
+        <div class="quick-sub">公寓 · 2 间卧室</div>
       </div>
-      <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
+      <div class="quick-card highlight wifi-card" role="button" tabindex="0" onclick="copyWifi(this, 'fffdhegdbsw5ividff45')">
         <div class="quick-label">无线网络</div>
         <div class="quick-value">SFR-F561</div>
-        <div class="quick-sub">密码 ↓</div>
-      </a>
+        <div class="quick-sub">点击复制密码</div>
+      </div>
     </div>
 
     <!-- ARRIVÉE -->
     <details class="section reveal" id="arriver">
       <summary class="section-summary">
         <div class="section-eyebrow">分步指南</div>
-        <h2 class="section-title">抵达 <em>公寓</em></h2>
+        <h2 class="section-title">到达 <em>公寓</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
 
@@ -1346,47 +1442,59 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">找到地址</h3>
-            <p class="step-text">您将抵达 <strong>10 Rue de la Madeleine, 25000 Besançon</strong>。这栋楼位于 Battant 街区，靠近 Madeleine 教堂。楼的蓝色门位于 VonArx 钢琴店和一家理发店之间，门牌号为 10。</p>
+            <p class="step-text">您将到达 <strong>10 Rue de la Madeleine, 25000 贝桑松</strong>，位于 Battant 街区，靠近 Madeleine 教堂。建筑的 <strong>蓝色门</strong> 在 <strong>10 号</strong>，位于 VonArx 钢琴店和理发店之间。</p>
             <a href="https://www.google.com/maps/place/10+Rue+de+la+Madeleine,+25000+Besan%C3%A7on/" target="_blank" class="step-button">
               在地图中打开 <span class="arrow">→</span>
             </a>
-            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/arrivee%201.png" alt="楼周围的街区" style="max-width: 100%;">
-            <p class="step-photo-caption">Battant 街区，楼周围的环境</p>
+            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/arrivee%201.png" alt="建筑周围的街区" style="max-width: 100%;">
+            <p class="step-photo-caption">Battant 街区，建筑周围</p>
           </div>
         </div>
+
+        <div id="accgate" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
+        <div class="acc-locked">
+          <div class="ap-label" style="display:block;margin-bottom:6px">🔒 公寓入口</div>
+          <div class="ap-dots">••• ••• •••</div>
+          <div class="acc-lk-when">入口详情（门禁码、路线、钥匙盒密码）将在 <strong>{{checkin_datetime_label}}</strong> 显示</div>
+          {{upsell_arrival_menu}}
+          <div class="ap-sep"></div>
+          <div class="ap-upsell ap-bag acc-bag">
+            <div class="ap-upsell-txt"><strong>🧳 需要寄存行李？</strong><br>贝桑松有 Nannybag 安全行李寄存服务，仅需 2.50 欧元/天。</div>
+            <a class="ap-cta" href="https://www.nannybag.com/fr/consigne-bagage/besancon" target="_blank" rel="noopener" style="text-decoration:none">查看寄存点</a>
+          </div>
+        </div>
+        <div class="acc-open">
 
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-content">
-            <h3 class="step-title">楼门数字密码</h3>
-            <p class="step-text">在入口门前，输入 <strong>数字密码</strong>。</p>
-            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Arrivee%202%20-%20Porte%20entree%20Batiment%20Lumineux.png" alt="建筑入口门">
-            <p class="step-photo-caption">10号的入口门，位于 VonArx 店和理发店之间</p>
+            <h3 class="step-title">建筑门禁码</h3>
+            <p class="step-text">在蓝色门前（10 号），输入 <strong>门禁码</strong>。</p>
+            <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Arrivee%202%20-%20Porte%20entree%20Batiment%20Lumineux.png" alt="建筑入口">
+            <p class="step-photo-caption">10 号入口，位于 VonArx 店和理发店之间</p>
             <div class="codebox">
-              <span class="codebox-label">数字密码</span>
+              <span class="codebox-label">门禁码</span>
               <span class="codebox-value">3589</span>
-              <button class="codebox-copy" onclick="copyCode(this, '3589')">复制</button>
             </div>
-            <div class="step-tip"><strong>💡 小贴士</strong> · 进入后，穿过 <strong>长走廊</strong> 到达内部庭院。不要走右边的楼梯。</div>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h3 class="step-title">进入公寓</h3>
-            <p class="step-text">通过栅栏后，按照这些照片指引找到公寓门：</p>
+            <h3 class="step-title">前往公寓</h3>
+            <p class="step-text">进门后，按照以下路线到达 <strong>倒数第二层</strong>（左侧楼梯间，<strong>无电梯</strong>）。</p>
 
             <div class="step-photo-sequence">
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">1</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/arrivee%203%20-%20couloir.jpg" alt="走廊">
-                <div class="step-photo-frame-cap">通过门后，穿过 <strong>长走廊</strong></div>
+                <div class="step-photo-frame-cap">穿过 <strong>长走廊</strong>（不要走右边的楼梯）</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">2</span>
-                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Arrivee%204%20-%20cour%20et%20cage%20escalier.jpg" alt="内部庭院">
-                <div class="step-photo-frame-cap">您来到 <strong>内部庭院</strong>，左前方有楼梯间</div>
+                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Arrivee%204%20-%20cour%20et%20cage%20escalier.jpg" alt="内院">
+                <div class="step-photo-frame-cap">在 <strong>内院</strong> 中，走 <strong>左边</strong> 的楼梯间</div>
               </div>
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">3</span>
@@ -1396,11 +1504,11 @@
               <div class="step-photo-frame">
                 <span class="step-photo-frame-num">4</span>
                 <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/arrivee4-porte.jpeg" alt="公寓门">
-                <div class="step-photo-frame-cap"><strong>公寓门</strong>，上面贴有"Le Lumineux"铭牌</div>
+                <div class="step-photo-frame-cap"><strong>公寓门</strong>，门牌"Le Lumineux"</div>
               </div>
             </div>
 
-            <div class="step-tip"><strong>👀 技巧</strong> · 滑动照片逐步跟随路线。</div>
+            <div class="step-tip"><strong>👀 提示</strong> · 滑动照片可按步骤查看路线。<span class="swipe-arrow">→</span></div>
           </div>
         </div>
 
@@ -1422,19 +1530,31 @@
                 </div>
               </a>
             </div>
-            <p class="step-photo-caption" style="text-align:center; margin-top:6px;">▶ 视频演示 · 30秒 · 打开 YouTube ↗</p>
+            <p class="step-photo-caption" style="text-align:center; margin-top:6px;">▶ 视频演示 · 30 秒 · 打开 YouTube ↗</p>
 
             <div class="step-substeps">
-              <div class="step-substep"><span class="step-substep-num">1</span><span>将 <strong style="color:var(--fg);">手掌</strong> 放在键盘上以唤醒设备</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>输入您的 <strong style="color:var(--fg);">4位数字密码</strong>，然后按中间的锁定标志</span></div>
-              <div class="step-substep"><span class="step-substep-num">3</span><span>等待蜂鸣声和打开声</span></div>
+              <div class="step-substep"><span class="step-substep-num">1</span><span>将 <strong style="color:var(--fg);">手掌</strong> 放在键盘上唤醒设备</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>输入您的 <strong style="color:var(--fg);">9 位数字密码</strong>，然后按中间的锁定图标</span></div>
+              <div class="step-substep"><span class="step-substep-num">3</span><span>等待蜂鸣声和打开声音</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>向侧面拉动打开盒子并取出钥匙</span></div>
             </div>
 
-            <p class="step-text" style="margin-top:14px;">您这次预订的独特密码：</p>
+            <p class="step-text" style="margin-top:14px;">您此次住宿的唯一密码：</p>
 
-            {{smartlock_codebox}}
-            <div class="step-tip warn"><strong>⏰ 为了您的安全</strong> · 此密码在每次预订时都会更改，在您整个住宿期间有效。</div>
+            <div id="algopin" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
+              <div class="ap-locked">
+                <div class="ap-head"><span class="ap-label">🔒 您的入口密码</span><span class="ap-badge">为您的住宿生成</span></div>
+                <div class="ap-dots">••• ••• •••</div>
+                <div class="ap-when">密码将在 <strong>{{checkin_datetime_label}}</strong>（您的入住时间）显示</div>
+                <div class="ap-count" id="ap-count"></div>
+              </div>
+              <div class="ap-open">
+                <div class="ap-head"><span class="ap-label">🔓 钥匙盒密码</span><span class="ap-badge">在您退房前有效</span></div>
+                <div class="ap-code">{{algopin_code_grouped}}</div>
+                <button class="ap-copy" id="ap-copy">复制密码</button>
+              </div>
+            </div>
+            <p class="ap-under">🔐 此密码仅限您的预订 — 每次住宿都会更改。</p>
           </div>
         </div>
 
@@ -1442,9 +1562,18 @@
           <div class="step-num">5</div>
           <div class="step-content">
             <h3 class="step-title">进入公寓</h3>
-            <p class="step-text">关上钥匙盒（轻轻按下盖子直到听到咔哒声），然后用钥匙打开公寓门。<strong>欢迎来到您的家</strong> ✨</p>
+            <p class="step-text">关上盒子（轻轻按下盖子直到听到咔哒声），然后用钥匙打开公寓门。<strong>欢迎来到 Le Lumineux</strong> ✨</p>
           </div>
         </div>
+
+        <div class="arrival-block">
+          <p class="arrival-block-text">到了吗？点击一下让我们知道一切顺利。</p>
+          <a href="{{arrival_confirm_url}}" class="arrival-btn" target="_blank" rel="noopener" id="arrivalBtn">
+            ✓ 通知房东我已到达
+          </a>
+        </div>
+        </div><!--/acc-open-->
+        </div><!--/accgate-->
 
       </div>
 
@@ -1458,20 +1587,20 @@
         <h2 class="section-title">Le Lumineux <em>一览</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
-      <p class="section-intro">位于 Battant 街区中心的明亮舒适公寓，这是贝桑松最热闹的街区之一。靠近酒吧、商店和城墙散步路线。</p>
+      <p class="section-intro">舒适明亮的公寓，位于贝桑松最热闹的 Battant 街区中心。靠近酒吧、商店和城墙散步路线。</p>
 
       <div class="rooms">
         <div class="room">
           <div class="room-icon">🛋️</div>
           <div>
             <div class="room-name">客厅 &amp; 小厨房</div>
-            <div class="room-desc">沙发床 · 电视 · 餐饮区</div>
+            <div class="room-desc">双人沙发床 · 电视 · 生活空间</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🍳</div>
           <div>
-            <div class="room-name">设备齐全的厨房</div>
+            <div class="room-name">配备厨房</div>
             <div class="room-desc">炉灶 · 冰箱 · 洗碗机 · Nespresso</div>
           </div>
         </div>
@@ -1479,28 +1608,28 @@
           <div class="room-icon">🛏️</div>
           <div>
             <div class="room-name">双人卧室</div>
-            <div class="room-desc">1张大双人床</div>
+            <div class="room-desc">1 张双人床</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🛌</div>
           <div>
-            <div class="room-name">2张单人床卧室</div>
-            <div class="room-desc">适合家庭或室友</div>
+            <div class="room-name">两张单人床卧室</div>
+            <div class="room-desc">2 张单人床 · 适合儿童或朋友</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🛁</div>
           <div>
             <div class="room-name">浴室</div>
-            <div class="room-desc">淋浴 · 独立卫生间</div>
+            <div class="room-desc">淋浴 · 卫生间在浴室内</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🧺</div>
           <div>
             <div class="room-name">洗衣机</div>
-            <div class="room-desc">LG 8公斤</div>
+            <div class="room-desc">供您使用</div>
           </div>
         </div>
       </div>
@@ -1517,6 +1646,16 @@
       </div>
     </details>
 
+    <!-- ZONE « Pendant votre séjour » — barre flottante sticky -->
+    <div class="stay-zone">
+      <nav class="jumpbar" aria-label="快速访问">
+        <a class="jump-pill" href="#pratique">📶 网络和必需品</a>
+        <a class="jump-pill" href="#poubelles">🗑️ 垃圾桶</a>
+        <a class="jump-pill" href="#bouger">🚆 出行</a>
+        <a class="jump-pill" href="#recos">🗺️ 推荐地址</a>
+        <a class="jump-pill" href="#depart">🚪 退房</a>
+      </nav>
+
     <!-- PRATIQUE -->
     <details class="section reveal" id="pratique">
       <summary class="section-summary">
@@ -1529,7 +1668,7 @@
         <div class="info-card">
           <div class="info-icon">📶</div>
           <h4 class="info-title">无线网络</h4>
-          <p class="info-text">网络：<code>SFR-F561</code></p>
+          <p class="info-text">网络名称：<code>SFR-F561</code></p>
           <div class="info-copy-row">
             <code style="flex:1;">fffdhegdbsw5ividff45</code>
             <button class="info-copy-btn" onclick="copyCode(this, 'fffdhegdbsw5ividff45')">复制</button>
@@ -1538,35 +1677,35 @@
         <div class="info-card">
           <div class="info-icon">📺</div>
           <h4 class="info-title">电视</h4>
-          <p class="info-text">SFR TV Android 盒子。使用 <strong>第二个遥控器</strong>（较小的那个）来浏览频道和应用。</p>
+          <p class="info-text">SFR TV Android 盒子。使用 <strong>第二个遥控器</strong>（较小的那个）浏览频道和应用。</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🍳</div>
           <h4 class="info-title">炉灶</h4>
-          <p class="info-text"><strong>触摸式</strong>玻璃陶瓷炉灶。按下按钮调节功率从1到9。儿童锁：长按锁定按钮。</p>
+          <p class="info-text"><strong>触摸式</strong> 玻璃陶瓷炉灶。按下按钮调节功率（1 到 9）。儿童锁：长按锁定按钮。</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🌡️</div>
           <h4 class="info-title">供暖</h4>
-          <p class="info-text">墙壁暖气片。冬季理想温度在19至21°C之间，以节省能源。</p>
+          <p class="info-text">墙壁暖气片。冬季理想温度为 19 至 21°C，以节省能源。</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
           <h4 class="info-title">提供的床上用品</h4>
-          <p class="info-text">床单和毛巾已准备好。<strong>沙发床的床单</strong>位于 <strong>电视右侧的柜子里</strong>。</p>
+          <p class="info-text">床单和毛巾已准备好。<strong>沙发床的床单</strong>在 <strong>电视右侧的柜子</strong> 中。</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛋️</div>
           <h4 class="info-title">沙发床 · 使用说明</h4>
           <a href="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Mode%20emploi%20canape%20lit.png" target="_blank" style="display:block; margin-top:8px;">
-            <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Mode%20emploi%20canape%20lit.png" alt="沙发床说明书" style="width:100%; border-radius:var(--radius-sm); border:1px solid var(--border-soft);">
+            <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Mode%20emploi%20canape%20lit.png" alt="沙发床说明" style="width:100%; border-radius:var(--radius-sm); border:1px solid var(--border-soft);">
           </a>
           <p class="info-text" style="margin-top:8px; font-size:12px;">点击图片放大</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">房屋规则</h4>
-          <p class="info-text">禁止吸烟 · 禁止举办活动 · 晚上10点后保持安静（老建筑）。</p>
+          <p class="info-text"><strong>禁烟</strong> · 禁止举办活动 · 晚上 10 点后保持安静（老建筑）。</p>
         </div>
       </div>
     </details>
@@ -1575,16 +1714,16 @@
     <details class="section reveal" id="poubelles">
       <summary class="section-summary">
         <div class="section-eyebrow">垃圾分类</div>
-        <h2 class="section-title"><em>垃圾</em>处理</h2>
+        <h2 class="section-title"><em>垃圾桶</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
-      <p class="section-intro">为了尊重我们的清洁人员，请在退房时清空您的垃圾。</p>
+      <p class="section-intro">为了尊重我们的清洁人员，请在退房时清空垃圾。</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:center;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
           <h4 class="info-title" style="margin-bottom:2px;">垃圾间</h4>
-          <p class="info-text">位于楼梯下方，在 <strong>内部庭院</strong>。</p>
+          <p class="info-text">在楼梯底部，<strong>内院</strong> 中。</p>
         </div>
       </div>
     </details>
@@ -1593,7 +1732,7 @@
     <details class="section reveal" id="bouger">
       <summary class="section-summary">
         <div class="section-eyebrow">出行</div>
-        <h2 class="section-title">在城市 <em>出行</em></h2>
+        <h2 class="section-title">在城市中 <em>出行</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
 
@@ -1602,35 +1741,35 @@
           <div class="transport-icon">🚊</div>
           <div class="transport-name">公交/电车 Ginko</div>
           <div class="transport-desc">电车站 <strong>Vieil Picard</strong></div>
-          <div class="transport-distance">步行5分钟</div>
+          <div class="transport-distance">步行 5 分钟</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚆</div>
           <div class="transport-name">Viotte 火车站</div>
-          <div class="transport-desc">经由 Battant 街和冰川公园天桥</div>
-          <div class="transport-distance">步行15分钟</div>
+          <div class="transport-desc">沿 Battant 街和冰川公园天桥</div>
+          <div class="transport-distance">步行 15 分钟</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚄</div>
           <div class="transport-name">高铁站</div>
           <div class="transport-desc">从 Viotte 乘坐班车或火车</div>
-          <div class="transport-distance">火车约10分钟</div>
+          <div class="transport-distance">火车约 10 分钟</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚖</div>
           <div class="transport-name">出租车</div>
-          <div class="transport-desc">Uber 不服务贝桑松。出租车电台：03 81 88 80 80，或乘坐高铁站的 VTC。</div>
+          <div class="transport-desc">Uber 不服务贝桑松。电台出租车：03 81 88 80 80，或前往高铁站的 VTC。</div>
         </div>
         <div class="transport-card" style="grid-column: span 2;">
           <div class="transport-icon">🚲</div>
           <div class="transport-name">自行车 · VéloCité</div>
-          <div class="transport-desc">短途自行车租赁服务，或向当地机构租赁日租自行车。免费停车在安全的地下停车位（需要身份证）— 电话 03 81 21 32 60。</div>
+          <div class="transport-desc">短途旅行的自行车共享服务，或向当地机构租赁。安全自行车停放在地下停车场（需要身份证）— 电话 03 81 21 32 60。</div>
         </div>
       </div>
 
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ 停车</div>
-        <div class="reco-tip-text">公寓位于步行街，您无法直接在门口停车。免费停车在 <strong>Robelin</strong>、<strong>Battant</strong> 和 <strong>Cusenier Beaux Arts</strong> 停车场，步行5分钟。卸行李时，行人栅栏有时在上午11点前打开。</div>
+        <div class="reco-tip-text">公寓位于 <strong>步行街区</strong>：门前无停车位。免费停车在 <strong>Robelin</strong>、<strong>Battant</strong> 和 <strong>Cusenier Beaux-Arts</strong> 停车场，步行 5 分钟。卸行李时，行人通道有时在上午 11 点前开放。</div>
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:14px;">
@@ -1640,15 +1779,15 @@
         </a>
         <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
           <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Robelin.png" alt="Robelin 停车场" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Robelin 停车场</strong> · 步行5分钟</div>
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Robelin 停车场</strong> · 步行 5 分钟</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
           <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Battant.png" alt="Battant 停车场" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Battant 停车场</strong> · 步行5分钟</div>
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Battant 停车场</strong> · 步行 5 分钟</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-md); overflow:hidden;">
           <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Cusselier%20Beaux%20Arts.png" alt="Cusenier Beaux Arts 停车场" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
-          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Cusenier Beaux Arts</strong> · 步行7分钟</div>
+          <div style="padding:8px 12px; font-size:12px; color:var(--fg-muted);"><strong style="color:var(--fg);">Cusenier Beaux-Arts</strong> · 步行 7 分钟</div>
         </div>
       </div>
     </details>
@@ -1661,130 +1800,123 @@
         <span class="section-summary-chevron">›</span>
       </summary>
 
-      <div class="recos-toc">
-        <a href="#restos" class="recos-toc-link">🍷 餐厅</a>
-        <a href="#tourisme" class="recos-toc-link">🏛️ 景点</a>
-        <a href="#commerces" class="recos-toc-link">🛒 商店</a>
+      <div class="recos-toc" role="tablist">
+        <a class="recos-toc-link active" href="#recos" onclick="showRecoCat('restos',this);return false;">🍷 餐厅 · 4</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('tourisme',this);return false;">🏛️ 景点 · 6</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('commerces',this);return false;">🛒 商店 · 3</a>
       </div>
 
-      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> 餐厅 <span class="reco-cat-count">· 4家</span></h3>
-
+      <div class="reco-group active" data-cat="restos">
+      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> 餐厅 <span class="reco-cat-count">· 4 家</span></h3>
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Bouillon%20du%20commerce.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">餐厅 · 艺术装饰</span><span class="reco-meta-sep">·</span><span class="reco-distance">700米</span></div>
+            <div class="reco-meta"><span class="reco-cat">酒馆 · 装饰艺术</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 米</span></div>
             <div class="reco-name">Le Bouillon du Commerce</div>
             <span class="reco-tag">我们的最爱</span>
-            <p class="reco-desc">1850年的精美艺术装饰餐厅。仅凭装修就值得一去。建议预订。经典法式小酒馆菜肴，做工精良。</p>
+            <p class="reco-desc">1850 年的华丽装饰艺术餐厅。仅凭装饰就值得一去。建议预订。经典法国小酒馆菜肴，做工精良。</p>
             <a href="https://lebouillonducommerce.fr/" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20saint%20Cerf.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">现代小酒馆</span><span class="reco-meta-sep">·</span><span class="reco-distance">600米</span></div>
+            <div class="reco-meta"><span class="reco-cat">现代小酒馆</span><span class="reco-meta-sep">·</span><span class="reco-distance">600 米</span></div>
             <div class="reco-name">Le Saint Cerf</div>
-            <p class="reco-desc">现代小酒馆，菜单融合亚洲风味。素食选择丰富。位于 Battant 街区的角落。03 81 50 10 20。</p>
+            <p class="reco-desc">现代小酒馆，菜单随季节变化，融合亚洲风味。提供优质素食选项。位于 Battant 街区角落。03 81 50 10 20。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20Parc.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">美食餐厅</span><span class="reco-meta-sep">·</span><span class="reco-distance">1公里</span></div>
+            <div class="reco-meta"><span class="reco-cat">美食餐厅</span><span class="reco-meta-sep">·</span><span class="reco-distance">1 公里</span></div>
             <div class="reco-name">Le Parc</div>
             <p class="reco-desc">主厨 Francesco di Marzio 的美食餐厅。融合菜肴，俯瞰 Micaud 公园和 Doubs 河。精致晚餐的绝佳选择。</p>
             <a href="https://leparcbesancon.com/fr/" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/REstaurant%20l%27affineur%20Comtois.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">弗朗什-孔泰特色菜</span><span class="reco-meta-sep">·</span><span class="reco-distance">400米</span></div>
+            <div class="reco-meta"><span class="reco-cat">弗朗什-孔泰特色菜</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 米</span></div>
             <div class="reco-name">L'Affineur Comtois</div>
-            <p class="reco-desc">弗朗什-孔泰所有奶酪特色菜：cancoillotte、croûte forestière、Comté-Morbier 奶酪火锅、tartiflette。建议预订。</p>
+            <p class="reco-desc">弗朗什-孔泰所有奶酪特色菜：Cancoillotte、森林地壳、Comté-Morbier 奶酪火锅、Tartiflette。建议预订。</p>
             <a href="https://www.restaurant-laffineurcomtois.fr/" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
-
-        <div class="reco-tip">
-          <div class="reco-tip-title">散步建议</div>
-          <div class="reco-tip-text"><strong>Battant</strong> 街区是贝桑松最热闹的街区之一，有许多隐藏的美食地点。大街和革命广场之间的历史中心也有许多小酒馆和餐厅。</div>
-        </div>
+      </div>
+      <div class="reco-tip" style="margin-top:14px;">
+        <div class="reco-tip-title">散步建议</div>
+        <div class="reco-tip-text">公寓所在的 <strong>Battant</strong> 街区是贝桑松最热闹的地方之一，有许多隐藏的地址。中心历史区在 <strong>大街</strong> 和 <strong>革命广场</strong> 之间，也有许多酒吧和酒馆。</div>
+      </div>
       </div>
 
-      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> 景点 <span class="reco-cat-count">· 6个必看</span></h3>
-
+      <div class="reco-group" data-cat="tourisme">
+      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> 景点 <span class="reco-cat-count">· 6 个必看</span></h3>
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20La%20citadelle%20Vauban.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">UNESCO 遗产</span><span class="reco-meta-sep">·</span><span class="reco-distance">2公里</span></div>
+            <div class="reco-meta"><span class="reco-cat">联合国教科文组织遗产</span><span class="reco-meta-sep">·</span><span class="reco-distance">2 公里</span></div>
             <div class="reco-name">城堡</div>
             <span class="reco-tag">必看</span>
-            <p class="reco-desc">Vauban 的杰作，被列入联合国教科文组织世界遗产。欧洲东部最大的城堡，拥有三个博物馆：Comtois、抵抗与驱逐出境、自然博物馆（含水族馆）。</p>
+            <p class="reco-desc">沃邦的杰作，列入联合国教科文组织世界遗产。东欧最大的城堡，拥有三个博物馆：孔泰博物馆、抵抗与驱逐博物馆、自然历史博物馆（含水族馆）。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Le%20musee%20du%20temps.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">博物馆 · 钟表</span><span class="reco-meta-sep">·</span><span class="reco-distance">600米</span></div>
+            <div class="reco-meta"><span class="reco-cat">博物馆 · 钟表</span><span class="reco-meta-sep">·</span><span class="reco-distance">600 米</span></div>
             <div class="reco-name">时间博物馆</div>
             <p class="reco-desc">位于宏伟的 Granvelle 宫（文艺复兴时期）。讲述贝桑松钟表业的历史。城市的必看机构。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20L%27horloge%20astronomique.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">纪念碑 · 机械</span><span class="reco-meta-sep">·</span><span class="reco-distance">1公里</span></div>
+            <div class="reco-meta"><span class="reco-cat">纪念碑 · 机械</span><span class="reco-meta-sep">·</span><span class="reco-distance">1 公里</span></div>
             <div class="reco-name">天文钟</div>
-            <p class="reco-desc">位于圣让大教堂。超过30,000个零件的机械装置，由 Auguste Lucien Vérité 设计（1858-1860）。显示日历、行星运动等。</p>
+            <p class="reco-desc">位于圣让大教堂。拥有 30,000 多个零件的机械装置，由 Auguste Lucien Vérité 设计（1858-1860）。显示日历、行星运动等。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Trousime%20-%20la%20maison%20victor%20Hugo.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">作家故居</span><span class="reco-meta-sep">·</span><span class="reco-distance">1.3公里</span></div>
+            <div class="reco-meta"><span class="reco-cat">作家故居</span><span class="reco-meta-sep">·</span><span class="reco-distance">1.3 公里</span></div>
             <div class="reco-name">雨果故居</div>
-            <p class="reco-desc">维克多·雨果的出生地，位于大街140号。融合当代布景和多媒体元素。感人且精心设计的参观。</p>
+            <p class="reco-desc">雨果的出生地，位于大街 140 号。现代布景融合多媒体元素。参观感人且设计精良。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20Vauban.jpeg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">游船 · Doubs河</span><span class="reco-meta-sep">·</span><span class="reco-distance">1.2公里</span></div>
+            <div class="reco-meta"><span class="reco-cat">河上巡游 · Doubs</span><span class="reco-meta-sep">·</span><span class="reco-distance">1.2 公里</span></div>
             <div class="reco-name">Vauban 船</div>
             <span class="reco-tag">全景视图</span>
-            <p class="reco-desc">Doubs 河上的游船午餐（2小时）或晚餐（2.5小时），有讲解，经过船闸和城堡下的隧道。上层甲板。必须预订。</p>
+            <p class="reco-desc">Doubs 河上的午餐（2 小时）或晚餐（2.5 小时）巡游，配有讲解，经过船闸和城堡下的隧道。上层甲板露台。必须预订。</p>
             <a href="https://www.bateau-besancon.fr/croisieres-repas/" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Musee%20des%20maisons%20comtoises.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">博物馆 · 露天</span><span class="reco-meta-sep">·</span><span class="reco-distance">8公里</span></div>
-            <div class="reco-name">弗朗什-孔泰民居博物馆</div>
-            <p class="reco-desc">Nancray 的露天生态博物馆。通过约30座真实建筑发现传统弗朗什-孔泰住宅。适合半天的自然和遗产之旅。</p>
+            <div class="reco-meta"><span class="reco-cat">博物馆 · 露天</span><span class="reco-meta-sep">·</span><span class="reco-distance">8 公里</span></div>
+            <div class="reco-name">弗朗什-孔泰房屋博物馆</div>
+            <p class="reco-desc">Nancray 的露天生态博物馆。通过 30 多座真实建筑发现弗朗什-孔泰传统住宅。适合半天的自然和遗产之旅。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
       </div>
+      </div>
 
-      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> 周边商店 <span class="reco-cat-count">· 3家</span></h3>
-
+      <div class="reco-group" data-cat="commerces">
+      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> 附近商店 <span class="reco-cat-count">· 3 家</span></h3>
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Superette%20Casino.jpeg" alt="">
@@ -1792,39 +1924,38 @@
             <div class="reco-meta"><span class="reco-cat">有机 · 超市</span><span class="reco-meta-sep">·</span><span class="reco-distance">就在旁边</span></div>
             <div class="reco-name">Biocoop Battant</div>
             <span class="reco-tag">近在咫尺</span>
-            <p class="reco-desc">就在楼旁。有机、新鲜、本地产品。无需走远即可购物。</p>
+            <p class="reco-desc">就在建筑旁边。有机、新鲜、本地产品。无需走远即可购物。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Boulangerie%20Filet.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">面包店 · 糕点店</span><span class="reco-meta-sep">·</span><span class="reco-distance">5分钟</span></div>
-            <div class="reco-name">Battant 街区面包店</div>
+            <div class="reco-meta"><span class="reco-cat">面包店 · 糕点店</span><span class="reco-meta-sep">·</span><span class="reco-distance">5 分钟</span></div>
+            <div class="reco-name">Battant 面包店</div>
             <span class="reco-tag">早餐</span>
-            <p class="reco-desc">街区内多家面包店供早餐选择。面包、糕点和外带咖啡。</p>
+            <p class="reco-desc">街区内有多家面包店供早餐选择。面包、糕点和外带咖啡。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
-
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Pharmacie%20Battant.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">药店</span><span class="reco-meta-sep">·</span><span class="reco-distance">3分钟</span></div>
-            <div class="reco-name">Battant 街区药店</div>
-            <p class="reco-desc">公寓附近有多家药店。紧急情况下，值班服务信息贴在橱窗上。</p>
+            <div class="reco-meta"><span class="reco-cat">药房</span><span class="reco-meta-sep">·</span><span class="reco-distance">3 分钟</span></div>
+            <div class="reco-name">Battant 街区药房</div>
+            <p class="reco-desc">公寓附近有多家药房。如有紧急情况，值班服务信息贴在橱窗上。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
+      </div>
       </div>
     </details>
 
     <!-- DÉPART -->
     <details class="section reveal" id="depart">
       <summary class="section-summary">
-        <div class="section-eyebrow">离开时</div>
-        <h2 class="section-title">离开前 <em>检查</em></h2>
+        <div class="section-eyebrow">退房时</div>
+        <h2 class="section-title">离开前 <em>检查清单</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
 
@@ -1835,15 +1966,15 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">清空冰箱 · 易腐烂食品，谢谢</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">清空冰箱 · 清除易腐烂食物</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">如果有脏碗，启动洗碗机</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">如果有脏盘子，启动洗碗机</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">清空垃圾（见垃圾处理部分）</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">清空垃圾（见垃圾桶部分）</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1851,39 +1982,36 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">将钥匙放回 Igloohome 盒子 · 相同密码</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">将钥匙放回 Igloohome 盒子 · 使用相同密码</div>
         </div>
       </div>
 
-      <div class="checkout-block">
-        <p class="checkout-block-text">一切就绪？点击一下让我们知道您已安全离开。</p>
+      {{upsell_departure_menu}}
+      <div class="ap-upsell ap-bag acc-bag">
+        <div class="ap-upsell-txt"><strong>🧳 退房后需要寄存行李？</strong><br>贝桑松 Nannybag 寄存点，仅需 2.50 欧元/天 — 方便您在乘火车前继续游览城市。</div>
+        <a class="ap-cta" href="https://www.nannybag.com/fr/consigne-bagage/besancon" target="_blank" rel="noopener" style="text-decoration:none">查看寄存点</a>
+      </div>
+
+      <div class="checkout-block" data-checkout-gate="{{checkout_gate_ts}}">
+        <p class="checkout-block-text">一切准备就绪？点击一下让我们知道您已安全离开。</p>
         {{checkout_block}}
       </div>
     </details>
+    </div><!-- /stay-zone -->
 
     <!-- CONTACT -->
     <section class="section reveal">
       <div class="contact-card">
-        <div class="contact-eyebrow">有问题？</div>
-        <h3 class="contact-title">我们随时为您服务</h3>
-        <div class="contact-actions">
-          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
-            💬 WhatsApp 消息
-          </a>
-          <a href="tel:{{host_phone}}" class="contact-btn">
-            📞 致电 · {{host_phone_display}}
-          </a>
-        </div>
+        {{contact_block}}
       </div>
     </section>
 
     <footer>
-      <div class="signature">在贝桑松祝您住宿愉快</div>
+      <div class="signature">贝桑松之旅愉快</div>
       <div>U-citybreak · 里昂 · 贝桑松礼宾服务</div>
     </footer>
 
   </main>
-
 </div>
 
 <div class="toast" id="toast">已复制 ✓</div>
@@ -1897,6 +2025,10 @@
     document.getElementById('lang-menu').classList.remove('open');
   });
 
+  function showRecoCat(cat, el) {
+    document.querySelectorAll('.reco-group').forEach(function(g){ g.classList.toggle('active', g.getAttribute('data-cat') === cat); });
+    document.querySelectorAll('.recos-toc-link').forEach(function(a){ a.classList.toggle('active', a === el); });
+  }
   function copyCode(btn, code) {
     navigator.clipboard.writeText(code).then(() => {
       const orig = btn.textContent;
@@ -1928,10 +2060,99 @@
     btn.addEventListener('click', function() {
       setTimeout(function() {
         btn.classList.add('confirmed');
-        btn.innerHTML = '✓ 离开已确认 · 谢谢！';
+        btn.innerHTML = '✓ 退房已确认 · 感谢！';
       }, 600);
     });
   })();
+
+  // ===== V2 : countdown / copy / flottant arrivée / gate départ =====
+  (function(){
+    var ap=document.getElementById('algopin');
+    function chip(v,u){return '<div class="ap-chip"><b>'+v+'</b><span>'+u+'</span></div>';}
+    function flip(id){
+      var b=document.getElementById(id); if(!b){return;}
+      if(b.getAttribute('data-digicode-gated')==='false'){b.setAttribute('data-state','open');return;}
+      var rv=parseInt(b.getAttribute('data-reveal')||'0',10);
+      if(rv && Date.now()>=rv){b.setAttribute('data-state','open');}
+    }
+    function gatePoubelles(){
+      var g=document.getElementById('accgate');
+      var rev=g?parseInt(g.getAttribute('data-reveal')||'0',10):0;
+      var hide=rev && Date.now()<rev;
+      var sec=document.getElementById('poubelles');
+      var chip2=document.querySelector('.jump-pill[href="#poubelles"]');
+      if(sec) sec.style.display=hide?'none':'';
+      if(chip2) chip2.style.display=hide?'none':'';
+    }
+    function tick(){
+      flip('algopin'); flip('digicode-gate'); flip('accgate');
+      gatePoubelles();
+      var el=document.getElementById('ap-count'); if(!el||!ap){return;}
+      var rev=parseInt(ap.getAttribute('data-reveal')||'0',10);
+      if(!rev){el.innerHTML='';return;}
+      var r=Math.max(0,rev-Date.now())/1000;
+      var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
+      el.innerHTML=(j>0?chip(j,j>1?'天':'天'):'')+chip(('0'+h).slice(-2),'小时')+chip(('0'+mn).slice(-2),'分钟')+(j>0?'':chip(('0'+sc).slice(-2),'秒'));
+    }
+    tick();setInterval(tick,1000);
+
+    // Copier le code : lit la valeur affichée (zéro code en dur)
+    var cp=document.getElementById('ap-copy');
+    if(cp){cp.onclick=function(){
+      var c=document.querySelector('#algopin .ap-code');
+      var code=c?c.textContent.replace(/\s/g,''):'';
+      if(code){try{navigator.clipboard.writeText(code);}catch(e){}}
+      cp.textContent='已复制 ✓';setTimeout(function(){cp.textContent='复制密码';},1800);
+    };}
+
+    // Confirmation arrivée + bouton flottant (uniquement si accès débloqué)
+    var inlineBtn=document.getElementById('arrivalBtn');
+    if(inlineBtn){
+      inlineBtn.addEventListener('click',function(){setTimeout(function(){inlineBtn.classList.add('confirmed');inlineBtn.innerHTML='✓ 到达已确认 · 感谢！';},600);});
+    }
+    var gate=document.getElementById('accgate');
+    var state=gate?(gate.getAttribute('data-state')||'locked'):'locked';
+    if(inlineBtn && state==='open'){
+      var fab=document.createElement('button');fab.className='fab-arrival hide';
+      fab.innerHTML='✓ 通知房东我已到达';
+      document.body.appendChild(fab);
+      var confirmed=false,inlineVisible=false;
+      function syncFab(){fab.classList.toggle('hide',confirmed||inlineVisible);}
+      fab.onclick=function(){confirmed=true;if(inlineBtn){window.open(inlineBtn.href,'_blank');}fab.innerHTML='谢谢，马上见 ✓';setTimeout(syncFab,2200);};
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){inlineVisible=es[0].isIntersecting;syncFab();},{threshold:.2}).observe(inlineBtn.closest('.arrival-block')||inlineBtn);
+      }
+    }
+
+    // Bouton départ gaté à minuit le jour J
+    var cob=document.getElementById('checkoutBtn');
+    if(cob){
+      var cblk=cob.closest('.checkout-block');
+      var cg=cblk?parseInt(cblk.getAttribute('data-checkout-gate')||'0',10):0;
+      if(cg && Date.now()<cg){
+        cob.style.display='none';
+        var note=document.createElement('p');
+        note.className='checkout-block-text';note.style.cssText='font-size:13px;color:#717171;margin:0';
+        note.textContent='此按钮将在您的退房日期激活。';
+        cob.parentNode.insertBefore(note,cob);
+      }
+    }
+  })();
+
+
+  function copyWifi(card, pwd) {
+    navigator.clipboard.writeText(pwd).then(function() {
+      var sub = card.querySelector('.quick-sub');
+      var orig = sub.textContent;
+      card.classList.add('copied');
+      sub.textContent = '密码已复制 ✓';
+      if (typeof showToast === 'function') showToast('密码已复制 ✓');
+      setTimeout(function() {
+        card.classList.remove('copied');
+        sub.textContent = orig;
+      }, 2000);
+    });
+  }
 
 
   (function() {
@@ -1940,7 +2161,7 @@
     btn.addEventListener('click', function() {
       setTimeout(function() {
         btn.classList.add('confirmed');
-        btn.innerHTML = '✓ 入住已确认 · 谢谢！';
+        btn.innerHTML = '✓ 到达已确认 · 感谢！';
       }, 600);
     });
   })();
