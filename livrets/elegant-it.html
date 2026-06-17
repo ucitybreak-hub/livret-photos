@@ -1,38 +1,35 @@
-<!-- BUILT for elegant-it at 2026-05-14T05:00:14.205Z | photos: 4 ok / 0 missing / 0 ext-fixed -->
+<!-- BUILT for elegant-it at 2026-06-17T17:28:00.932Z | UCB theme V2 | photos: 4 ok / 0 missing / 0 ext-fixed -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5efe6">
+<meta name="theme-color" content="#FFFFFF">
 <title>L'Élégant · Il vostro soggiorno</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f5efe6;
-    --bg-card: #fefcf7;
-    --bg-elevated: #ffffff;
-    --fg: #211f1c;
-    --fg-muted: #6b6053;
-    --fg-soft: #9a8d7d;
-    --accent: #b8552d;
-    --accent-soft: #e8c7b3;
-    --accent-deep: #8a3d1d;
-    --accent-light: #fef4eb;
-    --border: #d8cfc0;
-    --border-soft: #ebe3d3;
-    --success: #5a6e3f;
-    --warning: #c8853d;
-    --shadow-sm: 0 1px 2px rgba(33,31,28,0.04), 0 1px 3px rgba(33,31,28,0.06);
-    --shadow-md: 0 4px 6px rgba(33,31,28,0.05), 0 10px 15px rgba(33,31,28,0.08);
-    --shadow-lg: 0 10px 25px rgba(33,31,28,0.10), 0 20px 40px rgba(33,31,28,0.12);
-    --radius-sm: 6px;
+    --bg: #F5F5F4;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #FFFFFF;
+    --fg: #222222;
+    --fg-muted: #717171;
+    --fg-soft: #B0B0B0;
+    --accent: #2D1B4E;
+    --accent-soft: #F0EBF5;
+    --accent-deep: #2D1B4E;
+    --accent-light: #F0EBF5;
+    --border: #DDDDDD;
+    --border-soft: #EBEBEB;
+    --success: #00A67E;
+    --warning: #E8A735;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 1px 2px rgba(0,0,0,.06);
+    --shadow-lg: 0 2px 8px rgba(0,0,0,.08);
+    --radius-sm: 7px;
     --radius-md: 12px;
-    --radius-lg: 20px;
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius-lg: 16px;
+    --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,8 +44,8 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse at top right, rgba(184,85,45,0.04), transparent 60%),
-      radial-gradient(ellipse at bottom left, rgba(90,110,63,0.03), transparent 60%);
+      radial-gradient(ellipse at top right, rgba(45,27,78,0.04), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(45,27,78,0.02), transparent 60%);
     background-attachment: fixed;
   }
 
@@ -71,8 +68,8 @@
     z-index: 50;
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
-    background: rgba(245, 239, 230, 0.85);
-    border-bottom: 1px solid rgba(216, 207, 192, 0.6);
+    background: rgba(255,255,255,0.85);
+    border-bottom: 1px solid var(--border-soft);
   }
   .topbar-inner {
     max-width: 720px;
@@ -153,7 +150,7 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(33,31,28,0) 30%, rgba(33,31,28,0.6) 100%);
+    background: linear-gradient(to bottom, rgba(34,34,34,0) 30%, rgba(34,34,34,0.6) 100%);
     pointer-events: none;
   }
   .hero-content {
@@ -251,7 +248,7 @@
     gap: 4px;
   }
   .quick-card.highlight {
-    background: linear-gradient(135deg, var(--accent-soft) 0%, #f4d4be 100%);
+    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--accent-soft) 100%);
     border-color: var(--accent-soft);
   }
   .quick-label {
@@ -374,7 +371,7 @@
     font-family: var(--font-display);
     font-weight: 500;
     font-size: 16px;
-    box-shadow: 0 2px 8px rgba(184,85,45,0.3);
+    box-shadow: 0 2px 8px rgba(45,27,78,0.22);
     z-index: 2;
     font-variation-settings: "opsz" 24, "SOFT" 30;
   }
@@ -458,12 +455,12 @@
   .codebox-copy:hover { background: var(--accent); transform: translateY(-1px); }
   .codebox-copy.copied { background: var(--success); }
   .codebox-keybox {
-    background: linear-gradient(135deg, #fff8ed 0%, #f9e7d0 100%);
+    background: linear-gradient(135deg, #F0FBF7 0%, #F0FBF7 100%);
     border: 1px solid var(--accent-soft);
     border-style: solid;
   }
   .codebox-keybox.locked {
-    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
+    background: linear-gradient(135deg, #F5F5F4 0%, #F5F5F4 100%);
     border-color: var(--border);
   }
   .codebox-keybox.locked .codebox-value {
@@ -478,7 +475,7 @@
   .step-tip {
     margin-top: 10px;
     padding: 12px 14px;
-    background: rgba(90, 110, 63, 0.08);
+    background: #F0EBF5;
     border-left: 3px solid var(--success);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     font-size: 13px;
@@ -486,7 +483,7 @@
     line-height: 1.5;
   }
   .step-tip strong { color: var(--success); font-weight: 600; }
-  .step-tip.warn { background: rgba(200,133,61,0.1); border-color: var(--warning); }
+  .step-tip.warn { background: rgba(232,167,53,0.12); border-color: var(--warning); }
   .step-tip.warn strong { color: var(--warning); }
 
   .step-button {
@@ -560,7 +557,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: rgba(33,31,28,0.78);
+    background: rgba(34,34,34,0.78);
     color: white;
     backdrop-filter: blur(8px);
     display: flex;
@@ -613,7 +610,7 @@
     left: 0;
     right: 0;
     padding: 6px 8px 5px;
-    background: linear-gradient(to top, rgba(33,31,28,0.85), transparent);
+    background: linear-gradient(to top, rgba(34,34,34,0.85), transparent);
     color: white;
     font-size: 10px;
     font-weight: 500;
@@ -623,8 +620,8 @@
   /* ROOM TILES */
   .rooms {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
     margin-top: 18px;
   }
   @media (min-width: 480px) {
@@ -634,21 +631,21 @@
     background: var(--bg-card);
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-md);
-    padding: 14px 16px;
+    padding: 11px 12px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
   .room-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
     background: var(--accent-light);
     color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 15px;
     flex-shrink: 0;
   }
   .room-name {
@@ -784,6 +781,9 @@
     white-space: nowrap;
   }
   .recos-toc-link:hover { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-soft); }
+  .recos-toc-link.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .reco-group { display: none; }
+  .reco-group.active { display: block; }
 
   .reco-cat-title {
     font-family: var(--font-display);
@@ -904,7 +904,7 @@
   .reco-link:hover { text-decoration: underline; }
 
   .reco-tip {
-    background: rgba(184,85,45,0.06);
+    background: #F0EBF5;
     border: 1px solid var(--accent-soft);
     border-radius: var(--radius-md);
     padding: 14px 16px;
@@ -978,7 +978,7 @@
 
   /* CONTACT */
   .contact-card {
-    background: linear-gradient(135deg, var(--fg) 0%, #383229 100%);
+    background: linear-gradient(135deg, var(--fg) 0%, #222222 100%);
     color: var(--bg);
     border-radius: var(--radius-lg);
     padding: 28px 24px;
@@ -993,7 +993,7 @@
     right: -20%;
     width: 60%;
     height: 200%;
-    background: radial-gradient(circle, rgba(184,85,45,0.25), transparent 70%);
+    background: radial-gradient(circle, rgba(45,27,78,0.18), transparent 70%);
     pointer-events: none;
   }
   .contact-eyebrow {
@@ -1075,8 +1075,8 @@
     transform: translateY(-1px);
   }
   .checkout-btn.confirmed {
-    background: #5a8559;
-    border-color: #5a8559;
+    background: var(--success);
+    border-color: var(--success);
     pointer-events: none;
     cursor: default;
   }
@@ -1174,12 +1174,114 @@
     .reco-img { width: 88px; min-height: 110px; }
   }
 
+  /* ===== UCB overrides (charte V2.1) ===== */
+  body{background:#FFFFFF;background-image:none}
+  body::before{display:none}
+  .brand{color:var(--accent)}
+  .hero-title,.section-title,.quick-value,.codebox-value,.hero-countdown-num{font-weight:600}
+  .hero-sub{font-style:normal}
+  .section-title em{font-style:normal;font-weight:inherit}
+  .quick-card.highlight{background:var(--accent-soft);border-color:var(--border-soft)}
+  .contact-card{background:var(--fg)}
+  .contact-card::before{display:none}
+  .step-tip{background:var(--accent-soft);border-left-color:var(--accent)}
+  .step-tip strong{color:var(--accent)}
+  .step-tip.warn{background:rgba(232,167,53,0.12);border-left-color:var(--warning)}
+  .step-tip.warn strong{color:var(--warning)}
+  .codebox-keybox{background:rgba(0,166,126,0.07);border-color:rgba(0,166,126,0.35)}
+  .codebox-keybox.locked{background:var(--bg);border-color:var(--border)}
+  .section[id], .reco-cat-title[id] { scroll-margin-top: 110px; }
+  .stay-zone { position: relative; }
+  .jumpbar {
+    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: sticky; top: 54px; z-index: 40;
+    margin: 0 0 14px; padding: 10px 0;
+    background: rgba(255,255,255,0.92);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .jumpbar::-webkit-scrollbar { display: none; }
+  .jump-pill {
+    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    border: 1px solid var(--border-soft); white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .jump-pill:hover { background: #E6DEF0; }
+  /* ===== V2 : gate accès + algoPIN + upsell + nannybag + flottant ===== */
+  .ap-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center}
+  .ap-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .ap-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:#2D1B4E}
+  .ap-badge{font-size:10px;background:#FFFFFF;color:#2D1B4E;border-radius:999px;padding:3px 10px;font-weight:600;white-space:nowrap}
+  .ap-dots{font-size:28px;line-height:1.2;letter-spacing:5px;word-spacing:14px;color:#2D1B4E;padding-left:5px;animation:appulse 2.2s ease-in-out infinite;white-space:nowrap}
+  @keyframes appulse{0%,100%{opacity:.35}50%{opacity:.9}}
+  .ap-when{font-size:13px;color:#717171;margin-top:4px}
+  .ap-when strong{color:#222222;font-weight:600}
+  .ap-count{display:flex;justify-content:center;gap:8px;margin-top:12px}
+  .ap-chip{background:#FFFFFF;border-radius:11px;padding:8px 12px;min-width:54px}
+  .ap-chip b{display:block;font-size:20px;font-weight:600;color:#2D1B4E;line-height:1.1}
+  .ap-chip span{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#717171}
+  .ap-sep{height:1px;background:#DDD3EA;margin:16px 0 14px}
+  .ap-upsell{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
+  .ap-upsell-txt{font-size:13px;color:#717171;line-height:1.45}
+  .ap-upsell-txt strong{color:#222222;font-weight:600}
+  .ap-cta{background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:11px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0}
+  .ap-cta:active{transform:scale(.98)}
+  .ap-open{background:#E8F8F1;border:1px solid #BFE9DC;border-radius:16px;padding:20px 18px;text-align:center}
+  .ap-open .ap-label{color:#007A5C}
+  .ap-open .ap-badge{color:#007A5C}
+  .ap-code{font-size:clamp(26px,8.5vw,38px);font-weight:600;letter-spacing:.1em;word-spacing:.22em;color:#007A5C;line-height:1.3;padding-left:.1em;white-space:nowrap}
+  .ap-copy{margin-top:10px;background:#007A5C;color:#fff;border:0;border-radius:999px;padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+  #algopin[data-state="locked"] .ap-open{display:none}
+  #algopin[data-state="open"] .ap-locked{display:none}
+  .ap-under{font-size:11.5px;color:#B0B0B0;text-align:center;margin:8px 0 14px}
+  #accgate .acc-open{display:none}
+  #accgate[data-state="open"] .acc-open{display:block}
+  #accgate[data-state="open"] .acc-locked{display:none}
+  .acc-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center;margin:4px 0 8px}
+  .acc-lk-when{font-size:13px;color:#717171;margin:6px 0 2px}
+  .acc-lk-when strong{color:#222222;font-weight:600}
+  .acc-bag{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:14px;padding:14px 16px;margin:4px 0 16px}
+  @media(max-width:520px){.ap-upsell{flex-direction:column;align-items:stretch;text-align:left}.ap-cta{width:100%}}
+  .arrival-block{margin-top:32px;padding:24px;background:#FFFFFF;border:1px solid #EBEBEB;border-radius:var(--radius-md);text-align:center;box-shadow:none}
+  .arrival-block-text{color:var(--fg-muted);font-size:14px;line-height:1.5;margin-bottom:16px}
+  .arrival-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:#2D1B4E;color:#fff;text-decoration:none;border-radius:var(--radius-md);font-weight:600;font-size:15px;transition:all .18s;border:1px solid #2D1B4E}
+  .arrival-btn:hover{background:#3D2966}
+  .arrival-btn.confirmed{background:#007A5C;border-color:#007A5C;pointer-events:none}
+  .fab-arrival{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:997;background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:14px 24px;font-size:14px;font-weight:600;font-family:var(--font-body);cursor:pointer;box-shadow:0 6px 20px rgba(45,27,78,.3);display:flex;align-items:center;gap:8px;white-space:nowrap;max-width:calc(100vw - 32px)}
+  .fab-arrival:active{transform:translateX(-50%) scale(.98)}
+  .fab-arrival.hide{display:none}
+
+  /* ===== UCB overrides (spec V2 §1 + §7) ===== */
+  body{background:#FFFFFF;background-image:none}
+  body::before{display:none}
+  .hero-title,.section-title,.quick-value,.codebox-value,.hero-countdown-num{font-weight:600}
+  .hero-sub{font-style:normal}
+  .section-title em{font-style:normal;font-weight:inherit}
+  .quick-card.highlight{background:var(--accent-soft);border-color:var(--border-soft)}
+  .contact-card{background:var(--fg)}
+  .contact-card::before{display:none}
+  .step-tip{background:var(--accent-soft);border-left-color:var(--accent)}
+  .step-tip strong{color:var(--accent)}
+  .step-tip.warn{background:rgba(232,167,53,0.12);border-left-color:var(--warning)}
+  .step-tip.warn strong{color:var(--warning)}
+  .codebox-keybox{background:rgba(0,166,126,0.07);border-color:rgba(0,166,126,0.35)}
+  .codebox-keybox.locked{background:var(--bg);border-color:var(--border)}
+  .wifi-card{cursor:pointer;transition:box-shadow .2s ease}
+  .wifi-card.copied{box-shadow:inset 0 0 0 2px var(--success)}
+  .wifi-card.copied .quick-sub{color:var(--success);font-weight:500}
+  .swipe-arrow{display:inline-block;animation:swipeHint 1.6s ease-in-out infinite}
+  @keyframes swipeHint{0%,100%{transform:translateX(0);opacity:.55}50%{transform:translateX(6px);opacity:1}}
+
   .arrival-block {
     margin-top: 32px;
     padding: 24px;
-    background: linear-gradient(135deg, rgba(90,110,63,0.10) 0%, rgba(90,110,63,0.04) 100%);
+    background: var(--bg-card);
     border-radius: var(--radius-md);
-    border: 1px solid rgba(90,110,63,0.25);
+    border: 1px solid var(--border);
     text-align: center;
   }
   .arrival-block-text {
@@ -1191,16 +1293,16 @@
   .arrival-btn {
     display: inline-flex; align-items: center; justify-content: center;
     gap: 10px; padding: 14px 28px;
-    background: var(--success); color: white;
+    background: var(--accent); color: white;
     text-decoration: none; border-radius: var(--radius-md);
     font-weight: 500; font-size: 15px;
-    transition: all 0.18s; border: 1px solid var(--success);
+    transition: all 0.18s; border: 1px solid var(--accent);
   }
-  .arrival-btn:hover { filter: brightness(0.92); transform: translateY(-1px); }
-  .arrival-btn.confirmed { background: #4a5e34; pointer-events: none; }
+  .arrival-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+  .arrival-btn.confirmed { background: var(--success); border-color: var(--success); pointer-events: none; }
   .arrival-block.locked {
-    background: linear-gradient(135deg, #f0ece2 0%, #e7e1d2 100%);
-    border-color: var(--border);
+    background: var(--bg);
+    border-color: var(--border-soft);
   }
   .arrival-block.locked .arrival-block-text {
     font-style: italic;
@@ -1220,7 +1322,7 @@
   details.section > summary.section-summary::-webkit-details-marker { display: none; }
   details.section > summary.section-summary::marker { display: none; }
   details.section > summary.section-summary:hover {
-    background: rgba(184,85,45,0.03);
+    background: rgba(45,27,78,0.03);
   }
   details.section .section-summary-chevron {
     position: absolute;
@@ -1236,7 +1338,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 28px;
     font-weight: 500;
     line-height: 1;
@@ -1299,7 +1401,7 @@
       <h1 class="hero-title">L'Élégant</h1>
       <p class="hero-sub">Sulle alture di Fourvière, Lione</p>
       <div class="hero-divider"></div>
-      <p class="hero-greeting">Buongiorno <strong>{{guest_name}}</strong>, siamo felici di accogliervi.</p>
+      <p class="hero-greeting">Ciao <strong>{{guest_name}}</strong>, siamo felici di accogliervi.</p>
       <div class="hero-countdown">
         {{countdown}}
       </div>
@@ -1325,11 +1427,11 @@
         <div class="quick-value">Fino a 8</div>
         <div class="quick-sub">T4 · 3 camere</div>
       </div>
-      <a href="#pratique" class="quick-card highlight" style="text-decoration:none; color:inherit;">
+      <div class="quick-card highlight wifi-card" role="button" tabindex="0" onclick="copyWifi(this, '5kbz42fhbf6fxh25qjhe')">
         <div class="quick-label">Wifi</div>
         <div class="quick-value">SFR_44E8</div>
-        <div class="quick-sub">Password ↓</div>
-      </a>
+        <div class="quick-sub">Toccare per copiare la password</div>
+      </div>
     </div>
 
     <!-- ARRIVÉE -->
@@ -1346,7 +1448,7 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">Trovare l'indirizzo</h3>
-            <p class="step-text">Arrivate al <strong>44 rue Roger Radisson, 69005 Lione</strong>, condominio « <strong>Le Clos de Fourvière</strong> ». L'edificio si trova all'angolo con rue Pauline Marie Jaricot, <strong>di fronte all'Hotel Fourvière</strong> e accanto al <strong>Parc de la Visitation</strong>.</p>
+            <p class="step-text">Arrivate al <strong>44 rue Roger Radisson, 69005 Lione</strong>, condominio « <strong>Le Clos de Fourvière</strong> ». L'edificio si trova all'angolo di rue Pauline Marie Jaricot, <strong>di fronte all'Hôtel Fourvière</strong> e accanto al <strong>Parc de la Visitation</strong>.</p>
             <a href="https://www.google.com/maps/place/44+Rue+Roger+Radisson,+69005+Lyon/" target="_blank" class="step-button">
               Apri su Maps <span class="arrow">→</span>
             </a>
@@ -1354,6 +1456,20 @@
             <p class="step-photo-caption">La facciata del condominio « Le Clos de Fourvière »</p>
           </div>
         </div>
+
+        <div id="accgate" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
+        <div class="acc-locked">
+          <div class="ap-label" style="display:block;margin-bottom:6px">🔒 Accesso all'alloggio</div>
+          <div class="ap-dots">••• ••• •••</div>
+          <div class="acc-lk-when">I dettagli di accesso (cassetta delle chiavi, codice) appariranno qui <strong>{{checkin_datetime_label}}</strong></div>
+          {{upsell_arrival_menu}}
+          <div class="ap-sep"></div>
+          <div class="ap-upsell ap-bag acc-bag">
+            <div class="ap-upsell-txt"><strong>🧳 Avete bisogno di depositare i bagagli?</strong><br>Depositi sicuri Nannybag disponibili a Lione, da 2,50 €/giorno.</div>
+            <a class="ap-cta" href="https://www.nannybag.com/it/deposito-bagagli/lione" target="_blank" rel="noopener" style="text-decoration:none">Vedi i depositi</a>
+          </div>
+        </div>
+        <div class="acc-open">
 
         <div class="step">
           <div class="step-num">2</div>
@@ -1369,7 +1485,7 @@
           <div class="step-num">3</div>
           <div class="step-content">
             <h3 class="step-title">Aprire la cassetta delle chiavi Igloohome</h3>
-            <p class="step-text">Ecco come appare la cassetta e come usarla :</p>
+            <p class="step-text">Ecco come appare la cassetta e come usarla:</p>
 
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; margin-top:8px;">
               <div>
@@ -1392,10 +1508,22 @@
               <div class="step-substep"><span class="step-substep-num">4</span><span>Tirate il lato per aprire la cassetta e recuperate la chiave</span></div>
             </div>
 
-            <p class="step-text" style="margin-top:14px;">Il vostro codice univoco per questa cassetta :</p>
+            <p class="step-text" style="margin-top:14px;">Il vostro codice univoco per questa cassetta:</p>
 
-            {{smartlock_codebox}}
-            <div class="step-tip warn"><strong>⏰ Per la vostra sicurezza</strong> · Questo codice cambia ad ogni prenotazione e rimane valido per tutta la durata del vostro soggiorno.</div>
+            <div id="algopin" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
+              <div class="ap-locked">
+                <div class="ap-head"><span class="ap-label">🔒 Il vostro codice di accesso</span><span class="ap-badge">Generato per il vostro soggiorno</span></div>
+                <div class="ap-dots">••• ••• •••</div>
+                <div class="ap-when">Apparirà qui <strong>{{checkin_datetime_label}}</strong>, all'ora del vostro check-in</div>
+                <div class="ap-count" id="ap-count"></div>
+              </div>
+              <div class="ap-open">
+                <div class="ap-head"><span class="ap-label">🔓 Codice cassetta</span><span class="ap-badge">Attivo fino alla vostra partenza</span></div>
+                <div class="ap-code">{{algopin_code_grouped}}</div>
+                <button class="ap-copy" id="ap-copy">Copia il codice</button>
+              </div>
+            </div>
+            <p class="ap-under">🔐 Questo codice è specifico per la vostra prenotazione — cambia ad ogni soggiorno.</p>
           </div>
         </div>
 
@@ -1403,9 +1531,18 @@
           <div class="step-num">4</div>
           <div class="step-content">
             <h3 class="step-title">Entrare nell'alloggio</h3>
-            <p class="step-text">Richiudete la cassetta (premete delicatamente il coperchio fino al clic), quindi aprite la porta dell'alloggio con la chiave. <strong>Benvenuti a casa vostra</strong> ✨</p>
+            <p class="step-text">Richiudete la cassetta (premete delicatamente il coperchio fino al clic), quindi aprite la porta dell'alloggio con la chiave. <strong>Benvenuti a L'Élégant</strong> ✨</p>
           </div>
         </div>
+
+        <div class="arrival-block">
+          <p class="arrival-block-text">Siete arrivati? Un piccolo clic ci permette di sapere che tutto è andato bene.</p>
+          <a href="{{arrival_confirm_url}}" class="arrival-btn" target="_blank" rel="noopener" id="arrivalBtn">
+            ✓ Avviso l'host del mio arrivo
+          </a>
+        </div>
+        </div><!--/acc-open-->
+        </div><!--/accgate-->
 
       </div>
 
@@ -1434,14 +1571,14 @@
           <div class="room-icon">🛋️</div>
           <div>
             <div class="room-name">Soggiorno &amp; zona pranzo</div>
-            <div class="room-desc">Piano terra · Divano-letto · TV · Zona pranzo</div>
+            <div class="room-desc">Piano terra · Zona pranzo</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🍳</div>
           <div>
             <div class="room-name">Cucina attrezzata</div>
-            <div class="room-desc">Piastra · Frigorifero · Lavastoviglie · Nespresso</div>
+            <div class="room-desc">Completamente attrezzata</div>
           </div>
         </div>
         <div class="room">
@@ -1452,24 +1589,17 @@
           </div>
         </div>
         <div class="room">
-          <div class="room-icon">🧺</div>
-          <div>
-            <div class="room-name">Lavatrice asciugatrice</div>
-            <div class="room-desc">Beko · armadio d'ingresso</div>
-          </div>
-        </div>
-        <div class="room">
           <div class="room-icon">🪜</div>
           <div>
             <div class="room-name">3 camere al soppalco</div>
-            <div class="room-desc">Terracotta · Blu · Verde (con bagno privato) · Climatizzazione naturale ⛅</div>
+            <div class="room-desc">Terracotta · Blu · Verde (en suite) · Climatizzazione naturale ⛅</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🛁</div>
           <div>
             <div class="room-name">2 bagni</div>
-            <div class="room-desc">Di cui uno con bagno privato (camera verde)</div>
+            <div class="room-desc">Di cui uno en suite (camera verde)</div>
           </div>
         </div>
       </div>
@@ -1482,9 +1612,19 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/szGHpPRMcrxbOgLs0xN4C3JiGC92Ze0AqoP1bsNu.jpg" alt="Camera terracotta"><span class="gallery-caption">Camera terracotta</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/TEv0zmsOs1P6nDrmIM8pEnQmYHsKrDYpd0oVfYCy.jpg" alt="Camera blu"><span class="gallery-caption">Camera blu</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/NNZr7K03xYQVR1bKi82sgevjb2CM3OGExSaiNHWU.jpg" alt="Camera verde"><span class="gallery-caption">Camera verde</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/1DVblB6WKodYWrMcmetgvZTadN0hZGLWf1OHhRTG.jpg" alt="Bagno con vasca"><span class="gallery-caption">Bagno con vasca</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/1DVblB6WKodYWrMcmetgvZTadN0hZGLWf1OHhRTG.jpg" alt="Bagno en suite"><span class="gallery-caption">Bagno en suite</span></div>
       </div>
     </details>
+
+    <!-- ZONE « Pendant votre séjour » — barre flottante sticky -->
+    <div class="stay-zone">
+      <nav class="jumpbar" aria-label="Accesso rapido">
+        <a class="jump-pill" href="#pratique">📶 Wifi &amp; essenziali</a>
+        <a class="jump-pill" href="#poubelles">🗑️ Rifiuti</a>
+        <a class="jump-pill" href="#bouger">🚆 Spostarsi</a>
+        <a class="jump-pill" href="#recos">🗺️ I nostri indirizzi</a>
+        <a class="jump-pill" href="#depart">🚪 Partenza</a>
+      </nav>
 
     <!-- PRATIQUE -->
     <details class="section reveal" id="pratique">
@@ -1498,7 +1638,7 @@
         <div class="info-card">
           <div class="info-icon">📶</div>
           <h4 class="info-title">Wifi</h4>
-          <p class="info-text">Rete : <code>SFR_44E8</code></p>
+          <p class="info-text">Rete: <code>SFR_44E8</code></p>
           <div class="info-copy-row">
             <code style="flex:1;">5kbz42fhbf6fxh25qjhe</code>
             <button class="info-copy-btn" onclick="copyCode(this, '5kbz42fhbf6fxh25qjhe')">Copia</button>
@@ -1507,27 +1647,22 @@
         <div class="info-card">
           <div class="info-icon">📺</div>
           <h4 class="info-title">Televisione</h4>
-          <p class="info-text">TV smart disponibile in soggiorno. Applicazioni di streaming pre-installate.</p>
+          <p class="info-text">TV connessa disponibile in soggiorno. Applicazioni di streaming pre-installate.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🍳</div>
-          <h4 class="info-title">Piastra di cottura</h4>
-          <p class="info-text">Piastra <strong>Howdens</strong>. Per istruzioni dettagliate, consultate : <a href="https://pro.howdens.fr" target="_blank" style="color: var(--accent);">pro.howdens.fr</a></p>
+          <h4 class="info-title">Piano cottura</h4>
+          <p class="info-text">Piano <strong>Howdens</strong>. Per le istruzioni dettagliate, consultate: <a href="https://pro.howdens.fr" target="_blank" style="color: var(--accent);">pro.howdens.fr</a></p>
         </div>
         <div class="info-card">
           <div class="info-icon">🍽️</div>
           <h4 class="info-title">Lavastoviglie</h4>
-          <p class="info-text">Lavastoviglie <strong>Howdens</strong>. Per istruzioni dettagliate : <a href="https://howdens.fr" target="_blank" style="color: var(--accent);">howdens.fr</a></p>
-        </div>
-        <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
-          <div class="info-icon" style="background: var(--warning); color: white;">🌡️</div>
-          <h4 class="info-title">Riscaldamento · importante</h4>
-          <p class="info-text">I radiatori devono essere controllati <strong>esclusivamente dai termostati murali</strong>. ⚠️ Vi preghiamo di <strong>non modificare, spegnere o accendere</strong> il riscaldamento direttamente dai radiatori stessi.</p>
+          <p class="info-text">Lavastoviglie <strong>Howdens</strong>. Per le istruzioni dettagliate: <a href="https://howdens.fr" target="_blank" style="color: var(--accent);">howdens.fr</a></p>
         </div>
         <div class="info-card">
           <div class="info-icon">☕</div>
           <h4 class="info-title">Caffè &amp; bevande calde</h4>
-          <p class="info-text">A vostra disposizione : <strong>macchina Nespresso</strong>, <strong>caffettiera a filtro</strong> e <strong>bollitore</strong>.</p>
+          <p class="info-text">A vostra disposizione: <strong>macchina Nespresso</strong>, <strong>caffettiera a filtro</strong> e <strong>bollitore</strong>.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
@@ -1537,17 +1672,22 @@
         <div class="info-card">
           <div class="info-icon">🧺</div>
           <h4 class="info-title">Lavatrice asciugatrice Beko</h4>
-          <p class="info-text">Situata nell'<strong>armadio d'ingresso</strong>. ⚠️ Il volume di biancheria da asciugare non può essere lo stesso di quello del lavaggio. Istruzioni : <a href="https://www.beko.fr" target="_blank" style="color: var(--accent);">beko.fr</a></p>
+          <p class="info-text">Situata nell'<strong>armadio d'ingresso</strong>. ⚠️ Il volume di biancheria da asciugare non può essere lo stesso di quello del lavaggio. Istruzioni: <a href="https://www.beko.fr" target="_blank" style="color: var(--accent);">beko.fr</a></p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛋️</div>
-          <h4 class="info-title">Divano-letto del soggiorno</h4>
-          <p class="info-text">Il divano del soggiorno si trasforma in <strong>divano-letto</strong>. La biancheria dedicata è riposta nei <strong>piccoli armadi bianchi</strong> situati sotto la seduta opposta al divano.</p>
+          <h4 class="info-title">Divano letto del soggiorno</h4>
+          <p class="info-text">Il divano del soggiorno si trasforma in <strong>divano letto</strong>. La biancheria dedicata è riposta negli <strong>armadi bianchi piccoli</strong> situati sotto la seduta opposta al divano.</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">Regole della casa</h4>
-          <p class="info-text"><strong>Vietato fumare</strong> (sensore CO2 · non staccate la spina · allarme connesso) · niente animali · niente feste · silenzio dopo le 22:00. Rilevatore di decibel installato.</p>
+          <p class="info-text"><strong>Vietato fumare</strong> (sensore CO2 · non staccare · allarme connesso) · niente animali · niente feste · silenzio dopo le 22:00. Rilevatore di decibel installato.</p>
+        </div>
+        <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
+          <div class="info-icon" style="background: var(--warning); color: white;">🌡️</div>
+          <h4 class="info-title">Riscaldamento · importante</h4>
+          <p class="info-text">I radiatori devono essere controllati <strong>esclusivamente dai termostati murali</strong>. ⚠️ Vi preghiamo di <strong>non modificare, spegnere o accendere</strong> il riscaldamento direttamente dai radiatori stessi.</p>
         </div>
       </div>
     </details>
@@ -1559,7 +1699,7 @@
         <h2 class="section-title">I <em>rifiuti</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
-      <p class="section-intro">Per rispetto verso il nostro personale di pulizia, vi preghiamo di svuotare i vostri rifiuti al momento della partenza.</p>
+      <p class="section-intro">Per rispetto del nostro personale di pulizia, vi preghiamo di smaltire i vostri rifiuti al momento della partenza.</p>
 
       <div class="info-card" style="display:flex; gap:14px; align-items:flex-start;">
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
@@ -1571,7 +1711,7 @@
 
       <!-- Vidéo trouve poubelle -->
       <div style="margin-top:18px;">
-        <p style="color:var(--fg-soft); font-size:14px; margin:0 0 12px 0;">🎬 Ecco un video per guidarvi al locale :</p>
+        <p style="color:var(--fg-soft); font-size:14px; margin:0 0 12px 0;">🎬 Ecco un video per guidarvi al locale:</p>
         <a href="https://www.youtube.com/watch?v=1WFbtu08iEs" target="_blank" rel="noopener" aria-label="Guarda il video del percorso verso i rifiuti" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
           <img src="https://img.youtube.com/vi/1WFbtu08iEs/maxresdefault.jpg" alt="Percorso verso il locale rifiuti" loading="lazy" onerror="this.src='https://img.youtube.com/vi/1WFbtu08iEs/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
           <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
@@ -1579,15 +1719,15 @@
           </div>
         </a>
 
-        <div class="step-tip" style="margin-top:12px;"><strong>👀 Nota</strong> · Il video inizia con l'<strong>antica uscita</strong> dell'appartamento, ma il percorso rimane identico. Dall'uscita attuale, prendete semplicemente a <strong>sinistra</strong> per raggiungere il percorso filmato.</div>
+        <div class="step-tip" style="margin-top:12px;"><strong>👀 Nota</strong> · Il video inizia con l'<strong>uscita precedente</strong> dell'appartamento, ma il percorso rimane identico. Dall'uscita attuale, prendete semplicemente a <strong>sinistra</strong> per raggiungere il percorso filmato.</div>
       </div>
     </details>
 
     <!-- BOUGER -->
     <details class="section reveal" id="bouger">
       <summary class="section-summary">
-        <div class="section-eyebrow">Muoversi</div>
-        <h2 class="section-title">Spostarsi <em>in città</em></h2>
+        <div class="section-eyebrow">Spostarsi</div>
+        <h2 class="section-title">Muoversi <em>in città</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
 
@@ -1601,13 +1741,13 @@
         <div class="transport-card">
           <div class="transport-icon">🚞</div>
           <div class="transport-name">Funicolare F1</div>
-          <div class="transport-desc">Stazione Saint-Just · verso la Città Vecchia e Metropolitana D</div>
+          <div class="transport-desc">Stazione Saint-Just · verso la Città Vecchia e Metro D</div>
           <div class="transport-distance">600 m · 7 min a piedi</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚞</div>
           <div class="transport-name">Funicolare F2</div>
-          <div class="transport-desc">Stazione Fourvière · verso la Città Vecchia e Metropolitana D</div>
+          <div class="transport-desc">Stazione Fourvière · verso la Città Vecchia e Metro D</div>
           <div class="transport-distance">600 m · 7 min a piedi</div>
         </div>
         <div class="transport-card">
@@ -1619,29 +1759,24 @@
         <div class="transport-card">
           <div class="transport-icon">🚄</div>
           <div class="transport-name">Stazione Part-Dieu</div>
-          <div class="transport-desc">Metropolitana D + metropolitana B dal funicolare</div>
+          <div class="transport-desc">Metro D + metro B dal funicolare</div>
           <div class="transport-distance">~45 min</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">✈️</div>
           <div class="transport-name">Aeroporto Saint-Exupéry</div>
-          <div class="transport-desc">Rhône Express → Vaulx-en-Velin → metropolitana A → metropolitana D → funicolare. Uber/taxi possibile (durata simile).</div>
+          <div class="transport-desc">Rhône Express → Vaulx-en-Velin → metro A → metro D → funicolare. Uber/taxi possibile (durata simile).</div>
         </div>
       </div>
 
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ Parcheggio</div>
-        <div class="reco-tip-text">Buone notizie : il parcheggio è <strong>molto facile</strong> intorno all'appartamento, il quartiere è tranquillo e residenziale.<br><br>
-        · <strong>Parcheggio gratuito</strong> in strada, spesso disponibile : <strong>rue Roger Radisson</strong>, <strong>rue Jaricot</strong>, <strong>rue du Cardinal Gerlier</strong>, <strong>Montée du Télégraphe</strong>, <strong>Place du 158<sup>e</sup> Régiment d'Infanterie</strong><br>
-        · <strong>Zone a pagamento</strong> nelle vicinanze, poco rigorosamente controllate<br>
+        <div class="reco-tip-text">Buone notizie: il parcheggio è <strong>molto facile</strong> intorno all'appartamento, il quartiere è tranquillo e residenziale.<br><br>
+        · <strong>Parcheggio gratuito</strong> in strada, spesso disponibile: <strong>rue Roger Radisson</strong>, <strong>rue Jaricot</strong>, <strong>rue du Cardinal Gerlier</strong>, <strong>Montée du Télégraphe</strong>, <strong>Place du 158<sup>e</sup> Régiment d'Infanterie</strong><br>
+        · <strong>Zone a pagamento</strong> nelle vicinanze, poco strettamente controllate<br>
         · <strong>Gratuito</strong> nei giorni festivi e nel mese di agosto<br>
-        · <strong>Per scaricare i bagagli</strong> : c'è quasi sempre un posto in rue Roger Radisson, proprio di fronte all'appartamento<br><br>
-        ⚠️ <strong>Eccezione</strong> : durante il festival delle <strong>Nuits de Fourvière</strong> (giugno–luglio), il quartiere diventa molto più frequentato.</div>
-      </div>
-
-      <div class="reco-tip" style="margin-top:12px; background: rgba(90, 110, 63, 0.08); border-color: var(--success);">
-        <div class="reco-tip-title" style="color: var(--success);">🧳 Deposito bagagli</div>
-        <div class="reco-tip-text">Se avete bisogno di immagazzinare i vostri bagagli prima o dopo il vostro soggiorno : <a href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" style="color: var(--accent);">Nannybag</a> offre punti di deposito <strong>in tutta Lione</strong> a partire da 4,50€/giorno. <a href="https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon" target="_blank" style="color: var(--accent);">Altri depositi a Lione</a>.</div>
+        · <strong>Per scaricare i bagagli</strong>: c'è quasi sempre un posto in rue Roger Radisson, proprio di fronte all'appartamento<br><br>
+        ⚠️ <strong>Eccezione</strong>: durante il festival delle <strong>Nuits de Fourvière</strong> (giugno–luglio), il quartiere diventa molto più frequentato.</div>
       </div>
     </details>
 
@@ -1653,23 +1788,24 @@
         <span class="section-summary-chevron">›</span>
       </summary>
 
-      <div class="recos-toc">
-        <a href="#restos" class="recos-toc-link">🍷 Ristoranti</a>
-        <a href="#tourisme" class="recos-toc-link">🏛️ Da visitare</a>
-        <a href="#commerces" class="recos-toc-link">🛒 Negozi</a>
+      <div class="recos-toc" role="tablist">
+        <a class="recos-toc-link active" href="#recos" onclick="showRecoCat('restos',this);return false;">🍷 Ristoranti · 7</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('tourisme',this);return false;">🏛️ Da visitare · 6</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('commerces',this);return false;">🛒 Negozi · 6</a>
       </div>
 
+      <div class="reco-group active" data-cat="restos">
       <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Ristoranti <span class="reco-cat-count">· 7 indirizzi</span></h3>
 
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/hotel-fourviere.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Bistronomia · Hotel</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m</span></div>
-            <div class="reco-name">Hotel Fourvière · Les Téléphones</div>
+            <div class="reco-meta"><span class="reco-cat">Bistronomico · Hotel</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m</span></div>
+            <div class="reco-name">Hôtel Fourvière · Les Téléphones</div>
             <span class="reco-tag">A due passi</span>
             <p class="reco-desc">Il ristorante bistronomico « Les Téléphones » e il bar « Les Collections » dell'hotel Fourvière, proprio accanto all'appartamento. 23 rue Roger Radisson · 04 74 70 07 00.</p>
-            <a href="https://www.fourviere-hotel.com/fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://www.fourviere-hotel.com/fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1680,17 +1816,17 @@
             <div class="reco-name">L'Esprit Bistrot</div>
             <span class="reco-tag">Il nostro preferito</span>
             <p class="reco-desc">Bistrot con terrazza ombreggiata e sala con camino. 20 rue du Cardinal Gerlier · 04 78 36 73 85.</p>
-            <a href="https://www.lespritbistrot.com/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://www.lespritbistrot.com/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/table-st-just.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Cucina di mercato</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Cucina del mercato</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 m</span></div>
             <div class="reco-name">La Table de Saint Just</div>
             <p class="reco-desc">12 rue des Basses Verchères · 04 78 36 06 17.</p>
-            <a href="https://la-table-de-saint-just-lyon.fr/fr" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://la-table-de-saint-just-lyon.fr/fr" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1700,17 +1836,17 @@
             <div class="reco-meta"><span class="reco-cat">Cucina tradizionale</span><span class="reco-meta-sep">·</span><span class="reco-distance">800 m</span></div>
             <div class="reco-name">La Petite Auberge</div>
             <p class="reco-desc">2 place Eugène Wernert · 04 78 25 29 33.</p>
-            <a href="https://lanetiteaubergelyon.fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://lanetiteaubergelyon.fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/chez-grand-mere.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Bouchon lionese (ristorante tradizionale)</span><span class="reco-meta-sep">·</span><span class="reco-distance">800 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Bouchon lionese</span><span class="reco-meta-sep">·</span><span class="reco-distance">800 m</span></div>
             <div class="reco-name">Chez Grand-Mère</div>
             <p class="reco-desc">Bouchon nella Città Vecchia, sulla rue du Bœuf. 11 rue du Bœuf · 09 51 61 35 38.</p>
-            <a href="https://chezgrandmere.fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://chezgrandmere.fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1720,8 +1856,8 @@
             <div class="reco-meta"><span class="reco-cat">Gastronomico · Vista panoramica</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
             <div class="reco-name">Christian Têtedoie</div>
             <span class="reco-tag">Per le grandi occasioni</span>
-            <p class="reco-desc">Ristorante gastronomico con <strong>vista panoramica</strong> su Lione. Per un'opzione più accessibile, il wine bar e tapas <strong>Phosphore</strong> è proprio sotto. Tel : 04 78 29 40 10.</p>
-            <a href="https://tetedoie.fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <p class="reco-desc">Ristorante gastronomico con <strong>vista panoramica</strong> su Lione. Per un'opzione più accessibile, il wine bar e tapas <strong>Phosphore</strong> è proprio sotto. Tel: 04 78 29 40 10.</p>
+            <a href="https://tetedoie.fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1730,17 +1866,19 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Pizza · Da asporto</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Hermosa Pizza</div>
-            <p class="reco-desc">Pizza da asporto, recentemente classificata <strong>3ª miglior pizza di Lione</strong>. Ideale per una serata tranquilla all'appartamento. 09 87 12 05 88.</p>
+            <p class="reco-desc">Pizza da asporto, recentemente classificata <strong>3ª migliore pizza di Lione</strong>. Ideale per una serata tranquilla all'appartamento. 09 87 12 05 88.</p>
             <a href="#" class="reco-link">Vedi sulla mappa →</a>
           </div>
         </div>
 
         <div class="reco-tip">
-          <div class="reco-tip-title">Per passeggiare</div>
-          <div class="reco-tip-text">Il quartiere Saint-Just / Fourvière è tranquillo e residenziale. Per più scelta, scendete nella <strong>Città Vecchia</strong> (10 min a piedi con il funicolare) con i suoi bouchon tradizionali, o raggiungete la <strong>penisola</strong> e la place des Terreaux.</div>
+          <div class="reco-tip-title">Per una passeggiata</div>
+          <div class="reco-tip-text">Il quartiere Saint-Just / Fourvière è tranquillo e residenziale. Per più scelta, scendete nella <strong>Città Vecchia</strong> (10 min a piedi con il funicolare) con i suoi bouchon tradizionali, o raggiungete la <strong>penisola</strong> e la piazza delle Terreaux.</div>
         </div>
       </div>
 
+      </div>
+      <div class="reco-group" data-cat="tourisme">
       <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> Da visitare <span class="reco-cat-count">· 6 imprescindibili</span></h3>
 
       <div class="recos-list">
@@ -1751,7 +1889,7 @@
             <div class="reco-name">Basilica di Fourvière</div>
             <span class="reco-tag">Il nostro preferito</span>
             <p class="reco-desc">Simbolo di Lione. Cripta impressionante e vista panoramica sulla città. Accesso facile dall'appartamento.</p>
-            <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1762,7 +1900,7 @@
             <div class="reco-name">Lugdunum</div>
             <span class="reco-tag">Proprio accanto ⭐</span>
             <p class="reco-desc">Museo e teatri romani. <strong>Accesso gratuito</strong>. Scenografia magnifica per scoprire la storia antica di Lione.</p>
-            <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1772,8 +1910,8 @@
             <div class="reco-meta"><span class="reco-cat">Patrimonio UNESCO</span><span class="reco-meta-sep">·</span><span class="reco-distance">900 m</span></div>
             <div class="reco-name">Città Vecchia</div>
             <span class="reco-tag">Patrimonio UNESCO</span>
-            <p class="reco-desc">Quartiere rinascimentale classificato. Traboule, viuzze acciottolate e bouchon. A 10 minuti a piedi in discesa, o con il funicolare.</p>
-            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Visita il sito →</a>
+            <p class="reco-desc">Quartiere rinascimentale classificato. Traboule, vicoli pavimentati e bouchon. A 10 minuti a piedi in discesa, o con il funicolare.</p>
+            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1781,8 +1919,8 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/terrreaux.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Piazza storica</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,8 km</span></div>
-            <div class="reco-name">Place des Terreaux</div>
-            <p class="reco-desc">Cuore della penisola, celebre per la sua fontana Bartholdi e i suoi caffè in terrazza.</p>
+            <div class="reco-name">Piazza delle Terreaux</div>
+            <p class="reco-desc">Cuore della penisola, celebre per la fontana Bartholdi e i suoi caffè in terrazza.</p>
             <a href="#" class="reco-link">Vedi sulla mappa →</a>
           </div>
         </div>
@@ -1793,8 +1931,8 @@
             <div class="reco-meta"><span class="reco-cat">Passeggiata · Bar · Ristoranti</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
             <div class="reco-name">Le Sponde del Rodano</div>
             <span class="reco-tag">A due passi</span>
-            <p class="reco-desc">Passeggiata di <strong>5 km</strong> lungo il fiume, punteggiata da bar, ristoranti e chiatte. Un minimarket è disponibile (selezione limitata e un po' cara).</p>
-            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/contemporain/les-berges-du-rhone" target="_blank" class="reco-link">Visita il sito →</a>
+            <p class="reco-desc">Passeggiata di <strong>5 km</strong> lungo il fiume, punteggiata da bar, ristoranti e chiatte. Un minimarket è disponibile (selezione limitata e un po' caro).</p>
+            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/contemporain/les-berges-du-rhone" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1804,18 +1942,20 @@
             <div class="reco-meta"><span class="reco-cat">Museo contemporaneo</span><span class="reco-meta-sep">·</span><span class="reco-distance">4 km</span></div>
             <div class="reco-name">Museo delle Confluenze</div>
             <p class="reco-desc">Architettura spettacolare alla confluenza del Rodano e della Saona. Esposizioni di scienze e società.</p>
-            <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
       </div>
 
+      </div>
+      <div class="reco-group" data-cat="commerces">
       <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Negozi di prossimità <span class="reco-cat-count">· 6 indirizzi</span></h3>
 
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/elegant/coci.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Minimarket · Emergenze</span><span class="reco-meta-sep">·</span><span class="reco-distance">250 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Minimarket · Emergenza</span><span class="reco-meta-sep">·</span><span class="reco-distance">250 m</span></div>
             <div class="reco-name">Coccimarket</div>
             <span class="reco-tag">Il più vicino ⭐</span>
             <p class="reco-desc">Rue Pauline Marie Jaricot, a <strong>pochi passi</strong> dall'appartamento. Ideale per la spesa quotidiana e le piccole emergenze.</p>
@@ -1826,7 +1966,7 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/casino.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Supermercato · Emergenze</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
+            <div class="reco-meta"><span class="reco-cat">Supermercato · Emergenza</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
             <div class="reco-name">Le Petit Casino</div>
             <span class="reco-tag">Per la spesa</span>
             <p class="reco-desc">1 rue de la Favorite, 69005 Lione. L'essenziale per la vostra spesa quotidiana.</p>
@@ -1838,10 +1978,10 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/boulangerie-gay.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Panetteria · Pasticceria</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
-            <div class="reco-name">Panetteria Henri Gay</div>
+            <div class="reco-name">Boulangerie Henri Gay</div>
             <span class="reco-tag">Per la mattina</span>
-            <p class="reco-desc">12 rue de la Favorite, 69005 Lione. <strong>Di fronte al Petit Casino</strong>. Filiale della casa Henri Gay di Point du Jour, rinomata per i suoi <strong>croissant premiati</strong>.</p>
-            <a href="https://maison-hgay-lyon.eatbu.com/" target="_blank" class="reco-link">Visita il sito →</a>
+            <p class="reco-desc">12 rue de la Favorite, 69005 Lione. <strong>Di fronte al Petit Casino</strong>. Filiale della casa Henri Gay del Point du Jour, rinomata per i suoi <strong>croissant premiati</strong>.</p>
+            <a href="https://maison-hgay-lyon.eatbu.com/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1851,7 +1991,7 @@
             <div class="reco-meta"><span class="reco-cat">Macelleria · Salumeria</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
             <div class="reco-name">Le Domaine de Limagne</div>
             <p class="reco-desc">8 rue de la Favorite, 69005 Lione. Carni di qualità e salumi fini.</p>
-            <a href="https://www.domaine-de-limagne.com/" target="_blank" class="reco-link">Visita il sito →</a>
+            <a href="https://www.domaine-de-limagne.com/" target="_blank" class="reco-link">Vedi il sito →</a>
           </div>
         </div>
 
@@ -1859,7 +1999,7 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/pharmacie.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Farmacia</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
-            <div class="reco-name">Farmacia di Trion</div>
+            <div class="reco-name">Pharmacie de Trion</div>
             <p class="reco-desc">91 rue de Trion, 69005 Lione. In caso di emergenza, il servizio di guardia è affisso in vetrina.</p>
             <a href="#" class="reco-link">Vedi sulla mappa →</a>
           </div>
@@ -1870,10 +2010,11 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">Pasticceria</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
             <div class="reco-name">Grains de Sucres</div>
-            <p class="reco-desc">45 rue de Trion, 69005 Lione. Per i dolcetti golosi.</p>
+            <p class="reco-desc">45 rue de Trion, 69005 Lione. Per i dolcetti.</p>
             <a href="#" class="reco-link">Vedi sulla mappa →</a>
           </div>
         </div>
+      </div>
       </div>
     </details>
 
@@ -1896,11 +2037,11 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Avviare la lavastoviglie se la stoviglia è sporca</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Avviare la lavastoviglie se i piatti sono sporchi</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Svuotate i vostri rifiuti (vedi la sezione rifiuti)</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Smaltite i vostri rifiuti (vedi la sezione rifiuti)</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -1912,25 +2053,23 @@
         </div>
       </div>
 
-      <div class="checkout-block">
+      {{upsell_departure_menu}}
+      <div class="ap-upsell ap-bag acc-bag">
+        <div class="ap-upsell-txt"><strong>🧳 Bagagli dopo la partenza?</strong><br>Depositi Nannybag a Lione, da 2,50 €/giorno — pratico per godersi la città fino al treno.</div>
+        <a class="ap-cta" href="https://www.nannybag.com/it/deposito-bagagli/lione" target="_blank" rel="noopener" style="text-decoration:none">Vedi i depositi</a>
+      </div>
+
+      <div class="checkout-block" data-checkout-gate="{{checkout_gate_ts}}">
         <p class="checkout-block-text">Tutto pronto? Un piccolo clic ci permette di sapere che siete partiti in tutta sicurezza.</p>
         {{checkout_block}}
       </div>
     </details>
+    </div><!-- /stay-zone -->
 
     <!-- CONTACT -->
     <section class="section reveal">
       <div class="contact-card">
-        <div class="contact-eyebrow">Una domanda ?</div>
-        <h3 class="contact-title">Siamo qui, a qualsiasi ora</h3>
-        <div class="contact-actions">
-          <a href="https://wa.me/{{host_whatsapp_digits}}" class="contact-btn primary">
-            💬 Scrivete su WhatsApp
-          </a>
-          <a href="tel:{{host_phone}}" class="contact-btn">
-            📞 Chiamate · {{host_phone_display}}
-          </a>
-        </div>
+        {{contact_block}}
       </div>
     </section>
 
@@ -1954,6 +2093,10 @@
     document.getElementById('lang-menu').classList.remove('open');
   });
 
+  function showRecoCat(cat, el) {
+    document.querySelectorAll('.reco-group').forEach(function(g){ g.classList.toggle('active', g.getAttribute('data-cat') === cat); });
+    document.querySelectorAll('.recos-toc-link').forEach(function(a){ a.classList.toggle('active', a === el); });
+  }
   function copyCode(btn, code) {
     navigator.clipboard.writeText(code).then(() => {
       const orig = btn.textContent;
@@ -1978,7 +2121,7 @@
     el.classList.toggle('checked');
   }
 
-  // Confirmation visuale dopo clic su il pulsante partenza
+  // Confirmation visuelle après clic sur le bouton départ
   (function() {
     const btn = document.getElementById('checkoutBtn');
     if (!btn) return;
@@ -1989,6 +2132,88 @@
       }, 600);
     });
   })();
+
+  // ===== V2 : countdown / copy / flottant arriv\u00e9e / gate d\u00e9part / poubelles =====
+  (function(){
+    var ap=document.getElementById('algopin');
+    function chip(v,u){return '<div class="ap-chip"><b>'+v+'</b><span>'+u+'</span></div>';}
+    function flip(id){
+      var b=document.getElementById(id); if(!b){return;}
+      var rv=parseInt(b.getAttribute('data-reveal')||'0',10);
+      if(rv && Date.now()>=rv){b.setAttribute('data-state','open');}
+    }
+    function gatePoubelles(){
+      var g=document.getElementById('accgate');
+      var rev=g?parseInt(g.getAttribute('data-reveal')||'0',10):0;
+      var hide=rev && Date.now()<rev;
+      var sec=document.getElementById('poubelles');
+      var chip2=document.querySelector('.jump-pill[href="#poubelles"]');
+      if(sec) sec.style.display=hide?'none':'';
+      if(chip2) chip2.style.display=hide?'none':'';
+    }
+    function tick(){
+      flip('algopin'); flip('accgate');
+      gatePoubelles();
+      var el=document.getElementById('ap-count'); if(!el||!ap){return;}
+      var rev=parseInt(ap.getAttribute('data-reveal')||'0',10);
+      if(!rev){el.innerHTML='';return;}
+      var r=Math.max(0,rev-Date.now())/1000;
+      var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
+      el.innerHTML=(j>0?chip(j,j>1?'giorni':'giorno'):'')+chip(('0'+h).slice(-2),'ore')+chip(('0'+mn).slice(-2),'min')+(j>0?'':chip(('0'+sc).slice(-2),'sec'));
+    }
+    tick();setInterval(tick,1000);
+    var cp=document.getElementById('ap-copy');
+    if(cp){cp.onclick=function(){
+      var c=document.querySelector('#algopin .ap-code');
+      var code=c?c.textContent.replace(/\s/g,''):'';
+      if(code){try{navigator.clipboard.writeText(code);}catch(e){}}
+      cp.textContent='Copiato \u2713';setTimeout(function(){cp.textContent='Copia il codice';},1800);
+    };}
+    var inlineBtn=document.getElementById('arrivalBtn');
+    if(inlineBtn){
+      inlineBtn.addEventListener('click',function(){setTimeout(function(){inlineBtn.classList.add('confirmed');inlineBtn.innerHTML='\u2713 Arrivo confermato \u00b7 grazie !';},600);});
+    }
+    var gate=document.getElementById('accgate');
+    var state=gate?(gate.getAttribute('data-state')||'locked'):'locked';
+    if(inlineBtn && state==='open'){
+      var fab=document.createElement('button');fab.className='fab-arrival hide';
+      fab.innerHTML='\u2713 Avviso l\u2019host del mio arrivo';
+      document.body.appendChild(fab);
+      var confirmed=false,inlineVisible=false;
+      function syncFab(){fab.classList.toggle('hide',confirmed||inlineVisible);}
+      fab.onclick=function(){confirmed=true;if(inlineBtn){window.open(inlineBtn.href,'_blank');}fab.innerHTML='Grazie, a presto \u2713';setTimeout(syncFab,2200);};
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){inlineVisible=es[0].isIntersecting;syncFab();},{threshold:.2}).observe(inlineBtn.closest('.arrival-block')||inlineBtn);
+      }
+    }
+    var cob=document.getElementById('checkoutBtn');
+    if(cob){
+      var cblk=cob.closest('.checkout-block');
+      var cg=cblk?parseInt(cblk.getAttribute('data-checkout-gate')||'0',10):0;
+      if(cg && Date.now()<cg){
+        cob.style.display='none';
+        var note=document.createElement('p');
+        note.className='checkout-block-text';note.style.cssText='font-size:13px;color:#717171;margin:0';
+        note.textContent='Questo pulsante si attiver\u00e0 il giorno della vostra partenza.';
+        cob.parentNode.insertBefore(note,cob);
+      }
+    }
+  })();
+
+
+  function copyWifi(card, pwd) {
+    navigator.clipboard.writeText(pwd).then(function() {
+      var sub = card.querySelector('.quick-sub');
+      var orig = sub.textContent;
+      card.classList.add('copied');
+      sub.textContent = 'Password copiata ✓';
+      if (typeof showToast === 'function') showToast('Password copiata ✓');
+      setTimeout(function() {
+        card.classList.remove('copied');
+        sub.textContent = orig;
+      }, 2000);
+    });
+  }
 
 
   (function() {
@@ -2003,7 +2228,7 @@
   })();
 
 
-  // Auto-deploys a collapsed section when clicking an anchor link
+  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
   (function() {
     function openDetailsForHash(hash) {
       if (!hash || hash === '#') return;
