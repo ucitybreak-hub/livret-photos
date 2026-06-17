@@ -1398,9 +1398,9 @@
     <div class="hero-card reveal">
       <div class="hero-eyebrow">您的住宿</div>
       <h1 class="hero-title">L'Élégant</h1>
-      <p class="hero-sub">位于里昂 Fourvière 高地</p>
+      <p class="hero-sub">里昂 Fourvière 高地</p>
       <div class="hero-divider"></div>
-      <p class="hero-greeting">您好 <strong>{{guest_name}}</strong>，欢迎来到我们的公寓。</p>
+      <p class="hero-greeting">您好 <strong>{{guest_name}}</strong>，欢迎入住。</p>
       <div class="hero-countdown">
         {{countdown}}
       </div>
@@ -1436,7 +1436,7 @@
     <!-- ARRIVÉE -->
     <details class="section reveal" id="arriver">
       <summary class="section-summary">
-        <div class="section-eyebrow">分步指南</div>
+        <div class="section-eyebrow">逐步指南</div>
         <h2 class="section-title">抵达 <em>公寓</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
@@ -1447,7 +1447,7 @@
           <div class="step-num">1</div>
           <div class="step-content">
             <h3 class="step-title">找到地址</h3>
-            <p class="step-text">您将抵达 <strong>44 rue Roger Radisson, 69005 Lyon</strong>，共管公寓名称为「<strong>Le Clos de Fourvière</strong>」。该建筑位于 Pauline Marie Jaricot 街的角落，<strong>在 Fourvière 酒店对面</strong>，<strong>Parc de la Visitation 公园旁边</strong>。</p>
+            <p class="step-text">您将抵达 <strong>44 rue Roger Radisson, 69005 Lyon</strong>，共管公寓名为「<strong>Le Clos de Fourvière</strong>」。该建筑位于 Pauline Marie Jaricot 街角，<strong>对面是 Fourvière 酒店</strong>，<strong>Visitation 公园旁边</strong>。</p>
             <a href="https://www.google.com/maps/place/44+Rue+Roger+Radisson,+69005+Lyon/" target="_blank" class="step-button">
               在地图中打开 <span class="arrow">→</span>
             </a>
@@ -1464,7 +1464,7 @@
           {{upsell_arrival_menu}}
           <div class="ap-sep"></div>
           <div class="ap-upsell ap-bag acc-bag">
-            <div class="ap-upsell-txt"><strong>🧳 需要寄存行李？</strong><br>里昂有 Nannybag 安全行李寄存服务，每天仅需 2.50 欧元起。</div>
+            <div class="ap-upsell-txt"><strong>🧳 需要寄存行李？</strong><br>里昂有 Nannybag 安全行李寄存，仅需 2.50 欧元/天。</div>
             <a class="ap-cta" href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" rel="noopener" style="text-decoration:none">查看寄存点</a>
           </div>
         </div>
@@ -1474,7 +1474,7 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <h3 class="step-title">进入公寓</h3>
-            <p class="step-text">入口是<strong>直接的</strong>——没有楼宇对讲机密码。您可以直接到达公寓门口。</p>
+            <p class="step-text">入口是<strong>直接的</strong>——没有楼宇对讲机。您可以直接到达公寓门。</p>
             <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/elegant/porte-appartement.png" alt="公寓门" style="max-width: 100%;">
             <p class="step-photo-caption">公寓<strong>入口门</strong></p>
           </div>
@@ -1502,27 +1502,27 @@
 
             <div class="step-substeps">
               <div class="step-substep"><span class="step-substep-num">1</span><span>将<strong style="color:var(--fg);">手掌</strong>放在键盘上以唤醒设备</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>输入您的<strong style="color:var(--fg);">4位数字代码</strong>，然后按中间的锁定图标</span></div>
+              <div class="step-substep"><span class="step-substep-num">2</span><span>输入您的<strong style="color:var(--fg);">4位数密码</strong>，然后按中间的锁定图标</span></div>
               <div class="step-substep"><span class="step-substep-num">3</span><span>等待蜂鸣声和打开声</span></div>
               <div class="step-substep"><span class="step-substep-num">4</span><span>向侧面拉动以打开盒子并取出钥匙</span></div>
             </div>
 
-            <p class="step-text" style="margin-top:14px;">您这次住宿的唯一代码：</p>
+            <p class="step-text" style="margin-top:14px;">您此盒的唯一密码：</p>
 
             <div id="algopin" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
               <div class="ap-locked">
-                <div class="ap-head"><span class="ap-label">🔒 您的访问代码</span><span class="ap-badge">为您的住宿生成</span></div>
+                <div class="ap-head"><span class="ap-label">🔒 您的入口密码</span><span class="ap-badge">为您的住宿生成</span></div>
                 <div class="ap-dots">••• ••• •••</div>
-                <div class="ap-when">代码将在 <strong>{{checkin_datetime_label}}</strong>（您的入住时间）显示</div>
+                <div class="ap-when">它将在 <strong>{{checkin_datetime_label}}</strong>（您的入住时间）显示</div>
                 <div class="ap-count" id="ap-count"></div>
               </div>
               <div class="ap-open">
-                <div class="ap-head"><span class="ap-label">🔓 钥匙盒代码</span><span class="ap-badge">在您退房前有效</span></div>
+                <div class="ap-head"><span class="ap-label">🔓 钥匙盒密码</span><span class="ap-badge">在您退房前有效</span></div>
                 <div class="ap-code">{{algopin_code_grouped}}</div>
-                <button class="ap-copy" id="ap-copy">复制代码</button>
+                <button class="ap-copy" id="ap-copy">复制密码</button>
               </div>
             </div>
-            <p class="ap-under">🔐 此代码对您的预订是唯一的——每次住宿都会更改。</p>
+            <p class="ap-under">🔐 此密码对您的预订是唯一的——每次住宿都会更改。</p>
           </div>
         </div>
 
@@ -1530,14 +1530,14 @@
           <div class="step-num">4</div>
           <div class="step-content">
             <h3 class="step-title">进入公寓</h3>
-            <p class="step-text">关上钥匙盒（轻轻按下盖子直到听到咔哒声），然后用钥匙打开公寓门。<strong>欢迎来到 L'Élégant</strong> ✨</p>
+            <p class="step-text">关闭钥匙盒（轻轻按下挡板直到听到咔哒声），然后用钥匙打开公寓门。<strong>欢迎来到 L'Élégant</strong> ✨</p>
           </div>
         </div>
 
         <div class="arrival-block">
-          <p class="arrival-block-text">您已到达？点击一下让我们知道一切顺利。</p>
+          <p class="arrival-block-text">您到了吗？点击一下让我们知道一切顺利。</p>
           <a href="{{arrival_confirm_url}}" class="arrival-btn" target="_blank" rel="noopener" id="arrivalBtn">
-            ✓ 通知房东我已到达
+            ✓ 我通知房东我已到达
           </a>
         </div>
         </div><!--/acc-open-->
@@ -1563,14 +1563,14 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </a>
-      <p style="text-align:center; color:var(--fg-soft); font-size:14px; margin:-18px 0 24px 0;">▶ 虚拟导览 · 视频探索公寓</p>
+      <p style="text-align:center; color:var(--fg-soft); font-size:14px; margin:-18px 0 24px 0;">▶ 虚拟导览 · 视频中发现公寓</p>
 
       <div class="rooms">
         <div class="room">
           <div class="room-icon">🛋️</div>
           <div>
-            <div class="room-name">客厅 &amp; 餐厅</div>
-            <div class="room-desc">一楼 · 餐厅区</div>
+            <div class="room-name">客厅 &amp; 餐区</div>
+            <div class="room-desc">一楼 · 餐区</div>
           </div>
         </div>
         <div class="room">
@@ -1590,15 +1590,15 @@
         <div class="room">
           <div class="room-icon">🪜</div>
           <div>
-            <div class="room-name">3间跃层卧室</div>
-            <div class="room-desc">赤陶色 · 蓝色 · 绿色（套房） · 自然通风空调 ⛅</div>
+            <div class="room-name">3间二楼卧室</div>
+            <div class="room-desc">赤陶色 · 蓝色 · 绿色（套房）· 自然通风 ⛅</div>
           </div>
         </div>
         <div class="room">
           <div class="room-icon">🛁</div>
           <div>
             <div class="room-name">2间浴室</div>
-            <div class="room-desc">其中一间为套房（绿色卧室）</div>
+            <div class="room-desc">其中一间套房（绿色卧室）</div>
           </div>
         </div>
       </div>
@@ -1607,7 +1607,7 @@
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/IsANmPtSfGhFRaWJS5XCiaaBCHm5pFdH8UFSRblg.jpg" alt="客厅"><span class="gallery-caption">客厅</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/IwHMeZropALoYm6c5qMhqj8kHLs5WGe0gM8oNRzg.jpg" alt="客厅景观"><span class="gallery-caption">客厅景观</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/2j2RNAh077he5THCx199kVJB2KUKlkJIvL3Tq4zj.jpg" alt="厨房"><span class="gallery-caption">厨房</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/rshX1O0JTqUUxGCu99QR85rNjExizczLd4RFJI55.jpg" alt="通往跃层的楼梯"><span class="gallery-caption">通往跃层</span></div>
+        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/rshX1O0JTqUUxGCu99QR85rNjExizczLd4RFJI55.jpg" alt="通往二楼的楼梯"><span class="gallery-caption">通往二楼</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/szGHpPRMcrxbOgLs0xN4C3JiGC92Ze0AqoP1bsNu.jpg" alt="赤陶色卧室"><span class="gallery-caption">赤陶色卧室</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/TEv0zmsOs1P6nDrmIM8pEnQmYHsKrDYpd0oVfYCy.jpg" alt="蓝色卧室"><span class="gallery-caption">蓝色卧室</span></div>
         <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076400/NNZr7K03xYQVR1bKi82sgevjb2CM3OGExSaiNHWU.jpg" alt="绿色卧室"><span class="gallery-caption">绿色卧室</span></div>
@@ -1618,7 +1618,7 @@
     <!-- ZONE « Pendant votre séjour » — barre flottante sticky -->
     <div class="stay-zone">
       <nav class="jumpbar" aria-label="快速访问">
-        <a class="jump-pill" href="#pratique">📶 无线网络和必需品</a>
+        <a class="jump-pill" href="#pratique">📶 无线网络 &amp; 必需品</a>
         <a class="jump-pill" href="#poubelles">🗑️ 垃圾</a>
         <a class="jump-pill" href="#bouger">🚆 出行</a>
         <a class="jump-pill" href="#recos">🗺️ 我们的推荐</a>
@@ -1629,7 +1629,7 @@
     <details class="section reveal" id="pratique">
       <summary class="section-summary">
         <div class="section-eyebrow">住宿期间</div>
-        <h2 class="section-title">实用 <em>信息</em></h2>
+        <h2 class="section-title">必需 <em>信息</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
 
@@ -1646,7 +1646,7 @@
         <div class="info-card">
           <div class="info-icon">📺</div>
           <h4 class="info-title">电视</h4>
-          <p class="info-text">客厅有智能电视。预装了流媒体应用程序。</p>
+          <p class="info-text">客厅有智能电视。预装了流媒体应用。</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🍳</div>
@@ -1660,13 +1660,13 @@
         </div>
         <div class="info-card">
           <div class="info-icon">☕</div>
-          <h4 class="info-title">咖啡和热饮</h4>
-          <p class="info-text">为您提供：<strong>Nespresso 咖啡机</strong>、<strong>滴漏咖啡壶</strong>和<strong>电热水壶</strong>。</p>
+          <h4 class="info-title">咖啡 &amp; 热饮</h4>
+          <p class="info-text">为您提供：<strong>Nespresso 咖啡机</strong>、<strong>滴漏咖啡机</strong>和<strong>电热水壶</strong>。</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🛏️</div>
           <h4 class="info-title">提供床上用品</h4>
-          <p class="info-text">所有床位都配备了现成的床单和毛巾。</p>
+          <p class="info-text">所有床的床单和毛巾都已准备好。</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🧺</div>
@@ -1676,17 +1676,17 @@
         <div class="info-card">
           <div class="info-icon">🛋️</div>
           <h4 class="info-title">客厅沙发床</h4>
-          <p class="info-text">客厅的沙发可以变成<strong>沙发床</strong>。专用床上用品存放在沙发对面的<strong>小白色壁橱</strong>中。</p>
+          <p class="info-text">客厅沙发可转换为<strong>沙发床</strong>。专用床上用品存放在<strong>沙发对面座位下的小白柜</strong>中。</p>
         </div>
         <div class="info-card">
           <div class="info-icon">📋</div>
           <h4 class="info-title">房屋规则</h4>
-          <p class="info-text"><strong>禁烟</strong>（CO2 传感器·请勿拔下·警报已连接）· 禁止宠物 · 禁止派对 · 晚上 10 点后保持安静。已安装分贝检测器。</p>
+          <p class="info-text"><strong>禁烟</strong>（CO2 传感器·不要拔掉·连接警报）· 不允许宠物 · 不允许派对 · 晚上10点后保持安静。已安装分贝检测器。</p>
         </div>
         <div class="info-card" style="border-color: var(--warning); background: rgba(200,133,61,0.06);">
           <div class="info-icon" style="background: var(--warning); color: white;">🌡️</div>
           <h4 class="info-title">供暖 · 重要</h4>
-          <p class="info-text">暖气片应<strong>仅通过墙壁恒温器控制</strong>。⚠️ 请<strong>不要直接修改、关闭或打开</strong>暖气片本身。</p>
+          <p class="info-text">散热器应<strong>仅通过墙壁恒温器控制</strong>。⚠️ 请<strong>不要直接修改、关闭或打开</strong>散热器本身的供暖。</p>
         </div>
       </div>
     </details>
@@ -1695,7 +1695,7 @@
     <details class="section reveal" id="poubelles">
       <summary class="section-summary">
         <div class="section-eyebrow">垃圾分类</div>
-        <h2 class="section-title"><em>垃圾</em></h2>
+        <h2 class="section-title"><em>垃圾</em>处理</h2>
         <span class="section-summary-chevron">›</span>
       </summary>
       <p class="section-intro">为了尊重我们的清洁人员，请在退房时清空您的垃圾。</p>
@@ -1704,21 +1704,21 @@
         <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
         <div>
           <h4 class="info-title" style="margin-bottom:6px;">垃圾房</h4>
-          <p class="info-text">您需要<strong>绕过建筑物</strong>才能进入垃圾房。门位于<strong>6 号入口门右侧</strong>。</p>
+          <p class="info-text">您需要<strong>绕过建筑物</strong>才能进入垃圾房。门位于<strong>6号入口门右侧</strong>。</p>
         </div>
       </div>
 
       <!-- Vidéo trouve poubelle -->
       <div style="margin-top:18px;">
         <p style="color:var(--fg-soft); font-size:14px; margin:0 0 12px 0;">🎬 这是一个指导您前往垃圾房的视频：</p>
-        <a href="https://www.youtube.com/watch?v=1WFbtu08iEs" target="_blank" rel="noopener" aria-label="查看通往垃圾房的路线视频" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-          <img src="https://img.youtube.com/vi/1WFbtu08iEs/maxresdefault.jpg" alt="通往垃圾房的路线" loading="lazy" onerror="this.src='https://img.youtube.com/vi/1WFbtu08iEs/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <a href="https://www.youtube.com/watch?v=1WFbtu08iEs" target="_blank" rel="noopener" aria-label="查看垃圾房路线视频" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+          <img src="https://img.youtube.com/vi/1WFbtu08iEs/maxresdefault.jpg" alt="垃圾房路线" loading="lazy" onerror="this.src='https://img.youtube.com/vi/1WFbtu08iEs/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
           <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
           </div>
         </a>
 
-        <div class="step-tip" style="margin-top:12px;"><strong>👀 注意</strong> · 视频以<strong>旧的公寓出口</strong>开始，但路线保持不变。从当前出口，只需向<strong>左转</strong>即可加入拍摄的路线。</div>
+        <div class="step-tip" style="margin-top:12px;"><strong>👀 注意</strong> · 视频开始于<strong>公寓的旧出口</strong>，但路线保持相同。从当前出口，只需向<strong>左边</strong>走即可加入录制的路线。</div>
       </div>
     </details>
 
@@ -1733,68 +1733,68 @@
       <div class="transport-grid">
         <div class="transport-card">
           <div class="transport-icon">🚌</div>
-          <div class="transport-name">公交 90 · Jaricot 站</div>
-          <div class="transport-desc">就在建筑物前面</div>
+          <div class="transport-name">90路公交 · Jaricot 站</div>
+          <div class="transport-desc">就在建筑前面</div>
           <div class="transport-distance">50 米 ⭐</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚞</div>
-          <div class="transport-name">缆车 F1</div>
-          <div class="transport-desc">Saint-Just 站 · 前往老城区和地铁 D 线</div>
-          <div class="transport-distance">600 米 · 步行 7 分钟</div>
+          <div class="transport-name">F1 缆车</div>
+          <div class="transport-desc">Saint-Just 站 · 前往老城和 D 线地铁</div>
+          <div class="transport-distance">600 米 · 步行7分钟</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚞</div>
-          <div class="transport-name">缆车 F2</div>
-          <div class="transport-desc">Fourvière 站 · 前往老城区和地铁 D 线</div>
-          <div class="transport-distance">600 米 · 步行 7 分钟</div>
+          <div class="transport-name">F2 缆车</div>
+          <div class="transport-desc">Fourvière 站 · 前往老城和 D 线地铁</div>
+          <div class="transport-distance">600 米 · 步行7分钟</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚌</div>
           <div class="transport-name">St Alexandre 公交</div>
-          <div class="transport-desc">55 和 C21 线（15 分钟到 Perrache）</div>
+          <div class="transport-desc">55 和 C21 线（15分钟到 Perrache）</div>
           <div class="transport-distance">700 米</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">🚄</div>
           <div class="transport-name">Part-Dieu 火车站</div>
-          <div class="transport-desc">地铁 D + 从缆车站乘坐地铁 B</div>
-          <div class="transport-distance">约 45 分钟</div>
+          <div class="transport-desc">D 线地铁 + 从缆车站出发的 B 线地铁</div>
+          <div class="transport-distance">约45分钟</div>
         </div>
         <div class="transport-card">
           <div class="transport-icon">✈️</div>
           <div class="transport-name">Saint-Exupéry 机场</div>
-          <div class="transport-desc">Rhône Express → Vaulx-en-Velin → 地铁 A → 地铁 D → 缆车。也可乘坐 Uber/出租车（时间相似）。</div>
+          <div class="transport-desc">Rhône Express → Vaulx-en-Velin → A 线地铁 → D 线地铁 → 缆车。也可选择 Uber/出租车（耗时相似）。</div>
         </div>
       </div>
 
       <div class="reco-tip" style="margin-top:18px;">
         <div class="reco-tip-title">🅿️ 停车</div>
-        <div class="reco-tip-text">好消息：公寓周围的停车<strong>非常容易</strong>，该地区安静且居住。<br><br>
-        · <strong>街道免费停车</strong>，通常有空位：<strong>Roger Radisson 街</strong>、<strong>Jaricot 街</strong>、<strong>Cardinal Gerlier 街</strong>、<strong>Montée du Télégraphe</strong>、<strong>158 步兵团广场</strong><br>
-        · 附近<strong>付费停车区</strong>，管理不严格<br>
-        · <strong>假日和八月免费</strong><br>
-        · <strong>卸行李</strong>：Roger Radisson 街上几乎总是有停车位，就在公寓对面<br><br>
-        ⚠️ <strong>例外</strong>：在 <strong>Fourvière 之夜</strong>音乐节期间（6 月-7 月），该地区变得拥挤得多。</div>
+        <div class="reco-tip-text">好消息：公寓周围停车<strong>非常容易</strong>，该地区安静且住宅化。<br><br>
+        · <strong>街道免费停车</strong>，经常有位置：<strong>Roger Radisson 街</strong>、<strong>Jaricot 街</strong>、<strong>Cardinal Gerlier 街</strong>、<strong>Télégraphe 上升</strong>、<strong>158 步兵团广场</strong><br>
+        · 附近<strong>付费区</strong>，管制不严格<br>
+        · 节假日和8月份<strong>免费</strong><br>
+        · <strong>卸载行李</strong>：Roger Radisson 街上几乎总是有位置，就在公寓对面<br><br>
+        ⚠️ <strong>例外</strong>：在<strong>Fourvière 夜间音乐节</strong>期间（6月-7月），该地区变得更加繁忙。</div>
       </div>
     </details>
 
     <!-- RECOS -->
     <details class="section reveal" id="recos">
       <summary class="section-summary">
-        <div class="section-eyebrow">我们的推荐</div>
-        <h2 class="section-title">周围 <em>值得探索</em></h2>
+        <div class="section-eyebrow">我们的最爱</div>
+        <h2 class="section-title">周围 <em>发现</em></h2>
         <span class="section-summary-chevron">›</span>
       </summary>
 
       <div class="recos-toc" role="tablist">
         <a class="recos-toc-link active" href="#recos" onclick="showRecoCat('restos',this);return false;">🍷 餐厅 · 7</a>
-        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('tourisme',this);return false;">🏛️ 景点 · 6</a>
+        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('tourisme',this);return false;">🏛️ 参观 · 6</a>
         <a class="recos-toc-link" href="#recos" onclick="showRecoCat('commerces',this);return false;">🛒 商店 · 6</a>
       </div>
 
       <div class="reco-group active" data-cat="restos">
-      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> 餐厅 <span class="reco-cat-count">· 7 个地址</span></h3>
+      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> 餐厅 <span class="reco-cat-count">· 7个地址</span></h3>
 
       <div class="recos-list">
         <div class="reco">
@@ -1814,7 +1814,7 @@
             <div class="reco-meta"><span class="reco-cat">小酒馆 · 遮阳露台</span><span class="reco-meta-sep">·</span><span class="reco-distance">300 米</span></div>
             <div class="reco-name">L'Esprit Bistrot</div>
             <span class="reco-tag">我们的最爱</span>
-            <p class="reco-desc">小酒馆，有遮阳露台和壁炉房间。20 rue du Cardinal Gerlier · 04 78 36 73 85。</p>
+            <p class="reco-desc">带遮阳露台和壁炉房间的小酒馆。20 rue du Cardinal Gerlier · 04 78 36 73 85。</p>
             <a href="https://www.lespritbistrot.com/" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
@@ -1822,7 +1822,7 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/table-st-just.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">时令菜肴</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 米</span></div>
+            <div class="reco-meta"><span class="reco-cat">时令美食</span><span class="reco-meta-sep">·</span><span class="reco-distance">400 米</span></div>
             <div class="reco-name">La Table de Saint Just</div>
             <p class="reco-desc">12 rue des Basses Verchères · 04 78 36 06 17。</p>
             <a href="https://la-table-de-saint-just-lyon.fr/fr" target="_blank" class="reco-link">查看网站 →</a>
@@ -1842,9 +1842,9 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/chez-grand-mere.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">里昂小酒馆（传统餐厅）</span><span class="reco-meta-sep">·</span><span class="reco-distance">800 米</span></div>
+            <div class="reco-meta"><span class="reco-cat">里昂传统小酒馆</span><span class="reco-meta-sep">·</span><span class="reco-distance">800 米</span></div>
             <div class="reco-name">Chez Grand-Mère</div>
-            <p class="reco-desc">老城区的小酒馆，位于 Bœuf 街。11 rue du Bœuf · 09 51 61 35 38。</p>
+            <p class="reco-desc">老城 Boeuf 街的传统小酒馆。11 rue du Bœuf · 09 51 61 35 38。</p>
             <a href="https://chezgrandmere.fr/" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
@@ -1852,10 +1852,10 @@
         <div class="reco">
           <div style="width:100px; min-height:120px; background:linear-gradient(135deg, var(--accent-soft), var(--accent-light)); display:flex; align-items:center; justify-content:center; font-size:36px;">⭐</div>
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">美食 · 全景景观</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 米</span></div>
+            <div class="reco-meta"><span class="reco-cat">美食 · 全景视图</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 米</span></div>
             <div class="reco-name">Christian Têtedoie</div>
             <span class="reco-tag">特殊场合</span>
-            <p class="reco-desc">美食餐厅，拥有<strong>里昂全景景观</strong>。如需更经济的选择，楼下有葡萄酒吧和小食 <strong>Phosphore</strong>。电话：04 78 29 40 10。</p>
+            <p class="reco-desc">美食餐厅，可欣赏<strong>里昂全景</strong>。如需更经济的选择，楼下有<strong>Phosphore</strong>葡萄酒吧和小食。电话：04 78 29 40 10。</p>
             <a href="https://tetedoie.fr/" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
@@ -1863,31 +1863,31 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Hermosa-pizza.png" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">披萨 · 外带</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 米</span></div>
+            <div class="reco-meta"><span class="reco-cat">披萨 · 外卖</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 米</span></div>
             <div class="reco-name">Hermosa Pizza</div>
-            <p class="reco-desc">外带披萨，最近被评为<strong>里昂第三好披萨</strong>。非常适合在公寓里度过安静的夜晚。09 87 12 05 88。</p>
+            <p class="reco-desc">外卖披萨，最近被评为<strong>里昂第三好披萨</strong>。非常适合在公寓享受安静的晚餐。09 87 12 05 88。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
 
         <div class="reco-tip">
           <div class="reco-tip-title">散步建议</div>
-          <div class="reco-tip-text">Saint-Just / Fourvière 地区安静且居住。如需更多选择，可下到<strong>老城区</strong>（乘缆车 10 分钟）享受传统小酒馆，或前往<strong>半岛</strong>和 Terreaux 广场。</div>
+          <div class="reco-tip-text">Saint-Just / Fourvière 地区安静且住宅化。如需更多选择，可下降到<strong>老城</strong>（缆车步行10分钟），有传统小酒馆，或前往<strong>半岛</strong>和 Terreaux 广场。</div>
         </div>
       </div>
 
       </div>
       <div class="reco-group" data-cat="tourisme">
-      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> 景点 <span class="reco-cat-count">· 6 个必看</span></h3>
+      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> 参观 <span class="reco-cat-count">· 6个必看景点</span></h3>
 
       <div class="recos-list">
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/basilique.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">遗产 · 全景景观</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 米</span></div>
+            <div class="reco-meta"><span class="reco-cat">遗产 · 全景视图</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 米</span></div>
             <div class="reco-name">Fourvière 圣殿</div>
             <span class="reco-tag">我们的最爱</span>
-            <p class="reco-desc">里昂的象征。令人印象深刻的地下室和城市全景景观。从公寓可轻松到达。</p>
+            <p class="reco-desc">里昂的象征。令人印象深刻的地下室和城市全景。从公寓可轻松到达。</p>
             <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
@@ -1895,10 +1895,10 @@
         <div class="reco">
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/lugdunum.jpg" alt="">
           <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">高卢罗马博物馆 · 免费</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 米</span></div>
+            <div class="reco-meta"><span class="reco-cat">罗马博物馆 · 免费</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 米</span></div>
             <div class="reco-name">Lugdunum</div>
-            <span class="reco-tag">近在咫尺 ⭐</span>
-            <p class="reco-desc">博物馆和罗马剧院。<strong>免费入场</strong>。精美的展览设计，了解里昂的古代历史。</p>
+            <span class="reco-tag">就在附近 ⭐</span>
+            <p class="reco-desc">博物馆和罗马剧场。<strong>免费入场</strong>。精美的展览设计，了解里昂的古代历史。</p>
             <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
@@ -1907,9 +1907,9 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">联合国教科文组织遗产</span><span class="reco-meta-sep">·</span><span class="reco-distance">900 米</span></div>
-            <div class="reco-name">老城区</div>
+            <div class="reco-name">老城</div>
             <span class="reco-tag">联合国教科文组织遗产</span>
-            <p class="reco-desc">文艺复兴时期的街区。秘密通道、铺砌的小巷和小酒馆。步行 10 分钟下坡，或乘缆车。</p>
+            <p class="reco-desc">被列为文艺复兴时期的街区。秘密通道、铺砌街道和小酒馆。步行下降10分钟，或乘坐缆车。</p>
             <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
@@ -1930,7 +1930,7 @@
             <div class="reco-meta"><span class="reco-cat">散步 · 酒吧 · 餐厅</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 米</span></div>
             <div class="reco-name">Rhône 河畔</div>
             <span class="reco-tag">近在咫尺</span>
-            <p class="reco-desc"><strong>5 公里</strong>的河滨散步道，点缀着酒吧、餐厅和驳船。那里有一家小超市（选择有限且价格略高）。</p>
+            <p class="reco-desc"><strong>5公里</strong>的河滨散步，点缀着酒吧、餐厅和驳船。还有一家小超市（选择有限且价格略高）。</p>
             <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/contemporain/les-berges-du-rhone" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
@@ -1939,8 +1939,8 @@
           <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-musee-confluence.jpg" alt="">
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">当代博物馆</span><span class="reco-meta-sep">·</span><span class="reco-distance">4 公里</span></div>
-            <div class="reco-name">汇流博物馆</div>
-            <p class="reco-desc">位于 Rhône 和 Saône 河汇流处的壮观建筑。科学和社会展览。</p>
+            <div class="reco-name">Confluences 博物馆</div>
+            <p class="reco-desc">在 Rhône 和 Saône 汇合处的壮观建筑。科学和社会展览。</p>
             <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">查看网站 →</a>
           </div>
         </div>
@@ -1948,7 +1948,7 @@
 
       </div>
       <div class="reco-group" data-cat="commerces">
-      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> 附近商店 <span class="reco-cat-count">· 6 个地址</span></h3>
+      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> 附近商店 <span class="reco-cat-count">· 6个地址</span></h3>
 
       <div class="recos-list">
         <div class="reco">
@@ -1957,7 +1957,7 @@
             <div class="reco-meta"><span class="reco-cat">便利店 · 应急</span><span class="reco-meta-sep">·</span><span class="reco-distance">250 米</span></div>
             <div class="reco-name">Coccimarket</div>
             <span class="reco-tag">最近的 ⭐</span>
-            <p class="reco-desc">位于 Pauline Marie Jaricot 街，<strong>距离公寓仅几步</strong>。非常适合日常购物和应急购物。</p>
+            <p class="reco-desc">Pauline Marie Jaricot 街，<strong>公寓几步之遥</strong>。非常适合日常购物和应急物品。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
@@ -2009,7 +2009,7 @@
           <div class="reco-body">
             <div class="reco-meta"><span class="reco-cat">糕点店</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 米</span></div>
             <div class="reco-name">Grains de Sucres</div>
-            <p class="reco-desc">45 rue de Trion, 69005 Lyon。甜蜜的诱惑。</p>
+            <p class="reco-desc">45 rue de Trion, 69005 Lyon。甜蜜的美食。</p>
             <a href="#" class="reco-link">在地图上查看 →</a>
           </div>
         </div>
@@ -2028,15 +2028,15 @@
       <div class="checklist">
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">收拾个人物品 · 检查抽屉和卧室</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">收集您的个人物品 · 检查抽屉和卧室</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">清空冰箱 · 请清除易腐烂食品</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">清空冰箱 · 易腐烂的食物，谢谢</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">启动洗碗机（如果有脏盘子）</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">如果餐具脏了，启动洗碗机</div>
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
@@ -2048,18 +2048,18 @@
         </div>
         <div class="checklist-item">
           <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">将钥匙放回 Igloohome 钥匙盒 · 使用相同代码</div>
+          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">将钥匙放回 Igloohome 钥匙盒 · 相同密码</div>
         </div>
       </div>
 
       {{upsell_departure_menu}}
       <div class="ap-upsell ap-bag acc-bag">
-        <div class="ap-upsell-txt"><strong>🧳 退房后需要行李寄存？</strong><br>里昂的 Nannybag 寄存点，每天仅需 2.50 欧元起——方便您在乘火车前享受城市。</div>
+        <div class="ap-upsell-txt"><strong>🧳 退房后需要行李寄存？</strong><br>里昂 Nannybag 行李寄存，仅需 2.50 欧元/天——非常适合在乘火车前享受城市。</div>
         <a class="ap-cta" href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" rel="noopener" style="text-decoration:none">查看寄存点</a>
       </div>
 
       <div class="checkout-block" data-checkout-gate="{{checkout_gate_ts}}">
-        <p class="checkout-block-text">一切都准备好了？点击一下让我们知道您已安全离开。</p>
+        <p class="checkout-block-text">一切都准备好了吗？点击一下让我们知道您已安全离开。</p>
         {{checkout_block}}
       </div>
     </details>
@@ -2073,7 +2073,7 @@
     </section>
 
     <footer>
-      <div class="signature">在里昂享受美好时光</div>
+      <div class="signature">在里昂享受愉快的住宿</div>
       <div>U-citybreak · 里昂 · 贝桑松 礼宾服务</div>
     </footer>
 
@@ -2166,21 +2166,21 @@
       var c=document.querySelector('#algopin .ap-code');
       var code=c?c.textContent.replace(/\s/g,''):'';
       if(code){try{navigator.clipboard.writeText(code);}catch(e){}}
-      cp.textContent='已复制 \u2713';setTimeout(function(){cp.textContent='复制代码';},1800);
+      cp.textContent='已复制 \u2713';setTimeout(function(){cp.textContent='复制密码';},1800);
     };}
     var inlineBtn=document.getElementById('arrivalBtn');
     if(inlineBtn){
-      inlineBtn.addEventListener('click',function(){setTimeout(function(){inlineBtn.classList.add('confirmed');inlineBtn.innerHTML='\u2713 \u5230\u8fbe\u5df2\u786e\u8ba4 \u00b7 \u8c22\u8c22\uff01';},600);});
+      inlineBtn.addEventListener('click',function(){setTimeout(function(){inlineBtn.classList.add('confirmed');inlineBtn.innerHTML='\u2713 入住已确认 \u00b7 谢谢！';},600);});
     }
     var gate=document.getElementById('accgate');
     var state=gate?(gate.getAttribute('data-state')||'locked'):'locked';
     if(inlineBtn && state==='open'){
       var fab=document.createElement('button');fab.className='fab-arrival hide';
-      fab.innerHTML='\u2713 \u901a\u77e5\u623f\u4e1c\u6211\u5df2\u5230\u8fbe';
+      fab.innerHTML='\u2713 \u6211\u901a\u77e5\u623f\u4e1c\u6211\u5df2\u5230\u8fbe';
       document.body.appendChild(fab);
       var confirmed=false,inlineVisible=false;
       function syncFab(){fab.classList.toggle('hide',confirmed||inlineVisible);}
-      fab.onclick=function(){confirmed=true;if(inlineBtn){window.open(inlineBtn.href,'_blank');}fab.innerHTML='\u8c22\u8c22\uff0c\u9a6c\u4e0a\u5230 \u2713';setTimeout(syncFab,2200);};
+      fab.onclick=function(){confirmed=true;if(inlineBtn){window.open(inlineBtn.href,'_blank');}fab.innerHTML='\u8c22\u8c22\uff0c\u9a6c\u4e0a\u89c1 \u2713';setTimeout(syncFab,2200);};
       if('IntersectionObserver' in window){
         new IntersectionObserver(function(es){inlineVisible=es[0].isIntersecting;syncFab();},{threshold:.2}).observe(inlineBtn.closest('.arrival-block')||inlineBtn);
       }
@@ -2193,7 +2193,7 @@
         cob.style.display='none';
         var note=document.createElement('p');
         note.className='checkout-block-text';note.style.cssText='font-size:13px;color:#717171;margin:0';
-        note.textContent='\u6b64\u6309\u9881\u5c06\u5728\u60a8\u9000\u623f\u7684\u65e5\u671f\u6fc0\u6d3b\u3002';
+        note.textContent='\u6b64\u6309\u9881\u5c06\u5728\u60a8\u7684\u9000\u623f\u65e5\u671f\u6fc0\u6d3b\u3002';
         cob.parentNode.insertBefore(note,cob);
       }
     }
@@ -2221,7 +2221,7 @@
     btn.addEventListener('click', function() {
       setTimeout(function() {
         btn.classList.add('confirmed');
-        btn.innerHTML = '✓ 到达已确认 · 谢谢！';
+        btn.innerHTML = '✓ 入住已确认 · 谢谢！';
       }, 600);
     });
   })();
