@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-28T09:00:04.919Z",
+  "fetched_at": "2026-06-29T03:00:02.754Z",
   "property_uuid": "3948220a-bb91-4e2e-94ab-3fe2d49e39fe",
   "property_name": "★ Le lodge ★",
   "topics": [
@@ -25,6 +25,15 @@
       "items": [
         {
           "content": "Cooktop manual available at: pro.howdens.fr",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Cancellation & Modification Policy",
+      "items": [
+        {
+          "content": "Guests can cancel or modify their reservation free of charge up to 14 days before arrival; modifications are not permitted within 14 days of the check-in date.",
           "is_edited": false
         }
       ]
