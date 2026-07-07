@@ -1,268 +1,137 @@
 {
-  "fetched_at": "2026-07-07T03:00:02.662Z",
+  "fetched_at": "2026-07-07T09:00:09.602Z",
   "property_uuid": "29b1a9aa-9359-4f13-9af9-e615bb2bafe4",
-  "property_name": "★ L'alcove ★",
+  "property_name": "L'Alcôve",
+  "source": "referentiel-get",
   "topics": [
     {
-      "name": "Access Codes",
+      "name": "Le logement",
       "items": [
         {
-          "content": "The building main doors use a digicode: 3175 (applies to both the first and second door).",
-          "is_edited": false
+          "content": "Nom : L'Alcôve",
+          "is_edited": true
         },
         {
-          "content": "Boîte à clés (située sur la porte du sas) : Pour l’ouvrir : placez la paume de la main sur le clavier pour l’allumer, saisissez le code PIN reçu, appuyez sur le logo cadenas au centre, attendez le bip et le bruit d’ouverture, puis tirez sur le côté pour ouvrir la boîte et récupérer les clés.",
+          "content": "Ville : Lyon",
+          "is_edited": true
+        },
+        {
+          "content": "Adresse : 3 rue Valfrenière, 69001 Lyon",
+          "is_edited": true
+        },
+        {
+          "content": "Capacite / couchages : 2",
+          "is_edited": true
+        },
+        {
+          "content": "Agencement : Appartement de type alcôve. Séjour avec canapé-lit (literie rangée dans l'étagère à droite du canapé, non préparé à l'arrivée pour optimiser l'espace). Cuisine équipée au-dessus de laquelle se trouve un grand placard (fer à repasser). Salle de bain avec sèche-serviettes et lave-linge (prise en haut à gauche du miroir). Deux lits (2 serviettes de bain par lit fournies). Placards dans le salon : deux grandes portes réservées aux produits ménagers.",
           "is_edited": true
         }
       ]
     },
     {
-      "name": "Appliances",
+      "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Washing machine: plug into the socket located at the top left of the mirror in the bathroom.",
-          "is_edited": false
+          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée dès 10h00 possible moyennant un supplément de 50 €, ou dépôt de bagages avant 17h00 si l'appartement est prêt et qu'aucun départ n'est prévu ce jour-là (sinon : Nannybag ou commerces locaux).",
+          "is_edited": true
         },
         {
-          "content": "Iron: located above the kitchen, in the large closet.",
-          "is_edited": false
+          "content": "Heure de depart (check-out) : 11h00. Départ tardif possible jusqu'à 12h30 ou 15h00 selon le planning ménage, à confirmer avec l'hôte.",
+          "is_edited": true
         },
         {
-          "content": "Coffee maker: a filter coffee machine is provided; no pod or capsule machine.",
-          "is_edited": false
-        },
-        {
-          "content": "Hair dryer and other small appliances are available as listed in the property amenities.",
-          "is_edited": false
+          "content": "Instructions d'arrivee : Adresse : 3 rue de la Valfenière, 69001 Lyon (https://www.google.com/maps/place/3+Rue+de+la+Valfeni%C3%A8re.+69001+Lyon/@45.7663816,4.8298122,17z/chl=fr&entry=ttu&g_ep=EgoyMDI1MDQwNy4wIKXMDSoASAFQAw%3D%3D). Vidéo d'accès : https://youtu.be/DwveCH4FSWo — Visite virtuelle : https://youtu.be/Ed_4ON2EUmc\n\nDepuis les Terreaux : rue Paul Chenavard puis rue Major Martin (angle café des Fédérations).\nDepuis la rue de la Plâtrière : à l'angle du Franprix Marché Presqu'île.\n\nBoîte à clés : située sur la porte du sas. Pour l'ouvrir : poser la paume sur le clavier pour l'allumer → saisir le code PIN reçu → appuyer sur le logo cadenas au centre → attendre le bip et le bruit d'ouverture → tirer sur le côté pour récupérer les clés. Au départ, remettre les clés dans la boîte à clés si l'hôte n'est pas présent.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Arrival",
+      "name": "Wifi & connexion",
       "items": [
         {
-          "content": "If you wish to arrive earlier or drop off luggage before 17:00, it may be possible if the apartment is cleaned and no guests check out that day; otherwise you can use Nannybag or local shops to store luggage.",
-          "is_edited": false
+          "content": "Reseau Wifi (SSID) : SFR_7CFF",
+          "is_edited": true
         },
         {
-          "content": "Adresse : 3 rue de la Valfenière 69001 Lyon. Google Maps : https://www.google.com/maps/place/3+Rue+de+la+Valfeni%C3%A8re.+69001+Lyon/@45.7663816,4.8298122,17z/chl=fr&entry=ttu&g_ep=EgoyMDI1MDQwNy4wIKXMDSoASAFQAw%3D%3D",
-          "is_edited": false
+          "content": "Mot de passe Wifi : h85xkgpudi4xfri279rb",
+          "is_edited": true
         },
         {
-          "content": "Indications depuis les Terreaux : accès par la rue Paul Chenavard et la rue Major Martin (angle café des Fédérations).",
-          "is_edited": false
-        },
-        {
-          "content": "Indications par la rue de la Plâtrière : à l'angle du Franprix Marché Presqu'île.",
-          "is_edited": false
-        },
-        {
-          "content": "Vidéo d’accès : https://youtu.be/DwveCH4FSWo\nVisite virtuelle : https://youtu.be/Ed_4ON2EUmc",
-          "is_edited": false
-        },
-        {
-          "content": "Guests can pay a 50 € surcharge to check in at 10:00.",
-          "is_edited": false
+          "content": "Box internet : Box SFR. Wi-Fi : SFR_7CFF — Mot de passe : h85xkgpudi4xfri279rb.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Cleaning & Maintenance",
+      "name": "Equipements & confort",
       "items": [
         {
-          "content": "If anything is broken or not working (e.g., shower head, light switch, sofa cover smell), please inform the host immediately so replacements or repairs can be arranged.",
-          "is_edited": false
+          "content": "Chauffage : Sèche-serviettes dans la salle de bain : peut avoir un verrouillage sécurité enfant actif — contacter l'hôte s'il ne s'allume pas.",
+          "is_edited": true
+        },
+        {
+          "content": "Climatisation : non",
+          "is_edited": true
+        },
+        {
+          "content": "TV / streaming : Box Android SFR TV — utiliser la deuxième télécommande.",
+          "is_edited": true
+        },
+        {
+          "content": "Electromenager : • Lave-linge : brancher sur la prise en haut à gauche du miroir dans la salle de bain.\n• Fer à repasser : rangé au-dessus de la cuisine, dans le grand placard.\n• Cafetière : machine à café filtre (pas de dosettes/capsules).\n• Sèche-cheveux et autres petits appareils disponibles (voir liste des équipements).",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Departure",
+      "name": "Stationnement & transports",
       "items": [
         {
-          "content": "Standard check-out time is 11:00; please leave the keys in the lockbox if you depart when the host is not present.",
-          "is_edited": false
+          "content": "Parking : Centre-ville largement piétonnier, stationnement en voirie difficile. Parkings souterrains LPA à proximité : Terreaux (payant), Saint-Antoine, Cordelier (un peu plus loin). Forfaits multi-jours et week-end (vendredi–lundi) possibles.",
+          "is_edited": true
         },
         {
-          "content": "Late check-out may be possible on a case-by-case basis if there are no incoming guests; the host may extend departure up to 12:30 or later (e.g., 15:00) subject to cleaning schedule.",
-          "is_edited": false
-        },
-        {
-          "content": "You can keep luggage in the apartment until your agreed departure time if allowed; please confirm with the host in advance.",
-          "is_edited": false
-        },
-        {
-          "content": "Par respect pour notre personnel de ménage, évacuez vos poubelles lors de votre départ.",
-          "is_edited": false
+          "content": "Transports : • Métro A – Hôtel de Ville : https://www.google.com/maps/place/H%C3%B4tel+de+Ville+L.+Pradel/@45.7674876,4.8311844,16z/data=!3m1!4b1&hl=fr&entry=ttu&g_ep=EgoyMDI1MDQwNy4wIKXMDSoASAFQAw%3D%3D\n• Bus – arrêt Terreaux La Feuillée (lignes C3, C13, C14, C18, 19, S6, S12, PL1) : https://www.google.com/maps/place/10+Rue+Constantine.+69001+Lyon/@45.7668036,4.8265301,16z/data=!3m1!4b1&hl=fr&entry=ttu&g_ep=EgoyMDI1MDQwNy4wIKXMDSoASAFQAw%3D%3D\n• Trains : 25 min depuis Gare de la Part-Dieu (métro B puis A), 15 min depuis Perrache (métro A).\n• Aéroport : Rhônexpress → Vaulx-en-Velin La Soie → métro A Hôtel de Ville ; ou bus C200 ; ou Uber/taxi (~45 min).",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Furniture & Storage",
+      "name": "Regles du logement",
       "items": [
         {
-          "content": "The two large doors in the living room cabinets are used to store cleaning products and are not for guest use.",
-          "is_edited": false
+          "content": "Animaux : non",
+          "is_edited": true
+        },
+        {
+          "content": "Fumeur : non",
+          "is_edited": true
+        },
+        {
+          "content": "Fetes : non",
+          "is_edited": true
+        },
+        {
+          "content": "Regles specifiques : Séjour minimum de 2 nuits consécutives (1 nuit possible exceptionnellement avec accord de l'hôte). Les annulations tardives ne sont pas remboursables. Les deux grandes portes des placards du salon sont réservées aux produits ménagers (non accessibles aux voyageurs). Confirmer à l'avance toute demande de conservation des bagages après l'heure de départ.",
+          "is_edited": true
+        },
+        {
+          "content": "Regles de l'immeuble : Par respect pour le personnel de ménage, évacuer les poubelles au départ.",
+          "is_edited": true
+        },
+        {
+          "content": "Poubelles / tri : Poubelles situées en bas de l'escalier en colimaçon. Merci d'évacuer vos poubelles au moment du départ.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Heating & Cooling",
+      "name": "Recommandations & quartier",
       "items": [
         {
-          "content": "The heated towel rail in the bathroom may have a child-lock safety; the host can unlock it if it does not turn on.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Linens & Towels",
-      "items": [
-        {
-          "content": "There are two bath towels provided per bed in the apartment.",
-          "is_edited": false
-        },
-        {
-          "content": "Sofa bed linens (duvet and pillow) are located in the shelf to the right of the sofa; the sofa bed is not made on arrival to allow more space.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Parking",
-      "items": [
-        {
-          "content": "The city center is largely pedestrianized; street parking is complicated.",
-          "is_edited": false
-        },
-        {
-          "content": "Nearby underground LPA parking options include Terreaux (paid), Saint-Antoine, and Cordelier (a bit more distant); multi-day and weekend packages (Friday–Monday) may be available.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Reservation Policy",
-      "items": [
-        {
-          "content": "The property requires a minimum stay of two consecutive nights, although the host can exceptionally approve a single-night booking.",
-          "is_edited": false
-        },
-        {
-          "content": "The host does not offer additional price reductions beyond the existing discounted rate.",
-          "is_edited": false
-        },
-        {
-          "content": "Cancellations made shortly before arrival are not refundable because it’s too late for the host to rebook the apartment.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Things to do & see nearby",
-      "items": [
-        {
-          "content": "Restaurants – Café des Fédérations : https://www.google.com/maps/place/Le+Caf%C3%A9+des+F%C3%A9d%C3%A9rations – élu meilleur bouchon authentique 2019-2020, cuisine lyonnaise midi et soir (même le dimanche), à 50 m de l’appartement.",
-          "is_edited": false
-        },
-        {
-          "content": "Restaurants – Les Muses de l’Opéra : https://www.google.com/maps/place/Les+Muses/@45.7678691,4.8337917,17z – terrasse panoramique au 7e étage de l’Opéra avec vue sur Fourvière.",
-          "is_edited": false
-        },
-        {
-          "content": "Restaurants – Léon de Lyon : https://www.google.com/maps/place/Restaurant+L%C3%A9on+de+Lyon/@45.7659365,4.8327822,20z – ouvert du mercredi au dimanche, cadre chaleureux et cuisine soignée.",
-          "is_edited": false
-        },
-        {
-          "content": "Streets à restaurants : rue Mercière, rue de l’Arbre-Sec, rue des Marronniers, Vieux Lyon (partie piétonne).",
-          "is_edited": false
-        },
-        {
-          "content": "Tourisme – Lugdunum (musée et théâtres romains) : https://www.google.com/maps/place/LUGDUNUM+-+Mus%C3%A9e+%26+Th%C3%A9%C3%A2tres+roma – musée archéologique et amphithéâtres (accès gratuit). Site : https://lugdunum.grandlyon.com/fr/",
-          "is_edited": false
-        },
-        {
-          "content": "Tourisme – Basilique Notre-Dame de Fourvière : https://www.google.com/maps/place/Basilique+Notre-Dame+de+Fourvi%C3%A8re/@45.7608674,4.8209979,1 – visitez la crypte et le belvédère. Site : https://www.fourviere.org/fr/",
-          "is_edited": false
-        },
-        {
-          "content": "Tourisme – Vieux Lyon : https://www.google.com/maps/place/Vieux+Lyon,+6900 – quartier Renaissance classé UNESCO, accessible par montée du Gourguillon ou funiculaire. Site : https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon",
-          "is_edited": false
-        },
-        {
-          "content": "Tourisme – Place des Terreaux : https://www.google.com/maps/place/Pl.+des+Terreaux.+69001+Lyon/@45.7673014,4.831165,17z – fontaine Bartholdi au centre.",
-          "is_edited": false
-        },
-        {
-          "content": "Tourisme – Musée des Confluences : https://www.google.com/maps/place/Mus%C3%A9e+des+Confluences – expositions d’anthropologie et de sciences. Site : https://museedesconfluences.fr/fr",
-          "is_edited": false
-        },
-        {
-          "content": "Tourisme – Les Berges du Rhône : https://www.google.com/maps/place/Festival+Entre+Rh%C3%A9ne – promenade de 5 km le long du Rhône (bars, péniches, restaurants, pelouses).",
-          "is_edited": false
-        },
-        {
-          "content": "Commerces – Franprix Marché Presqu’île : https://www.google.com/maps/place/Franprix/@45.7661 – produits frais et supermarché traditionnel.",
-          "is_edited": false
-        },
-        {
-          "content": "Commerces – Carrefour Market : https://www.google.com/maps/place/Carrefour+Express – courses d’appoint.",
-          "is_edited": false
-        },
-        {
-          "content": "Commerces – Boulangerie Pomponette : https://www.google.com/maps/place/Franprix/@45.7661 – variété de pains, boulangerie la plus proche.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Transportation to/from property",
-      "items": [
-        {
-          "content": "Métro A / Hôtel de Ville : https://www.google.com/maps/place/H%C3%B4tel+de+Ville+L.+Pradel/@45.7674876,4.8311844,16z/data=!3m1!4b1&hl=fr&entry=ttu&g_ep=EgoyMDI1MDQwNy4wIKXMDSoASAFQAw%3D%3D – à xx m de l’appartement",
-          "is_edited": false
-        },
-        {
-          "content": "Bus – arrêt Terreaux La Feuillée (lignes C3, C13, C14, C18, 19, S6, S12, PL1) : https://www.google.com/maps/place/10+Rue+Constantine.+69001+Lyon/@45.7668036,4.8265301,16z/data=!3m1!4b1&hl=fr&entry=ttu&g_ep=EgoyMDI1MDQwNy4wIKXMDSoASAFQAw%3D%3D – à xx m de l’appartement",
-          "is_edited": false
-        },
-        {
-          "content": "Trains : 25 minutes depuis la Gare de la Part-Dieu (métro B puis A), 15 minutes depuis Perrache (métro A)",
-          "is_edited": false
-        },
-        {
-          "content": "Aéroport :\n• Rhônexpress jusqu’à Vaulx-en-Velin La Soie, puis métro A jusqu’à Hôtel de Ville\n• Ligne de bus C200\n• Uber ou taxi (trajet d’environ 45 minutes)",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Trash/recycling",
-      "items": [
-        {
-          "content": "Local poubelles : en bas de l’escalier en colimaçon.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "TV & Streaming",
-      "items": [
-        {
-          "content": "Utilisez la box Android SFR TV avec la deuxième télécommande.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Wifi/internet",
-      "items": [
-        {
-          "content": "Réseau Wi-Fi : SFR_7CFF",
-          "is_edited": false
-        },
-        {
-          "content": "Mot de passe : h85xkgpudi4xfri279rb",
-          "is_edited": false
+          "content": "**Restaurants**\n• Café des Fédérations (à ~50 m) – meilleur bouchon lyonnais 2019-2020, midi et soir y compris dimanche : https://www.google.com/maps/place/Le+Caf%C3%A9+des+F%C3%A9d%C3%A9rations\n• Les Muses de l'Opéra – terrasse panoramique 7e étage de l'Opéra, vue sur Fourvière : https://www.google.com/maps/place/Les+Muses/@45.7678691,4.8337917,17z\n• Léon de Lyon – mer. au dim., cuisine soignée : https://www.google.com/maps/place/Restaurant+L%C3%A9on+de+Lyon/@45.7659365,4.8327822,20z\n• Rues à restaurants : rue Mercière, rue de l'Arbre-Sec, rue des Marronniers, Vieux Lyon (partie piétonne).\n\n**À visiter**\n• Place des Terreaux – fontaine Bartholdi : https://www.google.com/maps/place/Pl.+des+Terreaux.+69001+Lyon/@45.7673014,4.831165,17z\n• Vieux Lyon – quartier Renaissance classé UNESCO, accès montée du Gourguillon ou funiculaire : https://www.google.com/maps/place/Vieux+Lyon,+6900 — https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon\n• Basilique Notre-Dame de Fourvière – crypte et belvédère : https://www.google.com/maps/place/Basilique+Notre-Dame+de+Fourvi%C3%A8re/@45.7608674,4.8209979,1 — https://www.fourviere.org/fr/\n• Lugdunum – musée archéologique et amphithéâtres romains (accès gratuit) : https://www.google.com/maps/place/LUGDUNUM+-+Mus%C3%A9e+%26+Th%C3%A9%C3%A2tres+roma — https://lugdunum.grandlyon.com/fr/\n• Musée des Confluences – anthropologie et sciences : https://www.google.com/maps/place/Mus%C3%A9e+des+Confluences — https://museedesconfluences.fr/fr\n• Berges du Rhône – promenade 5 km, bars, péniches, restaurants, pelouses : https://www.google.com/maps/place/Festival+Entre+Rh%C3%A9ne\n\n**Commerces**\n• Franprix Marché Presqu'île – supermarché, produits frais : https://www.google.com/maps/place/Franprix/@45.7661\n• Carrefour Market – courses d'appoint : https://www.google.com/maps/place/Carrefour+Express\n• Boulangerie Pomponette – la plus proche, large choix de pains : https://www.google.com/maps/place/Franprix/@45.7661",
+          "is_edited": true
         }
       ]
     }
