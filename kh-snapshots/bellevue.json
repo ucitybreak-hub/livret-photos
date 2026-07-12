@@ -1,136 +1,176 @@
 {
-  "fetched_at": "2026-07-11T09:00:08.545Z",
+  "fetched_at": "2026-07-12T03:00:03.158Z",
   "property_uuid": "ec859cd9-8eac-44a3-afe4-0013b9ea393d",
-  "property_name": "Bellevue",
-  "source": "referentiel-get",
+  "property_name": "★Le Bellevue ★",
   "topics": [
     {
-      "name": "Le logement",
+      "name": "Access codes",
       "items": [
         {
-          "content": "Nom : Bellevue",
+          "content": "Lockbox instructions: To retrieve the keys, find the lockbox labeled “L. Bellevue” in the mailbox to the left of the gate upon entering. Enter code 8848 to open. Do not forget to close the lockbox before leaving.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Amenities",
+      "items": [
+        {
+          "content": "Baby equipment:\n- Lit parapluie and high chair are available.\n- The travel crib is stored in the storage bed chest in the street-facing bedroom or sometimes behind the couch near the plant.\n- Mattress covers are provided with the crib.",
           "is_edited": true
         },
         {
-          "content": "Ville : Besançon",
-          "is_edited": true
+          "content": "Kitchen consumables and equipment:\n- Nespresso capsule machine and filter coffee maker provided; initial capsules and tea supplied for the first night.\n- Two rolls of toilet paper and dishwasher tablets provided for the first stay.\n- No dish rack; guests are expected to use the dishwasher for drying dishes.",
+          "is_edited": false
         },
         {
-          "content": "Adresse : 2 avenue Marechal Foch, 25000 Besançon",
-          "is_edited": true
+          "content": "Other provided items:\n- Shower gel, shampoo, and soap.\n- Hair dryer, iron, and ironing board.\n- Cleaning products and drying rack for clothing.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Appliances",
+      "items": [
+        {
+          "content": "Washer-dryer: Whirlpool xx model. The washing machine has a drying function; the separate tumble dryer sometimes runs post-cleaning and stops automatically after about 1 h 30 min. If the dryer is running on arrival, guests can leave clothes inside; it will shut off on its own.",
+          "is_edited": false
         },
         {
-          "content": "Capacite / couchages : 3",
-          "is_edited": true
+          "content": "Dishwasher:\n- Dishwasher tablets are provided; guests should load and operate the machine as usual.",
+          "is_edited": false
         },
         {
-          "content": "Agencement : Appartement avec au moins deux chambres. Chambre côté rue : lit avec coffre de rangement (le lit parapluie y est parfois stocké) ; box internet à côté de la table de chevet ; TV Samsung Smart. Salon : canapé (lit parapluie parfois rangé derrière, près de la plante) ; TV TNT. Cuisine équipée (plaque Ikea, lave-vaisselle Ikea, Nespresso, cafetière filtre). Salle de bain avec douche. Équipements bébé disponibles : lit parapluie + chaise haute.",
+          "content": "Shower drain maintenance:\n- If the shower drains slowly, a drain-unblocking product is available under the kitchen sink or in the cabinet next to the couch (PassPass code 1973).\n- Apply the product according to its instructions when needed.",
+          "is_edited": false
+        },
+        {
+          "content": "Electric cooktop: Ikea brand.",
+          "is_edited": false
+        },
+        {
+          "content": "Dishwasher: Ikea brand.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Arrival",
+      "items": [
+        {
+          "content": "Check-in times:\n- Standard check-in time: 17:00.\n- Early check-in may be possible (typically around 14:00–15:00) if the apartment is available and cleaned; subject to the cleaner’s schedule.\n- Late check-in (even around midnight) is fine as the process is autonomous.",
+          "is_edited": false
+        },
+        {
+          "content": "Location: The property is located at 2 avenue Maréchal Foch, 25000 Besançon, in the Parc des Glacis opposite the train station. Entry is through a green gate marked with the number 2 on the post, secured by a digicode. puis prendre l'escalier rouge à gauche",
           "is_edited": true
         }
       ]
     },
     {
-      "name": "Arrivee & depart",
+      "name": "Departure",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : 17h00 (standard). Arrivée anticipée possible vers 14h-15h selon disponibilité et planning du ménage. Arrivée tardive (jusqu'à minuit) possible, le processus est autonome.",
+          "content": "Check-out deadlines:\n- Standard check-out time: 11:00.\n- Late check-out requests (e.g., 12:00 or later) depend on cleaner availability; guests should request  in advance.",
           "is_edited": true
         },
         {
-          "content": "Heure de depart (check-out) : 11h00 (standard). Départ tardif (12h ou plus) possible selon disponibilité du prestataire ménage — à demander à l'avance.",
-          "is_edited": true
-        },
-        {
-          "content": "Instructions d'arrivee : Adresse : 2 avenue Maréchal Foch, 25000 Besançon (Parc des Glacis, en face de la gare). Entrer par le portail vert marqué du numéro 2, sécurisé par un digicode. Prendre ensuite l'escalier rouge à gauche jusqu'au premier étage, puis entrer par la première porte à gauche. La boîte à clés est située dans la boîte aux lettres à gauche du portail en entrant ; elle est étiquetée « L. Bellevue ». Entrer le code pour l'ouvrir et récupérer les clés. Ne pas oublier de refermer la boîte à clés après usage. Au départ : remettre les clés dans la même boîte à clés (à gauche de l'entrée principale), s'assurer que le couvercle est bien fermé, sortir les poubelles.",
-          "is_edited": true
+          "content": "Upon arrival: enter through the green gate (digicode 24097), then climb the red external stairs up to the first floor and enter through the first door on the left. Upon departure: return the keys to the same key box (left of the main entrance door), ensure the lid is securely closed before leaving, take out the trash, and you may depart at any time.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Wifi & connexion",
+      "name": "Heating & Cooling",
       "items": [
         {
-          "content": "Reseau Wifi (SSID) : SFR_F9C0",
-          "is_edited": true
+          "content": "Central heating:\n- Radiators are controlled by the building’s central system; individual radiator valves are absent in some rooms (e.g., bathroom).\n- The bathroom radiator may remain hot until the central heating season ends; valve installation requires system shutdown and purging.",
+          "is_edited": false
         },
         {
-          "content": "Mot de passe Wifi : thdu7uam96nush8enb82",
-          "is_edited": true
-        },
-        {
-          "content": "Box internet : Box SFR située dans la chambre côté rue, à côté de la table de chevet. En cas de problème : débrancher/rebrancher ou appuyer sur le bouton d'alimentation à l'arrière. Vérifier que le disjoncteur n'a pas sauté. Appuyer sur le bouton Wi-Fi de la box et vérifier les voyants. Si le problème persiste, contacter l'hôte.",
-          "is_edited": true
+          "content": "Cooling and ventilation:\n- Guests can lower roller shutters and use a plastic adapter to block heat in summer.\n- Portable fans and a mobile air conditioner are available for guest use.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Equipements & confort",
+      "name": "Parking",
       "items": [
         {
-          "content": "Chauffage : Chauffage central collectif de l'immeuble ; les radiateurs sont régulés par le système central (pas de vannes individuelles dans certaines pièces, dont la salle de bain). Le radiateur de la salle de bain peut rester chaud jusqu'à la fin de la saison de chauffe. En été : volets roulants à abaisser + adaptateur plastique fourni pour bloquer la chaleur. Ventilateurs portables et climatiseur mobile disponibles.",
-          "is_edited": true
-        },
-        {
-          "content": "Climatisation : non",
-          "is_edited": true
-        },
-        {
-          "content": "TV / streaming : Salon : TV avec chaînes TNT françaises. Chambre : Smart TV Samsung avec Molotov TV (chaînes françaises), Netflix, myCanal pré-installés (utiliser ses propres identifiants). AirPlay (iPhone) et Chromecast (Android) supportés.",
-          "is_edited": true
-        },
-        {
-          "content": "Electromenager : Lave-linge séchant Whirlpool (fonction séchage intégrée). Sèche-linge séparé (peut tourner en fin de ménage, s'arrête automatiquement après ~1h30 — laisser le linge à l'intérieur si en marche à l'arrivée). Plaque de cuisson électrique Ikea. Lave-vaisselle Ikea (tablettes fournies). Machine à café Nespresso à capsules + cafetière filtre (capsules et thé fournis pour la première nuit). Sèche-cheveux, fer à repasser et planche à repasser disponibles. En cas d'écoulement lent de la douche : produit débouchant disponible sous l'évier de cuisine ou dans le meuble à côté du canapé.",
-          "is_edited": true
+          "content": "Remparts parking: Free parking areas around the old town at the foot of the ramparts.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Stationnement & transports",
+      "name": "Rules & Regulations",
       "items": [
         {
-          "content": "Parking : Stationnement payant en voirie devant l'immeuble (contrôle fréquent) — possible pour décharger les bagages avant de déplacer le véhicule. Parking gratuit « Battant » à 200 m (plus de 1 000 places) : tourner à droite au rond-point devant la résidence. Le stationnement payant en voirie est gratuit le dimanche. Parkings gratuits autour de la vieille ville au pied des remparts.",
-          "is_edited": true
+          "content": "House rules:\n- No smoking anywhere inside the property.\n- No parties or events are allowed.\n- A decibel detector connected to an alarm and a camera on the landing monitor noise levels.\n- Please respect neighbors and observe quiet hours after 22:00; excessive noise and frequent comings and goings are prohibited.\n- Do not attempt to disconnect or tamper with the CO₂ sensor; it is connected to an alarm if moved.\n- No pets allowed, to protect future guests with allergies.\n- The host issues warnings if neighbor complaints arise.",
+          "is_edited": false
         },
         {
-          "content": "Transports : La gare Viotte (Besançon) est à 150 m à pied. Navette train depuis Gare Viotte vers la gare TGV en ~10 min. Trams T1 et T2 + bus Ginko à 100 m devant la gare. Paiement par carte possible à bord sans ticket préalable. Application : www.ginko.voyage. Vélos : Vélocité (libre-service) ou location journalière en agence ; parkings souterrains avec consigne vélo sécurisée gratuite (pièce d'identité requise) — Tél. 03 81 21 32 60. Taxi : Uber non disponible à Besançon. Taxis Radio : 03 81 88 80 80.",
-          "is_edited": true
+          "content": "Number of guests: Only the guests listed on the reservation are permitted. To add anyone, please regularize the reservation promptly.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Regles du logement",
+      "name": "Things to Do & See Nearby",
       "items": [
         {
-          "content": "Animaux : non",
-          "is_edited": true
+          "content": "Restaurants:\n• Samouraï Sushis – next to the apartment, view of the park.\n• Grande Pizzeria – opposite the station.\n• Le Bouillon du Commerce (700 m) – Art Déco restaurant from 1850; reservation recommended. Google Maps: Le Bouillon du Commerce · 31 Rue des Granges, 25000 Besançon. Website: https://lebouillonducommerce.fr/\n• Le Saint Cerf (600 m) – Contemporary bistro with seasonal, vegetarian options. Google Maps: Le Saint Cerf · 1 Rue Megevand, 25000 Besançon. Tel: 03 81 50 10 20.\n• L’Affineur Comtois (400 m) – Fromage specialties: cancoillotte, fondue, tartiflette. Google Maps: L'Affineur Comtois · 82 Rue Battant, 25000 Besançon. Website: https://www.restaurant-laffineurcomtois.fr/ Tel: +33 3 81 61 47 29.\n• Loiseau du Temps (500 m) – Burgundy-Franche-Comté terroir in a historic building. Google Maps: Loiseau du Temps · 27 Rue des Boucheries, 25000 Besançon. Website: https://www.bernard-loiseau.com/fr/loiseaudutemps.html\n• Le Vauban (1 200 m) – Lunch or dinner cruise on the Doubs with commentary. Website: https://www.bateau-besancon.fr/croisieres-repas/\n• Le Parc (1 000 m) – Gastronomic table overlooking Parc Micaud. Website: https://leparcbesancon.com/fr/\n• La Petite Adresse – Budget-friendly: franc-comtoises specialties and lasagnes, vintage décor. Google Maps: La Petite Adresse · 28 Rue Claude Pouillet, 25000 Besançon. Tel: 03 81 82 35 09.\n• La Grange – Authentic French cuisine: cheese fondue, parfait and chardonnay recommended. Google Maps: La Grange · 17 Av. Elisée Cusenier, 25000 Besançon. Website: https://www.lagrange-restaurant.fr/",
+          "is_edited": false
         },
         {
-          "content": "Fumeur : non",
-          "is_edited": true
-        },
-        {
-          "content": "Fetes : non",
-          "is_edited": true
-        },
-        {
-          "content": "Regles specifiques : Non-fumeur : interdit de fumer à l'intérieur. Animaux de compagnie interdits (protection des futurs voyageurs allergiques). Fêtes et événements interdits. Bruit : respecter la tranquillité des voisins et observer les heures calmes après 22h00 ; nuisances sonores excessives et allées-venues fréquentes prohibées. Un détecteur de décibels relié à une alarme et une caméra sur le palier surveillent le niveau sonore. Ne pas tenter de déconnecter ou manipuler le capteur CO₂ (relié à une alarme en cas de déplacement). Nombre de personnes : seuls les voyageurs figurant sur la réservation sont autorisés ; toute personne supplémentaire doit faire l'objet d'une régularisation de la réservation.",
-          "is_edited": true
-        },
-        {
-          "content": "Regles de l'immeuble : Accès par portail vert digicode. Escalier rouge extérieur commun. Caméra sur le palier. Respect des voisins obligatoire ; l'hôte transmet les plaintes éventuelles.",
-          "is_edited": true
-        },
-        {
-          "content": "Poubelles / tri : Sortir les poubelles au départ (consigne explicite dans les instructions de départ).",
-          "is_edited": true
+          "content": "Attractions:\n• La Citadelle de Besançon – Vauban masterpiece, UNESCO World Heritage site; largest citadel in Europe/East.\n• Musée Comtois – Exhibits Comtois heritage and identity.\n• Musée de la Résistance et de la Déportation – Reopened 8 September 2023 after renovation.\n• Muséum – Biodiversity museum with zoo, aquarium, insectarium, noctarium and small farm.\n• Le musée du Temps (600 m) – Located in Palais Granvelle, traces Besançon’s horological history. Google Maps: Museum Of Times · 96 Grande Rue, 25000 Besançon.\n• Horloge astronomique (1 000 m) – 19th-century astronomical clock in St-Jean Cathedral. Google Maps: Astronomical clock · Rue du Chapitre, 25000 Besançon.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Recommandations & quartier",
+      "name": "Transportation",
       "items": [
         {
-          "content": "**Restaurants**\n• Samouraï Sushis – juste à côté de l'appartement, vue sur le parc\n• Grande Pizzeria – en face de la gare\n• Le Bouillon du Commerce (700 m) – restaurant Art Déco de 1850, réservation recommandée | 31 Rue des Granges, 25000 Besançon | https://lebouillonducommerce.fr/\n• Le Saint Cerf (600 m) – bistrot contemporain, options végétariennes | 1 Rue Megevand, 25000 Besançon | Tél. 03 81 50 10 20\n• L'Affineur Comtois (400 m) – spécialités fromagères (cancoillotte, fondue, tartiflette) | 82 Rue Battant, 25000 Besançon | Tél. +33 3 81 61 47 29 | https://www.restaurant-laffineurcomtois.fr/\n• Loiseau du Temps (500 m) – terroir Bourgogne-Franche-Comté dans un bâtiment historique | 27 Rue des Boucheries, 25000 Besançon | https://www.bernard-loiseau.com/fr/loiseaudutemps.html\n• Le Vauban (1 200 m) – croisière déjeuner/dîner commentée sur le Doubs | https://www.bateau-besancon.fr/croisieres-repas/\n• Le Parc (1 000 m) – table gastronomique avec vue sur le Parc Micaud | https://leparcbesancon.com/fr/\n• La Petite Adresse – spécialités comtoises et lasagnes, décor vintage, petits prix | 28 Rue Claude Pouillet, 25000 Besançon | Tél. 03 81 82 35 09\n• La Grange – cuisine française authentique (fondue, parfait, chardonnay) | 17 Av. Elisée Cusenier, 25000 Besançon | https://www.lagrange-restaurant.fr/\n\n**À visiter**\n• La Citadelle de Besançon – chef-d'œuvre Vauban, classé UNESCO\n• Musée Comtois – patrimoine et identité comtoise\n• Musée de la Résistance et de la Déportation – rouvert le 8 septembre 2023\n• Muséum – biodiversité, zoo, aquarium, insectarium, noctarium, mini-ferme\n• Musée du Temps (600 m) – histoire horlogère de Besançon, Palais Granvelle | 96 Grande Rue, 25000 Besançon\n• Horloge astronomique (1 000 m) – XIXe siècle, cathédrale Saint-Jean | Rue du Chapitre, 25000 Besançon",
+          "content": "Street and free parking:\n- Paid street parking is available in front of the building next to the train station, with frequent enforcement; guests may unload at the building before moving their car to free public parking “Battant.”\n- Free public parking “Battant” is 200 m away with over 1 000 spaces; turn right at the roundabout in front of the apartment complex.\n- Paid street parking is free on Sundays.",
+          "is_edited": false
+        },
+        {
+          "content": "Public transport:\n- The apartment faces the train station (Gare Viotte), a 150 m walk away.\n- A shuttle train runs from Gare Viotte to the TGV station in about 10 minutes.\n- Ginko operates buses, trams and vélos (bike-share).\n- Tram lines T1 and T2 and Ginko buses stop 100 m in front of the station.\n- Use the Ginko app (www.ginko.voyage) to plan trips.\n- You can pay by card on board without needing a prior ticket for single journeys.",
+          "is_edited": false
+        },
+        {
+          "content": "Taxi: Uber does not serve Besançon. Contact Taxis Radio at 03 81 88 80 80 or local VTCs for transfers to Besançon TGV station or La Vèze aerodrome.",
+          "is_edited": false
+        },
+        {
+          "content": "Bikes: Vélocité self-service for short trips or daily rentals from local agencies. Underground parkings allow free secure bike storage (ID required) – Tel. 03 81 21 32 60.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "TV & Streaming",
+      "items": [
+        {
+          "content": "Living room TV:\n- Tuned to French TNT channels.",
+          "is_edited": false
+        },
+        {
+          "content": "Bedroom TV: Smart Samsung TV with Molotov TV app for French channels. Pre-installed apps include Netflix, Molotov, and myCanal; guests can use their own credentials. AirPlay (iPhone) and Chromecast (Android) are supported.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Wifi/Internet",
+      "items": [
+        {
+          "content": "Network credentials:\n- SSID: SFR_F9C0\n- Password: thdu7uam96nush8enb82",
+          "is_edited": false
+        },
+        {
+          "content": "Troubleshooting:\n- The internet box is located in the street-facing bedroom beside the bedside table.\n- Unplug and replug the box or press the power button at the back.\n- Check that the circuit breaker has not tripped.\n- Press the Wi-Fi button on the box and verify the indicator lights.\n- If problems persist, report to the host.",
           "is_edited": true
         }
       ]
