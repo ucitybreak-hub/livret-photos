@@ -1,125 +1,133 @@
 {
-  "fetched_at": "2026-07-13T03:00:02.760Z",
+  "fetched_at": "2026-07-13T09:00:08.536Z",
   "property_uuid": "54081b44-7492-48ec-996e-61050dc5e124",
-  "property_name": "★ L'Escale ★",
+  "property_name": "L'Escale",
+  "source": "referentiel-get",
   "topics": [
     {
-      "name": "Amenities",
+      "name": "Le logement",
       "items": [
         {
-          "content": "The property provides bed linens and towels, including one bath towel per person.",
-          "is_edited": false
-        },
-        {
-          "content": "The apartment provides a kettle, a French press, and a Nespresso coffee machine.",
-          "is_edited": false
-        },
-        {
-          "content": "Wifi & Internet:\n• Box: SFR f561\n• Password: fffdhegdbsw5ividff45",
-          "is_edited": false
-        },
-        {
-          "content": "Television:\n• La télévision peut être regardée par internet via le boîtier SFR (deuxième télécommande).",
+          "content": "Nom : L'Escale",
           "is_edited": true
         },
         {
-          "content": "Appliances:\n• Plaque de cuisson: EssentielB\n• Lave-linge: Beko 7kg",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Arrival",
-      "items": [
-        {
-          "content": "Guests have an autonomous check-in starting at 17:00. The host is not on site.",
-          "is_edited": false
+          "content": "Ville : Besançon",
+          "is_edited": true
         },
         {
-          "content": "The building entrance code is 3589. An electronic key box is located to the left of the door, with its access code sent to guests via message. To open the key box, press the glass touch panel to illuminate the keypad, enter the code, press the lock icon at the center, then open the box to retrieve the keys.",
-          "is_edited": false
+          "content": "Adresse : 10 rue de la Madeleine, Besançon",
+          "is_edited": true
         },
         {
-          "content": "The apartment is located on the second floor and is only accessible by stairs.",
-          "is_edited": false
+          "content": "Capacite / couchages : 4",
+          "is_edited": true
         },
         {
-          "content": "Localisation & Entry Directions:\n• Accès par le 10 rue de la Madeleine 25000 Besançon.\n• L'immeuble est situé dans le quartier Battant, proche de l'église de la Madeleine. La porte de l'immeuble bleue se trouve entre le magasin de pianos VonArx et un barbier, au numéro 10.\n• Après avoir passé la porte, le guest doit emprunter le long couloir jusqu'à la cour intérieure (ne pas prendre l'escalier à droite, mais aller tout au fond du couloir). Une fois dans la cour, prendre la cage d'escalier à gauche et monter jusqu'au 2ème étage (attention aux demi paliers pouvant rendre l'indication d'étage difficile).",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Cancellation & Refund",
-      "items": [
-        {
-          "content": "The host cannot override Airbnb’s cancellation and refund policies.",
-          "is_edited": false
-        },
-        {
-          "content": "Guests cannot change their reservation dates on the day of check-in because the slot cannot be re-rented at such short notice.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Departure",
-      "items": [
-        {
-          "content": "Check-out time is 11:00.",
-          "is_edited": false
-        },
-        {
-          "content": "Late check-out requests are not possible due to the cleaner’s pre-scheduled appointments. ask to the host if it's possible",
+          "content": "Agencement : Appartement de 35 m² situé au 2ème étage (accès uniquement par escaliers). Capacité 4 personnes. Accessible depuis la cour intérieure de l'immeuble.",
           "is_edited": true
         }
       ]
     },
     {
-      "name": "Guest Guidebook",
+      "name": "Arrivee & depart",
       "items": [
         {
-          "content": "The guidebook contains information on local parking options, recommended restaurants, and nearby attractions and visits. It also details paid parking, such as the Parking Marché des Beaux-arts, a guarded, covered facility 500 m (5 min walk) from the apartment, costing €1.90 per night (19:00–09:00). Recommended Restaurants:\n• Le Bouillon du Commerce (700 m) – Restaurant Art Déco de 1850; reservation advised; website: https://lebouillonducommerce.fr/\n• Le Saint Cerf (600 m) – Bistrot contemporain aux influences diverses, options végétariennes; tel: 03 81 50 10 20\n• L'affineur Comtois (400 m) – Spécialités fromagères de Franche-Comté; tel: +33 3 81 61 47 29\n• Loiseau du Temps (500 m) – Bistrot Chic du terroir Bourgogne-Franche-Comté; website: https://www.bernard-loiseau.com/fr/loiseaudutemps.html\n• La Petite Adresse – Spécialités franc-comtoises et lasagnes dans un décor vintage; tel: 03 81 82 35 09\n• La Grange – Cuisine française authentique, fondue au fromage, recommandations chardonnay; website: https://www.lagrange-restaurant.fr/\n• Le Bleu Sapin (7 Rue Richebourg) – Plats généreux à base de produits locaux; website: https://bleudesapin.fr",
-          "is_edited": false
+          "content": "Heure d'arrivee (check-in) : 17h00",
+          "is_edited": true
+        },
+        {
+          "content": "Heure de depart (check-out) : 11h00",
+          "is_edited": true
+        },
+        {
+          "content": "Instructions d'arrivee : Accès par le 10 rue de la Madeleine, 25000 Besançon. L'immeuble est dans le quartier Battant, proche de l'église de la Madeleine : porte bleue entre le magasin de pianos VonArx et un barbier. Après la porte, longer le couloir jusqu'au fond (ne pas prendre l'escalier à droite) pour rejoindre la cour intérieure. Prendre la cage d'escalier à gauche et monter au 2ème étage (attention aux demi-paliers). L'appartement est uniquement accessible par les escaliers. Une boîte à clé électronique est située à gauche de la porte d'entrée de l'immeuble : appuyer sur le panneau tactile pour allumer le clavier, saisir le code communiqué par message, appuyer sur l'icône cadenas au centre, puis ouvrir la boîte pour récupérer les clés. Check-in autonome, l'hôte n'est pas sur place.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Rules & Regulations",
+      "name": "Wifi & connexion",
       "items": [
         {
-          "content": "Apartment Rules:\n• Apartment size: 35 m²; not suitable for gatherings or events.\n• Appartement Non fumeur: L'appartement est non fumeur. Il est strictement interdit de débrancher le capteur de CO2 (détecté par une alarme s'il est déplacé). Des frais de nettoyage spécifiques pouvant s'élever à 125 € seront engagés en cas de non-respect.\n• Animaux interdits: Les animaux de compagnie ne sont pas autorisés. Le guest doit également tenir compte que des voyageurs allergiques peuvent être concernés par la réservation.\n• Nombre d'invités: Seules les personnes figurant sur la réservation sont autorisées. En cas d'ajout d'invités, une régularisation rapide est demandée.\n• Fêtes interdites: Les fêtes clandestines sont prohibées. L'appartement est équipé d'un détecteur de décibels connecté et d'une caméra sur le palier. Il est demandé de respecter le voisinage, notamment en ne faisant pas de bruit après 22 h.",
-          "is_edited": false
+          "content": "Reseau Wifi (SSID) : SFR f561",
+          "is_edited": true
+        },
+        {
+          "content": "Mot de passe Wifi : fffdhegdbsw5ividff45",
+          "is_edited": true
+        },
+        {
+          "content": "Box internet : SFR f561",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Things to do & see nearby",
+      "name": "Equipements & confort",
       "items": [
         {
-          "content": "Attractions & Museums:\n• La Citadelle (À 2000 m de l'appartement) – Chef-d'œuvre de Vauban inscrit au Patrimoine mondial de l'UNESCO, elle abrite trois musées : le Musée Comtois, le Musée de la Résistance et de la Déportation, et le Muséum, qui présente la biodiversité locale.\n• Le Musée du Temps (À 600 m de l'appartement) – Situé au 96 Grande Rue, ce musée retrace l'histoire de l'horlogerie bisontine dans un palais Renaissance (Palais Granvelle).\n• L'Horloge Astronomique (À 1000 m de l'appartement) – Installée à la cathédrale Saint-Jean de Besançon, cette horloge historique, conçue par Auguste Lucien Vérité entre 1858 et 1860, est dotée d'un mécanisme complexe de plus de 30 000 pièces, affichant divers cadrans indiquant calendriers, mouvements planétaires, et bien plus.\n• La Maison Victor Hugo (À 1300 m de l'appartement) – La maison natale de Victor Hugo, située au 140 Grande Rue, offrant une scénographie contemporaine qui intègre des éléments multimédias.",
-          "is_edited": false
+          "content": "Climatisation : non",
+          "is_edited": true
+        },
+        {
+          "content": "TV / streaming : Télévision accessible via internet par le boîtier SFR (deuxième télécommande)",
+          "is_edited": true
+        },
+        {
+          "content": "Electromenager : Plaque de cuisson EssentielB, lave-linge Beko 7 kg, bouilloire, cafetière French press, machine Nespresso",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Transportation to/from property",
+      "name": "Stationnement & transports",
       "items": [
         {
-          "content": "Taxi:\n• Uber ne dessert pas la ville de Besançon.\n• Le guest peut contacter les taxis radio au 03 81 88 80 80 ou recourir à des VTC, qui assurent notamment la navette jusqu'à la gare TGV ou à l'aérodrome de La Vèze.",
-          "is_edited": false
+          "content": "Parking : Parking Marché des Beaux-Arts : parking couvert et gardé à 500 m (5 min à pied), tarif nuit €1,90 (19h–9h). Des parkings souterrains permettent également de garer les vélos gratuitement dans un box sécurisé (pièce d'identité obligatoire).",
+          "is_edited": true
         },
         {
-          "content": "Trains:\n• La Gare Viotte est accessible à pied depuis le centre-ville via la passerelle et le parc des glacis.\n• Une navette ou un train depuis Viotte permet de rejoindre la gare TGV en environ 10 minutes (lien Google Maps mentionné dans le guide).",
-          "is_edited": false
+          "content": "Transports : • Tram/Bus/Vélo : réseau Ginko (tram, bus, vélo). Arrêt le plus proche à 200 m, place de la Révolution. Paiement par carte bancaire. App : www.ginko.voyage\n• Vélos en libre-service : Vélocité (courts trajets) ou location à la journée en agence. Infos : 03.81.21.32.60\n• Train : Gare Viotte accessible à pied depuis le centre via la passerelle et le parc des glacis. Navette/train Viotte → gare TGV en ~10 min\n• Taxi/VTC : Uber ne dessert pas Besançon. Taxis radio : 03 81 88 80 80. VTC disponibles (navette gare TGV / aérodrome de La Vèze)",
+          "is_edited": true
+        }
+      ]
+    },
+    {
+      "name": "Regles du logement",
+      "items": [
+        {
+          "content": "Animaux : non",
+          "is_edited": true
         },
         {
-          "content": "Bus - Tram:\n• Ginko est le service de tram, bus et vélo de la ville de Besançon.\n• Une application (www.ginko.voyage) permet de calculer les temps de trajet.\n• L'arrêt le plus proche se trouve à 200m, place de la Révolution.\n• Le paiement se fait par carte bancaire pour les trajets simples, sans nécessité de ticket.",
-          "is_edited": false
+          "content": "Fumeur : non",
+          "is_edited": true
         },
         {
-          "content": "Vélos:\n• Des services de vélos en libre-service (Vélocité) sont disponibles pour les courts trajets, et des agences locales offrent la location à la journée.\n• Des parkings souterrains permettent de garer les vélos gratuitement dans un box sécurisé (pièce d'identité obligatoire).\n• Pour plus d'informations, le contact est au 03.81.21.32.60.",
-          "is_edited": false
+          "content": "Fetes : non",
+          "is_edited": true
+        },
+        {
+          "content": "Regles specifiques : Appartement non-fumeur : interdit de fumer et de débrancher le capteur CO2 (alarme déclenchée en cas de déplacement) — frais de nettoyage jusqu'à 125 € en cas de non-respect. Animaux interdits (voyageurs allergiques possibles). Fêtes clandestines interdites. Bruit interdit après 22h. Seules les personnes figurant sur la réservation sont autorisées (régularisation rapide demandée en cas d'ajout). Appartement de 35 m², non adapté aux rassemblements. Détecteur de décibels connecté et caméra sur le palier.",
+          "is_edited": true
+        },
+        {
+          "content": "Regles de l'immeuble : Accès par le couloir jusqu'à la cour intérieure (ne pas prendre l'escalier à droite). Cage d'escalier à gauche dans la cour. Appartement au 2ème étage, uniquement accessible par les escaliers.",
+          "is_edited": true
+        },
+        {
+          "content": "Sensibilite au bruit : Détecteur de décibels connecté en place. Bruit interdit après 22h, respect du voisinage exigé.",
+          "is_edited": true
+        }
+      ]
+    },
+    {
+      "name": "Recommandations & quartier",
+      "items": [
+        {
+          "content": "**Restaurants :**\n• Le Bouillon du Commerce (700 m) – Restaurant Art Déco de 1850, réservation conseillée : https://lebouillonducommerce.fr/\n• Le Saint Cerf (600 m) – Bistrot contemporain, options végétariennes : 03 81 50 10 20\n• L'Affineur Comtois (400 m) – Spécialités fromagères de Franche-Comté : +33 3 81 61 47 29\n• Loiseau du Temps (500 m) – Bistrot chic du terroir Bourgogne-Franche-Comté : https://www.bernard-loiseau.com/fr/loiseaudutemps.html\n• La Petite Adresse – Spécialités franc-comtoises et lasagnes, décor vintage : 03 81 82 35 09\n• La Grange – Cuisine française, fondue au fromage : https://www.lagrange-restaurant.fr/\n• Le Bleu Sapin (7 Rue Richebourg) – Produits locaux, plats généreux : https://bleudesapin.fr\n\n**À visiter :**\n• La Citadelle (2 000 m) – Patrimoine UNESCO, 3 musées (Musée Comtois, Résistance & Déportation, Muséum)\n• Musée du Temps (600 m) – 96 Grande Rue, histoire de l'horlogerie bisontine, Palais Granvelle\n• Horloge Astronomique (1 000 m) – Cathédrale Saint-Jean, mécanisme de 30 000 pièces (1858–1860)\n• Maison Victor Hugo (1 300 m) – 140 Grande Rue, maison natale avec scénographie multimédia\n\n**Commerces / Services :**\n• Magasin de pianos VonArx et barbier : repères visuels pour trouver l'entrée de l'immeuble",
+          "is_edited": true
         }
       ]
     }
