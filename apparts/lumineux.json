@@ -1,0 +1,363 @@
+{
+  "slug": "lumineux",
+  "property_uuid": "823fc627-f879-4e9a-9829-ccb0b3c1b53e",
+  "hero_photo_url": "https://assets.hospitable.com/property_images/2076396/LRd9DBqohwB26tEdcgebS8A3OcDXwT2Hs4e40fIt.jpg",
+  "videos": {},
+  "arrival": {
+    "steps": [
+      {
+        "title": "Trouver l'immeuble",
+        "text": "Vous arrivez au <b>10 rue de la Madeleine</b>, quartier Battant, près de l'église de la Madeleine. La <b>porte bleue</b> est au n°10, entre le magasin de pianos VonArx et le barbier.",
+        "video": "arrival",
+        "photo": "lumineux/arrivee 1.png",
+        "photo_caption": "Le quartier Battant, autour de l'immeuble"
+      },
+      {
+        "title": "Le digicode de l'immeuble",
+        "text": "Devant la porte bleue (n°10), composez le digicode.",
+        "photo": "lumineux/Arrivee 2 - Porte entree Batiment Lumineux.png",
+        "photo_caption": "La porte d'entrée, entre VonArx et le barbier",
+        "code": "digicode"
+      },
+      {
+        "title": "Rejoindre l'appartement",
+        "text": "Suivez ce parcours jusqu'au <b>3ᵉ étage</b> (cage d'escalier à gauche de la cour, pas d'ascenseur).<br>⚠️ Un <b>entresol</b> au début fausse souvent le comptage : fiez-vous aux <b>numéros d'étage affichés au-dessus des portes</b>.",
+        "carousel": [
+          {
+            "photo": "lumineux/arrivee 3 - couloir.jpg",
+            "caption": "Traversez le <b>long couloir</b> (pas l'escalier de droite)"
+          },
+          {
+            "photo": "lumineux/Arrivee 4 - cour et cage escalier.jpg",
+            "caption": "Dans la <b>cour</b>, cage d'escalier devant à <b>gauche</b>"
+          },
+          {
+            "photo": "lumineux/Arrivee 5 - cage escalier.jpg",
+            "caption": "Montez au <b>3ᵉ étage</b> — vérifiez le <b>numéro au-dessus de la porte</b>"
+          },
+          {
+            "photo": "lumineux/arrivee4-porte.jpeg",
+            "caption": "La <b>porte</b>, panonceau « Le Lumineux »"
+          }
+        ],
+        "carousel_hint": "Faites glisser les photos pour suivre le parcours →"
+      },
+      {
+        "title": "La boîte à clé",
+        "text": "Posez la paume sur le clavier, tapez votre code puis le cadenas au centre. Tirez sur le côté pour récupérer la clé.",
+        "photo": "lumineux/boite a clee.png",
+        "photo_caption": "La boîte à clé Igloohome, à côté de la porte",
+        "code": "algopin",
+        "code_note": "Votre code · actif jusqu'à votre départ",
+        "video": "keybox",
+        "keep_photo": true
+      },
+      {
+        "title": "Vous y êtes",
+        "text": "La clé ouvre la porte. Bienvenue au Lumineux ✨"
+      }
+    ],
+    "keybox_help": {
+      "title": "Difficultés à ouvrir la boîte à clé ?",
+      "checks": [
+        "Avez-vous appuyé sur le <b>cadenas au centre</b> après avoir composé le code ? C'est lui qui valide la saisie — sans cet appui, la boîte ne s'ouvre pas.",
+        "La boîte s'est déverrouillée, mais avez-vous bien <b>tiré sur le côté</b> pour l'ouvrir et récupérer la clé ? Le déverrouillage ne l'ouvre pas tout seul.",
+        "Après <b>plusieurs codes erronés</b>, la boîte se met en sécurité. Patientez <b>1 à 2 minutes</b> sans y toucher, puis recommencez tranquillement."
+      ]
+    }
+  },
+  "parking": {
+    "summary": "Zone piétonne · parkings gratuits à 5 min",
+    "text": [
+      "L'immeuble est en <b>zone piétonne</b> : pas de stationnement devant la porte.",
+      "Le <b>déchargement des bagages</b> au pied de l'immeuble est possible quand les bornes sont ouvertes (souvent le matin) — mais ce n'est <b>pas garanti</b>. Prévoyez de pouvoir porter vos bagages sur quelques centaines de mètres.",
+      "Les parkings <b>Robelin</b> et <b>Battant</b> sont <b>gratuits</b>, à 5 min à pied. <b>Cusenier Beaux-Arts</b> est <b>payant</b>, à 7 min."
+    ],
+    "photos": [
+      {
+        "photo": "lumineux/Carte des stationnements.png",
+        "title": "Carte des parkings",
+        "sub": "Toucher pour agrandir 🔍",
+        "wide": true,
+        "zoomable": true
+      },
+      {
+        "photo": "lumineux/Parking Robelin.png",
+        "title": "Robelin · gratuit",
+        "sub": "5 min à pied"
+      },
+      {
+        "photo": "lumineux/Parking Battant.png",
+        "title": "Battant · gratuit",
+        "sub": "5 min à pied"
+      },
+      {
+        "photo": "lumineux/Parking Cusselier Beaux Arts.png",
+        "title": "Cusenier Beaux-Arts · payant",
+        "sub": "7 min à pied",
+        "wide": true
+      }
+    ]
+  },
+  "luggage": {
+    "url": "https://www.nannybag.com/fr/consigne-bagage/besancon",
+    "sub_arrival": "Consignes Nannybag à Besançon · dès 2,50 €/jour",
+    "sub_departure": "Déposez-les et profitez de la ville jusqu'au train · dès 2,50 €/jour",
+    "show_on": [
+      "access",
+      "departure"
+    ]
+  },
+  "transport": {
+    "summary": "Tram, gares, taxis, vélos — voir le détail",
+    "lines": [
+      {
+        "emoji": "🚊",
+        "title": "Bus / Tram Ginko",
+        "text": "Arrêt tram <b>Vieil Picard</b>",
+        "distance": "5 min"
+      },
+      {
+        "emoji": "🚆",
+        "title": "Gare Viotte",
+        "text": "Par la rue Battant et la passerelle du parc des Glacis",
+        "distance": "15 min"
+      },
+      {
+        "emoji": "🚄",
+        "title": "Gare TGV",
+        "text": "Navette ou train depuis Viotte",
+        "distance": "~10 min"
+      },
+      {
+        "emoji": "🚖",
+        "title": "Taxi",
+        "text": "<b>Uber ne dessert pas Besançon.</b> Taxis Radio : <a href=\"tel:+33381888080\">03 81 88 80 80</a>, ou VTC pour la gare TGV."
+      },
+      {
+        "emoji": "🚲",
+        "title": "Vélos · VéloCité",
+        "text": "Vélos en libre-service pour les courts trajets, ou location à la journée. Box vélo sécurisé en parking souterrain (pièce d'identité requise) — <a href=\"tel:+33381213260\">03 81 21 32 60</a>."
+      }
+    ]
+  },
+  "amenities": [
+    {
+      "icon": "wifi",
+      "title": "Wifi",
+      "sub": "Réseau « {{wifi_ssid}} » · mot de passe sur l'accueil"
+    },
+    {
+      "icon": "tv",
+      "title": "Télévision",
+      "cta": "Voir comment ça marche",
+      "body": "<p>Deux télécommandes : la grande pour la TV, <b>la petite</b> pour naviguer dans la box Android.</p><p>Applis déjà installées : <b>Netflix, YouTube, SFR TV</b>. Vous pouvez aussi diffuser depuis votre téléphone (<b>AirPlay</b> / <b>Chromecast</b>).</p><p>Pensez à vous déconnecter de vos comptes avant le départ.</p>"
+    },
+    {
+      "icon": "heat",
+      "title": "Chauffage",
+      "cta": "Voir comment le régler",
+      "body": "<p>Les radiateurs muraux se règlent individuellement. Idéalement <b>19-21°C</b> en hiver.</p><p>Des capteurs coupent le chauffage si une fenêtre reste ouverte trop longtemps — pensez à bien refermer.</p>"
+    },
+    {
+      "icon": "stove",
+      "title": "Plaque de cuisson",
+      "cta": "Voir le mode d'emploi",
+      "body": "<p>Plaque vitrocéramique <b>tactile</b> : appuyez sur les commandes pour ajuster la puissance de <b>1 à 9</b>.</p><p>Sécurité enfant : appui long sur le bouton de verrouillage.</p>"
+    },
+    {
+      "icon": "coffee",
+      "title": "Café Nespresso",
+      "cta": "Voir ce qui est fourni",
+      "body": "<p>Machine <b>Nespresso</b> dans la cuisine.</p><p>Nous offrons les <b>capsules de café et le thé pour votre première nuitée</b>, le temps de vous installer. Au-delà, des capsules sont en vente à la supérette juste en bas.</p>"
+    },
+    {
+      "icon": "sofa",
+      "title": "Canapé-lit",
+      "cta": "Voir le mode d'emploi",
+      "body": "<p>Les draps sont dans le <b>meuble à droite de la TV</b>.</p><p>Dépliage : retirez les coussins, tirez la sangle sous l'assise puis dépliez le sommier.</p>",
+      "photo": "lumineux/Mode emploi canape lit.png"
+    },
+    {
+      "icon": "wash",
+      "title": "Lave-linge",
+      "sub": "Linge de maison fourni · lave-vaisselle également"
+    },
+    {
+      "icon": "supply",
+      "title": "Ce qu'on vous fournit",
+      "cta": "Voir la liste",
+      "body": "<p><b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette pour le séjour, une dosette de lave-vaisselle.</p><p><b>Pour tout le séjour</b> — draps et serviettes, gel douche, shampoing et savon, sèche-cheveux, fer à repasser.</p><p>Le nécessaire est là pour bien commencer ; pour un séjour plus long, tout se trouve à deux pas.</p>"
+    },
+    {
+      "icon": "trash",
+      "title": "Poubelles & tri",
+      "cta": "Voir comment y accéder",
+      "body": "<p>Le local à poubelles est <b>en bas de l'escalier</b>, dans la <b>cour intérieure</b>.</p><p>Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage.</p>"
+    }
+  ],
+  "house_rules": [
+    {
+      "emoji": "🪜",
+      "title": "3ᵉ étage, sans ascenseur",
+      "text": "Un entresol fausse le comptage — fiez-vous aux <b>numéros affichés au-dessus des portes</b>."
+    },
+    {
+      "emoji": "🚭",
+      "title": "Logement non-fumeur",
+      "text": "Interdit à l'intérieur. Un détecteur signale la fumée — remise en état jusqu'à 65 €."
+    },
+    {
+      "emoji": "🎉",
+      "title": "Pas de fête ni de soirée",
+      "text": "Un capteur mesure le niveau sonore (aucune conversation enregistrée)."
+    },
+    {
+      "emoji": "🌙",
+      "title": "Calme après 22h",
+      "text": "Immeuble habité — merci pour le voisinage."
+    },
+    {
+      "emoji": "🗑️",
+      "title": "Poubelles au départ",
+      "text": "Local en bas de l'escalier, dans la cour."
+    }
+  ],
+  "checkout_line": "poubelles au local, fenêtres fermées, clé dans la boîte",
+  "tour_slides": [
+    {
+      "img": "LRd9DBqohwB26tEdcgebS8A3OcDXwT2Hs4e40fIt.jpg",
+      "caption": "Le séjour",
+      "sub": "Lumineux, décoré avec goût"
+    },
+    {
+      "img": "zmRrXXnYKOizScuDKEmMKGZIdBlFmE6BD8OBLNXx.jpg",
+      "caption": "La cuisine",
+      "sub": "Équipée · lave-vaisselle, Nespresso"
+    },
+    {
+      "img": "cysW9OtAmhfj9Y8iTUseQRZUHZz4hTJvsHT2xEMe.jpg",
+      "caption": "Le salon",
+      "sub": "Canapé-lit double · TV"
+    },
+    {
+      "img": "sRYEHj6jYx4byRWUzf2gDlH61tPwl9DriicezkeN.jpg",
+      "caption": "Coin repas",
+      "sub": "Pour partager un moment"
+    },
+    {
+      "img": "NhTOcpiAJeJvfGAsT0JIuTM301X1JzLCZERYm2Hz.jpg",
+      "caption": "La vue",
+      "sub": "Sur la cour intérieure, au calme"
+    },
+    {
+      "img": "Vg1PkjbW56IKPJJNykj4n579AQLmBaoYOH21oPUG.jpg",
+      "caption": "L'espace nuit",
+      "sub": "1 lit double, 2 lits simples"
+    }
+  ],
+  "hospitable_images_base": "https://assets.hospitable.com/property_images/2076396/",
+  "recos": {
+    "food": [
+      {
+        "photo": "lumineux/Restaurant Bouillon du commerce.jpeg",
+        "tag": "Coup de cœur",
+        "tag_class": "coeur",
+        "name": "Le Bouillon du Commerce",
+        "desc": "Brasserie Art Déco de 1850, à 700 m. Le cadre seul vaut le déplacement — réservation conseillée.",
+        "url": "https://lebouillonducommerce.fr/"
+      },
+      {
+        "photo": "lumineux/REstaurant l'affineur Comtois.jpeg",
+        "tag": "À 400 m",
+        "tag_class": "spot",
+        "name": "L'Affineur Comtois",
+        "desc": "Toutes les spécialités fromagères de Franche-Comté : fondue, cancoillotte, tartiflette.",
+        "url": "https://www.restaurant-laffineurcomtois.fr/"
+      },
+      {
+        "photo": "lumineux/Restaurant le saint Cerf.jpeg",
+        "tag": "À 600 m",
+        "tag_class": "spot",
+        "name": "Le Saint Cerf",
+        "desc": "Bistrot contemporain, carte saisonnière aux influences asiatiques. Belle offre végétarienne."
+      },
+      {
+        "photo": "lumineux/Restaurant le Parc.jpeg",
+        "tag": "Gastronomique",
+        "tag_class": "gastronomique",
+        "name": "Le Parc",
+        "desc": "Table du chef Francesco di Marzio, face au Doubs et au parc Micaud. Pour un dîner soigné.",
+        "url": "https://leparcbesancon.com/fr/"
+      }
+    ],
+    "visit": [
+      {
+        "photo": "lumineux/Tourisme - La citadelle Vauban.jpeg",
+        "tag": "Incontournable",
+        "tag_class": "patrimoine",
+        "name": "La Citadelle",
+        "desc": "Chef-d'œuvre de Vauban classé UNESCO, à 2 km. Trois musées et un muséum avec aquarium."
+      },
+      {
+        "photo": "lumineux/Tourisme - Le musee du temps.jpeg",
+        "tag": "À 600 m",
+        "tag_class": "spot",
+        "name": "Le Musée du Temps",
+        "desc": "Dans le splendide Palais Granvelle Renaissance — l'histoire de l'horlogerie bisontine."
+      },
+      {
+        "photo": "lumineux/Restaurant le Vauban.jpeg",
+        "tag": "Vue panoramique",
+        "tag_class": "coeur",
+        "name": "Bateau Le Vauban",
+        "desc": "Croisière-déjeuner ou dîner commentée sur le Doubs, passage d'écluses et tunnel sous la Citadelle.",
+        "url": "https://www.bateau-besancon.fr/croisieres-repas/"
+      },
+      {
+        "photo": "lumineux/Tourisme - L'horloge astronomique.jpeg",
+        "tag": "À 1 km",
+        "tag_class": "spot",
+        "name": "L'Horloge Astronomique",
+        "desc": "À la cathédrale Saint-Jean. Mécanisme de plus de 30 000 pièces (1858-1860)."
+      },
+      {
+        "photo": "lumineux/Trousime - la maison victor Hugo.jpeg",
+        "tag": "À 1,3 km",
+        "tag_class": "spot",
+        "name": "Maison Victor Hugo",
+        "desc": "Maison natale de l'écrivain, 140 Grande Rue. Scénographie contemporaine et émouvante."
+      },
+      {
+        "photo": "lumineux/Tourisme - Musee des maisons comtoises.png",
+        "tag": "À 8 km",
+        "tag_class": "spot",
+        "name": "Musée des maisons comtoises",
+        "desc": "Écomusée à ciel ouvert à Nancray : l'habitat traditionnel franc-comtois. Idéal en demi-journée."
+      }
+    ],
+    "shop": [
+      {
+        "photo": "lumineux/Superette Casino.jpeg",
+        "tag": "À deux pas",
+        "tag_class": "proche",
+        "name": "Biocoop Battant",
+        "desc": "Juste à côté de l'immeuble — bio, frais, local."
+      },
+      {
+        "photo": "lumineux/Boulangerie Filet.png",
+        "tag": "Pour le matin",
+        "tag_class": "proche",
+        "name": "Boulangeries de Battant",
+        "desc": "Plusieurs adresses dans le quartier : pains, viennoiseries, café à emporter."
+      },
+      {
+        "photo": "lumineux/Pharmacie Battant.png",
+        "tag": "À 3 min",
+        "tag_class": "proche",
+        "name": "Pharmacies de Battant",
+        "desc": "Plusieurs officines à proximité immédiate. Garde affichée en vitrine."
+      }
+    ]
+  }
+}
