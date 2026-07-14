@@ -28,17 +28,17 @@
   .is-hidden{display:none!important}
 
   /* HERO */
-  .hero{padding:12px 12px 0;position:relative}
+  .hero{padding:12px 12px 0;position:relative;z-index:5}
   .hero .frame{border-radius:22px;overflow:hidden;position:relative;height:270px}
   .hero .img{position:absolute;inset:0;background:center/cover no-repeat}
-  .langbox{position:absolute;top:14px;right:14px;z-index:4}
+  .langbox{position:absolute;top:26px;right:26px;z-index:20}
   .langbox summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
     background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px;
     font-size:13px;font-weight:600;color:var(--ink);box-shadow:var(--shadow-sm)}
   .langbox summary::-webkit-details-marker{display:none}
   .langbox .flag{font-size:15px;line-height:1}
   .langbox summary .code{letter-spacing:.02em}
-  .langmenu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:6px;min-width:180px}
+  .langmenu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:6px;min-width:180px;max-height:min(60vh,340px);overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:30}
   .langmenu a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;font-size:14px;color:var(--ink);text-decoration:none}
   .langmenu a[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
 
@@ -435,9 +435,7 @@
     <!-- ============= ACCUEIL ============= -->
     <section class="view active" data-view="home">
       <div class="hero">
-        <div class="frame">
-          <div class="img" style="background-image:url('{{hero_photo_url}}')"></div>
-          <details class="langbox">
+        <details class="langbox">
             <summary><span class="flag">{{lang_flag}}</span><span class="code">{{lang_short}}</span>
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </summary>
@@ -449,8 +447,12 @@
               <a href="?lang=de" hreflang="de"><span class="flag">🇩🇪</span> Deutsch</a>
               <a href="?lang=nl" hreflang="nl"><span class="flag">🇳🇱</span> Nederlands</a>
               <a href="?lang=pt" hreflang="pt"><span class="flag">🇵🇹</span> Português</a>
+              <a href="?lang=ru" hreflang="ru"><span class="flag">🇷🇺</span> Русский</a>
+              <a href="?lang=zh" hreflang="zh"><span class="flag">🇨🇳</span> 中文</a>
             </div>
-          </details>
+        </details>
+        <div class="frame">
+          <div class="img" style="background-image:url('{{hero_photo_url}}')"></div>
         </div>
       </div>
 
