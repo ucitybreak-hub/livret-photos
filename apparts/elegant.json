@@ -1,0 +1,280 @@
+{
+  "slug": "elegant",
+  "property_uuid": "74ea4906-2e41-4831-bc83-8ebb5b4c6b12",
+  "hero_photo_url": "https://assets.hospitable.com/property_images/2076400/IsANmPtSfGhFRaWJS5XCiaaBCHm5pFdH8UFSRblg.jpg",
+  "videos": {
+    "tour": { "youtube_id": "1uFsFIGfblQ", "label": "La visite du logement" }
+  },
+  "arrival": {
+    "steps": [
+      {
+        "title": "Trouver l'immeuble",
+        "text": "Vous arrivez au <b>44 rue Roger Radisson</b>, sur la colline de Fourvière — à l'angle de la rue Pauline Marie Jaricot, face à l'Hôtel Fourvière. L'immeuble s'appelle « Le Clos de Fourvière ».",
+        "photo": "elegant/facade-batiment.png",
+        "photo_caption": "La façade de l'immeuble"
+      },
+      {
+        "title": "Votre porte, au rez-de-chaussée",
+        "text": "La <b>boîte à clé</b> se trouve juste à <b>gauche de la porte</b> de l'appartement.",
+        "photo": "elegant/porte-appartement.png",
+        "photo_caption": "La porte de l'appartement"
+      },
+      {
+        "title": "La boîte à clé",
+        "text": "Posez la paume sur le clavier pour l'allumer, tapez votre code puis appuyez sur le cadenas. Attendez le bip, puis tirez sur le côté pour ouvrir la boîte et récupérer la clé.",
+        "photo": "elegant/lockbox.jpg",
+        "photo_caption": "La boîte à clé, à gauche de la porte",
+        "code": "algopin",
+        "code_note": "Votre code · actif jusqu'à votre départ",
+        "video": "keybox",
+        "keep_photo": true
+      },
+      {
+        "title": "Vous y êtes",
+        "text": "La clé ouvre la porte. Le salon, la cuisine et le coin nuit sont au rez-de-chaussée ; les 3 chambres et les salles d'eau au niveau inférieur. Bienvenue à L'Élégant ✨"
+      }
+    ],
+    "keybox_help": {
+      "title": "Difficultés à ouvrir la boîte à clé ?",
+      "checks": [
+        "Avez-vous appuyé sur le <b>cadenas</b> après avoir composé le code ? C'est lui qui valide la saisie — sans cet appui, la boîte ne s'ouvre pas.",
+        "La boîte s'est déverrouillée, mais avez-vous bien <b>tiré sur le côté</b> pour l'ouvrir ? Le déverrouillage ne l'ouvre pas tout seul.",
+        "Après <b>plusieurs codes erronés</b>, la boîte se met en sécurité. Patientez <b>1 à 2 minutes</b> sans y toucher, puis recommencez tranquillement."
+      ]
+    }
+  },
+  "parking": {
+    "summary": "Stationnement gratuit dans les rues alentours",
+    "text": [
+      "<b>Dépose-minute</b> : il y a presque toujours de la place pour décharger rue Roger Radisson, juste en face de l'immeuble.",
+      "<b>Gratuit</b> : stationnement souvent disponible rue Roger Radisson, rue Jaricot, rue du Cardinal Gerlier, Montée du Télégraphe et Place du 158e RI. Gratuit les jours fériés et en août. Les zones payantes autour sont abordables.",
+      "Quartier très calme, sauf pendant les <b>Nuits de Fourvière</b>."
+    ]
+  },
+  "luggage": {
+    "url": "https://www.nannybag.com/fr/consigne-bagage/lyon/gare-part-dieu",
+    "sub_arrival": "Consignes Nannybag à Part-Dieu · dès 4,50 €/jour",
+    "sub_departure": "Déposez vos bagages et profitez de Lyon jusqu'au train · dès 4,50 €/jour",
+    "show_on": ["access", "departure"]
+  },
+  "transport": {
+    "summary": "Funiculaire, métro, bus — voir le détail",
+    "lines": [
+      {
+        "emoji": "🚡",
+        "title": "Funiculaire & Métro D",
+        "text": "Station <b>Fourvière</b> (F2) à 600 m ou <b>Saint-Just</b> (F1) à 400 m — accès direct au Vieux Lyon et au métro D.",
+        "distance": "400 m"
+      },
+      {
+        "emoji": "🚌",
+        "title": "Bus",
+        "text": "Arrêt <b>Jaricot</b> (ligne 90) juste en bas ; arrêt St Alexandre (55, C21) à 700 m → Perrache.",
+        "distance": "50 m"
+      },
+      {
+        "emoji": "🚆",
+        "title": "Gares",
+        "text": "Perrache en 15 min (bus C21 ou 55) ; Part-Dieu en 45 min (métro B puis D + funiculaire)."
+      },
+      {
+        "emoji": "✈️",
+        "title": "Aéroport",
+        "text": "Rhônexpress jusqu'à Vaulx-en-Velin La Soie, puis métro A → Bellecour, métro D → Vieux Lyon et funiculaire. Uber ou taxi possible, durée similaire."
+      }
+    ]
+  },
+  "amenities": [
+    {
+      "icon": "wifi",
+      "title": "Wifi",
+      "sub": "Réseau « {{wifi_ssid}} » · mot de passe sur l'accueil"
+    },
+    {
+      "icon": "tv",
+      "title": "Télévision",
+      "sub": "Dans le salon"
+    },
+    {
+      "icon": "heat",
+      "title": "Chauffage",
+      "cta": "Voir comment ça marche",
+      "body": "<p>Les radiateurs se pilotent <b>depuis les thermostats muraux</b>.</p><p>Merci de <b>ne pas régler ni éteindre les radiateurs eux-mêmes</b> — tout se fait au mur.</p>"
+    },
+    {
+      "icon": "stove",
+      "title": "Cuisine",
+      "cta": "Voir l'équipement",
+      "body": "<p>Cuisine complète avec <b>plaques de cuisson</b> et <b>lave-vaisselle</b>.</p><p>Notices des appareils : <b>howdens.fr</b>.</p>"
+    },
+    {
+      "icon": "coffee",
+      "title": "Café",
+      "cta": "Voir ce qui est fourni",
+      "body": "<p>Machine <b>Nespresso</b>, cafetière filtre et bouilloire dans la cuisine.</p>"
+    },
+    {
+      "icon": "wash",
+      "title": "Lave-linge séchant",
+      "cta": "Où le trouver",
+      "body": "<p>Le lave-linge séchant <b>Beko</b> est dans le <b>placard d'entrée</b>. Notice : beko.fr.</p><p>Pensez à réduire le volume au séchage : il sèche moins de linge qu'il n'en lave d'un coup.</p>"
+    },
+    {
+      "icon": "sofa",
+      "title": "Canapé-lit",
+      "cta": "Voir le couchage",
+      "body": "<p>Le canapé du salon se transforme en <b>canapé-lit</b>.</p><p>Le linge est rangé dans les <b>petits meubles blancs sous l'assise</b>, face au canapé.</p>"
+    },
+    {
+      "icon": "supply",
+      "title": "Ce qu'on vous fournit",
+      "cta": "Voir la liste",
+      "body": "<p><b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette.</p><p><b>Pour tout le séjour</b> — draps et serviettes en coton (équivalent hôtel), sèche-cheveux. Le ménage est inclus.</p>"
+    }
+  ],
+  "house_rules": [
+    {
+      "emoji": "🪜",
+      "title": "Souplex — chambres en bas",
+      "text": "Le salon et la cuisine sont au rez-de-chaussée ; les 3 chambres et les salles d'eau au niveau inférieur, par un escalier intérieur."
+    },
+    {
+      "emoji": "🚭",
+      "title": "Logement non-fumeur",
+      "text": "Interdit à l'intérieur. Un détecteur de CO₂ déclenche une alarme s'il est déplacé — remise en état jusqu'à 65 €."
+    },
+    {
+      "emoji": "🎉",
+      "title": "Pas de fête ni de soirée",
+      "text": "Un détecteur de décibels et une caméra surveillent le <b>couloir</b> (aucune conversation enregistrée)."
+    },
+    {
+      "emoji": "🐾",
+      "title": "Animaux non autorisés",
+      "text": "Merci d'en tenir compte : certains voyageurs peuvent être allergiques."
+    },
+    {
+      "emoji": "🌙",
+      "title": "Calme après 22h",
+      "text": "Immeuble habité — merci pour le voisinage."
+    }
+  ],
+  "checkout_line": "fenêtres fermées, clé dans la boîte à clé",
+  "tour_slides": [],
+  "hospitable_images_base": "https://assets.hospitable.com/property_images/2076400/",
+  "recos": {
+    "food": [
+      {
+        "photo": "canut/hotel-fourviere.png",
+        "tag": "Coup de cœur",
+        "tag_class": "coeur",
+        "name": "Hôtel Fourvière",
+        "desc": "Le bar « Les Collections » et la table bistronomique « Les Téléphones », juste en face.",
+        "url": "https://www.fourviere-hotel.com/fr/"
+      },
+      {
+        "photo": "canut/esprit-bistrot.jpg",
+        "tag": "À 350 m",
+        "tag_class": "spot",
+        "name": "L'Esprit Bistrot",
+        "desc": "Terrasse ombragée et salle avec cheminée, à 350 m. Cuisine de bistrot soignée.",
+        "url": "https://www.lespritbistrot.com/"
+      },
+      {
+        "photo": "canut/gastro-tete-oie.jpg",
+        "tag": "Gastronomique",
+        "tag_class": "gastronomique",
+        "name": "Christian Têtedoie",
+        "desc": "Table gastronomique avec vue panoramique, à 700 m. Le bar à vin « Phosphore » et ses tapas en contrebas.",
+        "url": "https://tetedoie.fr/"
+      },
+      {
+        "photo": "canut/table-st-just.jpg",
+        "tag": "À 500 m",
+        "tag_class": "spot",
+        "name": "La Table de Saint Just",
+        "desc": "Accueil chaleureux, cuisine de saison soignée."
+      },
+      {
+        "photo": "canut/chez-grand-mere.jpg",
+        "tag": "Bouchon",
+        "tag_class": "bouchon",
+        "name": "Chez Grand-Mère",
+        "desc": "Bouchon lyonnais authentique, rue du Bœuf dans le Vieux Lyon — à ~1,2 km, ou par le funiculaire.",
+        "url": "https://chezgrandmere.fr/"
+      },
+      {
+        "photo": "canut/la-petite-auberge.png",
+        "tag": "Spot lyonnais",
+        "tag_class": "spot",
+        "name": "La Petite Auberge",
+        "desc": "Grande terrasse l'été, fondue au coin du feu l'hiver, à 650 m.",
+        "url": "https://lapetiteaubergelyon.fr/"
+      }
+    ],
+    "visit": [
+      {
+        "photo": "canut/lugdunum.jpg",
+        "tag": "À 350 m",
+        "tag_class": "patrimoine",
+        "name": "Lugdunum",
+        "desc": "Musée gallo-romain et théâtres antiques, tout près. Accès aux théâtres gratuit.",
+        "url": "https://lugdunum.grandlyon.com/fr/"
+      },
+      {
+        "photo": "canut/basilique.jpg",
+        "tag": "Incontournable",
+        "tag_class": "patrimoine",
+        "name": "Basilique de Fourvière",
+        "desc": "Crypte et panorama sur tout Lyon, à ~700 m. Vue imprenable depuis l'esplanade.",
+        "url": "https://www.fourviere.org/fr/"
+      },
+      {
+        "photo": "canut/Le-vieux-lyon.jpg",
+        "tag": "Patrimoine UNESCO",
+        "tag_class": "patrimoine",
+        "name": "Le Vieux Lyon",
+        "desc": "Quartier Renaissance classé UNESCO, à ~1,1 km par la montée du Gourguillon ou le funiculaire. Ne manquez pas les traboules.",
+        "url": "https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon"
+      },
+      {
+        "photo": "canut/terrreaux.jpg",
+        "tag": "À 2 km",
+        "tag_class": "spot",
+        "name": "Place des Terreaux",
+        "desc": "La fontaine Bartholdi et l'Hôtel de Ville, au cœur de la Presqu'île."
+      },
+      {
+        "photo": "canut/Le-musee-confluence.jpg",
+        "tag": "À 4 km",
+        "tag_class": "spot",
+        "name": "Musée des Confluences",
+        "desc": "Architecture spectaculaire à la pointe de la Presqu'île, expositions variées.",
+        "url": "https://museedesconfluences.fr/fr"
+      },
+      {
+        "photo": "canut/Les-berges.jpg",
+        "tag": "Balade",
+        "tag_class": "spot",
+        "name": "Les Berges du Rhône",
+        "desc": "Promenade de 5 km au fil de l'eau. Comptez ~15-20 min pour descendre de la colline (ou funiculaire + métro D)."
+      }
+    ],
+    "shop": [
+      {
+        "photo": "canut/casino.png",
+        "tag": "À 500 m",
+        "tag_class": "proche",
+        "name": "Le Petit Casino",
+        "desc": "Épicerie de dépannage, 1 rue de la Favorite."
+      },
+      {
+        "photo": "canut/boulangerie-gay.jpg",
+        "tag": "Pour le matin",
+        "tag_class": "proche",
+        "name": "Boulangerie Henri Gay",
+        "desc": "Pains et viennoiseries à 550 m, 12 rue de la Favorite."
+      }
+    ]
+  }
+}
