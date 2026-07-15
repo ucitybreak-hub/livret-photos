@@ -1,0 +1,214 @@
+{
+  "slug": "panoramique",
+  "property_uuid": "29538904-0724-43a9-83b4-b50c0fa096ee",
+  "hero_photo_url": "https://assets.hospitable.com/property_images/2076394/knXk5o9NQxdbwbPHBAnyFrRxOzzifyNSX8gS0vAS.jpg",
+
+  "videos": {
+    "tour": { "youtube_id": "SklwOF3S61M", "label": "Visite du logement" }
+  },
+
+  "arrival": {
+    "steps": [
+      {
+        "title": "Trouver l'immeuble",
+        "text": "Vous arrivez au <b>18 rue des Granges</b>, une <b>rue piétonne</b> qui monte vers la Place de la Révolution. L'immeuble se trouve <b>entre le magasin Northface et la Biocoop</b>.",
+        "photo": "panoramique/arrivee-1.jpg",
+        "photo_caption": "L'entrée de l'immeuble, rue des Granges"
+      },
+      {
+        "title": "Le digicode de l'immeuble",
+        "text": "Devant la <b>porte principale</b>, composez le digicode sur le clavier pour entrer.",
+        "photo": "panoramique/digicode.jpeg",
+        "photo_caption": "La porte principale et son clavier",
+        "photo_ratio": "4/3",
+        "code": "digicode"
+      },
+      {
+        "title": "La boîte à clé",
+        "text": "Juste à l'intérieur, la <b>boîte à clé</b> se trouve <b>à côté des boîtes aux lettres</b>. Composez le code pour l'ouvrir et récupérer les clés de l'appartement. <b>Pensez à bien la refermer</b> ensuite.",
+        "carousel": [
+          { "photo": "panoramique/arrivee-2.png", "caption": "Les boîtes aux lettres, juste après la porte principale" },
+          { "photo": "panoramique/lockbox.jpg", "caption": "La boîte à clé, juste à côté" }
+        ],
+        "code": "algopin",
+        "code_note": "Code de la boîte · actif pendant votre séjour"
+      },
+      {
+        "title": "Rejoindre l'appartement",
+        "text": "Le parcours est un peu long mais simple, laissez-vous guider :",
+        "carousel": [
+          { "photo": "panoramique/vigik.jpg", "caption": "Passez le <b>badge noir</b> (fourni) sur le lecteur pour ouvrir la porte intérieure" },
+          { "photo": "panoramique/arrivee-5.png", "caption": "Suivez le <b>long couloir</b> jusqu'à la porte vitrée, puis montez l'escalier (il est ancien)" },
+          { "photo": "panoramique/arrivee-6.png", "caption": "Au <b>dernier étage, à droite</b> — cherchez le panonceau « Le Panoramique » sur la porte" }
+        ],
+        "carousel_hint": "Faites glisser les photos pour suivre le parcours pas à pas."
+      },
+      {
+        "title": "Vous y êtes",
+        "text": "Ouvrez la porte avec la clé. <b>Bienvenue à {{property_name}}</b> ✨"
+      }
+    ],
+    "keybox_help": {
+      "title": "Un souci pour entrer ?",
+      "checks": [
+        "Vérifiez bien le digicode de l'immeuble (chiffre par chiffre).",
+        "La boîte à clé est <b>à côté des boîtes aux lettres</b>, juste après la porte principale.",
+        "N'oubliez pas le <b>badge noir</b> fourni pour la porte intérieure : posez-le à plat sur le lecteur.",
+        "L'appartement est tout en haut, <b>à droite</b> (panonceau « Le Panoramique »)."
+      ]
+    }
+  },
+
+  "parking": {
+    "summary": "Rue piétonne : dépose-minute devant l'immeuble, puis parking à proximité.",
+    "text": [
+      "🅿️ <b>Parking Marché des Beaux-Arts</b> — couvert et sécurisé, à <b>500 m</b> (5 min à pied). Environ <b>1,90 €/nuit</b> (valable de 19h à 9h).",
+      "🆓 <b>Parkings Robelin et Battant</b> — <b>gratuits</b>, sous les remparts, à moins de 10 min à pied. Cherchez « Parking Robelin » ou « Parking Battant » sur Maps.",
+      "La rue des Granges est piétonne : déchargez rapidement devant l'immeuble (pas de stationnement prolongé), puis déplacez la voiture."
+    ],
+    "photos": ["lumineux/Parking Battant.png"]
+  },
+
+  "luggage": {
+    "url": "https://www.nannybag.com/fr/consigne-bagage/besancon",
+    "sub_arrival": "Besoin de déposer vos bagages avant le check-in ? Des consignes sécurisées Nannybag existent à Besançon, dès 2,50 €/jour.",
+    "sub_departure": "Envie de profiter de la ville après le départ ? Consignes Nannybag à Besançon, dès 2,50 €/jour — pratique jusqu'au train.",
+    "show_on": ["access", "departure"]
+  },
+
+  "amenities": [
+    { "icon": "wifi", "title": "Wifi", "sub": "Réseau SFR BAC8" },
+    { "icon": "tv", "title": "Télévision", "sub": "Box SFR + applis (Netflix…)" },
+    {
+      "icon": "stove", "title": "Cuisine", "cta": "Voir l'équipement",
+      "body": "<p><b>Plaque à induction</b> (Ikea). Les <b>deux foyers de gauche</b> affichent un « U » clignotant si le diamètre de la casserole est trop petit : utilisez de <b>plus grandes casseroles</b> ou le <b>foyer de droite</b>, compatible avec les petits contenants.</p><p><b>Micro-ondes, four, lave-vaisselle</b> (pastilles fournies), bouilloire, et tout le nécessaire (casseroles, poêles, ustensiles).</p>"
+    },
+    { "icon": "coffee", "title": "Café", "sub": "Machine Nespresso — capsules offertes la 1ère nuit" },
+    {
+      "icon": "sofa", "title": "Canapé-lit", "cta": "Où sont les draps ?",
+      "body": "<p>Un <b>canapé-lit</b> est disponible dans le séjour. Les <b>draps</b> se trouvent dans le <b>placard sous la TV</b>, et les <b>couettes</b> dans la <b>méridienne du canapé</b>.</p><p>Couchages : <b>2 lits doubles</b> (160×200) + le canapé-lit. Un <b>lit parapluie</b> est disponible sur demande avant l'arrivée.</p>"
+    },
+    {
+      "icon": "wash", "title": "Lave-linge séchant", "cta": "Détails",
+      "body": "<p>Le <b>lave-linge</b> de la cuisine dispose d'une <b>fonction séchage</b>. Il se <b>coupe automatiquement de 20h à 8h</b> pour préserver le calme du voisinage (une chambre d'enfant se trouve juste en dessous).</p><p>Un <b>second sèche-linge Samsung</b> à condensation (16 kg) est prévu pour le ménage, mais vous pouvez l'utiliser si besoin.</p>"
+    },
+    {
+      "icon": "heat", "title": "Chauffage & clim", "cta": "Comment ça marche",
+      "body": "<p><b>Hiver</b> — radiateurs à sonde réglés sur <b>20 °C</b> (coupure automatique au-dessus). Inactif l'été.</p><p><b>Été</b> — <b>climatiseur mobile</b> sur la mezzanine. Pour un meilleur rendement : baissez les stores des Velux, ouvrez des fenêtres opposées pour créer un courant d'air, et laissez à l'appareil le temps de faire baisser la température.</p>"
+    },
+    {
+      "icon": "supply", "title": "Tableau électrique", "cta": "En cas de coupure",
+      "body": "<p>Le <b>tableau électrique</b> est <b>sur le palier</b>, à l'extérieur de l'appartement, dans le placard à gauche.</p><p>Vérifiez que tous les petits interrupteurs sont enclenchés et que le bouton rond principal est sur <b>1</b>. Débranchez les gros appareils avant de réarmer si ça saute à nouveau.</p>"
+    }
+  ],
+
+  "house_rules": [
+    { "emoji": "🚭", "title": "Non-fumeur", "text": "L'appartement est entièrement non-fumeur. Le capteur CO₂ ne doit pas être déplacé : il déclenche une alarme." },
+    { "emoji": "🐾", "title": "Pas d'animaux", "text": "Merci de respecter cette règle par égard pour les futurs voyageurs allergiques." },
+    { "emoji": "🎉", "title": "Pas de fête", "text": "Un détecteur de décibels et une caméra sur le palier veillent au calme. Merci de respecter le voisinage." },
+    { "emoji": "🌙", "title": "Calme après 22h", "text": "Le bâtiment est habité : on baisse le ton passé 22h." },
+    { "emoji": "👥", "title": "Voyageurs déclarés", "text": "Seules les personnes indiquées sur la réservation sont autorisées. En cas de changement, merci de mettre à jour la réservation." }
+  ],
+
+  "checkout_line": "Remettez les clés dans la boîte à clé (bien refermée), sortez vos poubelles et refermez la porte.",
+
+  "transport": {
+    "summary": "En plein centre, tout se fait à pied — et la gare est à deux pas par les Glacis.",
+    "lines": [
+      { "emoji": "🚊", "title": "Bus & Tram Ginko", "text": "Arrêt le plus proche à Place de la Révolution. Paiement par carte bancaire directement à bord pour un trajet simple.", "distance": "200 m" },
+      { "emoji": "🚆", "title": "Gare Viotte", "text": "Accessible à pied par la passerelle et le Parc des Glacis.", "distance": "~15 min à pied" },
+      { "emoji": "🚄", "title": "Gare TGV (Auxon)", "text": "Navette train depuis Viotte.", "distance": "~10 min en train" },
+      { "emoji": "🚖", "title": "Taxi", "text": "Uber ne dessert pas Besançon. Taxis Radio : <b>03 81 88 80 80</b>, ou VTC pour la gare TGV." },
+      { "emoji": "🚲", "title": "Vélos · VéloCité", "text": "Vélos en libre-service pour les courts trajets, ou location à la journée auprès d'agences locales." }
+    ]
+  },
+
+  "tour_slides": [],
+  "hospitable_images_base": "https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/panoramique/",
+
+  "recos": {
+    "food": [
+      {
+        "photo": "lumineux/Restaurant Bouillon du commerce.jpeg",
+        "tag": "Notre coup de cœur", "tag_class": "coeur",
+        "name": "Le Bouillon du Commerce",
+        "desc": "Magnifique brasserie Art Déco de 1850, au 31 rue des Granges — au pied de l'immeuble. Le cadre seul vaut le détour, cuisine bistrot bien réalisée. Réservation conseillée.",
+        "url": "https://lebouillonducommerce.fr/"
+      },
+      {
+        "photo": "lumineux/Restaurant Loiseau du temps.jpeg",
+        "tag": "À deux pas", "tag_class": "proche",
+        "name": "Loiseau du Temps",
+        "desc": "Bistrot chic célébrant le terroir Bourgogne-Franche-Comté dans un bâtiment historique du Conservatoire. Maison Bernard Loiseau. 27 rue des Boucheries.",
+        "url": "https://www.bernard-loiseau.com/fr/loiseaudutemps.html"
+      },
+      {
+        "photo": "lumineux/Restaurant le saint Cerf.jpeg",
+        "tag": "Bistrot contemporain", "tag_class": "spot",
+        "name": "Le Saint Cerf",
+        "desc": "Carte saisonnière aux influences asiatiques, belle proposition végétarienne. 1 rue Megevand. 03 81 50 10 20.",
+        "url": "https://www.google.com/maps/search/Le+Saint+Cerf+Besan%C3%A7on"
+      },
+      {
+        "photo": "lumineux/REstaurant l'affineur Comtois.jpeg",
+        "tag": "Spécialités comtoises", "tag_class": "bouchon",
+        "name": "L'Affineur Comtois",
+        "desc": "Toutes les spécialités fromagères de Franche-Comté : cancoillotte, croûte forestière, fondue comté-morbier, tartiflette. 82 rue Battant. Réservation recommandée.",
+        "url": "https://www.google.com/maps/search/L%27Affineur+Comtois+Besan%C3%A7on"
+      },
+      {
+        "photo": "lumineux/Restaurant le Parc.jpeg",
+        "tag": "Gastronomique", "tag_class": "gastronomique",
+        "name": "Le Parc",
+        "desc": "Table gastronomique du chef Francesco di Marzio, cuisine fusion face au Parc Micaud et au Doubs. Belle expérience pour un dîner soigné.",
+        "url": "https://leparcbesancon.com/fr/"
+      },
+      {
+        "photo": "lumineux/Restaurant la petite adresse.jpeg",
+        "tag": "Convivial", "tag_class": "spot",
+        "name": "La Petite Adresse",
+        "desc": "Spécialités comtoises et lasagnes à prix doux, dans un décor vintage aux nappes à carreaux. 28 rue Claude Pouillet. 03 81 82 35 09.",
+        "url": "https://www.google.com/maps/search/La+Petite+Adresse+Besan%C3%A7on"
+      },
+      {
+        "photo": "lumineux/Restaurant le bleu de Sapin.jpeg",
+        "tag": "Pépite", "tag_class": "spot",
+        "name": "Bleu de Sapin",
+        "desc": "Petite pépite du Haut-Battant : assiettes généreuses et joliment présentées, produits locaux de Franche-Comté. 7 rue Richebourg.",
+        "url": "https://bleudesapin.fr"
+      },
+      {
+        "photo": "lumineux/Restaurant la Grange.jpeg",
+        "tag": "Traditionnel", "tag_class": "bouchon",
+        "name": "La Grange",
+        "desc": "Cuisine française traditionnelle, réputée pour sa fondue au comté. 17 avenue Elisée Cusenier.",
+        "url": "https://www.lagrange-restaurant.fr/"
+      }
+    ],
+    "visit": [
+      {
+        "photo": "lumineux/Tourisme - La citadelle Vauban.jpeg",
+        "tag": "Incontournable", "tag_class": "patrimoine",
+        "name": "La Citadelle",
+        "desc": "Chef-d'œuvre de Vauban inscrit au Patrimoine mondial de l'UNESCO. Sur 12 ha, elle abrite trois musées (Comtois, Résistance et Déportation, Muséum avec aquarium).",
+        "url": "https://www.google.com/maps/search/Citadelle+de+Besan%C3%A7on"
+      },
+      {
+        "photo": "lumineux/Restaurant le Vauban.jpeg",
+        "tag": "Vue panoramique", "tag_class": "spot",
+        "name": "Bateau-croisière sur le Doubs",
+        "desc": "Croisière-déjeuner (~2h) ou dîner (~2h30) commentée : passage d'écluses et tunnel sous la Citadelle. Terrasse au pont supérieur. Départ Pont de la République. Réservation obligatoire.",
+        "url": "https://www.bateau-besancon.fr/croisieres-repas/"
+      }
+    ],
+    "shop": [
+      {
+        "photo": "lumineux/Pharmacie Battant.png",
+        "tag": "Santé", "tag_class": "proche",
+        "name": "Pharmacie de Saint-Claude",
+        "desc": "Au 47 rue de Vesoul. Équipe à l'écoute. En cas d'urgence hors horaires, le service de garde est affiché en vitrine.",
+        "url": "https://www.google.com/maps/search/Pharmacie+de+Saint-Claude+Besan%C3%A7on"
+      }
+    ]
+  }
+}
