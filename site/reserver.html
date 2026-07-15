@@ -410,16 +410,16 @@
       </div>
       <div>
         <h5>Pratique</h5>
-        <a class="fl" href="#">Conditions de réservation</a>
-        <a class="fl" href="#">Annulation</a>
-        <a class="fl" href="#">Taxe de séjour</a>
-        <a class="fl" href="#">Espace partenaires</a>
-        <a class="fl" href="#">Nous écrire</a>
+        <a class="fl" href="#" onclick="openLegal('cgv');return false;">Conditions de réservation</a>
+        <a class="fl" href="#" onclick="openLegal('annulation');return false;">Annulation</a>
+        <a class="fl" href="#" onclick="openLegal('cgv');return false;">Taxe de séjour</a>
+        <a class="fl" href="mailto:ucitybreak@gmail.com?subject=Espace%20partenaires">Espace partenaires</a>
+        <a class="fl" href="mailto:ucitybreak@gmail.com">Nous écrire</a>
       </div>
     </div>
     <div class="fbot">
       <span>U-citybreak SAS · SIREN 901 788 653</span>
-      <span>Maquette — prix et disponibilités à titre indicatif</span>
+      <span><a href="#" onclick="openLegal('mentions');return false;">Mentions légales</a> · <a href="#" onclick="openLegal('confidentialite');return false;">Confidentialité</a> · <a href="#" onclick="openLegal('cgv');return false;">CGV</a></span>
     </div>
   </div>
 </footer>
@@ -458,6 +458,26 @@
 .cardstate.loading{background:var(--paper);color:var(--ink-3);font-weight:600}
 .card .skel{display:inline-block;width:56px;height:13px;border-radius:3px;background:var(--line);animation:skelpulse 1.15s ease-in-out infinite;vertical-align:middle}
 @keyframes skelpulse{0%,100%{opacity:.45}50%{opacity:.9}}
+/* ── Modale légale (CGV, mentions, etc.) ────────────────────── */
+.legal{position:fixed;inset:0;background:rgba(20,22,26,.5);z-index:120;display:none;align-items:flex-start;justify-content:center;padding:24px;overflow:auto}
+.legal.open{display:flex}
+.legal-panel{background:#fff;max-width:820px;width:100%;border-radius:6px;max-height:calc(100vh - 48px);display:flex;flex-direction:column;box-shadow:0 12px 44px rgba(0,0,0,.22)}
+.legal-bar{display:flex;align-items:center;justify-content:space-between;padding:15px 24px;border-bottom:1px solid var(--line)}
+.legal-logo{font-family:var(--serif);font-size:17px}
+.legal-x{font-size:26px;line-height:1;color:var(--ink-2);background:none;cursor:pointer;width:36px;height:36px;border:0}
+.legal-nav{display:flex;gap:6px;padding:12px 24px;border-bottom:1px solid var(--line-soft);flex-wrap:wrap}
+.legal-nav a{font-size:12.5px;color:var(--ink-2);padding:6px 12px;border:1px solid var(--line);border-radius:20px;text-decoration:none;cursor:pointer}
+.legal-nav a:hover{background:var(--inset);color:var(--ink)}
+.legal-body{overflow:auto;padding:4px 30px 44px;position:relative}
+.legal-body section{padding-top:28px;scroll-margin-top:10px}
+.legal-body h2{font-family:var(--serif);font-size:24px;font-weight:400;margin:6px 0 2px}
+.legal-body h3{font-size:13.5px;font-weight:700;margin:20px 0 6px;color:var(--ink)}
+.legal-body p,.legal-body li{font-size:13.5px;line-height:1.62;color:var(--ink-2);margin:6px 0}
+.legal-body ul{padding-left:20px;margin:6px 0}
+.legal-body .upd{font-size:12px;color:var(--ink-3);margin-top:0}
+.legal-body .todo{background:#FFF1CE;color:#8A6412;padding:1px 5px;border-radius:3px;font-size:12.5px;font-weight:500}
+.bk-cgv a{color:var(--accent);text-decoration:underline;cursor:pointer}
+.fbot a{color:inherit;text-decoration:underline}
 </style>
 
 <!-- ====================== FICHE ====================== -->
@@ -524,6 +544,107 @@
   <img id="lbImg" src="" alt="">
   <button class="lb-nav lb-next" onclick="lbStep(1)">›</button>
   <div class="lb-count" id="lbCount"></div>
+</div>
+
+<!-- ====================== PAGES LÉGALES ====================== -->
+<div class="legal" id="legal">
+  <div class="legal-panel">
+    <div class="legal-bar">
+      <span class="legal-logo">U<b>-citybreak</b></span>
+      <button class="legal-x" onclick="closeLegal()">×</button>
+    </div>
+    <div class="legal-nav">
+      <a onclick="legalGo('mentions')">Mentions légales</a>
+      <a onclick="legalGo('cgv')">Conditions de réservation</a>
+      <a onclick="legalGo('annulation')">Annulation</a>
+      <a onclick="legalGo('confidentialite')">Confidentialité</a>
+    </div>
+    <div class="legal-body" id="legalBody">
+
+      <section id="legal-mentions">
+        <h2>Mentions légales</h2>
+        <p class="upd">Dernière mise à jour : 15 juillet 2026</p>
+        <h3>Éditeur du site</h3>
+        <p>U-citybreak, société par actions simplifiée (SAS) au capital de <span class="todo">[capital social] €</span>, immatriculée au RCS de <span class="todo">[ville RCS]</span> sous le numéro SIREN 901&nbsp;788&nbsp;653. Siège social : <span class="todo">[adresse du siège social]</span>. TVA intracommunautaire : <span class="todo">[n° TVA]</span>.</p>
+        <p>Directeur de la publication : <span class="todo">[nom du représentant légal]</span>.</p>
+        <p>Contact : <a href="mailto:ucitybreak@gmail.com">ucitybreak@gmail.com</a> · <span class="todo">[téléphone]</span>.</p>
+        <h3>Hébergement</h3>
+        <p>Le site est hébergé par Elestio (elest.io), sur une infrastructure Hetzner Online GmbH, <span class="todo">[adresse hébergeur]</span>, Allemagne. Les paiements sont traités par Stripe Payments Europe Ltd (Irlande).</p>
+        <h3>Déclaration des logements</h3>
+        <p>Chaque logement proposé fait l'objet d'une déclaration en mairie au titre des meublés de tourisme. Le numéro de déclaration figure sur le contrat de location et est communiqué au voyageur.</p>
+        <h3>Propriété intellectuelle</h3>
+        <p>L'ensemble des contenus du site (textes, photographies, éléments graphiques) est la propriété de U-citybreak, sauf mention contraire. Toute reproduction sans autorisation est interdite.</p>
+      </section>
+
+      <section id="legal-cgv">
+        <h2>Conditions générales de réservation</h2>
+        <p class="upd">Dernière mise à jour : 15 juillet 2026</p>
+        <h3>1. Objet</h3>
+        <p>Les présentes conditions régissent les réservations de séjours de courte durée dans les logements meublés proposés par U-citybreak via son site de réservation directe.</p>
+        <h3>2. Réservation</h3>
+        <p>La réservation devient ferme et définitive dès la confirmation du paiement. Le voyageur garantit l'exactitude des informations transmises et s'engage à respecter la capacité maximale d'accueil indiquée pour le logement.</p>
+        <h3>3. Prix</h3>
+        <p>Les prix sont indiqués en euros, toutes taxes comprises, sans frais de service. Le montant total inclut l'hébergement, le forfait ménage et linge, ainsi que la taxe de séjour.</p>
+        <h3>4. Paiement</h3>
+        <p>Le règlement s'effectue en totalité au moment de la réservation, par carte bancaire via la solution sécurisée Stripe. La réservation est confirmée après encaissement.</p>
+        <h3>5. Taxe de séjour</h3>
+        <p>La taxe de séjour est perçue pour le compte de la collectivité concernée (Métropole de Lyon ou Grand Besançon Métropole), calculée selon le barème en vigueur, et reversée intégralement à la collectivité.</p>
+        <h3>6. Arrivée et départ</h3>
+        <p>Arrivée à partir de 17h00, départ avant 11h00 (sauf arrangement particulier). Les instructions d'accès et le code sont communiqués avant l'arrivée via le livret d'accueil.</p>
+        <h3>7. Règlement du séjour</h3>
+        <p>Les logements sont non-fumeurs. Les animaux ne sont pas admis sauf accord préalable. Les fêtes et événements sont interdits. Le voyageur s'engage à respecter le voisinage et le règlement intérieur de l'immeuble.</p>
+        <h3>8. Dépôt de garantie</h3>
+        <p><span class="todo">[Montant et modalités du dépôt de garantie / caution — à préciser]</span>. Le voyageur est responsable des dégradations causées durant le séjour.</p>
+        <h3>9. Annulation</h3>
+        <p>Les conditions d'annulation sont détaillées dans la <a onclick="legalGo('annulation')">politique d'annulation</a>.</p>
+        <h3>10. Droit de rétractation</h3>
+        <p>Conformément à l'article L.221-28 3° du Code de la consommation, le droit de rétractation de quatorze jours ne s'applique pas aux prestations d'hébergement fournies à une date déterminée. La réservation est donc ferme dès sa confirmation.</p>
+        <h3>11. Responsabilité et force majeure</h3>
+        <p>U-citybreak s'engage à fournir un logement conforme à sa description. Sa responsabilité ne saurait être engagée en cas de force majeure. Le voyageur répond des dommages qu'il cause.</p>
+        <h3>12. Réclamations et médiation</h3>
+        <p>Toute réclamation peut être adressée à <a href="mailto:ucitybreak@gmail.com">ucitybreak@gmail.com</a>. À défaut de résolution amiable, le consommateur peut recourir gratuitement au médiateur de la consommation : <span class="todo">[médiateur à désigner — coordonnées]</span>.</p>
+        <h3>13. Droit applicable</h3>
+        <p>Les présentes conditions sont soumises au droit français. Tout litige relève des tribunaux compétents.</p>
+      </section>
+
+      <section id="legal-annulation">
+        <h2>Politique d'annulation</h2>
+        <p class="upd">Dernière mise à jour : 15 juillet 2026</p>
+        <h3>Annulation par le voyageur</h3>
+        <p>Les conditions suivantes s'appliquent (délais calculés avant la date d'arrivée) :</p>
+        <ul>
+          <li>Annulation plus de <span class="todo">[X]</span> jours avant l'arrivée : remboursement intégral.</li>
+          <li>Entre <span class="todo">[X]</span> et <span class="todo">[Y]</span> jours avant l'arrivée : remboursement de <span class="todo">[50]</span> %.</li>
+          <li>Moins de <span class="todo">[Y]</span> jours avant l'arrivée : séjour non remboursable.</li>
+        </ul>
+        <p>Les remboursements sont effectués sur le moyen de paiement initial sous <span class="todo">[délai]</span> jours. La part de taxe de séjour non due est remboursée.</p>
+        <h3>Non-présentation</h3>
+        <p>En cas de non-présentation sans annulation préalable, le séjour est dû en totalité <span class="todo">[à confirmer]</span>.</p>
+        <h3>Annulation par U-citybreak</h3>
+        <p>En cas d'impossibilité exceptionnelle de fournir le logement, U-citybreak proposera un logement équivalent ou, à défaut, procédera au remboursement intégral des sommes versées.</p>
+      </section>
+
+      <section id="legal-confidentialite">
+        <h2>Politique de confidentialité</h2>
+        <p class="upd">Dernière mise à jour : 15 juillet 2026</p>
+        <h3>Responsable de traitement</h3>
+        <p>U-citybreak SAS (SIREN 901&nbsp;788&nbsp;653) est responsable du traitement des données collectées via le site.</p>
+        <h3>Données collectées</h3>
+        <p>Identité (nom, prénom), coordonnées (email, téléphone), données de réservation (dates, logement) et données de paiement. Les données de carte bancaire sont traitées directement par Stripe : U-citybreak n'y a pas accès et ne les conserve pas.</p>
+        <h3>Finalités et base légale</h3>
+        <p>Les données sont utilisées pour la gestion des réservations et du séjour, la facturation, le respect des obligations légales et fiscales (dont la taxe de séjour) et la communication liée au séjour. La base légale est l'exécution du contrat et le respect d'obligations légales.</p>
+        <h3>Destinataires</h3>
+        <p>Les données ne sont partagées qu'avec les prestataires strictement nécessaires : Stripe (paiement), Hospitable (gestion locative) et les équipes de ménage. Aucune donnée n'est revendue à des tiers.</p>
+        <h3>Durée de conservation</h3>
+        <p>Les données sont conservées le temps de la relation, puis pour la durée des délais légaux applicables (notamment comptables et fiscaux).</p>
+        <h3>Vos droits</h3>
+        <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité. Pour les exercer : <a href="mailto:ucitybreak@gmail.com">ucitybreak@gmail.com</a>. Vous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr).</p>
+        <h3>Cookies</h3>
+        <p>Le site n'utilise que les cookies strictement nécessaires à son fonctionnement, à l'exclusion de tout traceur publicitaire <span class="todo">[à confirmer selon outils de mesure d'audience]</span>.</p>
+      </section>
+
+    </div>
+  </div>
 </div>
 
 <script>
@@ -1006,7 +1127,7 @@ function book(){
       '</div>' +
       '<label>Email<input type="email" id="bkEmail" autocomplete="email" placeholder="vous@exemple.fr"></label>' +
       '<label>T\u00e9l\u00e9phone<input type="tel" id="bkPhone" autocomplete="tel" placeholder="+33\u2026"></label>' +
-      '<label class="bk-cgv"><input type="checkbox" id="bkCgv"><span>J\'ai lu et j\'accepte les conditions de r\u00e9servation et la politique d\'annulation.</span></label>' +
+      '<label class="bk-cgv"><input type="checkbox" id="bkCgv"><span>J\'ai lu et j\'accepte les <a href="#" onclick="event.preventDefault();event.stopPropagation();openLegal(\'cgv\')">conditions de r\u00e9servation</a> et la <a href="#" onclick="event.preventDefault();event.stopPropagation();openLegal(\'annulation\')">politique d\'annulation</a>.</span></label>' +
       '<div class="bk-err" id="bkErr"></div>' +
       '<button class="pb-cta" id="bkPay" onclick="payNow()">Payer ' + eur0(q.total) + ' \u00b7 paiement s\u00e9curis\u00e9</button>' +
       '<button class="bk-back" onclick="renderPricebox(S.current)">\u2190 Revenir au r\u00e9capitulatif</button>' +
@@ -1178,6 +1299,24 @@ function applyDatesFromCal(inD, outD){
   });
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   PAGES LÉGALES (modale)
+   ═══════════════════════════════════════════════════════════════ */
+function openLegal(sec){
+  document.getElementById("legal").classList.add("open");
+  document.body.classList.add("locked");
+  legalGo(sec || "mentions");
+}
+function legalGo(sec){
+  var body = document.getElementById("legalBody");
+  var el = document.getElementById("legal-" + sec);
+  if(body && el){ body.scrollTop = el.offsetTop - 6; }
+}
+function closeLegal(){
+  document.getElementById("legal").classList.remove("open");
+  if(!document.getElementById("sheet").classList.contains("open")){ document.body.classList.remove("locked"); }
+}
+
 function closeSheet(){
   document.getElementById("sheet").classList.remove("open");
   document.body.classList.remove("locked");
@@ -1186,6 +1325,7 @@ function closeSheet(){
 document.addEventListener("keydown", function(e){
   if(e.key !== "Escape") return;
   if(document.getElementById("lb").classList.contains("open")) lbClose();
+  else if(document.getElementById("legal").classList.contains("open")) closeLegal();
   else closeSheet();
 });
 
