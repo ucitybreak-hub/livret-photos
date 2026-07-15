@@ -450,6 +450,14 @@
 .cal-sel.cal-a,.cal-sel.cal-b{background:var(--accent);color:#fff;font-weight:600}
 .cal-hint{font-size:12px;color:#8A9099;margin-top:10px}
 .cal-msg{font-size:12.5px;color:#B23B3B;margin-top:6px}
+/* ── Chargement des cartes (grille) ─────────────────────────── */
+.card.loading{pointer-events:none}
+.card.loading .cardimg img{filter:none;opacity:.65}
+.card.loading .cardimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(255,255,255,.6) 50%,rgba(255,255,255,0) 100%);transform:translateX(-100%);animation:cardshimmer 1.15s ease-in-out infinite}
+@keyframes cardshimmer{100%{transform:translateX(100%)}}
+.cardstate.loading{background:var(--paper);color:var(--ink-3);font-weight:600}
+.card .skel{display:inline-block;width:56px;height:13px;border-radius:3px;background:var(--line);animation:skelpulse 1.15s ease-in-out infinite;vertical-align:middle}
+@keyframes skelpulse{0%,100%{opacity:.45}50%{opacity:.9}}
 </style>
 
 <!-- ====================== FICHE ====================== -->
@@ -686,13 +694,16 @@ function postJSON(url, payload){
 }
 
 /* Devis serveur d'UN appart pour les dates/voyageurs courants (sans coupon). */
+function gridTick(){ if(S.searched && document.getElementById("grid")) renderGrid(); }
 function fetchQuote(a){
   var payload = { slug:a.id, checkin:S.inD, checkout:S.outD, adults:S.pax, minors:0 };
   return postJSON(EP_QUOTE, payload).then(function(res){
     S.quotes[a.id] = res.json || { ok:false, errors:["Réponse illisible."] };
+    gridTick();
     return S.quotes[a.id];
   }).catch(function(){
     S.quotes[a.id] = { __neterr:true, ok:false };
+    gridTick();
     return S.quotes[a.id];
   });
 }
@@ -726,13 +737,13 @@ function renderGrid(){
   }
 
   g.innerHTML = vis.map(function(a){
-    var free = true, priceHtml, state = "";
+    var free = true, loading = false, priceHtml, state = "";
     if(S.searched){
       var sq = S.quotes[a.id];
       if(!sq){
-        free = false;
-        priceHtml = '<span class="cardprice"><small>…</small></span>';
-        state = '<span class="cardstate">…</span>';
+        free = false; loading = true;
+        priceHtml = '<span class="cardprice"><span class="skel"></span></span>';
+        state = '<span class="cardstate loading">Recherche\u2026</span>';
       } else if(sq.ok){
         free = true;
         priceHtml = '<span class="cardprice">' + eur0(sq.total) + ' <small>total</small></span>';
@@ -758,7 +769,7 @@ function renderGrid(){
     m.push(a.bd + (a.bd > 1 ? " chambres" : " chambre"));
     if(a.surface) m.push(a.surface + " m²");
 
-    return '<button class="card' + (S.searched && !free ? " dim" : "") + '" onclick="openSheet(\'' + a.id + '\')">' +
+    return '<button class="card' + (S.searched && !free ? (loading ? " loading" : " dim") : "") + '" onclick="openSheet(\'' + a.id + '\')">' +
       '<div class="cardimg">' +
         '<img src="' + a.photos[0] + '" alt="' + a.name + ' — ' + a.hood + ', ' + (a.city==="lyon"?"Lyon":"Besançon") + '" loading="lazy">' +
         '<span class="cardnum">' + a.n + '</span>' + state +
