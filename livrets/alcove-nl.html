@@ -1,2193 +1,757 @@
+<!-- BUILT V3 alcove-nl (translated) at 2026-07-15T10:48:28.519Z -->
+<!-- BUILT V3 alcove-fr at 2026-07-15T10:29:26.451Z -->
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="{{lang_code}}">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#FFFFFF">
-<title>L'Alcove · Uw verblijf</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#FBFAF8">
+<title>{{property_name}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F5F5F4;
-    --bg-card: #FFFFFF;
-    --bg-elevated: #FFFFFF;
-    --fg: #222222;
-    --fg-muted: #717171;
-    --fg-soft: #B0B0B0;
-    --accent: #2D1B4E;
-    --accent-soft: #F0EBF5;
-    --accent-deep: #2D1B4E;
-    --accent-light: #F0EBF5;
-    --border: #DDDDDD;
-    --border-soft: #EBEBEB;
-    --success: #00A67E;
-    --warning: #E8A735;
-    --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
-    --shadow-md: 0 1px 2px rgba(0,0,0,.06);
-    --shadow-lg: 0 2px 8px rgba(0,0,0,.08);
-    --radius-sm: 7px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  :root{
+    --bg:#FBFAF8;--surface:#FFFFFF;--ink:#26242B;--ink-2:#63616B;--ink-3:#A6A4AE;
+    --line:#EDEBE7;--line-2:#F4F2EE;
+    --accent:#3A2A5E;--accent-soft:#F2EFF7;
+    --green:#00875F;--green-soft:#E7F5EF;
+    --shadow:0 1px 2px rgba(38,36,43,.04),0 6px 20px -8px rgba(38,36,43,.09);
+    --shadow-sm:0 1px 2px rgba(38,36,43,.05);
+    --font:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-body);
-    background: var(--bg);
-    color: var(--fg);
-    font-size: 16px;
-    line-height: 1.55;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    background-image:
-      radial-gradient(ellipse at top right, rgba(45,27,78,0.03), transparent 60%),
-      radial-gradient(ellipse at bottom left, rgba(45,27,78,0.02), transparent 60%);
-    background-attachment: fixed;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.1;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.12 0 0 0 0 0.11 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .app { position: relative; z-index: 2; }
-
-  /* TOPBAR */
-  .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    background: rgba(255, 255, 255, 0.85);
-    border-bottom: 1px solid var(--border-soft);
-  }
-  .topbar-inner {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-  .brand {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-style: italic;
-    font-size: 17px;
-    letter-spacing: 0.01em;
-    color: var(--accent);
-    font-variation-settings: "opsz" 14, "SOFT" 30;
-  }
-  .brand-dot { color: var(--accent); }
-  .lang-switcher { position: relative; }
-  .lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 10px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--fg);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .lang-btn:hover { background: var(--bg-elevated); transform: translateY(-1px); }
-  .lang-btn .flag { font-size: 14px; }
-  .lang-btn .chev { font-size: 9px; opacity: 0.5; margin-left: 2px; }
-  .lang-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 6px;
-    box-shadow: var(--shadow-lg);
-    min-width: 160px;
-    display: none;
-    z-index: 60;
-  }
-  .lang-menu.open { display: block; animation: dropIn 0.18s ease-out; }
-  @keyframes dropIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
-  .lang-menu a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    font-size: 14px;
-    color: var(--fg);
-    text-decoration: none;
-    border-radius: 8px;
-  }
-  .lang-menu a:hover { background: var(--bg); }
-  .lang-menu a.active { background: var(--accent-soft); color: var(--accent-deep); font-weight: 500; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--font);color:var(--ink);background:#e9e7e2;-webkit-font-smoothing:antialiased;display:flex;justify-content:center}
+  .phone{width:100%;max-width:420px;min-height:100vh;background:var(--bg);position:relative;overflow:hidden;box-shadow:0 30px 80px -24px rgba(0,0,0,.3)}
+  .scroll{height:100vh;overflow-y:auto;padding-bottom:96px;-webkit-overflow-scrolling:touch}
+  .view{display:none}
+  .view.active{display:block}
+  .is-hidden{display:none!important}
 
   /* HERO */
-  .hero { position: relative; overflow: hidden; }
-  .hero-img {
-    width: 100%;
-    height: 52vh;
-    min-height: 320px;
-    max-height: 520px;
-    object-fit: cover;
-    display: block;
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(34,34,34,0) 30%, rgba(34,34,34,0.6) 100%);
-    pointer-events: none;
-  }
-  .hero-content {
-    max-width: 720px;
-    margin: -80px auto 0;
-    padding: 0 20px;
-    position: relative;
-    z-index: 3;
-  }
-  .hero-card {
-    background: var(--bg-elevated);
-    border-radius: var(--radius-lg);
-    padding: 28px 24px 24px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-soft);
-  }
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 18px;
-    height: 1px;
-    background: var(--accent);
-  }
-  .hero-title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(34px, 8vw, 48px);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    margin-bottom: 4px;
-    font-variation-settings: "opsz" 144, "SOFT" 50;
-  }
-  .hero-sub {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 300;
-    font-size: 18px;
-    color: var(--fg-muted);
-    font-variation-settings: "opsz" 24, "SOFT" 60;
-  }
-  .hero-divider {
-    height: 1px;
-    background: var(--border-soft);
-    margin: 18px 0 16px;
-  }
-  .hero-greeting { font-size: 15px; color: var(--fg-muted); margin-bottom: 6px; }
-  .hero-greeting strong { color: var(--fg); font-weight: 500; }
-  .hero-countdown {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-  .hero-countdown-num {
-    font-family: var(--font-display);
-    font-size: 36px;
-    font-weight: 500;
-    color: var(--accent);
-    font-variation-settings: "opsz" 72, "SOFT" 30;
-    line-height: 1;
-  }
-  .hero-countdown-label { font-size: 14px; color: var(--fg-muted); }
+  .hero{padding:12px 12px 0;position:relative;z-index:5}
+  .hero .frame{border-radius:22px;overflow:hidden;position:relative;height:270px}
+  .hero .img{position:absolute;inset:0;background:center/cover no-repeat}
+  .langbox{position:absolute;top:26px;right:26px;z-index:20}
+  .langbox summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px;
+    font-size:13px;font-weight:600;color:var(--ink);box-shadow:var(--shadow-sm)}
+  .langbox summary::-webkit-details-marker{display:none}
+  .langbox .flag{font-size:15px;line-height:1}
+  .langbox summary .code{letter-spacing:.02em}
+  .langmenu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:6px;min-width:180px;max-height:min(60vh,340px);overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:30}
+  .langmenu a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;font-size:14px;color:var(--ink);text-decoration:none}
+  .langmenu a[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
 
-  /* MAIN */
-  main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 32px 20px 80px;
-  }
+  .titleblock{padding:20px 20px 4px}
+  .titleblock h1{font-size:33px;font-weight:700;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+  .titleblock .addr{display:flex;align-items:center;gap:7px;margin-top:11px;font-size:14px;color:var(--ink-2);text-decoration:none}
+  .titleblock .addr svg{flex-shrink:0;opacity:.7}
 
-  /* QUICK INFOS */
-  .quick-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 36px;
-  }
-  .quick-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .quick-card.highlight {
-    background: linear-gradient(135deg, var(--accent-soft) 0%, #F0EBF5 100%);
-    border-color: var(--accent-soft);
-  }
-  .quick-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--fg-muted);
-    font-weight: 500;
-  }
-  .quick-card.highlight .quick-label { color: var(--accent-deep); }
-  .quick-value {
-    font-family: var(--font-display);
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--fg);
-    font-variation-settings: "opsz" 24, "SOFT" 30;
-    line-height: 1.2;
-  }
-  .quick-sub { font-size: 12px; color: var(--fg-soft); }
+  /* STATUT */
+  .status{margin:18px 16px 0;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+  .status .badge{width:34px;height:34px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .status .txt .l{font-size:15px;font-weight:600;line-height:1.2}
+  .status .txt .s{font-size:13px;color:var(--ink-2);margin-top:1px}
 
-  /* SECTION */
-  .section { margin-bottom: 48px; scroll-margin-top: 70px; }
-  .section-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--fg-muted);
-    margin-bottom: 10px;
-  }
-  .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 22px;
-    height: 1px;
-    background: var(--fg-muted);
-  }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: 30px;
-    font-weight: 400;
-    letter-spacing: -0.015em;
-    line-height: 1.1;
-    margin-bottom: 22px;
-    font-variation-settings: "opsz" 60, "SOFT" 40;
-  }
-  .section-title em { font-style: italic; font-weight: 300; color: var(--accent); }
-  .section-intro {
-    font-size: 15px;
-    color: var(--fg-muted);
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
+  /* DATES */
+  .dates{margin:12px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-sm)}
+  .dates .band{display:flex;align-items:flex-start}
+  .dates .d{flex:1}.dates .d.r{text-align:right}
+  .dates .d .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;font-weight:600}
+  .dates .d .day{font-size:19px;font-weight:700;letter-spacing:-.01em}
+  .dates .d .time{font-size:14px;color:var(--ink-2);margin-top:2px}
+  .dates .mid{padding:0 12px;display:flex;align-items:center;align-self:center}
+  .dates .mid .nights{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .dates .foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-2);font-size:13px;color:var(--ink-2);text-align:center}
+  .dates .foot b{color:var(--ink);font-weight:600}
 
-  /* VIDEO EMBED */
-  .video-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: var(--fg);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    margin-top: 14px;
-    box-shadow: var(--shadow-md);
-  }
-  .video-wrap iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  .video-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    padding: 14px;
-    margin-top: 14px;
-  }
-  .video-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--fg-muted);
-    margin-bottom: 10px;
-  }
-  .video-label svg { color: var(--accent); }
+  /* ACCÈS (carte accueil → pointe vers l'onglet Accès) */
+  .access{display:block;width:auto;text-align:left;font-family:var(--font);color:var(--ink);
+    margin:12px 16px 0;border-radius:18px;padding:18px 20px;transition:.2s;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm);cursor:pointer}
+  .access:active{transform:scale(.99)}
+  .access .top{display:flex;align-items:center;gap:11px}
+  .access .kic{width:36px;height:36px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s}
+  .access .kic svg{width:18px;height:18px}
+  .access .top .tt{flex:1}
+  .access .top .tt .l{font-size:15px;font-weight:600;line-height:1.2}
+  .access .top .tt .s{font-size:13px;color:var(--ink-2);margin-top:2px}
+  .access .chev{color:var(--ink-3);flex-shrink:0;transition:.2s}
+  .access .calm-note{display:none;margin-top:13px;font-size:13px;color:var(--ink-2);line-height:1.5;background:var(--bg);border-radius:12px;padding:12px 14px}
+  .app.is-locked .access .calm-note{display:block}
+  .app.is-locked .access .chev{opacity:.5}
+  .app.is-open .access{background:var(--green-soft);border-color:rgba(0,135,95,.22)}
+  .app.is-open .access .kic{background:#fff}
+  .app.is-open .access .kic svg path,.app.is-open .access .kic svg circle{stroke:var(--green)}
+  .app.is-open .access .top .tt .l{color:var(--green)}
+  .app.is-open .access .chev{color:var(--green)}
 
-  /* STEPS */
-  .steps { position: relative; }
-  .step {
-    display: grid;
-    grid-template-columns: 36px 1fr;
-    gap: 16px;
-    padding-bottom: 32px;
-    position: relative;
-  }
-  .step:not(:last-child)::before {
-    content: '';
-    position: absolute;
-    left: 17px;
-    top: 36px;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--accent-soft), var(--border-soft));
-  }
-  .step-num {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 16px;
-    box-shadow: 0 2px 8px rgba(45,27,78,0.3);
-    z-index: 2;
-    font-variation-settings: "opsz" 24, "SOFT" 30;
-  }
-  .step-content { padding-top: 4px; }
-  .step-title {
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-weight: 500;
-    margin-bottom: 4px;
-    font-variation-settings: "opsz" 24, "SOFT" 40;
-  }
-  .step-text {
-    font-size: 15px;
-    color: var(--fg-muted);
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-  .step-text strong { color: var(--fg); font-weight: 500; }
-  .step-substeps {
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    padding: 12px 14px 12px 16px;
-    margin: 10px 0;
-  }
-  .step-substep {
-    display: grid;
-    grid-template-columns: 22px 1fr;
-    gap: 10px;
-    padding: 4px 0;
-    font-size: 14px;
-    color: var(--fg-muted);
-    line-height: 1.5;
-  }
-  .step-substep-num {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 13px;
-    color: var(--accent);
-    font-variation-settings: "opsz" 12, "SOFT" 0;
-  }
+  /* BENTO */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 16px 0}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:left;cursor:pointer;transition:.15s;font-family:var(--font);color:var(--ink);box-shadow:var(--shadow-sm)}
+  .tile:active{transform:scale(.98)}
+  .tile .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;margin-bottom:11px}
+  .tile .ic svg{width:17px;height:17px}
+  .tile .k{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:3px}
+  .tile .v{display:block;font-size:15px;font-weight:600;line-height:1.2;overflow-wrap:anywhere}
+  .tile .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:3px}
+  .tile.copied .v2{color:var(--green)}
 
-  /* CODE BOX */
-  .codebox {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--bg-card);
-    border: 1px dashed var(--border);
-    border-radius: var(--radius-md);
-    padding: 12px 14px;
-    margin-top: 8px;
-  }
-  .codebox-label {
-    font-size: 12px;
-    color: var(--fg-muted);
-    flex-shrink: 0;
-  }
-  .codebox-value {
-    flex: 1;
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: 0.1em;
-    color: var(--fg);
-    font-variation-settings: "opsz" 36, "SOFT" 20;
-  }
-  .codebox-copy {
-    background: var(--fg);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: all 0.15s;
-  }
-  .codebox-copy:hover { background: var(--accent); transform: translateY(-1px); }
-  .codebox-copy.copied { background: var(--success); }
-  .codebox-keybox {
-    background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F4 100%);
-    border: 1px solid var(--accent-soft);
-    border-style: solid;
-  }
-  .codebox-keybox.locked {
-    background: linear-gradient(135deg, #F5F5F4 0%, #EBEBEB 100%);
-    border-color: var(--border);
-  }
-  .codebox-keybox.locked .codebox-value {
-    color: var(--fg-soft);
-    font-style: italic;
-    font-size: 15px;
-    letter-spacing: 0;
-    font-weight: 400;
-  }
-  .codebox-keybox.locked .codebox-copy { display: none; }
+  .wide{margin:12px 16px 0}
+  .wide-btn{width:100%;display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px 16px;cursor:pointer;font-family:var(--font);color:var(--ink);transition:.15s;box-shadow:var(--shadow-sm);text-align:left}
+  .wide-btn:active{transform:scale(.99)}
+  .wide-btn .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .wide-btn .ic svg{width:17px;height:17px}
+  .wide-btn .b{flex:1}
+  .wide-btn .b .v{display:block;font-size:15px;font-weight:600;line-height:1.25}
+  .wide-btn .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .wide-btn .chev{color:var(--ink-3)}
 
-  .step-tip {
-    margin-top: 10px;
-    padding: 12px 14px;
-    background: rgba(45,27,78, 0.08);
-    border-left: 3px solid var(--success);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    font-size: 13px;
-    color: var(--fg-muted);
-    line-height: 1.5;
-  }
-  .step-tip strong { color: var(--success); font-weight: 600; }
-  .step-tip.warn { background: rgba(232,167,53,0.12); border-color: var(--warning); }
-  .step-tip.warn strong { color: var(--warning); }
+  /* PAGES */
+  .phead{padding:28px 20px 6px}
+  .phead h2{font-size:28px;font-weight:700;letter-spacing:-.025em;line-height:1.05}
+  .phead p{font-size:14px;color:var(--ink-2);margin-top:8px}
+  .sub{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin:24px 20px 12px;display:flex;align-items:center;gap:8px}
+  .sub .em{font-size:15px}
 
-  .step-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 14px;
-    background: var(--fg);
-    color: white;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    margin-top: 4px;
-    transition: all 0.18s;
-  }
-  .step-button:hover { background: var(--accent); transform: translateY(-1px); }
-  .step-button .arrow { font-size: 11px; transition: transform 0.18s; }
-  .step-button:hover .arrow { transform: translateX(2px); }
+  /* PARCOURS */
+  .steps{padding:0 20px}
+  .step{display:flex;gap:15px;padding-bottom:20px;position:relative}
+  .step .n{width:29px;height:29px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:2}
+  .step::before{content:"";position:absolute;left:19px;top:29px;bottom:0;width:1.5px;background:var(--line)}
+  .step:last-child::before{display:none}
+  .step .h{font-size:15px;font-weight:600;margin-bottom:3px}
+  .step .d{font-size:13px;color:var(--ink-2);line-height:1.5}
+  .step .kb{display:inline-block;font-weight:700;letter-spacing:.12em;background:var(--accent-soft);color:var(--accent);padding:4px 12px;border-radius:8px;margin-top:8px;transition:.3s}
+  .step .kb .kb-code{display:none}
+  .app.is-open .step .kb{background:var(--green-soft);color:var(--green);font-size:19px;letter-spacing:.14em;padding:8px 16px}
+  .app.is-open .step .kb .kb-dots{display:none}
+  .app.is-open .step .kb .kb-code{display:inline}
+  .step .kb-note{display:none;font-size:12px;color:var(--ink-2);margin-top:8px;line-height:1.4}
+  .app.is-open .step .kb-note{display:block}
+  /* Encart « le code ne fonctionne pas ? » — erreur d'étage (keybox voisine) */
+  .stp-warn{margin-top:12px;background:#FFF8EC;border:1px solid #F2DFB8;border-radius:12px;padding:12px 13px}
+  .stp-warn .wt{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#8A5B12;margin-bottom:5px}
+  .stp-warn .wb{font-size:12.5px;color:#7A6647;line-height:1.5}
+  .stp-warn .wb b{color:#5C4A2E}
+  /* photos parcours */
+  .stp-img{width:100%;max-width:300px;border-radius:12px;margin-top:10px;display:block;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+  .stp-cap{font-size:11.5px;color:var(--ink-3);font-style:italic;margin-top:4px}
+  .stp-seq{display:flex;gap:8px;overflow-x:auto;padding:8px 0 4px;margin-top:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .stp-seq::-webkit-scrollbar{display:none}
+  .stp-frame{flex:0 0 74%;max-width:230px;scroll-snap-align:start;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface);position:relative}
+  .stp-frame img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .stp-frame .fn{position:absolute;top:7px;left:7px;width:20px;height:20px;border-radius:50%;background:rgba(38,36,43,.8);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .stp-frame .fc{padding:7px 9px;font-size:11px;color:var(--ink-2);line-height:1.35}
+  .stp-frame .fc b{color:var(--ink)}
 
-  /* STEP MEDIA - Photos d'accompagnement par étape */
-  .step-photo {
-    width: 100%;
-    max-width: 320px;
-    border-radius: var(--radius-md);
-    margin-top: 12px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-soft);
-    display: block;
-  }
-  .step-photo-caption {
-    font-size: 12px;
-    color: var(--fg-soft);
-    font-style: italic;
-    margin-top: 4px;
-    margin-bottom: 8px;
-  }
-  .step-photo-sequence {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding: 8px 0 12px;
-    margin: 6px -4px 0;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-  }
-  .step-photo-sequence::-webkit-scrollbar { height: 4px; }
-  .step-photo-sequence::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-  .step-photo-frame {
-    flex: 0 0 auto;
-    width: 78%;
-    max-width: 280px;
-    scroll-snap-align: start;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-sm);
-    position: relative;
-  }
-  .step-photo-frame img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-  }
-  .step-photo-frame-num {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: rgba(34,34,34,0.78);
-    color: white;
-    backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 11px;
-    font-weight: 600;
-  }
-  .step-photo-frame-cap {
-    padding: 8px 10px 9px;
-    font-size: 11px;
-    color: var(--fg-muted);
-    line-height: 1.35;
-    background: var(--bg-card);
-  }
-  .step-photo-frame-cap strong { color: var(--fg); font-weight: 500; }
+  /* ACCÈS — état verrouillé (avant révélation) */
+  .acc-hero{margin:20px 16px 0;border-radius:18px;padding:22px 20px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.12);text-align:center}
+  .acc-hero .lk{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .acc-hero .dots{font-size:30px;letter-spacing:6px;color:var(--accent);opacity:.5;animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.75}}
+  .acc-hero .when{font-size:13px;color:var(--ink-2);line-height:1.5}
+  .acc-hero .when b{color:var(--ink);font-weight:600}
+  .cd{display:flex;justify-content:center;gap:8px;margin-top:16px}
+  .cd .c{background:#fff;border-radius:11px;padding:8px 12px;min-width:52px}
+  .cd .c b{display:block;font-size:19px;font-weight:700;color:var(--accent);line-height:1.1}
+  .cd .c span{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+  .app.is-open .acc-lock{display:none}
+  .app.is-locked .acc-open{display:none}
 
-  /* GALLERIE */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    margin-top: 16px;
-  }
-  @media (min-width: 480px) {
-    .gallery { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  }
-  .gallery-item {
-    aspect-ratio: 1;
-    overflow: hidden;
-    border-radius: 8px;
-    background: var(--border-soft);
-    cursor: pointer;
-    position: relative;
-    transition: transform 0.2s;
-  }
-  .gallery-item:hover { transform: scale(0.98); }
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-  .gallery-item:hover img { transform: scale(1.05); }
-  .gallery-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 6px 8px 5px;
-    background: linear-gradient(to top, rgba(34,34,34,0.85), transparent);
-    color: white;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-  }
+  /* SWIPE — prévenir l'hôte */
+  .swipe{margin:24px 16px 6px}
+  .swipe-track{position:relative;height:58px;border-radius:16px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.14);overflow:hidden;user-select:none;touch-action:none}
+  .swipe-fill{position:absolute;top:0;left:0;bottom:0;width:58px;background:var(--green-soft)}
+  .swipe-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--accent);pointer-events:none;padding-left:30px}
+  .swipe-thumb{position:absolute;top:5px;left:5px;width:48px;height:48px;border-radius:12px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;cursor:grab;box-shadow:var(--shadow-sm);touch-action:none;z-index:2}
+  .swipe-thumb:active{cursor:grabbing}
+  .swipe-thumb svg{width:22px;height:22px}
+  .swipe.done .swipe-track{background:var(--green-soft);border-color:rgba(0,135,95,.3)}
+  .swipe.done .swipe-fill{width:100%}
+  .swipe.done .swipe-thumb{background:var(--green);left:auto;right:5px;cursor:default}
+  .swipe.done .swipe-label{color:var(--green);padding:0}
+  .swipe-hint{font-size:12px;color:var(--ink-3);text-align:center;margin-top:9px}
 
-  /* ROOM TILES */
-  .rooms {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    margin-top: 18px;
-  }
-  .room {
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    padding: 11px 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .room-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 9px;
-    background: var(--accent-light);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-  .room-name {
-    font-family: var(--font-display);
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 1px;
-    font-variation-settings: "opsz" 18, "SOFT" 40;
-  }
-  .room-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
-  html { scroll-behavior: smooth; }
-  .section[id], .reco-cat-title[id] { scroll-margin-top: 110px; }
-  .jumpbar {
-    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    position: sticky; top: 54px; z-index: 40;
-    margin: 0 0 14px; padding: 10px 0;
-    background: rgba(255,255,255,0.92);
-    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .stay-zone { position: relative; }
-  .jumpbar::-webkit-scrollbar { display: none; }
-  .jump-pill {
-    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
-    padding: 8px 14px; border-radius: 999px;
-    background: var(--accent-soft); color: var(--accent);
-    font-size: 13px; font-weight: 500; text-decoration: none;
-    border: 1px solid var(--border-soft); white-space: nowrap;
-    transition: background 0.15s ease;
-  }
-  .jump-pill:hover { background: #E6DEF0; }
+  .how{margin:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 16px;box-shadow:var(--shadow-sm)}
+  .howrow{display:flex;align-items:center;gap:13px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+  .howrow:last-child{border-bottom:0}
+  .howrow .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .howrow .ic svg{width:17px;height:17px}
+  .howrow .t .v{font-size:14px;font-weight:600}
+  .howrow .t .v2{font-size:13px;color:var(--ink-2);margin-top:1px}
 
-  /* INFO CARDS */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  @media (min-width: 640px) {
-    .cards-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  .info-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    padding: 18px;
-    transition: all 0.18s;
-  }
-  .info-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--border);
-  }
-  .info-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    background: var(--accent-soft);
-    color: var(--accent-deep);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    margin-bottom: 12px;
-  }
-  .info-title {
-    font-family: var(--font-display);
-    font-size: 17px;
-    font-weight: 500;
-    margin-bottom: 4px;
-    font-variation-settings: "opsz" 24, "SOFT" 40;
-  }
-  .info-text {
-    font-size: 13px;
-    color: var(--fg-muted);
-    line-height: 1.5;
-  }
-  .info-text code {
-    font-family: var(--font-display);
-    font-size: 13px;
-    font-weight: 500;
-    background: var(--bg);
-    padding: 1px 6px;
-    border-radius: 4px;
-    color: var(--fg);
-  }
-  .info-copy-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 6px;
-  }
-  .info-copy-btn {
-    background: var(--fg);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 4px 8px;
-    font-size: 11px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .info-copy-btn:hover { background: var(--accent); }
-  .info-copy-btn.copied { background: var(--success); }
+  .rules{margin:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 16px;box-shadow:var(--shadow-sm)}
+  .rule{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line-2)}
+  .rule:last-child{border-bottom:0}
+  .rule .rc{width:28px;height:28px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+  .rule .t{padding-top:3px}
+  .rule .t .v{font-size:14px;font-weight:600;line-height:1.2}
+  .rule .t .v2{font-size:12px;color:var(--ink-2);margin-top:2px;line-height:1.4}
+  .sec-intro{font-size:13px;color:var(--ink-2);margin:-4px 20px 14px;line-height:1.5}
 
-  /* TRANSPORT GRID */
-  .transport-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  .transport-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    padding: 14px;
-  }
-  .transport-icon {
-    font-size: 20px;
-    margin-bottom: 6px;
-  }
-  .transport-name {
-    font-family: var(--font-display);
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 3px;
-    font-variation-settings: "opsz" 18, "SOFT" 30;
-  }
-  .transport-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.4; }
-  .transport-distance { font-size: 11px; color: var(--accent); font-weight: 500; margin-top: 4px; }
+  /* VISITE repliée (preuve, pas découverte) */
+  .revoir{margin:8px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+  .revoir summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
+  .revoir summary::-webkit-details-marker{display:none}
+  .revoir summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .revoir summary .ic svg{width:17px;height:17px}
+  .revoir summary .b{flex:1}
+  .revoir summary .b .v{display:block;font-size:15px;font-weight:600}
+  .revoir summary .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .revoir summary .chev{color:var(--ink-3);transition:.2s}
+  .revoir[open] summary .chev{transform:rotate(90deg)}
+  .revoir .note{font-size:12.5px;color:var(--ink-2);padding:2px 16px 10px;line-height:1.5}
+  .revoir .tour{padding:0 12px 14px}
 
-  /* RECOS */
-  .recos-toc {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 18px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .recos-toc::-webkit-scrollbar { display: none; }
-  .recos-toc-link {
-    flex-shrink: 0;
-    padding: 6px 12px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--fg);
-    text-decoration: none;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-  .recos-toc-link:hover { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-soft); }
-  .recos-toc-link.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .reco-group { display: none; }
-  .reco-group.active { display: block; }
+  .tour{display:flex;gap:12px;overflow-x:auto;padding:0 16px 4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tour::-webkit-scrollbar{display:none}
+  .tour-item{flex:0 0 80%;scroll-snap-align:start}
+  .tour-item .ph{height:210px;border-radius:16px;background:var(--accent-soft) center/cover no-repeat;box-shadow:var(--shadow-sm)}
+  .tour-item .cap{font-size:14px;font-weight:600;margin-top:10px}
+  .tour-item .cd2{font-size:12px;color:var(--ink-2);margin-top:1px}
 
-  .reco-cat-title {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 500;
-    font-style: italic;
-    margin: 32px 0 12px;
-    font-variation-settings: "opsz" 36, "SOFT" 60;
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    scroll-margin-top: 70px;
-  }
-  .reco-cat-title:first-child { margin-top: 0; }
-  .reco-cat-title .icon {
-    font-style: normal;
-    font-size: 20px;
-  }
-  .reco-cat-count {
-    font-family: var(--font-body);
-    font-style: normal;
-    font-size: 12px;
-    color: var(--fg-soft);
-    font-weight: 400;
-    letter-spacing: 0.04em;
-  }
+  .upsell{margin:16px 16px 8px;border-radius:18px;padding:18px 20px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.1)}
+  .upsell h3{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--accent)}
+  .upsell p{font-size:13px;color:var(--ink-2);margin:5px 0 15px}
+  .chips{display:flex;gap:9px}
+  .chip{flex:1;background:#fff;border:1.5px solid var(--line);border-radius:13px;padding:11px 0;cursor:pointer;transition:.15s;text-align:center;font-family:var(--font);color:var(--ink)}
+  .chip .h{font-size:16px;font-weight:700}
+  .chip .p{font-size:12px;color:var(--ink-2);margin-top:2px}
+  .chip.sel{background:var(--accent);border-color:var(--accent);color:#fff}
+  .chip.sel .p{color:rgba(255,255,255,.82)}
+  .chip:active{transform:scale(.96)}
 
-  .recos-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: 8px;
-  }
-  .reco {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 14px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    transition: all 0.18s;
-  }
-  .reco:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-  }
-  .reco-img {
-    width: 100px;
-    height: 100%;
-    min-height: 120px;
-    object-fit: cover;
-    background: var(--border-soft);
-  }
-  .reco-body {
-    padding: 14px 14px 14px 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .reco-meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 4px;
-  }
-  .reco-cat {
-    color: var(--accent);
-    font-weight: 500;
-  }
-  .reco-meta-sep {
-    color: var(--fg-soft);
-  }
-  .reco-distance {
-    color: var(--fg-muted);
-    font-weight: 500;
-  }
-  .reco-name {
-    font-family: var(--font-display);
-    font-size: 17px;
-    font-weight: 500;
-    margin-bottom: 4px;
-    font-variation-settings: "opsz" 24, "SOFT" 40;
-    line-height: 1.2;
-  }
-  .reco-desc {
-    font-size: 13px;
-    color: var(--fg-muted);
-    line-height: 1.45;
-    margin-bottom: 8px;
-    flex: 1;
-  }
-  .reco-tag {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent-deep);
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-size: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 4px;
-    align-self: flex-start;
-  }
-  .reco-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 500;
-    align-self: flex-start;
-  }
-  .reco-link:hover { text-decoration: underline; }
+  .reco{display:flex;gap:14px;margin:0 16px 12px;padding:11px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm)}
+  .reco .th{width:64px;height:64px;border-radius:12px;background:var(--accent-soft) center/cover;flex-shrink:0}
+  .reco .rc{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+  .reco .tag{align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:7px;margin-bottom:6px}
+  .tag.coeur{background:#FCE9EE;color:#C13A63}
+  .tag.bouchon{background:#FBF0DB;color:#9A6C0C}
+  .tag.spot{background:var(--green-soft);color:var(--green)}
+  .tag.patrimoine{background:#FBF0DB;color:#9A6C0C}
+  .tag.incontournable,.tag.gastronomique{background:#F2EBFA;color:#6B39B5}
+  .tag.budget,.tag.proche{background:var(--green-soft);color:var(--green)}
+  .reco .n{font-size:15px;font-weight:600;line-height:1.2}
+  .reco .desc{font-size:12px;color:var(--ink-2);margin-top:3px;line-height:1.35}
+  .reco .rl{display:inline-block;margin-top:6px;font-size:12px;font-weight:600;color:var(--accent);text-decoration:none}
 
-  .reco-tip {
-    background: rgba(45,27,78,0.06);
-    border: 1px solid var(--accent-soft);
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
-    margin-top: 12px;
-  }
-  .reco-tip-title {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--accent-deep);
-    margin-bottom: 4px;
-  }
-  .reco-tip-text {
-    font-size: 13px;
-    color: var(--fg-muted);
-    line-height: 1.5;
-  }
-  .reco-tip-text strong { color: var(--fg); font-weight: 500; }
+  .tabbar{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;padding:8px 6px calc(10px + env(safe-area-inset-bottom))}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;background:0;border:0;padding:6px 0;cursor:pointer;color:var(--ink-3);font-family:var(--font);transition:.15s}
+  .tab svg{width:22px;height:22px}
+  .tab span{font-size:11px;font-weight:600}
+  .tab.on{color:var(--accent)}
+  /* pastille verte sur l'onglet Accès quand le code est dispo */
+  .tab .dot{position:absolute;top:4px;margin-left:16px;width:7px;height:7px;border-radius:50%;background:var(--green);display:none}
+  .app.is-open .tab[data-tab="access"] .dot{display:block}
 
-  /* CHECKLIST */
-  .checklist {
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    padding: 18px 20px;
-  }
-  .checklist-item {
-    display: grid;
-    grid-template-columns: 24px 1fr;
-    gap: 12px;
-    align-items: start;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border-soft);
-  }
-  .checklist-item:last-child { border-bottom: none; }
-  .checklist-bullet {
-    width: 18px;
-    height: 18px;
-    border: 1.5px solid var(--border);
-    border-radius: 5px;
-    margin-top: 4px;
-    transition: all 0.15s;
-    flex-shrink: 0;
-    cursor: pointer;
-    position: relative;
-  }
-  .checklist-bullet.checked {
-    background: var(--success);
-    border-color: var(--success);
-  }
-  .checklist-bullet.checked::after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 1px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
-  .checklist-text {
-    font-size: 14px;
-    color: var(--fg);
-    line-height: 1.5;
-    cursor: pointer;
-    user-select: none;
-  }
-  .checklist-bullet.checked + .checklist-text { color: var(--fg-soft); text-decoration: line-through; }
+  .tile .v2{overflow-wrap:anywhere}
 
-  /* CONTACT */
-  .contact-card {
-    background: linear-gradient(135deg, var(--fg) 0%, #222222 100%);
-    color: var(--bg);
-    border-radius: var(--radius-lg);
-    padding: 28px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .contact-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 60%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(45,27,78,0.25), transparent 70%);
-    pointer-events: none;
-  }
-  .contact-eyebrow {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    opacity: 0.7;
-    margin-bottom: 6px;
-    position: relative;
-  }
-  .contact-title {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-style: italic;
-    font-weight: 300;
-    margin-bottom: 14px;
-    font-variation-settings: "opsz" 36, "SOFT" 80;
-    position: relative;
-  }
-  .contact-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: relative;
-  }
-  .contact-btn {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: white;
-    padding: 12px 16px;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: all 0.18s;
-  }
-  .contact-btn:hover { background: rgba(255,255,255,0.18); transform: translateY(-1px); }
-  .contact-btn.primary { background: var(--accent); border-color: var(--accent); }
-  .contact-btn.primary:hover { background: var(--accent-deep); }
+  /* BANDEAU FICHE DE POLICE — formalité légale (R.611-42) */
+  .pol{display:block;margin:12px 16px 0;border-radius:16px;padding:13px 16px;text-decoration:none;
+    border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm);transition:.2s}
+  .pol:active{transform:scale(.99)}
+  .pol .top{display:flex;align-items:center;gap:11px}
+  .pol .ic{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+  .pol .tt{flex:1}
+  .pol .tt .l{font-size:14px;font-weight:600;line-height:1.3;color:var(--ink)}
+  .pol .tt .s{font-size:12px;color:var(--ink-2);margin-top:2px;line-height:1.4}
+  .pol .chev{color:var(--ink-3);flex-shrink:0}
+  /* ferme : étranger identifié → obligation légale */
+  .pol.req{background:#FFF8EC;border-color:#F2E2C4}
+  .pol.req .ic{background:#FBEEDA}
+  /* doux : nationalité inconnue → auto-déclaration */
+  .pol.maybe .ic{background:var(--accent-soft)}
 
-  /* CHECKOUT BLOCK */
-  .checkout-block {
-    margin-top: 32px;
-    padding: 24px;
-    background: var(--accent-light);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--accent-soft);
-    text-align: center;
-  }
-  .checkout-block-text {
-    color: var(--fg-soft);
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-  .checkout-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px 28px;
-    background: var(--accent);
-    color: white;
-    text-decoration: none;
-    border-radius: var(--radius-md);
-    font-weight: 500;
-    font-size: 15px;
-    transition: all 0.18s;
-    border: 1px solid var(--accent);
-    cursor: pointer;
-  }
-  .checkout-btn:hover {
-    background: var(--accent-deep);
-    border-color: var(--accent-deep);
-    transform: translateY(-1px);
-  }
-  .checkout-btn.confirmed {
-    background: #2D1B4E;
-    border-color: #2D1B4E;
-    pointer-events: none;
-    cursor: default;
-  }
 
-  footer {
-    text-align: center;
-    padding: 32px 20px 24px;
-    color: var(--fg-soft);
-    font-size: 12px;
-    border-top: 1px solid var(--border-soft);
-    margin-top: 40px;
-  }
-  footer .signature {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 14px;
-    color: var(--fg-muted);
-    margin-bottom: 6px;
-    font-variation-settings: "opsz" 24, "SOFT" 80;
-  }
+  /* VARIANTE DUO — Accès + Fiche police côte à côte */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 16px 0}
+  .duo .dt{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px;
+    text-align:left;font-family:var(--font);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);
+    text-decoration:none;display:flex;flex-direction:column;transition:.2s}
+  .duo .dt:active{transform:scale(.98)}
+  .duo .dt .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;
+    align-items:center;justify-content:center;margin-bottom:11px;font-size:16px}
+  .duo .dt .ic svg{width:17px;height:17px}
+  .duo .dt .l{font-size:14.5px;font-weight:600;line-height:1.25}
+  .duo .dt .s{font-size:12px;color:var(--ink-2);margin-top:4px;line-height:1.4}
+  .app.is-open .duo .dt.acc{background:var(--green-soft);border-color:rgba(0,135,95,.22)}
+  .app.is-open .duo .dt.acc .ic{background:#fff}
+  .app.is-open .duo .dt.acc .ic svg path,.app.is-open .duo .dt.acc .ic svg circle{stroke:var(--green)}
+  .app.is-open .duo .dt.acc .l{color:var(--green)}
+  .duo .dt.pol2{background:#FFF8EC;border-color:#F2E2C4}
+  .duo .dt.pol2 .ic{background:#FBEEDA}
+  /* nationalité inconnue → ton neutre, le texte fait le tri */
+  .duo .dt.pol2.soft{background:var(--surface);border-color:var(--line)}
+  .duo .dt.pol2.soft .ic{background:var(--accent-soft)}
 
-  .toast {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: var(--fg);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 500;
-    box-shadow: var(--shadow-lg);
-    z-index: 100;
-    opacity: 0;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-  }
-  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  /* CHARTE INTERNET — affichée au moment de copier le wifi (sensibilisation Arcom) */
+  .sheet{position:fixed;inset:0;z-index:200;display:none}
+  .sheet.on{display:block}
+  .sheet .veil{position:absolute;inset:0;background:rgba(38,36,43,.45);backdrop-filter:blur(2px)}
+  .sheet .panel{position:absolute;left:0;right:0;bottom:0;background:var(--surface);
+    border-radius:22px 22px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom));
+    max-width:420px;margin:0 auto;box-shadow:0 -8px 40px -12px rgba(0,0,0,.35);
+    animation:up .28s cubic-bezier(.22,1,.36,1)}
+  @keyframes up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .sheet .grab{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 16px}
+  .sheet h3{font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .sheet .lead{font-size:13px;color:var(--ink-2);line-height:1.55;margin-bottom:14px}
+  .sheet ul{list-style:none;margin-bottom:14px}
+  .sheet li{display:flex;gap:9px;align-items:flex-start;padding:7px 0;font-size:13px;color:var(--ink-2);line-height:1.5}
+  .sheet li .b{flex-shrink:0;margin-top:1px}
+  .sheet li b{color:var(--ink);font-weight:600}
+  .sheet .fine{font-size:11.5px;color:var(--ink-3);line-height:1.5;background:var(--bg);border-radius:11px;padding:11px 13px;margin-bottom:16px}
+  .sheet .agree{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px;cursor:pointer}
+  .sheet .agree input{margin-top:1px;width:19px;height:19px;accent-color:var(--accent);flex-shrink:0;cursor:pointer}
+  .sheet .agree span{font-size:13px;color:var(--ink);line-height:1.5;font-weight:500}
+  .sheet .ok:disabled{opacity:.4;cursor:not-allowed}
+  .sheet .ok{width:100%;font-family:var(--font);font-size:15px;font-weight:600;color:#fff;background:var(--accent);
+    border:0;border-radius:14px;padding:15px;cursor:pointer}
+  .sheet .ok:active{transform:scale(.99)}
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(12px);
-    animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
-  .reveal:nth-child(1) { animation-delay: 0.05s; }
-  .reveal:nth-child(2) { animation-delay: 0.12s; }
-  .reveal:nth-child(3) { animation-delay: 0.20s; }
-  .reveal:nth-child(4) { animation-delay: 0.28s; }
-  .reveal:nth-child(5) { animation-delay: 0.36s; }
-  .reveal:nth-child(6) { animation-delay: 0.44s; }
+  /* CARTE DÉPART — apparaît à max(checkout-18h, checkin+6h) */
+  .depart{display:block;width:auto;text-align:left;font-family:var(--font);color:var(--ink);
+    margin:12px 16px 0;border-radius:18px;padding:16px 20px;border:1px solid var(--line);
+    background:var(--surface);box-shadow:var(--shadow-sm);cursor:pointer;transition:.2s}
+  .depart:active{transform:scale(.99)}
+  .depart .top{display:flex;align-items:center;gap:11px}
+  .depart .kic{width:36px;height:36px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .depart .kic svg{width:18px;height:18px}
+  .depart .top .tt{flex:1}
+  .depart .top .tt .l{font-size:15px;font-weight:600;line-height:1.2}
+  .depart .top .tt .s{font-size:13px;color:var(--ink-2);margin-top:2px}
+  .depart .chev{color:var(--ink-3);flex-shrink:0}
 
-  /* GALLERIE SCROLL HORIZONTALE */
-  .gallery-scroll {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding: 8px 0 12px;
-    margin: 16px -4px 0;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-  }
-  .gallery-scroll::-webkit-scrollbar { height: 4px; }
-  .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-  .gallery-scroll-item {
-    flex: 0 0 auto;
-    width: 220px;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    border-radius: var(--radius-md);
-    scroll-snap-align: start;
-    cursor: pointer;
-    position: relative;
-    background: var(--border-soft);
-    transition: transform 0.2s;
-  }
-  .gallery-scroll-item:hover { transform: scale(0.98); }
-  .gallery-scroll-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-  .gallery-scroll-item:hover img { transform: scale(1.05); }
+  /* CARTE VIDÉO (clic-pour-lire, aucun chargement YouTube avant le tap) */
+  .vidcard{margin:0 16px 12px;border-radius:16px;overflow:hidden;position:relative;background:#0c0b0f;cursor:pointer;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+  .vidcard .poster{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;opacity:.9}
+  .vidcard .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+  .vidcard .play span{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+  .vidcard .play svg{width:22px;height:22px;margin-left:3px;color:var(--accent)}
+  .vidcard .vlabel{position:absolute;left:11px;bottom:11px;background:rgba(0,0,0,.58);backdrop-filter:blur(4px);color:#fff;font-size:12px;font-weight:600;padding:5px 11px;border-radius:8px}
+  .vidcard iframe{width:100%;aspect-ratio:16/9;display:block;border:0}
+  .revoir .vidcard{margin:0 12px 10px}
+  .step .vidcard{margin:10px 0 0}
 
-  @media (max-width: 480px) {
-    .hero-content { margin-top: -64px; }
-    .hero-card { padding: 22px 20px 20px; border-radius: 16px; }
-    .quick-grid { gap: 8px; }
-    .quick-card { padding: 12px 14px; }
-    .section-title { font-size: 26px; }
-    .reco { grid-template-columns: 88px 1fr; }
-    .reco-img { width: 88px; min-height: 110px; }
-  }
+  /* COMMENT ÇA MARCHE — lignes dépliables */
+  .how details.hx{border-bottom:1px solid var(--line-2)}
+  .how details.hx:last-child{border-bottom:0}
+  .hx summary{list-style:none;display:flex;align-items:center;gap:13px;padding:14px 0;cursor:pointer}
+  .hx summary::-webkit-details-marker{display:none}
+  .hx summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .hx summary .ic svg{width:17px;height:17px}
+  .hx summary .t{flex:1}
+  .hx summary .t .v{font-size:14px;font-weight:600}
+  .hx summary .t .v2{font-size:13px;color:var(--ink-2);margin-top:1px}
+  .hx summary .chev{color:var(--ink-3);transition:.2s;flex-shrink:0}
+  .hx[open] summary .chev{transform:rotate(90deg)}
+  .hx-body{padding:2px 0 15px 47px;font-size:13px;color:var(--ink-2);line-height:1.55}
+  .hx-body p{margin-bottom:8px}
+  .hx-body p:last-child{margin-bottom:0}
+  .hx-body b{color:var(--ink);font-weight:600}
+  .hx-body img{width:100%;max-width:260px;border-radius:12px;margin-top:6px;border:1px solid var(--line)}
+  .hx-body .vidcard{margin:8px 0 0}
 
-  /* === Charte V2 UCB — fond plat === */
-  body{background:#FFFFFF !important;background-image:none !important;background-attachment:initial !important}
-  body::before{display:none !important}
+  /* « Une question ? » — accordéon contact channel-aware */
+  .qa{margin:12px 16px 8px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+  .qa summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .qa summary .ic svg{width:17px;height:17px}
+  .qa summary .b{flex:1}
+  .qa summary .b .v{display:block;font-size:15px;font-weight:600}
+  .qa summary .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .qa summary .chev{color:var(--ink-3);transition:.2s}
+  .qa[open] summary .chev{transform:rotate(90deg)}
+  .qa-body{padding:0 16px 16px}
+  .qa-body .cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;border-radius:12px;padding:13px;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:11px}
+  .qa-body .cta svg{width:18px;height:18px}
+  .qa-body .why{font-size:12.5px;color:var(--ink-2);line-height:1.55;background:var(--bg);border-radius:12px;padding:12px 14px;margin-bottom:0}
+  /* Urgence = recours, pas action principale : ligne discrète, séparée, sans carte ni couleur d'appel */
+  .qa-body .emg{display:block;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2);
+    text-decoration:none;color:var(--ink-3);font-size:12px;line-height:1.5}
+  .qa-body .emg .lbl{font-weight:600;color:var(--ink-2)}
+  .qa-body .emg .num{color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
 
-  /* ===== V2 : gate accès + algoPIN + upsell + nannybag + flottant ===== */
-  .ap-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center}
-  .ap-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
-  .ap-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:#2D1B4E}
-  .ap-badge{font-size:10px;background:#FFFFFF;color:#2D1B4E;border-radius:999px;padding:3px 10px;font-weight:600;white-space:nowrap}
-  .ap-dots{font-size:28px;line-height:1.2;letter-spacing:5px;word-spacing:14px;color:#2D1B4E;padding-left:5px;animation:appulse 2.2s ease-in-out infinite;white-space:nowrap}
-  @keyframes appulse{0%,100%{opacity:.35}50%{opacity:.9}}
-  @keyframes apslide{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
-  .ap-when{font-size:13px;color:#717171;margin-top:4px}
-  .ap-when strong{color:#222222;font-weight:600}
-  .ap-count{display:flex;justify-content:center;gap:8px;margin-top:12px}
-  .ap-chip{background:#FFFFFF;border-radius:11px;padding:8px 12px;min-width:54px}
-  .ap-chip b{display:block;font-size:20px;font-weight:600;color:#2D1B4E;line-height:1.1}
-  .ap-chip span{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#717171}
-  .ap-sep{height:1px;background:#DDD3EA;margin:16px 0 14px}
-  .ap-upsell{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
-  .ap-upsell-txt{font-size:13px;color:#717171;line-height:1.45}
-  .ap-upsell-txt strong{color:#222222;font-weight:600}
-  .ap-cta{background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:11px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0}
-  .ap-cta:active{transform:scale(.98)}
-  .ap-open{background:#E8F8F1;border:1px solid #BFE9DC;border-radius:16px;padding:20px 18px;text-align:center}
-  .ap-open .ap-label{color:#007A5C}
-  .ap-open .ap-badge{color:#007A5C}
-  .ap-code{font-size:clamp(26px,8.5vw,38px);font-weight:600;letter-spacing:.1em;word-spacing:.22em;color:#007A5C;line-height:1.3;padding-left:.1em;white-space:nowrap}
-  .ap-copy{margin-top:10px;background:#007A5C;color:#fff;border:0;border-radius:999px;padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
-  #algopin[data-state="locked"] .ap-open{display:none}
-  #algopin[data-state="open"] .ap-locked{display:none}
-  #digicode-gate[data-state="locked"] .dg-open{display:none}
-  #digicode-gate[data-state="open"] .dg-locked{display:none}
-  .ap-under{font-size:11.5px;color:#B0B0B0;text-align:center;margin:8px 0 14px}
-  #accgate .acc-open{display:none}
-  #accgate[data-state="open"] .acc-open{display:block}
-  #accgate[data-state="open"] .acc-locked{display:none}
-  .acc-locked{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:16px;padding:20px 18px;text-align:center;margin:4px 0 8px}
-  .acc-lk-when{font-size:13px;color:#717171;margin:6px 0 2px}
-  .acc-lk-when strong{color:#222222;font-weight:600}
-  .acc-bag{background:#F0EBF5;border:1px solid #DDD3EA;border-radius:14px;padding:14px 16px;margin:4px 0 16px}
-  @media(max-width:520px){.ap-upsell{flex-direction:column;align-items:stretch;text-align:left}.ap-cta{width:100%}}
-  /* arrival block (charte plate) + flottant */
-  .arrival-block{margin-top:32px;padding:24px;background:#FFFFFF;border:1px solid #EBEBEB;border-radius:var(--radius-md);text-align:center;box-shadow:none}
-  .arrival-block-text{color:var(--fg-muted);font-size:14px;line-height:1.5;margin-bottom:16px}
-  .arrival-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:#2D1B4E;color:#fff;text-decoration:none;border-radius:var(--radius-md);font-weight:600;font-size:15px;transition:all .18s;border:1px solid #2D1B4E}
-  .arrival-btn:hover{background:#3D2966}
-  .arrival-btn.confirmed{background:#007A5C;border-color:#007A5C;pointer-events:none}
-  .fab-arrival{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:997;background:#2D1B4E;color:#fff;border:0;border-radius:999px;padding:14px 24px;font-size:14px;font-weight:600;font-family:var(--font-body);cursor:pointer;box-shadow:0 6px 20px rgba(45,27,78,.3);display:flex;align-items:center;gap:8px;white-space:nowrap;max-width:calc(100vw - 32px)}
-  .fab-arrival:active{transform:translateX(-50%) scale(.98)}
-  .fab-arrival.hide{display:none}
-  /* carte contact V2 : intro + note délai */
-  .contact-lead{font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.80);margin:0 0 16px;position:relative}
-  .contact-lead strong{color:#fff;font-weight:600}
-  .contact-note{font-size:11.5px;color:rgba(255,255,255,.58);margin:12px 0 0;position:relative;line-height:1.45}
+  /* Bloc dépliable générique (parking) — même look que .revoir */
+  .fold{margin:10px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+  .fold summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
+  .fold summary::-webkit-details-marker{display:none}
+  .fold summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .fold summary .ic svg{width:17px;height:17px}
+  .fold summary .b{flex:1}
+  .fold summary .b .v{display:block;font-size:15px;font-weight:600}
+  .fold summary .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .fold summary .chev{color:var(--ink-3);transition:.2s;flex-shrink:0}
+  .fold[open] summary .chev{transform:rotate(90deg)}
+  .fold-body{padding:0 16px 16px;font-size:13px;color:var(--ink-2);line-height:1.55}
+  .fold-body p{margin-bottom:10px}
+  .fold-body b{color:var(--ink);font-weight:600}
+  .pk-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}
+  .pk{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);text-decoration:none;display:block}
+  .pk img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .pk .cap{padding:7px 9px;font-size:11px;color:var(--ink-2);line-height:1.35}
+  .pk .cap b{display:block;color:var(--ink);font-weight:600}
+  .pk.wide2{grid-column:span 2}
+  .fold.first{margin-top:0}
 
-  /* ===== UCB overrides (spec V2 §1 + §7) ===== */
-  body{background:#FFFFFF;background-image:none}
-  body::before{display:none}
-  .hero-title,.section-title,.quick-value,.codebox-value,.hero-countdown-num{font-weight:600}
-  .hero-sub{font-style:normal}
-  .section-title em{font-style:normal;font-weight:inherit}
-  .quick-card.highlight{background:var(--accent-soft);border-color:var(--border-soft)}
-  .contact-card{background:var(--fg)}
-  .contact-card::before{display:none}
-  .step-tip{background:var(--accent-soft);border-left-color:var(--accent)}
-  .step-tip strong{color:var(--accent)}
-  .step-tip.warn{background:rgba(232,167,53,0.12);border-left-color:var(--warning)}
-  .step-tip.warn strong{color:var(--warning)}
-  .codebox-keybox{background:rgba(0,166,126,0.07);border-color:rgba(0,166,126,0.35)}
-  .codebox-keybox.locked{background:var(--bg);border-color:var(--border)}
-  .wifi-card{cursor:pointer;transition:box-shadow .2s ease}
-  .wifi-card.copied{box-shadow:inset 0 0 0 2px var(--success)}
-  .wifi-card.copied .quick-sub{color:var(--success);font-weight:500}
-  .swipe-arrow{display:inline-block;animation:swipeHint 1.6s ease-in-out infinite}
-  @keyframes swipeHint{0%,100%{transform:translateX(0);opacity:.55}50%{transform:translateX(6px);opacity:1}}
+  /* Lignes transport (dans le fold « Se déplacer ») */
+  .tr{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line-2)}
+  .tr:last-child{border-bottom:0;padding-bottom:0}
+  .tr .em{font-size:19px;flex-shrink:0;width:26px;text-align:center;line-height:1.3}
+  .tr .t{flex:1}
+  .tr .t .v{font-size:14px;font-weight:600;color:var(--ink);line-height:1.25}
+  .tr .t .v2{font-size:12.5px;color:var(--ink-2);margin-top:2px;line-height:1.45}
+  .tr .t .v2 b{color:var(--ink);font-weight:600}
+  .tr .d{font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:7px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+  .tr a{color:var(--accent);font-weight:600;text-decoration:none}
 
-  .arrival-block {
-    margin-top: 32px;
-    padding: 24px;
-    background: var(--bg-card);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
-    text-align: center;
-  }
-  .arrival-block-text {
-    color: var(--fg-muted);
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-  .arrival-btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    gap: 10px; padding: 14px 28px;
-    background: var(--accent); color: white;
-    text-decoration: none; border-radius: var(--radius-md);
-    font-weight: 500; font-size: 15px;
-    transition: all 0.18s; border: 1px solid var(--accent);
-  }
-  .arrival-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
-  .arrival-btn.confirmed { background: var(--success); border-color: var(--success); pointer-events: none; }
-  .arrival-block.locked {
-    background: var(--bg);
-    border-color: var(--border-soft);
-  }
-  .arrival-block.locked .arrival-block-text {
-    font-style: italic;
-    color: var(--fg-soft);
-    margin-bottom: 0;
-  }
+  /* DÉPANNAGE keybox — replié, ton neutre (pas d'alarme) */
+  .help{margin:4px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .help summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;padding:14px 16px}
+  .help summary::-webkit-details-marker{display:none}
+  .help summary .ic{width:30px;height:30px;border-radius:9px;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+  .help summary .b{flex:1;font-size:14px;font-weight:600;color:var(--ink-2)}
+  .help summary .chev{color:var(--ink-3);transition:.2s;flex-shrink:0}
+  .help[open] summary .chev{transform:rotate(90deg)}
+  .help[open] summary .b{color:var(--ink)}
+  .help-body{padding:0 16px 14px}
+  .hck{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line-2)}
+  .hck .n{width:20px;height:20px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .hck .t{flex:1;font-size:13px;color:var(--ink-2);line-height:1.5}
+  .hck .t b{color:var(--ink);font-weight:600}
+  .help-last{margin-top:12px;padding:12px 14px;background:var(--bg);border-radius:12px;font-size:12.5px;color:var(--ink-2);line-height:1.5}
+  .help-last a{color:var(--accent);font-weight:600;text-decoration:none}
+  .help-body .vidcard{margin:0}
 
-  details.section > summary.section-summary {
-    list-style: none;
-    cursor: pointer;
-    display: block;
-    position: relative;
-    padding-right: 56px;
-    border-radius: var(--radius-md);
-    transition: background 0.15s ease;
-  }
-  details.section > summary.section-summary::-webkit-details-marker { display: none; }
-  details.section > summary.section-summary::marker { display: none; }
-  details.section > summary.section-summary:hover {
-    background: rgba(45,27,78,0.03);
-  }
-  details.section .section-summary-chevron {
-    position: absolute;
-    right: 4px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: var(--accent-light);
-    border: 1.5px solid var(--accent-soft);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 1;
-    padding-bottom: 3px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s, box-shadow 0.15s;
-    box-shadow: var(--shadow-sm);
-  }
-  details.section > summary.section-summary:hover .section-summary-chevron {
-    background: var(--accent-soft);
-    box-shadow: var(--shadow-md);
-    color: var(--accent-deep);
-  }
-  details.section[open] .section-summary-chevron {
-    transform: translateY(-50%) rotate(90deg);
-  }
-  details.section:not([open]) {
-    padding-bottom: 8px;
-  }
-  details.section:not([open]) .section-summary .section-title {
-    margin-bottom: 0;
-  }
-  @media print {
-    details.section > summary.section-summary { display: block; }
-    details.section .section-summary-chevron { display: none; }
-    details.section > *:not(summary) { display: revert !important; }
-  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="app">
+<div class="phone">
+ <div class="app is-{{access_state}}">
+  <div class="scroll">
 
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">u-citybreak<span class="brand-dot">.</span></div>
-      <div class="lang-switcher">
-        <button class="lang-btn" onclick="toggleLangMenu(event)">
-          <span class="flag">🇳🇱</span><span>NL</span><span class="chev">▾</span>
+    <!-- ============= ACCUEIL ============= -->
+    <section class="view active" data-view="home">
+      <div class="hero">
+        <details class="langbox">
+            <summary><span class="flag">{{lang_flag}}</span><span class="code">{{lang_short}}</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="langmenu" data-cur="{{lang_code}}">
+              <a href="?lang=fr" hreflang="fr"><span class="flag">🇫🇷</span> Français</a>
+              <a href="?lang=en" hreflang="en"><span class="flag">🇬🇧</span> English</a>
+              <a href="?lang=es" hreflang="es"><span class="flag">🇪🇸</span> Español</a>
+              <a href="?lang=it" hreflang="it"><span class="flag">🇮🇹</span> Italiano</a>
+              <a href="?lang=de" hreflang="de"><span class="flag">🇩🇪</span> Deutsch</a>
+              <a href="?lang=nl" hreflang="nl"><span class="flag">🇳🇱</span> Nederlands</a>
+              <a href="?lang=pt" hreflang="pt"><span class="flag">🇵🇹</span> Português</a>
+              <a href="?lang=ru" hreflang="ru"><span class="flag">🇷🇺</span> Русский</a>
+              <a href="?lang=zh" hreflang="zh"><span class="flag">🇨🇳</span> 中文</a>
+            </div>
+        </details>
+        <div class="frame">
+          <div class="img" style="background-image:url('https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg')"></div>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <h1>{{property_name}}</h1>
+        <a class="addr" href="{{maps_url}}" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5C5.3 1.5 3.5 3.3 3.5 5.5c0 3 4 8 4 8s4-5 4-8c0-2.2-1.8-4-4-4z" stroke="#63616B" stroke-width="1.2"/><circle cx="7.5" cy="5.5" r="1.4" stroke="#63616B" stroke-width="1.2"/></svg>
+          {{property_address}}
+        </a>
+      </div>
+
+      <div class="status">
+        <div class="badge"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-6.5" stroke="#00875F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="txt"><div class="l">{{reservation_status_label}}</div><div class="s">{{guest_first_name}} · {{guests_label}}</div></div>
+      </div>
+
+      <div class="dates">
+        <div class="band">
+          <div class="d"><div class="l">Aankomst</div><div class="day">{{checkin_date_label}}</div><div class="time">vanaf {{checkin_time}}</div></div>
+          <div class="mid"><span class="nights">{{nights_label}}</span></div>
+          <div class="d r"><div class="l">Vertrek</div><div class="day">{{checkout_date_label}}</div><div class="time">voor {{checkout_time}}</div></div>
+        </div>
+        <div class="foot">{{stay_status_html}}</div>
+      </div>
+
+      <div class="duo">
+        <button class="dt acc" onclick="go('access')">
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="6" cy="12" r="3" stroke="#3A2A5E" stroke-width="1.4"/><path d="M8.2 9.8L14 4M11.5 6.5l1.3 1.3M13 5l1.3 1.3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+          <span class="l">{{access_title}}</span>
+          <span class="s">{{access_sub}}</span>
         </button>
-        <div class="lang-menu" id="lang-menu">
-          <a href="#"><span>🇫🇷</span> Français</a>
-          <a href="#"><span>🇬🇧</span> English</a>
-          <a href="#"><span>🇩🇪</span> Deutsch</a>
-          <a href="#"><span>🇮🇹</span> Italiano</a>
-          <a href="#"><span>🇪🇸</span> Español</a>
-          <a href="#"><span>🇷🇺</span> Русский</a>
-          <a href="#"><span>🇨🇳</span> 中文</a>
-          <a href="#" class="active"><span>🇳🇱</span> Nederlands</a>
+        {{police_card}}
+      </div>
+
+      <div class="grid">
+        <button class="tile" id="wifiTile" onclick="copyWifi()">
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 13.5a.9.9 0 100-1.8.9.9 0 000 1.8z" fill="#3A2A5E"/><path d="M5.8 10.3a4.5 4.5 0 016.4 0M3.5 8a7.5 7.5 0 0111 0" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+          <span class="k">Wifi</span><span class="v">{{wifi_ssid}}</span><span class="v2" id="wifiHint" data-pw="{{wifi_password}}">🔒 Tik om weer te geven</span>
+        </button>
+        <button class="tile" onclick="go('access')">
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2C6.5 2 4.5 4 4.5 6.5c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8C13.5 4 11.5 2 9 2z" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="6.5" r="1.6" stroke="#3A2A5E" stroke-width="1.4"/></svg></span>
+          <span class="k">Aankomst</span><span class="v">Toegang & route</span><span class="v2">Code, digicode, routekaart</span>
+        </button>
+      </div>
+
+      <details class="qa">
+        <summary>
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M2.5 9a6 6 0 116 6c-.9 0-1.7-.2-2.4-.5l-3.6 1 1-3.5A6 6 0 012.5 9z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+          <span class="b"><span class="v">Een vraag?</span><span class="v2">We helpen je snel</span></span>
+          <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </summary>
+        <div class="qa-body">{{contact_block_v3}}</div>
+      </details>
+    </section>
+
+    <!-- ============= ACCÈS ============= -->
+    <section class="view" data-view="access">
+      <div class="phead"><h2>Uw toegang</h2><p>Alles wat je nodig hebt om naar binnen te gaan op je aankomstdag.</p></div>
+
+      <!-- Y ALLER (toujours visible, en premier) -->
+      <div class="sub"><span class="em">📍</span>Hoe je er komt</div>
+      <div class="wide" style="margin-top:0">
+        <a class="wide-btn" href="{{maps_url}}" target="_blank" rel="noopener" style="text-decoration:none">
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2C6.5 2 4.5 4 4.5 6.5c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8C13.5 4 11.5 2 9 2z" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="6.5" r="1.6" stroke="#3A2A5E" stroke-width="1.4"/></svg></span>
+          <span class="b"><span class="v">{{property_address}}</span><span class="v2">Open routekaart in Maps</span></span>
+          <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+      <details class="fold"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 12V6.5h2.4a1.8 1.8 0 010 3.6H7" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">Waar parkeren</span><span class="v2">Voetgangerszone in het centrum — ondergrondse parkeergarages in de buurt</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body"><p><b>Het centrum is voetgangerszone</b> : parkeren aan de oppervlakte is erg moeilijk.</p><p><b>Dichtstbijzijnde ondergrondse parkeergarages van LPA</b> : Terreaux (betaald), Saint-Antoine, en dan Cordelier (iets verder weg). Abonnementen voor meerdere dagen en weekends (vrijdag→maandag) zijn vaak voordelig.</p></div></details>
+      <div class="wide" style="margin-top:10px;margin-bottom:8px"><a class="wide-btn" href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" rel="noopener" style="text-decoration:none"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="5.5" width="10" height="9" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 5.5v-1a1.5 1.5 0 011.5-1.5h1A1.5 1.5 0 0111 4.5v1M7.5 8.5v3M10.5 8.5v3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Bagage opslaan</span><span class="v2">Nannybag-opslagplaatsen in Lyon · vanaf 4,50 €/dag</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+
+      <!-- État verrouillé (avant l'heure de révélation) -->
+      <div class="acc-lock">
+        <div class="acc-hero">
+          <span class="lk">🔒 Uw toegang</span>
+          <div class="dots">••• ••• •••</div>
+          <div class="when">De code en route worden hier weergegeven <b>{{checkin_datetime_label}}</b>, op het moment van je check-in.</div>
+          <div class="cd" id="cd" data-reveal="{{checkin_reveal_ts}}"></div>
+        </div>
+        <div class="upsell {{upsell_early_hidden}}">
+          <h3>Eerder aankomen?</h3>
+          <p>Afhankelijk van beschikbaarheid van schoonmaak · onmiddellijk antwoord.</p>
+          <div class="chips">{{upsell_early_chips}}</div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="hero">
-    <img class="hero-img" src="https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg" alt="L'Alcove">
-    <div class="hero-overlay"></div>
-  </div>
+      <!-- État ouvert (code disponible) -->
+      <div class="acc-open">
+        <div class="sub"><span class="em">🚪</span>De route, stap voor stap</div>
+        <div class="steps"><div class="step"><span class="n">1</span><div><div class="h">Het gebouw vinden</div><div class="d">Je komt aan bij <b>3 rue de la Valfenière</b>, in het hart van de Presqu'île. Vanaf het Terreaux-plein neem je de rue Paul Chenavard en dan de rue Major Martin (hoek Café des Fédérations). Komend van rue de la Plâtrière, het is op de hoek van Franprix Marché Presqu'île.</div><div class="vidcard" onclick="playVid(this,'DwyeCH4FSWo')"><img class="poster" src="https://img.youtube.com/vi/DwyeCH4FSWo/hqdefault.jpg" alt="De weg naar het appartement" loading="lazy"><div class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="vlabel">De weg naar het appartement</div></div></div></div><div class="step"><span class="n">2</span><div><div class="h">De digicode van het gebouw</div><div class="d">Voer de digicode in op de voordeur. <b>Dezelfde code opent beide deuren</b> — de deur aan de straat en dan de deur van de hal.</div><div class="kb"><span class="kb-code" style="display:inline">{{building_digicode}}</span></div></div></div><div class="step"><span class="n">3</span><div><div class="h">Naar de 3e verdieping</div><div class="d">Neem het <b>spiraalvormige trappenhuisje</b> en ga naar de <b>3e verdieping</b>.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/escalier.jpg" alt="Naar de 3e verdieping"><div class="stp-cap">Het spiraalvormige trappenhuisje</div></div></div><div class="step"><span class="n">4</span><div><div class="h">De sleutelkastje</div><div class="d">Het bevindt zich op de <b>deur van de sluisgang</b>, op de 3e verdieping. Leg je handpalm op het toetsenbord om het in te schakelen, voer je code in en druk op het slotlogo. Wacht op de pieptoon, trek dan aan de zijkant om het kastje te openen en de sleutels te pakken.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Lockbox.jpg" alt="Het sleutelkastje"><div class="stp-cap">Het sleutelkastje, op de deur van de sluisgang</div><div class="vidcard" onclick="playVid(this,'ztTYzb8GnGE')"><img class="poster" src="https://img.youtube.com/vi/ztTYzb8GnGE/hqdefault.jpg" alt="Het sleutelkastje openen · 30 s" loading="lazy"><div class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="vlabel">Het sleutelkastje openen · 30 s</div></div><div class="kb"><span class="kb-dots">••• ••• •••</span><span class="kb-code">{{algopin_code_grouped}}</span></div><div class="kb-note">Jouw code · actief tot je vertrek</div></div></div><div class="step"><span class="n">5</span><div><div class="h">Je bent er</div><div class="d">De sleutels openen de deur. Welkom in L'Alcôve ✨</div></div></div></div>
 
-  <div class="hero-content">
-    <div class="hero-card reveal">
-      <div class="hero-eyebrow">Uw verblijf</div>
-      <h1 class="hero-title">L'Alcove</h1>
-      <p class="hero-sub">In het hart van Terreaux, Lyon</p>
-      <div class="hero-divider"></div>
-      <p class="hero-greeting">Hallo <strong>{{guest_name}}</strong>, we verwelkomen u graag.</p>
-      <div class="hero-countdown">
-        {{countdown}}
-      </div>
-    </div>
-  </div>
+        <details class="help"><summary><span class="ic">🔧</span><span class="b">Moeite met het sleutelkastje openen?</span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="help-body"><div class="hck"><span class="n">1</span><div class="t">Heb je op het <b>slotlogo</b> gedrukt nadat je de code hebt ingetoetst? Dat valideert de invoer — zonder deze druk gaat het kastje niet open.</div></div><div class="hck"><span class="n">2</span><div class="t">Het kastje is ontgrendeld, maar heb je goed <b>aan de zijkant getrokken</b> om het te openen? Het ontgrendelen opent het niet automatisch.</div></div><div class="hck"><span class="n">3</span><div class="t">Na <b>meerdere foutieve codes</b> gaat het kastje in veiligheidsmodus. Wacht <b>1 tot 2 minuten</b> zonder het aan te raken, probeer het dan rustig opnieuw.</div></div><div class="help-last">Nog steeds vast? <a href="tel:+33610393424">Bel ons</a> — we helpen je meteen.</div></div></details>
 
-  <main>
-
-    <!-- QUICK -->
-    <div class="quick-grid reveal">
-      <div class="quick-card">
-        <div class="quick-label">Aankomst</div>
-        <div class="quick-value">1 mei</div>
-        <div class="quick-sub">vanaf 17:00 uur</div>
-      </div>
-      <div class="quick-card">
-        <div class="quick-label">Vertrek</div>
-        <div class="quick-value">3 mei</div>
-        <div class="quick-sub">voor 11:00 uur</div>
-      </div>
-      <div class="quick-card">
-        <div class="quick-label">Reizigers</div>
-        <div class="quick-value">4 personen</div>
-        <div class="quick-sub">Studio + mezzanine</div>
-      </div>
-      <div class="quick-card highlight wifi-card" role="button" tabindex="0" onclick="copyWifi(this, 'h85xkgpudi4xfri279rb')">
-        <div class="quick-label">Wifi</div>
-        <div class="quick-value">SFR_7CFF</div>
-        <div class="quick-sub">Raken om wachtwoord te kopiëren</div>
-      </div>
-    </div>
-
-    <!-- ARRIVÉE -->
-    <details class="section reveal" id="arriver">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Stap voor stap</div>
-        <h2 class="section-title">Aankomst <em>in het logement</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
-
-      <div class="steps">
-
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h3 class="step-title">Het adres vinden</h3>
-            <p class="step-text">U arriveert op <strong>3 rue de la Valfenière, Lyon 1er</strong>, in het hart van <strong>Terreaux</strong>. Enkele oriëntatiepunten om u te helpen:</p>
-            <ul style="margin:8px 0 14px 18px; padding:0; color:var(--fg-soft); font-size:14.5px; line-height:1.7;">
-              <li><strong>Vanaf het Place des Terreaux</strong>: neem rue Paul Chenavard en dan rue Major Martin (op de hoek van <strong>Café des Fédérations</strong>).</li>
-              <li><strong>Vanaf rue de la Plâtrière</strong>: op de hoek van <strong>Franprix Marché Presqu'île</strong>.</li>
-            </ul>
-            <a href="https://www.google.com/maps/place/3+Rue+de+la+Valfeni%C3%A8re,+69001+Lyon/" target="_blank" class="step-button">
-              Openen in Maps <span class="arrow">→</span>
-            </a>
-
-            <a href="https://www.youtube.com/watch?v=DwyeCH4FSWo" target="_blank" rel="noopener" aria-label="Aankomstvideo op YouTube bekijken" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-top:14px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-              <img src="https://img.youtube.com/vi/DwyeCH4FSWo/maxresdefault.jpg" alt="Aankomstvideo" loading="lazy" onerror="this.src='https://img.youtube.com/vi/DwyeCH4FSWo/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
-              <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </a>
-            <p class="step-photo-caption">▶ Aankomstvideo · de ingang van het gebouw vinden</p>
-          </div>
-        </div>
-
-        <div id="accgate" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
-        <div class="acc-locked">
-          <div class="ap-label" style="display:block;margin-bottom:6px">🔒 Toegang tot het logement</div>
-          <div class="ap-dots">••• ••• •••</div>
-          <div class="acc-lk-when">De toegangsgegevens (digicode, route, sleutelkastcode) worden hier weergegeven <strong>{{checkin_datetime_label}}</strong></div>
-          {{upsell_arrival_menu}}
-          <div class="ap-sep"></div>
-          <div class="ap-upsell ap-bag acc-bag">
-            <div class="ap-upsell-txt"><strong>🧳 Bagage kwijt voor aankomst?</strong><br>Beveiligde bagagekluizen van Nannybag overal in Lyon, vanaf 2,50 €/dag.</div>
-            <a class="ap-cta" href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" rel="noopener" style="text-decoration:none">Kluizen bekijken</a>
-          </div>
-        </div>
-        <div class="acc-open">
-
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h3 class="step-title">De digicode van het gebouw</h3>
-            <p class="step-text">Het gebouw heeft <strong>twee opeenvolgende deuren</strong> met <strong>dezelfde code</strong>. Voer de digicode in op de eerste, vervolgens op de tweede (het hek).</p>
-            <div class="codebox">
-              <span class="codebox-label">Digicode · 1e en 2e deur</span>
-              <span class="codebox-value">3175</span>
+        <div class="swipe" id="swipeArrival" data-url="{{arrival_confirm_url}}" data-done="Aankomst gemeld ✓" data-thanks="Dank je, tot zo.">
+          <div class="swipe-track">
+            <div class="swipe-fill"></div>
+            <div class="swipe-label" id="swipeLabel">Veeg om de gastheer in te lichten</div>
+            <div class="swipe-thumb" id="swipeThumb">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </div>
+          <div class="swipe-hint" id="swipeHint">Een klein gebaar bevestigt dat alles goed is gegaan.</div>
         </div>
-
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h3 class="step-title">Naar de 3e verdieping</h3>
-            <p class="step-text">Zodra u door de <strong>tweede deur (het hek)</strong> bent, neem je de <strong>wenteltrap</strong> naar de <strong>3e verdieping</strong> (<strong>geen lift</strong> — Renaissance-gebouw).</p>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:8px;">
-              <div>
-                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/grille.jpg" alt="De tweede deur (hek)" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm); border:1px solid var(--border-soft);">
-                <p class="step-photo-caption" style="text-align:center; margin-top:6px;">De <strong>tweede deur</strong> (het hek)</p>
-              </div>
-              <div>
-                <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/escalier.jpg" alt="De wenteltrap" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm); border:1px solid var(--border-soft);">
-                <p class="step-photo-caption" style="text-align:center; margin-top:6px;">De <strong>wenteltrap</strong>, naar de 3e</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h3 class="step-title">De Igloohome-sleutelkast openen</h3>
-            <p class="step-text">Bovenaan de trap komt u in de <strong>sas</strong>. De Igloohome-sleutelkast is <strong>bevestigd aan de sluisdeur</strong>. Hier is hoe u het gebruikt:</p>
-
-            <div style="display:flex; justify-content:center; margin-top:8px;">
-              <div style="max-width:300px;">
-                <img class="step-photo" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Lockbox.jpg" alt="Igloohome-sleutelkast" style="margin-top:0; max-width:100%; aspect-ratio:1/1; object-fit:cover;">
-                <p class="step-photo-caption">De Igloohome-sleutelkast, op de <strong>sluisdeur</strong></p>
-              </div>
-            </div>
-
-            <div class="step-substeps">
-              <div class="step-substep"><span class="step-substep-num">1</span><span>Plaats je <strong style="color:var(--fg);">handpalm</strong> op het toetsenbord om het apparaat in te schakelen</span></div>
-              <div class="step-substep"><span class="step-substep-num">2</span><span>Voer uw <strong style="color:var(--fg);">9-cijferige code</strong> in en druk op het slotlogo in het midden</span></div>
-              <div class="step-substep"><span class="step-substep-num">3</span><span>Wacht op de pieptoon en het openingsgeluid</span></div>
-              <div class="step-substep"><span class="step-substep-num">4</span><span>Trek aan de zijkant om de kast te openen en pak de sleutel</span></div>
-            </div>
-
-            <p class="step-text" style="margin-top:14px;">Uw unieke code voor deze kast:</p>
-
-            <div id="algopin" data-state="{{access_state}}" data-reveal="{{checkin_reveal_ts}}">
-              <div class="ap-locked">
-                <div class="ap-head"><span class="ap-label">🔒 Uw toegangscode</span><span class="ap-badge">Gegenereerd voor uw verblijf</span></div>
-                <div class="ap-dots">••• ••• •••</div>
-                <div class="ap-when">Het wordt hier weergegeven <strong>{{checkin_datetime_label}}</strong>, uw incheckuur</div>
-                <div class="ap-count" id="ap-count"></div>
-              </div>
-              <div class="ap-open">
-                <div class="ap-head"><span class="ap-label">🔓 Keybox-code</span><span class="ap-badge">Actief tot uw vertrek</span></div>
-                <div class="ap-code">{{algopin_code_grouped}}</div>
-                <button class="ap-copy" id="ap-copy">Code kopiëren</button>
-              </div>
-            </div>
-            <p class="ap-under">🔐 Deze code is uniek voor uw reservering — deze verandert bij elk verblijf.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num">5</div>
-          <div class="step-content">
-            <h3 class="step-title">Het logement binnengaan</h3>
-            <p class="step-text">Sluit de kast (druk zachtjes op het luik tot het klikt), open vervolgens de studiodeur met de sleutel. <strong>Welkom in L'Alcove</strong> ✨</p>
-          </div>
-        </div>
-
-        <div class="arrival-block">
-          <p class="arrival-block-text">Bent u er? Een klein klikje laat ons weten dat alles goed is gegaan.</p>
-          <a href="{{arrival_confirm_url}}" class="arrival-btn" target="_blank" rel="noopener" id="arrivalBtn">
-            ✓ Ik waarschuw de gastheer van mijn aankomst
-          </a>
-        </div>
-        </div><!--/acc-open-->
-        </div><!--/accgate-->
-
-      </div>
-
-      {{arrival_block}}
-    </details>
-
-    <!-- DÉCOUVRIR -->
-    <details class="section reveal" id="decouvrir">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Het logement ontdekken</div>
-        <h2 class="section-title">L'Alcove in <em>enkele stappen</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
-      <p class="section-intro">Atypische mezzanine-studio in het hart van Terreaux. Alles wat je nodig hebt op één niveau, en een gezellige slaaphoek onder het dak.</p>
-
-      <a href="https://www.youtube.com/watch?v=Ed_4ON2EUmc" target="_blank" rel="noopener" aria-label="Virtuele rondleiding op YouTube bekijken" style="position:relative; display:block; background:var(--fg); border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/9; box-shadow:var(--shadow-md); text-decoration:none; cursor:pointer; transition:transform 0.2s ease; max-width:100%; margin-bottom:24px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-        <img src="https://img.youtube.com/vi/Ed_4ON2EUmc/maxresdefault.jpg" alt="Virtuele rondleiding" loading="lazy" onerror="this.src='https://img.youtube.com/vi/Ed_4ON2EUmc/hqdefault.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;">
-        <div class="video-play-icon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </a>
-      <p class="step-photo-caption" style="text-align:center; margin:-14px 0 22px;">▶ Virtuele rondleiding · ontdek het appartement in video</p>
-
-      <div class="rooms">
-        <div class="room">
-          <div class="room-icon">🛋️</div>
-          <div>
-            <div class="room-name">Woonkamer</div>
-            <div class="room-desc">Slaapbank tweepersoonsbed · TV box Android SFR</div>
-          </div>
-        </div>
-        <div class="room">
-          <div class="room-icon">🍳</div>
-          <div>
-            <div class="room-name">Kitchenette</div>
-            <div class="room-desc">Kookplaat · Koelkast · Filterkoffiezetapparaat · Waterkoker</div>
-          </div>
-        </div>
-        <div class="room">
-          <div class="room-icon">🪜</div>
-          <div>
-            <div class="room-name">Mezzanine</div>
-            <div class="room-desc">Tweepersoonsbed · Hoogte 1,25 m (cocon)</div>
-          </div>
-        </div>
-        <div class="room">
-          <div class="room-icon">🛁</div>
-          <div>
-            <div class="room-name">Badkamer</div>
-            <div class="room-desc">Badkuip · Föhn · Handdoekradiator</div>
-          </div>
-        </div>
-        <div class="room">
-          <div class="room-icon">🧺</div>
-          <div>
-            <div class="room-name">Wasmachine</div>
-            <div class="room-desc">Sluit aan op het stopcontact in de badkamer (boven de spiegel)</div>
-          </div>
-        </div>
-        <div class="room">
-          <div class="room-icon">👔</div>
-          <div>
-            <div class="room-name">Strijkijzer</div>
-            <div class="room-desc">In de grote kast boven de keuken</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-scroll">
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg" alt="Studio"><span class="gallery-caption">Studio</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/be91NsSW46YFcnEYK60FS6DAxEGGkTlo8mKjAg3J.jpg" alt="Woonkamer"><span class="gallery-caption">Woonkamer</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/ZcDQbp6p06N5BQ5sN8aJSZXShSlJ3kzZCGxeWS5V.jpg" alt="Mezzanine 1,25m"><span class="gallery-caption">Mezzanine · 1,25 m</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/j2SV9Psctu6Xbw2SsEodnHX2uFplufvAdzyGXTus.jpg" alt="Kitchenette"><span class="gallery-caption">Kitchenette</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/sERnbOq6tL4OabO36QlCv6TGh4S5d3SXCsm0s3IX.jpg" alt="Leefruimte"><span class="gallery-caption">Leefruimte</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/zLBCdkWMSydgNwOpC9EiNl9SNflTCEp2qZaSF8Qv.jpg" alt="Detail"><span class="gallery-caption">Detail</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/a6hsmoW48NsyF0t27XBGv99ndeRVdpd9Kvq0BrM2.jpg" alt="Badkamer"><span class="gallery-caption">Badkamer</span></div>
-        <div class="gallery-scroll-item"><img src="https://assets.hospitable.com/property_images/2076406/rhXzbhDExVwz2g5FqwnNwqL9jjrywyuQ4aBiT8hZ.jpg" alt="Overzicht"><span class="gallery-caption">Overzicht</span></div>
-      </div>
-    </details>
-
-    <!-- ZONE « Pendant votre séjour » — barre flottante sticky -->
-    <div class="stay-zone">
-      <nav class="jumpbar" aria-label="Snelle toegang">
-        <a class="jump-pill" href="#pratique">📶 Wifi & essentieel</a>
-        <a class="jump-pill" href="#poubelles">🗑️ Afval</a>
-        <a class="jump-pill" href="#bouger">🚆 Verplaatsen</a>
-        <a class="jump-pill" href="#recos">🗺️ Onze adressen</a>
-        <a class="jump-pill" href="#depart">🚪 Vertrek</a>
-      </nav>
-
-    <!-- PRATIQUE -->
-    <details class="section reveal" id="pratique">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Tijdens uw verblijf</div>
-        <h2 class="section-title">Het essentiële <em>praktische</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
-
-      <div class="cards-grid">
-        <div class="info-card">
-          <div class="info-icon">📶</div>
-          <h4 class="info-title">Wifi</h4>
-          <p class="info-text">Netwerk: <code>SFR_7CFF</code></p>
-          <div class="info-copy-row">
-            <code style="flex:1;">h85xkgpudi4xfri279rb</code>
-            <button class="info-copy-btn" onclick="copyCode(this, 'h85xkgpudi4xfri279rb')">Kopiëren</button>
-          </div>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">📺</div>
-          <h4 class="info-title">Televisie</h4>
-          <p class="info-text">Gebruik de <strong>SFR TV Android-box</strong> met de <strong>tweede afstandsbediening</strong>.</p>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">☕</div>
-          <h4 class="info-title">Koffie & warme dranken</h4>
-          <p class="info-text"><strong>Filterkoffiezetapparaat</strong> en waterkoker beschikbaar. Geen capsule- of padmachine.</p>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">🧺</div>
-          <h4 class="info-title">Wasmachine</h4>
-          <p class="info-text">Sluit aan op het stopcontact in de badkamer, <strong>boven de spiegel aan de linkerkant</strong>.</p>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">👕</div>
-          <h4 class="info-title">Strijkijzer</h4>
-          <p class="info-text">Opgeborgen in de <strong>grote kast boven de keuken</strong>.</p>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">🛏️</div>
-          <h4 class="info-title">Beddengoed</h4>
-          <p class="info-text">Lakens en 2 handdoeken per slaapplaats. De slaapbank is <strong>niet opgemaakt bij aankomst</strong> — het beddengoed ligt op de plank rechts van de bank.</p>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">🌡️</div>
-          <h4 class="info-title">Handdoekradiator</h4>
-          <p class="info-text">De handdoekradiator kan een <strong>kinderslot</strong> hebben ingeschakeld. Neem contact met ons op als u het niet aan kunt zetten.</p>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">📋</div>
-          <h4 class="info-title">Huisregels</h4>
-          <p class="info-text"><strong>Rookvrij</strong> · geen huisdieren · geen feesten · stilte na 22:00 uur. De <strong>2 grote kastdeuren</strong> in de woonkamer zijn voor schoonmaakproducten: alstublieft niet openen.</p>
-        </div>
-      </div>
-    </details>
-
-    <!-- POUBELLES -->
-    <details class="section reveal" id="poubelles">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Gescheiden afvalinzameling</div>
-        <h2 class="section-title">De <em>afvalbakken</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
-      <p class="section-intro">Uit respect voor ons schoonmaakpersoneel, verwijder alstublieft uw afval bij vertrek.</p>
-
-      <div class="info-card" style="display:flex; gap:14px; align-items:flex-start;">
-        <div class="info-icon" style="margin-bottom:0; flex-shrink:0;">🚮</div>
-        <div>
-          <h4 class="info-title" style="margin-bottom:6px;">Afvalruimte</h4>
-          <p class="info-text">De ruimte bevindt zich <strong>onderaan de wenteltrap</strong>.</p>
-        </div>
-      </div>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;">
-        <div>
-          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/poubelles1.jpeg" alt="Wenteltrap" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm);">
-          <p class="step-photo-caption" style="text-align:center; margin-top:6px;">De wenteltrap</p>
-        </div>
-        <div>
-          <img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/poubelles2.jpeg" alt="Afvalruimte" style="width:100%; border-radius:var(--radius-md); aspect-ratio:1/1; object-fit:cover; box-shadow:var(--shadow-sm);">
-          <p class="step-photo-caption" style="text-align:center; margin-top:6px;">De afvalruimte</p>
-        </div>
-      </div>
-    </details>
-
-    <!-- BOUGER -->
-    <details class="section reveal" id="bouger">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Verplaatsen</div>
-        <h2 class="section-title">Zich verplaatsen <em>in de stad</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
-
-      <div class="transport-grid">
-        <div class="transport-card">
-          <div class="transport-icon">🚇</div>
-          <div class="transport-name">Metro A · Hôtel de Ville</div>
-          <div class="transport-desc">Op loopafstand, richting Bellecour en Perrache</div>
-          <div class="transport-distance">200 m ⭐</div>
-        </div>
-        <div class="transport-card">
-          <div class="transport-icon">🚌</div>
-          <div class="transport-name">Bus · Terreaux La Feuillée</div>
-          <div class="transport-desc">Lijnen C3, C13, C14, C18, 19, S6, S12, PL1</div>
-          <div class="transport-distance">Op loopafstand</div>
-        </div>
-        <div class="transport-card">
-          <div class="transport-icon">🚄</div>
-          <div class="transport-name">Station Part-Dieu</div>
-          <div class="transport-desc">Metro B dan metro A tot Hôtel de Ville</div>
-          <div class="transport-distance">~25 min</div>
-        </div>
-        <div class="transport-card">
-          <div class="transport-icon">🚄</div>
-          <div class="transport-name">Station Perrache</div>
-          <div class="transport-desc">Directe metro A</div>
-          <div class="transport-distance">~15 min</div>
-        </div>
-        <div class="transport-card">
-          <div class="transport-icon">✈️</div>
-          <div class="transport-name">Luchthaven Saint-Exupéry</div>
-          <div class="transport-desc">Rhône Express → Vaulx-en-Velin La Soie → metro A. Bus C200 of Uber/taxi (~45 min).</div>
-        </div>
-      </div>
-
-      <div class="reco-tip" style="margin-top:18px;">
-        <div class="reco-tip-title">🅿️ Parkeren</div>
-        <div class="reco-tip-text">Het appartement bevindt zich in het <strong>voetgangerscentrum</strong> van Lyon — parkeren op straat is lastig.<br><br>
-        Verschillende <strong>ondergrondse parkeergarages van LPA</strong> in de buurt:<br>
-        · <strong>Parking Terreaux</strong> · het dichtst bij (betaald)<br>
-        · <strong>Parking Saint-Antoine</strong><br>
-        · <strong>Parking Cordelier</strong> · iets verder weg<br><br>
-        💡 <strong>Meerdaagse</strong> of <strong>weekendtarieven</strong> (vrijdag-maandag) zijn beschikbaar.</div>
-      </div>
-    </details>
-
-    <!-- RECOS -->
-    <details class="section reveal" id="recos">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Onze favorieten</div>
-        <h2 class="section-title">Te ontdekken <em>in de buurt</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
-
-      <div class="recos-toc" role="tablist">
-        <a class="recos-toc-link active" href="#recos" onclick="showRecoCat('restos',this);return false;">🍷 Restaurants · 3</a>
-        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('tourisme',this);return false;">🏛️ Te bezoeken · 6</a>
-        <a class="recos-toc-link" href="#recos" onclick="showRecoCat('commerces',this);return false;">🛒 Winkels · 3</a>
-      </div>
-
-      <div class="reco-group active" data-cat="restos">
-      <h3 class="reco-cat-title" id="restos"><span class="icon">🍷</span> Restaurants <span class="reco-cat-count">· 3 adressen</span></h3>
-      <div class="recos-list">
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/cafe-des-federations.png" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Authentieke bouchon (traditioneel Lyonees restaurant)</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m ⭐</span></div>
-            <div class="reco-name">Café des Fédérations</div>
-            <span class="reco-tag">Op loopafstand</span>
-            <p class="reco-desc">Gekozen als <strong>beste authentieke bouchon 2019-2020</strong>. Traditionele Lyonese keuken, open 's middags en 's avonds, <strong>ook op zondag</strong>. Op de hoek van rue Major Martin.</p>
-            <a href="https://www.google.com/maps/place/Le+Cafe+des+Federations" target="_blank" class="reco-link">Op kaart bekijken →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Musee-de-l-opera.png" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Brasserie · Panoramisch uitzicht</span><span class="reco-meta-sep">·</span><span class="reco-distance">300 m</span></div>
-            <div class="reco-name">Les Muses de l'Opéra</div>
-            <span class="reco-tag">Panoramisch uitzicht</span>
-            <p class="reco-desc">Terras op de <strong>7e verdieping van de Opera</strong> met uitzicht op Fourvière. Uitzonderlijk kader voor lunch of drankje.</p>
-            <a href="https://www.google.com/maps/place/Les+Muses" target="_blank" class="reco-link">Op kaart bekijken →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Len-de-lyon.jpg" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Verzorgde keuken</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
-            <div class="reco-name">Léon de Lyon</div>
-            <span class="reco-tag">Warm kader</span>
-            <p class="reco-desc">Open <strong>woensdag tot zondag</strong>. Warm kader en verzorgde keuken — een Lyonese instelling.</p>
-            <a href="https://www.google.com/maps/place/Restaurant+Leon+de+Lyon" target="_blank" class="reco-link">Op kaart bekijken →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="reco-tip" style="margin-top:14px;">
-        <div class="reco-tip-title">🍴 Restaurantstraten</div>
-        <div class="reco-tip-text">Om de Lyonese gastronomie te verkennen, wandel door <strong>rue Mercière</strong>, <strong>rue de l'Arbre-Sec</strong>, <strong>rue des Marronniers</strong> of de voetgangersstraatjes van <strong>Oud Lyon</strong>.</div>
-      </div>
-      </div>
-
-      <div class="reco-group" data-cat="tourisme">
-      <h3 class="reco-cat-title" id="tourisme"><span class="icon">🏛️</span> Te bezoeken <span class="reco-cat-count">· 6 hoogtepunten</span></h3>
-      <div class="recos-list">
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/terrreaux.jpg" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Historisch plein</span><span class="reco-meta-sep">·</span><span class="reco-distance">100 m ⭐</span></div>
-            <div class="reco-name">Place des Terreaux</div>
-            <span class="reco-tag">Vlakbij</span>
-            <p class="reco-desc">Iconisch plein van Lyon met de <strong>Bartholdi-fontein</strong> in het midden. Op 1 minuut lopen van het appartement.</p>
-            <a href="https://www.google.com/maps/place/Pl.+des+Terreaux" target="_blank" class="reco-link">Op kaart bekijken →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">UNESCO-erfgoed</span><span class="reco-meta-sep">·</span><span class="reco-distance">700 m</span></div>
-            <div class="reco-name">Oud Lyon</div>
-            <span class="reco-tag">Onmisbaar</span>
-            <p class="reco-desc">Renaissance-wijk met UNESCO-status, bereikbaar via <strong>montée du Gourguillon</strong> of met de <strong>tandradbaan</strong>. Traboules, geplaveide pleinen en traditionele restaurants.</p>
-            <a href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" class="reco-link">Website bekijken →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/basilique.jpg" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Erfgoed · Panoramisch uitzicht</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,2 km</span></div>
-            <div class="reco-name">Basiliek van Fourvière</div>
-            <span class="reco-tag">Panoramisch uitzicht</span>
-            <p class="reco-desc">Symbool van Lyon op de heuvel. Bezoek de <strong>crypte</strong> en het <strong>uitkijkpunt</strong>. Bereikbaar met tandradbaan vanuit Oud-Lyon.</p>
-            <a href="https://www.fourviere.org/fr/" target="_blank" class="reco-link">Website bekijken →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/lugdunum.jpg" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Gallo-Romeins museum · Gratis</span><span class="reco-meta-sep">·</span><span class="reco-distance">1,5 km</span></div>
-            <div class="reco-name">Lugdunum · Museum en Romeinse theaters</div>
-            <span class="reco-tag">Gratis</span>
-            <p class="reco-desc">Archeologisch museum en antieke amfitheaters, <strong>gratis toegang</strong> voor de openluchttheaters.</p>
-            <a href="https://lugdunum.grandlyon.com/fr/" target="_blank" class="reco-link">Website bekijken →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Les-berges.jpg" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Wandeling · Bars · Restaurants</span><span class="reco-meta-sep">·</span><span class="reco-distance">500 m</span></div>
-            <div class="reco-name">De oevers van de Rhône</div>
-            <span class="reco-tag">Om rond te wandelen</span>
-            <p class="reco-desc"><strong>5 km</strong> lange wandeling langs de Rhône met bars, woonboten, restaurants en grasvelden. Ideaal bij mooi weer.</p>
-            <a href="https://www.google.com/maps/place/Berges+du+Rhone+Lyon" target="_blank" class="reco-link">Op kaart bekijken →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-musee-confluence.jpg" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Antropologie · Wetenschappen</span><span class="reco-meta-sep">·</span><span class="reco-distance">4 km</span></div>
-            <div class="reco-name">Museum Confluences</div>
-            <span class="reco-tag">Moderne architectuur</span>
-            <p class="reco-desc">Tentoonstellingen over antropologie en wetenschappen in een gedurfde architectuur aan de punt van de schiereiland.</p>
-            <a href="https://museedesconfluences.fr/fr" target="_blank" class="reco-link">Website bekijken →</a>
-          </div>
-        </div>
-      </div>
-      </div>
-
-      <div class="reco-group" data-cat="commerces">
-      <h3 class="reco-cat-title" id="commerces"><span class="icon">🛒</span> Winkels <span class="reco-cat-count">· 3 adressen</span></h3>
-      <div class="recos-list">
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Franprix.png" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Supermarkt · Verse producten</span><span class="reco-meta-sep">·</span><span class="reco-distance">50 m ⭐</span></div>
-            <div class="reco-name">Franprix Marché Presqu'île</div>
-            <span class="reco-tag">Het dichtst bij</span>
-            <p class="reco-desc">Buurtsuper met verse producten. Op de hoek van rue de la Plâtrière, vlak naast het appartement.</p>
-            <a href="#" class="reco-link">Op kaart bekijken →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/carrefourmarket.png" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Supermarkt</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
-            <div class="reco-name">Carrefour Market</div>
-            <span class="reco-tag">Aanvullende boodschappen</span>
-            <p class="reco-desc">Voor aanvullende boodschappen of dagelijkse aankopen.</p>
-            <a href="#" class="reco-link">Op kaart bekijken →</a>
-          </div>
-        </div>
-
-        <div class="reco">
-          <img class="reco-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/boulangerie.png" alt="">
-          <div class="reco-body">
-            <div class="reco-meta"><span class="reco-cat">Bakkerij</span><span class="reco-meta-sep">·</span><span class="reco-distance">200 m</span></div>
-            <div class="reco-name">Boulangerie Pomponette</div>
-            <span class="reco-tag">Voor 's ochtends</span>
-            <p class="reco-desc">De dichtst bijzijnde bakkerij, groot assortiment brood en gebak voor uw ontbijt.</p>
-            <a href="#" class="reco-link">Op kaart bekijken →</a>
-          </div>
-        </div>
-      </div>
-      </div>
-    </details>
-
-    <!-- DÉPART -->
-    <details class="section reveal" id="depart">
-      <summary class="section-summary">
-        <div class="section-eyebrow">Op het moment van vertrek</div>
-        <h2 class="section-title">Voor u <em>vertrekt</em></h2>
-        <span class="section-summary-chevron">›</span>
-      </summary>
-
-      <div class="checklist">
-        <div class="checklist-item">
-          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Verzamel uw persoonlijke spullen · controleer laden en het slaaphoekje</div>
-        </div>
-        <div class="checklist-item">
-          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Leeg de koelkast · bederfbare voedingsmiddelen, alstublieft</div>
-        </div>
-        <div class="checklist-item">
-          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Afwassen en opruimen in de keuken</div>
-        </div>
-        <div class="checklist-item">
-          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Verwijder uw afval (zie de afvalsectie)</div>
-        </div>
-        <div class="checklist-item">
-          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Sluit ramen en deur</div>
-        </div>
-        <div class="checklist-item">
-          <div class="checklist-bullet" onclick="toggleCheck(this)"></div>
-          <div class="checklist-text" onclick="toggleCheck(this.previousElementSibling)">Plaats de sleutel terug in de Igloohome-kast op de sluisdeur · dezelfde code</div>
-        </div>
-      </div>
-
-      {{upsell_departure_menu}}
-      <div class="ap-upsell ap-bag acc-bag">
-        <div class="ap-upsell-txt"><strong>🧳 Bagage na vertrek?</strong><br>Nannybag-bagagekluizen overal in Lyon, vanaf 2,50 €/dag — handig om tot je trein van de stad te genieten.</div>
-        <a class="ap-cta" href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" rel="noopener" style="text-decoration:none">Kluizen bekijken</a>
-      </div>
-
-      <div class="checkout-block" data-checkout-gate="{{checkout_gate_ts}}">
-        <p class="checkout-block-text">Alles klaar? Een klein klikje laat ons weten dat u veilig bent vertrokken.</p>
-        {{checkout_block}}
-      </div>
-    </details>
-    </div><!-- /stay-zone -->
-
-    <!-- CONTACT -->
-    <section class="section reveal">
-      <div class="contact-card">
-        {{contact_block}}
       </div>
     </section>
 
-    <footer>
-      <div class="signature">Fijne verblijf in Lyon</div>
-      <div>U-citybreak · Conciergerie Lyon · Besançon</div>
-    </footer>
+    <!-- ============= SÉJOUR ============= -->
+    <section class="view" data-view="stay">
+      <div class="phead"><h2>Uw verblijf</h2><p>Het nodige, dagelijks.</p></div>
 
-  </main>
+      <!-- VISITE en tête : preuve (vidéo si dispo, sinon photos) -->
+      <div class="sub "><span class="em">📸</span>Het logement in afbeeldingen</div>
+      <details class="revoir ">
+        <summary>
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4.5" width="13" height="9.5" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="9.2" r="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M6 4.5l1-1.5h4l1 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+          <span class="b"><span class="v">Het logement opnieuw bekijken</span><span class="v2">Zoals op je reservering</span></span>
+          <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </summary>
+        <div class="note">Het logement zoals je het hebt gereserveerd — om je er voor aankomst in voor te stellen.</div>
+        <div class="vidcard" onclick="playVid(this,'Ed_4ON2EUmc')"><img class="poster" src="https://img.youtube.com/vi/Ed_4ON2EUmc/hqdefault.jpg" alt="De rondleiding door het appartement" loading="lazy"><div class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="vlabel">De rondleiding door het appartement</div></div>
+        <div class="tour is-hidden"></div>
+      </details>
+
+      <div class="sub "><span class="em">📋</span>Goed om te weten</div>
+      <div class="sec-intro ">Een paar richtlijnen zodat alles goed gaat.</div>
+      <div class="rules "><div class="rule"><span class="rc">🪜</span><div class="t"><div class="v">3e verdieping, spiraalvormig trappenhuisje</div><div class="v2">Geen lift, via een spiraalvormig trappenhuisje.</div></div></div><div class="rule"><span class="rc">🚭</span><div class="t"><div class="v">Rookvrij logement</div><div class="v2">Verboden binnen. Een detector signaleert rook — schoonmaakkosten tot 65 €.</div></div></div><div class="rule"><span class="rc">🎉</span><div class="t"><div class="v">Geen feesten of avondjes</div><div class="v2">Gebouw met bewoners in het centrum — help alstublieft de rust van de buurt te behouden.</div></div></div><div class="rule"><span class="rc">🧹</span><div class="t"><div class="v">Schoonmaakkasten</div><div class="v2">De <b>twee grote kasten in de woonkamer</b> bevatten schoonmaakmateriaal — zorg dat ze dicht blijven.</div></div></div><div class="rule"><span class="rc">🐾</span><div class="t"><div class="v">Huisdieren niet toegestaan</div><div class="v2">Houd hier rekening mee : sommige reizigers kunnen allergisch zijn.</div></div></div><div class="rule"><span class="rc">🌙</span><div class="t"><div class="v">Rust na 22 uur</div><div class="v2">Gebouw met bewoners — dank je voor de buurt.</div></div></div></div>
+
+      <div class="sub "><span class="em">⚙️</span>Hoe het werkt</div>
+      <div class="how "><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 13.5a.9.9 0 100-1.8.9.9 0 000 1.8z" fill="#3A2A5E"/><path d="M5.8 10.3a4.5 4.5 0 016.4 0M3.5 8a7.5 7.5 0 0111 0" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Wifi</div><div class="v2">Netwerk « {{wifi_ssid}} » · wachtwoord op de welkomstkaart</div></div></div><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4" width="13" height="9" rx="1.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 16h4" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Televisie</div><div class="v2">Zie hoe het werkt</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>De TV werkt met de <b>SFR TV Android-box</b> : gebruik de <b>tweede afstandsbediening</b> om hem in te schakelen en te navigeren.</p><p>Vergeet niet je uit je accounts af te melden voor je vertrekt.</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="6.8" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="6.8" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/></svg></span><div class="t"><div class="v">Keuken</div><div class="v2">Zie de uitrusting</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>Kitchenette uitgerust : kookplaten, <b>magnetron</b>, koelkast-vriezer, servies en bestek.</p><p>Let op : <b>geen oven</b> of vaatwasser.</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M4 7h8v3a3 3 0 01-3 3H7a3 3 0 01-3-3V7z" stroke="#3A2A5E" stroke-width="1.4"/><path d="M12 8h1.5a1.5 1.5 0 010 3H12" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Koffie</div><div class="v2">Goed om te weten</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>Een <b>filterkoffiezetapparaat</b> en een waterkoker staan in de keuken voor je beschikking.</p><p>Er is geen capsule-machine.</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="2.2" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 2v3M9 13v3M4 4l2 2M12 12l2 2M2 9h3M13 9h3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Verwarming</div><div class="v2">Goed om te weten</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>De <b>handdoekradiator</b> in de badkamer heeft soms een kinderslot. Als hij niet aanspringt, neem contact met ons op en we regelen het.</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="2.5" width="10" height="13" rx="1.4" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="10" r="3" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Wasmachine</div><div class="v2">Waar je hem aansluit</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>De wasmachine sluit aan op het stopcontact <b>linksboven van de spiegel</b> in de badkamer.</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3 11h12v3H3z" stroke="#3A2A5E" stroke-width="1.4"/><path d="M4 11V8a2 2 0 012-2h6a2 2 0 012 2v3" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Slaapbank</div><div class="v2">Zie de slaapplaats</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>De <b>slaapbank</b> biedt plaats voor een extra slaapplaats. Het beddengoed (dekbed + kussen) ligt opgeborgen <b>op de plank rechts van de bank</b>.</p><p>Het is niet opgemaakt bij aankomst, zodat je meer ruimte hebt overdag.</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3.5 6.5h11l-1 8h-9l-1-8z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/><path d="M6.5 6.5V5a2.5 2.5 0 015 0v1.5" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Wat we je geven</div><div class="v2">Zie de lijst</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p><b>Om te beginnen</b> — een paar rollen toiletpapier en het welkomstpakket.</p><p><b>Voor het hele verblijf</b> — lakens en handdoeken (2 handdoeken per bed), föhn, en een <b>strijkijzer</b> opgeborgen boven in de keuken, in de grote kast.</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M4 5.5h10M7 5.5V4h4v1.5M5.5 5.5l.6 9h5.8l.6-9" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="t"><div class="v">Vuilnisbakken &amp; afvalscheiding</div><div class="v2">Zie waar</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>De vuilnisruimte bevindt zich <b>onderaan het spiraalvormige trappenhuisje</b>.</p><p>Zorg dat je je vuilnis bij vertrek wegbrengt — ter wille van het schoonmaakteam.</p></div></details></div>
+
+      <div class="sub"><span class="em">🧭</span>Verplaatsen</div>
+      <details class="fold first"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2l6 3.5v7L9 16l-6-3.5v-7L9 2z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">Openbaar vervoer in de stad</span><span class="v2">Metro, bus, stations — zie details</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body" style="padding-top:2px"><div class="tr"><span class="em">🚇</span><div class="t"><div class="v">Metro A</div><div class="v2">Station <b>Hôtel de Ville — Louis Pradel</b>. Lijn A rechtstreeks naar Bellecour, Perrache, en Part-Dieu (via lijn B).</div></div><span class="d">300 m</span></div><div class="tr"><span class="em">🚌</span><div class="t"><div class="v">Bus</div><div class="v2">Halte <b>Terreaux La Feuillée</b> : lijnen C3, C13, C14, C18, 19, S6, S12, PL1.</div></div><span class="d">150 m</span></div><div class="tr"><span class="em">🚆</span><div class="t"><div class="v">Stations</div><div class="v2">Part-Dieu in 25 min (metro A dan B) ; Perrache in 15 min (metro A rechtstreeks).</div></div></div><div class="tr"><span class="em">✈️</span><div class="t"><div class="v">Luchthaven</div><div class="v2">Rhônexpress naar Vaulx-en-Velin La Soie, dan metro A → Hôtel de Ville. Of bus C200, of Uber/taxi (~45 min).</div></div></div></div></details>
+
+      <div class="sub" id="sec-depart"><span class="em">🧳</span>Het vertrek</div>
+      <div class="wide" style="margin-top:0"><div class="wide-btn"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 5.5v4l2.5 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Check-out richtlijnen</span><span class="v2">Voor {{checkout_time}} · vuilnis onderaan het trappenhuisje, ramen dicht, sleutels in het kastje</span></span></div></div>
+      <div class="wide" style="margin-top:10px;margin-bottom:8px"><a class="wide-btn" href="https://www.nannybag.com/fr/consigne-bagage/lyon" target="_blank" rel="noopener" style="text-decoration:none"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="5.5" width="10" height="9" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 5.5v-1a1.5 1.5 0 011.5-1.5h1A1.5 1.5 0 0111 4.5v1M7.5 8.5v3M10.5 8.5v3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Bagage na vertrek?</span><span class="v2">Sla je bagage op en geniet van Lyon tot je trein · vanaf 4,50 €/dag</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+
+      <div class="swipe {{checkout_swipe_hidden}}" data-url="{{checkout_confirm_url}}" data-done="Vertrek gemeld ✓" data-thanks="Dank je, tot ziens!">
+        <div class="swipe-track">
+          <div class="swipe-fill"></div>
+          <div class="swipe-label">Veeg om je vertrek aan te geven</div>
+          <div class="swipe-thumb">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="swipe-hint">De schoonmaak kan beginnen — dat helpt ons erg.</div>
+      </div>
+      <div style="height:16px"></div>
+    </section>
+
+    <!-- ============= DÉCOUVRIR ============= -->
+    <section class="view" data-view="explore">
+      <div class="phead"><h2>Ontdekken</h2><p>Onze favoriete adressen, op loopafstand.</p></div>
+
+      <div class="sub "><span class="em">🍷</span>Waar eten</div>
+      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/cafe-des-federations.png')"></div><div class="rc"><span class="tag bouchon">Op 50 m</span><span class="n">Café des Fédérations</span><span class="desc">Gekozen tot beste authentieke bouchon 2019-2020. Lyonese keuken 's middags en 's avonds, ook op zondag — net aan het einde van de straat.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Len-de-lyon.jpg')"></div><div class="rc"><span class="tag spot">Op 100 m</span><span class="n">Léon de Lyon</span><span class="desc">Instituut van de Lyonese gastronomie, warme sfeer. Open van woensdag tot zondag.</span><a class="rl" href="https://www.leondelyon.com/" target="_blank" rel="noopener">Zie website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Musee-de-l-opera.png')"></div><div class="rc"><span class="tag spot">Dakterras</span><span class="n">Les Muses de l'Opéra</span><span class="desc">Panoramisch terras op de 7e verdieping van de Opera, met uitzicht op Fourvière — op 350 m. Eerder 's avonds.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/La-rue-a-restaurants.jpg')"></div><div class="rc"><span class="tag spot">Goede restaurants</span><span class="n">De fijnproeversstraten</span><span class="desc">Rue Mercière, rue de l'Arbre-Sec, rue des Marronniers en het Oude Lyon : het hart van de restaurants, op loopafstand.</span></div></div></div>
+
+      <div class="sub "><span class="em">🏛️</span>Te bezoeken</div>
+      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/terrreaux.jpg')"></div><div class="rc"><span class="tag proche">Op 150 m</span><span class="n">Terreaux-plein</span><span class="desc">De Bartholdi-fontein en het Stadhuis, aan het einde van de straat. Het Museum voor Schone Kunsten grenst aan het plein.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg')"></div><div class="rc"><span class="tag patrimoine">UNESCO</span><span class="n">Het Oude Lyon</span><span class="desc">Renaissance-wijk met UNESCO-status, op ~1 km (15 min lopen of metro D). Traboules en Sint-Jan-kathedraal.</span><a class="rl" href="https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon" target="_blank" rel="noopener">Zie website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/basilique.jpg')"></div><div class="rc"><span class="tag patrimoine">Onmisbaar</span><span class="n">Basiliek van Fourvière</span><span class="desc">Panorama over heel Lyon, op ~1,2 km. Klim via het Oude Lyon en de tandradbaan vanaf station Sint-Jan.</span><a class="rl" href="https://www.fourviere.org/fr/" target="_blank" rel="noopener">Zie website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/lugdunum.jpg')"></div><div class="rc"><span class="tag patrimoine">Gratis</span><span class="n">Lugdunum</span><span class="desc">Gallo-Romeins museum en antieke theaters op de Fourvière-heuvel (~1,5 km). Gratis toegang tot de theaters.</span><a class="rl" href="https://lugdunum.grandlyon.com/fr/" target="_blank" rel="noopener">Zie website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-musee-confluence.jpg')"></div><div class="rc"><span class="tag spot">Op 4,9 km</span><span class="n">Museum van de Samenvloeiing</span><span class="desc">Spectaculaire architectuur op de punt van de Presqu'île. Metro A → Perrache, dan tram T1.</span><a class="rl" href="https://www.museedesconfluences.fr/" target="_blank" rel="noopener">Zie website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Les-berges.jpg')"></div><div class="rc"><span class="tag spot">Wandeling</span><span class="n">De Oevers van de Rhône</span><span class="desc">Wandelpad van 5 km langs het water (bars, binnenschepen, grasvelden), op ~15 min lopen.</span></div></div></div>
+
+      <div class="sub "><span class="em">🛒</span>Winkels</div>
+      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/Franprix.png')"></div><div class="rc"><span class="tag proche">Op 150 m</span><span class="n">Franprix Marché Presqu'île</span><span class="desc">Supermarkt en verse producten, rue de la Plâtrière — op de hoek van het gebouw.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/boulangerie.png')"></div><div class="rc"><span class="tag proche">Voor 's ochtends</span><span class="n">Bakkerij Pomponette</span><span class="desc">De dichtstbijzijnde bakkerij, op 100 m, rue du Plâtre. Brood, gebak en broodjes.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/alcove/carrefourmarket.png')"></div><div class="rc"><span class="tag proche">Boodschappen</span><span class="n">Carrefour</span><span class="desc">Aanvullende boodschappen op ~500 m, richting Croix-Paquet-plein.</span></div></div></div>
+      <div style="height:16px"></div>
+    </section>
+
+  </div>
+
+  <div class="sheet" id="wifiSheet">
+    <div class="veil" onclick="closeSheet()"></div>
+    <div class="panel">
+      <div class="grab"></div>
+      <h3>Internetgebruik</h3>
+      <div class="lead">De verbinding is voor je beschikking voor <b>persoonlijk en legaal gebruik</b>. Een snelle herinnering voordat je verbinding maakt.</div>
+      <ul>
+        <li><span class="b">⚖️</span><span>Franse wet verbiedt het <b>downloaden of delen van beschermde werken</b> (films, series, muziek, software) zonder toestemming.</span></li>
+        <li><span class="b">🚫</span><span>Toegang tot <b>illegale inhoud</b> is uiteraard verboden.</span></li>
+        <li><span class="b">👤</span><span>Je bent <b>verantwoordelijk voor het gebruik</b> dat je van deze verbinding maakt tijdens je verblijf.</span></li>
+      </ul>
+      <div class="fine">De lijn staat op naam van U-citybreak : elke inbreuk wordt ons gemeld en kan aan de autoriteiten worden doorgegeven. Dank je voor je begrip.</div>
+      <label class="agree"><input type="checkbox" id="agreeChk"><span>Ik heb deze gebruiksvoorwaarden gelezen en accepteer ze voor de duur van mijn verblijf.</span></label>
+      <button class="ok" id="agreeBtn" onclick="acceptWifi()" disabled>Wachtwoord weergeven</button>
+    </div>
+  </div>
+
+  <nav class="tabbar">
+    <button class="tab on" data-tab="home" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11l8-6 8 6v8a1 1 0 01-1 1h-4v-5h-6v5H5a1 1 0 01-1-1v-8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Startpagina</span></button>
+    <button class="tab" data-tab="access" onclick="go('access')"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="15" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M11 12l7-7M15.5 7.5l1.8 1.8M17.5 5.5l1.8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Toegang</span></button>
+    <button class="tab" data-tab="stay" onclick="go('stay')"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7" stroke="currentColor" stroke-width="1.7"/></svg><span>Verblijf</span></button>
+    <button class="tab" data-tab="explore" onclick="go('explore')"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M15 9l-2 4-4 2 2-4 4-2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Ontdekken</span></button>
+  </nav>
+
+ </div>
 </div>
 
-<div class="toast" id="toast">Gekopieerd ✓</div>
-
 <script>
-  function toggleLangMenu(e) {
-    e.stopPropagation();
-    document.getElementById('lang-menu').classList.toggle('open');
-  }
-  document.addEventListener('click', () => {
-    document.getElementById('lang-menu').classList.remove('open');
-  });
+  var WIFI_CFG = { token: '{{livret_token}}', guest: '{{guest_first_name}}',
+    accept_url: 'https://n8n-d2box-u73867.vm.elestio.app/webhook/charte-accept' };
 
-  function showRecoCat(cat, el) {
-    document.querySelectorAll('.reco-group').forEach(function(g){ g.classList.toggle('active', g.getAttribute('data-cat') === cat); });
-    document.querySelectorAll('.recos-toc-link').forEach(function(a){ a.classList.toggle('active', a === el); });
-  }
-  function copyCode(btn, code) {
-    navigator.clipboard.writeText(code).then(() => {
-      const orig = btn.textContent;
-      btn.textContent = 'Gekopieerd ✓';
-      btn.classList.add('copied');
-      showToast('Gekopieerd naar klembord');
-      setTimeout(() => {
-        btn.textContent = orig;
-        btn.classList.remove('copied');
-      }, 2000);
+  function go(v, anchor){
+    document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('active',s.dataset.view===v);});
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.tab===v);});
+    var sc=document.querySelector('.scroll'); if(!sc) return;
+    if(!anchor){ sc.scrollTo(0,0); return; }
+    // la vue vient de passer en display:block → on attend le layout avant de mesurer
+    requestAnimationFrame(function(){
+      var el=document.getElementById(anchor);
+      if(!el){ sc.scrollTo(0,0); return; }
+      var top = el.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop - 12;
+      sc.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     });
   }
-
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2200);
+  // Wifi : le mot de passe n'est révélé QU'APRÈS acceptation explicite de la charte.
+  // Case à cocher (acte positif) + trace serveur horodatée — sans la trace, l'acceptation
+  // n'existe que dans le navigateur et ne prouve rien.
+  var wifiAccepted = false;
+  function copyWifi(){
+    if(!wifiAccepted){ document.getElementById('wifiSheet').classList.add('on'); return; }
+    doCopyWifi();
   }
-
-  function toggleCheck(el) {
-    el.classList.toggle('checked');
+  function closeSheet(){ document.getElementById('wifiSheet').classList.remove('on'); }
+  function acceptWifi(){
+    var chk = document.getElementById('agreeChk');
+    if(!chk || !chk.checked) return;
+    wifiAccepted = true;
+    closeSheet();
+    // trace serveur (non bloquant : jamais de voyageur privé de wifi sur une panne réseau)
+    try {
+      fetch(WIFI_CFG.accept_url, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ token: WIFI_CFG.token, guest: WIFI_CFG.guest })
+      }).catch(function(){});
+    } catch(e){}
+    doCopyWifi();
   }
-
-  // Confirmation visuelle après clic sur le bouton départ
-  (function() {
-    const btn = document.getElementById('checkoutBtn');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-      setTimeout(function() {
-        btn.classList.add('confirmed');
-        btn.innerHTML = '✓ Vertrek bevestigd · dank u!';
-      }, 600);
-    });
-  })();
-
-  // ===== V2 : countdown / copy / flottant arrivée / gate départ =====
+  function doCopyWifi(){
+    var h=document.getElementById('wifiHint'), pw=h.getAttribute('data-pw')||'';
+    if(navigator.clipboard) navigator.clipboard.writeText(pw);
+    var t=document.getElementById('wifiTile');
+    t.classList.add('copied'); h.textContent='Gekopieerd \u2713';
+    setTimeout(function(){t.classList.remove('copied'); h.textContent='🔑 '+pw;},1600);
+  }
   (function(){
-    var ap=document.getElementById('algopin');
-    function chip(v,u){return '<div class="ap-chip"><b>'+v+'</b><span>'+u+'</span></div>';}
-    function flip(id){
-      var b=document.getElementById(id); if(!b){return;}
-      if(b.getAttribute('data-digicode-gated')==='false'){b.setAttribute('data-state','open');return;}
-      var rv=parseInt(b.getAttribute('data-reveal')||'0',10);
-      if(rv && Date.now()>=rv){b.setAttribute('data-state','open');}
-    }
-    function gatePoubelles(){
-      var g=document.getElementById('accgate');
-      var rev=g?parseInt(g.getAttribute('data-reveal')||'0',10):0;
-      var hide=rev && Date.now()<rev;
-      var sec=document.getElementById('poubelles');
-      var chip2=document.querySelector('.jump-pill[href="#poubelles"]');
-      if(sec) sec.style.display=hide?'none':'';
-      if(chip2) chip2.style.display=hide?'none':'';
-    }
+    var chk=document.getElementById('agreeChk'), btn=document.getElementById('agreeBtn');
+    if(chk && btn) chk.addEventListener('change', function(){ btn.disabled = !chk.checked; });
+  })();
+  function playVid(el,id){
+    el.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    el.onclick=null; el.style.cursor='default';
+  }
+  function pick(el){
+    var p=el.parentNode.querySelectorAll('.chip');
+    p.forEach(function(c){c.classList.remove('sel');}); el.classList.add('sel');
+  }
+  // langue courante
+  (function(){
+    var m=document.querySelector('.langmenu'); if(!m) return;
+    var cur=m.getAttribute('data-cur');
+    m.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('hreflang')===cur) a.setAttribute('aria-current','true'); });
+  })();
+  // compte à rebours (état verrouillé)
+  (function(){
+    var cd=document.getElementById('cd'); if(!cd) return;
+    var rev=parseInt(cd.getAttribute('data-reveal')||'0',10);
+    function c(v,u){return '<div class="c"><b>'+v+'</b><span>'+u+'</span></div>';}
     function tick(){
-      flip('algopin'); flip('digicode-gate'); flip('accgate');
-      gatePoubelles();
-      var el=document.getElementById('ap-count'); if(!el||!ap){return;}
-      var rev=parseInt(ap.getAttribute('data-reveal')||'0',10);
-      if(!rev){el.innerHTML='';return;}
+      if(!rev){cd.innerHTML='';return;}
       var r=Math.max(0,rev-Date.now())/1000;
       var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
-      el.innerHTML=(j>0?chip(j,j>1?'dagen':'dag'):'')+chip(('0'+h).slice(-2),'uren')+chip(('0'+mn).slice(-2),'min')+(j>0?'':chip(('0'+sc).slice(-2),'sec'));
+      cd.innerHTML=(j>0?c(j,j>1?'dagen':'dag'):'')+c(('0'+h).slice(-2),'u')+c(('0'+mn).slice(-2),'min')+(j>0?'':c(('0'+sc).slice(-2),'sec'));
     }
-    tick();setInterval(tick,1000);
-
-    // Copier le code : lit la valeur affichée (zéro code en dur)
-    var cp=document.getElementById('ap-copy');
-    if(cp){cp.onclick=function(){
-      var c=document.querySelector('#algopin .ap-code');
-      var code=c?c.textContent.replace(/\s/g,''):'';
-      if(code){try{navigator.clipboard.writeText(code);}catch(e){}}
-      cp.textContent='Gekopieerd ✓';setTimeout(function(){cp.textContent='Code kopiëren';},1800);
-    };}
-
-    // Confirmation arrivée + bouton flottant (uniquement si accès débloqué)
-    var inlineBtn=document.getElementById('arrivalBtn');
-    if(inlineBtn){
-      inlineBtn.addEventListener('click',function(){setTimeout(function(){inlineBtn.classList.add('confirmed');inlineBtn.innerHTML='✓ Aankomst bevestigd · dank u!';},600);});
-    }
-    var gate=document.getElementById('accgate');
-    var state=gate?(gate.getAttribute('data-state')||'locked'):'locked';
-    if(inlineBtn && state==='open'){
-      var fab=document.createElement('button');fab.className='fab-arrival hide';
-      fab.innerHTML='✓ Ik waarschuw de gastheer van mijn aankomst';
-      document.body.appendChild(fab);
-      var confirmed=false,inlineVisible=false;
-      function syncFab(){fab.classList.toggle('hide',confirmed||inlineVisible);}
-      fab.onclick=function(){confirmed=true;if(inlineBtn){window.open(inlineBtn.href,'_blank');}fab.innerHTML='Dank u, tot ziens ✓';setTimeout(syncFab,2200);};
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(function(es){inlineVisible=es[0].isIntersecting;syncFab();},{threshold:.2}).observe(inlineBtn.closest('.arrival-block')||inlineBtn);
-      }
-    }
-
-    // Bouton départ gaté à minuit le jour J
-    var cob=document.getElementById('checkoutBtn');
-    if(cob){
-      var cblk=cob.closest('.checkout-block');
-      var cg=cblk?parseInt(cblk.getAttribute('data-checkout-gate')||'0',10):0;
-      if(cg && Date.now()<cg){
-        cob.style.display='none';
-        var note=document.createElement('p');
-        note.className='checkout-block-text';note.style.cssText='font-size:13px;color:#717171;margin:0';
-        note.textContent='Deze knop wordt geactiveerd op uw vertrekdag.';
-        cob.parentNode.insertBefore(note,cob);
-      }
-    }
+    tick(); setInterval(tick,1000);
   })();
-
-
-  function copyWifi(card, pwd) {
-    navigator.clipboard.writeText(pwd).then(function() {
-      var sub = card.querySelector('.quick-sub');
-      var orig = sub.textContent;
-      card.classList.add('copied');
-      sub.textContent = 'Wachtwoord gekopieerd ✓';
-      if (typeof showToast === 'function') showToast('Wachtwoord gekopieerd ✓');
-      setTimeout(function() {
-        card.classList.remove('copied');
-        sub.textContent = orig;
-      }, 2000);
-    });
-  }
-
-
-  (function() {
-    const btn = document.getElementById('arrivalBtn');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-      setTimeout(function() {
-        btn.classList.add('confirmed');
-        btn.innerHTML = '✓ Aankomst bevestigd · dank u!';
-      }, 600);
-    });
-  })();
-
-
-  // Auto-déploie une section repliée quand on clique sur un lien d'ancre
-  (function() {
-    function openDetailsForHash(hash) {
-      if (!hash || hash === '#') return;
-      try {
-        const target = document.querySelector(hash);
-        if (target && target.tagName && target.tagName.toLowerCase() === 'details') {
-          target.open = true;
-        }
-      } catch (e) {}
+  // swipe → prévenir l'hôte (arrivée ET départ : plusieurs instances possibles)
+  document.querySelectorAll('.swipe').forEach(function(box){
+    var track=box.querySelector('.swipe-track'), thumb=box.querySelector('.swipe-thumb'),
+        fill=box.querySelector('.swipe-fill'), label=box.querySelector('.swipe-label'),
+        hint=box.querySelector('.swipe-hint');
+    if(!track||!thumb) return;
+    var dragging=false, startX=0, x=0, max=0, done=false;
+    function setX(v){ x=Math.max(0,Math.min(max,v)); thumb.style.left=(5+x)+'px'; fill.style.width=(58+x)+'px'; }
+    function finish(){
+      done=true; box.classList.add('done');
+      if(label) label.textContent = box.getAttribute('data-done') || 'Opgemerkt \u2713';
+      if(hint) hint.textContent = box.getAttribute('data-thanks') || 'Dank je!';
+      var url=box.getAttribute('data-url')||'';
+      if(url && url!=='#'){ try{ window.open(url,'_blank','noopener'); }catch(e){} }
     }
-    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-      a.addEventListener('click', function() {
-        openDetailsForHash(a.getAttribute('href'));
-      });
-    });
-    if (window.location.hash) openDetailsForHash(window.location.hash);
-  })();
+    function down(e){ if(done)return; dragging=true; max=track.clientWidth-58;
+      startX=(e.touches?e.touches[0].clientX:e.clientX)-x; thumb.style.transition='none'; fill.style.transition='none'; }
+    function move(e){ if(!dragging||done)return; var cx=(e.touches?e.touches[0].clientX:e.clientX);
+      setX(cx-startX); if(e.cancelable)e.preventDefault(); }
+    function up(){ if(!dragging||done)return; dragging=false;
+      thumb.style.transition='left .2s'; fill.style.transition='width .2s';
+      if(x>=max-4){ setX(max); finish(); } else { setX(0); } }
+    thumb.addEventListener('mousedown',down); document.addEventListener('mousemove',move); document.addEventListener('mouseup',up);
+    thumb.addEventListener('touchstart',down,{passive:true}); document.addEventListener('touchmove',move,{passive:false}); document.addEventListener('touchend',up);
+  });
 </script>
-
 </body>
 </html>
