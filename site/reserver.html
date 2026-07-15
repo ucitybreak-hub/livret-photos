@@ -413,8 +413,8 @@
         <a class="fl" href="#" onclick="openLegal('cgv');return false;">Conditions de réservation</a>
         <a class="fl" href="#" onclick="openLegal('annulation');return false;">Annulation</a>
         <a class="fl" href="#" onclick="openLegal('cgv');return false;">Taxe de séjour</a>
-        <a class="fl" href="mailto:ucitybreak@gmail.com?subject=Espace%20partenaires">Espace partenaires</a>
-        <a class="fl" href="mailto:ucitybreak@gmail.com">Nous écrire</a>
+        <a class="fl" href="#" onclick="openContact();return false;">Espace partenaires</a>
+        <a class="fl" href="#" onclick="openContact();return false;">Nous écrire</a>
       </div>
     </div>
     <div class="fbot">
@@ -478,6 +478,18 @@
 .legal-body .todo{background:#FFF1CE;color:#8A6412;padding:1px 5px;border-radius:3px;font-size:12.5px;font-weight:500}
 .bk-cgv a{color:var(--accent);text-decoration:underline;cursor:pointer}
 .fbot a{color:inherit;text-decoration:underline}
+/* ── Formulaire de contact ──────────────────────────────────── */
+.ct-panel{max-width:520px}
+.ct-body{padding:20px 26px 28px}
+.ct-intro{font-size:13.5px;color:var(--ink-2);line-height:1.55;margin:0 0 16px}
+.ct-body label{display:block;font-size:12px;color:var(--ink-2);margin-bottom:12px;font-weight:600}
+.ct-body input,.ct-body textarea{width:100%;margin-top:5px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius);font:inherit;font-size:14px;font-weight:400;color:var(--ink);box-sizing:border-box}
+.ct-body textarea{resize:vertical;min-height:96px}
+.ct-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ct-opt{font-weight:400;color:var(--ink-3)}
+.ct-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.ct-err{font-size:12.5px;color:#B23B3B;margin:0 0 10px;min-height:14px}
+.ct-ok{font-size:14px;color:#1F7A54;line-height:1.55}
 </style>
 
 <!-- ====================== FICHE ====================== -->
@@ -546,6 +558,28 @@
   <div class="lb-count" id="lbCount"></div>
 </div>
 
+<!-- ====================== CONTACT ====================== -->
+<div class="legal" id="contactModal">
+  <div class="legal-panel ct-panel">
+    <div class="legal-bar">
+      <span class="legal-logo">Nous écrire</span>
+      <button class="legal-x" onclick="closeContact()">×</button>
+    </div>
+    <div class="ct-body" id="ctBody">
+      <p class="ct-intro">Une question sur un logement, une demande de groupe ou un partenariat ? Écrivez-nous, on vous répond vite.</p>
+      <div class="ct-row2">
+        <label>Nom<input type="text" id="ctName" autocomplete="name"></label>
+        <label>Email<input type="email" id="ctEmail" autocomplete="email" placeholder="vous@exemple.fr"></label>
+      </div>
+      <label>Sujet <span class="ct-opt">(facultatif)</span><input type="text" id="ctSubject"></label>
+      <label>Message<textarea id="ctMsg" rows="5"></textarea></label>
+      <input type="text" id="ctHp" class="ct-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="ct-err" id="ctErr"></div>
+      <button class="pb-cta" id="ctSend" onclick="sendContact()">Envoyer</button>
+    </div>
+  </div>
+</div>
+
 <!-- ====================== PAGES LÉGALES ====================== -->
 <div class="legal" id="legal">
   <div class="legal-panel">
@@ -567,7 +601,7 @@
         <h3>Éditeur du site</h3>
         <p>U-citybreak, société par actions simplifiée (SAS) au capital de <span class="todo">[capital social] €</span>, immatriculée au RCS de <span class="todo">[ville RCS]</span> sous le numéro SIREN 901&nbsp;788&nbsp;653. Siège social : <span class="todo">[adresse du siège social]</span>. TVA intracommunautaire : <span class="todo">[n° TVA]</span>.</p>
         <p>Directeur de la publication : <span class="todo">[nom du représentant légal]</span>.</p>
-        <p>Contact : <a href="mailto:ucitybreak@gmail.com">ucitybreak@gmail.com</a> · <span class="todo">[téléphone]</span>.</p>
+        <p>Contact : <a onclick="openContact()" style="cursor:pointer;color:var(--accent);text-decoration:underline">notre formulaire de contact</a> · <span class="todo">[téléphone]</span>.</p>
         <h3>Hébergement</h3>
         <p>Le site est hébergé par Elestio (elest.io), sur une infrastructure Hetzner Online GmbH, <span class="todo">[adresse hébergeur]</span>, Allemagne. Les paiements sont traités par Stripe Payments Europe Ltd (Irlande).</p>
         <h3>Déclaration des logements</h3>
@@ -602,7 +636,7 @@
         <h3>11. Responsabilité et force majeure</h3>
         <p>U-citybreak s'engage à fournir un logement conforme à sa description. Sa responsabilité ne saurait être engagée en cas de force majeure. Le voyageur répond des dommages qu'il cause.</p>
         <h3>12. Réclamations et médiation</h3>
-        <p>Toute réclamation peut être adressée à <a href="mailto:ucitybreak@gmail.com">ucitybreak@gmail.com</a>. À défaut de résolution amiable, le consommateur peut recourir gratuitement au médiateur de la consommation : <span class="todo">[médiateur à désigner — coordonnées]</span>.</p>
+        <p>Toute réclamation peut être adressée à <a onclick="openContact()" style="cursor:pointer;color:var(--accent);text-decoration:underline">notre formulaire de contact</a>. À défaut de résolution amiable, le consommateur peut recourir gratuitement au médiateur de la consommation : <span class="todo">[médiateur à désigner — coordonnées]</span>.</p>
         <h3>13. Droit applicable</h3>
         <p>Les présentes conditions sont soumises au droit français. Tout litige relève des tribunaux compétents.</p>
       </section>
@@ -638,7 +672,7 @@
         <h3>Durée de conservation</h3>
         <p>Les données sont conservées le temps de la relation, puis pour la durée des délais légaux applicables (notamment comptables et fiscaux).</p>
         <h3>Vos droits</h3>
-        <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité. Pour les exercer : <a href="mailto:ucitybreak@gmail.com">ucitybreak@gmail.com</a>. Vous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr).</p>
+        <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité. Pour les exercer : <a onclick="openContact()" style="cursor:pointer;color:var(--accent);text-decoration:underline">notre formulaire de contact</a>. Vous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr).</p>
         <h3>Cookies</h3>
         <p>Le site n'utilise que les cookies strictement nécessaires à son fonctionnement, à l'exclusion de tout traceur publicitaire <span class="todo">[à confirmer selon outils de mesure d'audience]</span>.</p>
       </section>
@@ -1317,6 +1351,49 @@ function closeLegal(){
   if(!document.getElementById("sheet").classList.contains("open")){ document.body.classList.remove("locked"); }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   FORMULAIRE DE CONTACT (booking-contact)
+   ═══════════════════════════════════════════════════════════════ */
+var EP_CONTACT = API + "/webhook/booking-contact";
+function openContact(){
+  var m = document.getElementById("contactModal");
+  m.classList.add("open"); document.body.classList.add("locked");
+  var e = document.getElementById("ctErr"); if(e) e.textContent = "";
+}
+function closeContact(){
+  document.getElementById("contactModal").classList.remove("open");
+  if(!document.getElementById("sheet").classList.contains("open")){ document.body.classList.remove("locked"); }
+}
+function sendContact(){
+  var name = (document.getElementById("ctName").value || "").trim();
+  var email = (document.getElementById("ctEmail").value || "").trim();
+  var subject = (document.getElementById("ctSubject").value || "").trim();
+  var message = (document.getElementById("ctMsg").value || "").trim();
+  var hp = (document.getElementById("ctHp").value || "").trim();
+  var err = document.getElementById("ctErr");
+  if(name.length < 2){ err.textContent = "Indiquez votre nom."; return; }
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent = "Email invalide."; return; }
+  if(message.length < 10){ err.textContent = "Votre message est un peu court."; return; }
+  err.textContent = "";
+  var btn = document.getElementById("ctSend");
+  btn.disabled = true; btn.textContent = "Envoi\u2026";
+  postJSON(EP_CONTACT, { name:name, email:email, subject:subject, message:message, hp:hp }).then(function(res){
+    var jj = res.json || {};
+    if(jj.ok){
+      var fn = (name.split(" ")[0] || "").replace(/[<>&"]/g, "");
+      document.getElementById("ctBody").innerHTML =
+        '<p class="ct-ok">Merci ' + fn + ' ! Votre message est bien parti \u2014 on vous r\u00e9pond au plus vite.</p>' +
+        '<button class="pb-cta" style="margin-top:18px" onclick="closeContact()">Fermer</button>';
+    } else {
+      btn.disabled = false; btn.textContent = "Envoyer";
+      err.textContent = (jj.errors && jj.errors[0]) || "L\'envoi a \u00e9chou\u00e9. R\u00e9essayez.";
+    }
+  }).catch(function(){
+    btn.disabled = false; btn.textContent = "Envoyer";
+    err.textContent = "Connexion interrompue. R\u00e9essayez.";
+  });
+}
+
 function closeSheet(){
   document.getElementById("sheet").classList.remove("open");
   document.body.classList.remove("locked");
@@ -1326,6 +1403,7 @@ document.addEventListener("keydown", function(e){
   if(e.key !== "Escape") return;
   if(document.getElementById("lb").classList.contains("open")) lbClose();
   else if(document.getElementById("legal").classList.contains("open")) closeLegal();
+  else if(document.getElementById("contactModal").classList.contains("open")) closeContact();
   else closeSheet();
 });
 
