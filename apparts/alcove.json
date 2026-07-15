@@ -1,0 +1,285 @@
+{
+  "slug": "alcove",
+  "property_uuid": "29b1a9aa-9359-4f13-9af9-e615bb2bafe4",
+  "hero_photo_url": "https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg",
+  "videos": {
+    "arrival": { "youtube_id": "DwyeCH4FSWo", "label": "Le chemin jusqu'à l'appartement" },
+    "tour": { "youtube_id": "Ed_4ON2EUmc", "label": "La visite de l'appartement" }
+  },
+  "arrival": {
+    "steps": [
+      {
+        "title": "Trouver l'immeuble",
+        "text": "Vous arrivez au <b>3 rue de la Valfenière</b>, en plein cœur de la Presqu'île. Depuis la place des Terreaux, prenez la rue Paul Chenavard puis la rue Major Martin (à l'angle du Café des Fédérations). En venant par la rue de la Plâtrière, c'est à l'angle du Franprix Marché Presqu'île.",
+        "video": "arrival"
+      },
+      {
+        "title": "Le digicode de l'immeuble",
+        "text": "Composez le digicode sur la porte d'entrée. <b>Le même code ouvre les deux portes</b> — la porte sur rue, puis la porte du hall.",
+        "code": "digicode"
+      },
+      {
+        "title": "Monter au 3e étage",
+        "text": "Prenez l'<b>escalier en colimaçon</b> et montez jusqu'au <b>3e étage</b>.",
+        "photo": "alcove/escalier.jpg",
+        "photo_caption": "L'escalier en colimaçon"
+      },
+      {
+        "title": "La boîte à clé",
+        "text": "Elle se trouve sur la <b>porte du sas</b>, au 3e étage. Posez la paume sur le clavier pour l'allumer, tapez votre code puis appuyez sur le logo cadenas. Attendez le bip, puis tirez sur le côté pour ouvrir la boîte et récupérer les clés.",
+        "photo": "alcove/Lockbox.jpg",
+        "photo_caption": "La boîte à clé, sur la porte du sas",
+        "code": "algopin",
+        "code_note": "Votre code · actif jusqu'à votre départ",
+        "video": "keybox",
+        "keep_photo": true
+      },
+      {
+        "title": "Vous y êtes",
+        "text": "Les clés ouvrent la porte. Bienvenue à L'Alcôve ✨"
+      }
+    ],
+    "keybox_help": {
+      "title": "Difficultés à ouvrir la boîte à clé ?",
+      "checks": [
+        "Avez-vous appuyé sur le <b>cadenas</b> après avoir composé le code ? C'est lui qui valide la saisie — sans cet appui, la boîte ne s'ouvre pas.",
+        "La boîte s'est déverrouillée, mais avez-vous bien <b>tiré sur le côté</b> pour l'ouvrir ? Le déverrouillage ne l'ouvre pas tout seul.",
+        "Après <b>plusieurs codes erronés</b>, la boîte se met en sécurité. Patientez <b>1 à 2 minutes</b> sans y toucher, puis recommencez tranquillement."
+      ]
+    }
+  },
+  "parking": {
+    "summary": "Centre-ville piéton — parkings souterrains à proximité",
+    "text": [
+      "<b>Le centre-ville est piéton</b> : le stationnement en surface est très difficile.",
+      "<b>Parkings souterrains LPA</b> les plus proches : Terreaux (payant), Saint-Antoine, puis Cordelier (un peu plus loin). Les forfaits plusieurs jours et week-end (vendredi→lundi) sont souvent avantageux."
+    ]
+  },
+  "luggage": {
+    "url": "https://www.nannybag.com/fr/consigne-bagage/lyon",
+    "sub_arrival": "Consignes Nannybag dans Lyon · dès 4,50 €/jour",
+    "sub_departure": "Déposez vos bagages et profitez de Lyon jusqu'au train · dès 4,50 €/jour",
+    "show_on": ["access", "departure"]
+  },
+  "transport": {
+    "summary": "Métro, bus, gares — voir le détail",
+    "lines": [
+      {
+        "emoji": "🚇",
+        "title": "Métro A",
+        "text": "Station <b>Hôtel de Ville — Louis Pradel</b>. Ligne A directe vers Bellecour, Perrache, et Part-Dieu (via la ligne B).",
+        "distance": "300 m"
+      },
+      {
+        "emoji": "🚌",
+        "title": "Bus",
+        "text": "Arrêt <b>Terreaux La Feuillée</b> : lignes C3, C13, C14, C18, 19, S6, S12, PL1.",
+        "distance": "150 m"
+      },
+      {
+        "emoji": "🚆",
+        "title": "Gares",
+        "text": "Part-Dieu en 25 min (métro A puis B) ; Perrache en 15 min (métro A directe)."
+      },
+      {
+        "emoji": "✈️",
+        "title": "Aéroport",
+        "text": "Rhônexpress jusqu'à Vaulx-en-Velin La Soie, puis métro A → Hôtel de Ville. Sinon bus C200, ou Uber/taxi (~45 min)."
+      }
+    ]
+  },
+  "amenities": [
+    {
+      "icon": "wifi",
+      "title": "Wifi",
+      "sub": "Réseau « {{wifi_ssid}} » · mot de passe sur l'accueil"
+    },
+    {
+      "icon": "tv",
+      "title": "Télévision",
+      "cta": "Voir comment ça marche",
+      "body": "<p>La TV fonctionne avec la <b>box Android SFR TV</b> : utilisez la <b>deuxième télécommande</b> pour l'allumer et naviguer.</p><p>Pensez à vous déconnecter de vos comptes avant le départ.</p>"
+    },
+    {
+      "icon": "stove",
+      "title": "Cuisine",
+      "cta": "Voir l'équipement",
+      "body": "<p>Kitchenette équipée : plaques de cuisson, <b>micro-ondes</b>, réfrigérateur-congélateur, vaisselle et ustensiles.</p><p>À noter : <b>pas de four</b> ni de lave-vaisselle.</p>"
+    },
+    {
+      "icon": "coffee",
+      "title": "Café",
+      "cta": "Bon à savoir",
+      "body": "<p>Une <b>cafetière filtre</b> et une bouilloire sont à votre disposition dans la cuisine.</p><p>Il n'y a pas de machine à capsules.</p>"
+    },
+    {
+      "icon": "heat",
+      "title": "Chauffage",
+      "cta": "Bon à savoir",
+      "body": "<p>Le <b>sèche-serviette</b> de la salle de bains dispose parfois d'une sécurité enfant. S'il ne s'allume pas, contactez-nous et on s'en occupe.</p>"
+    },
+    {
+      "icon": "wash",
+      "title": "Lave-linge",
+      "cta": "Où le brancher",
+      "body": "<p>Le lave-linge se branche sur la prise située <b>en haut à gauche du miroir</b> de la salle de bains.</p>"
+    },
+    {
+      "icon": "sofa",
+      "title": "Canapé-lit",
+      "cta": "Voir le couchage",
+      "body": "<p>Le <b>canapé-lit</b> accueille un couchage supplémentaire. Le linge (couette + oreiller) est rangé sur <b>l'étagère à droite du canapé</b>.</p><p>Il n'est pas fait à l'arrivée, pour vous laisser plus d'espace en journée.</p>"
+    },
+    {
+      "icon": "supply",
+      "title": "Ce qu'on vous fournit",
+      "cta": "Voir la liste",
+      "body": "<p><b>Pour démarrer</b> — quelques rouleaux de papier toilette et le nécessaire de bienvenue.</p><p><b>Pour tout le séjour</b> — draps et serviettes (2 serviettes par lit), sèche-cheveux, et un <b>fer à repasser</b> rangé au-dessus de la cuisine, dans le grand placard.</p>"
+    },
+    {
+      "icon": "trash",
+      "title": "Poubelles & tri",
+      "cta": "Voir où",
+      "body": "<p>Le local poubelles se trouve <b>en bas de l'escalier en colimaçon</b>.</p><p>Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage.</p>"
+    }
+  ],
+  "house_rules": [
+    {
+      "emoji": "🪜",
+      "title": "3e étage, escalier en colimaçon",
+      "text": "Sans ascenseur, par un escalier en colimaçon."
+    },
+    {
+      "emoji": "🚭",
+      "title": "Logement non-fumeur",
+      "text": "Interdit à l'intérieur. Un détecteur signale la fumée — remise en état jusqu'à 65 €."
+    },
+    {
+      "emoji": "🎉",
+      "title": "Pas de fête ni de soirée",
+      "text": "Immeuble habité en plein centre — merci de préserver la tranquillité du voisinage."
+    },
+    {
+      "emoji": "🧹",
+      "title": "Placards de ménage",
+      "text": "Les <b>deux grands placards du salon</b> contiennent le matériel d'entretien — merci de les laisser fermés."
+    },
+    {
+      "emoji": "🐾",
+      "title": "Animaux non autorisés",
+      "text": "Merci d'en tenir compte : certains voyageurs peuvent être allergiques."
+    },
+    {
+      "emoji": "🌙",
+      "title": "Calme après 22h",
+      "text": "Immeuble habité — merci pour le voisinage."
+    }
+  ],
+  "checkout_line": "poubelles en bas du colimaçon, fenêtres fermées, clés dans la boîte",
+  "tour_slides": [],
+  "hospitable_images_base": "https://assets.hospitable.com/property_images/2076406/",
+  "recos": {
+    "food": [
+      {
+        "photo": "alcove/cafe-des-federations.png",
+        "tag": "À 50 m",
+        "tag_class": "bouchon",
+        "name": "Café des Fédérations",
+        "desc": "Élu meilleur bouchon authentique 2019-2020. Cuisine lyonnaise midi et soir, même le dimanche — juste au bout de la rue."
+      },
+      {
+        "photo": "alcove/Len-de-lyon.jpg",
+        "tag": "À 100 m",
+        "tag_class": "spot",
+        "name": "Léon de Lyon",
+        "desc": "Institution de la gastronomie lyonnaise, cadre chaleureux. Ouvert du mercredi au dimanche.",
+        "url": "https://www.leondelyon.com/"
+      },
+      {
+        "photo": "alcove/Musee-de-l-opera.png",
+        "tag": "Rooftop",
+        "tag_class": "spot",
+        "name": "Les Muses de l'Opéra",
+        "desc": "Terrasse panoramique au 7e étage de l'Opéra, avec vue sur Fourvière — à 350 m. Plutôt en soirée."
+      },
+      {
+        "photo": "alcove/La-rue-a-restaurants.jpg",
+        "tag": "Bonnes tables",
+        "tag_class": "spot",
+        "name": "Les rues gourmandes",
+        "desc": "Rue Mercière, rue de l'Arbre-Sec, rue des Marronniers et le Vieux Lyon : le cœur des restaurants, à deux pas."
+      }
+    ],
+    "visit": [
+      {
+        "photo": "canut/terrreaux.jpg",
+        "tag": "À 150 m",
+        "tag_class": "proche",
+        "name": "Place des Terreaux",
+        "desc": "La fontaine Bartholdi et l'Hôtel de Ville, au bout de la rue. Le musée des Beaux-Arts donne sur la place."
+      },
+      {
+        "photo": "canut/Le-vieux-lyon.jpg",
+        "tag": "UNESCO",
+        "tag_class": "patrimoine",
+        "name": "Le Vieux Lyon",
+        "desc": "Quartier Renaissance classé UNESCO, à ~1 km (15 min à pied ou métro D). Traboules et cathédrale Saint-Jean.",
+        "url": "https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon"
+      },
+      {
+        "photo": "canut/basilique.jpg",
+        "tag": "Incontournable",
+        "tag_class": "patrimoine",
+        "name": "Basilique de Fourvière",
+        "desc": "Panorama sur tout Lyon, à ~1,2 km. Montez par le Vieux Lyon puis le funiculaire depuis la station Saint-Jean.",
+        "url": "https://www.fourviere.org/fr/"
+      },
+      {
+        "photo": "canut/lugdunum.jpg",
+        "tag": "Gratuit",
+        "tag_class": "patrimoine",
+        "name": "Lugdunum",
+        "desc": "Musée gallo-romain et théâtres antiques sur la colline de Fourvière (~1,5 km). Accès aux théâtres gratuit.",
+        "url": "https://lugdunum.grandlyon.com/fr/"
+      },
+      {
+        "photo": "canut/Le-musee-confluence.jpg",
+        "tag": "À 4,9 km",
+        "tag_class": "spot",
+        "name": "Musée des Confluences",
+        "desc": "Architecture spectaculaire à la pointe de la Presqu'île. Métro A → Perrache, puis tram T1.",
+        "url": "https://www.museedesconfluences.fr/"
+      },
+      {
+        "photo": "alcove/Les-berges.jpg",
+        "tag": "Balade",
+        "tag_class": "spot",
+        "name": "Les Berges du Rhône",
+        "desc": "Promenade de 5 km au fil de l'eau (bars, péniches, pelouses), à ~15 min à pied."
+      }
+    ],
+    "shop": [
+      {
+        "photo": "alcove/Franprix.png",
+        "tag": "À 150 m",
+        "tag_class": "proche",
+        "name": "Franprix Marché Presqu'île",
+        "desc": "Supermarché et produits frais, rue de la Plâtrière — à l'angle de l'immeuble."
+      },
+      {
+        "photo": "alcove/boulangerie.png",
+        "tag": "Pour le matin",
+        "tag_class": "proche",
+        "name": "Boulangerie Pomponette",
+        "desc": "La boulangerie la plus proche, à 100 m, rue du Plâtre. Pains, viennoiseries et sandwichs."
+      },
+      {
+        "photo": "alcove/carrefourmarket.png",
+        "tag": "Courses",
+        "tag_class": "proche",
+        "name": "Carrefour",
+        "desc": "Courses d'appoint à ~500 m, vers la place Croix-Paquet."
+      }
+    ]
+  }
+}
