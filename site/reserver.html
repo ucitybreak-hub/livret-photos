@@ -424,6 +424,34 @@
   </div>
 </footer>
 
+<style>
+/* ── Calendrier de dispos (fiche) ─────────────────────────── */
+.cal-wrap{margin-top:4px}
+.cal-load{font-size:13px;color:#8A9099;padding:14px 0}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.cal-nav{width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:var(--radius);font-size:18px;line-height:1;color:var(--ink);cursor:pointer}
+.cal-nav:hover:not(:disabled){background:var(--inset)}
+.cal-nav:disabled{opacity:.3;cursor:default}
+.cal-legend{font-size:11.5px;color:#8A9099;display:flex;align-items:center;gap:5px}
+.cal-lg{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:middle}
+.cal-lg-free{background:var(--accent-wash);border:1px solid var(--line)}
+.cal-lg-busy{background:repeating-linear-gradient(135deg,#EDEFF2,#EDEFF2 3px,#fff 3px,#fff 5px);border:1px solid var(--line)}
+.cal-months{display:flex;gap:26px;flex-wrap:wrap}
+.cal-month{flex:1;min-width:224px}
+.cal-mname{font-family:var(--serif);font-size:15px;margin-bottom:8px;text-transform:capitalize;color:var(--ink)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-wd{font-size:10.5px;color:#A6ABB2;text-align:center;padding:4px 0;font-weight:600}
+.cal-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12.5px;border-radius:var(--radius);color:var(--ink);-webkit-user-select:none;user-select:none}
+.cal-empty,.cal-past,.cal-out{color:#D2D6DB}
+.cal-busy{color:#C4C8CE;text-decoration:line-through;background:repeating-linear-gradient(135deg,#F3F4F6,#F3F4F6 3px,#fff 3px,#fff 5px)}
+.cal-free{cursor:pointer;background:var(--accent-wash)}
+.cal-free:hover{background:#DCE3EF}
+.cal-sel.cal-mid{background:var(--accent-wash);border-radius:0}
+.cal-sel.cal-a,.cal-sel.cal-b{background:var(--accent);color:#fff;font-weight:600}
+.cal-hint{font-size:12px;color:#8A9099;margin-top:10px}
+.cal-msg{font-size:12.5px;color:#B23B3B;margin-top:6px}
+</style>
+
 <!-- ====================== FICHE ====================== -->
 <div class="sheet" id="sheet">
   <div class="sheet-bar">
@@ -438,6 +466,11 @@
       <h1 class="sh-title" id="shName"></h1>
       <p class="sh-sub" id="shSub"></p>
       <div class="sh-stats" id="shStats"></div>
+
+      <div class="sh-block">
+        <h4>Disponibilités</h4>
+        <div id="shCal" class="cal-wrap"></div>
+      </div>
 
       <div class="sh-block">
         <h4>L'appartement</h4>
@@ -589,7 +622,7 @@ var APTS = [
 /* ═══════════════════════════════════════════════════════════════
    ÉTAT + UTILITAIRES
    ═══════════════════════════════════════════════════════════════ */
-var S = { city:"all", inD:null, outD:null, nights:0, pax:2, searched:false, current:null, quotes:{}, coupon:"", couponErr:"", booking:false };
+var S = { city:"all", inD:null, outD:null, nights:0, pax:2, searched:false, current:null, quotes:{}, coupon:"", couponErr:"", booking:false, cal:{}, calPick:null, calMsg:"", calOffset:0 };
 
 function r2(n){ return Math.round(n*100)/100; }
 function eur(n){ return n.toLocaleString("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:2}); }
@@ -642,6 +675,7 @@ function quote(a, nights, pax){
 var API = "";                                 /* même origine (servi par n8n) */
 var EP_QUOTE    = API + "/webhook/booking-quote";
 var EP_CHECKOUT = API + "/webhook/booking-checkout";
+var EP_CALENDAR = API + "/webhook/booking-calendar";
 
 function postJSON(url, payload){
   return fetch(url, {
@@ -817,6 +851,8 @@ function openSheet(id){
   }).join("");
 
   renderPricebox(a);
+  calInitOffset();
+  loadCal(a.id);
 
   document.getElementById("sheet").classList.add("open");
   document.body.classList.add("locked");
@@ -992,6 +1028,142 @@ function payNow(){
   }).catch(function(){
     btn.disabled = false; btn.textContent = "Payer " + eur0(q.total) + " \u00b7 paiement s\u00e9curis\u00e9";
     err.textContent = "Connexion interrompue. R\u00e9essayez.";
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CALENDRIER DE DISPONIBILITÉS (booking-calendar) — style Airbnb
+   ═══════════════════════════════════════════════════════════════ */
+var CAL_MONTHS = 5, CAL_MAXOFF = 3;
+function pad(n){ return n < 10 ? "0" + n : "" + n; }
+
+function loadCal(slug){
+  var c = S.cal[slug];
+  if(c && (c.loading || c.days)){ renderCal(slug); return; }
+  S.cal[slug] = { loading:true };
+  renderCal(slug);
+  fetch(EP_CALENDAR + "?slug=" + encodeURIComponent(slug) + "&months=" + CAL_MONTHS)
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      var map = {}, i;
+      if(j && j.ok && j.days){ for(i=0;i<j.days.length;i++){ map[j.days[i].date] = j.days[i]; } }
+      S.cal[slug] = { days: map, ok: !!(j && j.ok && j.days && j.days.length) };
+      if(S.current && S.current.id === slug) renderCal(slug);
+    })
+    .catch(function(){ S.cal[slug] = { err:true }; if(S.current && S.current.id === slug) renderCal(slug); });
+}
+
+function calInitOffset(){
+  S.calPick = null; S.calMsg = "";
+  var off = 0;
+  if(S.inD){
+    var t = new Date(), s = new Date(S.inD);
+    off = (s.getFullYear()-t.getFullYear())*12 + (s.getMonth()-t.getMonth());
+    if(off < 0) off = 0; if(off > CAL_MAXOFF) off = CAL_MAXOFF;
+  }
+  S.calOffset = off;
+}
+function calNav(d){
+  var off = (S.calOffset||0) + d;
+  if(off < 0) off = 0; if(off > CAL_MAXOFF) off = CAL_MAXOFF;
+  S.calOffset = off;
+  if(S.current) renderCal(S.current.id);
+}
+
+function calMonth(slug, year, month){
+  var c = S.cal[slug];
+  var names = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+  var first = new Date(year, month, 1);
+  var startDow = (first.getDay()+6)%7;
+  var dim = new Date(year, month+1, 0).getDate();
+  var todayStr = iso(new Date());
+  var cells = "", i, day;
+  for(i=0;i<startDow;i++){ cells += '<span class="cal-cell cal-empty"></span>'; }
+  for(day=1; day<=dim; day++){
+    var ds = year + "-" + pad(month+1) + "-" + pad(day);
+    var info = c.days[ds];
+    var cls = "cal-cell", clickable = false;
+    if(ds < todayStr){ cls += " cal-past"; }
+    else if(!info){ cls += " cal-out"; }
+    else if(!info.available){ cls += " cal-busy"; }
+    else { cls += " cal-free"; clickable = true; }
+    if(S.calPick){ if(ds === S.calPick){ cls += " cal-sel cal-a"; } }
+    else if(S.inD && S.outD){
+      if(ds === S.inD){ cls += " cal-sel cal-a"; }
+      else if(ds === S.outD){ cls += " cal-sel cal-b"; }
+      else if(ds > S.inD && ds < S.outD){ cls += " cal-sel cal-mid"; }
+    }
+    var oc = clickable ? ' onclick="calPick(\'' + slug + '\',\'' + ds + '\')"' : '';
+    cells += '<span class="' + cls + '"' + oc + '>' + day + '</span>';
+  }
+  return '<div class="cal-month"><div class="cal-mname">' + names[month] + " " + year + '</div>' +
+    '<div class="cal-grid"><span class="cal-wd">L</span><span class="cal-wd">M</span><span class="cal-wd">M</span>' +
+    '<span class="cal-wd">J</span><span class="cal-wd">V</span><span class="cal-wd">S</span><span class="cal-wd">D</span>' +
+    cells + '</div></div>';
+}
+
+function renderCal(slug){
+  var el = document.getElementById("shCal"); if(!el) return;
+  var c = S.cal[slug];
+  if(!c || c.loading){ el.innerHTML = '<div class="cal-load">Chargement du calendrier\u2026</div>'; return; }
+  if(c.err || !c.ok || !c.days){ el.innerHTML = '<div class="cal-load">Calendrier momentan\u00e9ment indisponible.</div>'; return; }
+  var off = S.calOffset || 0;
+  var b = new Date(); b.setDate(1); b = new Date(b.getFullYear(), b.getMonth()+off, 1);
+  var b2 = new Date(b.getFullYear(), b.getMonth()+1, 1);
+  var prevDis = off <= 0 ? " disabled" : "";
+  var nextDis = off >= CAL_MAXOFF ? " disabled" : "";
+  var hint = S.calPick
+    ? '<div class="cal-hint">Choisissez votre date de d\u00e9part.</div>'
+    : '<div class="cal-hint">Cliquez vos dates d\'arriv\u00e9e et de d\u00e9part.</div>';
+  var msg = S.calMsg ? '<div class="cal-msg">' + S.calMsg + '</div>' : "";
+  el.innerHTML =
+    '<div class="cal-head">' +
+      '<button class="cal-nav" onclick="calNav(-1)"' + prevDis + '>\u2039</button>' +
+      '<span class="cal-legend"><i class="cal-lg cal-lg-free"></i>libre <i class="cal-lg cal-lg-busy"></i>pris</span>' +
+      '<button class="cal-nav" onclick="calNav(1)"' + nextDis + '>\u203a</button>' +
+    '</div>' +
+    '<div class="cal-months">' + calMonth(slug, b.getFullYear(), b.getMonth()) + calMonth(slug, b2.getFullYear(), b2.getMonth()) + '</div>' +
+    hint + msg;
+}
+
+function calPick(slug, ds){
+  var c = S.cal[slug]; if(!c || !c.days) return;
+  var info = c.days[ds];
+  if(!info || !info.available) return;
+  if(!S.calPick || ds <= S.calPick){ S.calPick = ds; S.calMsg = ""; renderCal(slug); return; }
+  var inD = S.calPick, outD = ds;
+  var cur = new Date(inD), end = new Date(outD), ok = true;
+  while(cur < end){
+    var dd = c.days[iso(cur)];
+    if(!dd || !dd.available){ ok = false; break; }
+    cur.setDate(cur.getDate()+1);
+  }
+  var nights = Math.round((end - new Date(inD)) / 86400000);
+  var minStay = (c.days[inD] && c.days[inD].min_stay) || 1;
+  if(!ok){ S.calMsg = "Ces dates incluent une nuit d\u00e9j\u00e0 r\u00e9serv\u00e9e \u2014 choisissez une autre p\u00e9riode."; S.calPick = ds; renderCal(slug); return; }
+  if(nights < minStay){ S.calMsg = "S\u00e9jour de " + minStay + " nuits minimum \u00e0 partir du " + fmtDate(inD) + "."; renderCal(slug); return; }
+  S.calPick = null; S.calMsg = "";
+  applyDatesFromCal(inD, outD);
+}
+
+function applyDatesFromCal(inD, outD){
+  var qi = document.getElementById("qIn"), qo = document.getElementById("qOut");
+  if(qi) qi.value = inD; if(qo) qo.value = outD;
+  S.pax = Math.max(1, parseInt(document.getElementById("qPax").value, 10) || S.pax);
+  S.inD = inD; S.outD = outD;
+  S.nights = Math.round((new Date(outD) - new Date(inD)) / 86400000);
+  S.searched = true;
+  S.quotes = {}; S.coupon = ""; S.couponErr = "";
+  var note = document.getElementById("searchNote");
+  if(note) note.textContent = "Recherche des disponibilit\u00e9s\u2026";
+  renderGrid();
+  refreshQuotes().then(function(){
+    renderGrid();
+    var n = document.querySelectorAll(".card:not(.dim)").length;
+    if(note) note.textContent = (n>0 ? n : "Aucun") + (n>1 ? " appartements disponibles" : " appartement disponible") +
+      " du " + fmtDate(inD) + " au " + fmtDate(outD) + " \u00b7 " + S.nights + (S.nights>1?" nuits":" nuit") +
+      " \u00b7 " + S.pax + (S.pax>1?" voyageurs":" voyageur") + ". Prix tout compris, aucun frais de service.";
+    if(S.current){ renderPricebox(S.current); renderCal(S.current.id); }
   });
 }
 
