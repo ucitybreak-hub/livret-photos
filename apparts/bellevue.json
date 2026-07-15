@@ -1,0 +1,281 @@
+{
+  "slug": "bellevue",
+  "property_uuid": "ec859cd9-8eac-44a3-afe4-0013b9ea393d",
+  "hero_photo_url": "https://assets.hospitable.com/property_images/2076404/bd8PYBdDUzLVdwqhZEoU7kxbKzTQCsrVpD6j6UPl.jpg",
+  "videos": {
+    "keybox": { "youtube_id": "V-5kXRTPRko", "label": "Ouvrir la boîte à clé" }
+  },
+  "arrival": {
+    "steps": [
+      {
+        "title": "Trouver l'immeuble",
+        "text": "Vous arrivez au <b>2 avenue Maréchal Foch</b>, dans le Parc des Glacis, <b>juste en face de la gare Viotte</b>. Repérez le <b>portail vert</b> avec le <b>numéro 2</b> sur le poteau.",
+        "photo": "bellevue/arrivee-1.png",
+        "photo_caption": "Le portail vert, numéro 2 sur le poteau"
+      },
+      {
+        "title": "Le portail",
+        "text": "Ouvrez le portail vert avec le digicode, puis prenez l'<b>escalier rouge à gauche</b> jusqu'au <b>1er étage</b>.",
+        "photo": "bellevue/arrivee-2.png",
+        "photo_caption": "L'escalier rouge, à gauche après le portail",
+        "code": "digicode"
+      },
+      {
+        "title": "La boîte à clé",
+        "text": "La boîte à clé « <b>L. Bellevue</b> » se trouve dans la <b>boîte aux lettres à gauche du portail</b>. Composez le code pour l'ouvrir et récupérer les clés. <b>Pensez à bien la refermer</b> en repartant.",
+        "photo": "bellevue/lockbox.png",
+        "photo_caption": "La boîte à clé « L. Bellevue », à gauche du portail",
+        "code": "algopin",
+        "code_note": "Votre code · actif pendant votre séjour",
+        "video": "keybox",
+        "keep_photo": true
+      },
+      {
+        "title": "Vous y êtes",
+        "text": "Au 1er étage, c'est la <b>1ère porte à gauche</b>. Les clés l'ouvrent. Bienvenue au Bellevue ✨"
+      }
+    ],
+    "keybox_help": {
+      "title": "Difficultés à ouvrir la boîte à clé ?",
+      "checks": [
+        "Vérifiez que vous composez bien le code sur la boîte étiquetée « <b>L. Bellevue</b> » — c'est celle de gauche, dans la boîte aux lettres à gauche du portail.",
+        "Saisissez les chiffres <b>un par un</b>, sans trop appuyer, puis ouvrez le volet.",
+        "Si ça coince, réalignez bien les molettes sur le code et réessayez tranquillement. En cas de blocage, écrivez-nous."
+      ]
+    }
+  },
+  "parking": {
+    "summary": "Stationnement de rue + parking gratuit à 200 m",
+    "text": [
+      "<b>Dépose-minute</b> : déchargez devant l'immeuble, le long de l'avenue Foch, puis allez garer la voiture.",
+      "<b>Parking gratuit « Battant »</b> : à 200 m, plus de 1 000 places. Tournez à droite au rond-point devant la résidence.",
+      "<b>Rue payante</b> : le stationnement devant l'immeuble est payant et souvent contrôlé — <b>gratuit le dimanche</b>."
+    ],
+    "photos": ["lumineux/Parking Battant.png"]
+  },
+  "luggage": {
+    "url": "https://www.nannybag.com/fr/consigne-bagage/besancon",
+    "sub_arrival": "Consignes Nannybag à Besançon · dès 4,90 €/jour",
+    "sub_departure": "Déposez vos bagages et profitez de Besançon jusqu'au train · dès 4,90 €/jour",
+    "show_on": ["access", "departure"]
+  },
+  "transport": {
+    "summary": "Face à la gare Viotte · trams & bus à 100 m",
+    "lines": [
+      {
+        "emoji": "🚆",
+        "title": "Gare Viotte",
+        "text": "Juste en face, à <b>150 m</b>. Une navette rejoint la <b>gare TGV</b> en une dizaine de minutes.",
+        "distance": "150 m"
+      },
+      {
+        "emoji": "🚋",
+        "title": "Tram & bus",
+        "text": "Trams <b>T1 et T2</b> et bus Ginko à <b>100 m</b> devant la gare. Paiement par carte à bord, sans ticket préalable.",
+        "distance": "100 m"
+      },
+      {
+        "emoji": "🚕",
+        "title": "Taxi",
+        "text": "Uber ne dessert pas Besançon. Taxis Radio au <b>03 81 88 80 80</b> pour la gare TGV ou l'aérodrome de La Vèze."
+      },
+      {
+        "emoji": "🚲",
+        "title": "Vélo",
+        "text": "Vélocité en libre-service pour vos trajets courts, ou location à la journée dans les agences locales."
+      }
+    ]
+  },
+  "amenities": [
+    {
+      "icon": "wifi",
+      "title": "Wifi",
+      "sub": "Réseau « {{wifi_ssid}} » · mot de passe sur l'accueil"
+    },
+    {
+      "icon": "tv",
+      "title": "Télévision",
+      "cta": "Voir les chaînes & apps",
+      "body": "<p><b>Salon</b> — TV branchée sur les chaînes TNT françaises.</p><p><b>Chambre</b> — Smart TV Samsung avec Netflix, Molotov et myCanal (vos identifiants). <b>AirPlay</b> (iPhone) et <b>Chromecast</b> (Android) disponibles.</p>"
+    },
+    {
+      "icon": "coffee",
+      "title": "Café",
+      "sub": "Machine Nespresso + cafetière filtre"
+    },
+    {
+      "icon": "stove",
+      "title": "Cuisine",
+      "cta": "Voir l'équipement",
+      "body": "<p><b>Plaques</b> de cuisson et <b>lave-vaisselle</b> (marque Ikea) — pastilles fournies.</p><p>Pas d'égouttoir : utilisez le lave-vaisselle pour le séchage.</p>"
+    },
+    {
+      "icon": "wash",
+      "title": "Lave-linge séchant",
+      "sub": "Whirlpool · le sèche-linge s'arrête seul après ~1h30"
+    },
+    {
+      "icon": "heat",
+      "title": "Chauffage & climatisation",
+      "cta": "Comment ça marche",
+      "body": "<p><b>Chauffage central</b> commun à l'immeuble. Des <b>radiateurs d'appoint</b> sont à disposition pour l'inter-saison.</p><p><b>Été</b> — climatiseur mobile et ventilateurs à disposition ; baissez les volets roulants aux heures chaudes.</p>"
+    },
+    {
+      "icon": "sofa",
+      "title": "Canapé-lit",
+      "cta": "Voir la notice",
+      "body": "<p>Le canapé du salon se déplie en couchage d'appoint.</p>",
+      "photo": "bellevue/canape-lit.png"
+    },
+    {
+      "icon": "supply",
+      "title": "Équipement bébé",
+      "cta": "Voir",
+      "body": "<p>Lit parapluie et chaise haute disponibles. Le lit parapluie est dans le <b>coffre du lit côté rue</b> (ou parfois derrière le canapé).</p>"
+    },
+    {
+      "icon": "supply",
+      "title": "Ce qu'on vous fournit",
+      "cta": "Voir la liste",
+      "body": "<p><b>Pour démarrer</b> — capsules Nespresso et thé (1ère nuitée), <b>2 rouleaux</b> de papier toilette, pastilles lave-vaisselle.</p><p>Gel douche, shampoing, sèche-cheveux et fer à repasser fournis. L'eau du robinet est potable.</p>"
+    }
+  ],
+  "house_rules": [
+    {
+      "emoji": "🚭",
+      "title": "Logement non-fumeur",
+      "text": "Interdit à l'intérieur, sans exception."
+    },
+    {
+      "emoji": "🎉",
+      "title": "Pas de fête ni de soirée",
+      "text": "Un <b>détecteur de décibels</b> (relié à une alarme) et une <b>caméra sur le palier</b> veillent au calme. Aucune conversation n'est enregistrée."
+    },
+    {
+      "emoji": "🌙",
+      "title": "Calme après 22h",
+      "text": "Merci de respecter le voisinage — évitez le bruit et les allées et venues fréquentes."
+    },
+    {
+      "emoji": "🐾",
+      "title": "Animaux non autorisés",
+      "text": "Pour protéger les voyageurs allergiques qui vous suivront."
+    },
+    {
+      "emoji": "🌡️",
+      "title": "Capteur de CO₂",
+      "text": "Merci de ne pas le débrancher ni le déplacer : il déclenche une alarme s'il est manipulé."
+    },
+    {
+      "emoji": "👥",
+      "title": "Voyageurs déclarés",
+      "text": "Seules les personnes indiquées sur la réservation sont admises. Pour en ajouter, régularisez la réservation."
+    }
+  ],
+  "checkout_line": "clés dans la boîte à clé (bien refermée), poubelles sorties",
+  "tour_slides": [],
+  "hospitable_images_base": "https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/",
+  "recos": {
+    "food": [
+      {
+        "photo": "lumineux/REstaurant l'affineur Comtois.jpeg",
+        "tag": "Coup de cœur",
+        "tag_class": "coeur",
+        "name": "L'Affineur Comtois",
+        "desc": "Spécialités fromagères comtoises — cancoillotte, fondue, tartiflette. À 400 m, rue Battant. On choisit son vin à la cave.",
+        "url": "https://www.restaurant-laffineurcomtois.fr/"
+      },
+      {
+        "photo": "bellevue/Samourai Shushi.png",
+        "tag": "À deux pas",
+        "tag_class": "proche",
+        "name": "Samouraï Sushi",
+        "desc": "Sushis avec vue sur le parc, juste à côté de l'appartement."
+      },
+      {
+        "photo": "bellevue/Signorizza Pizza.png",
+        "tag": "Face à la gare",
+        "tag_class": "proche",
+        "name": "Signorizza",
+        "desc": "Grande pizzeria conviviale, en face de la gare."
+      },
+      {
+        "photo": "lumineux/Restaurant le saint Cerf.jpeg",
+        "tag": "Gastronomique",
+        "tag_class": "gastronomique",
+        "name": "Le Saint Cerf",
+        "desc": "Bistrot contemporain, produits de saison et options végétariennes. À 600 m. Tél. 03 81 50 10 20."
+      },
+      {
+        "photo": "lumineux/Restaurant Bouillon du commerce.jpeg",
+        "tag": "À 700 m",
+        "tag_class": "spot",
+        "name": "Le Bouillon du Commerce",
+        "desc": "Superbe cadre Art Déco de 1850, cuisine soignée à prix doux. Réservation conseillée.",
+        "url": "https://lebouillonducommerce.fr/"
+      },
+      {
+        "photo": "lumineux/Restaurant Loiseau du temps.jpeg",
+        "tag": "À 500 m",
+        "tag_class": "spot",
+        "name": "Loiseau du Temps",
+        "desc": "Terroir Bourgogne-Franche-Comté dans un bâtiment historique, belle terrasse.",
+        "url": "https://www.bernard-loiseau.com/fr/loiseaudutemps.html"
+      }
+    ],
+    "visit": [
+      {
+        "photo": "lumineux/Tourisme - La citadelle Vauban.jpeg",
+        "tag": "Patrimoine UNESCO",
+        "tag_class": "patrimoine",
+        "name": "La Citadelle de Besançon",
+        "desc": "Chef-d'œuvre de Vauban classé UNESCO : remparts, panorama sur la ville, zoo, aquarium et musées.",
+        "url": "https://www.citadelle.besancon.fr/"
+      },
+      {
+        "photo": "lumineux/Tourisme - Le musee du temps.jpeg",
+        "tag": "À 600 m",
+        "tag_class": "patrimoine",
+        "name": "Le Musée du Temps",
+        "desc": "Dans le Palais Granvelle, retrace l'histoire horlogère de Besançon."
+      },
+      {
+        "photo": "lumineux/Tourisme - L'horloge astronomique.jpeg",
+        "tag": "À 1 km",
+        "tag_class": "patrimoine",
+        "name": "L'Horloge astronomique",
+        "desc": "Chef-d'œuvre du XIXᵉ dans la cathédrale St-Jean (en restauration jusqu'en 2030)."
+      },
+      {
+        "photo": "lumineux/Trousime - la maison victor Hugo.jpeg",
+        "tag": "À deux pas",
+        "tag_class": "patrimoine",
+        "name": "La Maison Victor Hugo",
+        "desc": "Maison natale de Victor Hugo, au 140 Grande Rue. Scénographie contemporaine et multimédia, visite émouvante."
+      }
+    ],
+    "shop": [
+      {
+        "photo": "bellevue/au pain d'antant rue belfort.png",
+        "tag": "Pour le matin",
+        "tag_class": "proche",
+        "name": "Au Pain d'Antan",
+        "desc": "Boulangerie-pâtisserie, rue de Belfort."
+      },
+      {
+        "photo": "bellevue/petit casino rue belfort.png",
+        "tag": "Dépannage",
+        "tag_class": "proche",
+        "name": "Petit Casino",
+        "desc": "Épicerie de proximité, rue de Belfort."
+      },
+      {
+        "photo": "bellevue/relais de la gare.png",
+        "tag": "Presse & tabac",
+        "tag_class": "proche",
+        "name": "Relais de la Gare",
+        "desc": "Presse, tabac et dépannage, près de la gare."
+      }
+    ]
+  }
+}
