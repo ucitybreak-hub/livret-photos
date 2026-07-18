@@ -1,258 +1,141 @@
 {
-  "fetched_at": "2026-07-18T03:00:02.482Z",
+  "fetched_at": "2026-07-18T09:00:04.929Z",
   "property_uuid": "29538904-0724-43a9-83b4-b50c0fa096ee",
-  "property_name": "★ Le Panoramique ★",
+  "property_name": "Le Panoramique",
+  "source": "referentiel-get",
   "topics": [
     {
-      "name": "Access Codes",
+      "name": "Le logement",
       "items": [
         {
-          "content": "Building entrance code (digicode): 4796 . Guests enter this code on the keypad to open the main door.",
+          "content": "Nom : Le Panoramique",
           "is_edited": true
         },
         {
-          "content": "Lockbox code: 2578. Located next to the green door on the ground floor; contains the apartment keys.",
-          "is_edited": false
-        },
-        {
-          "content": "Inner security door: Use the black badge supplied. Place it on the reader to unlock the inner door.",
-          "is_edited": false
-        },
-        {
-          "content": "Key box: located next to the mailboxes. To open it, enter the code 2578, remember to close the box before leaving. After retrieving the keys, follow the long corridor to the glass door, then climb the stairs (the staircase is old). The apartment is on the top floor, to the right (look for the “Le Panoramique” sign on the door).",
-          "is_edited": true
-        }
-      ]
-    },
-    {
-      "name": "Appliances",
-      "items": [
-        {
-          "content": "Induction hob  Two left burners may display a blinking \"U\" if pot diameter is too small. Use larger pots or the right-side burner which works with smaller cookware.",
+          "content": "Ville : Besançon",
           "is_edited": true
         },
         {
-          "content": "Washing machine and dryer:\n- Washer is in the kitchen and includes a drying function.\n- A second Samsung condenser tumble dryer (16 kg) is provided for cleaning staff but can be used if needed.",
+          "content": "Adresse : 18 rue des Granges, 25000 Besançon",
           "is_edited": true
         },
         {
-          "content": "Café et cuisine : • Machine à café Nespresso : Capsules fournies pour la première nuit. • Bouilloire électrique. • Micro-ondes, four, les bases de la cuisine, les casseroles et les poêles sont toutes disponibles.",
+          "content": "Capacite / couchages : 3",
           "is_edited": true
         },
         {
-          "content": "Television: use the SFR box or the apps on the connected TV (Netflix, etc.).",
-          "is_edited": false
-        },
-        {
-          "content": "Sofa bed: standard pull-out sofa bed in the living area; no special instructions required.",
-          "is_edited": false
-        },
-        {
-          "content": "Le tableau électrique avec les disjoncteurs est en dehors de l'appartement, dans le placard sur le palier",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Arrival",
-      "items": [
-        {
-          "content": "Unloading and pedestrian zone: The apartment is in a pedestrian street. before 11 am Guests can unload luggage directly at the building entrance but cannot park long-term there. It’s recommended to unload quickly (especially late arrivals) then move the car to a nearby parking lot.",
-          "is_edited": true
-        },
-        {
-          "content": "A digital welcome booklet with access, parking, and equipment information is available at https://u-citybreak.notion.site/Le-Panoramique-2096639610e380099d13f3cd2402b1ae?pvs=74",
-          "is_edited": false
-        },
-        {
-          "content": "Standard check-in is at 17:00; early check-in may be possible if cleaning finishes sooner and the host will notify guests.",
-          "is_edited": false
-        },
-        {
-          "content": "Address: 18 rue des Granges, 25000 Besançon. The building is located on the pedestrianized street toward Place de la Révolution, between the Northface store and the Biocoop.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Cleaning and Maintenance",
-      "items": [
-        {
-          "content": "Reporting issues: Contact the host promptly for any maintenance concerns (leaks, broken fixtures). Many issues can be addressed remotely (e.g., restarting heating or resetting fuses) or by scheduling a visit.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Departure",
-      "items": [
-        {
-          "content": "Standard check-out: 11:00. Guests should remove all personal belongings and luggage by then to allow the cleaner to start on time.",
-          "is_edited": false
-        },
-        {
-          "content": "Late check-out: Available upon request if the cleaning schedule allows. Examples of approved times include departures at 12:00, 13:00, 14:00, or 15:00. Requests should be made as early as possible; very late requests may be declined.",
-          "is_edited": false
-        },
-        {
-          "content": "Key return: Guests leave the keys back in the lockbox after departure.",
-          "is_edited": false
-        },
-        {
-          "content": "Guests can use Nannybag’s secure luggage storage service nearby by reserving online via their website or app to drop off their bags at the most convenient location.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Furniture & Linens",
-      "items": [
-        {
-          "content": "Sofa bed linens: Sheets and duvets for the sofa bed are stored in the sofa’s chaise longue (méridienne) or in the living room wardrobe.",
-          "is_edited": false
-        },
-        {
-          "content": "Beds: Two double beds plus sofa bed a",
+          "content": "Agencement : Appartement en duplex au dernier étage (« Le Panoramique »), 18 rue des Granges, Besançon. Niveau principal : salon avec canapé-lit convertible, cuisine équipée (lave-linge, plaque induction, four, micro-ondes, Nespresso). Mezzanine : climatisation portable. Deux lits doubles (chambres) + canapé-lit dans le salon = 3 couchages (confirmé). Draps et couettes du canapé-lit rangés dans la méridienne ou dans l'armoire du salon.",
           "is_edited": true
         }
       ]
     },
     {
-      "name": "Heating and Cooling",
+      "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Heating (winter): Radiators have sensors to maintain 20 °C. They automatically shut off above 20 °C. In summer the heating is inactive.",
-          "is_edited": false
+          "content": "Heure d'arrivee (check-in) : 17h00 (arrivée anticipée possible si le ménage est terminé, l'hôte prévient)",
+          "is_edited": true
         },
         {
-          "content": "Air conditioning (summer): Portable AC unit on the mezzanine. To improve cooling:\n• Close the Velux blinds to block direct sunlight.\n• Open windows on opposite sides to create cross ventilation.\n• Allow some time for the unit to lower the temperature (e.g., from 28 °C to 26 °C over several hours).",
-          "is_edited": false
+          "content": "Heure de depart (check-out) : 11h00 (départ tardif possible sur demande : 12h, 13h, 14h ou 15h selon planning ménage)",
+          "is_edited": true
+        },
+        {
+          "content": "Instructions d'arrivee : Adresse : 18 rue des Granges, 25000 Besançon (rue piétonne, entre le magasin Northface et le Biocoop, en direction de la Place de la Révolution). Déchargement possible directement devant l'entrée avant 11h, puis déplacer le véhicule au parking. La boîte à clés se trouve au rez-de-chaussée, à côté des boîtes aux lettres, près de la porte verte. Saisir le code sur la boîte, récupérer les clés, puis refermer la boîte. Suivre le long couloir jusqu'à la porte vitrée, puis monter l'escalier (ancien) jusqu'au dernier étage. L'appartement est à droite, repérer le panneau « Le Panoramique » sur la porte. La porte de sécurité intérieure s'ouvre avec le badge noir fourni (poser sur le lecteur). Au départ, remettre les clés dans la boîte à clés.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Restaurants",
+      "name": "Wifi & connexion",
       "items": [
         {
-          "content": "Le Bouillon du Commerce (0 m): 31 Rue des Granges, 25000 Besançon. Google Maps: Le Bouillon du Commerce · 31 Rue des Granges, 25000 Besançon. Restaurant Art Déco from 1850; the setting alone is worth it. Booking recommended. Website: https://lebouillonducommerce.fr/.",
-          "is_edited": false
+          "content": "Reseau Wifi (SSID) : SFR BAC8",
+          "is_edited": true
         },
         {
-          "content": "Le Saint Cerf (500 m): 1 Rue Megevand, 25000 Besançon. Google Maps: Le Saint Cerf · 1 Rue Megevand, 25000 Besançon. Tel: 03 81 50 10 20. Contemporary bistro offering a seasonally focused menu with Asian touches and vegetarian options.",
-          "is_edited": false
+          "content": "Mot de passe Wifi : 8vde94svzh8hvp97bbpq",
+          "is_edited": true
         },
         {
-          "content": "L’Affineur Comtois (900 m): 82 Rue Battant, 25000 Besançon. Google Maps: L'Affineur Comtois · 82 Rue Battant, 25000 Besançon. Tel: +33 3 81 61 47 29. Specializes in cheeses of Franche-Comté: cancoillotte, croûte forestière, comté-morbier fondue, tartiflette, and more.",
-          "is_edited": false
-        },
-        {
-          "content": "Le Parc (1 000 m): Parc Micaud, 25000 Besançon. Website: https://leparcbesancon.com/fr/. Upscale restaurant with floor-to-ceiling windows overlooking Parc Micaud and the Doubs, serving chef Francesco di Marzio’s fusion cuisine.",
-          "is_edited": false
-        },
-        {
-          "content": "Loiseau du Temps (300 m): 27 Rue des Boucheries, 25000 Besançon. Google Maps: Loiseau du Temps · 27 Rue des Boucheries, 25000 Besançon. Bistrot chic celebrating Burgundy-Franche-Comté terroir in a historic conservatory building. Website: https://www.bernard-loiseau.com/fr/loiseaudutemps.html.",
-          "is_edited": false
-        },
-        {
-          "content": "La Petite Adresse: 28 Rue Claude Pouillet, 25000 Besançon. Google Maps: La Petite Adresse · 28 Rue Claude Pouillet, 25000 Besançon. Tel: 03 81 82 35 09. Affordable menu of Franche-Comté specialties and lasagnas in a vintage decor with checkered tablecloths.",
-          "is_edited": false
-        },
-        {
-          "content": "Bleu de Sapin: 7 Rue Richebourg, 25000 Besançon. Google Maps: Bleu de Sapin · 7 Rue Richebourg, 25000 Besançon. Website: https://bleudesapin.fr. Hidden gem in Haut-Battant; generous, artfully presented dishes with local Franche-Comté products.",
-          "is_edited": false
-        },
-        {
-          "content": "La Grange: 17 Avenue Elisée Cusenier, 25000 Besançon. Google Maps: La Grange · 17 Avenue Elisée Cusenier, 25000 Besançon. Website: https://www.lagrange-restaurant.fr/. Traditional French cuisine; known for cheese fondue, chardonnay, and large coffees.",
-          "is_edited": false
+          "content": "Box internet : Box SFR. En cas de réseau non détecté via QR code, sélectionner manuellement « SFR BAC8 » dans les paramètres Wi-Fi.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Rules & Regulations",
+      "name": "Equipements & confort",
       "items": [
         {
-          "content": "Apartment non‐smoking: the apartment is non‐smoking. Do not attempt to disable the CO₂ sensor; it is connected to an alarm if moved.",
-          "is_edited": false
+          "content": "Chauffage : Radiateurs électriques avec capteurs maintenant 20 °C automatiquement (coupure au-dessus de 20 °C). Inactifs en été. Climatisation portable sur la mezzanine en été : fermer les stores Velux, ouvrir les fenêtres en opposition pour créer un courant d'air, prévoir plusieurs heures pour descendre la température.",
+          "is_edited": true
         },
         {
-          "content": "Pets forbidden: no pets are allowed. Please respect this for allergy considerations of future guests.",
-          "is_edited": false
+          "content": "Climatisation : non",
+          "is_edited": true
         },
         {
-          "content": "Parties forbidden: a connected decibel detector and a camera on the landing monitor noise. Please respect neighbors and maintain quiet after 22:00.",
-          "is_edited": false
+          "content": "TV / streaming : Télévision connectée avec box SFR ou applications intégrées (Netflix, etc.).",
+          "is_edited": true
         },
         {
-          "content": "Number of guests: only the guests listed in the booking are allowed. If additional people arrive, please update your reservation immediately.",
-          "is_edited": false
+          "content": "Electromenager : Plaque à induction : les deux brûleurs gauches peuvent afficher un « U » clignotant si le diamètre de la casserole est trop petit — utiliser des casseroles plus grandes ou le brûleur droit. Lave-linge (cuisine) avec fonction séchage. Sèche-linge Samsung à condensation 16 kg (usage ménage, disponible si besoin). Machine à café Nespresso (capsules fournies pour la première nuit). Bouilloire électrique. Micro-ondes, four, casseroles et poêles disponibles. Canapé-lit : convertible standard dans le salon, aucune manipulation particulière.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Safety & Emergency",
+      "name": "Stationnement & transports",
       "items": [
         {
-          "content": "Fuse box location: On the landing outside the apartment in a small cupboard on the left. Contains individual mini-switches and a main round on/off switch.",
-          "is_edited": false
+          "content": "Parking : Payant : Parking Marché des Beaux-Arts (couvert, sécurisé), à 500 m / 5 min à pied — 1,90 € la nuit (19h–9h). Gratuit : Parking Robelin et Parking Battant (sous les remparts), moins de 10 min à pied — chercher « Parking Robelin » et « Parking Battant » sur Google Maps. Décharger les bagages devant l'entrée puis déplacer le véhicule.",
+          "is_edited": true
         },
         {
-          "content": "Resetting power:\n• Ensure all mini-switches are fully pressed in (on).\n• Check the main on/off button (1/0) is on 1 (on).\n• Unplug high-load appliances (fan, washing machine) before resetting if the power trips again.",
-          "is_edited": false
+          "content": "Transports : Bus/Tram/Vélo : réseau Ginko (www.ginko.voyage) — arrêt le plus proche à 200 m, Place de la Révolution ; paiement CB à bord possible. Vélos en libre-service Vélocité ou location à la journée. Parkings souterrains : consigne vélo sécurisée gratuite (pièce d'identité requise, tél. 03 81 21 32 60). Taxi : pas d'Uber à Besançon — Taxis Radio : 03 81 88 80 80 ou VTC pour la gare TGV / aérodrome de La Vèze. Train : Gare Viotte accessible à pied via la passerelle et le Parc des Glacis ; navette Viotte ↔ gare TGV (~10 min).",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Things to do & see nearby",
+      "name": "Regles du logement",
       "items": [
         {
-          "content": "Citadelle de Besançon (2 000 m): UNESCO World Heritage site designed by Vauban. Spread over 12 ha, it houses three French museums for passionate visits:\n- le Musée Comtois, un espace d'exposition des traditions de Franche-Comté et de réflexion sur notre",
-          "is_edited": false
+          "content": "Animaux : non",
+          "is_edited": true
         },
         {
-          "content": "Bateau-croisière on the Doubs: depart from Pont de la République, 25000 Besançon. Google Maps: Bateau Besançon · Pont de la République, 25000 Besançon. Enjoy a lunch (≈2 h) or dinner (≈2 h 30) cruise with commentary, lock passages, and a tunnel under the Citadel. Upper-deck terrace; reservation only. Website: https://www.bateau-besancon.fr/croisieres-repas/.",
-          "is_edited": false
+          "content": "Fumeur : non",
+          "is_edited": true
+        },
+        {
+          "content": "Fetes : non",
+          "is_edited": true
+        },
+        {
+          "content": "Regles specifiques : Appartement non-fumeur (ne pas déplacer ni désactiver le capteur CO₂, relié à une alarme). Animaux interdits (allergies des futurs voyageurs). Fêtes interdites. Bruit : détecteur de décibels connecté et caméra sur le palier — respecter le calme après 22h. Nombre de voyageurs : uniquement les personnes figurant sur la réservation ; toute personne supplémentaire doit être ajoutée immédiatement à la réservation.",
+          "is_edited": true
+        },
+        {
+          "content": "Regles de l'immeuble : Rue piétonne : pas de stationnement prolongé devant l'entrée. Escalier ancien à emprunter avec précaution. Respecter les voisins.",
+          "is_edited": true
+        },
+        {
+          "content": "Sensibilite au bruit : Détecteur de décibels connecté dans l'appartement et caméra sur le palier. Silence requis après 22h.",
+          "is_edited": true
+        },
+        {
+          "content": "Poubelles / tri : Non renseigné dans le KH.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Transportation to/from Property",
+      "name": "Recommandations & quartier",
       "items": [
         {
-          "content": "Paid parking: Parking Marché des Beaux-Arts (Fine Arts car park) is a covered and secured facility 500 m (approx. 5 min walk) from the apartment. Cost is €1.90 per night, valid from 19:00 to 09:00.",
-          "is_edited": false
-        },
-        {
-          "content": "Free parking: Robelin and Battant parking lots under the ramparts are free and less than a 10-minute walk from the apartment. To locate them, search Google Maps for “Parking Robelin” and “Parking Battant.” After unloading, guests can move their car there.",
-          "is_edited": false
-        },
-        {
-          "content": "Taxi: Uber does not serve Besançon. Contact Taxis Radio at 03 81 88 80 80 or use VTC services for transfers to Besançon TGV station or La Vèze aerodrome.",
-          "is_edited": false
-        },
-        {
-          "content": "Bus & Tram: Ginko operates the bus, tram, and bike service. Use the app at www.ginko.voyage to plan trips. The nearest stop is 200 m away at Place de la Révolution. You can pay by credit card on board without a ticket for single rides.",
-          "is_edited": false
-        },
-        {
-          "content": "Bicycles: Vélocité self‐service bikes are available for short trips, or rent a bike for the day from local agencies. Underground parking lots provide free secure storage in a locked box (ID required) – contact 03 81 21 32 60.",
-          "is_edited": false
-        },
-        {
-          "content": "Trains: Gare Viotte is accessible on foot from the city center via the footbridge and Parc des Glacis. A shuttle train from Viotte to the TGV station takes about 10 minutes (see Google Maps for route).",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Wifi/Internet",
-      "items": [
-        {
-          "content": "Network name: SFR BAC8  \nPassword: 8vde94svzh8hvp97bbpq",
-          "is_edited": false
-        },
-        {
-          "content": "If the Wi-Fi network does not appear after scanning the QR code, manually select SFR BAC8 in the device’s Wi-Fi settings and enter the password above.",
-          "is_edited": false
+          "content": "**Restaurants**\n- Le Bouillon du Commerce (0 m) — 31 rue des Granges. Restaurant Art Déco de 1850, réservation recommandée. https://lebouillonducommerce.fr/\n- Loiseau du Temps (300 m) — 27 rue des Boucheries. Bistrot chic terroir Bourgogne-Franche-Comté, bâtiment historique. https://www.bernard-loiseau.com/fr/loiseaudutemps.html\n- Le Saint Cerf (500 m) — 1 rue Megevand. Bistro contemporain, menu de saison, touches asiatiques, options végétariennes. Tél. 03 81 50 10 20\n- L'Affineur Comtois (900 m) — 82 rue Battant. Spécialités fromagères Franche-Comté (fondue comté-morbier, tartiflette…). Tél. +33 3 81 61 47 29\n- Le Parc (1 000 m) — Parc Micaud. Restaurant gastronomique vue sur le Doubs, cuisine fusion chef Francesco di Marzio. https://leparcbesancon.com/fr/\n- La Petite Adresse — 28 rue Claude Pouillet. Spécialités franc-comtoises et lasagnes, menu abordable. Tél. 03 81 82 35 09\n- Bleu de Sapin — 7 rue Richebourg. Adresse cachée à Haut-Battant, produits locaux. https://bleudesapin.fr\n- La Grange — 17 av. Élisée Cusenier. Cuisine française traditionnelle, fondue au fromage. https://www.lagrange-restaurant.fr/\n\n**À visiter**\n- Citadelle de Besançon (2 000 m) — Site UNESCO Vauban, 12 ha, 3 musées dont le Musée Comtois.\n- Bateau-croisière sur le Doubs — Départ Pont de la République. Croisières déjeuner (~2h) ou dîner (~2h30) avec commentaires, écluses et tunnel sous la Citadelle. Réservation obligatoire. https://www.bateau-besancon.fr/croisieres-repas/\n\n**Infos pratiques**\n- Livret d'accueil numérique complet : https://u-citybreak.notion.site/Le-Panoramique-2096639610e380099d13f3cd2402b1ae?pvs=74\n- Consigne bagages Nannybag (départ tardif) : réserver en ligne sur le site ou l'appli Nannybag.",
+          "is_edited": true
         }
       ]
     }
