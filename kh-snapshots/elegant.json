@@ -1,137 +1,191 @@
 {
-  "fetched_at": "2026-07-27T09:00:12.030Z",
+  "fetched_at": "2026-07-28T03:00:03.152Z",
   "property_uuid": "74ea4906-2e41-4831-bc83-8ebb5b4c6b12",
-  "property_name": "L'Élégant",
-  "source": "referentiel-get",
+  "property_name": "★ L'élégant  ★",
   "topics": [
     {
-      "name": "Le logement",
+      "name": "Access codes",
       "items": [
         {
-          "content": "Nom : L'Élégant",
-          "is_edited": true
-        },
-        {
-          "content": "Ville : Lyon",
-          "is_edited": true
-        },
-        {
-          "content": "Adresse : 44 rue Roger Radisson, 69005 Lyon",
-          "is_edited": true
-        },
-        {
-          "content": "Capacite / couchages : 8\nCanapé lit compris",
-          "is_edited": true
-        },
-        {
-          "content": "Agencement : Appartement de type souplex sur 2 niveaux :\n• Rez-de-chaussée : séjour, cuisine, TV, canapé-lit, WC, placard d'entrée (lave-linge/sèche-linge)\n• Niveau sous-sol (souplex) : 3 chambres, 2 salles de douche (dont une en suite dans la chambre 1)\nLe canapé du séjour se convertit en lit. Le linge de lit pour le canapé-lit est rangé dans les petits meubles blancs sous les assises en face du canapé.",
+          "content": "La boîte à clés est située à gauche de la porte de l'appartement.\nÉtapes pour ouvrir la boîte à clés : \n• Placez la paume de la main sur le clavier pour allumer l'appareil \n• Entrez le code PIN que vous avez reçu, puis appuyez sur l'icône de verrouillage au centre \n• Attendez le bip et le fils d'ouverture \n• Tirez sur le côté pour ouvrir la boîte",
           "is_edited": true
         }
       ]
     },
     {
-      "name": "Arrivee & depart",
+      "name": "Amenities",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : 17h00 (arrivée anticipée vers 10h-11h possible si l'appartement était inoccupé la nuit précédente, sous réserve de confirmation par l'hôte)",
-          "is_edited": true
+          "content": "The apartment provides a Nespresso machine, a filter coffee maker, a kettle, bed linens and towels, and includes a cleaning service.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Appliances",
+      "items": [
+        {
+          "content": "Cooking hob: see instructions at pro.howdens.fr",
+          "is_edited": false
         },
         {
-          "content": "Heure de depart (check-out) : 11h00",
-          "is_edited": true
+          "content": "Washer-dryer (Beko): located in the entry closet. Instructions at www.beko.fr. Note: the drying load capacity is smaller than the washing capacity.",
+          "is_edited": false
         },
         {
-          "content": "Instructions d'arrivee : La boîte à clés est située à gauche de la porte de l'appartement. Procédure d'ouverture : 1) Poser la paume sur le clavier pour allumer l'appareil, 2) Entrer le code PIN reçu puis appuyer sur l'icône de verrouillage au centre, 3) Attendre le bip et le signal d'ouverture, 4) Tirer sur le côté pour ouvrir la boîte.",
+          "content": "Dishwasher: see instructions at howdens.fr",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Arrival Instructions",
+      "items": [
+        {
+          "content": "Check-in is available no earlier than 17:00. Early check-in or luggage drop-off around 10:00–11:00 may be possible if the apartment was unoccupied the previous night; guests should inquire to confirm availability. The host will notify the guest if the apartment is ready before 17:00.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Cancellation Policy",
+      "items": [
+        {
+          "content": "Refunds are managed by Airbnb according to the reservation conditions, and no refund is available for cancellations made very close to the arrival date.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Furniture",
+      "items": [
+        {
+          "content": "The living room sofa converts into a sofa bed.",
+          "is_edited": false
+        },
+        {
+          "content": "Bed linens for the sofa bed are stored in the small white cabinets under the seating opposite the sofa.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Heating/Cooling",
+      "items": [
+        {
+          "content": "Les radiateurs sont à piloter depuis les thermostats muraux\nNe pas piloter/modifier/eteindre ou allumer le chauffage depuis les radiateurs",
           "is_edited": true
         }
       ]
     },
     {
-      "name": "Wifi & connexion",
+      "name": "Local Recommendations",
       "items": [
         {
-          "content": "Reseau Wifi (SSID) : SFR_44E8",
-          "is_edited": true
+          "content": "The welcome booklet contains recommendations for nearby restaurants, including:\n\n• Hotel Fourvière Lyon (50 m): Bar “Les Collections” (snack) and bistronomic restaurant “Les Téléphones”, open for lunch and dinner. Tel: 04 74 70 07 00; https://www.fourviere-hotel.com/fr/\n• L'Esprit Bistrot (300 m): 100-seat shaded terrace, 45-seat interior with fireplace. Tel: 04 78 36 73 85; https://www.lespritbistrot.com/\n• La Table de Saint Just (400 m): warm welcome, refined cuisine and service. Tel: 04 78 36 06 17; https://la-table-de-saint-just-lyon.fr/fr\n• La Petite Auberge (800 m): large summer terrace and winter fondue by the fireplace. Tel: 04 78 25 29 33; https://lapetiteaubergelyon.fr/\n• Restaurant Gastronomique Christian Têtedoie (700 m): panoramic views; also Phosphore bar à vin and tapas below. Tel: +33 4 78 29 40 10; https://tetedoie.fr/\n• Chez Grand-Mère (800 m): Lyon bouchon in a historic cave; alternative bouchons nearby. Tel: 09 51 61 35 38; https://chezgrandmere.fr/\n• Hermosa Pizza: take-away pizzas; recently ranked 3rd best pizza in Lyon. Tel: 09 87 12 05 88",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Parking",
+      "items": [
+        {
+          "content": "Free street parking is available in front of and around the apartment; availability is not guaranteed as spots are shared with another unit and may be reserved. Parking is generally free on public holidays and in August; paid zones are affordable and less strictly controlled. There’s almost always space to unload on rue Roger Radisson opposite the apartment. High-probability parking streets include Rue Roger Radisson, Rue Jaricot, Rue du Cardinal Gerlier, Montée du Télégraphe and Place du 158e Régiment d'Infanterie. The neighborhood is very quiet except during the Nuits de Fourvière festival.",
+          "is_edited": false
         },
         {
-          "content": "Mot de passe Wifi : 5kbz42fhbf6fxh25qjhe",
-          "is_edited": true
-        },
-        {
-          "content": "Box internet : Fournisseur : SFR",
+          "content": "Paid parking options exist nearby. A map showing free and paid on-street parking locations is provided to the guest",
           "is_edited": true
         }
       ]
     },
     {
-      "name": "Equipements & confort",
+      "name": "Property layout",
       "items": [
         {
-          "content": "Chauffage : Piloter le chauffage uniquement depuis les thermostats muraux. Ne pas modifier, éteindre ou allumer le chauffage directement depuis les radiateurs.",
-          "is_edited": true
-        },
-        {
-          "content": "Climatisation : non",
-          "is_edited": true
-        },
-        {
-          "content": "Electromenager : • Plaque de cuisson : instructions sur pro.howdens.fr\n• Lave-linge/sèche-linge Beko : situé dans le placard de l'entrée. Instructions sur www.beko.fr. Attention : la capacité de séchage est inférieure à la capacité de lavage.\n• Lave-vaisselle : instructions sur howdens.fr\n• Machine Nespresso et cafetière filtre disponibles\n• Bouilloire disponible",
-          "is_edited": true
+          "content": "Virtual tour:\n• Ground floor: living room, kitchen, TV, sofa bed, WC, entry closet with washing machine\n• Basement level (souplex): 3 bedrooms, 2 shower rooms (one en suite in bedroom 1)",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Stationnement & transports",
+      "name": "Rules & Regulations",
       "items": [
         {
-          "content": "Parking : Stationnement gratuit en voirie devant et autour de l'appartement (disponibilité non garantie, places partagées). Déchargement quasi toujours possible rue Roger Radisson en face de l'appartement. Rues à forte probabilité de place : Rue Roger Radisson, Rue Jaricot, Rue du Cardinal Gerlier, Montée du Télégraphe, Place du 158e Régiment d'Infanterie. Stationnement généralement gratuit les jours fériés et en août. Zones payantes abordables et peu contrôlées. Une carte des emplacements gratuits et payants est fournie au voyageur.",
-          "is_edited": true
+          "content": "Non-smoking: the apartment is strictly non-smoking. Do not attempt to disconnect the CO₂ sensor; it triggers an alarm if moved.",
+          "is_edited": false
         },
         {
-          "content": "Transports : Adresse : Copropriété « Le Clos de Fourvière », 44 rue Roger Radisson, 69005 Lyon (angle rue Pauline Marie Jaricot / rue Roger Radisson, en face de l'Hôtel Fourvière, à côté du Parc de la Visitation).\n\nTransports en commun (à 600 m) :\n• Funiculaire F1 (St-Just) → Vieux Lyon + Métro D\n• Funiculaire F2 (Fourvière) → Vieux Lyon + Métro D\n• Bus arrêt Jaricot (50 m) : ligne 90\n• Bus arrêt St Alexandre (700 m) : lignes 55 et C21 → Perrache\n\nGares :\n• Gare Part-Dieu : 45 min (Métro B → Métro D → Funiculaire)\n• Gare de Perrache : 15 min (Bus C21 ou 55)\n\nAéroport Lyon-Saint-Exupéry :\nRhônexpress → Vaulx-en-Velin La Soie → Métro A → Bellecour → Métro D → Vieux Lyon → Funiculaire. Uber/taxi possible pour durée similaire.",
-          "is_edited": true
+          "content": "Pets prohibited: no pets allowed. Unauthorized pets may affect guests with allergies.",
+          "is_edited": false
+        },
+        {
+          "content": "Number of guests: no additional persons beyond those listed in the reservation. Please regularize immediately if this condition is not met.",
+          "is_edited": false
+        },
+        {
+          "content": "Parties prohibited: the apartment is equipped with a decibel detector and a camera in the corridor following clandestine events. No noise after 22:00 and please respect the neighbors.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Regles du logement",
+      "name": "Things to do & see nearby",
       "items": [
         {
-          "content": "Animaux : non",
-          "is_edited": true
+          "content": "Lugdunum museums and Roman theatres (200 m): archaeological museum and free amphitheatres. https://lugdunum.grandlyon.com/fr/",
+          "is_edited": false
         },
         {
-          "content": "Fumeur : non",
-          "is_edited": true
+          "content": "Basilique Notre-Dame de Fourvière (500 m): iconic monument; visit the crypt church and panoramic viewpoint. https://www.fourviere.org/fr/",
+          "is_edited": false
         },
         {
-          "content": "Fetes : non",
-          "is_edited": true
+          "content": "Vieux Lyon (900 m): UNESCO-listed Renaissance quarter accessible via Montée du Gourguillon or funiculaire. https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon",
+          "is_edited": false
         },
         {
-          "content": "Regles specifiques : • Non-fumeur : appartement strictement non-fumeur. Ne pas tenter de déconnecter le détecteur de CO₂ (déclenche une alarme si déplacé).\n• Animaux interdits : aucun animal accepté (risque allergique pour d'autres voyageurs).\n• Nombre de personnes : aucun occupant supplémentaire au-delà des personnes déclarées dans la réservation.\n• Fêtes interdites : détecteur de décibels et caméra dans le couloir en place. Pas de bruit après 22h00, respect des voisins exigé.",
-          "is_edited": true
+          "content": "Place des Terreaux (1.8 km): emblematic square with Bartholdi fountain in the Presqu'île.",
+          "is_edited": false
         },
         {
-          "content": "Regles de l'immeuble : Copropriété « Le Clos de Fourvière ». Respect des voisins requis.",
-          "is_edited": true
+          "content": "Musée des Confluences (4 km): anthropology and science exhibitions in modern architecture. https://museedesconfluences.fr/fr",
+          "is_edited": false
         },
         {
-          "content": "Sensibilite au bruit : Quartier très calme, sauf peut être pendant le festival des Nuits de Fourvière. Pas de bruit après 22h00.",
-          "is_edited": true
-        },
-        {
-          "content": "Poubelles / tri : 🔑 La clé du local est accrochée dans l'appartement — prenez-la AVANT de descendre. Faire le tour du bâtiment, le local est à droite de la porte du n°6.",
-          "is_edited": true
+          "content": "Les Berges du Rhône (200 m): 5 km riverside promenade with bars, restaurants, and a convenience store (limited selection, slightly expensive).",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Recommandations & quartier",
+      "name": "Transportation to/from property",
       "items": [
         {
-          "content": "**Restaurants :**\n• Hôtel Fourvière – Bar « Les Collections » (snack) & bistro « Les Téléphones » (déj/dîner) – 50 m | Tél : 04 74 70 07 00 | https://www.fourviere-hotel.com/fr/\n• L'Esprit Bistrot – terrasse ombragée 100 couverts, salle 45 couverts avec cheminée – 300 m | Tél : 04 78 36 73 85 | https://www.lespritbistrot.com/\n• La Table de Saint Just – cuisine raffinée – 400 m | Tél : 04 78 36 06 17 | https://la-table-de-saint-just-lyon.fr/fr\n• La Petite Auberge – grande terrasse été, fondue hiver – 800 m | Tél : 04 78 25 29 33 | https://lapetiteaubergelyon.fr/\n• Christian Têtedoie (gastronomique, vue panoramique) + Phosphore bar à vins/tapas – 700 m | Tél : +33 4 78 29 40 10 | https://tetedoie.fr/\n• Chez Grand-Mère – bouchon lyonnais en cave historique – 800 m | Tél : 09 51 61 35 38 | https://chezgrandmere.fr/\n• Hermosa Pizza – pizzas à emporter, 3e meilleure pizza de Lyon | Tél : 09 87 12 05 88\n\n**À visiter :**\n• Lugdunum – musées et théâtres romains – 200 m | https://lugdunum.grandlyon.com/fr/\n• Basilique Notre-Dame de Fourvière (crypte + belvédère panoramique) – 500 m | https://www.fourviere.org/fr/\n• Vieux Lyon – quartier Renaissance classé UNESCO (Montée du Gourguillon ou funiculaire) – 900 m | https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon\n• Place des Terreaux & fontaine Bartholdi – 1,8 km\n• Musée des Confluences – 4 km | https://museedesconfluences.fr/fr\n• Les Berges du Rhône – promenade 5 km, bars, restaurants, épicerie – 200 m\n\n**Commerces :**\n• Épicerie aux Berges du Rhône – 200 m (choix limité, prix légèrement élevés)",
-          "is_edited": true
+          "content": "Address & Building location: Copropriété “Le Clos de Fourvière”, 44 rue Roger Radisson, 69005 Lyon. The building sits at the corner of rue Pauline Marie Jaricot and rue Roger Radisson, opposite Hôtel Fourvière and next to Parc de la Visitation.",
+          "is_edited": false
+        },
+        {
+          "content": "Public transport – Metro D & Funiculaire F1 & F2 (600 m away):\n• Funiculaire F1 (Station Saint-Just): direct access to Vieux Lyon and Metro D\n• Funiculaire F2 (Station Fourvière): direct access to Vieux Lyon and Metro D\nBus:\n• Arrêt St Alexandre (700 m): lines 55 and C21 to Perrache\n• Arrêt Jaricot (50 m): line 90",
+          "is_edited": false
+        },
+        {
+          "content": "Trains:\n• 45 minutes from Gare Part-Dieu by Metro B, then Metro D and funiculaire\n• 15 minutes from Gare de Perrache by Bus C21 or 55",
+          "is_edited": false
+        },
+        {
+          "content": "Airport transfer from Lyon–Saint-Exupéry Airport:\n• Rhônexpress to Vaulx-en-Velin La Soie\n• Metro A to Bellecour\n• Metro D to Vieux Lyon\n• Funiculaire to Saint-Just or Fourvière\nAlternatively by Uber or taxi, with a similar journey time",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Wifi/Internet",
+      "items": [
+        {
+          "content": "Network name (SSID): SFR_44E8\nPassword: 5kbz42fhbf6fxh25qjhe",
+          "is_edited": false
         }
       ]
     }
