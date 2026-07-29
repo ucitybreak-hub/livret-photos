@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://auto.u-citybreak.fr" crossorigin>
+<link rel="dns-prefetch" href="https://auto.u-citybreak.fr">
+<meta name="color-scheme" content="light dark">
+<title>Ménage UCB</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  html,body{margin:0;height:100%;background:#2D1B4E;color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    display:flex;align-items:center;justify-content:center}
+  .box{text-align:center;padding:24px}
+  .spin{width:34px;height:34px;margin:0 auto 14px;border-radius:50%;
+    border:3px solid rgba(255,255,255,.25);border-top-color:#E8457C;
+    animation:r .8s linear infinite}
+  @keyframes r{to{transform:rotate(360deg)}}
+  .err{max-width:280px;font-size:15px;line-height:1.45}
+</style>
+</head>
+<body>
+<div class="box" id="box">
+  <div class="spin"></div>
+  <div>Ouverture de vos missions…</div>
+</div>
+<script>
+(function(){
+  var BASE = "https://auto.u-citybreak.fr/webhook/menage-app";
+  var HASH = "#missions";
+
+  var tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : null;
+  var token = "";
+  try {
+    if (tg) {
+      tg.ready();
+      try { tg.expand(); } catch(e){}
+      try { if (tg.requestFullscreen) tg.requestFullscreen(); } catch(e){}
+      if (tg.initDataUnsafe && tg.initDataUnsafe.start_param) token = tg.initDataUnsafe.start_param;
+    }
+  } catch(e){}
+
+  function grab(s){
+    if(!s) return "";
+    var m = s.match(/[?&#](?:tgWebAppStartParam|startapp|start_param|t)=([A-Za-z0-9_\-]+)/);
+    return m ? m[1] : "";
+  }
+  if(!token) token = grab(location.search);
+  if(!token) token = grab(location.hash);
+
+  if(!token){
+    document.getElementById("box").innerHTML =
+      '<div class="err">Lien incomplet. Reviens sur le message Telegram et rouvre « Ouvrir l\'app ».</div>';
+    return;
+  }
+  location.replace(BASE + "?t=" + encodeURIComponent(token) + HASH);
+})();
+</script>
+</body>
+</html>
