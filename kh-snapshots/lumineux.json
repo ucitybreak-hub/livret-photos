@@ -1,137 +1,252 @@
 {
-  "fetched_at": "2026-07-29T09:00:09.819Z",
+  "fetched_at": "2026-07-30T03:00:02.618Z",
   "property_uuid": "823fc627-f879-4e9a-9829-ccb0b3c1b53e",
-  "property_name": "Le Lumineux",
-  "source": "referentiel-get",
+  "property_name": "★ Le Lumineux ★",
   "topics": [
     {
-      "name": "Le logement",
+      "name": "Access codes",
       "items": [
         {
-          "content": "Nom : Le Lumineux",
-          "is_edited": true
+          "content": "Building entrance digicode: 3589. After entering, take the long corridor to the inner courtyard—do not take the stairs on the right, but continue to the end of the corridor.",
+          "is_edited": false
         },
         {
-          "content": "Ville : Besançon",
-          "is_edited": true
-        },
-        {
-          "content": "Adresse : 10 rue de la Madeleine, Besançon",
-          "is_edited": true
-        },
-        {
-          "content": "Capacite / couchages : 3",
-          "is_edited": true
-        },
-        {
-          "content": "Agencement : Appartement comprenant un séjour avec canapé-lit (draps et couettes dans le meuble à droite de la TV), une cuisine équipée, et des chambres (nombre exact non précisé dans le KH). Lit bébé portable disponible dans le placard en face des toilettes (à laisser ouvert au départ pour la femme de ménage). Total : 3 couchages.",
+          "content": "Key safe code: To open the electronic key box next to the apartment entrance, place your palm on the keypad to activate the device, enter the valid PIN you received, then press the lock icon in the center. Wait for the beep and the opening sound, then pull the side to open the box and obtain the keys.",
           "is_edited": true
         }
       ]
     },
     {
-      "name": "Arrivee & depart",
+      "name": "Amenities",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : 17h00 (arrivée anticipée possible si le ménage est terminé avant 17h, sur demande préalable)",
-          "is_edited": true
+          "content": "Coffee machine: Nespresso model. The host provides coffee capsules and tea for the first night. The capsules and tea are located near the coffee machine.",
+          "is_edited": false
         },
         {
-          "content": "Heure de depart (check-out) : 11h00",
-          "is_edited": true
+          "content": "Sofa bed available in the living room. The sheets and duvets for the fold-out sofa bed are in the cabinet to the right of the TV.",
+          "is_edited": false
         },
         {
-          "content": "Instructions d'arrivee : L'appartement est situé au 10 Rue de la Madeleine, 25000 Besançon, dans le quartier Battant. La porte d'entrée bleue de l'immeuble se trouve entre le magasin de pianos VonArx et un barbier. Composer le code sur le digicode pour entrer, puis longer le long couloir jusqu'à la cour intérieure — ne pas prendre l'escalier à droite, continuer jusqu'au bout du couloir. Dans la cour, prendre la cage d'escalier sur la gauche, monter jusqu'à l'avant-dernier étage (attention aux demi-paliers). La porte de l'appartement est signalée par un panneau « meublé de tourisme 3 étoiles – Le Lumineux ».\n\nBoîte à clés : elle est située à côté de la porte de l'appartement. Pour l'ouvrir, poser la paume sur le clavier pour activer l'appareil, saisir le code PIN valide reçu, puis appuyer sur l'icône cadenas au centre. Attendre le bip et le son d'ouverture, puis tirer le côté pour récupérer les clés. Au départ, remettre les clés dans la boîte à clés.",
-          "is_edited": true
+          "content": "Baby bed: A portable crib is in the closet opposite the toilet. Guests should leave it open at departure so the housekeeper can fold it. Avoid forcing the mechanism as it can break.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Wifi & connexion",
+      "name": "Appliances",
       "items": [
         {
-          "content": "Reseau Wifi (SSID) : SFR f561",
-          "is_edited": true
+          "content": "TV: To use the television, turn on the SFR box and select the correct input. You can also use apps directly on the Samsung TV, such as Netflix, AirPlay, Chromecast, and others.",
+          "is_edited": false
         },
         {
-          "content": "Mot de passe Wifi : fffdhegdbsw5ividff45",
-          "is_edited": true
+          "content": "Water heater: If there is no hot water, check the fuse or circuit breaker for the water heater. If it has tripped, reset it. For persistent issues, the host can send a heating technician.",
+          "is_edited": false
         },
         {
-          "content": "Box internet : Box SFR. En cas de perte de connexion, redémarrer la box (débrancher/rebrancher). L'hôte peut surveiller la ligne à distance. Les identifiants à jour sont imprimés au dos de la box.",
-          "is_edited": true
+          "content": "Lave-linge : LG 8 kg.",
+          "is_edited": false
+        },
+        {
+          "content": "Plaque de cuisson : Ikea.",
+          "is_edited": false
+        },
+        {
+          "content": "Lave-vaisselle : 45 cm pour 6 couverts.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Equipements & confort",
+      "name": "Arrival",
       "items": [
         {
-          "content": "Chauffage : Chaque pièce est équipée d'un capteur de température réglé à 20 °C. Les radiateurs s'enclenchent automatiquement en dessous de 20 °C et s'arrêtent une fois la température atteinte. Des capteurs de fenêtre détectent les ouvertures et coupent le chauffage : si les radiateurs ne s'allument pas, vérifier que les fenêtres sont bien fermées. Le chauffage peut être contrôlé à distance par l'hôte. En cas de problème technique, contacter l'hôte.",
-          "is_edited": true
+          "content": "Early check-in may be possible if the cleaning is completed before 17:00. Guests should request an earlier arrival time in advance, and the host will confirm based on the housekeeper’s schedule. Sometimes guests arriving by car can be allowed through the pedestrian barrier to unload luggage until 11:00.",
+          "is_edited": false
         },
         {
-          "content": "Climatisation : non",
-          "is_edited": true
+          "content": "Building entrance: L'immeuble est situé dans le quartier Battant, proche de l'église de la Madeleine. La porte de l'immeuble bleue est située entre le magasin de pianos VonArx et un Barbier, au numéro 10.",
+          "is_edited": false
         },
         {
-          "content": "TV / streaming : Allumer la box SFR et sélectionner la bonne entrée sur la TV Samsung. Applications disponibles directement sur la TV : Netflix, AirPlay, Chromecast, etc.",
-          "is_edited": true
-        },
-        {
-          "content": "Electromenager : - Lave-linge : LG 8 kg.\n- Plaque de cuisson : Ikea.\n- Lave-vaisselle : 45 cm, 6 couverts.\n- Cafetière : Nespresso (capsules et thé fournis pour la première nuit, disponibles près de la machine).\n- Chauffe-eau : en cas d'absence d'eau chaude, vérifier le disjoncteur dédié au chauffe-eau ; si déclenché, le réarmer. Problème persistant : contacter l'hôte.",
-          "is_edited": true
+          "content": "Reaching the apartment door: Dans la cour, prendre la cage d'escalier devant sur la gauche. Monter jusqu'à l'avant-dernier étage (il y a des demi-paliers, il peut être difficile de savoir à quel étage on est). Un panneau « meublé de tourisme 3 étoiles » apposé sur la porte avec l'inscription « Le Lumineux » permet de la repérer.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Stationnement & transports",
+      "name": "Cleaning & Maintenance",
       "items": [
         {
-          "content": "Parking : Stationnement gratuit disponible au PARKING ROBELIN et au PARKING BATTANT, tous deux à moins de 5 minutes à pied. Des places de stationnement sont également situées au pied de l'immeuble. Le logement est en zone piétonne ; les véhicules ne peuvent pas accéder directement à la porte. Les agents aux barrières piétonnes autorisent parfois un accès temporaire pour déposer les bagages, généralement jusqu'à 11h00.",
-          "is_edited": true
+          "content": "If any item is broken or malfunctioning (e.g., radiator, bed frame, kitchen mixer), guests should notify the host immediately. The host can arrange for repairs or replacement.",
+          "is_edited": false
         },
         {
-          "content": "Transports : - Adresse : 10 Rue de la Madeleine, 25000 Besançon (zone piétonne).\n- Tram/Bus : Ginko (tram, bus, vélo) – www.ginko.voyage. Arrêt le plus proche : Place de la Révolution (200 m). Paiement CB sans ticket pour trajets simples.\n- Trains : Gare Viotte accessible à pied via la passerelle et le parc des glacis. Navette ou train vers la gare TGV en ~10 min.\n- Taxi/VTC : Uber ne dessert pas Besançon. Taxis Radio : 03 81 88 80 80 (navette vers gare TGV ou aérodrome de La Vèze).\n- Vélos : Vélocité en libre-service pour courts trajets ou location à la journée. Parkings souterrains avec box sécurisé gratuit (pièce d'identité obligatoire) – 03 81 21 32 60.",
-          "is_edited": true
+          "content": "In case of major inconvenience (e.g., unusable bed), the host may offer a complimentary night or propose alternative arrangements.",
+          "is_edited": false
+        },
+        {
+          "content": "The housekeeper’s schedule determines early access and late check-out availability. Guests should coordinate these requests in advance.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Regles du logement",
+      "name": "Departure",
       "items": [
         {
-          "content": "Animaux : non",
-          "is_edited": true
-        },
-        {
-          "content": "Fumeur : non",
-          "is_edited": true
-        },
-        {
-          "content": "Fetes : non",
-          "is_edited": true
-        },
-        {
-          "content": "Regles specifiques : - Non-fumeur strict : détecteurs de fumée et capteur CO₂ actifs en permanence (alarme déclenchée en cas de déconnexion ou manipulation).\n- Animaux de compagnie interdits.\n- Fêtes et événements interdits.\n- Pas de bruit après 22h00 (détecteur de décibels connecté en place).\n- Nombre de personnes : seuls les voyageurs figurant sur la réservation sont autorisés. Toute personne supplémentaire doit faire l'objet d'une régularisation rapide.\n- Ne pas retirer ni manipuler les capteurs (température, fumée).\n- Respecter les horaires de check-in et check-out.\n- Linge de lit, serviettes et linge de cuisine fournis ; ménage inclus dans le prix.",
-          "is_edited": true
-        },
-        {
-          "content": "Regles de l'immeuble : Caméra sur le palier. Respecter les voisins et le calme de l'immeuble.",
-          "is_edited": true
-        },
-        {
-          "content": "Sensibilite au bruit : Pas de bruit après 22h00. Un détecteur de décibels connecté est installé dans l'appartement.",
-          "is_edited": true
+          "content": "Check-out time is 11:00. Guests should return the keys by placing them back in the key box. If a late check-out is needed, guests must request it in advance; approval depends on the cleaning schedule and housekeeper availability.",
+          "is_edited": false
         }
       ]
     },
     {
-      "name": "Recommandations & quartier",
+      "name": "Heating/Cooling",
       "items": [
         {
-          "content": "**Restaurants :**\n- L'Affineur Comtois (400 m) – Spécialités fromagères de Franche-Comté. 82 Rue Battant. Tél : +33 3 81 61 47 29. https://www.restaurant-laffineurcomtois.fr/\n- Le Saint Cerf (600 m) – Bistrot contemporain, influences asiatiques et végétarien. 1 Rue Megevand. Tél : 03 81 50 10 20.\n- Loiseau du Temps (500 m) – Bistrot chic terroir bourguignon/comtois. 27 Rue des Boucheries. https://www.bernard-loiseau.com/fr/loiseaudutemps.html\n- Le Bouillon du Commerce (700 m) – Restaurant Art Déco (1850), réservation conseillée. 31 Rue des Granges. https://lebouillonducommerce.fr/\n- La Petite Adresse – Spécialités franc-comtoises et lasagnes, décor vintage. 28 Rue Claude Pouillet. Tél : 03 81 82 35 09.\n- Bleu de Sapin – Produits comtois identifiés. 7 Rue Richebourg. https://bleudesapin.fr\n- Le Parc (1000 m) – Table gastronomique face au Parc Micaud, cuisine fusion. https://leparcbesancon.com/fr/\n- La Grange – Cuisine française et fondue au fromage. 17 Av. Elisée Cusenier. https://www.lagrange-restaurant.fr/\n- Le Vauban (bateau croisière) – Croisières-déjeuner (2h) ou dîner (2h30) sur le Doubs, réservation obligatoire. https://www.bateau-besancon.fr/croisieres-repas/\n\n**À visiter :**\n- La Citadelle (2000 m) – Chef-d'œuvre de Vauban, UNESCO. Musée Comtois, Musée de la Résistance et de la Déportation, Muséum (zoo, aquarium, insectarium).\n- Le Musée du Temps (600 m) – Histoire de l'horlogerie bisontine, Palais Granvelle. 96 Grande Rue.\n- L'Horloge astronomique (1000 m) – Monument Historique (1991), cathédrale Saint-Jean, réalisée par Auguste Lucien Vérité (1858-1860).\n\n**Commerces / services :**\n- Ginko vélos en libre-service (Vélocité) pour courts trajets.\n- Arrêt tram/bus Place de la Révolution (200 m).",
+          "content": "Each room is equipped with a temperature sensor set to maintain 20 °C. Radiators automatically turn on when the temperature drops below 20 °C and shut off when it is reached.",
+          "is_edited": false
+        },
+        {
+          "content": "There are window sensors that detect open windows and prevent radiators from heating. If heating does not come on, ensure windows are closed and notify the host.",
+          "is_edited": false
+        },
+        {
+          "content": "The host can control and adjust heating remotely. If there is a technical issue (e.g., loose radiator, sensor fault), the host can intervene on site or send a technician.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Rules & Regulations",
+      "items": [
+        {
+          "content": "No smoking: The apartment is strictly non-smoking. Smoke detectors and the CO₂ sensor are active and will trigger an alarm if disconnected or tampered with. Guests must respect this rule.",
+          "is_edited": false
+        },
+        {
+          "content": "No pets allowed and no events or parties permitted in the apartment. To enforce this, the apartment is equipped with a connected decibel detector and a camera on the landing. No noise is allowed after 22:00; please respect the neighbors.",
+          "is_edited": false
+        },
+        {
+          "content": "Guests must respect check-in and check-out times and not remove or tamper with sensors (temperature or smoke).",
+          "is_edited": false
+        },
+        {
+          "content": "Cleaning is included in the price; linens, towels, and kitchen linens are provided.",
+          "is_edited": false
+        },
+        {
+          "content": "Nombre d'invités: Les personnes supplémentaires ne figurant pas sur la réservation ne sont pas autorisées. En cas d'ajout, merci de procéder rapidement à une régularisation.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Things to do & see nearby",
+      "items": [
+        {
+          "content": "Le Saint Cerf (à 600 m) – Bistrot contemporain aux influences asiatiques et plats végétariens. Google Maps: Le Saint Cerf · 1 Rue Megevand, 25000 Besançon. Tel: 03 81 50 10 20.",
+          "is_edited": false
+        },
+        {
+          "content": "Le Bouillon du Commerce (à 700 m) – Restaurant Art Déco de 1850, réservation conseillée. Google Maps: Le Bouillon du Commerce · 31 Rue des Granges, 25000 Besançon. Website: https://lebouillonducommerce.fr/",
+          "is_edited": false
+        },
+        {
+          "content": "L'Affineur Comtois (à 400 m) – Spécialités fromagères de Franche-Comté. Google Maps: L'Affineur Comtois · 82 Rue Battant, 25000 Besançon. Website: https://www.restaurant-laffineurcomtois.fr/. Tel: +33 3 81 61 47 29.",
+          "is_edited": false
+        },
+        {
+          "content": "Loiseau du Temps (à 500 m) – Bistrot chic alliant terroir bourguignon et comtois. Google Maps: Loiseau du Temps · 27 Rue des Boucheries, 25000 Besançon. Website: https://www.bernard-loiseau.com/fr/loiseaudutemps.html",
+          "is_edited": false
+        },
+        {
+          "content": "La Petite Adresse – Carte courte de spécialités franc-comtoises et lasagnes, décor vintage. Google Maps: La Petite Adresse · 28 Rue Claude Pouillet, 25000 Besançon. Tel: 03 81 82 35 09.",
+          "is_edited": false
+        },
+        {
+          "content": "Le Parc (à 1000 m) – Table gastronomique face au Parc Micaud et au Doubs. Chef Francesco di Marzio, cuisine fusion. Website: https://leparcbesancon.com/fr/",
+          "is_edited": false
+        },
+        {
+          "content": "Le Vauban (bateau croisière) – Croisières-déjeuner (2 h) ou dîner (2 h 30) commentées sur le Doubs. Réservation obligatoire. Website: https://www.bateau-besancon.fr/croisieres-repas/",
+          "is_edited": false
+        },
+        {
+          "content": "Bleu de Sapin – Plats soignés à base de produits comtois identifiés. Adresse: Bleu de Sapin · 7 Rue Richebourg, 25000 Besançon. Website: https://bleudesapin.fr",
+          "is_edited": false
+        },
+        {
+          "content": "La Citadelle (à 2000 m) – Chef-d'œuvre de Vauban inscrit à l'UNESCO. Musées :\n• Musée Comtois (traditions de Franche-Comté)\n• Musée de la Résistance et de la Déportation (réouvert le 8 septembre 2023)\n• Muséum (zoologique, aquarium, insectarium, noctarium, petite ferme)\nGoogle Maps: La Citadelle · 25000 Besançon.",
+          "is_edited": false
+        },
+        {
+          "content": "Le Musée du Temps (à 600 m) – Installé dans le palais Granvelle, il retrace l'histoire de l'horlogerie bisontine et de la ville. Google Maps: Museum Of Times · 96 Grande Rue, 25000 Besançon.",
+          "is_edited": false
+        },
+        {
+          "content": "La Grange – Cuisine française authentique et fondue au fromage. Google Maps: La Grange · 17 Av. Elisée Cusenier, 25000 Besançon. Website: https://www.lagrange-restaurant.fr/",
+          "is_edited": false
+        },
+        {
+          "content": "L'horloge astronomique (à 1000 m) – Classée Monument Historique en 1991, réalisée par Auguste Lucien Vérité de 1858 à 1860, elle garantit le fonctionnement des cadrans horaires extérieurs et intérieur de la cathédrale Saint-Jean ainsi que de deux cloches comtoises.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Transportation to/from property",
+      "items": [
+        {
+          "content": "The property address is 10 Rue de la Madeleine, Besançon, 25000, FR. It is located in a pedestrian zone; vehicles cannot drive directly to the door. For navigation, search for 10 Rue de la Madeleine, 25000 Besançon on Google Maps.",
+          "is_edited": false
+        },
+        {
+          "content": "Free parking is available at PARKING ROBELIN and PARKING BATTANT, both within a 5-minute walk of the apartment. Locations and walking routes are indicated in the welcome booklet",
           "is_edited": true
+        },
+        {
+          "content": "Operators at pedestrian barriers sometimes allow temporary vehicle access for luggage unloading, usually until 11:00. After that, guests must walk from the parking areas.",
+          "is_edited": false
+        },
+        {
+          "content": "Taxi: Uber ne dessert pas Besançon. Vous pouvez contacter Taxis Radio au 03 81 88 80 80 ou des VTC qui assurent la navette vers la gare de Besançon TGV ou l'aérodrome de La Vèze.",
+          "is_edited": false
+        },
+        {
+          "content": "Trains: La Gare Viotte est accessible à pied depuis le centre-ville via la passerelle et le parc des glacis. Une navette ou un train relie Viotte à la gare TGV en environ 10 minutes.",
+          "is_edited": false
+        },
+        {
+          "content": "Bus - Tram: Ginko est le service tram, bus et vélo de Besançon. Application et info trajets sur www.ginko.voyage. L'arrêt le plus proche est à 200 m (Place de la Révolution). Paiement par CB sans ticket pour trajets simples.",
+          "is_edited": false
+        },
+        {
+          "content": "Vélos: Vélocité en libre-service pour courts trajets ou location à la journée auprès d'agences locales. Parkings souterrains gratuits dans un box sécurisé (pièce d'identité obligatoire) – 03 81 21 32 60.",
+          "is_edited": false
+        },
+        {
+          "content": "There are parking spaces located directly at the foot of the building where guests can park.",
+          "is_edited": false
+        }
+      ]
+    },
+    {
+      "name": "Wifi/internet",
+      "items": [
+        {
+          "content": "The advertised Wi-Fi network name is Unesco-Citybreak and the default password is Kigimo-25-2020!. The host recently replaced the box; the actual SSID and password are printed on the back of the box. The current credentials are: SSID “SFR-F561” and password “fffdhegdbsw5ividff45”.",
+          "is_edited": false
+        },
+        {
+          "content": "If the network name or password does not work, guests should check the label on the back of the box for the current credentials.",
+          "is_edited": false
+        },
+        {
+          "content": "If there is no internet connectivity, guests should try rebooting the box by unplugging it and plugging it back in. The host can monitor the line remotely and has reported occasional FAI incidents.",
+          "is_edited": false
         }
       ]
     }
