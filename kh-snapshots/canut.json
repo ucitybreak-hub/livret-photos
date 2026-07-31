@@ -1,229 +1,141 @@
 {
-  "fetched_at": "2026-07-31T03:00:03.308Z",
+  "fetched_at": "2026-07-31T09:00:12.762Z",
   "property_uuid": "34d23668-e062-483c-82c1-c1855c564974",
-  "property_name": "★ Le Canut ★",
+  "property_name": "Le Canut",
+  "source": "referentiel-get",
   "topics": [
     {
-      "name": "Access Codes",
+      "name": "Le logement",
       "items": [
         {
-          "content": "Le digicode de la porte d'entrée est B3310. C'est une porte ancienne, en été elle peut se dilater avec la chaleur. Si elle ne s'ouvre pas, tirez-la un peu vers vous pour réenclencher la gâchette électrique.",
+          "content": "Nom : Le Canut",
           "is_edited": true
         },
         {
-          "content": "La cage d'escalier : prendre l'escalier à droite et monter au premier étage. C'est la porte en face, avec un pannonceau “le canut”.",
-          "is_edited": false
-        },
-        {
-          "content": "Boîte à clé à côté de la porte de l'appartement :\n- Placer la paume sur le clavier pour allumer l'appareil\n- Entrer le code PIN valide que vous avez reçu, puis appuyer sur le cadenas\n- Attendre le bip et le bruit d'ouverture\n- Tirer sur le côté pour ouvrir la boîte",
-          "is_edited": false
-        },
-        {
-          "content": "Boîte à clé de secours : en cas de problème, elle se trouve au rez-de-chaussée à côté de la porte de la cave, vers les poubelles",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Appliances",
-      "items": [
-        {
-          "content": "Lave-linge séchant : le volume de linge à sécher ne peut pas être le même que celui du lavage. il existe un sèche linge dans une autre partie de l'appartement mais réserve au personnel de ménage pour sécher les draps",
+          "content": "Ville : Lyon",
           "is_edited": true
         },
         {
-          "content": "Télévision : utiliser l'application Molotov TV pour accéder aux chaînes françaises",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Arrival - Check-in Information",
-      "items": [
-        {
-          "content": "Accès par le 22 avenue Barthélémy Buyer",
+          "content": "Adresse : 22 avenue Barthélémy Buyer, 69009 Lyon",
           "is_edited": true
         },
         {
-          "content": "En face de la rue St Fiacre, proche de la place de Trion",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Check-out Information",
-      "items": [
-        {
-          "content": "Guests should inform the host of their planned departure time on the day of checkout.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Early Check-in",
-      "items": [
-        {
-          "content": "Early arrival is possible if no prior guest occupies the apartment and the cleaning is finished ahead of schedule. Guests should request early check-in in advance; the host will confirm on the day of arrival.",
-          "is_edited": false
+          "content": "Capacite / couchages : 2",
+          "is_edited": true
         },
         {
-          "content": "Examples of granted early check-ins include arrivals at 16:15 or as early as 15:00 when housekeeping permitted.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Heating and Cooling",
-      "items": [
-        {
-          "content": "Radiators are equipped with sensors to maintain the apartment temperature between 19 °C and 20 °C. They switch off automatically when reaching 20 °C and turn back on when the temperature drops below the threshold.",
-          "is_edited": false
-        },
-        {
-          "content": "The host can remotely adjust radiator settings if needed.",
-          "is_edited": false
-        },
-        {
-          "content": "A portable electric heater is available in the living room for occasional use; plug it into a standard outlet and disconnect when not needed.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Lighting and Shutters",
-      "items": [
-        {
-          "content": "The living room light switch is located between the two sideboards, near the entrance.",
-          "is_edited": false
-        },
-        {
-          "content": "To close the bedroom shutters, open the window and operate the manual crank (manivelle) handle.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Linen & Towels",
-      "items": [
-        {
-          "content": "The property provides bed linens and towels for all beds.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Luggage Storage",
-      "items": [
-        {
-          "content": "Use luggage storage services at Gare Lyon Part-Dieu from €4.5 per day via Nannybag: https://www.nannybag.com/fr/consigne-bagage/lyon/gare-part-dieu",
-          "is_edited": false
-        },
-        {
-          "content": "Other consigne options and locations at Lyon can be found here: https://www.visiterlyon.com/lyon-pratique/bons-plans/ou-trouver-des-consignes-a-bagages-a-lyon",
-          "is_edited": false
-        },
-        {
-          "content": "These services allow guests to store their bags securely and explore the city without carrying luggage.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Neighborhood Proximity",
-      "items": [
-        {
-          "content": "The apartment is situated on the Fourvière hill by the Saint-Just funicular station, at the very top. The UNESCO-listed Vieux Lyon and the popular Rue du Bœuf neighborhood are at the foot of the hill, approximately a 10-minute walk downhill.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Rules & Regulations",
-      "items": [
-        {
-          "content": "Appartement non fumeur : merci de ne pas essayer de débrancher le capteur de CO2, il est connecté à une alarme s'il est déplacé.",
-          "is_edited": false
-        },
-        {
-          "content": "Animaux interdits : les animaux de compagnie ne sont pas autorisés afin de protéger les voyageurs allergiques.",
-          "is_edited": false
-        },
-        {
-          "content": "Nombre d'invités : seules les personnes figurant sur la réservation sont autorisées. En cas de personnes supplémentaires, veuillez régulariser rapidement.",
-          "is_edited": false
-        },
-        {
-          "content": "Fêtes et bruit : les fêtes sont interdites. Un détecteur de décibel et une caméra sur le palier sont installés. Pas de bruit après 22 h, respecter le voisinage.",
-          "is_edited": false
-        }
-      ]
-    },
-    {
-      "name": "Sofa Bed Usage",
-      "items": [
-        {
-          "content": "It's forbidden to sleep on the sofa",
+          "content": "Agencement : Appartement situé au 1er étage du 22 avenue Barthélémy Buyer, Lyon 5e (colline de Fourvière, station funiculaire Saint-Just). Comprend un salon avec canapé (couchage sur le canapé interdit), une chambre avec volets manuels à manivelle, et un espace lave-linge séchant. Literie et serviettes fournies pour tous les lits (2 lits).",
           "is_edited": true
         }
       ]
     },
     {
-      "name": "Things to do & see nearby",
+      "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Attractions :\n- Lugdunum (musée gallo-romain et théâtres romains), accès gratuit. https://lugdunum.grandlyon.com/fr/\n- Basilique de Fourvière (500 m), crypte et panorama. https://www.fourviere.org/fr/\n- Vieux Lyon (900 m), quartier Renaissance classé UNESCO. https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon\n- Place des Terreaux (1 800 m), fontaine Bartholdi\n- Musée des Confluences (4 000 m), expositions. https://museedesconfluences.fr/fr\n- Les Berges du Rhône, promenade de 5 km. https://www.visiterlyon.com/decouvrir/sites-et-monuments/contemporain/les-berges-du-rhone",
-          "is_edited": false
+          "content": "Heure d'arrivee (check-in) : À partir de 17h. Arrivée anticipée possible si l'appartement est libre et le ménage terminé ; à demander à l'avance, confirmation le jour J.",
+          "is_edited": true
         },
         {
-          "content": "Commerces :\n- Le Petit Casino (500 m) : 1 Rue de la Favorite, 69005 Lyon\n- Boulangerie Henri Gay (500 m) : 12 Rue de la Favorite, 69005 Lyon. maison-hgay-lyon.eatbu.com\n- Boucherie Le Domaine de Limagne (450 m) : 8 Rue de la Favorite, 69005 Lyon. https://www.domaine-de-limagne.com/\n- Supermarché E. Leclerc (1 000 m)\n- Pharmacie de Trion (400 m) : 91 Rue de Trion, 69005 Lyon\n- Grains de Sucres (pâtisserie, 500 m) : 45 Rue de Trion, 69005 Lyon\n- Le boulanger de Saint-Just (400 m) : 1 Pl. de l'Abbé Larue, 69005 Lyon\n- Tabac Presse de Trion",
-          "is_edited": false
+          "content": "Heure de depart (check-out) : Informer l'hôte de l'heure de départ prévue le matin du checkout.",
+          "is_edited": true
         },
         {
-          "content": "Restaurants :\n- Hotel Fourvière Lyon (50 m) : 23 Rue Roger Radisson, 69005 Lyon – Bar “Les Collections” et restaurant bistronomique “Les Téléphones”. Tel : 04 74 70 07 00. https://www.fourviere-hotel.com/fr/\n- L'Esprit Bistrot (300 m) : 20 Rue du Cardinal Gerlier, 69005 Lyon. Terrasse ombragée, salle avec cheminée. Tel : 04 78 36 73 85. https://www.lespritbistrot.com/\n- La Table de Saint Just (400 m) : 12 Rue des Basses Verchères, 69005 Lyon. Tel : 04 78 36 06 17. https://la-table-de-saint-just-lyon.fr/fr\n- La Petite Auberge (800 m) : 2 Pl. Eugène Wernert, 69005 Lyon. Tel : 04 78 25 29 33. https://lanetiteaubergelyon.fr/\n- Chez Grand-Mère (800 m) : 11 Rue du Bœuf, 69005 Lyon. Tel : 09 51 61 35 38. https://chezgrandmere.fr/\n- Hermosa Pizza (200 m) : pizza à emporter. Tel : 09 87 12 05 88.",
-          "is_edited": false
+          "content": "Instructions d'arrivee : Adresse : 22 avenue Barthélémy Buyer, en face de la rue St Fiacre, proche de la place de Trion.\n\nAccès immeuble : composer le code sur le digicode de la porte d'entrée. Attention : par forte chaleur, la porte peut se dilater ; si elle ne s'ouvre pas, tirer légèrement vers soi pour réenclencher la gâchette électrique.\n\nCage d'escalier : prendre l'escalier à droite, monter au premier étage. L'appartement est la porte en face, avec le pannonceau « Le Canut ».\n\nBoîte à clé : située à côté de la porte de l'appartement. Placer la paume sur le clavier pour l'allumer, entrer le code PIN reçu puis appuyer sur le cadenas, attendre le bip et le bruit d'ouverture, puis tirer sur le côté pour ouvrir.\n\nBoîte à clé de secours : au rez-de-chaussée, à côté de la porte de la cave, vers les poubelles.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Transportation to/from property",
+      "name": "Wifi & connexion",
       "items": [
         {
-          "content": "Métro et Funiculaire :\n- Métro D\n- Funiculaire F1 (station Saint-Just)\nAdresse funiculaire : Gonald Marc Saint-Just, 69005 Lyon, France\nÀ 500 m de l'appartement",
-          "is_edited": false
+          "content": "Reseau Wifi (SSID) : U-CITYBREAK",
+          "is_edited": true
         },
         {
-          "content": "Bus :\n- Arrêt St Alexandre (lignes 55 et C21), à 400 m de l'appartement\n- Arrêt 4 colonnes (ligne 55), à 50 m de l'appartement",
-          "is_edited": false
+          "content": "Mot de passe Wifi : Kigihome6900925270",
+          "is_edited": true
         },
         {
-          "content": "Trains :\n- 45 minutes depuis Part-Dieu en empruntant le métro B puis D et le funiculaire\n- 15 minutes depuis Perrache en bus C21 ou 55",
-          "is_edited": false
-        },
-        {
-          "content": "Aéroport :\n- Rhone express jusqu'à Vaulx-en-Velin La Soie\n- Métro A jusqu’à Bellecour\n- Métro D jusqu’à Vieux Lyon\n- Funiculaire jusqu’à Saint-Just ou Fourvière\nPossibilité Uber ou taxi, durée similaire",
-          "is_edited": false
-        },
-        {
-          "content": "Parking et dépose minute :\n- Dépose minute : arrêt avec warnings dans la rue ou dans la rue St Fiacre, en face de l'appartement\n- Stationnement gratuit souvent disponible dans les rues St Fiacre, 4 Colonnes et Pépinière\n- Rue Pierre Audry : places payantes\n- Parking public à l'angle de la rue Pépinière et de l'avenue Barthélémy Buyer\n- Garage disponible depuis peu rue Radisson, à 400 m : 10 €/jour, 50 €/semaine",
-          "is_edited": false
+          "content": "Box internet : U-CITYBREAK",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Trash/recycling",
+      "name": "Equipements & confort",
       "items": [
         {
-          "content": "Les poubelles se trouvent au pied de la cage d'escalier, au fond à droite du couloir.",
-          "is_edited": false
+          "content": "Chauffage : Radiateurs équipés de capteurs maintenant la température entre 19 °C et 20 °C (arrêt automatique à 20 °C, redémarrage en dessous du seuil). L'hôte peut ajuster les réglages à distance si besoin. Un radiateur électrique d'appoint portable est disponible dans le salon : brancher sur prise standard, débrancher après utilisation.",
+          "is_edited": true
+        },
+        {
+          "content": "Climatisation : non",
+          "is_edited": true
+        },
+        {
+          "content": "TV / streaming : Télévision : utiliser l'application Molotov TV pour accéder aux chaînes françaises.",
+          "is_edited": true
+        },
+        {
+          "content": "Electromenager : Lave-linge séchant disponible (capacité de séchage inférieure à celle du lavage). Sèche-linge présent dans une autre partie de l'appartement, réservé au personnel de ménage.",
+          "is_edited": true
         }
       ]
     },
     {
-      "name": "Wifi/internet",
+      "name": "Stationnement & transports",
       "items": [
         {
-          "content": "Box : U-CITYBREAK\nPassword : Kigihome6900925270",
-          "is_edited": false
+          "content": "Parking : Dépose minute : arrêt avec warnings dans la rue ou dans la rue St Fiacre, en face de l'appartement.\nStationnement gratuit souvent disponible : rues St Fiacre, 4 Colonnes et Pépinière.\nRue Pierre Audry : places payantes.\nParking public : angle rue Pépinière / avenue Barthélémy Buyer.\nGarage rue Radisson (400 m) : 10 €/jour, 50 €/semaine.",
+          "is_edited": true
+        },
+        {
+          "content": "Transports : Funiculaire F1 – station Saint-Just (500 m) : Gonald Marc Saint-Just, 69005 Lyon.\nMétro D.\nBus arrêt St Alexandre (lignes 55 et C21) à 400 m ; arrêt 4 Colonnes (ligne 55) à 50 m.\nDepuis Gare Part-Dieu : ~45 min (métro B → D → funiculaire).\nDepuis Gare Perrache : ~15 min (bus C21 ou 55).\nDepuis Aéroport : Rhône Express → Vaulx-en-Velin La Soie → métro A → Bellecour → métro D → Vieux Lyon → funiculaire Saint-Just ou Fourvière. Uber/taxi possible, durée similaire.",
+          "is_edited": true
+        }
+      ]
+    },
+    {
+      "name": "Regles du logement",
+      "items": [
+        {
+          "content": "Animaux : non",
+          "is_edited": true
+        },
+        {
+          "content": "Fumeur : non",
+          "is_edited": true
+        },
+        {
+          "content": "Fetes : non",
+          "is_edited": true
+        },
+        {
+          "content": "Regles specifiques : Appartement non-fumeur : ne pas débrancher ni déplacer le capteur CO2 (connecté à une alarme).\nAnimaux interdits (protection des voyageurs allergiques).\nFêtes interdites.\nPas de bruit après 22h, respecter le voisinage.\nSeules les personnes figurant sur la réservation sont autorisées ; toute personne supplémentaire doit être régularisée rapidement.\nInterdit de dormir sur le canapé.",
+          "is_edited": true
+        },
+        {
+          "content": "Regles de l'immeuble : Caméra sur le palier. Respecter le voisinage et les parties communes.",
+          "is_edited": true
+        },
+        {
+          "content": "Sensibilite au bruit : Détecteur de décibels installé. Pas de bruit après 22h.",
+          "is_edited": true
+        },
+        {
+          "content": "Poubelles / tri : Les poubelles se trouvent au pied de la cage d'escalier, au fond à droite du couloir. Boîte à clé de secours également dans ce couloir, à côté de la porte de la cave.",
+          "is_edited": true
+        }
+      ]
+    },
+    {
+      "name": "Recommandations & quartier",
+      "items": [
+        {
+          "content": "**Restaurants**\n- Hôtel Fourvière – Bar « Les Collections » & restaurant « Les Téléphones » (50 m) : 23 Rue Roger Radisson, 69005 Lyon. Tél : 04 74 70 07 00. https://www.fourviere-hotel.com/fr/\n- Hermosa Pizza – pizza à emporter (200 m). Tél : 09 87 12 05 88.\n- L'Esprit Bistrot (300 m) : 20 Rue du Cardinal Gerlier, 69005 Lyon. Terrasse ombragée, cheminée. Tél : 04 78 36 73 85. https://www.lespritbistrot.com/\n- La Table de Saint Just (400 m) : 12 Rue des Basses Verchères, 69005 Lyon. Tél : 04 78 36 06 17. https://la-table-de-saint-just-lyon.fr/fr\n- La Petite Auberge (800 m) : 2 Pl. Eugène Wernert, 69005 Lyon. Tél : 04 78 25 29 33. https://lanetiteaubergelyon.fr/\n- Chez Grand-Mère (800 m) : 11 Rue du Bœuf, 69005 Lyon. Tél : 09 51 61 35 38. https://chezgrandmere.fr/\n\n**À visiter**\n- Basilique de Fourvière (500 m) : crypte et panorama. https://www.fourviere.org/fr/\n- Lugdunum – musée gallo-romain & théâtres romains, accès gratuit. https://lugdunum.grandlyon.com/fr/\n- Vieux Lyon (900 m) : quartier Renaissance classé UNESCO. https://www.visiterlyon.com/decouvrir/sites-et-monuments/renaissance/le-vieux-lyon\n- Place des Terreaux (1 800 m) : fontaine Bartholdi.\n- Les Berges du Rhône : promenade de 5 km. https://www.visiterlyon.com/decouvrir/sites-et-monuments/contemporain/les-berges-du-rhone\n- Musée des Confluences (4 000 m). https://museedesconfluences.fr/fr\n\n**Commerces**\n- Pharmacie de Trion (400 m) : 91 Rue de Trion, 69005 Lyon.\n- Le boulanger de Saint-Just (400 m) : 1 Pl. de l'Abbé Larue, 69005 Lyon.\n- Boucherie Le Domaine de Limagne (450 m) : 8 Rue de la Favorite, 69005 Lyon. https://www.domaine-de-limagne.com/\n- Le Petit Casino (500 m) : 1 Rue de la Favorite, 69005 Lyon.\n- Boulangerie Henri Gay (500 m) : 12 Rue de la Favorite, 69005 Lyon. maison-hgay-lyon.eatbu.com\n- Grains de Sucres – pâtisserie (500 m) : 45 Rue de Trion, 69005 Lyon.\n- Tabac Presse de Trion.\n- Supermarché E. Leclerc (1 000 m).",
+          "is_edited": true
         }
       ]
     }
