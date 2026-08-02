@@ -3,7 +3,10 @@
   "property_uuid": "ec859cd9-8eac-44a3-afe4-0013b9ea393d",
   "hero_photo_url": "https://assets.hospitable.com/property_images/2076404/bd8PYBdDUzLVdwqhZEoU7kxbKzTQCsrVpD6j6UPl.jpg",
   "videos": {
-    "keybox": { "youtube_id": "V-5kXRTPRko", "label": "Ouvrir la boîte à clé" }
+    "keybox": {
+      "youtube_id": "V-5kXRTPRko",
+      "label": "Ouvrir la boîte à clé"
+    }
   },
   "arrival": {
     "steps": [
@@ -15,30 +18,38 @@
       },
       {
         "title": "Le portail",
-        "text": "Ouvrez le portail vert avec le digicode, puis prenez l'<b>escalier rouge à gauche</b> jusqu'au <b>1er étage</b>.",
+        "text": "Ouvrez le <b>portail vert</b> avec le digicode.",
         "photo": "bellevue/arrivee-2.png",
-        "photo_caption": "L'escalier rouge, à gauche après le portail",
+        "photo_caption": "Le portail vert et son digicode",
         "code": "digicode"
       },
       {
+        "title": "L'escalier",
+        "text": "Prenez l'<b>escalier rouge à gauche</b> jusqu'au <b>1er étage</b>.",
+        "photo": "bellevue/arrivee-3.jpg",
+        "photo_caption": "L'escalier rouge, à gauche après le portail"
+      },
+      {
+        "title": "Au 1er étage",
+        "text": "C'est la <b>1ère porte à gauche</b> en haut de l'escalier.",
+        "photo": "bellevue/arrivee-4.jpg",
+        "photo_caption": "1er étage, 1ère porte à gauche"
+      },
+      {
         "title": "La boîte à clé",
-        "text": "La boîte à clé « <b>L. Bellevue</b> » se trouve dans la <b>boîte aux lettres à gauche du portail</b>. Composez le code pour l'ouvrir et récupérer les clés. <b>Pensez à bien la refermer</b> en repartant.",
+        "text": "La boîte à clé « <b>L. Bellevue</b> » est fixée au mur <b>à gauche de la porte</b>. Composez le code pour l'ouvrir et récupérer les clés. <b>Pensez à bien la refermer</b> en repartant. Bienvenue au Bellevue ✨",
         "photo": "bellevue/lockbox.png",
-        "photo_caption": "La boîte à clé « L. Bellevue », à gauche du portail",
+        "photo_caption": "La boîte à clé « L. Bellevue », à gauche de la porte (1er étage)",
         "code": "algopin",
         "code_note": "Votre code · actif pendant votre séjour",
         "video": "keybox",
         "keep_photo": true
-      },
-      {
-        "title": "Vous y êtes",
-        "text": "Au 1er étage, c'est la <b>1ère porte à gauche</b>. Les clés l'ouvrent. Bienvenue au Bellevue ✨"
       }
     ],
     "keybox_help": {
       "title": "Difficultés à ouvrir la boîte à clé ?",
       "checks": [
-        "Vérifiez que vous composez bien le code sur la boîte étiquetée « <b>L. Bellevue</b> » — c'est celle de gauche, dans la boîte aux lettres à gauche du portail.",
+        "Vérifiez que vous composez bien le code sur la boîte étiquetée « <b>L. Bellevue</b> » — elle est fixée au mur à gauche de la porte du logement, au 1er étage.",
         "Saisissez les chiffres <b>un par un</b>, sans trop appuyer, puis ouvrez le volet.",
         "Si ça coince, réalignez bien les molettes sur le code et réessayez tranquillement. En cas de blocage, écrivez-nous."
       ]
@@ -51,13 +62,23 @@
       "<b>Parking gratuit « Battant »</b> : à 200 m, plus de 1 000 places. Tournez à droite au rond-point devant la résidence.",
       "<b>Rue payante</b> : le stationnement devant l'immeuble est payant et souvent contrôlé — <b>gratuit le dimanche</b>."
     ],
-    "photos": ["lumineux/Parking Battant.png"]
+    "photos": [
+      {
+        "photo": "lumineux/Parking Battant.png",
+        "title": "Parking « Battant »",
+        "sub": " · gratuit, à 200 m",
+        "zoomable": true
+      }
+    ]
   },
   "luggage": {
     "url": "https://www.nannybag.com/fr/consigne-bagage/besancon",
     "sub_arrival": "Consignes Nannybag à Besançon · dès 4,90 €/jour",
     "sub_departure": "Déposez vos bagages et profitez de Besançon jusqu'au train · dès 4,90 €/jour",
-    "show_on": ["access", "departure"]
+    "show_on": [
+      "access",
+      "departure"
+    ]
   },
   "transport": {
     "summary": "Face à la gare Viotte · trams & bus à 100 m",
