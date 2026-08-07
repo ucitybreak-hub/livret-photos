@@ -1,5 +1,4 @@
-<!-- BUILT V3 bellevue-it (translated) at 2026-08-02T22:08:11.202Z -->
-<!-- BUILT V3 bellevue-fr at 2026-07-15T12:24:17.540Z -->
+<!-- BUILT V3 bellevue-it at 2026-08-07T17:40:38.500Z | i18n applied=101 stale=0 missing=0 -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -311,7 +310,7 @@
     border:0;border-radius:14px;padding:15px;cursor:pointer}
   .sheet .ok:active{transform:scale(.99)}
 
-  /* CARTA PARTENZA — appare a max(checkout-18h, checkin+6h) */
+  /* CARTE DÉPART — apparaît à max(checkout-18h, checkin+6h) */
   .depart{display:block;width:auto;text-align:left;font-family:var(--font);color:var(--ink);
     margin:12px 16px 0;border-radius:18px;padding:16px 20px;border:1px solid var(--line);
     background:var(--surface);box-shadow:var(--shadow-sm);cursor:pointer;transition:.2s}
@@ -324,7 +323,7 @@
   .depart .top .tt .s{font-size:13px;color:var(--ink-2);margin-top:2px}
   .depart .chev{color:var(--ink-3);flex-shrink:0}
 
-  /* CARTA VIDEO (clic-per-leggere, nessun caricamento YouTube prima del tap) */
+  /* CARTE VIDÉO (clic-pour-lire, aucun chargement YouTube avant le tap) */
   .vidcard{margin:0 16px 12px;border-radius:16px;overflow:hidden;position:relative;background:#0c0b0f;cursor:pointer;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
   .vidcard .poster{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;opacity:.9}
   .vidcard .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
@@ -335,7 +334,7 @@
   .revoir .vidcard{margin:0 12px 10px}
   .step .vidcard{margin:10px 0 0}
 
-  /* COME FUNZIONA — linee pieghevoli */
+  /* COMMENT ÇA MARCHE — lignes dépliables */
   .how details.hx{border-bottom:1px solid var(--line-2)}
   .how details.hx:last-child{border-bottom:0}
   .hx summary{list-style:none;display:flex;align-items:center;gap:13px;padding:14px 0;cursor:pointer}
@@ -354,7 +353,7 @@
   .hx-body img{width:100%;max-width:260px;border-radius:12px;margin-top:6px;border:1px solid var(--line)}
   .hx-body .vidcard{margin:8px 0 0}
 
-  /* « Una domanda ? » — fisarmonica consapevole del canale di contatto */
+  /* « Une question ? » — accordéon contact channel-aware */
   .qa{margin:12px 16px 8px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
   .qa summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
   .qa summary::-webkit-details-marker{display:none}
@@ -369,13 +368,13 @@
   .qa-body .cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;border-radius:12px;padding:13px;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:11px}
   .qa-body .cta svg{width:18px;height:18px}
   .qa-body .why{font-size:12.5px;color:var(--ink-2);line-height:1.55;background:var(--bg);border-radius:12px;padding:12px 14px;margin-bottom:0}
-  /* Urgenza = ricorso, non azione principale : linea discreta, separata, senza carta né colore di appello */
+  /* Urgence = recours, pas action principale : ligne discrète, séparée, sans carte ni couleur d'appel */
   .qa-body .emg{display:block;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2);
     text-decoration:none;color:var(--ink-3);font-size:12px;line-height:1.5}
   .qa-body .emg .lbl{font-weight:600;color:var(--ink-2)}
   .qa-body .emg .num{color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
 
-  /* Blocco pieghevole generico (parcheggio) — stesso look di .revoir */
+  /* Bloc dépliable générique (parking) — même look que .revoir */
   .fold{margin:10px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
   .fold summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
   .fold summary::-webkit-details-marker{display:none}
@@ -397,7 +396,7 @@
   .pk.wide2{grid-column:span 2}
   .fold.first{margin-top:0}
 
-  /* Linee trasporto (nel fold « Spostarsi ») */
+  /* Lignes transport (dans le fold « Se déplacer ») */
   .tr{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line-2)}
   .tr:last-child{border-bottom:0;padding-bottom:0}
   .tr .em{font-size:19px;flex-shrink:0;width:26px;text-align:center;line-height:1.3}
@@ -408,7 +407,7 @@
   .tr .d{font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:7px;white-space:nowrap;flex-shrink:0;margin-top:1px}
   .tr a{color:var(--accent);font-weight:600;text-decoration:none}
 
-  /* ASSISTENZA keybox — ripiegato, tono neutro (nessun allarme) */
+  /* DÉPANNAGE keybox — replié, ton neutre (pas d'alarme) */
   .help{margin:4px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
   .help summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;padding:14px 16px}
   .help summary::-webkit-details-marker{display:none}
@@ -428,7 +427,7 @@
 
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
-</head>
+<style>/*V3REFINE*/.vidrow{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;box-shadow:var(--shadow-sm)}.vidrow .vic{width:38px;height:38px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}.vidrow .vb{flex:1}.vidrow .vv{display:block;font-size:14.5px;font-weight:600;color:var(--ink)}.vidrow .vv2{display:block;font-size:12.5px;color:var(--ink-2);margin-top:2px}.vidrow .vchev{color:var(--ink-3);font-size:20px;line-height:1}.vidrow:has(iframe){padding:0;background:#000;display:block}.stp-img{max-width:100%}.app.is-open .step .kb-note{text-align:center}.app.is-open .step .kb:has(.kb-dots){display:flex;justify-content:center;align-items:center;width:100%;box-sizing:border-box;margin-top:12px;padding:16px;font-size:clamp(30px,9vw,38px);letter-spacing:.16em;border-radius:14px}.app.is-open .step .kb:not(:has(.kb-dots)){display:flex;justify-content:center;align-items:center;width:100%;box-sizing:border-box;margin-top:12px;padding:13px;font-size:clamp(24px,7vw,30px);letter-spacing:.16em;border-radius:14px;background:var(--accent-soft);color:var(--accent)}@keyframes ucbNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}#swipeArrival .swipe-thumb{animation:ucbNudge 1.6s ease-in-out infinite}#swipeArrival.done .swipe-thumb{animation:none}@media (prefers-reduced-motion:reduce){#swipeArrival .swipe-thumb{animation:none}}</style></head>
 <body>
 <div class="phone">
  <div class="app is-{{access_state}}">
@@ -473,9 +472,9 @@
 
       <div class="dates">
         <div class="band">
-          <div class="d"><div class="l">Arrivo</div><div class="day">{{checkin_date_label}}</div><div class="time">a partire dalle {{checkin_time}}</div></div>
+          <div class="d"><div class="l">Arrivo</div><div class="day">{{checkin_date_label}}</div><div class="time">a partire da {{checkin_time}}</div></div>
           <div class="mid"><span class="nights">{{nights_label}}</span></div>
-          <div class="d r"><div class="l">Partenza</div><div class="day">{{checkout_date_label}}</div><div class="time">entro le {{checkout_time}}</div></div>
+          <div class="d r"><div class="l">Partenza</div><div class="day">{{checkout_date_label}}</div><div class="time">prima di {{checkout_time}}</div></div>
         </div>
         <div class="foot">{{stay_status_html}}</div>
       </div>
@@ -496,26 +495,26 @@
         </button>
         <button class="tile" onclick="go('access')">
           <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2C6.5 2 4.5 4 4.5 6.5c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8C13.5 4 11.5 2 9 2z" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="6.5" r="1.6" stroke="#3A2A5E" stroke-width="1.4"/></svg></span>
-          <span class="k">Arrivare</span><span class="v">Accesso e percorso</span><span class="v2">Codice, digicode, itinerario</span>
+          <span class="k">Arrivare</span><span class="v">Accesso & percorso</span><span class="v2">Codice, citofono, itinerario</span>
         </button>
       </div>
 
       <details class="qa">
         <summary>
           <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M2.5 9a6 6 0 116 6c-.9 0-1.7-.2-2.4-.5l-3.6 1 1-3.5A6 6 0 012.5 9z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
-          <span class="b"><span class="v">Una domanda ?</span><span class="v2">Vi rispondiamo subito</span></span>
+          <span class="b"><span class="v">Una domanda?</span><span class="v2">Vi rispondiamo subito</span></span>
           <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </summary>
         <div class="qa-body">{{contact_block_v3}}</div>
       </details>
     </section>
 
-    <!-- ============= ACCESSO ============= -->
+    <!-- ============= ACCÈS ============= -->
     <section class="view" data-view="access">
       <div class="phead"><h2>Il vostro accesso</h2><p>Tutto per entrare, il giorno del vostro arrivo.</p></div>
 
-      <!-- COME ARRIVARCI (sempre visibile, per primo) -->
-      <div class="sub"><span class="em">📍</span>Come arrivarci</div>
+      <!-- Y ALLER (toujours visible, en premier) -->
+      <div class="sub"><span class="em">📍</span>Vai</div>
       <div class="wide" style="margin-top:0">
         <a class="wide-btn" href="{{maps_url}}" target="_blank" rel="noopener" style="text-decoration:none">
           <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2C6.5 2 4.5 4 4.5 6.5c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8C13.5 4 11.5 2 9 2z" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="6.5" r="1.6" stroke="#3A2A5E" stroke-width="1.4"/></svg></span>
@@ -523,10 +522,10 @@
           <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
-      <details class="fold"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 12V6.5h2.4a1.8 1.8 0 010 3.6H7" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">Dove parcheggiare</span><span class="v2">Parcheggio in strada + parcheggio gratuito a 200 m</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body"><p><b>Scarico merci</b> : scaricate davanti all'edificio, lungo l'avenue Foch, poi parcheggiate l'auto.</p><p><b>Parcheggio gratuito « Battant »</b> : a 200 m, più di 1.000 posti. Girate a destra alla rotonda davanti alla residenza.</p><p><b>Strada a pagamento</b> : il parcheggio davanti all'edificio è a pagamento e spesso controllato — <b>gratuito la domenica</b>.</p></div></details>
-      <div class="wide" style="margin-top:10px;margin-bottom:8px"><a class="wide-btn" href="https://www.nannybag.com/fr/consigne-bagage/besancon" target="_blank" rel="noopener" style="text-decoration:none"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="5.5" width="10" height="9" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 5.5v-1a1.5 1.5 0 011.5-1.5h1A1.5 1.5 0 0111 4.5v1M7.5 8.5v3M10.5 8.5v3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Depositare i bagagli</span><span class="v2">Depositi Nannybag a Besançon · da 4,90 €/giorno</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+      <details class="fold"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 12V6.5h2.4a1.8 1.8 0 010 3.6H7" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">Dove parcheggiare</span><span class="v2">Parcheggio in strada + parcheggio gratuito a 200 m</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body"><p><b>Scarico merci</b> : scaricate davanti all'edificio, lungo l'avenue Foch, poi parcheggiate l'auto.</p><p><b>Parcheggio gratuito « Battant »</b> : a 200 m, più di 1 000 posti. Girate a destra alla rotonda davanti alla residenza.</p><p><b>Strada a pagamento</b> : il parcheggio davanti all'edificio è a pagamento e spesso controllato — <b>gratuito la domenica</b>.</p><div class="pk-grid"><a class="pk" href="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Battant.png" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Parking%20Battant.png" alt="Parcheggio « Battant »" loading="lazy"><div class="cap"><b>Parcheggio « Battant »</b> · gratuito, a 200 m</div></a></div></div></details>
+      <div class="wide" style="margin-top:10px;margin-bottom:8px"><a class="wide-btn" href="https://www.nannybag.com/fr/consigne-bagage/besancon" target="_blank" rel="noopener" style="text-decoration:none"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="5.5" width="10" height="9" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 5.5v-1a1.5 1.5 0 011.5-1.5h1A1.5 1.5 0 0111 4.5v1M7.5 8.5v3M10.5 8.5v3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Depositare i vostri bagagli</span><span class="v2">Deposito bagagli Nannybag a Besançon · da 4,90 €/giorno</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
 
-      <!-- Stato bloccato (prima dell'ora di rivelazione) -->
+      <!-- État verrouillé (avant l'heure de révélation) -->
       <div class="acc-lock">
         <div class="acc-hero">
           <span class="lk">🔒 Il vostro accesso</span>
@@ -535,42 +534,42 @@
           <div class="cd" id="cd" data-reveal="{{checkin_reveal_ts}}"></div>
         </div>
         <div class="upsell {{upsell_early_hidden}}">
-          <h3>Arrivare prima ?</h3>
-          <p>A seconda della disponibilità della pulizia · risposta immediata.</p>
+          <h3>Arrivare prima?</h3>
+          <p>A seconda della disponibilità delle pulizie · risposta immediata.</p>
           <div class="chips">{{upsell_early_chips}}</div>
         </div>
       </div>
 
-      <!-- Stato aperto (codice disponibile) -->
+      <!-- État ouvert (code disponible) -->
       <div class="acc-open">
         <div class="sub"><span class="em">🚪</span>Il percorso, passo dopo passo</div>
-        <div class="steps"><div class="step"><span class="n">1</span><div><div class="h">Trovare l'edificio</div><div class="d">Arrivate al <b>2 avenue Maréchal Foch</b>, nel Parc des Glacis, <b>proprio di fronte alla stazione Viotte</b>. Cercate il <b>cancello verde</b> con il <b>numero 2</b> sul palo.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-1.png" alt="Trovare l'edificio"><div class="stp-cap">Il cancello verde, numero 2 sul palo</div></div></div><div class="step"><span class="n">2</span><div><div class="h">Il cancello</div><div class="d">Aprite il <b>cancello verde</b> con il digicode.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-2.png" alt="Il cancello"><div class="stp-cap">Il cancello verde e il suo digicode</div><div class="kb"><span class="kb-code" style="display:inline">24097</span></div></div></div><div class="step"><span class="n">3</span><div><div class="h">La scala</div><div class="d">Prendete la <b>scala rossa a sinistra</b> fino al <b>1º piano</b>.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-3.jpg" alt="La scala rossa"><div class="stp-cap">La scala rossa, a sinistra dopo il cancello</div></div></div><div class="step"><span class="n">4</span><div><div class="h">Al 1º piano</div><div class="d">È la <b>1ª porta a sinistra</b> in cima alla scala.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-4.jpg" alt="La porta dell'alloggio"><div class="stp-cap">1º piano, 1ª porta a sinistra</div></div></div><div class="step"><span class="n">5</span><div><div class="h">La cassetta delle chiavi</div><div class="d">La cassetta delle chiavi « <b>L. Bellevue</b> » è fissata al muro <b>a sinistra della porta</b>. Inserite il codice per aprirla e recuperare le chiavi. <b>Ricordatevi di chiuderla bene</b> quando ve ne andate. Benvenuti al Bellevue ✨</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/lockbox.png" alt="La cassetta delle chiavi"><div class="stp-cap">La cassetta delle chiavi « L. Bellevue », a sinistra della porta (1º piano)</div><div class="vidcard" onclick="playVid(this,'V-5kXRTPRko')"><img class="poster" src="https://img.youtube.com/vi/V-5kXRTPRko/hqdefault.jpg" alt="Aprire la cassetta delle chiavi" loading="lazy"><div class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="vlabel">Aprire la cassetta delle chiavi</div></div><div class="kb"><span class="kb-dots">••• ••• •••</span><span class="kb-code">{{algopin_code_grouped}}</span></div><div class="kb-note">Il vostro codice · attivo durante il vostro soggiorno</div></div></div></div>
+        <div class="steps"><div class="step"><span class="n">1</span><div><div class="h">Trovare l'edificio</div><div class="d">Arrivate al <b>2 avenue Maréchal Foch</b>, nel Parc des Glacis, <b>proprio di fronte alla stazione Viotte</b>. Cercate il <b>cancello verde</b> con il <b>numero 2</b> sul palo.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-1.png" alt="Trovare l'edificio"><div class="stp-cap">Il cancello verde, numero 2 sul palo</div></div></div><div class="step"><span class="n">2</span><div><div class="h">Il cancello</div><div class="d">Aprite il <b>cancello verde</b> con il codice di accesso.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-2.png" alt="Il cancello"><div class="stp-cap">Il cancello verde e il suo codice di accesso</div><div class="kb"><span class="kb-code" style="display:inline">{{building_digicode}}</span></div></div></div><div class="step"><span class="n">3</span><div><div class="h">La scala</div><div class="d">Prendete la <b>scala rossa a sinistra</b> fino al <b>1º piano</b>.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-3.jpg" alt="La scala"><div class="stp-cap">La scala rossa, a sinistra dopo il cancello</div></div></div><div class="step"><span class="n">4</span><div><div class="h">Al 1º piano</div><div class="d">È la <b>1ª porta a sinistra</b> in cima alla scala.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/arrivee-4.jpg" alt="Al 1º piano"><div class="stp-cap">1º piano, 1ª porta a sinistra</div></div></div><div class="step"><span class="n">5</span><div><div class="h">La cassetta delle chiavi</div><div class="d">La cassetta delle chiavi « <b>L. Bellevue</b> » è fissata al muro <b>a sinistra della porta</b>. Digitate il codice per aprirla e recuperare le chiavi. <b>Ricordatevi di richiuderla bene</b> quando ve ne andate. Benvenuti a Bellevue ✨</div><div class="kb"><span class="kb-dots">••• ••• •••</span><span class="kb-code">{{algopin_code_grouped}}</span></div><div class="kb-note">Il vostro codice · attivo durante il vostro soggiorno</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/lockbox.png" alt="La cassetta delle chiavi"><div class="stp-cap">La cassetta delle chiavi « L. Bellevue », a sinistra della porta (1º piano)</div><div class="vidcard vidrow" onclick="playVid(this,'V-5kXRTPRko')"><span class="vic">🎬</span><span class="vb"><span class="vv">Aprire la cassetta delle chiavi</span><span class="vv2">Video · premete per riprodurre</span></span><span class="vchev">›</span></div></div></div></div>
 
-        <details class="help"><summary><span class="ic">🔧</span><span class="b">Difficoltà ad aprire la cassetta delle chiavi ?</span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="help-body"><div class="hck"><span class="n">1</span><div class="t">Verificate di inserire il codice sulla cassetta etichettata « <b>L. Bellevue</b> » — è fissata al muro a sinistra della porta dell'alloggio, al 1º piano.</div></div><div class="hck"><span class="n">2</span><div class="t">Inserite i numeri <b>uno per uno</b>, senza premere troppo forte, poi aprite lo sportello.</div></div><div class="hck"><span class="n">3</span><div class="t">Se si blocca, riallineate bene i numeri sul codice e riprovate tranquillamente. In caso di blocco, scriveteci.</div></div><div class="help-last">Ancora bloccato ? <a href="tel:+33610393424">Chiamateci</a> — vi sblocchiamo subito.</div></div></details>
+        
 
-        <div class="swipe" id="swipeArrival" data-url="{{arrival_confirm_url}}" data-done="Arrivo segnalato ✓" data-thanks="Grazie, a presto.">
+        <div class="swipe" id="swipeArrival" data-url="{{arrival_confirm_url}}" data-done="Arrivo confermato ✓" data-thanks="Grazie, a tra poco.">
           <div class="swipe-track">
             <div class="swipe-fill"></div>
-            <div class="swipe-label" id="swipeLabel">Scorri per avvisare l'host</div>
+            <div class="swipe-label" id="swipeLabel">Scorri per confermare il vostro arrivo</div>
             <div class="swipe-thumb" id="swipeThumb">
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </div>
-          <div class="swipe-hint" id="swipeHint">Un piccolo gesto ci conferma che tutto è andato bene.</div>
+          <div class="swipe-hint" id="swipeHint">Ci rassicura sapere che siete riusciti a entrare.</div>
         </div>
       </div>
     </section>
 
-    <!-- ============= SOGGIORNO ============= -->
+    <!-- ============= SÉJOUR ============= -->
     <section class="view" data-view="stay">
       <div class="phead"><h2>Il vostro soggiorno</h2><p>L'essenziale, ogni giorno.</p></div>
 
-      <!-- VISITA in testa : prova (video se disponibile, altrimenti foto) -->
+      <!-- VISITE en tête : preuve (vidéo si dispo, sinon photos) -->
       <div class="sub is-hidden"><span class="em">📸</span>L'alloggio in immagini</div>
       <details class="revoir is-hidden">
         <summary>
           <span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4.5" width="13" height="9.5" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="9.2" r="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M6 4.5l1-1.5h4l1 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
-          <span class="b"><span class="v">Rivedere l'alloggio</span><span class="v2">Come nella vostra prenotazione</span></span>
+          <span class="b"><span class="v">Rivedi l'alloggio</span><span class="v2">Come nella vostra prenotazione</span></span>
           <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </summary>
         <div class="note">L'alloggio come l'avete prenotato — per immaginarvi prima dell'arrivo.</div>
@@ -578,45 +577,45 @@
         <div class="tour "></div>
       </details>
 
-      <div class="sub "><span class="em">📋</span>Da sapere</div>
-      <div class="sec-intro ">Alcuni punti di riferimento affinché tutto vada bene.</div>
-      <div class="rules "><div class="rule"><span class="rc">🚭</span><div class="t"><div class="v">Alloggio non fumatori</div><div class="v2">Vietato all'interno, senza eccezioni.</div></div></div><div class="rule"><span class="rc">🎉</span><div class="t"><div class="v">Niente feste né serate</div><div class="v2">Un <b>rilevatore di decibel</b> (collegato a un allarme) e una <b>telecamera sul pianerottolo</b> controllano il silenzio. Nessuna conversazione viene registrata.</div></div></div><div class="rule"><span class="rc">🌙</span><div class="t"><div class="v">Silenzio dopo le 22:00</div><div class="v2">Grazie per rispettare i vicini — evitate rumori e frequenti andirivieni.</div></div></div><div class="rule"><span class="rc">🐾</span><div class="t"><div class="v">Animali non consentiti</div><div class="v2">Per proteggere i viaggiatori allergici che verranno dopo di voi.</div></div></div><div class="rule"><span class="rc">🌡️</span><div class="t"><div class="v">Sensore di CO₂</div><div class="v2">Non staccatelo né spostatelo : attiva un allarme se manipolato.</div></div></div><div class="rule"><span class="rc">👥</span><div class="t"><div class="v">Viaggiatori dichiarati</div><div class="v2">Solo le persone indicate nella prenotazione sono ammesse. Per aggiungerne, regolarizzate la prenotazione.</div></div></div></div>
+      <div class="sub "><span class="em">📋</span>Buono a sapersi</div>
+      <div class="sec-intro ">Alcuni punti di riferimento perché tutto vada bene.</div>
+      <div class="rules "><div class="rule"><span class="rc">🚭</span><div class="t"><div class="v">Alloggio non fumatori</div><div class="v2">Vietato all'interno, senza eccezioni.</div></div></div><div class="rule"><span class="rc">🎉</span><div class="t"><div class="v">Niente feste né serate</div><div class="v2">Un <b>rilevatore di decibel</b> (collegato a un allarme) e una <b>telecamera sul pianerottolo</b> garantiscono la tranquillità. Nessuna conversazione viene registrata.</div></div></div><div class="rule"><span class="rc">🌙</span><div class="t"><div class="v">Silenzio dopo le 22:00</div><div class="v2">Vi prego di rispettare i vicini — evitate rumori e frequenti andirivieni.</div></div></div><div class="rule"><span class="rc">🐾</span><div class="t"><div class="v">Animali non autorizzati</div><div class="v2">Per proteggere i viaggiatori allergici che verranno dopo di voi.</div></div></div><div class="rule"><span class="rc">🌡️</span><div class="t"><div class="v">Sensore di CO₂</div><div class="v2">Vi prego di non staccarlo né spostarlo: attiva un allarme se viene manomesso.</div></div></div><div class="rule"><span class="rc">👥</span><div class="t"><div class="v">Viaggiatori dichiarati</div><div class="v2">Solo le persone indicate nella prenotazione sono ammesse. Per aggiungerne, regolarizzate la prenotazione.</div></div></div></div>
 
       <div class="sub "><span class="em">⚙️</span>Come funziona</div>
-      <div class="how "><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 13.5a.9.9 0 100-1.8.9.9 0 000 1.8z" fill="#3A2A5E"/><path d="M5.8 10.3a4.5 4.5 0 016.4 0M3.5 8a7.5 7.5 0 0111 0" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Wifi</div><div class="v2">Rete « {{wifi_ssid}} » · password sulla pagina di accoglienza</div></div></div><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4" width="13" height="9" rx="1.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 16h4" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Televisione</div><div class="v2">Vedi i canali e le app</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p><b>Soggiorno</b> — TV collegata ai canali TNT francesi.</p><p><b>Camera</b> — Smart TV Samsung con Netflix, Molotov e myCanal (i vostri account). <b>AirPlay</b> (iPhone) e <b>Chromecast</b> (Android) disponibili.</p></div></details><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M4 7h8v3a3 3 0 01-3 3H7a3 3 0 01-3-3V7z" stroke="#3A2A5E" stroke-width="1.4"/><path d="M12 8h1.5a1.5 1.5 0 010 3H12" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Caffè</div><div class="v2">Macchina Nespresso + caffettiera</div></div></div><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="6.8" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="6.8" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/></svg></span><div class="t"><div class="v">Cucina</div><div class="v2">Vedi l'attrezzatura</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p><b>Piastre</b> di cottura e <b>lavastoviglie</b> (marca Ikea) — pastiglie fornite.</p><p>Nessuno scolapiatti : usate la lavastoviglie per l'asciugatura.</p></div></details><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="2.5" width="10" height="13" rx="1.4" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="10" r="3" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Lavatrice asciugatrice</div><div class="v2">Whirlpool · l'asciugatura si arresta da sola dopo ~1h30</div></div></div><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="2.2" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 2v3M9 13v3M4 4l2 2M12 12l2 2M2 9h3M13 9h3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Riscaldamento e climatizzazione</div><div class="v2">Come funziona</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p><b>Riscaldamento centralizzato</b> comune all'edificio. <b>Radiatori di emergenza</b> sono a disposizione per la mezza stagione.</p><p><b>Estate</b> — condizionatore mobile e ventilatori a disposizione ; abbassate le tapparelle durante le ore calde.</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3 11h12v3H3z" stroke="#3A2A5E" stroke-width="1.4"/><path d="M4 11V8a2 2 0 012-2h6a2 2 0 012 2v3" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Divano letto</div><div class="v2">Vedi le istruzioni</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>Il divano del soggiorno si apre in un letto aggiuntivo.</p><img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/canape-lit.png" alt="Divano letto"></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3.5 6.5h11l-1 8h-9l-1-8z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/><path d="M6.5 6.5V5a2.5 2.5 0 015 0v1.5" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Attrezzatura per bambini</div><div class="v2">Vedi</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>Lettino pieghevole e seggiolone disponibili. Il lettino pieghevole è nel <b>cassone del letto lato strada</b> (o talvolta dietro il divano).</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3.5 6.5h11l-1 8h-9l-1-8z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/><path d="M6.5 6.5V5a2.5 2.5 0 015 0v1.5" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Quello che vi forniamo</div><div class="v2">Vedi l'elenco</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p><b>Per iniziare</b> — capsule Nespresso e tè (prima notte), <b>2 rotoli</b> di carta igienica, pastiglie per lavastoviglie.</p><p>Gel doccia, shampoo, asciugacapelli e ferro da stiro forniti. L'acqua del rubinetto è potabile.</p></div></details></div>
+      <div class="how "><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 13.5a.9.9 0 100-1.8.9.9 0 000 1.8z" fill="#3A2A5E"/><path d="M5.8 10.3a4.5 4.5 0 016.4 0M3.5 8a7.5 7.5 0 0111 0" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Wifi</div><div class="v2">Rete « {{wifi_ssid}} » · password alla reception</div></div></div><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4" width="13" height="9" rx="1.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 16h4" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Televisione</div><div class="v2">Vedi i canali e le app</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p><b>Soggiorno</b> — TV collegata ai canali TNT francesi.</p><p><b>Camera</b> — Smart TV Samsung con Netflix, Molotov e myCanal (i vostri identificativi). <b>AirPlay</b> (iPhone) e <b>Chromecast</b> (Android) disponibili.</p></div></details><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M4 7h8v3a3 3 0 01-3 3H7a3 3 0 01-3-3V7z" stroke="#3A2A5E" stroke-width="1.4"/><path d="M12 8h1.5a1.5 1.5 0 010 3H12" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Caffè</div><div class="v2">Macchina Nespresso + caffettiera a filtro</div></div></div><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="6.8" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="6.8" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/></svg></span><div class="t"><div class="v">Cucina</div><div class="v2">Vedi l'equipaggiamento</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p><b>Piastre</b> di cottura e <b>lavastoviglie</b> (marca Ikea) — pastiglie fornite.</p><p>Niente scolapiatti: usate la lavastoviglie per l'asciugatura.</p></div></details><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="2.5" width="10" height="13" rx="1.4" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="10" r="3" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Lavatrice asciugatrice</div><div class="v2">Whirlpool · l'asciugatrice si ferma da sola dopo ~1h30</div></div></div><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="2.2" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 2v3M9 13v3M4 4l2 2M12 12l2 2M2 9h3M13 9h3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Riscaldamento e climatizzazione</div><div class="v2">Come funziona</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p><b>Riscaldamento centralizzato</b> comune all'edificio. Sono disponibili <b>radiatori supplementari</b> per le mezze stagioni.</p><p><b>Estate</b> — climatizzatore mobile e ventilatori a disposizione; abbassate le tapparelle nelle ore più calde.</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3 11h12v3H3z" stroke="#3A2A5E" stroke-width="1.4"/><path d="M4 11V8a2 2 0 012-2h6a2 2 0 012 2v3" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Divano letto</div><div class="v2">Vedi le istruzioni</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>Il divano del soggiorno si apre in un letto aggiuntivo.</p><img src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/canape-lit.png" alt="Divano letto"></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3.5 6.5h11l-1 8h-9l-1-8z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/><path d="M6.5 6.5V5a2.5 2.5 0 015 0v1.5" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Equipaggiamento per bambini</div><div class="v2">Vedi</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p>Lettino pieghevole e seggiolone disponibili. Il lettino pieghevole è nel <b>baule del letto lato strada</b> (o talvolta dietro il divano).</p></div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3.5 6.5h11l-1 8h-9l-1-8z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/><path d="M6.5 6.5V5a2.5 2.5 0 015 0v1.5" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">Quello che vi forniamo</div><div class="v2">Vedi l'elenco</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><p><b>Per iniziare</b> — capsule Nespresso e tè (prima notte), <b>2 rotoli</b> di carta igienica, pastiglie per la lavastoviglie.</p><p>Gel doccia, shampoo, asciugacapelli e ferro da stiro forniti. L'acqua del rubinetto è potabile.</p></div></details></div>
 
       <div class="sub"><span class="em">🧭</span>Spostarsi</div>
-      <details class="fold first"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2l6 3.5v7L9 16l-6-3.5v-7L9 2z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">Trasporti in città</span><span class="v2">Di fronte alla stazione Viotte · tram e autobus a 100 m</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body" style="padding-top:2px"><div class="tr"><span class="em">🚆</span><div class="t"><div class="v">Stazione Viotte</div><div class="v2">Proprio di fronte, a <b>150 m</b>. Una navetta raggiunge la <b>stazione TGV</b> in una decina di minuti.</div></div><span class="d">150 m</span></div><div class="tr"><span class="em">🚋</span><div class="t"><div class="v">Tram e autobus</div><div class="v2">Tram <b>T1 e T2</b> e autobus Ginko a <b>100 m</b> davanti alla stazione. Pagamento con carta a bordo, senza biglietto preliminare.</div></div><span class="d">100 m</span></div><div class="tr"><span class="em">🚕</span><div class="t"><div class="v">Taxi</div><div class="v2">Uber non serve Besançon. Taxi Radio al <b>03 81 88 80 80</b> per la stazione TGV o l'aerodromo di La Vèze.</div></div></div><div class="tr"><span class="em">🚲</span><div class="t"><div class="v">Bicicletta</div><div class="v2">Vélocité in libero servizio per i vostri spostamenti brevi, o noleggio giornaliero presso le agenzie locali.</div></div></div></div></details>
+      <details class="fold first"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2l6 3.5v7L9 16l-6-3.5v-7L9 2z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">Trasporti in città</span><span class="v2">Di fronte alla stazione Viotte · tram e autobus a 100 m</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body" style="padding-top:2px"><div class="tr"><span class="em">🚆</span><div class="t"><div class="v">Stazione Viotte</div><div class="v2">Proprio di fronte, a <b>150 m</b>. Una navetta raggiunge la <b>stazione TGV</b> in una decina di minuti.</div></div><span class="d">150 m</span></div><div class="tr"><span class="em">🚋</span><div class="t"><div class="v">Tram e autobus</div><div class="v2">Tram <b>T1 e T2</b> e autobus Ginko a <b>100 m</b> davanti alla stazione. Pagamento con carta a bordo, senza biglietto preliminare.</div></div><span class="d">100 m</span></div><div class="tr"><span class="em">🚕</span><div class="t"><div class="v">Taxi</div><div class="v2">Uber non serve Besançon. Taxi Radio al <b>03 81 88 80 80</b> per la stazione TGV o l'aerodromo di La Vèze.</div></div></div><div class="tr"><span class="em">🚲</span><div class="t"><div class="v">Bicicletta</div><div class="v2">Vélocité in libero servizio per i vostri spostamenti brevi, o noleggio giornaliero nelle agenzie locali.</div></div></div></div></details>
 
       <div class="sub" id="sec-depart"><span class="em">🧳</span>La partenza</div>
-      <div class="wide" style="margin-top:0"><div class="wide-btn"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 5.5v4l2.5 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Istruzioni per il check-out</span><span class="v2">Prima delle {{checkout_time}} · chiavi nella cassetta (ben chiusa), spazzatura fuori</span></span></div></div>
-      <div class="wide" style="margin-top:10px;margin-bottom:8px"><a class="wide-btn" href="https://www.nannybag.com/fr/consigne-bagage/besancon" target="_blank" rel="noopener" style="text-decoration:none"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="5.5" width="10" height="9" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 5.5v-1a1.5 1.5 0 011.5-1.5h1A1.5 1.5 0 0111 4.5v1M7.5 8.5v3M10.5 8.5v3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Bagagli dopo la partenza ?</span><span class="v2">Depositate i bagagli e godetevi Besançon fino al treno · da 4,90 €/giorno</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+      <div class="wide" style="margin-top:0"><div class="wide-btn"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 5.5v4l2.5 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Istruzioni per il check-out</span><span class="v2">Prima {{checkout_time}} · chiavi nella cassetta (ben chiusa), spazzatura portata fuori</span></span></div></div>
+      <div class="wide" style="margin-top:10px;margin-bottom:8px"><a class="wide-btn" href="https://www.nannybag.com/fr/consigne-bagage/besancon" target="_blank" rel="noopener" style="text-decoration:none"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="5.5" width="10" height="9" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 5.5v-1a1.5 1.5 0 011.5-1.5h1A1.5 1.5 0 0111 4.5v1M7.5 8.5v3M10.5 8.5v3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Bagagli dopo la partenza?</span><span class="v2">Lasciate i vostri bagagli e godetevi Besançon fino al treno · da 4,90 €/giorno</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
 
-      <div class="swipe {{checkout_swipe_hidden}}" data-url="{{checkout_confirm_url}}" data-done="Partenza segnalata ✓" data-thanks="Grazie, e a presto !">
+      <div class="swipe {{checkout_swipe_hidden}}" data-url="{{checkout_confirm_url}}" data-done="Partenza confermata ✓" data-thanks="Grazie, e a presto!">
         <div class="swipe-track">
           <div class="swipe-fill"></div>
-          <div class="swipe-label">Scorri per segnalare la vostra partenza</div>
+          <div class="swipe-label">Scorri per confermare la vostra partenza</div>
           <div class="swipe-thumb">
             <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </div>
-        <div class="swipe-hint">La pulizia può iniziare — ci aiuta molto.</div>
+        <div class="swipe-hint">Le pulizie possono iniziare — ci aiuta molto.</div>
       </div>
       <div style="height:16px"></div>
     </section>
 
-    <!-- ============= SCOPRIRE ============= -->
+    <!-- ============= DÉCOUVRIR ============= -->
     <section class="view" data-view="explore">
       <div class="phead"><h2>Scoprire</h2><p>I nostri indirizzi preferiti, a due passi.</p></div>
 
       <div class="sub "><span class="em">🍷</span>Dove mangiare</div>
-      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/REstaurant%20l%27affineur%20Comtois.jpeg')"></div><div class="rc"><span class="tag coeur">Nostro preferito</span><span class="n">L'Affineur Comtois</span><span class="desc">Specialità casearie comtesi — cancoillotte, fonduta, tartiflette. A 400 m, rue Battant. Scegliete il vostro vino dalla cantina.</span><a class="rl" href="https://www.restaurant-laffineurcomtois.fr/" target="_blank" rel="noopener">Vedi il sito →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/Samourai%20Shushi.png')"></div><div class="rc"><span class="tag proche">A due passi</span><span class="n">Samouraï Sushi</span><span class="desc">Sushi con vista sul parco, proprio accanto all'appartamento.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/Signorizza%20Pizza.png')"></div><div class="rc"><span class="tag proche">Di fronte alla stazione</span><span class="n">Signorizza</span><span class="desc">Grande pizzeria conviviale, di fronte alla stazione.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20saint%20Cerf.jpeg')"></div><div class="rc"><span class="tag gastronomique">Gastronomico</span><span class="n">Le Saint Cerf</span><span class="desc">Bistrot contemporaneo, prodotti di stagione e opzioni vegetariane. A 600 m. Tel. 03 81 50 10 20.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Bouillon%20du%20commerce.jpeg')"></div><div class="rc"><span class="tag spot">A 700 m</span><span class="n">Le Bouillon du Commerce</span><span class="desc">Splendida cornice Art Déco del 1850, cucina curata a prezzi accessibili. Prenotazione consigliata.</span><a class="rl" href="https://lebouillonducommerce.fr/" target="_blank" rel="noopener">Vedi il sito →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Loiseau%20du%20temps.jpeg')"></div><div class="rc"><span class="tag spot">A 500 m</span><span class="n">Loiseau du Temps</span><span class="desc">Territorio Borgogna-Franca Contea in un edificio storico, bella terrazza.</span><a class="rl" href="https://www.bernard-loiseau.com/fr/loiseaudutemps.html" target="_blank" rel="noopener">Vedi il sito →</a></div></div></div>
+      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/REstaurant%20l%27affineur%20Comtois.jpeg')"></div><div class="rc"><span class="tag coeur">Nostro preferito</span><span class="n">L'Affineur Comtois</span><span class="desc">Specialità casearie comtesi — cancoillotte, fonduta, tartiflette. A 400 m, rue Battant. Scegliete il vostro vino in cantina.</span><a class="rl" href="https://www.restaurant-laffineurcomtois.fr/" target="_blank" rel="noopener">Visita il sito →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/Samourai%20Shushi.png')"></div><div class="rc"><span class="tag proche">A due passi</span><span class="n">Samouraï Sushi</span><span class="desc">Sushi con vista sul parco, proprio accanto all'appartamento.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/Signorizza%20Pizza.png')"></div><div class="rc"><span class="tag proche">Di fronte alla stazione</span><span class="n">Signorizza</span><span class="desc">Grande pizzeria conviviale, di fronte alla stazione.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20le%20saint%20Cerf.jpeg')"></div><div class="rc"><span class="tag gastronomique">Gastronomico</span><span class="n">Le Saint Cerf</span><span class="desc">Bistrot contemporaneo, prodotti di stagione e opzioni vegetariane. A 600 m. Tel. 03 81 50 10 20.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Bouillon%20du%20commerce.jpeg')"></div><div class="rc"><span class="tag spot">A 700 m</span><span class="n">Le Bouillon du Commerce</span><span class="desc">Splendida cornice Art Déco del 1850, cucina raffinata a prezzi accessibili. Prenotazione consigliata.</span><a class="rl" href="https://lebouillonducommerce.fr/" target="_blank" rel="noopener">Visita il sito →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Restaurant%20Loiseau%20du%20temps.jpeg')"></div><div class="rc"><span class="tag spot">A 500 m</span><span class="n">Loiseau du Temps</span><span class="desc">Territorio Borgogna-Franca Contea in un edificio storico, bella terrazza.</span><a class="rl" href="https://www.bernard-loiseau.com/fr/loiseaudutemps.html" target="_blank" rel="noopener">Visita il sito →</a></div></div></div>
 
       <div class="sub "><span class="em">🏛️</span>Da visitare</div>
-      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20La%20citadelle%20Vauban.jpeg')"></div><div class="rc"><span class="tag patrimoine">Patrimonio UNESCO</span><span class="n">La Cittadella di Besançon</span><span class="desc">Capolavoro di Vauban patrimonio UNESCO : bastioni, panorama sulla città, zoo, acquario e musei.</span><a class="rl" href="https://www.citadelle.besancon.fr/" target="_blank" rel="noopener">Vedi il sito →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Le%20musee%20du%20temps.jpeg')"></div><div class="rc"><span class="tag patrimoine">A 600 m</span><span class="n">Il Museo del Tempo</span><span class="desc">Nel Palazzo Granvelle, racconta la storia orologiera di Besançon.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20L%27horloge%20astronomique.jpeg')"></div><div class="rc"><span class="tag patrimoine">A 1 km</span><span class="n">L'Orologio astronomico</span><span class="desc">Capolavoro dell'Ottocento nella cattedrale di San Giovanni (in restauro fino al 2030).</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Trousime%20-%20la%20maison%20victor%20Hugo.jpeg')"></div><div class="rc"><span class="tag patrimoine">A due passi</span><span class="n">La Casa di Victor Hugo</span><span class="desc">Casa natale di Victor Hugo, al 140 Grande Rue. Scenografia contemporanea e multimediale, visita emozionante.</span></div></div></div>
+      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20La%20citadelle%20Vauban.jpeg')"></div><div class="rc"><span class="tag patrimoine">Patrimonio UNESCO</span><span class="n">La Citadelle de Besançon</span><span class="desc">Capolavoro di Vauban classificato UNESCO: fortificazioni, panorama sulla città, zoo, acquario e musei.</span><a class="rl" href="https://www.citadelle.besancon.fr/" target="_blank" rel="noopener">Visita il sito →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20Le%20musee%20du%20temps.jpeg')"></div><div class="rc"><span class="tag patrimoine">A 600 m</span><span class="n">Le Musée du Temps</span><span class="desc">Nel Palazzo Granvelle, ripercorre la storia orologiera di Besançon.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Tourisme%20-%20L%27horloge%20astronomique.jpeg')"></div><div class="rc"><span class="tag patrimoine">A 1 km</span><span class="n">L'Horloge astronomique</span><span class="desc">Capolavoro dell'Ottocento nella cattedrale St-Jean (in restauro fino al 2030).</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lumineux/Trousime%20-%20la%20maison%20victor%20Hugo.jpeg')"></div><div class="rc"><span class="tag patrimoine">A due passi</span><span class="n">La Maison Victor Hugo</span><span class="desc">Casa natale di Victor Hugo, al 140 Grande Rue. Scenografia contemporanea e multimediale, visita emozionante.</span></div></div></div>
 
       <div class="sub "><span class="em">🛒</span>Negozi</div>
-      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/au%20pain%20d%27antant%20rue%20belfort.png')"></div><div class="rc"><span class="tag proche">Per la mattina</span><span class="n">Au Pain d'Antan</span><span class="desc">Panetteria-pasticceria, rue de Belfort.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/petit%20casino%20rue%20belfort.png')"></div><div class="rc"><span class="tag proche">Emergenza</span><span class="n">Petit Casino</span><span class="desc">Negozio di vicinato, rue de Belfort.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/relais%20de%20la%20gare.png')"></div><div class="rc"><span class="tag proche">Giornali e tabacchi</span><span class="n">Relais de la Gare</span><span class="desc">Giornali, tabacchi e emergenza, vicino alla stazione.</span></div></div></div>
+      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/au%20pain%20d%27antant%20rue%20belfort.png')"></div><div class="rc"><span class="tag proche">Per la mattina</span><span class="n">Au Pain d'Antan</span><span class="desc">Panetteria-pasticceria, rue de Belfort.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/petit%20casino%20rue%20belfort.png')"></div><div class="rc"><span class="tag proche">Emergenza</span><span class="n">Petit Casino</span><span class="desc">Alimentari di prossimità, rue de Belfort.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/bellevue/relais%20de%20la%20gare.png')"></div><div class="rc"><span class="tag proche">Giornali e tabacchi</span><span class="n">Relais de la Gare</span><span class="desc">Giornali, tabacchi e articoli di emergenza, vicino alla stazione.</span></div></div></div>
       <div style="height:16px"></div>
     </section>
 
@@ -627,20 +626,20 @@
     <div class="panel">
       <div class="grab"></div>
       <h3>Utilizzo di internet</h3>
-      <div class="lead">La connessione è messa a vostra disposizione per un uso <b>personale e legale</b>. Un rapido promemoria prima di connettervi.</div>
+      <div class="lead">La connessione è messa a vostra disposizione per un uso <b>personale e legale</b>. Un breve promemoria prima di connettervi.</div>
       <ul>
         <li><span class="b">⚖️</span><span>La legge francese vieta il <b>download o la condivisione di opere protette</b> (film, serie, musica, software) senza autorizzazione.</span></li>
         <li><span class="b">🚫</span><span>L'accesso a <b>contenuti illegali</b> è ovviamente vietato.</span></li>
         <li><span class="b">👤</span><span>Siete <b>responsabili dell'uso</b> che fate di questa connessione durante il vostro soggiorno.</span></li>
       </ul>
-      <div class="fine">La linea è a nome di U-citybreak : qualsiasi violazione riscontrata ci viene notificata e può essere trasmessa alle autorità. Grazie per la vostra comprensione.</div>
+      <div class="fine">La linea è intestata a U-citybreak: qualsiasi violazione rilevata ci viene notificata e può essere trasmessa alle autorità. Grazie per la vostra comprensione.</div>
       <label class="agree"><input type="checkbox" id="agreeChk"><span>Ho letto e accetto queste condizioni d'uso per la durata del mio soggiorno.</span></label>
-      <button class="ok" id="agreeBtn" onclick="acceptWifi()" disabled>Mostra la password</button>
+      <button class="ok" id="agreeBtn" onclick="acceptWifi()" disabled>Visualizza la password</button>
     </div>
   </div>
 
   <nav class="tabbar">
-    <button class="tab on" data-tab="home" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11l8-6 8 6v8a1 1 0 01-1 1h-4v-5h-6v5H5a1 1 0 01-1-1v-8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Accueil</span></button>
+    <button class="tab on" data-tab="home" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11l8-6 8 6v8a1 1 0 01-1 1h-4v-5h-6v5H5a1 1 0 01-1-1v-8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Home</span></button>
     <button class="tab" data-tab="access" onclick="go('access')"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="15" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M11 12l7-7M15.5 7.5l1.8 1.8M17.5 5.5l1.8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Accesso</span></button>
     <button class="tab" data-tab="stay" onclick="go('stay')"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7" stroke="currentColor" stroke-width="1.7"/></svg><span>Soggiorno</span></button>
     <button class="tab" data-tab="explore" onclick="go('explore')"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M15 9l-2 4-4 2 2-4 4-2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Scoprire</span></button>
@@ -649,16 +648,19 @@
  </div>
 </div>
 
+<script type="application/json" id="ucb-ui-txt">{"js_copied":"Copiato ✓","js_swipe_done_fallback":"Annotato ✓","js_swipe_thanks_fallback":"Grazie!","cd_day":"giorno","cd_days":"giorni","cd_h":"h","cd_min":"min","cd_sec":"sec"}</script>
 <script>
   var WIFI_CFG = { token: '{{livret_token}}', guest: '{{guest_first_name}}',
     accept_url: 'https://n8n-d2box-u73867.vm.elestio.app/webhook/charte-accept' };
+  var UI_TXT = {"js_copied": "Copié ✓", "js_swipe_done_fallback": "C'est noté ✓", "js_swipe_thanks_fallback": "Merci !", "cd_day": "jour", "cd_days": "jours", "cd_h": "h", "cd_min": "min", "cd_sec": "sec"};
+  try{var __uitx=document.getElementById('ucb-ui-txt');if(__uitx){UI_TXT=JSON.parse(__uitx.textContent);}}catch(e){}
 
   function go(v, anchor){
     document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('active',s.dataset.view===v);});
     document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.tab===v);});
     var sc=document.querySelector('.scroll'); if(!sc) return;
     if(!anchor){ sc.scrollTo(0,0); return; }
-    // la vista vien di passare in display:block → si aspetta il layout prima di misurare
+    // la vue vient de passer en display:block → on attend le layout avant de mesurer
     requestAnimationFrame(function(){
       var el=document.getElementById(anchor);
       if(!el){ sc.scrollTo(0,0); return; }
@@ -666,9 +668,9 @@
       sc.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     });
   }
-  // Wifi : la password è rivelata SOLO DOPO l'accettazione esplicita della carta.
-  // Casella di controllo (atto positivo) + traccia server con data/ora — senza la traccia, l'accettazione
-  // esiste solo nel browser e non prova nulla.
+  // Wifi : le mot de passe n'est révélé QU'APRÈS acceptation explicite de la charte.
+  // Case à cocher (acte positif) + trace serveur horodatée — sans la trace, l'acceptation
+  // n'existe que dans le navigateur et ne prouve rien.
   var wifiAccepted = false;
   function copyWifi(){
     if(!wifiAccepted){ document.getElementById('wifiSheet').classList.add('on'); return; }
@@ -680,7 +682,7 @@
     if(!chk || !chk.checked) return;
     wifiAccepted = true;
     closeSheet();
-    // traccia server (non bloccante : mai un ospite privato di wifi per un'interruzione di rete)
+    // trace serveur (non bloquant : jamais de voyageur privé de wifi sur une panne réseau)
     try {
       fetch(WIFI_CFG.accept_url, {
         method:'POST', headers:{'Content-Type':'application/json'},
@@ -693,7 +695,7 @@
     var h=document.getElementById('wifiHint'), pw=h.getAttribute('data-pw')||'';
     if(navigator.clipboard) navigator.clipboard.writeText(pw);
     var t=document.getElementById('wifiTile');
-    t.classList.add('copied'); h.textContent='Copiato \u2713';
+    t.classList.add('copied'); h.textContent=UI_TXT.js_copied;
     setTimeout(function(){t.classList.remove('copied'); h.textContent='🔑 '+pw;},1600);
   }
   (function(){
@@ -708,13 +710,13 @@
     var p=el.parentNode.querySelectorAll('.chip');
     p.forEach(function(c){c.classList.remove('sel');}); el.classList.add('sel');
   }
-  // lingua corrente
+  // langue courante
   (function(){
     var m=document.querySelector('.langmenu'); if(!m) return;
     var cur=m.getAttribute('data-cur');
     m.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('hreflang')===cur) a.setAttribute('aria-current','true'); });
   })();
-  // conto alla rovescia (stato bloccato)
+  // compte à rebours (état verrouillé)
   (function(){
     var cd=document.getElementById('cd'); if(!cd) return;
     var rev=parseInt(cd.getAttribute('data-reveal')||'0',10);
@@ -723,11 +725,11 @@
       if(!rev){cd.innerHTML='';return;}
       var r=Math.max(0,rev-Date.now())/1000;
       var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
-      cd.innerHTML=(j>0?c(j,j>1?'giorni':'giorno'):'')+c(('0'+h).slice(-2),'h')+c(('0'+mn).slice(-2),'min')+(j>0?'':c(('0'+sc).slice(-2),'sec'));
+      cd.innerHTML=(j>0?c(j,j>1?UI_TXT.cd_days:UI_TXT.cd_day):'')+c(('0'+h).slice(-2),UI_TXT.cd_h)+c(('0'+mn).slice(-2),UI_TXT.cd_min)+(j>0?'':c(('0'+sc).slice(-2),UI_TXT.cd_sec));
     }
     tick(); setInterval(tick,1000);
   })();
-  // swipe → avvisare l'host (arrivo E partenza : più istanze possibili)
+  // swipe → prévenir l'hôte (arrivée ET départ : plusieurs instances possibles)
   document.querySelectorAll('.swipe').forEach(function(box){
     var track=box.querySelector('.swipe-track'), thumb=box.querySelector('.swipe-thumb'),
         fill=box.querySelector('.swipe-fill'), label=box.querySelector('.swipe-label'),
@@ -737,8 +739,8 @@
     function setX(v){ x=Math.max(0,Math.min(max,v)); thumb.style.left=(5+x)+'px'; fill.style.width=(58+x)+'px'; }
     function finish(){
       done=true; box.classList.add('done');
-      if(label) label.textContent = box.getAttribute('data-done') || 'È notato \u2713';
-      if(hint) hint.textContent = box.getAttribute('data-thanks') || 'Grazie !';
+      if(label) label.textContent = box.getAttribute('data-done') || UI_TXT.js_swipe_done_fallback;
+      if(hint) hint.textContent = box.getAttribute('data-thanks') || UI_TXT.js_swipe_thanks_fallback;
       var url=box.getAttribute('data-url')||'';
       if(url && url!=='#'){ try{ window.open(url,'_blank','noopener'); }catch(e){} }
     }
