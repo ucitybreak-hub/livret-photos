@@ -1,4 +1,4 @@
-<!-- BUILT V3 bellevue-fr at 2026-08-07T15:44:28.662Z -->
+<!-- BUILT V3 bellevue-fr at 2026-08-07T16:24:34.343Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -648,9 +648,12 @@
  </div>
 </div>
 
+<script type="application/json" id="ucb-ui-txt">{"js_copied":"Copié ✓","js_swipe_done_fallback":"C'est noté ✓","js_swipe_thanks_fallback":"Merci !","cd_day":"jour","cd_days":"jours","cd_h":"h","cd_min":"min","cd_sec":"sec"}</script>
 <script>
   var WIFI_CFG = { token: '{{livret_token}}', guest: '{{guest_first_name}}',
     accept_url: 'https://n8n-d2box-u73867.vm.elestio.app/webhook/charte-accept' };
+  var UI_TXT = {"js_copied": "Copié ✓", "js_swipe_done_fallback": "C'est noté ✓", "js_swipe_thanks_fallback": "Merci !", "cd_day": "jour", "cd_days": "jours", "cd_h": "h", "cd_min": "min", "cd_sec": "sec"};
+  try{var __uitx=document.getElementById('ucb-ui-txt');if(__uitx){UI_TXT=JSON.parse(__uitx.textContent);}}catch(e){}
 
   function go(v, anchor){
     document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('active',s.dataset.view===v);});
@@ -692,7 +695,7 @@
     var h=document.getElementById('wifiHint'), pw=h.getAttribute('data-pw')||'';
     if(navigator.clipboard) navigator.clipboard.writeText(pw);
     var t=document.getElementById('wifiTile');
-    t.classList.add('copied'); h.textContent='Copié \u2713';
+    t.classList.add('copied'); h.textContent=UI_TXT.js_copied;
     setTimeout(function(){t.classList.remove('copied'); h.textContent='🔑 '+pw;},1600);
   }
   (function(){
@@ -722,7 +725,7 @@
       if(!rev){cd.innerHTML='';return;}
       var r=Math.max(0,rev-Date.now())/1000;
       var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
-      cd.innerHTML=(j>0?c(j,j>1?'jours':'jour'):'')+c(('0'+h).slice(-2),'h')+c(('0'+mn).slice(-2),'min')+(j>0?'':c(('0'+sc).slice(-2),'sec'));
+      cd.innerHTML=(j>0?c(j,j>1?UI_TXT.cd_days:UI_TXT.cd_day):'')+c(('0'+h).slice(-2),UI_TXT.cd_h)+c(('0'+mn).slice(-2),UI_TXT.cd_min)+(j>0?'':c(('0'+sc).slice(-2),UI_TXT.cd_sec));
     }
     tick(); setInterval(tick,1000);
   })();
@@ -736,8 +739,8 @@
     function setX(v){ x=Math.max(0,Math.min(max,v)); thumb.style.left=(5+x)+'px'; fill.style.width=(58+x)+'px'; }
     function finish(){
       done=true; box.classList.add('done');
-      if(label) label.textContent = box.getAttribute('data-done') || 'C\u2019est not\u00e9 \u2713';
-      if(hint) hint.textContent = box.getAttribute('data-thanks') || 'Merci !';
+      if(label) label.textContent = box.getAttribute('data-done') || UI_TXT.js_swipe_done_fallback;
+      if(hint) hint.textContent = box.getAttribute('data-thanks') || UI_TXT.js_swipe_thanks_fallback;
       var url=box.getAttribute('data-url')||'';
       if(url && url!=='#'){ try{ window.open(url,'_blank','noopener'); }catch(e){} }
     }
