@@ -3,7 +3,10 @@
   "property_uuid": "74ea4906-2e41-4831-bc83-8ebb5b4c6b12",
   "hero_photo_url": "https://assets.hospitable.com/property_images/2076400/IsANmPtSfGhFRaWJS5XCiaaBCHm5pFdH8UFSRblg.jpg",
   "videos": {
-    "tour": { "youtube_id": "1uFsFIGfblQ", "label": "La visite du logement" }
+    "tour": {
+      "youtube_id": "1uFsFIGfblQ",
+      "label": "La visite du logement"
+    }
   },
   "arrival": {
     "steps": [
@@ -55,7 +58,10 @@
     "url": "https://www.nannybag.com/fr/consigne-bagage/lyon/gare-part-dieu",
     "sub_arrival": "Consignes Nannybag à Part-Dieu · dès 4,50 €/jour",
     "sub_departure": "Déposez vos bagages et profitez de Lyon jusqu'au train · dès 4,50 €/jour",
-    "show_on": ["access", "departure"]
+    "show_on": [
+      "access",
+      "departure"
+    ]
   },
   "transport": {
     "summary": "Funiculaire, métro, bus — voir le détail",
@@ -88,48 +94,49 @@
     {
       "icon": "wifi",
       "title": "Wifi",
-      "sub": "Réseau « {{wifi_ssid}} » · mot de passe sur l'accueil"
+      "sub": "Réseau « {{wifi_ssid}} » · mot de passe sur l'accueil",
+      "body": "La box se situe au 44, dans le sas, à droite du lave linge"
     },
     {
       "icon": "tv",
       "title": "Télévision",
-      "sub": "Dans le salon"
+      "sub": "Dans le salon (chaine hertzienne)"
     },
     {
       "icon": "heat",
       "title": "Chauffage",
       "cta": "Voir comment ça marche",
-      "body": "<p>Les radiateurs se pilotent <b>depuis les thermostats muraux</b>.</p><p>Merci de <b>ne pas régler ni éteindre les radiateurs eux-mêmes</b> — tout se fait au mur.</p>"
+      "body": "Les radiateurs se pilotent <b>depuis les thermostats muraux</b>.Merci de <b>ne pas régler ni éteindre les radiateurs eux-mêmes</b> — tout se fait au mur."
     },
     {
       "icon": "stove",
       "title": "Cuisine",
       "cta": "Voir l'équipement",
-      "body": "<p>Cuisine complète avec <b>plaques de cuisson</b> et <b>lave-vaisselle</b>.</p><p>Notices des appareils : <b>howdens.fr</b>.</p>"
+      "body": "Cuisine complète avec <b>plaques de cuisson</b> et <b>lave-vaisselle</b>.Notices des appareils : <b>howdens.fr</b>."
     },
     {
       "icon": "coffee",
       "title": "Café",
       "cta": "Voir ce qui est fourni",
-      "body": "<p>Machine <b>Nespresso</b>, cafetière filtre et bouilloire dans la cuisine.</p>"
+      "body": "Machine <b>Nespresso</b>, cafetière filtre et bouilloire dans la cuisine."
     },
     {
       "icon": "wash",
       "title": "Lave-linge séchant",
       "cta": "Où le trouver",
-      "body": "<p>Le lave-linge séchant <b>Beko</b> est dans le <b>placard d'entrée</b>. Notice : beko.fr.</p><p>Pensez à réduire le volume au séchage : il sèche moins de linge qu'il n'en lave d'un coup.</p>"
+      "body": "Le lave-linge séchant <b>Beko</b> est dans le <b>placard d'entrée</b>. Notice : beko.fr.Pensez à réduire le volume au séchage : il sèche moins de linge qu'il n'en lave d'un coup."
     },
     {
       "icon": "sofa",
       "title": "Canapé-lit",
       "cta": "Voir le couchage",
-      "body": "<p>Le canapé du salon se transforme en <b>canapé-lit</b>.</p><p>Le linge est rangé dans les <b>petits meubles blancs sous l'assise</b>, face au canapé.</p>"
+      "body": "Le canapé du salon se transforme en <b>canapé-lit</b>.Le linge est rangé dans les <b>petits meubles blancs sous l'assise</b>, face au canapé."
     },
     {
       "icon": "supply",
       "title": "Ce qu'on vous fournit",
       "cta": "Voir la liste",
-      "body": "<p><b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette.</p><p><b>Pour tout le séjour</b> — draps et serviettes en coton (équivalent hôtel), sèche-cheveux. Le ménage est inclus.</p>"
+      "body": "<b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette.<b>Pour tout le séjour</b> — draps et serviettes en coton (équivalent hôtel), sèche-cheveux. Le ménage est inclus."
     }
   ],
   "house_rules": [
