@@ -29,7 +29,7 @@
     "text": "Juste à l'intérieur, la <b>boîte à clé</b> se trouve <b>à côté des boîtes aux lettres</b>. Composez le code pour l'ouvrir et récupérer les clés de l'appartement. <b>Pensez à bien la refermer</b> ensuite.",
     "carousel": [
      {
-      "photo": "panoramique/arrivee-2.png",
+      "photo": "panoramique/arrivee-2.jpg",
       "caption": "Les boîtes aux lettres, juste après la porte principale"
      },
      {
@@ -49,11 +49,11 @@
       "caption": "Passez le <b>badge noir</b> (fourni) sur le lecteur pour ouvrir la porte intérieure"
      },
      {
-      "photo": "panoramique/arrivee-5.png",
+      "photo": "panoramique/arrivee-5.jpg",
       "caption": "Suivez le <b>long couloir</b> jusqu'à la porte vitrée, puis montez l'escalier (il est ancien)"
      },
      {
-      "photo": "panoramique/arrivee-6.png",
+      "photo": "panoramique/arrivee-6.jpg",
       "caption": "Au <b>dernier étage, à droite</b> — cherchez le panonceau « Le Panoramique » sur la porte"
      }
     ],
@@ -83,7 +83,7 @@
   ],
   "photos": [
    {
-    "photo": "lumineux/Parking Battant.png",
+    "photo": "lumineux/Parking Battant.jpg",
     "title": "Parking « Battant »",
     "sub": " · gratuit, sous les remparts, à moins de 10 min à pied",
     "zoomable": true
@@ -296,7 +296,7 @@
   ],
   "shop": [
    {
-    "photo": "lumineux/Pharmacie Battant.png",
+    "photo": "lumineux/Pharmacie Battant.jpg",
     "tag": "Santé",
     "tag_class": "proche",
     "name": "Pharmacie de Saint-Claude",

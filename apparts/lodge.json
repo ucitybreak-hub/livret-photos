@@ -145,7 +145,7 @@
   "recos": {
     "food": [
       {
-        "photo": "canut/hotel-fourviere.png",
+        "photo": "canut/hotel-fourviere.jpg",
         "tag": "Coup de cœur",
         "tag_class": "coeur",
         "name": "Hôtel Fourvière",
@@ -184,7 +184,7 @@
         "url": "https://chezgrandmere.fr/"
       },
       {
-        "photo": "canut/la-petite-auberge.png",
+        "photo": "canut/la-petite-auberge.jpg",
         "tag": "Spot lyonnais",
         "tag_class": "spot",
         "name": "La Petite Auberge",
@@ -242,7 +242,7 @@
     ],
     "shop": [
       {
-        "photo": "canut/casino.png",
+        "photo": "canut/casino.jpg",
         "tag": "À 500 m",
         "tag_class": "proche",
         "name": "Le Petit Casino",

@@ -10,13 +10,13 @@
       {
         "title": "Trouver l'immeuble",
         "text": "Vous arrivez au <b>44 rue Roger Radisson</b>, sur la colline de Fourvière — à l'angle de la rue Pauline Marie Jaricot, face à l'Hôtel Fourvière. L'immeuble s'appelle « Le Clos de Fourvière ».",
-        "photo": "elegant/facade-batiment.png",
+        "photo": "elegant/facade-batiment.jpg",
         "photo_caption": "La façade de l'immeuble"
       },
       {
         "title": "Votre porte, au rez-de-chaussée",
         "text": "La <b>boîte à clé</b> se trouve juste à <b>gauche de la porte</b> de l'appartement.",
-        "photo": "elegant/porte-appartement.png",
+        "photo": "elegant/porte-appartement.jpg",
         "photo_caption": "La porte de l'appartement"
       },
       {
@@ -165,7 +165,7 @@
   "recos": {
     "food": [
       {
-        "photo": "canut/hotel-fourviere.png",
+        "photo": "canut/hotel-fourviere.jpg",
         "tag": "Coup de cœur",
         "tag_class": "coeur",
         "name": "Hôtel Fourvière",
@@ -204,7 +204,7 @@
         "url": "https://chezgrandmere.fr/"
       },
       {
-        "photo": "canut/la-petite-auberge.png",
+        "photo": "canut/la-petite-auberge.jpg",
         "tag": "Spot lyonnais",
         "tag_class": "spot",
         "name": "La Petite Auberge",
@@ -262,7 +262,7 @@
     ],
     "shop": [
       {
-        "photo": "canut/casino.png",
+        "photo": "canut/casino.jpg",
         "tag": "À 500 m",
         "tag_class": "proche",
         "name": "Le Petit Casino",

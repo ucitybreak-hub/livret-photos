@@ -181,7 +181,7 @@
   "recos": {
     "food": [
       {
-        "photo": "alcove/cafe-des-federations.png",
+        "photo": "alcove/cafe-des-federations.jpg",
         "tag": "À 50 m",
         "tag_class": "bouchon",
         "name": "Café des Fédérations",
@@ -196,7 +196,7 @@
         "url": "https://www.leondelyon.com/"
       },
       {
-        "photo": "alcove/Musee-de-l-opera.png",
+        "photo": "alcove/Musee-de-l-opera.jpg",
         "tag": "Rooftop",
         "tag_class": "spot",
         "name": "Les Muses de l'Opéra",
@@ -260,21 +260,21 @@
     ],
     "shop": [
       {
-        "photo": "alcove/Franprix.png",
+        "photo": "alcove/Franprix.jpg",
         "tag": "À 150 m",
         "tag_class": "proche",
         "name": "Franprix Marché Presqu'île",
         "desc": "Supermarché et produits frais, rue de la Plâtrière — à l'angle de l'immeuble."
       },
       {
-        "photo": "alcove/boulangerie.png",
+        "photo": "alcove/boulangerie.jpg",
         "tag": "Pour le matin",
         "tag_class": "proche",
         "name": "Boulangerie Pomponette",
         "desc": "La boulangerie la plus proche, à 100 m, rue du Plâtre. Pains, viennoiseries et sandwichs."
       },
       {
-        "photo": "alcove/carrefourmarket.png",
+        "photo": "alcove/carrefourmarket.jpg",
         "tag": "Courses",
         "tag_class": "proche",
         "name": "Carrefour",

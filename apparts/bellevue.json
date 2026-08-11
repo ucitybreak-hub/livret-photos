@@ -13,13 +13,13 @@
       {
         "title": "Trouver l'immeuble",
         "text": "Vous arrivez au <b>2 avenue Maréchal Foch</b>, dans le Parc des Glacis, <b>juste en face de la gare Viotte</b>. Repérez le <b>portail vert</b> avec le <b>numéro 2</b> sur le poteau.",
-        "photo": "bellevue/arrivee-1.png",
+        "photo": "bellevue/arrivee-1.jpg",
         "photo_caption": "Le portail vert, numéro 2 sur le poteau"
       },
       {
         "title": "Le portail",
         "text": "Ouvrez le <b>portail vert</b> avec le digicode.",
-        "photo": "bellevue/arrivee-2.png",
+        "photo": "bellevue/arrivee-2.jpg",
         "photo_caption": "Le portail vert et son digicode",
         "code": "digicode"
       },
@@ -38,7 +38,7 @@
       {
         "title": "La boîte à clé",
         "text": "La boîte à clé « <b>L. Bellevue</b> » est fixée au mur <b>à gauche de la porte</b>. Composez le code pour l'ouvrir et récupérer les clés. <b>Pensez à bien la refermer</b> en repartant. Bienvenue au Bellevue ✨",
-        "photo": "bellevue/lockbox.png",
+        "photo": "bellevue/lockbox.jpg",
         "photo_caption": "La boîte à clé « L. Bellevue », à gauche de la porte (1er étage)",
         "code": "algopin",
         "code_note": "Votre code · actif pendant votre séjour",
@@ -64,7 +64,7 @@
     ],
     "photos": [
       {
-        "photo": "lumineux/Parking Battant.png",
+        "photo": "lumineux/Parking Battant.jpg",
         "title": "Parking « Battant »",
         "sub": " · gratuit, à 200 m",
         "zoomable": true
@@ -146,7 +146,7 @@
       "title": "Canapé-lit",
       "cta": "Voir la notice",
       "body": "<p>Le canapé du salon se déplie en couchage d'appoint.</p>",
-      "photo": "bellevue/canape-lit.png"
+      "photo": "bellevue/canape-lit.jpg"
     },
     {
       "icon": "supply",
@@ -207,14 +207,14 @@
         "url": "https://www.restaurant-laffineurcomtois.fr/"
       },
       {
-        "photo": "bellevue/Samourai Shushi.png",
+        "photo": "bellevue/Samourai Shushi.jpg",
         "tag": "À deux pas",
         "tag_class": "proche",
         "name": "Samouraï Sushi",
         "desc": "Sushis avec vue sur le parc, juste à côté de l'appartement."
       },
       {
-        "photo": "bellevue/Signorizza Pizza.png",
+        "photo": "bellevue/Signorizza Pizza.jpg",
         "tag": "Face à la gare",
         "tag_class": "proche",
         "name": "Signorizza",
@@ -277,21 +277,21 @@
     ],
     "shop": [
       {
-        "photo": "bellevue/au pain d'antant rue belfort.png",
+        "photo": "bellevue/au pain d'antant rue belfort.jpg",
         "tag": "Pour le matin",
         "tag_class": "proche",
         "name": "Au Pain d'Antan",
         "desc": "Boulangerie-pâtisserie, rue de Belfort."
       },
       {
-        "photo": "bellevue/petit casino rue belfort.png",
+        "photo": "bellevue/petit casino rue belfort.jpg",
         "tag": "Dépannage",
         "tag_class": "proche",
         "name": "Petit Casino",
         "desc": "Épicerie de proximité, rue de Belfort."
       },
       {
-        "photo": "bellevue/relais de la gare.png",
+        "photo": "bellevue/relais de la gare.jpg",
         "tag": "Presse & tabac",
         "tag_class": "proche",
         "name": "Relais de la Gare",

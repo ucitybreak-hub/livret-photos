@@ -9,13 +9,13 @@
         "title": "Trouver l'immeuble",
         "text": "Vous arrivez au <b>10 rue de la Madeleine</b>, quartier Battant, près de l'église de la Madeleine. La <b>porte bleue</b> est au n°10, entre le magasin de pianos VonArx et le barbier.",
         "video": "arrival",
-        "photo": "lumineux/arrivee 1.png",
+        "photo": "lumineux/arrivee 1.jpg",
         "photo_caption": "Le quartier Battant, autour de l'immeuble"
       },
       {
         "title": "Le digicode de l'immeuble",
         "text": "Devant la porte bleue (n°10), composez le digicode.",
-        "photo": "lumineux/Arrivee 2 - Porte entree Batiment Lumineux.png",
+        "photo": "lumineux/Arrivee 2 - Porte entree Batiment Lumineux.jpg",
         "photo_caption": "La porte d'entrée, entre VonArx et le barbier",
         "code": "digicode"
       },
@@ -45,7 +45,7 @@
       {
         "title": "La boîte à clé",
         "text": "Posez la paume sur le clavier, tapez votre code puis le cadenas au centre. Tirez sur le côté pour récupérer la clé.",
-        "photo": "lumineux/boite a clee.png",
+        "photo": "lumineux/boite a clee.jpg",
         "photo_caption": "La boîte à clé Igloohome, à côté de la porte",
         "code": "algopin",
         "code_note": "Votre code · actif jusqu'à votre départ",
@@ -75,24 +75,24 @@
     ],
     "photos": [
       {
-        "photo": "lumineux/Carte des stationnements.png",
+        "photo": "lumineux/Carte des stationnements.jpg",
         "title": "Carte des parkings",
         "sub": "Toucher pour agrandir 🔍",
         "wide": true,
         "zoomable": true
       },
       {
-        "photo": "lumineux/Parking Robelin.png",
+        "photo": "lumineux/Parking Robelin.jpg",
         "title": "Robelin · gratuit",
         "sub": "5 min à pied"
       },
       {
-        "photo": "lumineux/Parking Battant.png",
+        "photo": "lumineux/Parking Battant.jpg",
         "title": "Battant · gratuit",
         "sub": "5 min à pied"
       },
       {
-        "photo": "lumineux/Parking Cusselier Beaux Arts.png",
+        "photo": "lumineux/Parking Cusselier Beaux Arts.jpg",
         "title": "Cusenier Beaux-Arts · payant",
         "sub": "7 min à pied",
         "wide": true
@@ -176,7 +176,7 @@
       "title": "Canapé-lit",
       "cta": "Voir le mode d'emploi",
       "body": "<p>Les draps sont dans le <b>meuble à droite de la TV</b>.</p><p>Dépliage : retirez les coussins, tirez la sangle sous l'assise puis dépliez le sommier.</p>",
-      "photo": "lumineux/Mode emploi canape lit.png"
+      "photo": "lumineux/Mode emploi canape lit.jpg"
     },
     {
       "icon": "wash",
@@ -329,7 +329,7 @@
         "desc": "Maison natale de l'écrivain, 140 Grande Rue. Scénographie contemporaine et émouvante."
       },
       {
-        "photo": "lumineux/Tourisme - Musee des maisons comtoises.png",
+        "photo": "lumineux/Tourisme - Musee des maisons comtoises.jpg",
         "tag": "À 8 km",
         "tag_class": "spot",
         "name": "Musée des maisons comtoises",
@@ -345,14 +345,14 @@
         "desc": "Juste à côté de l'immeuble — bio, frais, local."
       },
       {
-        "photo": "lumineux/Boulangerie Filet.png",
+        "photo": "lumineux/Boulangerie Filet.jpg",
         "tag": "Pour le matin",
         "tag_class": "proche",
         "name": "Boulangeries de Battant",
         "desc": "Plusieurs adresses dans le quartier : pains, viennoiseries, café à emporter."
       },
       {
-        "photo": "lumineux/Pharmacie Battant.png",
+        "photo": "lumineux/Pharmacie Battant.jpg",
         "tag": "À 3 min",
         "tag_class": "proche",
         "name": "Pharmacies de Battant",

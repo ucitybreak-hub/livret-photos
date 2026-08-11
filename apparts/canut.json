@@ -8,13 +8,13 @@
       {
         "title": "Trouver l'immeuble",
         "text": "Vous arrivez au <b>22 avenue Barthélémy Buyer</b>, sur la colline de Fourvière — en face de la rue St Fiacre, près de la place de Trion.",
-        "photo": "canut/facade-batiment.png",
+        "photo": "canut/facade-batiment.jpg",
         "photo_caption": "La façade de l'immeuble"
       },
       {
         "title": "Le digicode de l'immeuble",
         "text": "Composez le digicode sur la porte d'entrée.<br>⚠️ C'est une porte ancienne qui peut se dilater avec la chaleur : si elle ne s'ouvre pas, <b>tirez-la légèrement vers vous</b> pour réenclencher la gâchette.",
-        "photo": "canut/porte-immeuble.png",
+        "photo": "canut/porte-immeuble.jpg",
         "photo_caption": "La porte d'entrée de l'immeuble",
         "code": "digicode"
       },
@@ -224,7 +224,7 @@
         "url": "https://chezgrandmere.fr/"
       },
       {
-        "photo": "canut/hotel-fourviere.png",
+        "photo": "canut/hotel-fourviere.jpg",
         "tag": "À 550 m",
         "tag_class": "spot",
         "name": "Hôtel Fourvière",
@@ -240,14 +240,14 @@
         "url": "https://la-table-de-saint-just-lyon.fr/fr"
       },
       {
-        "photo": "canut/la-petite-auberge.png",
+        "photo": "canut/la-petite-auberge.jpg",
         "tag": "Spot lyonnais",
         "tag_class": "spot",
         "name": "La Petite Auberge",
         "desc": "Adresse conviviale à 700 m, place Eugène Wernert."
       },
       {
-        "photo": "canut/Hermosa-pizza.png",
+        "photo": "canut/Hermosa-pizza.jpg",
         "tag": "À emporter",
         "tag_class": "spot",
         "name": "Hermosa Pizza",
@@ -304,7 +304,7 @@
     ],
     "shop": [
       {
-        "photo": "canut/casino.png",
+        "photo": "canut/casino.jpg",
         "tag": "À deux pas",
         "tag_class": "proche",
         "name": "Le Petit Casino",
@@ -318,7 +318,7 @@
         "desc": "Pains et viennoiseries à 200 m, rue de la Favorite."
       },
       {
-        "photo": "canut/grain-de-sucre.png",
+        "photo": "canut/grain-de-sucre.jpg",
         "tag": "Gourmandise",
         "tag_class": "proche",
         "name": "Grains de Sucres",
