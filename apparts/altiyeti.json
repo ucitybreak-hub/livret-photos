@@ -2,10 +2,21 @@
   "amenities": [],
   "arrival": {
     "keybox_help": {
-      "checks": [],
-      "title": ""
+      "checks": [
+        "Vérifiez que le cache de la boîte est bien relevé",
+        "Appuyez fermement sur chaque chiffre du code",
+        "Tirez le loquet vers le bas une fois le code composé"
+      ],
+      "title": "Difficultés à ouvrir la boîte à clé ?"
     },
-    "steps": []
+    "steps": [
+      {
+        "code": "algopin",
+        "code_note": "Code valable pendant toute la durée de votre séjour",
+        "text": "La boîte à clé se trouve à côté de la porte d'entrée. Composez le code ci-dessous pour récupérer les clés.",
+        "title": "Ouvrez la boîte à clé"
+      }
+    ]
   },
   "checkout_line": "",
   "hero_photo_url": "",
@@ -27,5 +38,7 @@
     "lines": [],
     "summary": ""
   },
-  "videos": {}
+  "videos": {
+    "keybox": null
+  }
 }
