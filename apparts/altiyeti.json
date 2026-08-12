@@ -1,0 +1,31 @@
+{
+  "amenities": [],
+  "arrival": {
+    "keybox_help": {
+      "checks": [],
+      "title": ""
+    },
+    "steps": []
+  },
+  "checkout_line": "",
+  "hero_photo_url": "",
+  "house_rules": [],
+  "luggage": {},
+  "parking": {
+    "photos": [],
+    "summary": "",
+    "text": []
+  },
+  "property_uuid": "",
+  "recos": {
+    "food": [],
+    "shop": [],
+    "visit": []
+  },
+  "slug": "altiyeti",
+  "transport": {
+    "lines": [],
+    "summary": ""
+  },
+  "videos": {}
+}
