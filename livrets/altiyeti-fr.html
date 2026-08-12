@@ -1,0 +1,759 @@
+<!-- BUILT V3 altiyeti-fr at 2026-08-12T15:10:24.532Z -->
+<!DOCTYPE html>
+<html lang="{{lang_code}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#FBFAF8">
+<title>{{property_name}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFAF8;--surface:#FFFFFF;--ink:#26242B;--ink-2:#63616B;--ink-3:#A6A4AE;
+    --line:#EDEBE7;--line-2:#F4F2EE;
+    --accent:#3A2A5E;--accent-soft:#F2EFF7;
+    --green:#00875F;--green-soft:#E7F5EF;
+    --shadow:0 1px 2px rgba(38,36,43,.04),0 6px 20px -8px rgba(38,36,43,.09);
+    --shadow-sm:0 1px 2px rgba(38,36,43,.05);
+    --font:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--font);color:var(--ink);background:#e9e7e2;-webkit-font-smoothing:antialiased;display:flex;justify-content:center}
+  .phone{width:100%;max-width:420px;min-height:100vh;background:var(--bg);position:relative;overflow:hidden;box-shadow:0 30px 80px -24px rgba(0,0,0,.3)}
+  .scroll{height:100vh;overflow-y:auto;padding-bottom:96px;-webkit-overflow-scrolling:touch}
+  .view{display:none}
+  .view.active{display:block}
+  .is-hidden{display:none!important}
+
+  /* HERO */
+  .hero{padding:12px 12px 0;position:relative;z-index:5}
+  .hero .frame{border-radius:22px;overflow:hidden;position:relative;height:270px}
+  .hero .img{position:absolute;inset:0;background:center/cover no-repeat}
+  .langbox{position:absolute;top:26px;right:26px;z-index:20}
+  .langbox summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px;
+    font-size:13px;font-weight:600;color:var(--ink);box-shadow:var(--shadow-sm)}
+  .langbox summary::-webkit-details-marker{display:none}
+  .langbox .flag{font-size:15px;line-height:1}
+  .langbox summary .code{letter-spacing:.02em}
+  .langmenu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:6px;min-width:180px;max-height:min(60vh,340px);overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:30}
+  .langmenu a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;font-size:14px;color:var(--ink);text-decoration:none}
+  .langmenu a[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+
+  .titleblock{padding:20px 20px 4px}
+  .titleblock h1{font-size:33px;font-weight:700;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+  .titleblock .addr{display:flex;align-items:center;gap:7px;margin-top:11px;font-size:14px;color:var(--ink-2);text-decoration:none}
+  .titleblock .addr svg{flex-shrink:0;opacity:.7}
+
+  /* STATUT */
+  .status{margin:18px 16px 0;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+  .status .badge{width:34px;height:34px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .status .txt .l{font-size:15px;font-weight:600;line-height:1.2}
+  .status .txt .s{font-size:13px;color:var(--ink-2);margin-top:1px}
+
+  /* DATES */
+  .dates{margin:12px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-sm)}
+  .dates .band{display:flex;align-items:flex-start}
+  .dates .d{flex:1}.dates .d.r{text-align:right}
+  .dates .d .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;font-weight:600}
+  .dates .d .day{font-size:19px;font-weight:700;letter-spacing:-.01em}
+  .dates .d .time{font-size:14px;color:var(--ink-2);margin-top:2px}
+  .dates .mid{padding:0 12px;display:flex;align-items:center;align-self:center}
+  .dates .mid .nights{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .dates .foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-2);font-size:13px;color:var(--ink-2);text-align:center}
+  .dates .foot b{color:var(--ink);font-weight:600}
+
+  /* ACCÈS (carte accueil → pointe vers l'onglet Accès) */
+  .access{display:block;width:auto;text-align:left;font-family:var(--font);color:var(--ink);
+    margin:12px 16px 0;border-radius:18px;padding:18px 20px;transition:.2s;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm);cursor:pointer}
+  .access:active{transform:scale(.99)}
+  .access .top{display:flex;align-items:center;gap:11px}
+  .access .kic{width:36px;height:36px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s}
+  .access .kic svg{width:18px;height:18px}
+  .access .top .tt{flex:1}
+  .access .top .tt .l{font-size:15px;font-weight:600;line-height:1.2}
+  .access .top .tt .s{font-size:13px;color:var(--ink-2);margin-top:2px}
+  .access .chev{color:var(--ink-3);flex-shrink:0;transition:.2s}
+  .access .calm-note{display:none;margin-top:13px;font-size:13px;color:var(--ink-2);line-height:1.5;background:var(--bg);border-radius:12px;padding:12px 14px}
+  .app.is-locked .access .calm-note{display:block}
+  .app.is-locked .access .chev{opacity:.5}
+  .app.is-open .access{background:var(--green-soft);border-color:rgba(0,135,95,.22)}
+  .app.is-open .access .kic{background:#fff}
+  .app.is-open .access .kic svg path,.app.is-open .access .kic svg circle{stroke:var(--green)}
+  .app.is-open .access .top .tt .l{color:var(--green)}
+  .app.is-open .access .chev{color:var(--green)}
+
+  /* BENTO */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 16px 0}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:left;cursor:pointer;transition:.15s;font-family:var(--font);color:var(--ink);box-shadow:var(--shadow-sm)}
+  .tile:active{transform:scale(.98)}
+  .tile .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;margin-bottom:11px}
+  .tile .ic svg{width:17px;height:17px}
+  .tile .k{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:3px}
+  .tile .v{display:block;font-size:15px;font-weight:600;line-height:1.2;overflow-wrap:anywhere}
+  .tile .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:3px}
+  .tile.copied .v2{color:var(--green)}
+
+  .wide{margin:12px 16px 0}
+  .wide-btn{width:100%;display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px 16px;cursor:pointer;font-family:var(--font);color:var(--ink);transition:.15s;box-shadow:var(--shadow-sm);text-align:left}
+  .wide-btn:active{transform:scale(.99)}
+  .wide-btn .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .wide-btn .ic svg{width:17px;height:17px}
+  .wide-btn .b{flex:1}
+  .wide-btn .b .v{display:block;font-size:15px;font-weight:600;line-height:1.25}
+  .wide-btn .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .wide-btn .chev{color:var(--ink-3)}
+
+  /* PAGES */
+  .phead{padding:28px 20px 6px}
+  .phead h2{font-size:28px;font-weight:700;letter-spacing:-.025em;line-height:1.05}
+  .phead p{font-size:14px;color:var(--ink-2);margin-top:8px}
+  .sub{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin:24px 20px 12px;display:flex;align-items:center;gap:8px}
+  .sub .em{font-size:15px}
+
+  /* PARCOURS */
+  .steps{padding:0 20px}
+  .step{display:flex;gap:15px;padding-bottom:20px;position:relative}
+  .step .n{width:29px;height:29px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:2}
+  .step::before{content:"";position:absolute;left:19px;top:29px;bottom:0;width:1.5px;background:var(--line)}
+  .step:last-child::before{display:none}
+  .step .h{font-size:15px;font-weight:600;margin-bottom:3px}
+  .step .d{font-size:13px;color:var(--ink-2);line-height:1.5}
+  .step .kb{display:inline-block;font-weight:700;letter-spacing:.12em;background:var(--accent-soft);color:var(--accent);padding:4px 12px;border-radius:8px;margin-top:8px;transition:.3s}
+  .step .kb .kb-code{display:none}
+  .app.is-open .step .kb{background:var(--green-soft);color:var(--green);font-size:19px;letter-spacing:.14em;padding:8px 16px}
+  .app.is-open .step .kb .kb-dots{display:none}
+  .app.is-open .step .kb .kb-code{display:inline}
+  .step .kb-note{display:none;font-size:12px;color:var(--ink-2);margin-top:8px;line-height:1.4}
+  .app.is-open .step .kb-note{display:block}
+  /* Encart « le code ne fonctionne pas ? » — erreur d'étage (keybox voisine) */
+  .stp-warn{margin-top:12px;background:#FFF8EC;border:1px solid #F2DFB8;border-radius:12px;padding:12px 13px}
+  .stp-warn .wt{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#8A5B12;margin-bottom:5px}
+  .stp-warn .wb{font-size:12.5px;color:#7A6647;line-height:1.5}
+  .stp-warn .wb b{color:#5C4A2E}
+  /* photos parcours */
+  .stp-img{width:100%;max-width:300px;border-radius:12px;margin-top:10px;display:block;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+  .stp-cap{font-size:11.5px;color:var(--ink-3);font-style:italic;margin-top:4px}
+  .stp-seq{display:flex;gap:8px;overflow-x:auto;padding:8px 0 4px;margin-top:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .stp-seq::-webkit-scrollbar{display:none}
+  .stp-frame{flex:0 0 74%;max-width:230px;scroll-snap-align:start;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface);position:relative}
+  .stp-frame img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .stp-frame .fn{position:absolute;top:7px;left:7px;width:20px;height:20px;border-radius:50%;background:rgba(38,36,43,.8);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .stp-frame .fc{padding:7px 9px;font-size:11px;color:var(--ink-2);line-height:1.35}
+  .stp-frame .fc b{color:var(--ink)}
+
+  /* ACCÈS — état verrouillé (avant révélation) */
+  .acc-hero{margin:20px 16px 0;border-radius:18px;padding:22px 20px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.12);text-align:center}
+  .acc-hero .lk{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .acc-hero .dots{font-size:30px;letter-spacing:6px;color:var(--accent);opacity:.5;margin:14px 0 8px;animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.75}}
+  .acc-hero .when{font-size:13px;color:var(--ink-2);line-height:1.5}
+  .acc-hero .when b{color:var(--ink);font-weight:600}
+  .cd{display:flex;justify-content:center;gap:8px;margin-top:16px}
+  .cd .c{background:#fff;border-radius:11px;padding:8px 12px;min-width:52px}
+  .cd .c b{display:block;font-size:19px;font-weight:700;color:var(--accent);line-height:1.1}
+  .cd .c span{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+  .app.is-open .acc-lock{display:none}
+  .app.is-locked .acc-open{display:none}
+
+  /* SWIPE — prévenir l'hôte */
+  .swipe{margin:24px 16px 6px}
+  .swipe-track{position:relative;height:58px;border-radius:16px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.14);overflow:hidden;user-select:none;touch-action:none}
+  .swipe-fill{position:absolute;top:0;left:0;bottom:0;width:58px;background:var(--green-soft)}
+  .swipe-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--accent);pointer-events:none;padding-left:30px}
+  .swipe-thumb{position:absolute;top:5px;left:5px;width:48px;height:48px;border-radius:12px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;cursor:grab;box-shadow:var(--shadow-sm);touch-action:none;z-index:2}
+  .swipe-thumb:active{cursor:grabbing}
+  .swipe-thumb svg{width:22px;height:22px}
+  .swipe.done .swipe-track{background:var(--green-soft);border-color:rgba(0,135,95,.3)}
+  .swipe.done .swipe-fill{width:100%}
+  .swipe.done .swipe-thumb{background:var(--green);left:auto;right:5px;cursor:default}
+  .swipe.done .swipe-label{color:var(--green);padding:0}
+  .swipe-hint{font-size:12px;color:var(--ink-3);text-align:center;margin-top:9px}
+
+  .how{margin:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 16px;box-shadow:var(--shadow-sm)}
+  .howrow{display:flex;align-items:center;gap:13px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+  .howrow:last-child{border-bottom:0}
+  .howrow .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .howrow .ic svg{width:17px;height:17px}
+  .howrow .t .v{font-size:14px;font-weight:600}
+  .howrow .t .v2{font-size:13px;color:var(--ink-2);margin-top:1px}
+
+  .rules{margin:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 16px;box-shadow:var(--shadow-sm)}
+  .rule{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line-2)}
+  .rule:last-child{border-bottom:0}
+  .rule .rc{width:28px;height:28px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+  .rule .t{padding-top:3px}
+  .rule .t .v{font-size:14px;font-weight:600;line-height:1.2}
+  .rule .t .v2{font-size:12px;color:var(--ink-2);margin-top:2px;line-height:1.4}
+  .sec-intro{font-size:13px;color:var(--ink-2);margin:-4px 20px 14px;line-height:1.5}
+
+  /* VISITE repliée (preuve, pas découverte) */
+  .revoir{margin:8px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+  .revoir summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
+  .revoir summary::-webkit-details-marker{display:none}
+  .revoir summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .revoir summary .ic svg{width:17px;height:17px}
+  .revoir summary .b{flex:1}
+  .revoir summary .b .v{display:block;font-size:15px;font-weight:600}
+  .revoir summary .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .revoir summary .chev{color:var(--ink-3);transition:.2s}
+  .revoir[open] summary .chev{transform:rotate(90deg)}
+  .revoir .note{font-size:12.5px;color:var(--ink-2);padding:2px 16px 10px;line-height:1.5}
+  .revoir .tour{padding:0 12px 14px}
+
+  .tour{display:flex;gap:12px;overflow-x:auto;padding:0 16px 4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tour::-webkit-scrollbar{display:none}
+  .tour-item{flex:0 0 80%;scroll-snap-align:start}
+  .tour-item .ph{height:210px;border-radius:16px;background:var(--accent-soft) center/cover no-repeat;box-shadow:var(--shadow-sm)}
+  .tour-item .cap{font-size:14px;font-weight:600;margin-top:10px}
+  .tour-item .cd2{font-size:12px;color:var(--ink-2);margin-top:1px}
+
+  .upsell{margin:16px 16px 8px;border-radius:18px;padding:18px 20px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.1)}
+  .upsell h3{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--accent)}
+  .upsell p{font-size:13px;color:var(--ink-2);margin:5px 0 15px}
+  .chips{display:flex;gap:9px}
+  .chip{flex:1;background:#fff;border:1.5px solid var(--line);border-radius:13px;padding:11px 0;cursor:pointer;transition:.15s;text-align:center;font-family:var(--font);color:var(--ink)}
+  .chip .h{font-size:16px;font-weight:700}
+  .chip .p{font-size:12px;color:var(--ink-2);margin-top:2px}
+  .chip.sel{background:var(--accent);border-color:var(--accent);color:#fff}
+  .chip.sel .p{color:rgba(255,255,255,.82)}
+  .chip:active{transform:scale(.96)}
+
+  .reco{display:flex;gap:14px;margin:0 16px 12px;padding:11px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm)}
+  .reco .th{width:64px;height:64px;border-radius:12px;background:var(--accent-soft) center/cover;flex-shrink:0}
+  .reco .rc{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+  .reco .tag{align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:7px;margin-bottom:6px}
+  .tag.coeur{background:#FCE9EE;color:#C13A63}
+  .tag.bouchon{background:#FBF0DB;color:#9A6C0C}
+  .tag.spot{background:var(--green-soft);color:var(--green)}
+  .tag.patrimoine{background:#FBF0DB;color:#9A6C0C}
+  .tag.incontournable,.tag.gastronomique{background:#F2EBFA;color:#6B39B5}
+  .tag.budget,.tag.proche{background:var(--green-soft);color:var(--green)}
+  .reco .n{font-size:15px;font-weight:600;line-height:1.2}
+  .reco .desc{font-size:12px;color:var(--ink-2);margin-top:3px;line-height:1.35}
+  .reco .rl{display:inline-block;margin-top:6px;font-size:12px;font-weight:600;color:var(--accent);text-decoration:none}
+
+  .tabbar{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;padding:8px 6px calc(10px + env(safe-area-inset-bottom))}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;background:0;border:0;padding:6px 0;cursor:pointer;color:var(--ink-3);font-family:var(--font);transition:.15s}
+  .tab svg{width:22px;height:22px}
+  .tab span{font-size:11px;font-weight:600}
+  .tab.on{color:var(--accent)}
+  /* pastille verte sur l'onglet Accès quand le code est dispo */
+  .tab .dot{position:absolute;top:4px;margin-left:16px;width:7px;height:7px;border-radius:50%;background:var(--green);display:none}
+  .app.is-open .tab[data-tab="access"] .dot{display:block}
+
+  .tile .v2{overflow-wrap:anywhere}
+
+  /* BANDEAU FICHE DE POLICE — formalité légale (R.611-42) */
+  .pol{display:block;margin:12px 16px 0;border-radius:16px;padding:13px 16px;text-decoration:none;
+    border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm);transition:.2s}
+  .pol:active{transform:scale(.99)}
+  .pol .top{display:flex;align-items:center;gap:11px}
+  .pol .ic{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+  .pol .tt{flex:1}
+  .pol .tt .l{font-size:14px;font-weight:600;line-height:1.3;color:var(--ink)}
+  .pol .tt .s{font-size:12px;color:var(--ink-2);margin-top:2px;line-height:1.4}
+  .pol .chev{color:var(--ink-3);flex-shrink:0}
+  /* ferme : étranger identifié → obligation légale */
+  .pol.req{background:#FFF8EC;border-color:#F2E2C4}
+  .pol.req .ic{background:#FBEEDA}
+  /* doux : nationalité inconnue → auto-déclaration */
+  .pol.maybe .ic{background:var(--accent-soft)}
+
+
+  /* VARIANTE DUO — Accès + Fiche police côte à côte */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 16px 0}
+  .duo .dt{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px;
+    text-align:left;font-family:var(--font);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);
+    text-decoration:none;display:flex;flex-direction:column;transition:.2s}
+  .duo .dt:active{transform:scale(.98)}
+  .duo .dt .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;
+    align-items:center;justify-content:center;margin-bottom:11px;font-size:16px}
+  .duo .dt .ic svg{width:17px;height:17px}
+  .duo .dt .l{font-size:14.5px;font-weight:600;line-height:1.25}
+  .duo .dt .s{font-size:12px;color:var(--ink-2);margin-top:4px;line-height:1.4}
+  .app.is-open .duo .dt.acc{background:var(--green-soft);border-color:rgba(0,135,95,.22)}
+  .app.is-open .duo .dt.acc .ic{background:#fff}
+  .app.is-open .duo .dt.acc .ic svg path,.app.is-open .duo .dt.acc .ic svg circle{stroke:var(--green)}
+  .app.is-open .duo .dt.acc .l{color:var(--green)}
+  .duo .dt.pol2{background:#FFF8EC;border-color:#F2E2C4}
+  .duo .dt.pol2 .ic{background:#FBEEDA}
+  /* nationalité inconnue → ton neutre, le texte fait le tri */
+  .duo .dt.pol2.soft{background:var(--surface);border-color:var(--line)}
+  .duo .dt.pol2.soft .ic{background:var(--accent-soft)}
+
+  /* CHARTE INTERNET — affichée au moment de copier le wifi (sensibilisation Arcom) */
+  .sheet{position:fixed;inset:0;z-index:200;display:none}
+  .sheet.on{display:block}
+  .sheet .veil{position:absolute;inset:0;background:rgba(38,36,43,.45);backdrop-filter:blur(2px)}
+  .sheet .panel{position:absolute;left:0;right:0;bottom:0;background:var(--surface);
+    border-radius:22px 22px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom));
+    max-width:420px;margin:0 auto;box-shadow:0 -8px 40px -12px rgba(0,0,0,.35);
+    animation:up .28s cubic-bezier(.22,1,.36,1)}
+  @keyframes up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .sheet .grab{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 16px}
+  .sheet h3{font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .sheet .lead{font-size:13px;color:var(--ink-2);line-height:1.55;margin-bottom:14px}
+  .sheet ul{list-style:none;margin-bottom:14px}
+  .sheet li{display:flex;gap:9px;align-items:flex-start;padding:7px 0;font-size:13px;color:var(--ink-2);line-height:1.5}
+  .sheet li .b{flex-shrink:0;margin-top:1px}
+  .sheet li b{color:var(--ink);font-weight:600}
+  .sheet .fine{font-size:11.5px;color:var(--ink-3);line-height:1.5;background:var(--bg);border-radius:11px;padding:11px 13px;margin-bottom:16px}
+  .sheet .agree{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px;cursor:pointer}
+  .sheet .agree input{margin-top:1px;width:19px;height:19px;accent-color:var(--accent);flex-shrink:0;cursor:pointer}
+  .sheet .agree span{font-size:13px;color:var(--ink);line-height:1.5;font-weight:500}
+  .sheet .ok:disabled{opacity:.4;cursor:not-allowed}
+  .sheet .ok{width:100%;font-family:var(--font);font-size:15px;font-weight:600;color:#fff;background:var(--accent);
+    border:0;border-radius:14px;padding:15px;cursor:pointer}
+  .sheet .ok:active{transform:scale(.99)}
+
+  /* CARTE DÉPART — apparaît à max(checkout-18h, checkin+6h) */
+  .depart{display:block;width:auto;text-align:left;font-family:var(--font);color:var(--ink);
+    margin:12px 16px 0;border-radius:18px;padding:16px 20px;border:1px solid var(--line);
+    background:var(--surface);box-shadow:var(--shadow-sm);cursor:pointer;transition:.2s}
+  .depart:active{transform:scale(.99)}
+  .depart .top{display:flex;align-items:center;gap:11px}
+  .depart .kic{width:36px;height:36px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .depart .kic svg{width:18px;height:18px}
+  .depart .top .tt{flex:1}
+  .depart .top .tt .l{font-size:15px;font-weight:600;line-height:1.2}
+  .depart .top .tt .s{font-size:13px;color:var(--ink-2);margin-top:2px}
+  .depart .chev{color:var(--ink-3);flex-shrink:0}
+
+  /* CARTE VIDÉO (clic-pour-lire, aucun chargement YouTube avant le tap) */
+  .vidcard{margin:0 16px 12px;border-radius:16px;overflow:hidden;position:relative;background:#0c0b0f;cursor:pointer;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+  .vidcard .poster{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;opacity:.9}
+  .vidcard .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+  .vidcard .play span{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+  .vidcard .play svg{width:22px;height:22px;margin-left:3px;color:var(--accent)}
+  .vidcard .vlabel{position:absolute;left:11px;bottom:11px;background:rgba(0,0,0,.58);backdrop-filter:blur(4px);color:#fff;font-size:12px;font-weight:600;padding:5px 11px;border-radius:8px}
+  .vidcard iframe{width:100%;aspect-ratio:16/9;display:block;border:0}
+  .revoir .vidcard{margin:0 12px 10px}
+  .step .vidcard{margin:10px 0 0}
+
+  /* COMMENT ÇA MARCHE — lignes dépliables */
+  .how details.hx{border-bottom:1px solid var(--line-2)}
+  .how details.hx:last-child{border-bottom:0}
+  .hx summary{list-style:none;display:flex;align-items:center;gap:13px;padding:14px 0;cursor:pointer}
+  .hx summary::-webkit-details-marker{display:none}
+  .hx summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .hx summary .ic svg{width:17px;height:17px}
+  .hx summary .t{flex:1}
+  .hx summary .t .v{font-size:14px;font-weight:600}
+  .hx summary .t .v2{font-size:13px;color:var(--ink-2);margin-top:1px}
+  .hx summary .chev{color:var(--ink-3);transition:.2s;flex-shrink:0}
+  .hx[open] summary .chev{transform:rotate(90deg)}
+  .hx-body{padding:2px 0 15px 47px;font-size:13px;color:var(--ink-2);line-height:1.55}
+  .hx-body p{margin-bottom:8px}
+  .hx-body p:last-child{margin-bottom:0}
+  .hx-body b{color:var(--ink);font-weight:600}
+  .hx-body img{width:100%;max-width:260px;border-radius:12px;margin-top:6px;border:1px solid var(--line)}
+  .hx-body .vidcard{margin:8px 0 0}
+
+  /* « Une question ? » — accordéon contact channel-aware */
+  .qa{margin:12px 16px 8px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+  .qa summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .qa summary .ic svg{width:17px;height:17px}
+  .qa summary .b{flex:1}
+  .qa summary .b .v{display:block;font-size:15px;font-weight:600}
+  .qa summary .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .qa summary .chev{color:var(--ink-3);transition:.2s}
+  .qa[open] summary .chev{transform:rotate(90deg)}
+  .qa-body{padding:0 16px 16px}
+  .qa-body .cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;border-radius:12px;padding:13px;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:11px}
+  .qa-body .cta svg{width:18px;height:18px}
+  .qa-body .why{font-size:12.5px;color:var(--ink-2);line-height:1.55;background:var(--bg);border-radius:12px;padding:12px 14px;margin-bottom:0}
+  /* Urgence = recours, pas action principale : ligne discrète, séparée, sans carte ni couleur d'appel */
+  .qa-body .emg{display:block;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2);
+    text-decoration:none;color:var(--ink-3);font-size:12px;line-height:1.5}
+  .qa-body .emg .lbl{font-weight:600;color:var(--ink-2)}
+  .qa-body .emg .num{color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
+
+  /* Bloc dépliable générique (parking) — même look que .revoir */
+  .fold{margin:10px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+  .fold summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
+  .fold summary::-webkit-details-marker{display:none}
+  .fold summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .fold summary .ic svg{width:17px;height:17px}
+  .fold summary .b{flex:1}
+  .fold summary .b .v{display:block;font-size:15px;font-weight:600}
+  .fold summary .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .fold summary .chev{color:var(--ink-3);transition:.2s;flex-shrink:0}
+  .fold[open] summary .chev{transform:rotate(90deg)}
+  .fold-body{padding:0 16px 16px;font-size:13px;color:var(--ink-2);line-height:1.55}
+  .fold-body p{margin-bottom:10px}
+  .fold-body b{color:var(--ink);font-weight:600}
+  .pk-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}
+  .pk{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);text-decoration:none;display:block}
+  .pk img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .pk .cap{padding:7px 9px;font-size:11px;color:var(--ink-2);line-height:1.35}
+  .pk .cap b{display:block;color:var(--ink);font-weight:600}
+  .pk.wide2{grid-column:span 2}
+  .fold.first{margin-top:0}
+
+  /* Lignes transport (dans le fold « Se déplacer ») */
+  .tr{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line-2)}
+  .tr:last-child{border-bottom:0;padding-bottom:0}
+  .tr .em{font-size:19px;flex-shrink:0;width:26px;text-align:center;line-height:1.3}
+  .tr .t{flex:1}
+  .tr .t .v{font-size:14px;font-weight:600;color:var(--ink);line-height:1.25}
+  .tr .t .v2{font-size:12.5px;color:var(--ink-2);margin-top:2px;line-height:1.45}
+  .tr .t .v2 b{color:var(--ink);font-weight:600}
+  .tr .d{font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:7px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+  .tr a{color:var(--accent);font-weight:600;text-decoration:none}
+
+  /* DÉPANNAGE keybox — replié, ton neutre (pas d'alarme) */
+  .help{margin:4px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .help summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;padding:14px 16px}
+  .help summary::-webkit-details-marker{display:none}
+  .help summary .ic{width:30px;height:30px;border-radius:9px;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+  .help summary .b{flex:1;font-size:14px;font-weight:600;color:var(--ink-2)}
+  .help summary .chev{color:var(--ink-3);transition:.2s;flex-shrink:0}
+  .help[open] summary .chev{transform:rotate(90deg)}
+  .help[open] summary .b{color:var(--ink)}
+  .help-body{padding:0 16px 14px}
+  .hck{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line-2)}
+  .hck .n{width:20px;height:20px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .hck .t{flex:1;font-size:13px;color:var(--ink-2);line-height:1.5}
+  .hck .t b{color:var(--ink);font-weight:600}
+  .help-last{margin-top:12px;padding:12px 14px;background:var(--bg);border-radius:12px;font-size:12.5px;color:var(--ink-2);line-height:1.5}
+  .help-last a{color:var(--accent);font-weight:600;text-decoration:none}
+  .help-body .vidcard{margin:0}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>/*V3REFINE*/.vidrow{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;box-shadow:var(--shadow-sm)}.vidrow .vic{width:38px;height:38px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}.vidrow .vb{flex:1}.vidrow .vv{display:block;font-size:14.5px;font-weight:600;color:var(--ink)}.vidrow .vv2{display:block;font-size:12.5px;color:var(--ink-2);margin-top:2px}.vidrow .vchev{color:var(--ink-3);font-size:20px;line-height:1}.vidrow:has(iframe){padding:0;background:#000;display:block}.stp-img{max-width:100%}.app.is-open .step .kb-note{text-align:center}.app.is-open .step .kb:has(.kb-dots){display:flex;justify-content:center;align-items:center;width:100%;box-sizing:border-box;margin-top:12px;padding:16px;font-size:clamp(30px,9vw,38px);letter-spacing:.16em;border-radius:14px}.app.is-open .step .kb:not(:has(.kb-dots)){display:flex;justify-content:center;align-items:center;width:100%;box-sizing:border-box;margin-top:12px;padding:13px;font-size:clamp(24px,7vw,30px);letter-spacing:.16em;border-radius:14px;background:var(--accent-soft);color:var(--accent)}@keyframes ucbNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}#swipeArrival .swipe-thumb{animation:ucbNudge 1.6s ease-in-out infinite}#swipeArrival.done .swipe-thumb{animation:none}@media (prefers-reduced-motion:reduce){#swipeArrival .swipe-thumb{animation:none}}</style></head>
+<body>
+<div class="phone">
+ <div class="app is-{{access_state}}">
+  <div class="scroll">
+
+    <!-- ============= ACCUEIL ============= -->
+    <section class="view active" data-view="home">
+      <div class="hero">
+        <details class="langbox">
+            <summary><span class="flag">{{lang_flag}}</span><span class="code">{{lang_short}}</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="langmenu" data-cur="{{lang_code}}">
+              <a href="?lang=fr" hreflang="fr"><span class="flag">🇫🇷</span> Français</a>
+              <a href="?lang=en" hreflang="en"><span class="flag">🇬🇧</span> English</a>
+              <a href="?lang=es" hreflang="es"><span class="flag">🇪🇸</span> Español</a>
+              <a href="?lang=it" hreflang="it"><span class="flag">🇮🇹</span> Italiano</a>
+              <a href="?lang=de" hreflang="de"><span class="flag">🇩🇪</span> Deutsch</a>
+              <a href="?lang=nl" hreflang="nl"><span class="flag">🇳🇱</span> Nederlands</a>
+              <a href="?lang=pt" hreflang="pt"><span class="flag">🇵🇹</span> Português</a>
+              <a href="?lang=ru" hreflang="ru"><span class="flag">🇷🇺</span> Русский</a>
+              <a href="?lang=zh" hreflang="zh"><span class="flag">🇨🇳</span> 中文</a>
+            </div>
+        </details>
+        <div class="frame">
+          <div class="img" style="background-image:url('')"></div>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <h1>{{property_name}}</h1>
+        <a class="addr" href="{{maps_url}}" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5C5.3 1.5 3.5 3.3 3.5 5.5c0 3 4 8 4 8s4-5 4-8c0-2.2-1.8-4-4-4z" stroke="#63616B" stroke-width="1.2"/><circle cx="7.5" cy="5.5" r="1.4" stroke="#63616B" stroke-width="1.2"/></svg>
+          {{property_address}}
+        </a>
+      </div>
+
+      <div class="status">
+        <div class="badge"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-6.5" stroke="#00875F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="txt"><div class="l">{{reservation_status_label}}</div><div class="s">{{guest_first_name}} · {{guests_label}}</div></div>
+      </div>
+
+      <div class="dates">
+        <div class="band">
+          <div class="d"><div class="l">Arrivée</div><div class="day">{{checkin_date_label}}</div><div class="time">à partir de {{checkin_time}}</div></div>
+          <div class="mid"><span class="nights">{{nights_label}}</span></div>
+          <div class="d r"><div class="l">Départ</div><div class="day">{{checkout_date_label}}</div><div class="time">avant {{checkout_time}}</div></div>
+        </div>
+        <div class="foot">{{stay_status_html}}</div>
+      </div>
+
+      <div class="duo">
+        <button class="dt acc" onclick="go('access')">
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="6" cy="12" r="3" stroke="#3A2A5E" stroke-width="1.4"/><path d="M8.2 9.8L14 4M11.5 6.5l1.3 1.3M13 5l1.3 1.3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+          <span class="l">{{access_title}}</span>
+          <span class="s">{{access_sub}}</span>
+        </button>
+        {{police_card}}
+      </div>
+
+      <div class="grid">
+        <button class="tile" id="wifiTile" onclick="copyWifi()">
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 13.5a.9.9 0 100-1.8.9.9 0 000 1.8z" fill="#3A2A5E"/><path d="M5.8 10.3a4.5 4.5 0 016.4 0M3.5 8a7.5 7.5 0 0111 0" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+          <span class="k">Wifi</span><span class="v">{{wifi_ssid}}</span><span class="v2" id="wifiHint" data-pw="{{wifi_password}}">🔒 Toucher pour afficher</span>
+        </button>
+        <button class="tile" onclick="go('access')">
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2C6.5 2 4.5 4 4.5 6.5c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8C13.5 4 11.5 2 9 2z" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="6.5" r="1.6" stroke="#3A2A5E" stroke-width="1.4"/></svg></span>
+          <span class="k">Arriver</span><span class="v">Accès & parcours</span><span class="v2">Code, digicode, itinéraire</span>
+        </button>
+      </div>
+
+      <details class="qa">
+        <summary>
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M2.5 9a6 6 0 116 6c-.9 0-1.7-.2-2.4-.5l-3.6 1 1-3.5A6 6 0 012.5 9z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+          <span class="b"><span class="v">Une question ?</span><span class="v2">On vous répond vite</span></span>
+          <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </summary>
+        <div class="qa-body">{{contact_block_v3}}</div>
+      </details>
+    </section>
+
+    <!-- ============= ACCÈS ============= -->
+    <section class="view" data-view="access">
+      <div class="phead"><h2>Votre accès</h2><p>Tout pour entrer, le jour de votre arrivée.</p></div>
+
+      <!-- Y ALLER (toujours visible, en premier) -->
+      <div class="sub"><span class="em">📍</span>Y aller</div>
+      <div class="wide" style="margin-top:0">
+        <a class="wide-btn" href="{{maps_url}}" target="_blank" rel="noopener" style="text-decoration:none">
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2C6.5 2 4.5 4 4.5 6.5c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8C13.5 4 11.5 2 9 2z" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="6.5" r="1.6" stroke="#3A2A5E" stroke-width="1.4"/></svg></span>
+          <span class="b"><span class="v">{{property_address}}</span><span class="v2">Ouvrir l'itinéraire dans Maps</span></span>
+          <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+      <details class="fold"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 12V6.5h2.4a1.8 1.8 0 010 3.6H7" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">Où se garer</span><span class="v2"></span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body"></div></details>
+      
+
+      <!-- État verrouillé (avant l'heure de révélation) -->
+      <div class="acc-lock">
+        <div class="acc-hero">
+          <span class="lk">🔒 Votre accès</span>
+          <div class="dots">••• ••• •••</div>
+          <div class="when">Le code et le parcours s'afficheront ici <b>{{checkin_datetime_label}}</b>, l'heure de votre check-in.</div>
+          <div class="cd" id="cd" data-reveal="{{checkin_reveal_ts}}"></div>
+        </div>
+        <div class="upsell {{upsell_early_hidden}}">
+          <h3>Arriver plus tôt ?</h3>
+          <p>Selon la disponibilité du ménage · réponse immédiate.</p>
+          <div class="chips">{{upsell_early_chips}}</div>
+        </div>
+      </div>
+
+      <!-- État ouvert (code disponible) -->
+      <div class="acc-open">
+        <div class="sub"><span class="em">🚪</span>Le parcours, pas à pas</div>
+        <div class="steps"><div class="step"><span class="n">1</span><div><div class="h">Ouvrez la boîte à clé</div><div class="d">La boîte à clé se trouve à côté de la porte d'entrée. Composez le code ci-dessous pour récupérer les clés.</div><div class="kb"><span class="kb-dots">••• ••• •••</span><span class="kb-code">{{algopin_code_grouped}}</span></div><div class="kb-note">Code valable pendant toute la durée de votre séjour</div></div></div></div>
+
+        
+
+        <div class="swipe" id="swipeArrival" data-url="{{arrival_confirm_url}}" data-done="Arrivée signalée ✓" data-thanks="Merci, à tout de suite.">
+          <div class="swipe-track">
+            <div class="swipe-fill"></div>
+            <div class="swipe-label" id="swipeLabel">Glissez pour confirmer votre arrivée</div>
+            <div class="swipe-thumb" id="swipeThumb">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="swipe-hint" id="swipeHint">Ça nous rassure de savoir que vous avez bien pu entrer.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= SÉJOUR ============= -->
+    <section class="view" data-view="stay">
+      <div class="phead"><h2>Votre séjour</h2><p>Le nécessaire, au quotidien.</p></div>
+
+      <!-- VISITE en tête : preuve (vidéo si dispo, sinon photos) -->
+      <div class="sub is-hidden"><span class="em">📸</span>Le logement en images</div>
+      <details class="revoir is-hidden">
+        <summary>
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4.5" width="13" height="9.5" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="9.2" r="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M6 4.5l1-1.5h4l1 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+          <span class="b"><span class="v">Revoir le logement</span><span class="v2">Comme sur votre réservation</span></span>
+          <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </summary>
+        <div class="note">Le logement tel que vous l'avez réservé — pour vous y projeter avant l'arrivée.</div>
+        
+        <div class="tour "></div>
+      </details>
+
+      <div class="sub is-hidden"><span class="em">📋</span>Bon à savoir</div>
+      <div class="sec-intro is-hidden">Quelques repères pour que tout se passe bien.</div>
+      <div class="rules is-hidden"></div>
+
+      <div class="sub is-hidden"><span class="em">⚙️</span>Comment ça marche</div>
+      <div class="how is-hidden"></div>
+
+      <div class="sub"><span class="em">🧭</span>Se déplacer</div>
+      
+
+      <div class="sub" id="sec-depart"><span class="em">🧳</span>Le départ</div>
+      <div class="wide" style="margin-top:0"><div class="wide-btn"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 5.5v4l2.5 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Consignes de check-out</span><span class="v2">Avant {{checkout_time}} · </span></span></div></div>
+      
+
+      <div class="swipe {{checkout_swipe_hidden}}" data-url="{{checkout_confirm_url}}" data-done="Départ signalé ✓" data-thanks="Merci, et à bientôt !">
+        <div class="swipe-track">
+          <div class="swipe-fill"></div>
+          <div class="swipe-label">Glissez pour signaler votre départ</div>
+          <div class="swipe-thumb">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="swipe-hint">Le ménage peut démarrer — ça nous aide beaucoup.</div>
+      </div>
+      <div style="height:16px"></div>
+    </section>
+
+    <!-- ============= DÉCOUVRIR ============= -->
+    <section class="view" data-view="explore">
+      <div class="phead"><h2>Découvrir</h2><p>Nos adresses préférées, à deux pas.</p></div>
+
+      <div class="sub is-hidden"><span class="em">🍷</span>Où manger</div>
+      <div class="is-hidden"></div>
+
+      <div class="sub is-hidden"><span class="em">🏛️</span>À visiter</div>
+      <div class="is-hidden"></div>
+
+      <div class="sub is-hidden"><span class="em">🛒</span>Commerces</div>
+      <div class="is-hidden"></div>
+      <div style="height:16px"></div>
+    </section>
+
+  </div>
+
+  <div class="sheet" id="wifiSheet">
+    <div class="veil" onclick="closeSheet()"></div>
+    <div class="panel">
+      <div class="grab"></div>
+      <h3>Utilisation d'internet</h3>
+      <div class="lead">La connexion est mise à votre disposition pour un usage <b>personnel et légal</b>. Un rappel rapide avant de vous connecter.</div>
+      <ul>
+        <li><span class="b">⚖️</span><span>La loi française interdit le <b>téléchargement ou le partage d'œuvres protégées</b> (films, séries, musique, logiciels) sans autorisation.</span></li>
+        <li><span class="b">🚫</span><span>L'accès à des <b>contenus illicites</b> est bien entendu interdit.</span></li>
+        <li><span class="b">👤</span><span>Vous êtes <b>responsable de l'usage</b> que vous faites de cette connexion pendant votre séjour.</span></li>
+      </ul>
+      <div class="fine">La ligne est au nom de U-citybreak : toute infraction constatée nous est notifiée et peut être transmise aux autorités. Merci de votre compréhension.</div>
+      <label class="agree"><input type="checkbox" id="agreeChk"><span>J'ai lu et j'accepte ces conditions d'utilisation pour la durée de mon séjour.</span></label>
+      <button class="ok" id="agreeBtn" onclick="acceptWifi()" disabled>Afficher le mot de passe</button>
+    </div>
+  </div>
+
+  <nav class="tabbar">
+    <button class="tab on" data-tab="home" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11l8-6 8 6v8a1 1 0 01-1 1h-4v-5h-6v5H5a1 1 0 01-1-1v-8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Accueil</span></button>
+    <button class="tab" data-tab="access" onclick="go('access')"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="15" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M11 12l7-7M15.5 7.5l1.8 1.8M17.5 5.5l1.8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Accès</span></button>
+    <button class="tab" data-tab="stay" onclick="go('stay')"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7" stroke="currentColor" stroke-width="1.7"/></svg><span>Séjour</span></button>
+    <button class="tab" data-tab="explore" onclick="go('explore')"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M15 9l-2 4-4 2 2-4 4-2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Découvrir</span></button>
+  </nav>
+
+ </div>
+</div>
+
+<script type="application/json" id="ucb-ui-txt">{"js_copied":"Copié ✓","js_swipe_done_fallback":"C'est noté ✓","js_swipe_thanks_fallback":"Merci !","cd_day":"jour","cd_days":"jours","cd_h":"h","cd_min":"min","cd_sec":"sec"}</script>
+<script>
+  var WIFI_CFG = { token: '{{livret_token}}', guest: '{{guest_first_name}}',
+    accept_url: 'https://n8n-d2box-u73867.vm.elestio.app/webhook/charte-accept' };
+  var UI_TXT = {"js_copied": "Copié ✓", "js_swipe_done_fallback": "C'est noté ✓", "js_swipe_thanks_fallback": "Merci !", "cd_day": "jour", "cd_days": "jours", "cd_h": "h", "cd_min": "min", "cd_sec": "sec"};
+  try{var __uitx=document.getElementById('ucb-ui-txt');if(__uitx){UI_TXT=JSON.parse(__uitx.textContent);}}catch(e){}
+
+  function go(v, anchor){
+    document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('active',s.dataset.view===v);});
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.tab===v);});
+    var sc=document.querySelector('.scroll'); if(!sc) return;
+    if(!anchor){ sc.scrollTo(0,0); return; }
+    // la vue vient de passer en display:block → on attend le layout avant de mesurer
+    requestAnimationFrame(function(){
+      var el=document.getElementById(anchor);
+      if(!el){ sc.scrollTo(0,0); return; }
+      var top = el.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop - 12;
+      sc.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
+  }
+  // Wifi : le mot de passe n'est révélé QU'APRÈS acceptation explicite de la charte.
+  // Case à cocher (acte positif) + trace serveur horodatée — sans la trace, l'acceptation
+  // n'existe que dans le navigateur et ne prouve rien.
+  var wifiAccepted = false;
+  function copyWifi(){
+    if(!wifiAccepted){ document.getElementById('wifiSheet').classList.add('on'); return; }
+    doCopyWifi();
+  }
+  function closeSheet(){ document.getElementById('wifiSheet').classList.remove('on'); }
+  function acceptWifi(){
+    var chk = document.getElementById('agreeChk');
+    if(!chk || !chk.checked) return;
+    wifiAccepted = true;
+    closeSheet();
+    // trace serveur (non bloquant : jamais de voyageur privé de wifi sur une panne réseau)
+    try {
+      fetch(WIFI_CFG.accept_url, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ token: WIFI_CFG.token, guest: WIFI_CFG.guest })
+      }).catch(function(){});
+    } catch(e){}
+    doCopyWifi();
+  }
+  function doCopyWifi(){
+    var h=document.getElementById('wifiHint'), pw=h.getAttribute('data-pw')||'';
+    if(navigator.clipboard) navigator.clipboard.writeText(pw);
+    var t=document.getElementById('wifiTile');
+    t.classList.add('copied'); h.textContent=UI_TXT.js_copied;
+    setTimeout(function(){t.classList.remove('copied'); h.textContent='🔑 '+pw;},1600);
+  }
+  (function(){
+    var chk=document.getElementById('agreeChk'), btn=document.getElementById('agreeBtn');
+    if(chk && btn) chk.addEventListener('change', function(){ btn.disabled = !chk.checked; });
+  })();
+  function playVid(el,id){
+    el.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    el.onclick=null; el.style.cursor='default';
+  }
+  function pick(el){
+    var p=el.parentNode.querySelectorAll('.chip');
+    p.forEach(function(c){c.classList.remove('sel');}); el.classList.add('sel');
+  }
+  // langue courante
+  (function(){
+    var m=document.querySelector('.langmenu'); if(!m) return;
+    var cur=m.getAttribute('data-cur');
+    m.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('hreflang')===cur) a.setAttribute('aria-current','true'); });
+  })();
+  // compte à rebours (état verrouillé)
+  (function(){
+    var cd=document.getElementById('cd'); if(!cd) return;
+    var rev=parseInt(cd.getAttribute('data-reveal')||'0',10);
+    function c(v,u){return '<div class="c"><b>'+v+'</b><span>'+u+'</span></div>';}
+    function tick(){
+      if(!rev){cd.innerHTML='';return;}
+      var r=Math.max(0,rev-Date.now())/1000;
+      var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
+      cd.innerHTML=(j>0?c(j,j>1?UI_TXT.cd_days:UI_TXT.cd_day):'')+c(('0'+h).slice(-2),UI_TXT.cd_h)+c(('0'+mn).slice(-2),UI_TXT.cd_min)+(j>0?'':c(('0'+sc).slice(-2),UI_TXT.cd_sec));
+    }
+    tick(); setInterval(tick,1000);
+  })();
+  // swipe → prévenir l'hôte (arrivée ET départ : plusieurs instances possibles)
+  document.querySelectorAll('.swipe').forEach(function(box){
+    var track=box.querySelector('.swipe-track'), thumb=box.querySelector('.swipe-thumb'),
+        fill=box.querySelector('.swipe-fill'), label=box.querySelector('.swipe-label'),
+        hint=box.querySelector('.swipe-hint');
+    if(!track||!thumb) return;
+    var dragging=false, startX=0, x=0, max=0, done=false;
+    function setX(v){ x=Math.max(0,Math.min(max,v)); thumb.style.left=(5+x)+'px'; fill.style.width=(58+x)+'px'; }
+    function finish(){
+      done=true; box.classList.add('done');
+      if(label) label.textContent = box.getAttribute('data-done') || UI_TXT.js_swipe_done_fallback;
+      if(hint) hint.textContent = box.getAttribute('data-thanks') || UI_TXT.js_swipe_thanks_fallback;
+      var url=box.getAttribute('data-url')||'';
+      if(url && url!=='#'){ try{ window.open(url,'_blank','noopener'); }catch(e){} }
+    }
+    function down(e){ if(done)return; dragging=true; max=track.clientWidth-58;
+      startX=(e.touches?e.touches[0].clientX:e.clientX)-x; thumb.style.transition='none'; fill.style.transition='none'; }
+    function move(e){ if(!dragging||done)return; var cx=(e.touches?e.touches[0].clientX:e.clientX);
+      setX(cx-startX); if(e.cancelable)e.preventDefault(); }
+    function up(){ if(!dragging||done)return; dragging=false;
+      thumb.style.transition='left .2s'; fill.style.transition='width .2s';
+      if(x>=max-4){ setX(max); finish(); } else { setX(0); } }
+    thumb.addEventListener('mousedown',down); document.addEventListener('mousemove',move); document.addEventListener('mouseup',up);
+    thumb.addEventListener('touchstart',down,{passive:true}); document.addEventListener('touchmove',move,{passive:false}); document.addEventListener('touchend',up);
+  });
+</script>
+</body>
+</html>
