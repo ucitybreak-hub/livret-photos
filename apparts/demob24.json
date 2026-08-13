@@ -5,7 +5,14 @@
       "checks": [],
       "title": ""
     },
-    "steps": []
+    "steps": [
+      {
+        "code": "algopin",
+        "code_note": "Votre code · actif pendant votre séjour",
+        "text": "Récupérez les clés dans la boîte à clé à l'entrée du chalet.",
+        "title": "Boîte à clé"
+      }
+    ]
   },
   "checkout_line": "",
   "hero_photo_url": "",
