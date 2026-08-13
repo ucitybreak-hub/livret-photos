@@ -1,31 +1,119 @@
 {
-  "amenities": [],
+  "amenities": [
+    {
+      "icon": "coffee",
+      "sub": "Nespresso & cafetière filtre · bouilloire · grille-pain · presse-agrumes",
+      "title": "Café & petit-déjeuner"
+    },
+    {
+      "body": "<b>Lave-vaisselle</b>, cocotte-minute, <b>appareil à raclette</b>, four micro-ondes/grill. Produits ménagers fournis.<b>Hotte</b> — tirez le tiroir vers vous pour la lancer ; lumière et puissance se règlent avec le bouton situé au fond.<b>Lumière de l'évier</b> — deux boutons sous le placard éclairent le plan de travail.",
+      "cta": "Voir l'équipement",
+      "icon": "stove",
+      "title": "Cuisine"
+    },
+    {
+      "body": "<b>Fonction four</b> — bouton « convection grill combi », choisissez la température (touches haut/bas), appuyez sur marche, choisissez le temps, appuyez sur marche. Les plats en alu sont autorisés <b>uniquement</b> en fonction four.<b>Fonction micro-ondes</b> — appuyez sur marche : il se lance pour 30 secondes ; rappuyez pour ajouter 30 secondes autant de fois que nécessaire.",
+      "cta": "Mode d'emploi",
+      "icon": "supply",
+      "title": "Micro-ondes / four"
+    },
+    {
+      "icon": "tv",
+      "sub": "2 TV — coin salon et coin montagne",
+      "title": "Télévision"
+    },
+    {
+      "body": "<b>Mezzanine</b> — 1 lit double 140×190 + canapé clic-clac 140×190 dans le coin salon.<b>Coin montagne</b> — 1 lit simple surélevé 80×190 (<b>poids max 50 kg, déconseillé aux moins de 6 ans</b>) + 1 clic-clac 140×190.Les couettes des lits doubles font 220×240.⚠️ <b>Le linge de lit et les serviettes ne sont pas fournis.</b> Location possible : kit draps 1 pers. 12 € · kit draps 2 pers. 14 € · kit éponge 7 € · tapis de bain 4 € — demandez à Émilie.",
+      "cta": "Voir la literie",
+      "icon": "sofa",
+      "title": "Couchages"
+    },
+    {
+      "icon": "wash",
+      "sub": "Fer à repasser · étendoir · cintres · sèche-cheveux",
+      "title": "Linge & repassage"
+    },
+    {
+      "icon": "supply",
+      "sub": "Jeux de société · balcon plein sud avec vue montagne",
+      "title": "Jeux & confort"
+    },
+    {
+      "body": "<b>Urgences</b> — Samu 15 · Police 17 · Pompiers 18 · Europe 112 · Urgence SMS 114 · Pharmacie de garde : 3237.<b>Médecins</b> — Drs Girard, Girod, Cornillon, Centre médical du Pelvoux : 04 79 00 00 35.<b>Pharmacie</b> — Drs Le Garrec, Massot et Dumas : 04 79 00 66 60.<b>Dentiste</b> — Dr Flage : 04 79 00 64 31 (sur rendez-vous).<b>Infirmières des Belleville</b> — Mmes Ledo et Silvestre : 07 86 26 46 02.<b>Kiné / ostéo</b> — Mme Fuzellier (kiné) 06 08 51 66 27 · Mme Bal (ostéo) 06 95 94 79 76 · M. Abouly (ostéo) 04 79 00 24 16.",
+      "cta": "Numéros utiles",
+      "icon": "supply",
+      "title": "Santé & urgences aux Menuires"
+    }
+  ],
   "arrival": {
     "keybox_help": {
       "checks": [
-        "Vérifiez que le cache de la boîte est bien relevé",
-        "Appuyez fermement sur chaque chiffre du code",
-        "Tirez le loquet vers le bas une fois le code composé"
+        "Si vous avez appuyé sur la <b>poignée avant de saisir le code</b>, la porte émet une alarme : passez la main devant le clavier pour la couper, <b>tirez la porte vers vous</b> (vous entendrez le « clic » de la gâche), puis saisissez à nouveau le code.",
+        "Au bout de <b>5 codes erronés</b>, le clavier se bloque 5 minutes (et de plus en plus longtemps à chaque nouvelle erreur, comme un téléphone) — patientez puis réessayez calmement.",
+        "Pendant le séjour, un <b>badge</b> (avec la clé du garage) est à votre disposition dans l'appartement pour ouvrir sans saisir le code."
       ],
-      "title": "Difficultés à ouvrir la boîte à clé ?"
+      "title": "La porte ne s'ouvre pas ?"
     },
     "steps": [
       {
+        "text": "Direction le <b>quartier des Fontanettes</b>, rue des Pinsons — c'est la rue située dans l'épingle entre le rond-point de la Croisette et celui direction Val Thorens. Vous arrivez à la <b>Résidence Les Asters, bâtiment B3</b>. Coordonnées GPS : <b>45.317900, 6.539243</b>.",
+        "title": "Rejoindre la résidence"
+      },
+      {
+        "text": "L'appartement <b>1002</b> se trouve au <b>1er étage depuis la rue</b>, dans le bâtiment B3.",
+        "title": "Montez à l'appartement"
+      },
+      {
         "code": "algopin",
-        "code_note": "Code valable pendant toute la durée de votre séjour",
-        "text": "La boîte à clé se trouve à côté de la porte d'entrée. Composez le code ci-dessous pour récupérer les clés.",
-        "title": "Ouvrez la boîte à clé"
+        "code_note": "Votre code · actif pendant tout votre séjour",
+        "text": "La porte est équipée d'une <b>serrure à digicode</b>. 1️⃣ Posez la main sur le clavier pour l'allumer. 2️⃣ Saisissez votre code (avec ou sans chiffres supplémentaires avant/après — la serrure accepte un code « leurre »), puis appuyez sur l'<b>icône cadenas</b>. 3️⃣ L'indicateur clignote <b>vert deux fois</b> avec 4 tonalités : c'est déverrouillé. Bienvenue chez Alti Yeti ⛷️",
+        "title": "Ouvrez la porte"
       }
     ]
   },
-  "checkout_line": "",
-  "hero_photo_url": "",
-  "house_rules": [],
+  "checkout_line": "porte bien verrouillée, poubelles déposées au tri (entrée du parking)",
+  "hero_photo_url": "https://a0.muscache.com/im/pictures/f8eb7747-b235-4563-abca-53198cfd9f7b.jpg?im_w=1200",
+  "house_rules": [
+    {
+      "emoji": "🐾",
+      "text": "Nos amis les animaux sont acceptés <b>sur demande, avant la réservation</b>. Merci de ne pas les laisser monter sur les lits.",
+      "title": "Animaux sur demande"
+    },
+    {
+      "emoji": "🚭",
+      "text": "L'appartement est non-fumeur. Vous pouvez fumer sur le balcon.",
+      "title": "Non-fumeur à l'intérieur"
+    },
+    {
+      "emoji": "🛏️",
+      "text": "Draps et serviettes ne sont pas fournis : apportez les vôtres ou louez un kit (voir la section Couchages).",
+      "title": "Linge non fourni"
+    },
+    {
+      "emoji": "⚠️",
+      "text": "Poids maximum 50 kg — déconseillé aux enfants de moins de 6 ans.",
+      "title": "Lit surélevé"
+    },
+    {
+      "emoji": "🌙",
+      "text": "Merci d'éviter les nuisances sonores pour le voisinage.",
+      "title": "Respect du voisinage"
+    },
+    {
+      "emoji": "♻️",
+      "text": "Les poubelles de tri se trouvent à l'entrée du parking, vers les garages.",
+      "title": "Tri des déchets"
+    }
+  ],
   "luggage": {},
   "parking": {
     "photos": [],
-    "summary": "",
-    "text": []
+    "summary": "Garage privé n°445 + 2 parkings gratuits",
+    "text": [
+      "<b>Garage privé n°445</b> : fermé, en bas du bâtiment. La clé du garage est sur le badge, dans l'appartement.",
+      "<b>2 parkings gratuits</b> : un au pied du bâtiment et un second, fermé, en bas de la résidence (accès depuis le rond-point). La <b>télécommande de la barrière</b> est à votre disposition dans l'appartement.",
+      "<b>En hiver</b> : prévoyez un équipement neige (pneus neige, chaînes ou chaussettes)."
+    ]
   },
   "property_uuid": "",
   "recos": {
@@ -35,8 +123,31 @@
   },
   "slug": "altiyeti",
   "transport": {
-    "lines": [],
-    "summary": ""
+    "lines": [
+      {
+        "distance": "100 m",
+        "emoji": "⛷️",
+        "text": "Départ et retour skis aux pieds : télésièges <b>Doron</b> et <b>Reberty</b> et télécabine de la <b>Masse</b> à 100 m. La Croisette et les Bruyères sont à 10 min par le chemin piéton.",
+        "title": "Ski aux pieds"
+      },
+      {
+        "emoji": "🚗",
+        "text": "Équipement neige obligatoire en hiver (pneus neige, chaînes ou chaussettes). <b>Val Thorens à 10 min</b>.",
+        "title": "En voiture"
+      },
+      {
+        "distance": "27 km",
+        "emoji": "🚆",
+        "text": "Gare de <b>Moûtiers – Salins – Brides-les-Bains</b> à 27 km. Puis autocar <b>Altibus</b> (réservez votre trajet à l'avance sur altibus.com), taxi ou voiture de location.",
+        "title": "En train"
+      },
+      {
+        "emoji": "✈️",
+        "text": "4 aéroports à proximité : <b>Chambéry</b> (100 km), <b>Genève</b> (140 km), <b>Lyon Saint-Exupéry</b> (180 km), <b>Grenoble</b> (180 km). Liaisons Altibus, train, taxi ou location — renseignez-vous sur le site de votre aéroport.",
+        "title": "En avion"
+      }
+    ],
+    "summary": "Ski aux pieds · gare de Moûtiers à 27 km"
   },
   "videos": {
     "keybox": null
