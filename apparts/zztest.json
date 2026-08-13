@@ -1,0 +1,48 @@
+{
+  "slug": "zztest",
+  "property_uuid": "",
+  "hero_photo_url": "",
+  "videos": {},
+  "arrival": {
+    "steps": [
+      {
+        "title": "Arriver au logement",
+        "text": "Rendez-vous au <b>1 rue de Test, 25000 Besançon</b>.",
+        "photo": "",
+        "photo_caption": ""
+      },
+      {
+        "title": "Recuperer les cles",
+        "text": "Entrez le code ci-dessous sur la boite a cles.",
+        "code": "algopin",
+        "code_note": "Votre code · actif pendant votre sejour"
+      }
+    ],
+    "keybox_help": ""
+  },
+  "parking": {
+    "summary": "",
+    "text": [],
+    "photos": []
+  },
+  "transport": {
+    "summary": "",
+    "lines": []
+  },
+  "amenities": [
+    {
+      "icon": "wifi",
+      "title": "Wifi",
+      "sub": "Reseau « {{wifi_ssid}} »"
+    }
+  ],
+  "house_rules": [],
+  "checkout_line": "Merci de refermer la porte et de remettre les cles dans la boite.",
+  "tour_slides": [],
+  "hospitable_images_base": "",
+  "recos": {
+    "food": [],
+    "visit": [],
+    "shop": []
+  }
+}
