@@ -48,11 +48,11 @@
   "arrival": {
     "keybox_help": {
       "checks": [
-        "Si vous avez appuyé sur la <b>poignée avant de saisir le code</b>, la porte émet une alarme : passez la main devant le clavier pour la couper, <b>tirez la porte vers vous</b> (vous entendrez le « clic » de la gâche), puis saisissez à nouveau le code.",
-        "Au bout de <b>5 codes erronés</b>, le clavier se bloque 5 minutes (et de plus en plus longtemps à chaque nouvelle erreur, comme un téléphone) — patientez puis réessayez calmement.",
-        "Pendant le séjour, un <b>badge</b> (avec la clé du garage) est à votre disposition dans l'appartement pour ouvrir sans saisir le code."
+        "Vérifiez que le <b>cache de la boîte est bien relevé</b> avant de composer le code.",
+        "Alignez <b>chaque molette</b> précisément sur les chiffres du code, puis <b>tirez le loquet vers le bas</b>.",
+        "Si ça coince, remettez les molettes à zéro, recomposez le code calmement et réessayez. En cas de blocage, appelez-nous."
       ],
-      "title": "La porte ne s'ouvre pas ?"
+      "title": "Difficultés à ouvrir la boîte à clé ?"
     },
     "steps": [
       {
@@ -65,13 +65,13 @@
       },
       {
         "code": "algopin",
-        "code_note": "Votre code · actif pendant tout votre séjour",
-        "text": "La porte est équipée d'une <b>serrure à digicode</b>. 1️⃣ Posez la main sur le clavier pour l'allumer. 2️⃣ Saisissez votre code (avec ou sans chiffres supplémentaires avant/après — la serrure accepte un code « leurre »), puis appuyez sur l'<b>icône cadenas</b>. 3️⃣ L'indicateur clignote <b>vert deux fois</b> avec 4 tonalités : c'est déverrouillé. Bienvenue chez Alti Yeti ⛷️",
-        "title": "Ouvrez la porte"
+        "code_note": "Votre code · valable pendant tout votre séjour",
+        "text": "La <b>boîte à clé</b> se trouve à côté de la porte d'entrée. Composez le code ci-dessous sur les molettes pour l'ouvrir et <b>récupérez les clés</b>. Pensez à bien la refermer et à brouiller le code. Bienvenue chez Alti Yeti ⛷️",
+        "title": "Ouvrez la boîte à clé"
       }
     ]
   },
-  "checkout_line": "porte bien verrouillée, poubelles déposées au tri (entrée du parking)",
+  "checkout_line": "clés remises dans la boîte à clé (code brouillé), poubelles déposées au tri (entrée du parking)",
   "hero_photo_url": "https://a0.muscache.com/im/pictures/f8eb7747-b235-4563-abca-53198cfd9f7b.jpg?im_w=1200",
   "house_rules": [
     {
