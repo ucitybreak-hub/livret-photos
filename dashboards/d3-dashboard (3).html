@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#FFFFFF">
+<title>Frais kilométriques · U-citybreak</title>
+<style>
+/* ============ CHARTE UCB — socle commun (aligné devis-console / factures / proprietaires) ============ */
+:root{
+  --ab:#2D1B4E; --ab-soft:#F0EBF5; --fu:#E8457C;
+  --fg:#222222; --muted:#717171; --soft:#B0B0B0;
+  --bd:#DDDDDD; --bd-soft:#EBEBEB; --bg-in:#F5F5F4;
+  --ok:#00A67E; --warn:#E8A735;
+  --r-sm:7px; --r-md:12px; --r-lg:16px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font:13.5px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;color:var(--fg);background:#fff;padding:16px 22px 40px;-webkit-font-smoothing:antialiased}
+body.embed{padding-top:10px}
+a{color:var(--ab)}
+button{font:inherit}
+
+.bar{display:flex;align-items:flex-start;gap:14px;margin:0 0 16px}
+.lead{flex:1;min-width:0;color:var(--muted);font-size:13px}
+.ha{flex:none;display:flex;gap:8px}
+.btn{border:1px solid var(--bd);background:#fff;color:var(--fg);border-radius:var(--r-sm);padding:7px 13px;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--bg-in)}
+.btn.pri{background:var(--ab);border-color:var(--ab);color:#fff}
+.btn.pri:hover{filter:brightness(1.12)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.pri:disabled:hover{filter:none}
+.btn.sm{padding:5px 10px;font-size:12.5px}
+.btn.ic{padding:5px 8px;color:var(--muted);border-color:transparent;background:transparent;line-height:1}
+.btn.ic:hover{background:var(--bg-in);color:var(--fg)}
+
+/* KPI */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:0 0 20px}
+.st{border:1px solid var(--bd-soft);border-radius:var(--r-md);padding:13px 15px;background:#fff}
+.st.ac{background:var(--ab-soft);border-color:transparent}
+.st .k{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.st .v{font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;margin:5px 0 2px}
+.st .n{font-size:11px;color:var(--muted)}
+
+/* Onglets */
+.tabs{display:flex;align-items:center;gap:2px;border-bottom:1px solid var(--bd-soft);margin:0 0 14px}
+.tb{background:none;border:0;border-bottom:2px solid transparent;padding:8px 12px 9px;color:var(--muted);cursor:pointer;font-size:13px;margin-bottom:-1px}
+.tb:hover{color:var(--fg)}
+.tb.on{color:var(--ab);font-weight:600;border-bottom-color:var(--ab)}
+.tright{margin-left:auto;display:flex;align-items:center;gap:8px;padding-bottom:6px}
+.sr{border:1px solid var(--bd);border-radius:var(--r-sm);padding:6px 10px;font-size:12.5px;width:180px;background:#fff}
+.sr:focus{outline:none;border-color:var(--ab)}
+.seg{display:inline-flex;border:1px solid var(--bd);border-radius:var(--r-sm);overflow:hidden}
+.seg button{border:0;background:#fff;color:var(--muted);padding:6px 11px;font-size:12.5px;cursor:pointer}
+.seg button.on{background:var(--ab-soft);color:var(--ab);font-weight:600}
+
+/* Chips */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.ch{border:1px solid var(--bd);background:#fff;border-radius:999px;padding:4px 11px;font-size:12.5px;color:var(--muted);cursor:pointer}
+.ch:hover{background:var(--bg-in)}
+.ch.on{background:var(--ab);border-color:var(--ab);color:#fff}
+.cap{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+
+/* Tableau */
+.card{border:1px solid var(--bd-soft);border-radius:var(--r-md);overflow:hidden;background:#fff}
+table{width:100%;border-collapse:collapse}
+th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;background:#FCFCFC;padding:9px 12px;border-bottom:1px solid var(--bd-soft)}
+td{padding:10px 12px;border-bottom:1px solid var(--bd-soft);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:#FCFCFC}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.mono{font-variant-numeric:tabular-nums}
+th.cb,td.cb{width:34px;padding-right:0}
+th.act,td.act{width:44px;text-align:right}
+.grp td{background:var(--bg-in)!important;font-weight:600;font-size:12.5px;padding:8px 12px}
+.grp .tot{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+input[type=checkbox]{width:15px;height:15px;accent-color:var(--ab);cursor:pointer;margin:0}
+
+/* Cartes */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:10px}
+.cd{border:1px solid var(--bd-soft);border-radius:var(--r-md);padding:12px 14px;background:#fff;display:flex;flex-direction:column;gap:6px}
+.cd.sel{border-color:var(--ab);box-shadow:0 0 0 1px var(--ab) inset}
+.cd .top{display:flex;align-items:center;gap:9px}
+.cd .ti{flex:1;min-width:0;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cd .sub{font-size:12px;color:var(--muted)}
+.cd .amt{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums}
+.cd .ft{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
+
+/* Pastilles statut */
+.pl{display:inline-block;font-size:11px;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pl-ok{background:rgba(0,166,126,.12);color:#00805F}
+.pl-warn{background:rgba(232,167,53,.16);color:#8A6112}
+.pl-sent{background:var(--ab-soft);color:var(--ab)}
+.pl-draft{background:var(--bg-in);color:var(--muted)}
+
+/* Vide / loader */
+.empty{color:var(--soft);padding:26px 4px;font-size:13px}
+.spin{width:17px;height:17px;border:2px solid var(--ab-soft);border-top-color:var(--fu);border-radius:50%;animation:sp .7s linear infinite;display:inline-block;vertical-align:-3px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.load{padding:26px 4px;color:var(--muted)}
+
+/* Modale */
+.ov{position:fixed;inset:0;background:rgba(34,34,34,.42);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}
+.ov.on{display:flex}
+.mdl{background:#fff;border-radius:var(--r-lg);width:100%;max-width:420px;padding:20px 22px 18px;box-shadow:0 8px 30px rgba(0,0,0,.16)}
+.mdl h3{margin:0 0 3px;font-size:16px;font-weight:600}
+.mdl .mh{color:var(--muted);font-size:12.5px;margin:0 0 16px}
+.fl{margin:0 0 12px}
+.fl label{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 5px}
+.fl input,.fl select{width:100%;border:1px solid var(--bd);border-radius:var(--r-sm);padding:8px 10px;font:inherit;background:#fff}
+.fl input:focus,.fl select:focus{outline:none;border-color:var(--ab)}
+.fl2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.prev{background:var(--ab-soft);border-radius:var(--r-sm);padding:10px 12px;font-size:12.5px;color:var(--ab);margin:0 0 14px}
+.prev b{font-size:15px;font-variant-numeric:tabular-nums}
+.mact{display:flex;justify-content:flex-end;gap:8px}
+.err{background:rgba(232,69,124,.1);color:#B0295A;border-radius:var(--r-sm);padding:9px 12px;font-size:12.5px;margin:0 0 12px;display:none}
+.err.on{display:block}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(8px);background:var(--ab);color:#fff;padding:9px 16px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.2s;z-index:60}
+.toast.on{opacity:1;transform:translateX(-50%)}
+@media(max-width:620px){
+  body{padding:14px 14px 40px}
+  .bar{flex-direction:column;gap:10px}
+  .tright .sr{width:120px}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="lead">Saisie au fil de l'eau · barème 5 CV thermique · U-citybreak SAS</div>
+  <div class="ha">
+    <button class="btn" id="reload" title="Recharger">↻</button>
+    <button class="btn pri" id="new">+ Nouvel AR</button>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="k">À rembourser</div><div class="v" id="kDue">—</div><div class="n" id="kDueN">&nbsp;</div></div>
+  <div class="st"><div class="k">Sélection</div><div class="v" id="kSel">0,00 €</div><div class="n" id="kSelN">0 AR coché</div></div>
+  <div class="st ac"><div class="k">Cumul 2026</div><div class="v" id="kCum">—</div><div class="n" id="kCumN">&nbsp;</div></div>
+</div>
+
+<div class="tabs">
+  <button class="tb on" data-tab="pool">À rembourser</button>
+  <button class="tb" data-tab="notes">Notes émises</button>
+  <div class="tright">
+    <input class="sr" id="q" placeholder="Rechercher…">
+    <div class="seg" id="seg">
+      <button class="on" data-v="table">Tableau</button>
+      <button data-v="cards">Cartes</button>
+    </div>
+  </div>
+</div>
+
+<div id="chips" class="chips"></div>
+<div id="cap" class="cap"></div>
+<div id="body"><div class="load"><span class="spin"></span> Chargement…</div></div>
+
+<div id="genBar" style="display:none;margin:14px 0 0;text-align:right">
+  <button class="btn pri" id="gen" disabled>Générer la note de frais</button>
+</div>
+
+<!-- Modale nouvel AR -->
+<div class="ov" id="ov">
+  <div class="mdl">
+    <h3>Nouvel aller-retour</h3>
+    <p class="mh">Le montant est calculé au barème, tranche courante incluse.</p>
+    <div class="err" id="fErr"></div>
+    <div class="fl">
+      <label>Trajet</label>
+      <select id="fTrip">
+        <option value="Lyon ↔ Besançon" data-km="464">Lyon ↔ Besançon — 464 km</option>
+        <option value="Lyon → Besançon" data-km="232">Lyon → Besançon — 232 km</option>
+        <option value="__free__" data-km="">Autre trajet…</option>
+      </select>
+    </div>
+    <div class="fl" id="flFree" style="display:none">
+      <label>Libellé du trajet</label>
+      <input id="fTripFree" placeholder="Ex. Lyon → Grenoble">
+    </div>
+    <div class="fl2">
+      <div class="fl"><label>Date</label><input type="date" id="fDate"></div>
+      <div class="fl"><label>Kilomètres</label><input type="number" id="fKm" min="1" step="1"></div>
+    </div>
+    <div class="prev" id="fPrev">Montant estimé : <b>—</b></div>
+    <div class="mact">
+      <button class="btn" id="fCancel">Annuler</button>
+      <button class="btn pri" id="fOk">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- Contexte : la page peut être servie en iframe srcdoc (shell) → URLs absolues ---------- */
+var HOST = (location.protocol === 'http:' || location.protocol === 'https:')
+  ? location.origin
+  : 'https://n8n-d2box-u73867.vm.elestio.app';
+var API = HOST + '/webhook/D3';
+if (window.self !== window.top) document.body.classList.add('embed');
+
+/* ---------- Barème 5 CV thermique (miroir exact du backend) ---------- */
+function ik(k){ return k<=5000 ? 0.636*k : (k<=20000 ? 0.357*k+1395 : 0.427*k); }
+function eur(n){ return (Number(n)||0).toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €'; }
+function km(n){ return (Number(n)||0).toLocaleString('fr-FR')+' km'; }
+function trancheLabel(c){
+  if(c<=5000) return 'tranche ≤ 5 000 · 0,636 €/km';
+  if(c<=20000) return 'tranche ≤ 20 000 · 0,357 €/km + 1 395 €';
+  return 'tranche > 20 000 · 0,427 €/km';
+}
+var MONTHS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+function monthKey(d){ return (d||'').slice(0,7); }
+function monthLabel(k){
+  var p=(k||'').split('-'); if(p.length<2) return 'Sans date';
+  var m=MONTHS[Number(p[1])-1]||''; return m.charAt(0).toUpperCase()+m.slice(1)+' '+p[0];
+}
+function dayLabel(d){
+  if(!d) return '—';
+  var p=d.split('-'); if(p.length<3) return d;
+  return Number(p[2])+' '+MONTHS[Number(p[1])-1];
+}
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+/* ---------- État ---------- */
+var S = { pool:[], hist:[], cumulKm:0, tab:'pool', view:'table', q:'', month:'', sel:{}, busy:false };
+
+var $ = function(id){ return document.getElementById(id); };
+var toastT;
+function toast(msg){
+  var t=$('toast'); t.textContent=msg; t.classList.add('on');
+  clearTimeout(toastT); toastT=setTimeout(function(){ t.classList.remove('on'); }, 2600);
+}
+
+function call(params){
+  var qs = Object.keys(params).map(function(k){ return k+'='+encodeURIComponent(params[k]); }).join('&');
+  return fetch(API+'?'+qs, {cache:'no-store'}).then(function(r){
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.json();
+  });
+}
+
+function load(){
+  $('body').innerHTML = '<div class="load"><span class="spin"></span> Chargement…</div>';
+  call({action:'list'}).then(function(d){
+    S.pool = (d.pool||[]).slice();
+    S.hist = (d.hist||[]).slice();
+    S.cumulKm = Number(d.cumulKm)||0;
+    var live = {};
+    S.pool.forEach(function(r){ if(S.sel[r.id]) live[r.id]=true; });
+    S.sel = live;
+    render();
+  }).catch(function(e){
+    $('body').innerHTML = '<div class="empty">Chargement impossible ('+esc(e.message)+'). <a href="#" id="rt">Réessayer</a></div>';
+    var rt=$('rt'); if(rt) rt.onclick=function(ev){ ev.preventDefault(); load(); };
+  });
+}
+
+/* ---------- Rendu ---------- */
+function filteredPool(){
+  var q = S.q.trim().toLowerCase();
+  return S.pool.filter(function(r){
+    if(S.month && monthKey(r.date)!==S.month) return false;
+    if(!q) return true;
+    return (r.trip||'').toLowerCase().indexOf(q)>=0 || (r.date||'').indexOf(q)>=0;
+  });
+}
+function groupByMonth(rows){
+  var map={}, order=[];
+  rows.forEach(function(r){
+    var k=monthKey(r.date);
+    if(!map[k]){ map[k]=[]; order.push(k); }
+    map[k].push(r);
+  });
+  order.sort(function(a,b){ return b.localeCompare(a); });
+  return order.map(function(k){
+    var items=map[k].slice().sort(function(a,b){ return (a.date||'').localeCompare(b.date||''); });
+    return { key:k, items:items,
+      km:items.reduce(function(s,r){return s+(Number(r.km)||0);},0),
+      amt:items.reduce(function(s,r){return s+(Number(r.amt)||0);},0) };
+  });
+}
+function selRows(){ return S.pool.filter(function(r){ return S.sel[r.id]; }); }
+
+function render(){
+  // KPI
+  var due = S.pool.reduce(function(s,r){ return s+(Number(r.amt)||0); },0);
+  $('kDue').textContent = eur(due);
+  $('kDueN').textContent = S.pool.length+' AR en attente';
+  $('kCum').textContent = km(S.cumulKm);
+  $('kCumN').textContent = trancheLabel(S.cumulKm);
+  var sr = selRows();
+  $('kSel').textContent = eur(sr.reduce(function(s,r){ return s+(Number(r.amt)||0); },0));
+  $('kSelN').textContent = sr.length+(sr.length>1?' AR cochés':' AR coché');
+
+  // Onglets / contrôles
+  Array.prototype.forEach.call(document.querySelectorAll('.tb'), function(b){
+    b.classList.toggle('on', b.dataset.tab===S.tab);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('#seg button'), function(b){
+    b.classList.toggle('on', b.dataset.v===S.view);
+  });
+  $('seg').style.display = S.tab==='pool' ? '' : 'none';
+  $('genBar').style.display = S.tab==='pool' ? '' : 'none';
+  $('gen').disabled = sr.length===0 || S.busy;
+  $('gen').textContent = sr.length ? 'Générer la note de frais ('+eur(sr.reduce(function(s,r){return s+(Number(r.amt)||0);},0))+')'
+                                   : 'Générer la note de frais';
+
+  if(S.tab==='pool') renderPool(); else renderNotes();
+}
+
+function renderPool(){
+  // chips mois
+  var months=[]; S.pool.forEach(function(r){ var k=monthKey(r.date); if(months.indexOf(k)<0) months.push(k); });
+  months.sort(function(a,b){ return b.localeCompare(a); });
+  var ch = ['<button class="ch'+(S.month?'':' on')+'" data-m="">Tous les mois</button>']
+    .concat(months.map(function(k){ return '<button class="ch'+(S.month===k?' on':'')+'" data-m="'+k+'">'+monthLabel(k)+'</button>'; }));
+  $('chips').innerHTML = months.length>1 ? ch.join('') : '';
+
+  var rows = filteredPool();
+  var groups = groupByMonth(rows);
+  $('cap').textContent = rows.length
+    ? rows.length+(rows.length>1?' AR en attente · ':' AR en attente · ')+km(rows.reduce(function(s,r){return s+(Number(r.km)||0);},0))+' · '+eur(rows.reduce(function(s,r){return s+(Number(r.amt)||0);},0))+' — cochez un mois entier ou des lignes, puis générez la note.'
+    : '';
+
+  if(!rows.length){
+    $('body').innerHTML = '<div class="empty">'+(S.pool.length?'Aucun AR ne correspond au filtre.':'Aucun aller-retour en attente de remboursement.')+'</div>';
+    return;
+  }
+
+  if(S.view==='cards'){
+    var cards = groups.map(function(g){
+      return '<div style="grid-column:1/-1;display:flex;align-items:center;gap:9px;margin:6px 0 2px">'
+        + '<input type="checkbox" data-grp="'+g.key+'"'+(g.items.every(function(r){return S.sel[r.id];})?' checked':'')+'>'
+        + '<b style="font-size:12.5px">'+monthLabel(g.key)+'</b>'
+        + '<span style="font-size:12px;color:var(--muted)">'+g.items.length+' AR · '+km(g.km)+' · '+eur(g.amt)+'</span></div>'
+        + g.items.map(function(r){
+            return '<div class="cd'+(S.sel[r.id]?' sel':'')+'">'
+              + '<div class="top"><input type="checkbox" data-id="'+r.id+'"'+(S.sel[r.id]?' checked':'')+'>'
+              + '<span class="ti">'+esc(r.trip)+'</span>'
+              + '<button class="btn ic" data-del="'+r.id+'" title="Supprimer">×</button></div>'
+              + '<div class="sub">'+dayLabel(r.date)+' · '+km(r.km)+' · '+(Number(r.taux)||0).toLocaleString('fr-FR',{minimumFractionDigits:3})+' €/km</div>'
+              + '<div class="ft"><span class="amt">'+eur(r.amt)+'</span><span class="pl pl-warn">À rembourser</span></div>'
+              + '</div>';
+          }).join('');
+    }).join('');
+    $('body').innerHTML = '<div class="cards">'+cards+'</div>';
+  } else {
+    var trs = groups.map(function(g){
+      var all = g.items.every(function(r){ return S.sel[r.id]; });
+      return '<tr class="grp"><td class="cb"><input type="checkbox" data-grp="'+g.key+'"'+(all?' checked':'')+'></td>'
+        + '<td colspan="3">'+monthLabel(g.key)+'</td>'
+        + '<td colspan="3" class="num tot">'+g.items.length+' AR · '+km(g.km)+' · '+eur(g.amt)+'</td></tr>'
+        + g.items.map(function(r){
+            return '<tr><td class="cb"><input type="checkbox" data-id="'+r.id+'"'+(S.sel[r.id]?' checked':'')+'></td>'
+              + '<td class="mono">'+dayLabel(r.date)+'</td>'
+              + '<td>'+esc(r.trip)+'</td>'
+              + '<td class="num">'+km(r.km)+'</td>'
+              + '<td class="num">'+(Number(r.taux)||0).toLocaleString('fr-FR',{minimumFractionDigits:3})+'</td>'
+              + '<td class="num"><b>'+eur(r.amt)+'</b></td>'
+              + '<td class="act"><button class="btn ic" data-del="'+r.id+'" title="Supprimer">×</button></td></tr>';
+          }).join('');
+    }).join('');
+    $('body').innerHTML = '<div class="card"><table><thead><tr>'
+      + '<th class="cb"></th><th>Date</th><th>Trajet</th><th class="num">Km</th>'
+      + '<th class="num">€/km</th><th class="num">Montant</th><th class="act"></th>'
+      + '</tr></thead><tbody>'+trs+'</tbody></table></div>';
+  }
+}
+
+function renderNotes(){
+  $('chips').innerHTML = '';
+  var q = S.q.trim().toLowerCase();
+  var rows = S.hist.filter(function(n){ return !q || (n.ref||'').toLowerCase().indexOf(q)>=0; });
+  $('cap').textContent = rows.length ? rows.length+(rows.length>1?' notes émises':' note émise') : '';
+  if(!rows.length){
+    $('body').innerHTML = '<div class="empty">Aucune note de frais émise.</div>';
+    return;
+  }
+  var trs = rows.map(function(n){
+    var cls = n.status==='Remboursée' ? 'pl-ok' : (n.status==='Prête' ? 'pl-sent' : 'pl-draft');
+    return '<tr><td><b>'+esc(n.ref)+'</b></td>'
+      + '<td class="mono">'+(n.date?dayLabel(n.date)+' '+String(n.date).slice(0,4):'—')+'</td>'
+      + '<td class="num">'+(Number(n.n)||0)+'</td>'
+      + '<td class="num"><b>'+eur(n.total)+'</b></td>'
+      + '<td><span class="pl '+cls+'">'+esc(n.status||'Prête')+'</span></td>'
+      + '<td class="act" style="width:150px;white-space:nowrap">'
+      + '<button class="btn sm" data-open="'+esc(n.ref)+'">Ouvrir</button> '
+      + '<button class="btn ic" data-cancel="'+esc(n.ref)+'" title="Annuler la note">×</button></td></tr>';
+  }).join('');
+  $('body').innerHTML = '<div class="card"><table><thead><tr>'
+    + '<th>Référence</th><th>Émise le</th><th class="num">Nb AR</th><th class="num">Total</th><th>Statut</th><th class="act"></th>'
+    + '</tr></thead><tbody>'+trs+'</tbody></table></div>';
+}
+
+/* ---------- Interactions ---------- */
+document.addEventListener('click', function(e){
+  var t = e.target;
+
+  var tab = t.closest ? t.closest('.tb') : null;
+  if(tab){ S.tab = tab.dataset.tab; S.q=''; $('q').value=''; render(); return; }
+
+  var sg = t.closest ? t.closest('#seg button') : null;
+  if(sg){ S.view = sg.dataset.v; render(); return; }
+
+  var chip = t.closest ? t.closest('.ch') : null;
+  if(chip){ S.month = chip.dataset.m || ''; render(); return; }
+
+  if(t.dataset && t.dataset.del){ delAR(t.dataset.del); return; }
+  if(t.dataset && t.dataset.open){ openNDF(t.dataset.open); return; }
+  if(t.dataset && t.dataset.cancel){ cancelNote(t.dataset.cancel); return; }
+});
+
+document.addEventListener('change', function(e){
+  var t = e.target;
+  if(t.dataset && t.dataset.id){
+    if(t.checked) S.sel[t.dataset.id]=true; else delete S.sel[t.dataset.id];
+    render(); return;
+  }
+  if(t.dataset && t.dataset.grp){
+    var g = groupByMonth(filteredPool()).filter(function(x){ return x.key===t.dataset.grp; })[0];
+    if(g) g.items.forEach(function(r){ if(t.checked) S.sel[r.id]=true; else delete S.sel[r.id]; });
+    render(); return;
+  }
+});
+
+$('q').addEventListener('input', function(){ S.q = this.value; render(); });
+$('reload').onclick = load;
+
+function delAR(id){
+  var r = S.pool.filter(function(x){ return x.id===id; })[0];
+  if(!confirm('Supprimer cet AR'+(r?' ('+r.trip+', '+dayLabel(r.date)+')':'')+' ?')) return;
+  S.busy=true; render();
+  call({action:'del', id:id}).then(function(){
+    delete S.sel[id]; S.busy=false; toast('AR supprimé'); load();
+  }).catch(function(e){ S.busy=false; toast('Échec : '+e.message); render(); });
+}
+
+function openNDF(ref){
+  var url = API+'?action=ndf&ref='+encodeURIComponent(ref);
+  var w = window.open(url,'_blank');
+  if(!w){ var a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noopener'; document.body.appendChild(a); a.click(); a.remove(); }
+}
+
+function cancelNote(ref){
+  if(!confirm('Annuler la note '+ref+' ?\n\nLes AR concernés retournent dans le pool « à rembourser ».')) return;
+  S.busy=true; render();
+  call({action:'cancel', ref:ref}).then(function(){
+    S.busy=false; toast('Note '+ref+' annulée'); load();
+  }).catch(function(e){ S.busy=false; toast('Échec : '+e.message); render(); });
+}
+
+$('gen').onclick = function(){
+  var sr = selRows(); if(!sr.length) return;
+  var tot = sr.reduce(function(s,r){ return s+(Number(r.amt)||0); },0);
+  if(!confirm('Générer une note de frais pour '+sr.length+' AR ('+eur(tot)+') ?')) return;
+  S.busy=true; render();
+  call({action:'generate', ids:sr.map(function(r){return r.id;}).join(',')}).then(function(d){
+    S.busy=false; S.sel={};
+    toast('Note '+(d && d.ref ? d.ref : '')+' créée');
+    if(d && d.ref) openNDF(d.ref);
+    S.tab='notes'; load();
+  }).catch(function(e){ S.busy=false; toast('Échec : '+e.message); render(); });
+};
+
+/* ---------- Modale nouvel AR ---------- */
+function todayISO(){
+  var d=new Date(), p=function(n){ return String(n).padStart(2,'0'); };
+  return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());
+}
+function prev(){
+  var k=Number($('fKm').value)||0;
+  var m = k ? Math.round((ik(S.cumulKm+k)-ik(S.cumulKm))*100)/100 : 0;
+  $('fPrev').innerHTML = 'Montant estimé : <b>'+(k?eur(m):'—')+'</b>'+(k?' · '+km(k)+' au cumul '+km(S.cumulKm+k):'');
+}
+$('new').onclick = function(){
+  $('fErr').classList.remove('on');
+  $('fDate').value = todayISO();
+  $('fTrip').selectedIndex = 0;
+  $('fTripFree').value = '';
+  $('flFree').style.display='none';
+  $('fKm').value = 464;
+  prev();
+  $('ov').classList.add('on');
+};
+$('fTrip').onchange = function(){
+  var o=this.options[this.selectedIndex];
+  var free = this.value==='__free__';
+  $('flFree').style.display = free ? '' : 'none';
+  if(!free){ $('fKm').value = o.dataset.km||''; } else { $('fKm').value=''; }
+  prev();
+};
+$('fKm').addEventListener('input', prev);
+$('fCancel').onclick = function(){ $('ov').classList.remove('on'); };
+$('ov').addEventListener('click', function(e){ if(e.target===this) this.classList.remove('on'); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') $('ov').classList.remove('on'); });
+
+$('fOk').onclick = function(){
+  var trip = $('fTrip').value==='__free__' ? $('fTripFree').value.trim() : $('fTrip').value;
+  var date = $('fDate').value;
+  var k = Number($('fKm').value)||0;
+  var err = !trip ? 'Indiquez le libellé du trajet.' : (!date ? 'Indiquez la date.' : (k<=0 ? 'Indiquez un kilométrage.' : ''));
+  if(err){ $('fErr').textContent=err; $('fErr').classList.add('on'); return; }
+  $('fErr').classList.remove('on');
+  var btn=this; btn.disabled=true; btn.innerHTML='<span class="spin"></span>';
+  call({action:'add', date:date, km:k, trip:trip}).then(function(){
+    btn.disabled=false; btn.textContent='Enregistrer';
+    $('ov').classList.remove('on'); toast('AR ajouté'); load();
+  }).catch(function(e){
+    btn.disabled=false; btn.textContent='Enregistrer';
+    $('fErr').textContent='Échec de l\'enregistrement : '+e.message; $('fErr').classList.add('on');
+  });
+};
+
+load();
+})();
+</script>
+</body>
+</html>
