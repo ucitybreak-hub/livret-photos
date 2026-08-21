@@ -44,7 +44,8 @@
         "La boîte s'est déverrouillée, mais avez-vous bien <b>tiré sur le côté</b> pour l'ouvrir ? Le déverrouillage ne l'ouvre pas tout seul.",
         "Après <b>plusieurs codes erronés</b>, la boîte se met en sécurité. Patientez <b>1 à 2 minutes</b> sans y toucher, puis recommencez tranquillement."
       ]
-    }
+    },
+    "reveal_scope": "first_step"
   },
   "parking": {
     "summary": "Stationnement gratuit dans les rues alentours",
