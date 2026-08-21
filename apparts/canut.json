@@ -59,7 +59,8 @@
         "La boîte s'est déverrouillée, mais avez-vous bien <b>tiré sur le côté</b> pour l'ouvrir ? Le déverrouillage ne l'ouvre pas tout seul.",
         "Après <b>plusieurs codes erronés</b>, la boîte se met en sécurité. Patientez <b>1 à 2 minutes</b> sans y toucher, puis recommencez tranquillement."
       ]
-    }
+    },
+    "reveal_scope": "first_step"
   },
   "parking": {
     "summary": "Stationnement gratuit dans les rues alentours",
@@ -72,7 +73,10 @@
     "url": "https://www.nannybag.com/fr/consigne-bagage/lyon/gare-part-dieu",
     "sub_arrival": "Consignes Nannybag à Part-Dieu · dès 4,50 €/jour",
     "sub_departure": "Déposez vos bagages et profitez de Lyon jusqu'au train · dès 4,50 €/jour",
-    "show_on": ["access", "departure"]
+    "show_on": [
+      "access",
+      "departure"
+    ]
   },
   "transport": {
     "summary": "Funiculaire, métro, bus — voir le détail",
@@ -111,37 +115,37 @@
       "icon": "tv",
       "title": "Télévision",
       "cta": "Voir comment ça marche",
-      "body": "<p>La télévision est une <b>Android TV</b>. Pour les chaînes françaises, ouvrez l'application <b>Molotov TV</b>.</p><p>Pensez à vous déconnecter de vos comptes avant le départ.</p>"
+      "body": "La télévision est une <b>Android TV</b>. Pour les chaînes françaises, ouvrez l'application <b>Molotov TV</b>.Pensez à vous déconnecter de vos comptes avant le départ."
     },
     {
       "icon": "heat",
       "title": "Chauffage",
       "cta": "Voir comment ça marche",
-      "body": "<p>Les radiateurs sont <b>auto-régulés</b> entre 19 et 20°C : inutile d'y toucher, ils se coupent seuls à 20°C et repartent quand la température baisse.</p><p>Un <b>chauffage d'appoint</b> est disponible dans le salon si besoin. Nous pouvons aussi ajuster les radiateurs à distance.</p>"
+      "body": "Les radiateurs sont <b>auto-régulés</b> entre 19 et 20°C : inutile d'y toucher, ils se coupent seuls à 20°C et repartent quand la température baisse.Un <b>chauffage d'appoint</b> est disponible dans le salon si besoin. Nous pouvons aussi ajuster les radiateurs à distance."
     },
     {
       "icon": "coffee",
       "title": "Café Nespresso",
       "cta": "Voir ce qui est fourni",
-      "body": "<p>Machine <b>Nespresso</b> et cafetière filtre, plus une bouilloire dans la cuisine.</p><p>Nous offrons les <b>capsules de café et le thé pour votre première nuitée</b>. Au-delà, tout se trouve à deux pas.</p>"
+      "body": "Machine <b>Nespresso</b> et cafetière filtre, plus une bouilloire dans la cuisine.Nous offrons les <b>capsules de café et le thé pour votre première nuitée</b>. Au-delà, tout se trouve à deux pas."
     },
     {
       "icon": "wash",
       "title": "Lave-linge séchant",
       "cta": "Bon à savoir",
-      "body": "<p>Le lave-linge fait aussi <b>sèche-linge</b>. Pensez à réduire le volume au séchage : il ne peut pas sécher autant de linge qu'il en lave d'un coup.</p>"
+      "body": "Le lave-linge fait aussi <b>sèche-linge</b>. Pensez à réduire le volume au séchage : il ne peut pas sécher autant de linge qu'il en lave d'un coup."
     },
     {
       "icon": "supply",
       "title": "Ce qu'on vous fournit",
       "cta": "Voir la liste",
-      "body": "<p><b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette.</p><p><b>Pour tout le séjour</b> — draps et serviettes en coton bio (équivalent hôtel 4 étoiles), sèche-cheveux, fer à repasser.</p>"
+      "body": "<b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette.<b>Pour tout le séjour</b> — draps et serviettes en coton bio (équivalent hôtel 4 étoiles), sèche-cheveux, fer à repasser."
     },
     {
       "icon": "trash",
       "title": "Poubelles & tri",
       "cta": "Voir où",
-      "body": "<p>Les poubelles se trouvent <b>au pied de la cage d'escalier</b>, au fond à droite du couloir.</p><p>Le <b>verre</b> se dépose dans les bacs de collecte situés sur le parking, à l'angle de la rue de la Pépinière et de l'avenue Barthélémy Buyer.</p><p>Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage.</p>"
+      "body": "Les poubelles se trouvent <b>au pied de la cage d'escalier</b>, au fond à droite du couloir.Le <b>verre</b> se dépose dans les bacs de collecte situés sur le parking, à l'angle de la rue de la Pépinière et de l'avenue Barthélémy Buyer.Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage."
     }
   ],
   "house_rules": [
