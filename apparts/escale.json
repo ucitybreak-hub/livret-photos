@@ -63,7 +63,8 @@
         "La boîte s'est déverrouillée, mais avez-vous bien <b>tiré sur le côté</b> pour l'ouvrir et récupérer la clé ? Le déverrouillage ne l'ouvre pas tout seul.",
         "Après <b>plusieurs codes erronés</b>, la boîte se met en sécurité. Patientez <b>1 à 2 minutes</b> sans y toucher, puis recommencez tranquillement."
       ]
-    }
+    },
+    "reveal_scope": "first_step"
   },
   "parking": {
     "summary": "Zone piétonne · parkings gratuits à 5 min",
@@ -102,7 +103,10 @@
     "url": "https://www.nannybag.com/fr/consigne-bagage/besancon",
     "sub_arrival": "Consignes Nannybag à Besançon · dès 2,50 €/jour",
     "sub_departure": "Déposez-les et profitez de la ville jusqu'au train · dès 2,50 €/jour",
-    "show_on": ["access", "departure"]
+    "show_on": [
+      "access",
+      "departure"
+    ]
   },
   "transport": {
     "summary": "Tram, gares, taxis, vélos — voir le détail",
@@ -128,12 +132,12 @@
       {
         "emoji": "🚖",
         "title": "Taxi",
-        "text": "<b>Uber ne dessert pas Besançon.</b> Taxis Radio : <a href=\"tel:+33381888080\">03 81 88 80 80</a>, ou VTC pour la gare TGV."
+        "text": "<b>Uber ne dessert pas Besançon.</b> Taxis Radio : <a href=\"tel:+33381888080\" target=\"_blank\" rel=\"noopener\">03 81 88 80 80</a>, ou VTC pour la gare TGV."
       },
       {
         "emoji": "🚲",
         "title": "Vélos · VéloCité",
-        "text": "Vélos en libre-service pour les courts trajets, ou location à la journée. Box vélo sécurisé en parking souterrain (pièce d'identité requise) — <a href=\"tel:+33381213260\">03 81 21 32 60</a>."
+        "text": "Vélos en libre-service pour les courts trajets, ou location à la journée. Box vélo sécurisé en parking souterrain (pièce d'identité requise) — <a href=\"tel:+33381213260\" target=\"_blank\" rel=\"noopener\">03 81 21 32 60</a>."
       }
     ]
   },
@@ -147,25 +151,25 @@
       "icon": "tv",
       "title": "Télévision",
       "cta": "Voir comment ça marche",
-      "body": "<p>La télévision se regarde par internet via le <b>boîtier SFR</b> — utilisez la <b>deuxième télécommande</b> pour naviguer.</p><p>Pensez à vous déconnecter de vos comptes avant le départ.</p>"
+      "body": "La télévision se regarde par internet via le <b>boîtier SFR</b> — utilisez la <b>deuxième télécommande</b> pour naviguer.Pensez à vous déconnecter de vos comptes avant le départ."
     },
     {
       "icon": "heat",
       "title": "Chauffage",
       "cta": "Voir comment le régler",
-      "body": "<p>La température se règle sur les <b>thermostats muraux</b> — <b>ne touchez pas aux radiateurs</b> eux-mêmes.</p><p>Idéalement <b>19-21°C</b> en hiver. Pensez à bien refermer les fenêtres pour ne pas chauffer dans le vide.</p>"
+      "body": "La température se règle sur les <b>thermostats muraux</b> — <b>ne touchez pas aux radiateurs</b> eux-mêmes.Idéalement <b>19-21°C</b> en hiver. Pensez à bien refermer les fenêtres pour ne pas chauffer dans le vide."
     },
     {
       "icon": "stove",
       "title": "Plaque de cuisson",
       "cta": "Voir le mode d'emploi",
-      "body": "<p>Plaque <b>EssentielB</b> à commandes tactiles : appuyez pour ajuster la puissance.</p><p>Sécurité enfant : appui long sur le bouton de verrouillage.</p>"
+      "body": "Plaque <b>EssentielB</b> à commandes tactiles : appuyez pour ajuster la puissance.Sécurité enfant : appui long sur le bouton de verrouillage."
     },
     {
       "icon": "coffee",
       "title": "Café Nespresso",
       "cta": "Voir ce qui est fourni",
-      "body": "<p>Machine <b>Nespresso</b>, bouilloire et cafetière à piston dans la cuisine.</p><p>Nous offrons les <b>capsules de café et le thé pour votre première nuitée</b>, le temps de vous installer. Au-delà, des capsules sont en vente juste à côté.</p>"
+      "body": "Machine <b>Nespresso</b>, bouilloire et cafetière à piston dans la cuisine.Nous offrons les <b>capsules de café et le thé pour votre première nuitée</b>, le temps de vous installer. Au-delà, des capsules sont en vente juste à côté."
     },
     {
       "icon": "wash",
@@ -176,13 +180,13 @@
       "icon": "supply",
       "title": "Ce qu'on vous fournit",
       "cta": "Voir la liste",
-      "body": "<p><b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette pour le séjour.</p><p><b>Pour tout le séjour</b> — draps et serviettes (une serviette de bain par personne), sèche-cheveux, fer à repasser.</p><p>Le nécessaire est là pour bien commencer ; pour un séjour plus long, tout se trouve à deux pas.</p>"
+      "body": "<b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette pour le séjour.<b>Pour tout le séjour</b> — draps et serviettes (une serviette de bain par personne), sèche-cheveux, fer à repasser.Le nécessaire est là pour bien commencer ; pour un séjour plus long, tout se trouve à deux pas."
     },
     {
       "icon": "trash",
       "title": "Poubelles & tri",
       "cta": "Voir comment y accéder",
-      "body": "<p>Le local à poubelles est <b>en bas de l'escalier</b>, dans la <b>cour intérieure</b>.</p><p>Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage.</p>"
+      "body": "Le local à poubelles est <b>en bas de l'escalier</b>, dans la <b>cour intérieure</b>.Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage."
     }
   ],
   "house_rules": [
