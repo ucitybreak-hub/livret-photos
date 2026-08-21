@@ -24,7 +24,8 @@
       {
         "title": "Le digicode de l'immeuble",
         "text": "Composez le digicode sur la porte d'entrée. <b>Le même code ouvre les deux portes</b> — la porte sur rue, puis la porte du hall.",
-        "code": "digicode"
+        "code": "digicode",
+        "photo": "alcove/img-2749.jpg"
       },
       {
         "title": "Monter au 3e étage",
