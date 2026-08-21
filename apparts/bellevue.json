@@ -53,7 +53,8 @@
         "Saisissez les chiffres <b>un par un</b>, sans trop appuyer, puis ouvrez le volet.",
         "Si ça coince, réalignez bien les molettes sur le code et réessayez tranquillement. En cas de blocage, écrivez-nous."
       ]
-    }
+    },
+    "reveal_scope": "first_step"
   },
   "parking": {
     "summary": "Stationnement de rue + parking gratuit à 200 m",
@@ -117,7 +118,7 @@
       "icon": "tv",
       "title": "Télévision",
       "cta": "Voir les chaînes & apps",
-      "body": "<p><b>Salon</b> — TV branchée sur les chaînes TNT françaises.</p><p><b>Chambre</b> — Smart TV Samsung avec Netflix, Molotov et myCanal (vos identifiants). <b>AirPlay</b> (iPhone) et <b>Chromecast</b> (Android) disponibles.</p>"
+      "body": "<b>Salon</b> — TV branchée sur les chaînes TNT françaises.<b>Chambre</b> — Smart TV Samsung avec Netflix, Molotov et myCanal (vos identifiants). <b>AirPlay</b> (iPhone) et <b>Chromecast</b> (Android) disponibles."
     },
     {
       "icon": "coffee",
@@ -128,7 +129,7 @@
       "icon": "stove",
       "title": "Cuisine",
       "cta": "Voir l'équipement",
-      "body": "<p><b>Plaques</b> de cuisson et <b>lave-vaisselle</b> (marque Ikea) — pastilles fournies.</p><p>Pas d'égouttoir : utilisez le lave-vaisselle pour le séchage.</p>"
+      "body": "<b>Plaques</b> de cuisson et <b>lave-vaisselle</b> (marque Ikea) — pastilles fournies.Pas d'égouttoir : utilisez le lave-vaisselle pour le séchage."
     },
     {
       "icon": "wash",
@@ -139,26 +140,26 @@
       "icon": "heat",
       "title": "Chauffage & climatisation",
       "cta": "Comment ça marche",
-      "body": "<p><b>Chauffage central</b> commun à l'immeuble. Des <b>radiateurs d'appoint</b> sont à disposition pour l'inter-saison.</p><p><b>Été</b> — climatiseur mobile et ventilateurs à disposition ; baissez les volets roulants aux heures chaudes.</p>"
+      "body": "<b>Chauffage central</b> commun à l'immeuble. Des <b>radiateurs d'appoint</b> sont à disposition pour l'inter-saison.<b>Été</b> — climatiseur mobile et ventilateurs à disposition ; baissez les volets roulants aux heures chaudes."
     },
     {
       "icon": "sofa",
       "title": "Canapé-lit",
       "cta": "Voir la notice",
-      "body": "<p>Le canapé du salon se déplie en couchage d'appoint.</p>",
+      "body": "Le canapé du salon se déplie en couchage d'appoint.",
       "photo": "bellevue/canape-lit.jpg"
     },
     {
       "icon": "supply",
       "title": "Équipement bébé",
       "cta": "Voir",
-      "body": "<p>Lit parapluie et chaise haute disponibles. Le lit parapluie est dans le <b>coffre du lit côté rue</b> (ou parfois derrière le canapé).</p>"
+      "body": "Lit parapluie et chaise haute disponibles. Le lit parapluie est dans le <b>coffre du lit côté rue</b> (ou parfois derrière le canapé)."
     },
     {
       "icon": "supply",
       "title": "Ce qu'on vous fournit",
       "cta": "Voir la liste",
-      "body": "<p><b>Pour démarrer</b> — capsules Nespresso et thé (1ère nuitée), <b>2 rouleaux</b> de papier toilette, pastilles lave-vaisselle.</p><p>Gel douche, shampoing, sèche-cheveux et fer à repasser fournis. L'eau du robinet est potable.</p>"
+      "body": "<b>Pour démarrer</b> — capsules Nespresso et thé (1ère nuitée), <b>2 rouleaux</b> de papier toilette, pastilles lave-vaisselle.Gel douche, shampoing, sèche-cheveux et fer à repasser fournis. L'eau du robinet est potable."
     }
   ],
   "house_rules": [
