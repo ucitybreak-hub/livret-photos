@@ -64,7 +64,8 @@
         "La boîte s'est déverrouillée, mais avez-vous bien <b>tiré sur le côté</b> pour l'ouvrir et récupérer la clé ? Le déverrouillage ne l'ouvre pas tout seul.",
         "Après <b>plusieurs codes erronés</b>, la boîte se met en sécurité. Patientez <b>1 à 2 minutes</b> sans y toucher, puis recommencez tranquillement."
       ]
-    }
+    },
+    "reveal_scope": "first_step"
   },
   "parking": {
     "summary": "Zone piétonne · parkings gratuits à 5 min",
@@ -132,12 +133,12 @@
       {
         "emoji": "🚖",
         "title": "Taxi",
-        "text": "<b>Uber ne dessert pas Besançon.</b> Taxis Radio : <a href=\"tel:+33381888080\">03 81 88 80 80</a>, ou VTC pour la gare TGV."
+        "text": "<b>Uber ne dessert pas Besançon.</b> Taxis Radio : <a href=\"tel:+33381888080\" target=\"_blank\" rel=\"noopener\">03 81 88 80 80</a>, ou VTC pour la gare TGV."
       },
       {
         "emoji": "🚲",
         "title": "Vélos · VéloCité",
-        "text": "Vélos en libre-service pour les courts trajets, ou location à la journée. Box vélo sécurisé en parking souterrain (pièce d'identité requise) — <a href=\"tel:+33381213260\">03 81 21 32 60</a>."
+        "text": "Vélos en libre-service pour les courts trajets, ou location à la journée. Box vélo sécurisé en parking souterrain (pièce d'identité requise) — <a href=\"tel:+33381213260\" target=\"_blank\" rel=\"noopener\">03 81 21 32 60</a>."
       }
     ]
   },
@@ -151,31 +152,31 @@
       "icon": "tv",
       "title": "Télévision",
       "cta": "Voir comment ça marche",
-      "body": "<p>Deux télécommandes : la grande pour la TV, <b>la petite</b> pour naviguer dans la box Android.</p><p>Applis déjà installées : <b>Netflix, YouTube, SFR TV</b>. Vous pouvez aussi diffuser depuis votre téléphone (<b>AirPlay</b> / <b>Chromecast</b>).</p><p>Pensez à vous déconnecter de vos comptes avant le départ.</p>"
+      "body": "Deux télécommandes : la grande pour la TV, <b>la petite</b> pour naviguer dans la box Android.Applis déjà installées : <b>Netflix, YouTube, SFR TV</b>. Vous pouvez aussi diffuser depuis votre téléphone (<b>AirPlay</b> / <b>Chromecast</b>).Pensez à vous déconnecter de vos comptes avant le départ."
     },
     {
       "icon": "heat",
       "title": "Chauffage",
       "cta": "Voir comment le régler",
-      "body": "<p>Les radiateurs muraux se règlent individuellement. Idéalement <b>19-21°C</b> en hiver.</p><p>Des capteurs coupent le chauffage si une fenêtre reste ouverte trop longtemps — pensez à bien refermer.</p>"
+      "body": "Les radiateurs muraux se règlent individuellement. Idéalement <b>19-21°C</b> en hiver.Des capteurs coupent le chauffage si une fenêtre reste ouverte trop longtemps — pensez à bien refermer."
     },
     {
       "icon": "stove",
       "title": "Plaque de cuisson",
       "cta": "Voir le mode d'emploi",
-      "body": "<p>Plaque vitrocéramique <b>tactile</b> : appuyez sur les commandes pour ajuster la puissance de <b>1 à 9</b>.</p><p>Sécurité enfant : appui long sur le bouton de verrouillage.</p>"
+      "body": "Plaque vitrocéramique <b>tactile</b> : appuyez sur les commandes pour ajuster la puissance de <b>1 à 9</b>.Sécurité enfant : appui long sur le bouton de verrouillage."
     },
     {
       "icon": "coffee",
       "title": "Café Nespresso",
       "cta": "Voir ce qui est fourni",
-      "body": "<p>Machine <b>Nespresso</b> dans la cuisine.</p><p>Nous offrons les <b>capsules de café et le thé pour votre première nuitée</b>, le temps de vous installer. Au-delà, des capsules sont en vente à la supérette juste en bas.</p>"
+      "body": "Machine <b>Nespresso</b> dans la cuisine.Nous offrons les <b>capsules de café et le thé pour votre première nuitée</b>, le temps de vous installer. Au-delà, des capsules sont en vente à la supérette juste en bas."
     },
     {
       "icon": "sofa",
       "title": "Canapé-lit",
       "cta": "Voir le mode d'emploi",
-      "body": "<p>Les draps sont dans le <b>meuble à droite de la TV</b>.</p><p>Dépliage : retirez les coussins, tirez la sangle sous l'assise puis dépliez le sommier.</p>",
+      "body": "Les draps sont dans le <b>meuble à droite de la TV</b>.Dépliage : retirez les coussins, tirez la sangle sous l'assise puis dépliez le sommier.",
       "photo": "lumineux/Mode emploi canape lit.jpg"
     },
     {
@@ -187,13 +188,13 @@
       "icon": "supply",
       "title": "Ce qu'on vous fournit",
       "cta": "Voir la liste",
-      "body": "<p><b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette pour le séjour, une dosette de lave-vaisselle.</p><p><b>Pour tout le séjour</b> — draps et serviettes, gel douche, shampoing et savon, sèche-cheveux, fer à repasser.</p><p>Le nécessaire est là pour bien commencer ; pour un séjour plus long, tout se trouve à deux pas.</p>"
+      "body": "<b>Pour démarrer</b> — capsules de café et thé (première nuitée), <b>2 à 3 rouleaux</b> de papier toilette pour le séjour, une dosette de lave-vaisselle.<b>Pour tout le séjour</b> — draps et serviettes, gel douche, shampoing et savon, sèche-cheveux, fer à repasser.Le nécessaire est là pour bien commencer ; pour un séjour plus long, tout se trouve à deux pas."
     },
     {
       "icon": "trash",
       "title": "Poubelles & tri",
       "cta": "Voir comment y accéder",
-      "body": "<p>Le local à poubelles est <b>en bas de l'escalier</b>, dans la <b>cour intérieure</b>.</p><p>Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage.</p>"
+      "body": "Le local à poubelles est <b>en bas de l'escalier</b>, dans la <b>cour intérieure</b>.Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage."
     }
   ],
   "house_rules": [
