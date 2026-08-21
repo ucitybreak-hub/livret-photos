@@ -3,15 +3,22 @@
   "property_uuid": "29b1a9aa-9359-4f13-9af9-e615bb2bafe4",
   "hero_photo_url": "https://assets.hospitable.com/property_images/2076406/ljjNPRQS4I1hq4YJq6hs3CcwCQcUoRKLm0qB687w.jpg",
   "videos": {
-    "arrival": { "youtube_id": "DwyeCH4FSWo", "label": "Le chemin jusqu'à l'appartement" },
-    "tour": { "youtube_id": "Ed_4ON2EUmc", "label": "La visite de l'appartement" }
+    "arrival": {
+      "youtube_id": "DwyeCH4FSWo",
+      "label": "Le chemin jusqu'à l'appartement"
+    },
+    "tour": {
+      "youtube_id": "Ed_4ON2EUmc",
+      "label": "La visite de l'appartement"
+    }
   },
   "arrival": {
     "steps": [
       {
         "title": "Trouver l'immeuble",
         "text": "Vous arrivez au <b>3 rue de la Valfenière</b>, en plein cœur de la Presqu'île. Depuis la place des Terreaux, prenez la rue Paul Chenavard puis la rue Major Martin (à l'angle du Café des Fédérations). En venant par la rue de la Plâtrière, c'est à l'angle du Franprix Marché Presqu'île.",
-        "video": "arrival"
+        "video": "arrival",
+        "photo": "alcove/img-2744.jpg"
       },
       {
         "title": "Le digicode de l'immeuble",
@@ -59,7 +66,10 @@
     "url": "https://www.nannybag.com/fr/consigne-bagage/lyon",
     "sub_arrival": "Consignes Nannybag dans Lyon · dès 4,50 €/jour",
     "sub_departure": "Déposez vos bagages et profitez de Lyon jusqu'au train · dès 4,50 €/jour",
-    "show_on": ["access", "departure"]
+    "show_on": [
+      "access",
+      "departure"
+    ]
   },
   "transport": {
     "summary": "Métro, bus, gares — voir le détail",
@@ -98,49 +108,49 @@
       "icon": "tv",
       "title": "Télévision",
       "cta": "Voir comment ça marche",
-      "body": "<p>La TV fonctionne avec la <b>box Android SFR TV</b> : utilisez la <b>deuxième télécommande</b> pour l'allumer et naviguer.</p><p>Pensez à vous déconnecter de vos comptes avant le départ.</p>"
+      "body": "La TV fonctionne avec la <b>box Android SFR TV</b> : utilisez la <b>deuxième télécommande</b> pour l'allumer et naviguer.Pensez à vous déconnecter de vos comptes avant le départ."
     },
     {
       "icon": "stove",
       "title": "Cuisine",
       "cta": "Voir l'équipement",
-      "body": "<p>Kitchenette équipée : plaques de cuisson, <b>micro-ondes</b>, réfrigérateur-congélateur, vaisselle et ustensiles.</p><p>À noter : <b>pas de four</b> ni de lave-vaisselle.</p>"
+      "body": "Kitchenette équipée : plaques de cuisson, <b>micro-ondes</b>, réfrigérateur-congélateur, vaisselle et ustensiles.À noter : <b>pas de four</b> ni de lave-vaisselle."
     },
     {
       "icon": "coffee",
       "title": "Café",
       "cta": "Bon à savoir",
-      "body": "<p>Une <b>cafetière filtre</b> et une bouilloire sont à votre disposition dans la cuisine.</p><p>Il n'y a pas de machine à capsules.</p>"
+      "body": "Une <b>cafetière filtre</b> et une bouilloire sont à votre disposition dans la cuisine.Il n'y a pas de machine à capsules."
     },
     {
       "icon": "heat",
       "title": "Chauffage",
       "cta": "Bon à savoir",
-      "body": "<p>Le <b>sèche-serviette</b> de la salle de bains dispose parfois d'une sécurité enfant. S'il ne s'allume pas, contactez-nous et on s'en occupe.</p>"
+      "body": "Le <b>sèche-serviette</b> de la salle de bains dispose parfois d'une sécurité enfant. S'il ne s'allume pas, contactez-nous et on s'en occupe."
     },
     {
       "icon": "wash",
       "title": "Lave-linge",
       "cta": "Où le brancher",
-      "body": "<p>Le lave-linge se branche sur la prise située <b>en haut à gauche du miroir</b> de la salle de bains.</p>"
+      "body": "Le lave-linge se branche sur la prise située <b>en haut à gauche du miroir</b> de la salle de bains."
     },
     {
       "icon": "sofa",
       "title": "Canapé-lit",
       "cta": "Voir le couchage",
-      "body": "<p>Le <b>canapé-lit</b> accueille un couchage supplémentaire. Le linge (couette + oreiller) est rangé sur <b>l'étagère à droite du canapé</b>.</p><p>Il n'est pas fait à l'arrivée, pour vous laisser plus d'espace en journée.</p>"
+      "body": "Le <b>canapé-lit</b> accueille un couchage supplémentaire. Le linge (couette + oreiller) est rangé sur <b>l'étagère à droite du canapé</b>.Il n'est pas fait à l'arrivée, pour vous laisser plus d'espace en journée."
     },
     {
       "icon": "supply",
       "title": "Ce qu'on vous fournit",
       "cta": "Voir la liste",
-      "body": "<p><b>Pour démarrer</b> — quelques rouleaux de papier toilette et le nécessaire de bienvenue.</p><p><b>Pour tout le séjour</b> — draps et serviettes (2 serviettes par lit), sèche-cheveux, et un <b>fer à repasser</b> rangé au-dessus de la cuisine, dans le grand placard.</p>"
+      "body": "<b>Pour démarrer</b> — quelques rouleaux de papier toilette et le nécessaire de bienvenue.<b>Pour tout le séjour</b> — draps et serviettes (2 serviettes par lit), sèche-cheveux, et un <b>fer à repasser</b> rangé au-dessus de la cuisine, dans le grand placard."
     },
     {
       "icon": "trash",
       "title": "Poubelles & tri",
       "cta": "Voir où",
-      "body": "<p>Le local poubelles se trouve <b>en bas de l'escalier en colimaçon</b>.</p><p>Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage.</p>"
+      "body": "Le local poubelles se trouve <b>en bas de l'escalier en colimaçon</b>.Merci d'évacuer vos poubelles au moment du départ — par respect pour l'équipe de ménage."
     }
   ],
   "house_rules": [
