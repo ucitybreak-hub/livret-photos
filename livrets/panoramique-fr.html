@@ -1,4 +1,4 @@
-<!-- BUILT V3 panoramique-fr at 2026-08-25T20:46:26.912Z -->
+<!-- BUILT V3 panoramique-fr at 2026-08-25T20:57:32.017Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -214,13 +214,14 @@
   .upsell{margin:16px 16px 8px;border-radius:18px;padding:18px 20px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.1)}
   .upsell h3{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--accent)}
   .upsell p{font-size:13px;color:var(--ink-2);margin:5px 0 15px}
-  .chips{display:flex;gap:9px}
-  .chip{flex:1;background:#fff;border:1.5px solid var(--line);border-radius:13px;padding:11px 0;cursor:pointer;transition:.15s;text-align:center;font-family:var(--font);color:var(--ink)}
+  /*UCB-CHIP-WRAP-V1*/.chips{display:flex;gap:9px;flex-wrap:wrap}
+  .chip{flex:1 1 88px;background:#fff;border:1.5px solid var(--line);border-radius:13px;padding:11px 0;cursor:pointer;transition:.15s;text-align:center;font-family:var(--font);color:var(--ink)}
   /*UCB-CHIP-DISPLAY-V1*/.chip .h{display:block;font-size:16px;font-weight:700}
   .chip .p{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
   .chip.sel{background:var(--accent);border-color:var(--accent);color:#fff}
   .chip.sel .p{color:rgba(255,255,255,.82)}
   .chip:active{transform:scale(.96)}
+  .upsell .ups-more{flex:0 0 100%;display:block;width:100%;margin-top:2px;background:none;border:0;color:var(--accent);font-family:var(--font);font-size:12.5px;font-weight:600;text-decoration:underline;cursor:pointer;padding:6px 0;text-align:center}
 
   .reco{display:flex;gap:14px;margin:0 16px 12px;padding:11px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm)}
   .reco .th{width:64px;height:64px;border-radius:12px;background:var(--accent-soft) center/cover;flex-shrink:0}
