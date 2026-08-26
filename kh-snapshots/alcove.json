@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T03:00:14.787Z",
+  "fetched_at": "2026-08-26T03:00:13.359Z",
   "property_uuid": "29b1a9aa-9359-4f13-9af9-e615bb2bafe4",
   "property_name": "L'Alcôve",
   "source": "referentiel-get",
@@ -33,11 +33,11 @@
       "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée dès 10h00 possible moyennant un supplément de 50 €, ou dépôt de bagages avant 17h00 si l'appartement est prêt et qu'aucun départ n'est prévu ce jour-là (sinon : Nannybag ou commerces locaux).",
+          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée parfois possible selon le planning du jour (départ précédent, ménage) : à demander à l'avance, l'équipe confirme — aucune heure ni tarif garantis sans confirmation. Dépôt de bagages avant l'arrivée : mêmes conditions ; sinon Nannybag ou consignes en ville.",
           "is_edited": true
         },
         {
-          "content": "Heure de depart (check-out) : 11h00. Départ tardif possible jusqu'à 12h30 ou 15h00 selon le planning ménage, à confirmer avec l'hôte.",
+          "content": "Heure de depart (check-out) : 11h00. Départ tardif parfois possible selon le planning ménage : à demander à l'avance, l'équipe confirme.",
           "is_edited": true
         },
         {
