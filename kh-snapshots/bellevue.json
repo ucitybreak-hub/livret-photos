@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T03:00:14.794Z",
+  "fetched_at": "2026-08-26T03:00:13.374Z",
   "property_uuid": "ec859cd9-8eac-44a3-afe4-0013b9ea393d",
   "property_name": "Bellevue",
   "source": "referentiel-get",
@@ -33,11 +33,11 @@
       "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : 17h00 (standard). Arrivée anticipée possible vers 14h-15h selon disponibilité et planning du ménage. Arrivée tardive (jusqu'à minuit) possible, le processus est autonome.",
+          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée parfois possible selon le planning du jour (départ précédent, ménage) : à demander à l'avance, l'équipe confirme — aucune heure ni tarif garantis sans confirmation. Arrivée tardive possible jusqu'à minuit, le processus d'entrée est autonome.",
           "is_edited": true
         },
         {
-          "content": "Heure de depart (check-out) : 11h00 (standard). Départ tardif (12h ou plus) possible selon disponibilité du prestataire ménage — à demander à l'avance.",
+          "content": "Heure de depart (check-out) : 11h00. Départ tardif parfois possible selon le planning ménage : à demander à l'avance, l'équipe confirme.",
           "is_edited": true
         },
         {
