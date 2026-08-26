@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T03:00:14.779Z",
+  "fetched_at": "2026-08-26T03:00:13.350Z",
   "property_uuid": "74ea4906-2e41-4831-bc83-8ebb5b4c6b12",
   "property_name": "L'Élégant",
   "source": "referentiel-get",
@@ -33,11 +33,11 @@
       "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : 17h00 (arrivée anticipée vers 10h-11h possible si l'appartement était inoccupé la nuit précédente, sous réserve de confirmation par l'hôte)",
+          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée parfois possible selon le planning du jour (départ précédent, ménage) : à demander à l'avance, l'équipe confirme — aucune heure ni tarif garantis sans confirmation.",
           "is_edited": true
         },
         {
-          "content": "Heure de depart (check-out) : 11h00",
+          "content": "Heure de depart (check-out) : 11h00. Départ tardif parfois possible selon le planning ménage : à demander à l'avance, l'équipe confirme.",
           "is_edited": true
         },
         {
