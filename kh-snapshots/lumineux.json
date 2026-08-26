@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T03:00:14.792Z",
+  "fetched_at": "2026-08-26T03:00:13.368Z",
   "property_uuid": "823fc627-f879-4e9a-9829-ccb0b3c1b53e",
   "property_name": "Le Lumineux",
   "source": "referentiel-get",
@@ -33,11 +33,11 @@
       "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : 17h00 (arrivée anticipée possible si le ménage est terminé avant 17h, sur demande préalable)",
+          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée parfois possible selon le planning du jour (départ précédent, ménage) : à demander à l'avance, l'équipe confirme — aucune heure ni tarif garantis sans confirmation.",
           "is_edited": true
         },
         {
-          "content": "Heure de depart (check-out) : 11h00",
+          "content": "Heure de depart (check-out) : 11h00. Départ tardif parfois possible selon le planning ménage : à demander à l'avance, l'équipe confirme.",
           "is_edited": true
         },
         {
