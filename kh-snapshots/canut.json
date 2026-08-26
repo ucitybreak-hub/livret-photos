@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T03:00:14.784Z",
+  "fetched_at": "2026-08-26T03:00:13.356Z",
   "property_uuid": "34d23668-e062-483c-82c1-c1855c564974",
   "property_name": "Le Canut",
   "source": "referentiel-get",
@@ -33,11 +33,11 @@
       "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : À partir de 17h. Arrivée anticipée possible si l'appartement est libre et le ménage terminé ; à demander à l'avance, confirmation le jour J.",
+          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée parfois possible selon le planning du jour (départ précédent, ménage) : à demander à l'avance, l'équipe confirme — aucune heure ni tarif garantis sans confirmation.",
           "is_edited": true
         },
         {
-          "content": "Heure de depart (check-out) : Informer l'hôte de l'heure de départ prévue le matin du checkout.",
+          "content": "Heure de depart (check-out) : 11h00. Départ tardif parfois possible selon le planning ménage : à demander à l'avance, l'équipe confirme. Merci d'indiquer votre heure de départ prévue le matin du check-out.",
           "is_edited": true
         },
         {
