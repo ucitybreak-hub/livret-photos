@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T03:00:14.781Z",
+  "fetched_at": "2026-08-26T03:00:13.353Z",
   "property_uuid": "3948220a-bb91-4e2e-94ab-3fe2d49e39fe",
   "property_name": "Le Lodge",
   "source": "referentiel-get",
@@ -33,11 +33,11 @@
       "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : 17:00",
+          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée parfois possible selon le planning du jour (départ précédent, ménage) : à demander à l'avance, l'équipe confirme — aucune heure ni tarif garantis sans confirmation.",
           "is_edited": true
         },
         {
-          "content": "Heure de depart (check-out) : 11:00",
+          "content": "Heure de depart (check-out) : 11h00. Départ tardif parfois possible selon le planning ménage : à demander à l'avance, l'équipe confirme.",
           "is_edited": true
         },
         {
