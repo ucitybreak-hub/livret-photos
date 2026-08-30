@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-30T06:47:19.691Z",
+  "fetched_at": "2026-08-30T06:47:39.369Z",
   "property_uuid": "54081b44-7492-48ec-996e-61050dc5e124",
   "property_name": "L'Escale",
   "source": "referentiel-get",
@@ -33,7 +33,7 @@
       "name": "Arrivee & depart",
       "items": [
         {
-          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée parfois possible selon le planning du jour (départ précédent, ménage) : à demander à l'avance, l'équipe confirme — aucune heure ni tarif garantis sans confirmation.",
+          "content": "Heure d'arrivee (check-in) : 17h00. Arrivée anticipée parfois possible selon le planning du jour (départ précédent, ménage) : à demander à l'avance, l'équipe confirme — aucune heure ni tarif garantis sans confirmation",
           "is_edited": true
         },
         {
