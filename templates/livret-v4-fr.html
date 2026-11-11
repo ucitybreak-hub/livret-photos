@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="{{lang_code}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#FBFAF8">
+<title>{{property_name}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFAF8;--surface:#FFFFFF;--ink:#26242B;--ink-2:#63616B;--ink-3:#A6A4AE;
+    --line:#EDEBE7;--line-2:#F4F2EE;
+    --accent:#3A2A5E;--accent-soft:#F2EFF7;
+    --green:#00875F;--green-soft:#E7F5EF;
+    --shadow:0 1px 2px rgba(38,36,43,.04),0 6px 20px -8px rgba(38,36,43,.09);
+    --shadow-sm:0 1px 2px rgba(38,36,43,.05);
+    --font:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--font);color:var(--ink);background:#e9e7e2;-webkit-font-smoothing:antialiased;display:flex;justify-content:center}
+  .phone{width:100%;max-width:420px;min-height:100vh;background:var(--bg);position:relative;overflow:hidden;box-shadow:0 30px 80px -24px rgba(0,0,0,.3)}
+  .scroll{height:100vh;overflow-y:auto;padding-bottom:96px;-webkit-overflow-scrolling:touch}
+  .view{display:none}
+  .view.active{display:block}
+  .is-hidden{display:none!important}
+
+  /* HERO */
+  .hero{padding:12px 12px 0;position:relative;z-index:5}
+  .hero .frame{border-radius:22px;overflow:hidden;position:relative;height:270px}
+  .hero .img{position:absolute;inset:0;background:center/cover no-repeat}
+  .langbox{position:absolute;top:26px;right:26px;z-index:20}
+  .langbox summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px;
+    font-size:13px;font-weight:600;color:var(--ink);box-shadow:var(--shadow-sm)}
+  .langbox summary::-webkit-details-marker{display:none}
+  .langbox .flag{font-size:15px;line-height:1}
+  .langbox summary .code{letter-spacing:.02em}
+  .langmenu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:6px;min-width:180px;max-height:min(60vh,340px);overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:30}
+  .langmenu a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;font-size:14px;color:var(--ink);text-decoration:none}
+  .langmenu a[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+
+  .titleblock{padding:20px 20px 4px}
+  .titleblock h1{font-size:33px;font-weight:700;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+  .titleblock .addr{display:flex;align-items:center;gap:7px;margin-top:11px;font-size:14px;color:var(--ink-2);text-decoration:none}
+  .titleblock .addr svg{flex-shrink:0;opacity:.7}
+
+  /* STATUT */
+  .status{margin:18px 16px 0;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+  .status .badge{width:34px;height:34px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .status .txt .l{font-size:15px;font-weight:600;line-height:1.2}
+  .status .txt .s{font-size:13px;color:var(--ink-2);margin-top:1px}
+
+  /* DATES */
+  .dates{margin:12px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-sm)}
+  .dates .band{display:flex;align-items:flex-start}
+  .dates .d{flex:1}.dates .d.r{text-align:right}
+  .dates .d .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;font-weight:600}
+  .dates .d .day{font-size:19px;font-weight:700;letter-spacing:-.01em}
+  .dates .d .time{font-size:14px;color:var(--ink-2);margin-top:2px}
+  .dates .mid{padding:0 12px;display:flex;align-items:center;align-self:center}
+  .dates .mid .nights{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .dates .foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-2);font-size:13px;color:var(--ink-2);text-align:center}
+  .dates .foot b{color:var(--ink);font-weight:600}
+
+  /* ACCÈS (carte accueil → pointe vers l'onglet Accès) */
+  .access{display:block;width:auto;text-align:left;font-family:var(--font);color:var(--ink);
+    margin:12px 16px 0;border-radius:18px;padding:18px 20px;transition:.2s;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm);cursor:pointer}
+  .access:active{transform:scale(.99)}
+  .access .top{display:flex;align-items:center;gap:11px}
+  .access .kic{width:36px;height:36px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s}
+  .access .kic svg{width:18px;height:18px}
+  .access .top .tt{flex:1}
+  .access .top .tt .l{font-size:15px;font-weight:600;line-height:1.2}
+  .access .top .tt .s{font-size:13px;color:var(--ink-2);margin-top:2px}
+  .access .chev{color:var(--ink-3);flex-shrink:0;transition:.2s}
+  .access .calm-note{display:none;margin-top:13px;font-size:13px;color:var(--ink-2);line-height:1.5;background:var(--bg);border-radius:12px;padding:12px 14px}
+  .app.is-locked .access .calm-note{display:block}
+  .app.is-locked .access .chev{opacity:.5}
+  .app.is-open .access{background:var(--green-soft);border-color:rgba(0,135,95,.22)}
+  .app.is-open .access .kic{background:#fff}
+  .app.is-open .access .kic svg path,.app.is-open .access .kic svg circle{stroke:var(--green)}
+  .app.is-open .access .top .tt .l{color:var(--green)}
+  .app.is-open .access .chev{color:var(--green)}
+
+  /* BENTO */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 16px 0}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:left;cursor:pointer;transition:.15s;font-family:var(--font);color:var(--ink);box-shadow:var(--shadow-sm)}
+  .tile:active{transform:scale(.98)}
+  .tile .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;margin-bottom:11px}
+  .tile .ic svg{width:17px;height:17px}
+  .tile .k{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:3px}
+  .tile .v{display:block;font-size:15px;font-weight:600;line-height:1.2;overflow-wrap:anywhere}
+  .tile .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:3px}
+  .tile.copied .v2{color:var(--green)}
+
+  .wide{margin:12px 16px 0}
+  .wide-btn{width:100%;display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px 16px;cursor:pointer;font-family:var(--font);color:var(--ink);transition:.15s;box-shadow:var(--shadow-sm);text-align:left}
+  .wide-btn:active{transform:scale(.99)}
+  .wide-btn .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .wide-btn .ic svg{width:17px;height:17px}
+  .wide-btn .b{flex:1}
+  .wide-btn .b .v{display:block;font-size:15px;font-weight:600;line-height:1.25}
+  .wide-btn .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .wide-btn .chev{color:var(--ink-3)}
+
+  /* PAGES */
+  .phead{padding:28px 20px 6px}
+  .phead h2{font-size:28px;font-weight:700;letter-spacing:-.025em;line-height:1.05}
+  .phead p{font-size:14px;color:var(--ink-2);margin-top:8px}
+  .sub{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin:24px 20px 12px;display:flex;align-items:center;gap:8px}
+  .sub .em{font-size:15px}
+
+  /* PARCOURS */
+  .steps{padding:0 20px}
+  .step{display:flex;gap:15px;padding-bottom:20px;position:relative}
+  .step .n{width:29px;height:29px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:2}
+  .step::before{content:"";position:absolute;left:19px;top:29px;bottom:0;width:1.5px;background:var(--line)}
+  .step:last-child::before{display:none}
+  .step .h{font-size:15px;font-weight:600;margin-bottom:3px}
+  .step .d{font-size:13px;color:var(--ink-2);line-height:1.5}
+  .step .kb{display:inline-block;font-weight:700;letter-spacing:.12em;background:var(--accent-soft);color:var(--accent);padding:4px 12px;border-radius:8px;margin-top:8px;transition:.3s}
+  .step .kb .kb-code{display:none}
+  .app.is-open .step .kb{background:var(--green-soft);color:var(--green);font-size:19px;letter-spacing:.14em;padding:8px 16px}
+  .app.is-open .step .kb .kb-dots{display:none}
+  .app.is-open .step .kb .kb-code{display:inline}
+  .step .kb-note{display:none;font-size:12px;color:var(--ink-2);margin-top:8px;line-height:1.4}
+  .app.is-open .step .kb-note{display:block}
+  /* Encart « le code ne fonctionne pas ? » — erreur d'étage (keybox voisine) */
+  .stp-warn{margin-top:12px;background:#FFF8EC;border:1px solid #F2DFB8;border-radius:12px;padding:12px 13px}
+  .stp-warn .wt{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#8A5B12;margin-bottom:5px}
+  .stp-warn .wb{font-size:12.5px;color:#7A6647;line-height:1.5}
+  .stp-warn .wb b{color:#5C4A2E}
+  /* photos parcours */
+  .stp-img{width:100%;max-width:300px;border-radius:12px;margin-top:10px;display:block;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+  .stp-cap{font-size:11.5px;color:var(--ink-3);font-style:italic;margin-top:4px}
+  .stp-seq{display:flex;gap:8px;overflow-x:auto;padding:8px 0 4px;margin-top:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .stp-seq::-webkit-scrollbar{display:none}
+  .stp-frame{flex:0 0 74%;max-width:230px;scroll-snap-align:start;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface);position:relative}
+  .stp-frame img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .stp-frame .fn{position:absolute;top:7px;left:7px;width:20px;height:20px;border-radius:50%;background:rgba(38,36,43,.8);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .stp-frame .fc{padding:7px 9px;font-size:11px;color:var(--ink-2);line-height:1.35}
+  .stp-frame .fc b{color:var(--ink)}
+
+  /* ACCÈS — état verrouillé (avant révélation) */
+  .acc-hero{margin:20px 16px 0;border-radius:18px;padding:22px 20px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.12);text-align:center}
+  .acc-hero .lk{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .acc-hero .dots{font-size:30px;letter-spacing:6px;color:var(--accent);opacity:.5;margin:14px 0 8px;animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.75}}
+  .acc-hero .when{font-size:13px;color:var(--ink-2);line-height:1.5}
+  .acc-hero .when b{color:var(--ink);font-weight:600}
+  .cd{display:flex;justify-content:center;gap:8px;margin-top:16px}
+  .cd .c{background:#fff;border-radius:11px;padding:8px 12px;min-width:52px}
+  .cd .c b{display:block;font-size:19px;font-weight:700;color:var(--accent);line-height:1.1}
+  .cd .c span{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+  .app.is-open .acc-lock{display:none}
+  .app.is-locked .acc-open{display:none}
+
+  /* SWIPE — prévenir l'hôte */
+  .swipe{margin:24px 16px 6px}
+  .swipe-track{position:relative;height:58px;border-radius:16px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.14);overflow:hidden;user-select:none;touch-action:none}
+  .swipe-fill{position:absolute;top:0;left:0;bottom:0;width:58px;background:var(--green-soft)}
+  .swipe-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--accent);pointer-events:none;padding-left:30px}
+  .swipe-thumb{position:absolute;top:5px;left:5px;width:48px;height:48px;border-radius:12px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;cursor:grab;box-shadow:var(--shadow-sm);touch-action:none;z-index:2}
+  .swipe-thumb:active{cursor:grabbing}
+  .swipe-thumb svg{width:22px;height:22px}
+  .swipe.done .swipe-track{background:var(--green-soft);border-color:rgba(0,135,95,.3)}
+  .swipe.done .swipe-fill{width:100%}
+  .swipe.done .swipe-thumb{background:var(--green);left:auto;right:5px;cursor:default}
+  .swipe.done .swipe-label{color:var(--green);padding:0}
+  .swipe-hint{font-size:12px;color:var(--ink-3);text-align:center;margin-top:9px}
+
+  .how{margin:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 16px;box-shadow:var(--shadow-sm)}
+  .howrow{display:flex;align-items:center;gap:13px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+  .howrow:last-child{border-bottom:0}
+  .howrow .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .howrow .ic svg{width:17px;height:17px}
+  .howrow .t .v{font-size:14px;font-weight:600}
+  .howrow .t .v2{font-size:13px;color:var(--ink-2);margin-top:1px}
+
+  .rules{margin:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 16px;box-shadow:var(--shadow-sm)}
+  .rule{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line-2)}
+  .rule:last-child{border-bottom:0}
+  .rule .rc{width:28px;height:28px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+  .rule .t{padding-top:3px}
+  .rule .t .v{font-size:14px;font-weight:600;line-height:1.2}
+  .rule .t .v2{font-size:12px;color:var(--ink-2);margin-top:2px;line-height:1.4}
+  .sec-intro{font-size:13px;color:var(--ink-2);margin:-4px 20px 14px;line-height:1.5}
+
+  /* VISITE repliée (preuve, pas découverte) */
+  .revoir{margin:8px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+  .revoir summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
+  .revoir summary::-webkit-details-marker{display:none}
+  .revoir summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .revoir summary .ic svg{width:17px;height:17px}
+  .revoir summary .b{flex:1}
+  .revoir summary .b .v{display:block;font-size:15px;font-weight:600}
+  .revoir summary .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .revoir summary .chev{color:var(--ink-3);transition:.2s}
+  .revoir[open] summary .chev{transform:rotate(90deg)}
+  .revoir .note{font-size:12.5px;color:var(--ink-2);padding:2px 16px 10px;line-height:1.5}
+  .revoir .tour{padding:0 12px 14px}
+
+  .tour{display:flex;gap:12px;overflow-x:auto;padding:0 16px 4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tour::-webkit-scrollbar{display:none}
+  .tour-item{flex:0 0 80%;scroll-snap-align:start}
+  .tour-item .ph{height:210px;border-radius:16px;background:var(--accent-soft) center/cover no-repeat;box-shadow:var(--shadow-sm)}
+  .tour-item .cap{font-size:14px;font-weight:600;margin-top:10px}
+  .tour-item .cd2{font-size:12px;color:var(--ink-2);margin-top:1px}
+
+  .upsell{margin:16px 16px 8px;border-radius:18px;padding:18px 20px;background:var(--accent-soft);border:1px solid rgba(58,42,94,.1)}
+  .upsell h3{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--accent)}
+  .upsell p{font-size:13px;color:var(--ink-2);margin:5px 0 15px}
+  /*UCB-CHIP-WRAP-V1*/.chips{display:flex;gap:9px;flex-wrap:wrap}
+  .chip{flex:1 1 88px;background:#fff;border:1.5px solid var(--line);border-radius:13px;padding:11px 0;cursor:pointer;transition:.15s;text-align:center;font-family:var(--font);color:var(--ink)}
+  /*UCB-CHIP-DISPLAY-V1*/.chip .h{display:block;font-size:16px;font-weight:700}
+  .chip .p{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .chip.sel{background:var(--accent);border-color:var(--accent);color:#fff}
+  .chip.sel .p{color:rgba(255,255,255,.82)}
+  .chip:active{transform:scale(.96)}
+  .upsell .ups-more{flex:0 0 100%;display:block;width:100%;margin-top:2px;background:none;border:0;color:var(--accent);font-family:var(--font);font-size:12.5px;font-weight:600;text-decoration:underline;cursor:pointer;padding:6px 0;text-align:center}
+
+  .reco{display:flex;gap:14px;margin:0 16px 12px;padding:11px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm)}
+  .reco .th{width:64px;height:64px;border-radius:12px;background:var(--accent-soft) center/cover;flex-shrink:0}
+  .reco .rc{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+  .reco .tag{align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:7px;margin-bottom:6px}
+  .tag.coeur{background:#FCE9EE;color:#C13A63}
+  .tag.bouchon{background:#FBF0DB;color:#9A6C0C}
+  .tag.spot{background:var(--green-soft);color:var(--green)}
+  .tag.patrimoine{background:#FBF0DB;color:#9A6C0C}
+  .tag.incontournable,.tag.gastronomique{background:#F2EBFA;color:#6B39B5}
+  .tag.budget,.tag.proche{background:var(--green-soft);color:var(--green)}
+  .reco .n{font-size:15px;font-weight:600;line-height:1.2}
+  .reco .desc{font-size:12px;color:var(--ink-2);margin-top:3px;line-height:1.35}
+  .reco .rl{display:inline-block;margin-top:6px;font-size:12px;font-weight:600;color:var(--accent);text-decoration:none}
+
+  .tabbar{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;padding:8px 6px calc(10px + env(safe-area-inset-bottom))}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;background:0;border:0;padding:6px 0;cursor:pointer;color:var(--ink-3);font-family:var(--font);transition:.15s}
+  .tab svg{width:22px;height:22px}
+  .tab span{font-size:11px;font-weight:600}
+  .tab.on{color:var(--accent)}
+  /* pastille verte sur l'onglet Accès quand le code est dispo */
+  .tab .dot{position:absolute;top:4px;margin-left:16px;width:7px;height:7px;border-radius:50%;background:var(--green);display:none}
+  .app.is-open .tab[data-tab="access"] .dot{display:block}
+
+  .tile .v2{overflow-wrap:anywhere}
+
+  /* BANDEAU FICHE DE POLICE — formalité légale (R.611-42) */
+  .pol{display:block;margin:12px 16px 0;border-radius:16px;padding:13px 16px;text-decoration:none;
+    border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm);transition:.2s}
+  .pol:active{transform:scale(.99)}
+  .pol .top{display:flex;align-items:center;gap:11px}
+  .pol .ic{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+  .pol .tt{flex:1}
+  .pol .tt .l{font-size:14px;font-weight:600;line-height:1.3;color:var(--ink)}
+  .pol .tt .s{font-size:12px;color:var(--ink-2);margin-top:2px;line-height:1.4}
+  .pol .chev{color:var(--ink-3);flex-shrink:0}
+  /* ferme : étranger identifié → obligation légale */
+  .pol.req{background:#FFF8EC;border-color:#F2E2C4}
+  .pol.req .ic{background:#FBEEDA}
+  /* doux : nationalité inconnue → auto-déclaration */
+  .pol.maybe .ic{background:var(--accent-soft)}
+
+
+  /* VARIANTE DUO — Accès + Fiche police côte à côte */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 16px 0}
+  .duo .dt{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px;
+    text-align:left;font-family:var(--font);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);
+    text-decoration:none;display:flex;flex-direction:column;transition:.2s}
+  .duo .dt:active{transform:scale(.98)}
+  .duo .dt .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;
+    align-items:center;justify-content:center;margin-bottom:11px;font-size:16px}
+  .duo .dt .ic svg{width:17px;height:17px}
+  .duo .dt .l{font-size:14.5px;font-weight:600;line-height:1.25}
+  .duo .dt .s{font-size:12px;color:var(--ink-2);margin-top:4px;line-height:1.4}
+  .app.is-open .duo .dt.acc{background:var(--green-soft);border-color:rgba(0,135,95,.22)}
+  .app.is-open .duo .dt.acc .ic{background:#fff}
+  .app.is-open .duo .dt.acc .ic svg path,.app.is-open .duo .dt.acc .ic svg circle{stroke:var(--green)}
+  .app.is-open .duo .dt.acc .l{color:var(--green)}
+  .duo .dt.pol2{background:#FFF8EC;border-color:#F2E2C4}
+  .duo .dt.pol2 .ic{background:#FBEEDA}
+  /* nationalité inconnue → ton neutre, le texte fait le tri */
+  .duo .dt.pol2.soft{background:var(--surface);border-color:var(--line)}
+  .duo .dt.pol2.soft .ic{background:var(--accent-soft)}
+
+  /* CHARTE INTERNET — affichée au moment de copier le wifi (sensibilisation Arcom) */
+  .sheet{position:fixed;inset:0;z-index:200;display:none}
+  .sheet.on{display:block}
+  .sheet .veil{position:absolute;inset:0;background:rgba(38,36,43,.45);backdrop-filter:blur(2px)}
+  .sheet .panel{position:absolute;left:0;right:0;bottom:0;background:var(--surface);
+    border-radius:22px 22px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom));
+    max-width:420px;margin:0 auto;box-shadow:0 -8px 40px -12px rgba(0,0,0,.35);
+    animation:up .28s cubic-bezier(.22,1,.36,1)}
+  @keyframes up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .sheet .grab{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 16px}
+  .sheet h3{font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .sheet .lead{font-size:13px;color:var(--ink-2);line-height:1.55;margin-bottom:14px}
+  .sheet ul{list-style:none;margin-bottom:14px}
+  .sheet li{display:flex;gap:9px;align-items:flex-start;padding:7px 0;font-size:13px;color:var(--ink-2);line-height:1.5}
+  .sheet li .b{flex-shrink:0;margin-top:1px}
+  .sheet li b{color:var(--ink);font-weight:600}
+  .sheet .fine{font-size:11.5px;color:var(--ink-3);line-height:1.5;background:var(--bg);border-radius:11px;padding:11px 13px;margin-bottom:16px}
+  .sheet .agree{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px;cursor:pointer}
+  .sheet .agree input{margin-top:1px;width:19px;height:19px;accent-color:var(--accent);flex-shrink:0;cursor:pointer}
+  .sheet .agree span{font-size:13px;color:var(--ink);line-height:1.5;font-weight:500}
+  .sheet .ok:disabled{opacity:.4;cursor:not-allowed}
+  .sheet .ok{width:100%;font-family:var(--font);font-size:15px;font-weight:600;color:#fff;background:var(--accent);
+    border:0;border-radius:14px;padding:15px;cursor:pointer}
+  .sheet .ok:active{transform:scale(.99)}
+
+  /* CARTE DÉPART — apparaît à max(checkout-18h, checkin+6h) */
+  .depart{display:block;width:auto;text-align:left;font-family:var(--font);color:var(--ink);
+    margin:12px 16px 0;border-radius:18px;padding:16px 20px;border:1px solid var(--line);
+    background:var(--surface);box-shadow:var(--shadow-sm);cursor:pointer;transition:.2s}
+  .depart:active{transform:scale(.99)}
+  .depart .top{display:flex;align-items:center;gap:11px}
+  .depart .kic{width:36px;height:36px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .depart .kic svg{width:18px;height:18px}
+  .depart .top .tt{flex:1}
+  .depart .top .tt .l{font-size:15px;font-weight:600;line-height:1.2}
+  .depart .top .tt .s{font-size:13px;color:var(--ink-2);margin-top:2px}
+  .depart .chev{color:var(--ink-3);flex-shrink:0}
+
+  /* CARTE VIDÉO (clic-pour-lire, aucun chargement YouTube avant le tap) */
+  .vidcard{margin:0 16px 12px;border-radius:16px;overflow:hidden;position:relative;background:#0c0b0f;cursor:pointer;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+  .vidcard .poster{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;opacity:.9}
+  .vidcard .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+  .vidcard .play span{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+  .vidcard .play svg{width:22px;height:22px;margin-left:3px;color:var(--accent)}
+  .vidcard .vlabel{position:absolute;left:11px;bottom:11px;background:rgba(0,0,0,.58);backdrop-filter:blur(4px);color:#fff;font-size:12px;font-weight:600;padding:5px 11px;border-radius:8px}
+  .vidcard iframe{width:100%;aspect-ratio:16/9;display:block;border:0}
+  .revoir .vidcard{margin:0 12px 10px}
+  .step .vidcard{margin:10px 0 0}
+
+  /* COMMENT ÇA MARCHE — lignes dépliables */
+  .how details.hx{border-bottom:1px solid var(--line-2)}
+  .how details.hx:last-child{border-bottom:0}
+  .hx summary{list-style:none;display:flex;align-items:center;gap:13px;padding:14px 0;cursor:pointer}
+  .hx summary::-webkit-details-marker{display:none}
+  .hx summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .hx summary .ic svg{width:17px;height:17px}
+  .hx summary .t{flex:1}
+  .hx summary .t .v{font-size:14px;font-weight:600}
+  .hx summary .t .v2{font-size:13px;color:var(--ink-2);margin-top:1px}
+  .hx summary .chev{color:var(--ink-3);transition:.2s;flex-shrink:0}
+  .hx[open] summary .chev{transform:rotate(90deg)}
+  .hx-body{padding:2px 0 15px 47px;font-size:13px;color:var(--ink-2);line-height:1.55}
+  .hx-body p{margin-bottom:8px}
+  .hx-body p:last-child{margin-bottom:0}
+  .hx-body b{color:var(--ink);font-weight:600}
+  .hx-body img{width:100%;max-width:260px;border-radius:12px;margin-top:6px;border:1px solid var(--line)}
+  .hx-body .vidcard{margin:8px 0 0}
+
+  /* « Une question ? » — accordéon contact channel-aware */
+  .qa{margin:12px 16px 8px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+  .qa summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .qa summary .ic svg{width:17px;height:17px}
+  .qa summary .b{flex:1}
+  .qa summary .b .v{display:block;font-size:15px;font-weight:600}
+  .qa summary .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .qa summary .chev{color:var(--ink-3);transition:.2s}
+  .qa[open] summary .chev{transform:rotate(90deg)}
+  .qa-body{padding:0 16px 16px}
+  .qa-body .cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;border-radius:12px;padding:13px;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:11px}
+  .qa-body .cta svg{width:18px;height:18px}
+  .qa-body .why{font-size:12.5px;color:var(--ink-2);line-height:1.55;background:var(--bg);border-radius:12px;padding:12px 14px;margin-bottom:0}
+  /* Urgence = recours, pas action principale : ligne discrète, séparée, sans carte ni couleur d'appel */
+  .qa-body .emg{display:block;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2);
+    text-decoration:none;color:var(--ink-3);font-size:12px;line-height:1.5}
+  .qa-body .emg .lbl{font-weight:600;color:var(--ink-2)}
+  .qa-body .emg .num{color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
+
+  /* Bloc dépliable générique (parking) — même look que .revoir */
+  .fold{margin:10px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+  .fold summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px}
+  .fold summary::-webkit-details-marker{display:none}
+  .fold summary .ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .fold summary .ic svg{width:17px;height:17px}
+  .fold summary .b{flex:1}
+  .fold summary .b .v{display:block;font-size:15px;font-weight:600}
+  .fold summary .b .v2{display:block;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .fold summary .chev{color:var(--ink-3);transition:.2s;flex-shrink:0}
+  .fold[open] summary .chev{transform:rotate(90deg)}
+  .fold-body{padding:0 16px 16px;font-size:13px;color:var(--ink-2);line-height:1.55}
+  .fold-body p{margin-bottom:10px}
+  .fold-body b{color:var(--ink);font-weight:600}
+  .pk-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}
+  .pk{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);text-decoration:none;display:block}
+  .pk img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .pk .cap{padding:7px 9px;font-size:11px;color:var(--ink-2);line-height:1.35}
+  .pk .cap b{display:block;color:var(--ink);font-weight:600}
+  .pk.wide2{grid-column:span 2}
+  .fold.first{margin-top:0}
+
+  /* Lignes transport (dans le fold « Se déplacer ») */
+  .tr{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line-2)}
+  .tr:last-child{border-bottom:0;padding-bottom:0}
+  .tr .em{font-size:19px;flex-shrink:0;width:26px;text-align:center;line-height:1.3}
+  .tr .t{flex:1}
+  .tr .t .v{font-size:14px;font-weight:600;color:var(--ink);line-height:1.25}
+  .tr .t .v2{font-size:12.5px;color:var(--ink-2);margin-top:2px;line-height:1.45}
+  .tr .t .v2 b{color:var(--ink);font-weight:600}
+  .tr .d{font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:7px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+  .tr a{color:var(--accent);font-weight:600;text-decoration:none}
+
+  /* DÉPANNAGE keybox — replié, ton neutre (pas d'alarme) */
+  .help{margin:4px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .help summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;padding:14px 16px}
+  .help summary::-webkit-details-marker{display:none}
+  .help summary .ic{width:30px;height:30px;border-radius:9px;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+  .help summary .b{flex:1;font-size:14px;font-weight:600;color:var(--ink-2)}
+  .help summary .chev{color:var(--ink-3);transition:.2s;flex-shrink:0}
+  .help[open] summary .chev{transform:rotate(90deg)}
+  .help[open] summary .b{color:var(--ink)}
+  .help-body{padding:0 16px 14px}
+  .hck{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line-2)}
+  .hck .n{width:20px;height:20px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .hck .t{flex:1;font-size:13px;color:var(--ink-2);line-height:1.5}
+  .hck .t b{color:var(--ink);font-weight:600}
+  .help-last{margin-top:12px;padding:12px 14px;background:var(--bg);border-radius:12px;font-size:12.5px;color:var(--ink-2);line-height:1.5}
+  .help-last a{color:var(--accent);font-weight:600;text-decoration:none}
+  .help-body .vidcard{margin:0}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /*UCB-UPS-SLOTS-V1*/
+  .ups-slot[class*="{{"]{display:none!important}
+  .ups-card{margin:12px 16px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px 16px;box-shadow:var(--shadow-sm)}
+  .ups-card .ups-t{font-size:15px;font-weight:600;line-height:1.25}
+  .ups-card .ups-d{font-size:12.5px;color:var(--ink-2);margin-top:4px;line-height:1.5}
+  .ups-card .ups-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:11px}
+  .ups-card .ups-p{font-size:15px;font-weight:700;color:var(--accent)}
+  .ups-card .ups-cta{font-family:var(--font);font-size:13.5px;font-weight:600;color:#fff;background:var(--accent);border:0;border-radius:11px;padding:10px 18px;cursor:pointer}
+  .ups-card .ups-cta:active{transform:scale(.97)}
+  /* ===== UCB-LIVRET-V4 : look Noe, palette neutre + couleur du logement en pastille ===== */
+  :root{--brand:#2B2A30;--brand-soft:#EDEDEF;--bg:#F4F4F5;--surface:#FFFFFF;--ink:#18171C;--ink-2:#5F5E66;--ink-3:#6B6A72;--line:#E6E6E9;--line-2:#EEEEF0;--accent:#18171C;--accent-soft:#EDEDEF;--green:#00875F;--green-soft:#E7F5EF;
+    --ring:0 0 0 1px rgba(38,36,43,.07),0 1px 2px rgba(38,36,43,.05);--ring-lg:0 0 0 1px rgba(38,36,43,.06),0 2px 6px -2px rgba(38,36,43,.08),0 10px 24px -12px rgba(38,36,43,.12)}
+  :root{--brand:{{v4_accent}};--brand-soft:{{v4_accent_soft}}}
+  body{background:#E7E7EA}
+  [stroke="#3A2A5E"]{stroke:currentColor}[fill="#3A2A5E"]{fill:currentColor}
+  .status,.dates,.access,.tile,.wide-btn,.how,.rules,.revoir,.reco,.pol,.duo .dt,.depart,.qa,.fold,.help,.ups-card,.acc-hero,.upsell{border-color:transparent!important;box-shadow:var(--ring)}
+  .acc-hero,.upsell{background:var(--surface)}
+  .sub{color:var(--ink-2);letter-spacing:.07em}.sub .em{display:none}
+  .phead h2,.titleblock h1,.sheet h3,.upsell h3,.reco .n,.step .h{text-wrap:balance}
+  .phead p,.sec-intro,.step .d,.rule .v2,.reco .desc,.tile .v2,.duo .dt .s,.howrow .t .v2,.hx summary .t .v2,.hx-body,.fold-body,.qa-body .why,.acc-hero .when,.tr .t .v2,.sheet .lead,.sheet li,.wide-btn .b .v2{text-wrap:pretty}
+  .cd .c b,.dates .d .day,.chip .h,.chip .p,.ups-card .ups-p,.tr .d,.reco .tag{font-variant-numeric:tabular-nums}
+  .reco{border-radius:20px;padding:10px;gap:13px;position:relative}.reco .th{border-radius:10px;width:66px;height:66px;outline:1px solid rgba(0,0,0,.08);outline-offset:-1px}
+  .reco .rl{color:var(--brand)}.reco .rl::after{content:"";position:absolute;inset:0;border-radius:inherit}
+  .stp-img,.hx-body img,.stp-frame img,.pk img,.tour-item .ph{border-color:transparent!important;outline:1px solid rgba(0,0,0,.08);outline-offset:-1px}
+  .access,.tile,.wide-btn,.pol,.duo .dt,.depart,.chip,.ups-card .ups-cta,.sheet .ok,.qa-body .cta,.reco,.tab,.v4-arr,.v4-c,.v4-list button,.v4-seg button{transition-property:scale,background-color,box-shadow,color,opacity;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
+  .access:active,.tile:active,.wide-btn:active,.pol:active,.duo .dt:active,.depart:active,.chip:active,.ups-card .ups-cta:active,.sheet .ok:active,.qa-body .cta:active,.reco:has(.rl):active,.v4-arr:active,.v4-c:active,.v4-list button:active,.v4-seg button:active{transform:none;scale:.96}
+  .revoir summary .chev,.hx summary .chev,.qa summary .chev,.fold summary .chev,.help summary .chev{transition-property:transform;transition-duration:200ms}
+  .langbox{top:14px;right:14px}.langbox summary{min-height:40px;padding:0 14px;position:relative}.langbox summary::after{content:"";position:absolute;inset:-4px -2px}
+  .step .n{background:var(--brand)}
+  .chip.sel,.ups-card .ups-cta,.sheet .ok{background:var(--brand);border-color:var(--brand)}
+  .rule .rc,.tile .ic,.wide-btn .ic,.howrow .ic,.hx summary .ic,.fold summary .ic,.revoir summary .ic,.duo .dt .ic{background:var(--accent-soft);color:var(--ink)}
+  .tag.incontournable,.tag.gastronomique{background:#EDEDEF;color:#3F3E46}
+  .v4-ic{width:17px;height:17px;display:block}
+  /* accueil */
+  .hero{padding:0}.hero .frame{border-radius:0;height:430px}
+  .hero .frame::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(244,244,245,0) 55%,rgba(244,244,245,.8) 82%,var(--bg) 100%)}
+  .titleblock{position:relative;z-index:6;margin-top:-118px;padding:0 20px 2px}
+  .titleblock h1{font-size:40px;letter-spacing:-.04em;line-height:1.02}
+  .v4-hello{font-size:15px;font-weight:500;color:var(--ink-2);margin-bottom:6px}
+  .v4-sum{margin-top:10px;font-size:15px;color:var(--ink-2);font-variant-numeric:tabular-nums;text-wrap:pretty}
+  .v4-times{margin-top:3px;font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .v4-arr{position:relative;z-index:6;display:flex;align-items:center;gap:14px;width:calc(100% - 32px);margin:18px 16px 0;padding:20px 20px 18px;border:0;border-radius:26px;background:var(--surface);box-shadow:var(--ring-lg);text-align:left;font-family:var(--font);color:var(--ink);cursor:pointer}
+  .v4-arr .b{flex:1;min-width:0}
+  .v4-arr .k{display:block;font-size:13.5px;font-weight:600;color:var(--brand)}
+  .v4-arr .t{display:block;font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-top:3px;text-wrap:balance}
+  .v4-arr .s{display:block;font-size:13.5px;color:var(--ink-2);margin-top:10px;padding-top:12px;border-top:1px solid var(--line-2);text-wrap:pretty}
+  .v4-arr .r{width:52px;height:52px;border-radius:999px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;flex:none;align-self:flex-start}
+  .v4-arr .r svg{width:22px;height:22px}
+  .app.is-locked .t-open,.app.is-open .t-lock{display:none!important}
+  .upsell.v4-ups{margin:12px 16px 0;padding:16px;border-radius:22px}
+  .upsell.v4-ups h3{color:var(--ink);font-size:16px}
+  .upsell.v4-ups p{margin:3px 0 12px}
+  .v4-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:10px;padding:12px 16px 0}
+  .v4-row>*{margin:0!important;min-height:104px;display:flex!important;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:14px!important;border-radius:20px!important;text-decoration:none;color:var(--ink);font-family:var(--font);text-align:left;border:0;background:var(--surface);box-shadow:var(--ring);cursor:pointer}
+  .v4-row .ic{width:38px!important;height:38px!important;border-radius:999px!important;margin:0 0 10px!important;background:var(--accent-soft)!important;color:var(--ink);display:flex!important;align-items:center;justify-content:center;font-size:16px}
+  .v4-row .ic svg{width:18px;height:18px}
+  .v4-row .k,.v4-row .s{display:none!important}
+  .v4-row .v,.v4-row .l{display:block;font-size:14.5px!important;font-weight:600!important;line-height:1.2;color:var(--ink)}
+  .v4-row .v2{display:block;font-size:12px!important;color:var(--ink-2);margin-top:2px}
+  .v4-row .dt.pol2:not(.soft){background:#FFF8EC;box-shadow:0 0 0 1px #F2E2C4}
+  /* barre d'onglets flottante */
+  .scroll{padding-bottom:120px}
+  .tabbar{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));padding:6px;border-radius:999px;border:0;background:rgba(255,255,255,.9);box-shadow:0 0 0 1px rgba(38,36,43,.06),0 8px 28px -10px rgba(38,36,43,.28)}
+  .tab{border-radius:999px;padding:7px 0 6px;gap:2px;color:var(--ink-3)}
+  .tab.on{background:var(--brand-soft);color:var(--brand)}
+  /* arrivee */
+  .acc-hero .lk{color:var(--ink-2);display:inline-flex;align-items:center;gap:7px}
+  .acc-hero .lk svg{width:15px;height:15px;color:var(--brand)}
+  .acc-hero .dots{display:none}
+  .cd .c{background:var(--bg)}.cd .c b{color:var(--ink)}
+  /* aide */
+  .v4-card{margin:12px 16px 0;padding:16px;border-radius:22px;background:var(--surface);box-shadow:var(--ring)}
+  .v4-help .qa-body{padding:16px}
+  .v4-help .qa-body .cta{border-radius:999px;background:var(--ink);height:50px;padding:0}
+  .v4-list{padding:2px 16px}
+  .v4-list .row{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+  .v4-list .row:last-child{border-bottom:0}
+  .v4-list .t{flex:1;min-width:0}
+  .v4-list .t b{display:block;font-size:15px;font-weight:600}
+  .v4-list .t span{display:block;font-size:13px;color:var(--ink-2);margin-top:2px;text-wrap:pretty}
+  .v4-list button{flex:none;min-height:40px;padding:0 16px;border:0;border-radius:999px;background:var(--bg);font-family:var(--font);font-size:14px;font-weight:600;color:var(--ink);cursor:pointer}
+  .v4-sh{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700}
+  .v4-sh svg{width:18px;height:18px;color:#C0362C}
+  .v4-sos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
+  .v4-sos a{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:62px;border-radius:14px;background:var(--bg);text-decoration:none;color:var(--ink)}
+  .v4-sos b{font-size:19px;font-weight:700;font-variant-numeric:tabular-nums}
+  .v4-sos span{font-size:11.5px;color:var(--ink-2)}
+  /* decouvrir par rubriques */
+  .v4-seg{position:sticky;top:0;z-index:8;display:flex;gap:6px;overflow-x:auto;padding:10px 16px;margin-top:6px;background:rgba(244,244,245,.92);backdrop-filter:blur(12px);scrollbar-width:none}
+  .v4-seg::-webkit-scrollbar{display:none}
+  .v4-seg button{flex:none;min-height:40px;padding:0 15px;border:0;border-radius:999px;background:var(--surface);box-shadow:var(--ring);font-family:var(--font);font-size:14px;font-weight:600;color:var(--ink-2);cursor:pointer;font-variant-numeric:tabular-nums}
+  .v4-seg button.on{background:var(--ink);color:#fff;box-shadow:none}
+  .v4-seg button small{font-size:12px;font-weight:600;opacity:.6;margin-left:4px}
+  [data-view="explore"].v4-tabs .sub{display:none!important}
+  [data-view="explore"].v4-tabs .v4-grp{display:none;padding-top:6px}
+  [data-view="explore"].v4-tabs .v4-grp.on{display:block}
+  .reco.v4-big{flex-direction:column;padding:0;gap:0;overflow:hidden}
+  .reco.v4-big .th{width:100%;height:190px;border-radius:0}
+  .reco.v4-big .rc{padding:14px 16px 16px}
+  .reco.v4-big .n{font-size:18px;letter-spacing:-.01em}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="phone">
+ <div class="app is-{{access_state}}">
+  <div class="scroll">
+
+    <!-- ============= ACCUEIL ============= -->
+    <section class="view active" data-view="home">
+      <div class="hero">
+        <details class="langbox">
+            <summary><span class="flag">{{lang_flag}}</span><span class="code">{{lang_short}}</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="langmenu" data-cur="{{lang_code}}">
+              <a href="?lang=fr" hreflang="fr"><span class="flag">🇫🇷</span> Français</a>
+              <a href="?lang=en" hreflang="en"><span class="flag">🇬🇧</span> English</a>
+              <a href="?lang=es" hreflang="es"><span class="flag">🇪🇸</span> Español</a>
+              <a href="?lang=it" hreflang="it"><span class="flag">🇮🇹</span> Italiano</a>
+              <a href="?lang=de" hreflang="de"><span class="flag">🇩🇪</span> Deutsch</a>
+              <a href="?lang=nl" hreflang="nl"><span class="flag">🇳🇱</span> Nederlands</a>
+              <a href="?lang=pt" hreflang="pt"><span class="flag">🇵🇹</span> Português</a>
+              <a href="?lang=ru" hreflang="ru"><span class="flag">🇷🇺</span> Русский</a>
+              <a href="?lang=zh" hreflang="zh"><span class="flag">🇨🇳</span> 中文</a>
+            </div>
+        </details>
+        <div class="frame">
+          <div class="img" style="background-image:url('{{hero_photo_url}}')"></div>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="v4-hello">{{ui:v4_hello}} {{guest_first_name}}</div>
+        <h1>{{property_name}}</h1>
+        <div class="v4-sum" id="v4sum"><span class="d1">{{checkin_date_label}}</span> → <span class="d2">{{checkout_date_label}}</span> · {{nights_label}} · {{guests_label}}</div>
+        <div class="v4-times">{{ui:dates_arrival}} {{ui:dates_from}} {{checkin_time}} · {{ui:dates_departure}} {{ui:dates_until}} {{checkout_time}}</div>
+      </div>
+
+      <button class="v4-arr" onclick="go('access')">
+        <span class="b">
+          <span class="k">{{ui:v4_arr_k}}</span>
+          <span class="t"><span class="t-lock">{{access_sub}}</span><span class="t-open">{{ui:v4_arr_open_t}}</span></span>
+          <span class="s"><span class="t-lock">{{ui:v4_arr_lock_s}}</span><span class="t-open">{{ui:v4_arr_open_s}}</span></span>
+        </span>
+        <span class="r"><svg class="t-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><svg class="t-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+      </button>
+
+      <div class="upsell v4-ups {{upsell_early_hidden}}">
+        <h3>{{ui:upsell_early_title}}</h3>
+        <p>{{ui:upsell_early_sub}}</p>
+        <div class="chips">{{upsell_early_chips}}</div>
+      </div>
+
+      <div class="v4-row">
+        <button class="tile" id="wifiTile" onclick="copyWifi()">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 18.5h.01"/><path d="M8.6 15.2a4.8 4.8 0 0 1 6.8 0M5.5 12a9.2 9.2 0 0 1 13 0M2.6 8.8a13.4 13.4 0 0 1 18.8 0"/></svg></span>
+          <span class="v">{{ui:wifi_label}}</span><span class="v2" id="wifiHint" data-pw="{{wifi_password}}">{{ui:wifi_tap_reveal}}</span>
+        </button>
+        {{police_card}}
+        <button class="v4-c" onclick="go('help')">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18.5V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H8.5z"/></svg></span>
+          <span class="v">{{ui:v4_contact}}</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============= AIDE (V4) ============= -->
+    <section class="view v4-help" data-view="help">
+      <div class="phead"><h2>{{ui:v4_help_head}}</h2><p>{{ui:v4_help_sub}}</p></div>
+      <div class="v4-card qa-body">{{contact_block_v3}}</div>
+      <div class="v4-card v4-list">
+        <div class="row"><span class="t"><b>{{ui:v4_help_enter_t}}</b><span>{{ui:v4_help_enter_s}}</span></span><button type="button" onclick="go('access')">{{ui:v4_help_enter_btn}}</button></div>
+        <div class="row"><span class="t"><b>{{ui:v4_help_wifi_t}}</b><span>{{wifi_ssid}} · {{ui:v4_help_wifi_s}}</span></span><button type="button" id="v4WifiBtn" data-l="{{ui:v4_help_wifi_btn}}" onclick="copyWifi()">{{ui:v4_help_wifi_btn}}</button></div>
+      </div>
+      <div class="v4-card">
+        <div class="v4-sh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2.8 19.5h18.4z"/><path d="M12 10v4.5M12 17.2v.3"/></svg>{{ui:v4_help_sos}}</div>
+        <div class="v4-sos"><a href="tel:112"><b>112</b><span>{{ui:v4_sos_112}}</span></a><a href="tel:15"><b>15</b><span>{{ui:v4_sos_15}}</span></a><a href="tel:18"><b>18</b><span>{{ui:v4_sos_18}}</span></a><a href="tel:17"><b>17</b><span>{{ui:v4_sos_17}}</span></a></div>
+      </div>
+    </section>
+
+    <!-- ============= ACCES ============= -->
+    
+<section class="view" data-view="access">
+      <div class="phead"><h2>{{ui:v4_arrival_head}}</h2><p>{{ui:access_head_sub}}</p></div>
+
+      <!-- Y ALLER (toujours visible, en premier) -->
+      <div class="sub"><span class="em">📍</span>{{ui:sec_goto}}</div>
+      <div class="wide" style="margin-top:0">
+        <a class="wide-btn" href="{{maps_url}}" target="_blank" rel="noopener" style="text-decoration:none">
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2C6.5 2 4.5 4 4.5 6.5c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8C13.5 4 11.5 2 9 2z" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="6.5" r="1.6" stroke="#3A2A5E" stroke-width="1.4"/></svg></span>
+          <span class="b"><span class="v">{{property_address}}</span><span class="v2">{{ui:goto_maps_sub}}</span></span>
+          <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+      {{parking_block}}
+      <div class="ups-slot {{upsell_garage_hidden}}" data-ups="garage">{{upsell_garage_card}}</div>
+      {{luggage_block}}
+      <div class="ups-slot {{upsell_bagages_hidden}}" data-ups="bagages">{{upsell_bagages_card}}</div>
+
+      <!-- État verrouillé (avant l'heure de révélation) -->
+      <div class="acc-lock">
+        <div class="acc-hero">
+          <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg>{{ui:lock_label}}</span>
+          <div class="dots">••• ••• •••</div>
+          <div class="when">{{ui:lock_when_html}}</div>
+          <div class="cd" id="cd" data-reveal="{{checkin_reveal_ts}}"></div>
+        </div>
+      </div>
+
+      <div class="acc-open">
+        <div class="sub"><span class="em">🚪</span>{{ui:sec_steps}}</div>
+        <div class="steps">{{arrival_steps}}</div>
+
+        {{keybox_help_block}}
+
+        <div class="swipe" id="swipeArrival" data-url="{{arrival_confirm_url}}" data-done="{{ui:swipe_arrival_done}}" data-thanks="{{ui:swipe_arrival_thanks}}">
+          <div class="swipe-track">
+            <div class="swipe-fill"></div>
+            <div class="swipe-label" id="swipeLabel">{{ui:swipe_arrival_label}}</div>
+            <div class="swipe-thumb" id="swipeThumb">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="swipe-hint" id="swipeHint">{{ui:swipe_arrival_hint}}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= SÉJOUR ============= -->
+    <section class="view" data-view="stay">
+      <div class="phead"><h2>{{ui:stay_head}}</h2><p>{{ui:stay_head_sub}}</p></div>
+
+      <!-- VISITE en tête : preuve (vidéo si dispo, sinon photos) -->
+      <div class="sub {{tour_hidden}}"><span class="em">📸</span>{{ui:sec_tour}}</div>
+      <details class="revoir {{tour_hidden}}">
+        <summary>
+          <span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4.5" width="13" height="9.5" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="9.2" r="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M6 4.5l1-1.5h4l1 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+          <span class="b"><span class="v">{{ui:tour_title}}</span><span class="v2">{{ui:tour_sub}}</span></span>
+          <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </summary>
+        <div class="note">{{ui:tour_note}}</div>
+        {{tour_video_block}}
+        <div class="tour {{tour_photos_hidden}}">{{tour_slides}}</div>
+      </details>
+
+      <div class="sub {{rules_hidden}}"><span class="em">📋</span>{{ui:sec_rules}}</div>
+      <div class="sec-intro {{rules_hidden}}">{{ui:rules_intro}}</div>
+      <div class="rules {{rules_hidden}}">{{house_rules}}</div>
+
+      <div class="sub {{amenities_hidden}}"><span class="em">⚙️</span>{{ui:sec_amenities}}</div>
+      <div class="how {{amenities_hidden}}">{{amenities_rows}}</div>
+      <div class="ups-slot {{upsell_cot_hidden}}" data-ups="cot">{{upsell_cot_card}}</div>
+
+      <div class="sub"><span class="em">🧭</span>{{ui:sec_transport}}</div>
+      {{transport_block}}
+
+      <div class="sub" id="sec-depart"><span class="em">🧳</span>{{ui:sec_departure}}</div>
+      <div class="wide" style="margin-top:0"><div class="wide-btn"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 5.5v4l2.5 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">{{ui:checkout_title}}</span><span class="v2">{{ui:checkout_before}} {{checkout_time}} · {{checkout_line}}</span></span></div></div>
+      {{luggage_departure_block}}
+
+      <div class="swipe {{checkout_swipe_hidden}}" data-url="{{checkout_confirm_url}}" data-done="{{ui:swipe_checkout_done}}" data-thanks="{{ui:swipe_checkout_thanks}}">
+        <div class="swipe-track">
+          <div class="swipe-fill"></div>
+          <div class="swipe-label">{{ui:swipe_checkout_label}}</div>
+          <div class="swipe-thumb">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="swipe-hint">{{ui:swipe_checkout_hint}}</div>
+      </div>
+      <div style="height:16px"></div>
+    </section>
+
+    <!-- ============= DÉCOUVRIR ============= -->
+    <section class="view" data-view="explore">
+      <div class="phead"><h2>{{ui:explore_head}}</h2><p>{{ui:explore_head_sub}}</p></div>
+
+      <div class="sub {{reco_food_hidden}}"><span class="em">🍷</span>{{ui:sec_reco_food}}</div>
+      <div class="{{reco_food_hidden}}">{{reco_food}}</div>
+
+      <div class="sub {{reco_visit_hidden}}"><span class="em">🏛️</span>{{ui:sec_reco_visit}}</div>
+      <div class="{{reco_visit_hidden}}">{{reco_visit}}</div>
+
+      <div class="sub {{reco_shop_hidden}}"><span class="em">🛒</span>{{ui:sec_reco_shop}}</div>
+      <div class="{{reco_shop_hidden}}">{{reco_shop}}</div>
+      <div style="height:16px"></div>
+    </section>
+
+  </div>
+
+  <div class="sheet" id="wifiSheet">
+    <div class="veil" onclick="closeSheet()"></div>
+    <div class="panel">
+      <div class="grab"></div>
+      <h3>{{ui:wifi_sheet_title}}</h3>
+      <div class="lead">{{ui:wifi_sheet_lead_html}}</div>
+      <ul>
+        <li><span class="b">⚖️</span><span>{{ui:wifi_sheet_li1_html}}</span></li>
+        <li><span class="b">🚫</span><span>{{ui:wifi_sheet_li2_html}}</span></li>
+        <li><span class="b">👤</span><span>{{ui:wifi_sheet_li3_html}}</span></li>
+      </ul>
+      <div class="fine">{{ui:wifi_sheet_fine}}</div>
+      <label class="agree"><input type="checkbox" id="agreeChk"><span>{{ui:wifi_sheet_agree}}</span></label>
+      <button class="ok" id="agreeBtn" onclick="acceptWifi()" disabled>{{ui:wifi_sheet_btn}}</button>
+    </div>
+  </div>
+
+  <nav class="tabbar">
+    <button class="tab on" data-tab="home" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11l8-6 8 6v8a1 1 0 01-1 1h-4v-5h-6v5H5a1 1 0 01-1-1v-8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>{{ui:tab_home}}</span></button>
+    <button class="tab" data-tab="access" onclick="go('access')"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="15" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M11 12l7-7M15.5 7.5l1.8 1.8M17.5 5.5l1.8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>{{ui:v4_tab_arrival}}</span></button>
+    <button class="tab" data-tab="stay" onclick="go('stay')"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7" stroke="currentColor" stroke-width="1.7"/></svg><span>{{ui:tab_stay}}</span></button>
+    <button class="tab" data-tab="explore" onclick="go('explore')"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M15 9l-2 4-4 2 2-4 4-2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>{{ui:tab_explore}}</span></button>
+  </nav>
+
+ </div>
+</div>
+
+<script type="application/json" id="ucb-ui-txt">{{ui_js_json}}</script>
+<script>
+  var WIFI_CFG = { token: '{{livret_token}}', guest: '{{guest_first_name}}',
+    accept_url: 'https://n8n-d2box-u73867.vm.elestio.app/webhook/charte-accept' };
+  var UI_TXT = {"js_copied": "Copié ✓", "js_swipe_done_fallback": "C'est noté ✓", "js_swipe_thanks_fallback": "Merci !", "cd_day": "jour", "cd_days": "jours", "cd_h": "h", "cd_min": "min", "cd_sec": "sec"};
+  try{var __uitx=document.getElementById('ucb-ui-txt');if(__uitx){UI_TXT=JSON.parse(__uitx.textContent);}}catch(e){}
+
+  function go(v, anchor){
+    document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('active',s.dataset.view===v);});
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.tab===v);});
+    var sc=document.querySelector('.scroll'); if(!sc) return;
+    if(!anchor){ sc.scrollTo(0,0); return; }
+    // la vue vient de passer en display:block → on attend le layout avant de mesurer
+    requestAnimationFrame(function(){
+      var el=document.getElementById(anchor);
+      if(!el){ sc.scrollTo(0,0); return; }
+      var top = el.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop - 12;
+      sc.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
+  }
+  // Wifi : le mot de passe n'est révélé QU'APRÈS acceptation explicite de la charte.
+  // Case à cocher (acte positif) + trace serveur horodatée — sans la trace, l'acceptation
+  // n'existe que dans le navigateur et ne prouve rien.
+  var wifiAccepted = false;
+  function copyWifi(){
+    if(!wifiAccepted){ document.getElementById('wifiSheet').classList.add('on'); return; }
+    doCopyWifi();
+  }
+  function closeSheet(){ document.getElementById('wifiSheet').classList.remove('on'); }
+  function acceptWifi(){
+    var chk = document.getElementById('agreeChk');
+    if(!chk || !chk.checked) return;
+    wifiAccepted = true;
+    closeSheet();
+    // trace serveur (non bloquant : jamais de voyageur privé de wifi sur une panne réseau)
+    try {
+      fetch(WIFI_CFG.accept_url, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ token: WIFI_CFG.token, guest: WIFI_CFG.guest })
+      }).catch(function(){});
+    } catch(e){}
+    doCopyWifi();
+  }
+  function doCopyWifi(){
+    var h=document.getElementById('wifiHint'), pw=h.getAttribute('data-pw')||'';
+    if(navigator.clipboard) navigator.clipboard.writeText(pw);
+    var t=document.getElementById('wifiTile');
+    t.classList.add('copied'); h.textContent=UI_TXT.js_copied;
+    var hb=document.getElementById('v4WifiBtn');if(hb){hb.textContent=UI_TXT.js_copied;setTimeout(function(){hb.textContent=hb.getAttribute('data-l')||'';},1600);}
+    setTimeout(function(){t.classList.remove('copied'); h.textContent='🔑 '+pw;},1600);
+  }
+  (function(){
+    var chk=document.getElementById('agreeChk'), btn=document.getElementById('agreeBtn');
+    if(chk && btn) chk.addEventListener('change', function(){ btn.disabled = !chk.checked; });
+  })();
+  function playVid(el,id){
+    el.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    el.onclick=null; el.style.cursor='default';
+  }
+  function pick(el){
+    var p=el.parentNode.querySelectorAll('.chip');
+    p.forEach(function(c){c.classList.remove('sel');}); el.classList.add('sel');
+  }
+  // langue courante
+  (function(){
+    var m=document.querySelector('.langmenu'); if(!m) return;
+    var cur=m.getAttribute('data-cur');
+    m.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('hreflang')===cur) a.setAttribute('aria-current','true'); });
+  })();
+  // compte à rebours (état verrouillé)
+  (function(){
+    var cd=document.getElementById('cd'); if(!cd) return;
+    var rev=parseInt(cd.getAttribute('data-reveal')||'0',10);
+    function c(v,u){return '<div class="c"><b>'+v+'</b><span>'+u+'</span></div>';}
+    function tick(){
+      if(!rev){cd.innerHTML='';return;}
+      var r=Math.max(0,rev-Date.now())/1000;
+      var j=Math.floor(r/86400),h=Math.floor(r%86400/3600),mn=Math.floor(r%3600/60),sc=Math.floor(r%60);
+      cd.innerHTML=(j>0?c(j,j>1?UI_TXT.cd_days:UI_TXT.cd_day):'')+c(('0'+h).slice(-2),UI_TXT.cd_h)+c(('0'+mn).slice(-2),UI_TXT.cd_min)+((j>0||h>0)?'':c(('0'+sc).slice(-2),UI_TXT.cd_sec));
+    }
+    tick(); setInterval(tick,1000);
+  })();
+  // swipe → prévenir l'hôte (arrivée ET départ : plusieurs instances possibles)
+  document.querySelectorAll('.swipe').forEach(function(box){
+    var track=box.querySelector('.swipe-track'), thumb=box.querySelector('.swipe-thumb'),
+        fill=box.querySelector('.swipe-fill'), label=box.querySelector('.swipe-label'),
+        hint=box.querySelector('.swipe-hint');
+    if(!track||!thumb) return;
+    var dragging=false, startX=0, x=0, max=0, done=false;
+    function setX(v){ x=Math.max(0,Math.min(max,v)); thumb.style.left=(5+x)+'px'; fill.style.width=(58+x)+'px'; }
+    function finish(){
+      done=true; box.classList.add('done');
+      if(label) label.textContent = box.getAttribute('data-done') || UI_TXT.js_swipe_done_fallback;
+      if(hint) hint.textContent = box.getAttribute('data-thanks') || UI_TXT.js_swipe_thanks_fallback;
+      var url=box.getAttribute('data-url')||'';
+      if(url && url!=='#'){ try{ window.open(url,'_blank','noopener'); }catch(e){} }
+    }
+    function down(e){ if(done)return; dragging=true; max=track.clientWidth-58;
+      startX=(e.touches?e.touches[0].clientX:e.clientX)-x; thumb.style.transition='none'; fill.style.transition='none'; }
+    function move(e){ if(!dragging||done)return; var cx=(e.touches?e.touches[0].clientX:e.clientX);
+      setX(cx-startX); if(e.cancelable)e.preventDefault(); }
+    function up(){ if(!dragging||done)return; dragging=false;
+      thumb.style.transition='left .2s'; fill.style.transition='width .2s';
+      if(x>=max-4){ setX(max); finish(); } else { setX(0); } }
+    thumb.addEventListener('mousedown',down); document.addEventListener('mousemove',move); document.addEventListener('mouseup',up);
+    thumb.addEventListener('touchstart',down,{passive:true}); document.addEventListener('touchmove',move,{passive:false}); document.addEventListener('touchend',up);
+  });
+
+  /*UCB-LIVRET-V4-JS*/
+  (function(){
+    // resume des dates : "11 nov. -> 13 nov." devient "11 -> 13 nov." quand le mois est le meme
+    try{
+      var s=document.getElementById('v4sum');
+      if(s){var a=s.querySelector('.d1'),b=s.querySelector('.d2');
+        if(a&&b){var pa=a.textContent.trim().split(' '),pb=b.textContent.trim().split(' ');
+          if(pa.length>=3&&pb.length>=3){var da=pa.slice(1),db=pb.slice(1);
+            if(da.slice(1).join(' ')===db.slice(1).join(' ')){a.textContent=da[0];b.textContent=db.join(' ');}
+            else{a.textContent=da.join(' ');b.textContent=db.join(' ');}}}}
+    }catch(e){}
+    // fiche de police : picto au trait a la place de l'emoji
+    try{
+      var pi=document.querySelector('.v4-row .dt .ic');
+      if(pi)pi.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.4 1.7-2 3-2s2.4.6 3 2M14 10h4M14 13h3"/></svg>';
+    }catch(e){}
+    // decouvrir : une rubrique a la fois, la premiere adresse en grand
+    try{
+      var v=document.querySelector('[data-view="explore"]');
+      var subs=v?v.querySelectorAll('.sub:not(.is-hidden)'):[];
+      if(subs.length>1){
+        var bar=document.createElement('div');bar.className='v4-seg';var groups=[];
+        for(var i=0;i<subs.length;i++){
+          var sb=subs[i],g=sb.nextElementSibling;if(!g)continue;
+          g.classList.add('v4-grp');
+          var em=sb.querySelector('.em');var lab=(sb.textContent||'').replace(em?em.textContent:'','').trim();
+          var n=g.querySelectorAll('.reco').length;
+          var f=g.querySelector('.reco');if(f)f.classList.add('v4-big');
+          var bt=document.createElement('button');bt.type='button';bt.innerHTML=lab+'<small>'+n+'</small>';
+          (function(bt,g){bt.onclick=function(){groups.forEach(function(x){x[0].classList.remove('on');x[1].classList.remove('on');});bt.classList.add('on');g.classList.add('on');var sc=document.querySelector('.scroll');if(sc&&sc.scrollTop>bar.offsetTop)sc.scrollTop=bar.offsetTop;};})(bt,g);
+          bar.appendChild(bt);groups.push([bt,g]);
+        }
+        var ph=v.querySelector('.phead');ph.parentNode.insertBefore(bar,ph.nextSibling);
+        v.classList.add('v4-tabs');groups[0][0].classList.add('on');groups[0][1].classList.add('on');
+      }else if(subs.length===1){var g1=subs[0].nextElementSibling;var f1=g1&&g1.querySelector('.reco');if(f1)f1.classList.add('v4-big');}
+    }catch(e){}
+  })();
+
+  /*UCB-UPS-SLOTS-V1*/
+  function upsAsk(btn){
+    try{ go('help'); }catch(e){}
+  }
+</script>
+</body>
+</html>
