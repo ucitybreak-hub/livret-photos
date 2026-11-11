@@ -1,4 +1,4 @@
-<!-- BUILT V3 lodge-fr at 2026-11-11T11:56:03.459Z -->
+<!-- BUILT V3 lodge-fr at 2026-11-11T12:23:20.436Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -529,6 +529,58 @@
   .reco.v4-big .rc{padding:14px 16px 16px}
   .reco.v4-big .n{font-size:18px;letter-spacing:-.01em}
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+  /* UCB-LIVRET-V4-ARR-V1 : la page Arrivee devient un seul parcours (venir, puis les etapes du logement) ; parking et transports dans un panneau */
+.v4-pill{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:8px 14px 8px 10px;border-radius:999px;background:var(--surface);box-shadow:var(--ring);font-size:13.5px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.v4-pill .dot{width:24px;height:24px;border-radius:999px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.v4-pill .dot svg{width:13px;height:13px}
+.v4-pill small{font-weight:500;color:var(--ink-2);font-size:13px}
+.app.is-open .v4-pill .dot{background:var(--green)}
+.app.is-open .v4-pill{cursor:pointer;padding-right:16px}
+.v4-pill .v4-code{font-size:16px;letter-spacing:.08em;margin-left:4px;color:var(--green)}
+.v4-trip{margin:18px 16px 0;padding:20px 16px 4px;background:var(--surface);border-radius:24px;box-shadow:var(--ring)}
+.v4-trip .steps{padding:0;margin:0}
+.v4-trip .step .n svg{width:15px;height:15px}
+.v4-trip .step .n.ic{background:var(--brand-soft);color:var(--brand)}
+.v4-trip .step:last-child{padding-bottom:16px}
+.v4-bag{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;color:var(--ink-2);text-decoration:none}
+.v4-bag b{color:var(--brand);font-weight:600}
+.v4-later{display:flex;gap:15px;padding:0 0 16px}
+.v4-later .n{width:29px;height:29px;border-radius:50%;border:1.5px dashed var(--line);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex:none;background:var(--surface);z-index:2}
+.v4-later .n svg{width:14px;height:14px}
+.v4-later .h{font-size:15px;font-weight:600;color:var(--ink)}
+.v4-later .d{font-size:13px;color:var(--ink-2);line-height:1.5;margin-top:2px;text-wrap:pretty;font-variant-numeric:tabular-nums}
+.app.is-open .v4-later{display:none}
+[data-view="access"].v4-arr2 .acc-lock,[data-view="access"].v4-arr2>.sub,[data-view="access"].v4-arr2>.wide,[data-view="access"].v4-arr2>details.fold,[data-view="access"].v4-arr2 .acc-open>.sub{display:none!important}
+.app.is-locked [data-view="access"].v4-arr2 .acc-open{display:block!important}
+.v4-tr{margin:0;padding:0}
+.v4-tr .tr{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--line-2)}
+.v4-tr .tr:last-child{border-bottom:0}
+.v4-tr .tr .em{font-size:16px;line-height:1.3;width:22px;text-align:center;flex:none}
+.v4-tr .tr .t{flex:1;min-width:0}
+.v4-tr .tr .v{font-size:14px;font-weight:600;color:var(--ink)}
+.v4-tr .tr .v2{font-size:13px;color:var(--ink-2);line-height:1.45;margin-top:1px;text-wrap:pretty}
+.v4-tr .tr .d{flex:none;font-size:12px;font-weight:600;color:var(--ink-2);background:var(--bg);border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums}
+.tabbar{z-index:20}
+.v4-lnk{display:inline-flex;align-items:center;gap:3px;min-height:40px;font-size:14px;font-weight:600;color:var(--brand);text-decoration:none}
+.v4-anss{margin-top:4px;border-top:1px solid var(--line-2)}
+.v4-ans{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:10px 0;border:0;border-bottom:1px solid var(--line-2);background:transparent;text-align:left;font-family:var(--font);color:var(--ink);cursor:pointer;transition-property:opacity;transition-duration:150ms}
+.v4-ans:active{opacity:.6}
+.v4-ans .i{width:32px;height:32px;border-radius:10px;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;flex:none}
+.v4-ans .i svg{width:16px;height:16px}
+.v4-ans .t{flex:1;min-width:0}
+.v4-ans .k{display:block;font-size:12px;font-weight:600;color:var(--ink-3)}
+.v4-ans .a{display:block;font-size:14px;font-weight:600;line-height:1.3;margin-top:1px;text-wrap:pretty}
+.v4-ans>svg{width:15px;height:15px;color:var(--ink-3);flex:none}
+.v4-sheet .panel{max-height:86vh;overflow-y:auto;overscroll-behavior:contain}
+.v4-sheet .v4-sb{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.v4-sheet .v4-sb>p{margin:0 0 10px}
+.v4-sheet .v4-sb b{color:var(--ink)}
+.v4-sheet .pk-grid{margin-top:12px}
+.v4-close{display:block;width:100%;height:50px;margin-top:16px;border:0;border-radius:999px;background:var(--ink);color:#fff;font-family:var(--font);font-size:15px;font-weight:600;cursor:pointer;transition-property:scale;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
+.v4-close:active{scale:.96}
+  .tabbar{z-index:20}
+  .v4-lnk svg{width:14px;height:14px}
 </style>
 <style>/*V3REFINE*/.vidrow{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;box-shadow:var(--shadow-sm)}.vidrow .vic{width:38px;height:38px;border-radius:11px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}.vidrow .vb{flex:1}.vidrow .vv{display:block;font-size:14.5px;font-weight:600;color:var(--ink)}.vidrow .vv2{display:block;font-size:12.5px;color:var(--ink-2);margin-top:2px}.vidrow .vchev{color:var(--ink-3);font-size:20px;line-height:1}.vidrow:has(iframe){padding:0;background:#000;display:block}.stp-img{max-width:100%}/*UCB-GATE-V1*/.app.is-locked .acc-open:has(.step.gate-show){display:block}.app.is-locked .acc-open .step:not(.gate-show){display:none}.app.is-locked .acc-open .swipe,.app.is-locked .acc-open .help{display:none}.app.is-open .step .kb-note{text-align:center}.app.is-open .step .kb:has(.kb-dots){display:flex;justify-content:center;align-items:center;width:100%;box-sizing:border-box;margin-top:12px;padding:16px;font-size:clamp(30px,9vw,38px);letter-spacing:.16em;border-radius:14px}.app.is-open .step .kb:not(:has(.kb-dots)){display:flex;justify-content:center;align-items:center;width:100%;box-sizing:border-box;margin-top:12px;padding:13px;font-size:clamp(24px,7vw,30px);letter-spacing:.16em;border-radius:14px;background:var(--accent-soft);color:var(--accent)}@keyframes ucbNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}#swipeArrival .swipe-thumb{animation:ucbNudge 1.6s ease-in-out infinite}#swipeArrival.done .swipe-thumb{animation:none}@media (prefers-reduced-motion:reduce){#swipeArrival .swipe-thumb{animation:none}}</style></head>
 <body>
@@ -853,6 +905,64 @@
     thumb.addEventListener('mousedown',down); document.addEventListener('mousemove',move); document.addEventListener('mouseup',up);
     thumb.addEventListener('touchstart',down,{passive:true}); document.addEventListener('touchmove',move,{passive:false}); document.addEventListener('touchend',up);
   });
+
+
+/*UCB-LIVRET-V4-ARR-V1*/
+(function(){function v4arr(){try{
+  var T={go:"Venir",route:"Ouvrir l’itinéraire",park:"Se garer",nocar:"Sans voiture",early:"En avance ?",bags:"Déposer vos bagages",close:"Fermer",codeat:"Code le",coderd:"Votre code",in:"dans",dshort:"j",at:"à",latern:"{n} étapes jusqu’à la porte",later1:"Dernière étape jusqu’à la porte",laters:"Affichées avec votre code"};
+  var v=document.querySelector('[data-view="access"]');if(!v)return;
+  var I={pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>',
+    park:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 16.5v-9h3a2.6 2.6 0 0 1 0 5.2h-3"/></svg>',
+    lock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg>',
+    check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    nav:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 20 4l-7.5 16-2-6.5z"/></svg>',
+    chev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg>'};
+  var maps=v.querySelector('a.wide-btn[href*="maps"]');
+  var addr=maps?maps.querySelector('.v').textContent.trim():'';
+  var fold=v.querySelector('details.fold');
+  var parkS=fold?(fold.querySelector('.v2')||{}).textContent||'':'';
+  var parkB=fold?fold.querySelector('.fold-body'):null;
+  var bag=v.querySelector('a.wide-btn[href*="nannybag"],a.wide-btn:not([href*="maps"])');
+  var when=v.querySelector('.acc-lock .when b');var whenTxt=when?when.textContent.trim():'';
+  var cd=document.getElementById('cd');var rev=cd?parseInt(cd.getAttribute('data-reveal')||'0',10):0;
+  function left(){if(!rev)return'';var ms=rev-Date.now();if(ms<=0)return'';var d=Math.floor(ms/864e5);if(d>=1)return T.in+' '+d+' '+T.dshort;var h=Math.floor(ms/36e5),m=Math.floor(ms%36e5/6e4);return T.in+' '+(h?h+' '+UI_TXT.cd_h+' ':'')+('0'+m).slice(-2)+' '+UI_TXT.cd_min;}
+  function shortWhen(){if(!rev)return whenTxt.replace(/^le /,'');try{var L=document.documentElement.lang||'fr';var d=new Date(rev);var a=d.toLocaleDateString(L,{timeZone:'Europe/Paris',weekday:'short',day:'numeric',month:'short'});var b=d.toLocaleTimeString(L,{timeZone:'Europe/Paris',hour:'2-digit',minute:'2-digit'});return a+' '+T.at+' '+(/^fr/.test(L)?b.replace(':','h'):b);}catch(e){return whenTxt;}}
+  // 1. pastille d'etat sous le titre
+  var ph=v.querySelector('.phead p');
+  if(ph){ph.outerHTML='<div class="v4-pill"><span class="dot"><span class="t-lock">'+I.lock+'</span><span class="t-open">'+I.check+'</span></span><span class="t-lock">'+T.codeat+' '+shortWhen()+' <small id="v4left">'+(left()?'· '+left():'')+'</small></span><span class="t-open">'+T.coderd+' <b class="v4-code">'+((v.querySelector('.kb .kb-code')||{}).textContent||'')+'</b></span></div>';var pl=v.querySelector('.v4-pill');pl.addEventListener('click',function(){if(!document.querySelector('.app.is-open'))return;var k=v.querySelector('.kb');if(k)k.scrollIntoView({behavior:'smooth',block:'center'});});}
+  // 2. un seul parcours : venir, se garer, puis les etapes existantes
+  var open=v.querySelector('.acc-open'),steps=open&&open.querySelector('.steps');if(!steps)return;
+  I.bus='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3.5" width="13" height="14" rx="3"/><path d="M5.5 11h13M9 17.5v2.5M15 17.5v2.5"/><circle cx="9" cy="14.2" r=".6" fill="currentColor"/><circle cx="15" cy="14.2" r=".6" fill="currentColor"/></svg>';
+  // transports : on reprend la liste de la page Sejour
+  var trs=[].slice.call(document.querySelectorAll('[data-view="stay"] .tr'));
+  var first=parkB?parkB.querySelector('p'):null;
+  var t0=trs[0];
+  function txt(e){return e?e.textContent.trim():'';}
+  var trTxt=t0?(txt(t0.querySelector('.v2')).split(/[;.—(]/)[0].trim()+(t0.querySelector('.d')?' · '+txt(t0.querySelector('.d')):'')):'';
+  var rows='';
+  if(fold)rows+='<button type="button" class="v4-ans" data-sh="v4ParkSheet"><span class="i">'+I.park+'</span><span class="t"><span class="k">'+T.park+'</span><span class="a">'+parkS+'</span></span>'+I.chev+'</button>';
+  if(trs.length)rows+='<button type="button" class="v4-ans" data-sh="v4TrSheet"><span class="i">'+I.bus+'</span><span class="t"><span class="k">'+T.nocar+'</span><span class="a">'+trTxt+'</span></span>'+I.chev+'</button>';
+  var s1='<div class="step gate-show"><span class="n ic">'+I.pin+'</span><div style="flex:1;min-width:0"><div class="h">'+T.go+'</div><div class="d"><b>'+addr+'</b></div><a class="v4-lnk" href="'+(maps?maps.href:'#')+'" target="_blank" rel="noopener">'+T.route+I.chev+'</a>'+(rows?'<div class="v4-anss">'+rows+'</div>':'')+(bag?'<a class="v4-bag" href="'+bag.href+'" target="_blank" rel="noopener">'+T.early+' <b>'+T.bags+'</b></a>':'')+'</div></div>';
+  steps.insertAdjacentHTML('afterbegin',s1);
+  var st=steps.querySelector('.step');
+  // panneaux du bas : parking et transports
+  var app=document.querySelector('.app')||document.body;
+  function mkSheet(id,title,lead){var d=document.createElement('div');d.className='sheet v4-sheet';d.id=id;d.innerHTML='<div class="veil"></div><div class="panel"><div class="grab"></div><h3>'+title+'</h3>'+(lead?'<div class="lead">'+lead+'</div>':'')+'<div class="v4-sb"></div><button type="button" class="v4-close">'+T.close+'</button></div>';app.appendChild(d);[d.querySelector('.veil'),d.querySelector('.v4-close')].forEach(function(e){e.addEventListener('click',function(){d.classList.remove('on');});});return d.querySelector('.v4-sb');}
+  if(fold){var pb=mkSheet('v4ParkSheet',T.park,'<b>'+parkS+'</b>');[].slice.call(parkB.childNodes).forEach(function(n){pb.appendChild(n);});var gs=v.querySelector('.ups-slot[data-ups="garage"]');if(gs)pb.appendChild(gs);}
+  if(trs.length){var tb=mkSheet('v4TrSheet',T.nocar,'');var tl=document.createElement('div');tl.className='v4-tr';trs.forEach(function(t){tl.appendChild(t.cloneNode(true));});tb.appendChild(tl);}
+  [].slice.call(st.querySelectorAll('.v4-ans')).forEach(function(bt){bt.addEventListener('click',function(){var sh=document.getElementById(bt.getAttribute('data-sh'));if(sh)sh.classList.add('on');});});
+  // 3. numerotation des etapes du logement
+  var real=[].slice.call(steps.querySelectorAll('.step')).filter(function(s){return !s.querySelector('.n.ic');});
+  real.forEach(function(s,i){var n=s.querySelector('.n');if(n)n.textContent=i+1;});
+  // 4. etapes encore cachees : une ligne qui annonce la suite
+  var hidden=real.filter(function(s){return !s.classList.contains('gate-show');}).length;
+  if(hidden){steps.insertAdjacentHTML('beforeend','<div class="v4-later"><span class="n">'+I.lock+'</span><div><div class="h">'+(hidden>1?T.latern.replace('{n}',hidden):T.later1)+'</div><div class="d">'+T.laters+' '+whenTxt+'.</div></div></div>');}
+  // 5. on habille le tout dans une carte
+  var trip=document.createElement('div');trip.className='v4-trip';open.insertBefore(trip,steps);trip.appendChild(steps);
+  v.classList.add('v4-arr2');
+  if(rev)setInterval(function(){var e=document.getElementById('v4left');if(e){var l=left();e.textContent=l?'· '+l:'';}},30000);
+}catch(e){}}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',v4arr);else v4arr();})();
 
   /*UCB-LIVRET-V4-JS*/
   (function(){
