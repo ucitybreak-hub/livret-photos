@@ -100,6 +100,21 @@
     "v4_sos_15": "SAMU",
     "v4_sos_17": "Police",
     "v4_sos_18": "Pompiers",
-    "v4_tab_arrival": "Arrivée"
+    "v4_tab_arrival": "Arrivée",
+    "v4_at": "à",
+    "v4_bags": "Déposer vos bagages",
+    "v4_close": "Fermer",
+    "v4_code_at": "Code le",
+    "v4_code_ready": "Votre code",
+    "v4_d_short": "j",
+    "v4_early": "En avance ?",
+    "v4_go": "Venir",
+    "v4_in": "dans",
+    "v4_later_1": "Dernière étape jusqu’à la porte",
+    "v4_later_n": "{n} étapes jusqu’à la porte",
+    "v4_later_s": "Affichées avec votre code",
+    "v4_nocar": "Sans voiture",
+    "v4_park": "Se garer",
+    "v4_route": "Ouvrir l’itinéraire"
   }
 }
