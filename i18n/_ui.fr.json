@@ -115,6 +115,18 @@
     "v4_later_s": "Affichées avec votre code",
     "v4_nocar": "Sans voiture",
     "v4_park": "Se garer",
-    "v4_route": "Ouvrir l’itinéraire"
+    "v4_route": "Ouvrir l’itinéraire",
+    "v4_dep_head": "Avant de partir",
+    "v4_dep_pill": "Départ le {d} avant {t}",
+    "v4_dep_sub": "Le {d} avant {t}",
+    "v4_done": "Je suis entré ✓",
+    "v4_guide": "Guidez-moi jusqu’à la porte",
+    "v4_next": "Suivant",
+    "v4_photos": "Photos du logement",
+    "v4_prev": "Précédent",
+    "v4_step_of": "Étape {i} sur {n}",
+    "v4_train": "Un train plus tard ?",
+    "v4_transports": "Transports",
+    "v4_wifi_copy": "Copier le mot de passe"
   }
 }
