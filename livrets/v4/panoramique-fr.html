@@ -1,4 +1,4 @@
-<!-- BUILT V3 panoramique-fr at 2026-11-11T13:11:45.893Z -->
+<!-- BUILT V3 panoramique-fr at 2026-11-11T13:38:14.263Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -332,6 +332,8 @@
   .vidcard .play svg{width:22px;height:22px;margin-left:3px;color:var(--accent)}
   .vidcard .vlabel{position:absolute;left:11px;bottom:11px;background:rgba(0,0,0,.58);backdrop-filter:blur(4px);color:#fff;font-size:12px;font-weight:600;padding:5px 11px;border-radius:8px}
   .vidcard iframe{width:100%;aspect-ratio:16/9;display:block;border:0}
+  .vidcard video{width:100%;max-height:72vh;display:block;background:#000;border:0}
+  .vidrow:has(video){padding:0;background:#000;display:block}
   .revoir .vidcard{margin:0 12px 10px}
   .step .vidcard{margin:10px 0 0}
 
@@ -928,8 +930,17 @@
     if(chk && btn) chk.addEventListener('change', function(){ btn.disabled = !chk.checked; });
   })();
   function playVid(el,id){
-    el.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-    el.onclick=null; el.style.cursor='default';
+    /*UCB-LIVRET-V4-R2VID-V1 : lit d'abord le fichier depose sur R2 (page Videos du livret), lecteur natif ; sans fichier, retour au lecteur YouTube*/
+    if(el.getAttribute('data-vp'))return; el.setAttribute('data-vp','1'); el.onclick=null; el.removeAttribute('onclick'); el.style.cursor='default';
+    var orig=el.innerHTML, po=el.querySelector('.poster'), inG=!!(el.closest&&el.closest('.v4-g')), fb=false;
+    var v=document.createElement('video'); v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); v.controls=true; v.preload='auto'; if(po&&po.src)v.poster=po.src;
+    function yt(){ if(fb)return; fb=true; try{v.pause();v.removeAttribute('src');v.load();}catch(e){}
+      if(inG){ el.innerHTML=orig; var t=el.querySelector('.vv2'); if(t)t.textContent='YouTube ↗'; el.style.cursor='pointer'; el.onclick=function(){window.open('https://www.youtube.com/watch?v='+id,'_blank');}; }
+      else { el.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; } }
+    v.addEventListener('error',yt);
+    v.src='https://auto.u-citybreak.fr/webhook/livret-video?yt='+encodeURIComponent(id);
+    el.innerHTML=''; el.appendChild(v);
+    var p=v.play(); if(p&&p.catch)p.catch(function(err){ if(err&&err.name==='NotAllowedError')return; if(!v.error&&v.readyState>0)return; yt(); });
   }
   function pick(el){
     var p=el.parentNode.querySelectorAll('.chip');
@@ -1056,8 +1067,8 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     app.appendChild(g);var i=0,body=g.querySelector('.body');
     function show(){var s=steps[i];var img=s.querySelector('.stp-img');var kb=s.querySelector('.kb .kb-code');var vid=s.querySelector('.vidcard');
       var hb=document.querySelector('.hero .frame .img');var bg=img?"url('"+img.src+"')":(hb?hb.style.backgroundImage:'');body.innerHTML=(bg?'<div class="ph" style="background-image:'+bg.replace(/"/g,"'")+'">'+(kb?'<div class="cov"><span class="cl">'+((s.querySelector('.kb-note')||{}).textContent||'')+'</span><span class="cv">'+kb.textContent+'</span></div>':'')+'</div>':'')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+s.querySelector('.h').innerHTML+'</h2><div class="d">'+s.querySelector('.d').innerHTML+'</div>'+(kb&&!bg?'<div class="code">'+kb.textContent+'<small>'+((s.querySelector('.kb-note')||{}).textContent||'')+'</small></div>':'')+'<div class="vid"></div>';
-      /*UCB-LIVRET-V4-GUIDE-VID-V1 : dans le pas a pas, la video s'ouvre dans YouTube (lecteur integre peu fiable sur iPhone en plein ecran)*/
-      if(vid){var vc=vid.cloneNode(true);var vm=(vid.getAttribute('onclick')||'').match(/playVid\(this,'([^']+)'\)/);if(vm){vc.removeAttribute('onclick');vc.addEventListener('click',function(){window.open('https://www.youtube.com/watch?v='+vm[1],'_blank');});}body.querySelector('.vid').appendChild(vc);}
+      /*UCB-LIVRET-V4-GUIDE-VID-V2 : la video du pas a pas passe par playVid (fichier R2, sinon lien YouTube)*/
+      if(vid){var vc=vid.cloneNode(true);vc.removeAttribute('data-vp');body.querySelector('.vid').appendChild(vc);}
       body.scrollTop=0;
       [].slice.call(g.querySelectorAll('.bars i')).forEach(function(b,k){b.classList.toggle('on',k<=i);});
       g.querySelector('.prev').disabled=(i===0);var last=(i===steps.length-1);g.classList.toggle('last',last);g.querySelector('.next').textContent=last?T.done:T.next;}
