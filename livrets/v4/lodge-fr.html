@@ -1,4 +1,4 @@
-<!-- BUILT V3 lodge-fr at 2026-11-11T13:08:26.152Z -->
+<!-- BUILT V3 lodge-fr at 2026-11-11T13:11:36.673Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -1056,7 +1056,8 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     app.appendChild(g);var i=0,body=g.querySelector('.body');
     function show(){var s=steps[i];var img=s.querySelector('.stp-img');var kb=s.querySelector('.kb .kb-code');var vid=s.querySelector('.vidcard');
       var hb=document.querySelector('.hero .frame .img');var bg=img?"url('"+img.src+"')":(hb?hb.style.backgroundImage:'');body.innerHTML=(bg?'<div class="ph" style="background-image:'+bg.replace(/"/g,"'")+'">'+(kb?'<div class="cov"><span class="cl">'+((s.querySelector('.kb-note')||{}).textContent||'')+'</span><span class="cv">'+kb.textContent+'</span></div>':'')+'</div>':'')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+s.querySelector('.h').innerHTML+'</h2><div class="d">'+s.querySelector('.d').innerHTML+'</div>'+(kb&&!bg?'<div class="code">'+kb.textContent+'<small>'+((s.querySelector('.kb-note')||{}).textContent||'')+'</small></div>':'')+'<div class="vid"></div>';
-      if(vid)body.querySelector('.vid').appendChild(vid.cloneNode(true));
+      /*UCB-LIVRET-V4-GUIDE-VID-V1 : dans le pas a pas, la video s'ouvre dans YouTube (lecteur integre peu fiable sur iPhone en plein ecran)*/
+      if(vid){var vc=vid.cloneNode(true);var vm=(vid.getAttribute('onclick')||'').match(/playVid\(this,'([^']+)'\)/);if(vm){vc.removeAttribute('onclick');vc.addEventListener('click',function(){window.open('https://www.youtube.com/watch?v='+vm[1],'_blank');});}body.querySelector('.vid').appendChild(vc);}
       body.scrollTop=0;
       [].slice.call(g.querySelectorAll('.bars i')).forEach(function(b,k){b.classList.toggle('on',k<=i);});
       g.querySelector('.prev').disabled=(i===0);var last=(i===steps.length-1);g.classList.toggle('last',last);g.querySelector('.next').textContent=last?T.done:T.next;}
