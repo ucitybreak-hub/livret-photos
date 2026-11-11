@@ -1,4 +1,4 @@
-<!-- BUILT V3 elegant-fr at 2026-11-11T12:41:08.130Z -->
+<!-- BUILT V3 elegant-fr at 2026-11-11T12:53:15.142Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -473,7 +473,8 @@
   .v4-arr .b{flex:1;min-width:0}
   .v4-arr .k{display:block;font-size:13.5px;font-weight:600;color:var(--brand)}
   .v4-arr .t{display:block;font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-top:3px;text-wrap:balance}
-  .v4-arr .s{display:block;font-size:13.5px;color:var(--ink-2);margin-top:10px;padding-top:12px;border-top:1px solid var(--line-2);text-wrap:pretty}
+  .v4-arr .s{display:flex;align-items:center;gap:3px;font-size:14.5px;font-weight:600;color:var(--brand);margin-top:12px;padding-top:12px;border-top:1px solid var(--line-2)}
+  .v4-arr .s::after{content:"";width:15px;height:15px;flex:none;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.5 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.5 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
   .v4-arr .r{width:52px;height:52px;border-radius:999px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;flex:none;align-self:flex-start}
   .v4-arr .r svg{width:22px;height:22px}
   .app.is-locked .t-open,.app.is-open .t-lock{display:none!important}
@@ -534,7 +535,7 @@
 .v4-pill{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:8px 14px 8px 10px;border-radius:999px;background:var(--surface);box-shadow:var(--ring);font-size:13.5px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
 .v4-pill .dot{width:24px;height:24px;border-radius:999px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
 .v4-pill .dot svg{width:13px;height:13px}
-.v4-pill small{font-weight:500;color:var(--ink-2);font-size:13px}
+.v4-pill small{font-weight:500;color:var(--ink-2);font-size:13px;white-space:nowrap}
 .app.is-open .v4-pill .dot{background:var(--green)}
 .app.is-open .v4-pill{cursor:pointer;padding-right:16px}
 .v4-pill .v4-code{font-size:16px;letter-spacing:.08em;margin-left:4px;color:var(--green)}
@@ -570,7 +571,7 @@
 .v4-ans .i svg{width:16px;height:16px}
 .v4-ans .t{flex:1;min-width:0}
 .v4-ans .k{display:block;font-size:12px;font-weight:600;color:var(--ink-3)}
-.v4-ans .a{display:block;font-size:14px;font-weight:600;line-height:1.3;margin-top:1px;text-wrap:pretty}
+.v4-ans .a{display:block;font-size:15px;font-weight:600;line-height:1.3;text-wrap:pretty}
 .v4-ans>svg{width:15px;height:15px;color:var(--ink-3);flex:none}
 .v4-sheet .panel{max-height:86vh;overflow-y:auto;overscroll-behavior:contain}
 .v4-sheet .v4-sb{font-size:13.5px;color:var(--ink-2);line-height:1.55}
@@ -604,6 +605,10 @@
 .v4-g .code{margin:16px 20px 0;padding:18px;border-radius:18px;background:var(--green-soft);color:var(--green);text-align:center;font-size:clamp(30px,9vw,38px);font-weight:700;letter-spacing:.14em;font-variant-numeric:tabular-nums}
 .v4-g .code small{display:block;font-size:12.5px;font-weight:600;letter-spacing:0;color:var(--ink-2);margin-top:4px}
 .v4-g .vid{margin:14px 20px 0}
+.v4-g .ph{position:relative}
+.v4-g .cov{position:absolute;left:12px;right:12px;bottom:12px;padding:12px 14px 14px;border-radius:16px;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 8px 24px -10px rgba(0,0,0,.35);text-align:center}
+.v4-g .cov .cl{display:block;font-size:12px;font-weight:600;color:var(--ink-2)}
+.v4-g .cov .cv{display:block;margin-top:2px;font-size:clamp(30px,9vw,38px);font-weight:700;letter-spacing:.12em;color:var(--green);font-variant-numeric:tabular-nums;line-height:1.1}
 .v4-g .vid .vidcard{margin:0}
 .v4-g .foot{display:flex;gap:10px;padding:12px 16px calc(14px + env(safe-area-inset-bottom));box-shadow:0 -1px 0 var(--line-2)}
 .v4-g .foot button{height:56px;border:0;border-radius:999px;font-family:var(--font);font-size:17px;font-weight:600;cursor:pointer;transition-property:scale;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
@@ -685,7 +690,7 @@
         <span class="b">
           <span class="k">Votre arrivée</span>
           <span class="t"><span class="t-lock">{{access_sub}}</span><span class="t-open">Votre code est prêt</span></span>
-          <span class="s"><span class="t-lock">Le chemin est déjà visible, le code s’affiche à l’heure d’arrivée.</span><span class="t-open">Suivez le parcours pas à pas jusqu’à la porte.</span></span>
+          <span class="s"><span class="t-lock">Voir l’accès en détail</span><span class="t-open">Voir le code et le parcours</span></span>
         </span>
         <span class="r"><svg class="t-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><svg class="t-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
       </button>
@@ -971,7 +976,7 @@
 
 /*UCB-LIVRET-V4-ARR-V1*/
 (function(){function v4arr(){try{
-  var T={go:"Venir",route:"Ouvrir l’itinéraire",park:"Se garer",nocar:"Sans voiture",early:"En avance ?",bags:"Déposer vos bagages",close:"Fermer",codeat:"Code le",coderd:"Votre code",in:"dans",dshort:"j",at:"à",latern:"{n} étapes jusqu’à la porte",later1:"Dernière étape jusqu’à la porte",laters:"Affichées avec votre code"};
+  var T={go:"Venir",route:"Ouvrir l’itinéraire",park:"Se garer",nocar:"Sans voiture",early:"En avance ?",bags:"Déposer vos bagages",close:"Fermer",codeat:"Code le",coderd:"Votre code",in:"dans",dshort:"j",at:"à",latern:"{n} étapes jusqu’à la porte",later1:"Dernière étape jusqu’à la porte",laters:"Affichées avec votre code",parkrow:"Stationnement",trrow:"Transports en commun"}; /*UCB-LIVRET-V4-FIX3*/
   var v=document.querySelector('[data-view="access"]');if(!v)return;
   var I={pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>',
     park:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 16.5v-9h3a2.6 2.6 0 0 1 0 5.2h-3"/></svg>',
@@ -1002,16 +1007,16 @@
   function txt(e){return e?e.textContent.trim():'';}
   var trTxt=t0?(txt(t0.querySelector('.v2')).split(/[;.—(]/)[0].trim()+(t0.querySelector('.d')?' · '+txt(t0.querySelector('.d')):'')):'';
   var rows='';
-  if(fold)rows+='<button type="button" class="v4-ans" data-sh="v4ParkSheet"><span class="i">'+I.park+'</span><span class="t"><span class="k">'+T.park+'</span><span class="a">'+parkS+'</span></span>'+I.chev+'</button>';
-  if(trs.length)rows+='<button type="button" class="v4-ans" data-sh="v4TrSheet"><span class="i">'+I.bus+'</span><span class="t"><span class="k">'+T.nocar+'</span><span class="a">'+trTxt+'</span></span>'+I.chev+'</button>';
+  if(fold)rows+='<button type="button" class="v4-ans" data-sh="v4ParkSheet"><span class="i">'+I.park+'</span><span class="t"><span class="a">'+T.parkrow+'</span></span>'+I.chev+'</button>';
+  if(trs.length)rows+='<button type="button" class="v4-ans" data-sh="v4TrSheet"><span class="i">'+I.bus+'</span><span class="t"><span class="a">'+T.trrow+'</span></span>'+I.chev+'</button>';
   var s1='<div class="step gate-show"><span class="n ic">'+I.pin+'</span><div style="flex:1;min-width:0"><div class="h">'+T.go+'</div><div class="d"><b>'+addr+'</b></div><a class="v4-lnk" href="'+(maps?maps.href:'#')+'" target="_blank" rel="noopener">'+T.route+I.chev+'</a>'+(rows?'<div class="v4-anss">'+rows+'</div>':'')+(bag?'<a class="v4-bag" href="'+bag.href+'" target="_blank" rel="noopener">'+T.early+' <b>'+T.bags+'</b></a>':'')+'</div></div>';
   steps.insertAdjacentHTML('afterbegin',s1);
   var st=steps.querySelector('.step');
   // panneaux du bas : parking et transports
   var app=document.querySelector('.app')||document.body;
   function mkSheet(id,title,lead){var d=document.createElement('div');d.className='sheet v4-sheet';d.id=id;d.innerHTML='<div class="veil"></div><div class="panel"><div class="grab"></div><h3>'+title+'</h3>'+(lead?'<div class="lead">'+lead+'</div>':'')+'<div class="v4-sb"></div><button type="button" class="v4-close">'+T.close+'</button></div>';app.appendChild(d);[d.querySelector('.veil'),d.querySelector('.v4-close')].forEach(function(e){e.addEventListener('click',function(){d.classList.remove('on');});});return d.querySelector('.v4-sb');}
-  if(fold){var pb=mkSheet('v4ParkSheet',T.park,'<b>'+parkS+'</b>');[].slice.call(parkB.childNodes).forEach(function(n){pb.appendChild(n);});var gs=v.querySelector('.ups-slot[data-ups="garage"]');if(gs)pb.appendChild(gs);}
-  if(trs.length){var tb=mkSheet('v4TrSheet',T.nocar,'');var tl=document.createElement('div');tl.className='v4-tr';trs.forEach(function(t){tl.appendChild(t.cloneNode(true));});tb.appendChild(tl);}
+  if(fold){var pb=mkSheet('v4ParkSheet',T.parkrow,'<b>'+parkS+'</b>');[].slice.call(parkB.childNodes).forEach(function(n){pb.appendChild(n);});var gs=v.querySelector('.ups-slot[data-ups="garage"]');if(gs)pb.appendChild(gs);}
+  if(trs.length){var tb=mkSheet('v4TrSheet',T.trrow,'');var tl=document.createElement('div');tl.className='v4-tr';trs.forEach(function(t){tl.appendChild(t.cloneNode(true));});tb.appendChild(tl);}
   [].slice.call(st.querySelectorAll('.v4-ans')).forEach(function(bt){bt.addEventListener('click',function(){var sh=document.getElementById(bt.getAttribute('data-sh'));if(sh)sh.classList.add('on');});});
   // 3. numerotation des etapes du logement
   var real=[].slice.call(steps.querySelectorAll('.step')).filter(function(s){return !s.querySelector('.n.ic');});
@@ -1043,7 +1048,7 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     g.innerHTML='<div class="top"><div class="bars">'+steps.map(function(){return'<i></i>';}).join('')+'</div><button type="button" class="x" aria-label="'+T.close+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="body"></div><div class="foot"><button type="button" class="prev" aria-label="'+T.prev+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6l-6 6 6 6"/></svg></button><button type="button" class="next">'+T.next+'</button></div>';
     app.appendChild(g);var i=0,body=g.querySelector('.body');
     function show(){var s=steps[i];var img=s.querySelector('.stp-img');var kb=s.querySelector('.kb .kb-code');var vid=s.querySelector('.vidcard');
-      var hb=document.querySelector('.hero .frame .img');var bg=img?"url('"+img.src+"')":(hb?hb.style.backgroundImage:'');body.innerHTML=(bg?'<div class="ph" style="background-image:'+bg.replace(/"/g,"'")+'"></div>':'')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+s.querySelector('.h').innerHTML+'</h2><div class="d">'+s.querySelector('.d').innerHTML+'</div>'+(kb?'<div class="code">'+kb.textContent+'<small>'+((s.querySelector('.kb-note')||{}).textContent||'')+'</small></div>':'')+'<div class="vid"></div>';
+      var hb=document.querySelector('.hero .frame .img');var bg=img?"url('"+img.src+"')":(hb?hb.style.backgroundImage:'');body.innerHTML=(bg?'<div class="ph" style="background-image:'+bg.replace(/"/g,"'")+'">'+(kb?'<div class="cov"><span class="cl">'+((s.querySelector('.kb-note')||{}).textContent||'')+'</span><span class="cv">'+kb.textContent+'</span></div>':'')+'</div>':'')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+s.querySelector('.h').innerHTML+'</h2><div class="d">'+s.querySelector('.d').innerHTML+'</div>'+(kb&&!bg?'<div class="code">'+kb.textContent+'<small>'+((s.querySelector('.kb-note')||{}).textContent||'')+'</small></div>':'')+'<div class="vid"></div>';
       if(vid)body.querySelector('.vid').appendChild(vid.cloneNode(true));
       body.scrollTop=0;
       [].slice.call(g.querySelectorAll('.bars i')).forEach(function(b,k){b.classList.toggle('on',k<=i);});
