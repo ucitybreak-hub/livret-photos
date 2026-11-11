@@ -81,8 +81,8 @@
     "bld_keybox_help_last_html": "Toujours bloqué ? <a href='tel:{{host_phone}}'>Appelez-nous</a> — on vous débloque tout de suite.",
     "bld_keybox_default_label": "Ouvrir la boîte à clé · 30 s",
     "v4_arr_k": "Votre arrivée",
-    "v4_arr_lock_s": "Le chemin est déjà visible, le code s’affiche à l’heure d’arrivée.",
-    "v4_arr_open_s": "Suivez le parcours pas à pas jusqu’à la porte.",
+    "v4_arr_lock_s": "Voir l’accès en détail",
+    "v4_arr_open_s": "Voir le code et le parcours",
     "v4_arr_open_t": "Votre code est prêt",
     "v4_arrival_head": "Votre arrivée",
     "v4_contact": "Contact",
@@ -127,6 +127,8 @@
     "v4_step_of": "Étape {i} sur {n}",
     "v4_train": "Un train plus tard ?",
     "v4_transports": "Transports",
-    "v4_wifi_copy": "Copier le mot de passe"
+    "v4_wifi_copy": "Copier le mot de passe",
+    "v4_park_row": "Stationnement",
+    "v4_tr_row": "Transports en commun"
   }
 }
