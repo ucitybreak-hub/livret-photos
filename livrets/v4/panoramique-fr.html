@@ -1,10 +1,11 @@
-<!-- BUILT V3 panoramique-fr at 2026-11-16T14:15:09.969Z -->
+<!-- BUILT V3 panoramique-fr at 2026-11-16T14:22:08.654Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#FBFAF8">
+<meta name="format-detection" content="telephone=no">
 <title>{{property_name}}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -561,6 +562,21 @@
 .v4-later .h{font-size:15px;font-weight:600;color:var(--ink)}
 .v4-later .d{font-size:13px;color:var(--ink-2);line-height:1.5;margin-top:2px;text-wrap:pretty;font-variant-numeric:tabular-nums}
 .app.is-open .v4-later{display:none}
+/* UCB-LIVRET-V4-ARRLIGHT-V1 (16/11) : page Arrivee allegee */
+.v4-trip .stp-img{width:100%;max-width:none;aspect-ratio:4/3;object-fit:cover;max-height:240px}
+.v4-trip .step .vidcard.vidrow:not(:has(video)):not(:has(iframe)){display:inline-flex;align-items:center;gap:8px;width:auto;max-width:100%;padding:6px 14px 6px 6px;border:0;border-radius:999px;background:var(--brand-soft);box-shadow:none}
+.v4-trip .step .vidrow:not(:has(video)):not(:has(iframe)) .vic{width:26px;height:26px;border-radius:999px;background:var(--brand);font-size:0;position:relative}
+.v4-trip .step .vidrow:not(:has(video)):not(:has(iframe)) .vic::before{content:"";position:absolute;inset:0;margin:auto;width:11px;height:11px;background:#fff;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 4.5v15l13-7.5z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 4.5v15l13-7.5z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;transform:translateX(1px)}
+.v4-trip .step .vidrow:not(:has(video)):not(:has(iframe)) .vb{flex:0 1 auto;min-width:0}
+.v4-trip .step .vidrow:not(:has(video)):not(:has(iframe)) .vv{font-size:13.5px;font-weight:600;color:var(--brand);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v4-trip .step .vidrow:not(:has(video)):not(:has(iframe)) .vv2,.v4-trip .step .vidrow:not(:has(video)):not(:has(iframe)) .vchev{display:none}
+.v4-trip .step .kb{white-space:nowrap;max-width:100%}
+.app.is-open .v4-trip .step .kb{font-size:20px!important;letter-spacing:.1em!important;padding:8px 14px!important}
+.step .kb a,.v4-pill .v4-code a{color:inherit!important;text-decoration:none!important}
+.v4-trip .step.v4-fin{display:none}
+.v4-trip .step:has(+ .v4-fin){padding-bottom:16px}
+.v4-trip .step:has(+ .v4-fin)::before{display:none}
+
 [data-view="access"].v4-arr2 .acc-lock,[data-view="access"].v4-arr2>.sub,[data-view="access"].v4-arr2>.wide,[data-view="access"].v4-arr2>details.fold,[data-view="access"].v4-arr2 .acc-open>.sub{display:none!important}
 .app.is-locked [data-view="access"].v4-arr2 .acc-open{display:block!important}
 .v4-tr{margin:0;padding:0}
@@ -1036,12 +1052,24 @@
   if(fold){var pb=mkSheet('v4ParkSheet',T.parkrow,'<b>'+parkS+'</b>');[].slice.call(parkB.childNodes).forEach(function(n){pb.appendChild(n);});var gs=v.querySelector('.ups-slot[data-ups="garage"]');if(gs)pb.appendChild(gs);}
   if(trs.length){var tb=mkSheet('v4TrSheet',T.trrow,'');var tl=document.createElement('div');tl.className='v4-tr';trs.forEach(function(t){tl.appendChild(t.cloneNode(true));});tb.appendChild(tl);}
   [].slice.call(st.querySelectorAll('.v4-ans')).forEach(function(bt){bt.addEventListener('click',function(){var sh=document.getElementById(bt.getAttribute('data-sh'));if(sh)sh.classList.add('on');});});
+  /*UCB-LIVRET-V4-ARRLIGHT-V1 : les cartes bagages passent dans un panneau ouvert par la ligne « En avance ? »*/
+  var bslot=v.querySelector('.ups-slot[data-ups="bagages"]');
+  if(bslot&&bslot.textContent.trim()&&getComputedStyle(bslot).display!=='none'){
+    var bsb=mkSheet('v4BagSheet',T.bags,'');bsb.appendChild(bslot);
+    if(bag){var bcl=bag.cloneNode(true);bcl.style.marginTop='12px';bsb.appendChild(bcl);}
+    var bline=st.querySelector('.v4-bag');
+    if(!bline){var bhost=st.querySelector('.d')?st.querySelector('.d').parentNode:st;bhost.insertAdjacentHTML('beforeend','<a class="v4-bag" href="#">'+T.early+' <b>'+T.bags+'</b></a>');bline=st.querySelector('.v4-bag');}
+    if(bline){bline.removeAttribute('target');bline.setAttribute('href','#');bline.addEventListener('click',function(e){e.preventDefault();var sh=document.getElementById('v4BagSheet');if(sh)sh.classList.add('on');});}
+  }
   // 3. numerotation des etapes du logement
   var real=[].slice.call(steps.querySelectorAll('.step')).filter(function(s){return !s.querySelector('.n.ic');});
   real.forEach(function(s,i){var n=s.querySelector('.n');if(n)n.textContent=i+1;});
   // 4. etapes encore cachees : une ligne qui annonce la suite
   var hidden=real.filter(function(s){return !s.classList.contains('gate-show');}).length;
   if(hidden){steps.insertAdjacentHTML('beforeend','<div class="v4-later"><span class="n">'+I.lock+'</span><div><div class="h">'+(hidden>1?T.latern.replace('{n}',hidden):T.later1)+'</div><div class="d">'+T.laters+' '+whenTxt+'.</div></div></div>');}
+  /*UCB-LIVRET-V4-ARRLIGHT-V1 : derniere etape sans photo ni code ni video (« Vous y etes ») = masquee dans la liste (le glisser pour confirmer prend le relais), gardee dans Guidez-moi*/
+  var lastS=real[real.length-1];
+  if(real.length>1&&lastS&&!lastS.querySelector('.stp-img,.kb,.vidcard,.stp-seq,.stp-warn'))lastS.classList.add('v4-fin');
   // 5. on habille le tout dans une carte
   var trip=document.createElement('div');trip.className='v4-trip';open.insertBefore(trip,steps);trip.appendChild(steps);
   v.classList.add('v4-arr2');
