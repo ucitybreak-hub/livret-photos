@@ -1,4 +1,4 @@
-<!-- BUILT V3 elegant-fr at 2026-11-16T16:19:06.787Z -->
+<!-- BUILT V3 elegant-fr at 2026-11-16T16:34:04.551Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -660,6 +660,17 @@
 .v4-g .ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;border-radius:inherit;background:#000}
 .v4-g .cov.v4g-covout{position:relative;left:auto;right:auto;bottom:auto;margin:10px 16px 0;border-radius:16px;background:var(--green-soft);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
 .v4-g .v4g-yt{display:inline-flex;align-items:center;min-height:44px;margin:4px 20px 0;font-size:14px;font-weight:600;color:var(--brand);text-decoration:none}
+/* UCB-LIVRET-V4-GUIDE-VSHEET-V1 : bouton video du pas a pas + tiroir */
+.v4-g .v4g-vbtn{display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 16px 0 8px;border:0;border-radius:999px;background:var(--brand-soft);color:var(--brand);font-family:var(--font);font-size:14.5px;font-weight:600;cursor:pointer;transition-property:scale;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
+.v4-g .v4g-vbtn:active{scale:.96}
+.v4-g .v4g-vbtn .pi{width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center}
+.v4-g .v4g-vbtn .pi svg{width:12px;height:12px;transform:translateX(1px)}
+.v4-vsheet .veil{background:rgba(20,18,24,.28);-webkit-backdrop-filter:none;backdrop-filter:none}
+.v4-vsheet .v4vs-code{display:inline-flex;margin:0 0 12px;padding:6px 12px;border-radius:12px;background:var(--green-soft);color:var(--green);font-size:20px;font-weight:700;letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.v4-vsheet .v4vs-code:empty{display:none}
+.v4-vsheet .panel h3{margin-bottom:10px}
+.v4-vsheet .v4vs-box video{width:100%;max-height:44vh;object-fit:contain;display:block;border-radius:16px;background:#000}
+.v4-vsheet .v4vs-box .v4g-yt{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600;color:var(--brand);text-decoration:none}
 /* UCB-LIVRET-V4-PVNET-V1 : &net=1 dans l'URL d'apercu masque les etiquettes « Aperçu … » (voir le livret comme un voyageur) */
 .pv-net .ucbpv-tag{display:none!important}
 /* UCB-LIVRET-V4-VIEWPORT-V1 (16/11) : hauteur = zone visible (dvh) et barre d'onglets en position fixe -> elle ne passe plus sous la barre d'adresse de Safari */
@@ -667,7 +678,14 @@
 .scroll{height:100dvh}
 .tabbar{position:fixed;left:max(12px,calc(50% - 198px));right:max(12px,calc(50% - 198px))}
 /* UCB-LIVRET-V4-HERO-V1 (16/11, Yann : encart « Votre arrivée » caché par la barre d'onglets a l'ouverture) : photo d'en-tete proportionnelle a l'ecran visible ; la carte tient au-dessus de la barre sur iPhone 12, SE et Pro Max */
-.hero .frame{height:clamp(240px,calc(100dvh - 250px),430px)} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
+.hero .frame{height:clamp(240px,calc(100dvh - 250px),430px)}
+/* UCB-LIVRET-V4-UPSLINE-V1 : ligne discrete Accueil + carte arrivee anticipee dans Arrivee */
+.v4-upsline{display:flex;align-items:center;gap:8px;width:calc(100% - 32px);margin:10px 16px 0;min-height:48px;padding:0 14px 0 16px;border:0;border-radius:16px;background:var(--surface);box-shadow:var(--ring);font-family:var(--font);font-size:14px;color:var(--ink-2);text-align:left;cursor:pointer;transition-property:scale;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
+.v4-upsline:active{scale:.96}
+.v4-upsline b{margin-left:auto;color:var(--brand);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.v4-upsline svg{width:15px;height:15px;color:var(--brand);flex:none}
+[data-view="access"] .v4-ups-early{margin-top:14px}
+.app.is-open .v4-upsline,.app.is-open [data-view="access"] .v4-ups-early{display:none!important} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
 .v4-g .v4g-ph{height:24vh}
 /* UCB-LIVRET-V4-NOPVBAR-V1 (16/11, demande de Yann) : pas de bandeau flottant « Aperçu du livret » (injecte par livret-serve en mode apercu) */
 .ucbpv-bar{display:none!important}
@@ -1113,6 +1131,25 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',v4arr);else v4arr();})();
 
 
+/*UCB-LIVRET-V4-UPSLINE-V1 (16/11, choix de Yann « option discrete ») : l'arrivee anticipee passe dans l'onglet Arrivee, en haut, tant que le code n'est pas visible ; sur l'Accueil, une ligne discrete y renvoie. Libelle en dur (FR) : a passer en cle ui v4_ups_early_line avec les traductions. Retour arriere : supprimer ce bloc.*/
+(function(){var UL="Arriver plus tôt ?";function upsl(){try{
+  var card=document.querySelector('[data-view="home"] .upsell.v4-ups:not(.ucbpv-late)');
+  var acc=document.querySelector('[data-view="access"]');if(!card||!acc)return;
+  var CH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg>';
+  var arr=document.querySelector('.v4-arr');
+  var line=document.createElement('button');line.type='button';line.className='v4-upsline';line.style.display='none';
+  if(arr&&arr.parentNode)arr.parentNode.insertBefore(line,arr.nextSibling);
+  card.classList.add('v4-ups-early');
+  var ph=acc.querySelector('.phead');if(ph&&ph.parentNode)ph.parentNode.insertBefore(card,ph.nextSibling);else acc.insertBefore(card,acc.firstChild);
+  function sync(){var c=card.querySelector('.chips .chip');var vis=!card.classList.contains('is-hidden')&&card.style.display!=='none'&&!!c;
+    if(!vis){line.style.display='none';return;}
+    var h=((c.querySelector('.h')||{}).textContent||'').trim(),p=((c.querySelector('.p')||{}).textContent||'').trim();
+    var txt='<span class="t">'+UL+'</span><b>'+h+(p?' · '+p:'')+'</b>'+CH;if(line.innerHTML!==txt)line.innerHTML=txt;line.style.display='';}
+  line.addEventListener('click',function(){go('access');setTimeout(function(){try{card.scrollIntoView({behavior:'smooth',block:'center'});}catch(e){}},80);});
+  sync();if(window.MutationObserver)new MutationObserver(sync).observe(card,{childList:true,subtree:true,attributes:true,attributeFilter:['class','style']});
+}catch(e){}}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',upsl);else upsl();})();
+
 /*UCB-LIVRET-V4-SEJ-V1*/
 document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){try{
   var T={guide:"Guidez-moi jusqu’à la porte",stepof:"Étape {i} sur {n}",next:"Suivant",done:"Je suis entré ✓",prev:"Précédent",close:"Fermer",wcopy:"Copier le mot de passe",photos:"Photos du logement",transp:"Transports",dpill:"Départ le {d} avant {t}",dhead:"Avant de partir",dsub:"Le {d} avant {t}",train:"Un train plus tard ?",bags:"Déposer vos bagages"};
@@ -1133,18 +1170,19 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     g.innerHTML='<div class="top"><div class="bars">'+steps.map(function(){return'<i></i>';}).join('')+'</div><button type="button" class="x" aria-label="'+T.close+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="body"></div><div class="foot"><button type="button" class="prev" aria-label="'+T.prev+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6l-6 6 6 6"/></svg></button><button type="button" class="next">'+T.next+'</button></div>';
     app.appendChild(g);var i=0,body=g.querySelector('.body');
     /*UCB-LIVRET-V4-GUIDE-PHVID-V1 (16/11) : dans le pas a pas, la photo de l'etape lance la video (badge Video) ; le code de la boite passe sous le cadre pendant la lecture ; la photo revient a la fin. Retour arriere : remettre la carte video (branche else).*/
-    var VB="Vidéo";
-    function phVid(ph,id,poster){
-      if(ph.getAttribute('data-vp'))return;ph.setAttribute('data-vp','1');
-      var cov=ph.querySelector('.cov');if(cov){cov.classList.add('v4g-covout');ph.parentNode.insertBefore(cov,ph.nextSibling);}
+    /*UCB-LIVRET-V4-GUIDE-VSHEET-V1 (16/11, Yann : la video dans la photo cachait la photo -> tiroir du bas) : dans le pas a pas, bouton « Voir la video » sous le texte ; la video s'ouvre dans un tiroir coulissant (photo et code restent visibles au-dessus) ; fermer = pause. Remplace GUIDE-PHVID-V1.*/
+    var VCH="Voir la vidéo";
+    var VS=null,VSB=null;
+    function vidSheet(id,poster,title,code){
+      if(!VS){VS=document.createElement('div');VS.className='sheet v4-sheet v4-vsheet';VS.id='v4VidSheet';VS.innerHTML='<div class="veil"></div><div class="panel"><div class="grab"></div><h3></h3><div class="v4vs-code"></div><div class="v4vs-box"></div><button type="button" class="v4-close">'+T.close+'</button></div>';app.appendChild(VS);VSB=VS.querySelector('.v4vs-box');
+        var shut=function(){var v=VSB.querySelector('video');if(v){try{v.pause();}catch(e){}}VSB.innerHTML='';VS.classList.remove('on');};
+        VS.querySelector('.veil').addEventListener('click',shut);VS.querySelector('.v4-close').addEventListener('click',shut);}
+      VS.querySelector('h3').textContent=title||'';VS.querySelector('.v4vs-code').textContent=code||'';VSB.innerHTML='';
       var v=document.createElement('video');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.controls=true;v.preload='auto';if(poster)v.poster=poster;
-      var failed=false;
-      function back(){try{v.pause();}catch(e){}if(v.parentNode)v.parentNode.removeChild(v);ph.classList.remove('playing');ph.removeAttribute('data-vp');if(cov){cov.classList.remove('v4g-covout');ph.appendChild(cov);}}
-      function fail(why){if(failed)return;failed=true;back();if(ph.parentNode.querySelector('.v4g-yt'))return;var a=document.createElement('a');a.className='v4g-yt';a.href='https://www.youtube.com/watch?v='+id;a.target='_blank';a.rel='noopener';a.textContent='YouTube ↗'+(document.querySelector('.ucbpv-bar')?' (aperçu : '+why+')':'');var ref=(cov&&cov.parentNode===ph.parentNode)?cov:ph;ph.parentNode.insertBefore(a,ref.nextSibling);}
-      v.addEventListener('ended',back);
+      var failed=false;var fail=function(why){if(failed)return;failed=true;VSB.innerHTML='<a class="v4g-yt" href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">YouTube ↗'+(document.querySelector('.ucbpv-bar')?' (aperçu : '+why+')':'')+'</a>';};
       v.addEventListener('error',function(){fail('erreur media '+((v.error&&v.error.code)||'?'));});
       v.src='https://auto.u-citybreak.fr/webhook/livret-video?yt='+encodeURIComponent(id);
-      ph.classList.add('playing');ph.appendChild(v);
+      VSB.appendChild(v);VS.classList.add('on');
       var p=v.play();if(p&&p.catch)p.catch(function(err){if(v.error)fail('lecture '+((err&&err.name)||'?'));});
     }
     function showGo(s){var c=s.querySelector('.n.ic').nextElementSibling||s;var h=c.querySelector('.h'),d=c.querySelector('.d'),lk=c.querySelector('.v4-lnk'),an=c.querySelector('.v4-anss'),bl=c.querySelector('.v4-bag');
@@ -1159,7 +1197,7 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
       var hb=document.querySelector('.hero .frame .img');var bg=img?"url('"+img.src+"')":(hb?hb.style.backgroundImage:'');body.innerHTML=(bg?'<div class="ph" style="background-image:'+bg.replace(/"/g,"'")+'">'+(kb?'<div class="cov"><span class="cl">'+((s.querySelector('.kb-note')||{}).textContent||'')+'</span><span class="cv">'+kb.textContent+'</span></div>':'')+'</div>':'')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+s.querySelector('.h').innerHTML+'</h2><div class="d">'+s.querySelector('.d').innerHTML+'</div>'+(kb&&!bg?'<div class="code">'+kb.textContent+'<small>'+((s.querySelector('.kb-note')||{}).textContent||'')+'</small></div>':'')+'<div class="vid"></div>';
       /*UCB-LIVRET-V4-GUIDE-VID-V2 : la video du pas a pas passe par playVid (fichier R2, sinon lien YouTube)*/
       var vyt=vid?vid.getAttribute('data-yt'):'',vph=body.querySelector('.ph');
-      if(vid&&img&&vyt&&vph){vph.classList.add('v4g-hasvid');vph.insertAdjacentHTML('beforeend','<span class="v4g-play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>'+VB+'</span>');vph.addEventListener('click',function(){phVid(vph,vyt,img.src);});}
+      if(vid&&vyt){var vb=document.createElement('button');vb.type='button';vb.className='v4g-vbtn';vb.innerHTML='<span class="pi"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg></span>'+VCH;var vt=s.querySelector('.h')?s.querySelector('.h').textContent:'';var vp=img?img.src:'';var vk=kb?kb.textContent:'';vb.addEventListener('click',function(){vidSheet(vyt,vp,vt,vk);});body.querySelector('.vid').appendChild(vb);}
       else if(vid){var vc=vid.cloneNode(true);vc.removeAttribute('data-vp');body.querySelector('.vid').appendChild(vc);}
       body.scrollTop=0;
       [].slice.call(g.querySelectorAll('.bars i')).forEach(function(b,k){b.classList.toggle('on',k<=i);});
