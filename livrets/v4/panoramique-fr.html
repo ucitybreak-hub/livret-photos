@@ -1,4 +1,4 @@
-<!-- BUILT V3 panoramique-fr at 2026-11-16T21:43:02.489Z -->
+<!-- BUILT V3 panoramique-fr at 2026-11-16T21:51:59.004Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -712,7 +712,12 @@ button.v4-arr .s.v4-s-ups b{margin-left:auto;font-weight:650;font-variant-numeri
 /* UCB-LIVRET-V4-SEJTABS-V1 : Sejour par rubriques (boutons en haut, comme Decouvrir) */
 [data-view="stay"].v4-sgtabs .sub[data-sg]{display:none!important}
 [data-view="stay"].v4-sgtabs [data-sg]:not(.sg-on){display:none!important}
-[data-view="stay"].v4-sgtabs .v4-seg{margin-bottom:6px} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
+[data-view="stay"].v4-sgtabs .v4-seg{margin-bottom:6px}
+/* UCB-LIVRET-V4-LATESHEET-V1 : depart tardif en ligne dans la carte Depart + tiroir */
+.v4-late-row{display:flex;align-items:center;gap:8px;width:100%;min-height:48px;margin:0;padding:0;border:0;border-top:1px solid var(--line-2);background:none;font-family:var(--font);font-size:14.5px;font-weight:500;color:var(--ink);text-align:left;cursor:pointer;transition-property:opacity;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
+.v4-late-row:active{opacity:.6}
+.v4-late-row b{margin-left:auto;color:var(--brand);font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap}
+.v4-late-row svg{width:15px;height:15px;color:var(--brand);flex:none} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
 .v4-g .v4g-ph{height:24vh}
 /* UCB-LIVRET-V4-NOPVBAR-V1 (16/11, demande de Yann) : pas de bandeau flottant « Aperçu du livret » (injecte par livret-serve en mode apercu) */
 .ucbpv-bar{display:none!important}
@@ -1204,6 +1209,27 @@ button.v4-arr .s.v4-s-ups b{margin-left:auto;font-weight:650;font-variant-numeri
   if(pill&&di>=0){pill.style.cursor='pointer';pill.addEventListener('click',function(){pick(di);});}
 }catch(e){}}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(st,200);});else setTimeout(st,200);})();
+
+/*UCB-LIVRET-V4-LATESHEET-V1 (16/11, Yann : « pas terrible ces box dans les box ») : dans Sejour > Le depart, l'offre de depart tardif n'est plus une carte dans la carte : une ligne « Partir plus tard ? 13h · 20 € › » (titre et creneau repris de la carte) sous la liste a cocher ouvre un tiroir qui contient la carte. Retour arriere : supprimer ce bloc et le CSS LATESHEET.*/
+(function(){var CL="Fermer",tries=0;function ls(){try{
+  var slot=document.querySelector('.v4-late-slot');if(!slot){if(++tries<40)setTimeout(ls,250);return;}
+  var app=document.querySelector('.app')||document.body,S=null,row=null,card=null;
+  var CH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg>';
+  function mk(){S=document.createElement('div');S.className='sheet v4-sheet v4-upsheet';S.id='v4LateSheet';
+    S.innerHTML='<div class="veil"></div><div class="panel"><div class="grab"></div><div class="v4us-box"></div><button type="button" class="v4-close">'+CL+'</button></div>';app.appendChild(S);
+    var shut=function(){S.classList.remove('on');};S.querySelector('.veil').addEventListener('click',shut);S.querySelector('.v4-close').addEventListener('click',shut);}
+  function sync(){
+    var c=slot.querySelector('.upsell');
+    if(c&&c!==card){card=c;if(!S)mk();var bx=S.querySelector('.v4us-box');bx.innerHTML='';bx.appendChild(c);}
+    if(!card){slot.classList.remove('has-row');return;}
+    if(!row){row=document.createElement('button');row.type='button';row.className='v4-late-row';row.addEventListener('click',function(){S.classList.add('on');});}
+    if(row.parentNode!==slot)slot.appendChild(row);
+    var ch=card.querySelector('.chips .chip');if(!ch){row.style.display='none';slot.classList.remove('has-row');return;}
+    var t=((card.querySelector('h3')||{}).textContent||'').trim(),h=((ch.querySelector('.h')||{}).textContent||'').trim(),p=((ch.querySelector('.p')||{}).textContent||'').trim();
+    var txt='<span class="u">'+t+'</span><b>'+h+(p?' · '+p:'')+'</b>'+CH;if(row.innerHTML!==txt)row.innerHTML=txt;row.style.display='';slot.classList.add('has-row');}
+  sync();if(window.MutationObserver)new MutationObserver(sync).observe(slot,{childList:true});
+}catch(e){}}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(ls,300);});else setTimeout(ls,300);})();
 
 /*UCB-LIVRET-V4-SEJ-V1*/
 document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){try{
