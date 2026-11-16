@@ -1,4 +1,4 @@
-<!-- BUILT V3 lodge-fr at 2026-11-16T15:49:48.451Z -->
+<!-- BUILT V3 lodge-fr at 2026-11-16T15:54:23.388Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -621,34 +621,35 @@
 .v4-g .bars{flex:1;display:flex;gap:4px}
 .v4-g .bars i{flex:1;height:4px;border-radius:2px;background:var(--line)}
 .v4-g .bars i.on{background:var(--brand)}
-.v4-g .x{width:40px;height:40px;border:0;border-radius:999px;background:var(--bg);display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;flex:none}
+.v4-g .x{width:44px;height:44px;border:0;border-radius:999px;background:var(--bg);display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;flex:none;transition-property:scale;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
+.v4-g .x:active{scale:.96}
 .v4-g .x svg{width:18px;height:18px}
 .v4-g .body{flex:1;overflow-y:auto;padding:0 0 20px}
-.v4-g .ph{margin:4px 16px 0;height:46vh;border-radius:22px;background:var(--bg) center/cover no-repeat;outline:1px solid rgba(0,0,0,.08);outline-offset:-1px}
-.v4-g .k{margin:20px 20px 0;font-size:13px;font-weight:600;color:var(--brand);font-variant-numeric:tabular-nums}
-.v4-g h2{margin:4px 20px 0;font-size:26px;font-weight:700;letter-spacing:-.025em;line-height:1.15;text-wrap:balance}
+.v4-g .ph{margin:4px 16px 0;height:clamp(180px,32vh,280px);border-radius:24px;background:var(--bg) center/cover no-repeat;outline:1px solid rgba(0,0,0,.08);outline-offset:-1px}
+.v4-g .k{margin:18px 20px 0;font-size:13px;font-weight:600;color:var(--brand);font-variant-numeric:tabular-nums}
+.v4-g h2{margin:4px 20px 0;font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.2;text-wrap:balance}
 .v4-g .d{margin:10px 20px 0;font-size:16px;color:var(--ink-2);line-height:1.5;text-wrap:pretty}
 .v4-g .d b{color:var(--ink)}
 .v4-g .code{margin:16px 20px 0;padding:18px;border-radius:18px;background:var(--green-soft);color:var(--green);text-align:center;font-size:clamp(30px,9vw,38px);font-weight:700;letter-spacing:.14em;font-variant-numeric:tabular-nums}
 .v4-g .code small{display:block;font-size:12.5px;font-weight:600;letter-spacing:0;color:var(--ink-2);margin-top:4px}
 .v4-g .vid{margin:14px 20px 0}
 .v4-g .ph{position:relative}
-.v4-g .cov{position:absolute;left:12px;right:12px;bottom:12px;padding:12px 14px 14px;border-radius:16px;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 8px 24px -10px rgba(0,0,0,.35);text-align:center}
+.v4-g .cov{position:absolute;left:12px;right:12px;bottom:12px;padding:10px 14px 12px;border-radius:12px;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 8px 24px -10px rgba(0,0,0,.35);text-align:center}
 .v4-g .cov .cl{display:block;font-size:12px;font-weight:600;color:var(--ink-2)}
 .v4-g .cov .cv{display:block;margin-top:2px;font-size:clamp(30px,9vw,38px);font-weight:700;letter-spacing:.12em;color:var(--green);font-variant-numeric:tabular-nums;line-height:1.1}
 .v4-g .vid .vidcard{margin:0}
 .v4-g .foot{display:flex;gap:10px;padding:12px 16px calc(14px + env(safe-area-inset-bottom));box-shadow:0 -1px 0 var(--line-2)}
-.v4-g .foot button{height:56px;border:0;border-radius:999px;font-family:var(--font);font-size:17px;font-weight:600;cursor:pointer;transition-property:scale;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
+.v4-g .foot button{height:52px;border:0;border-radius:999px;font-family:var(--font);font-size:17px;font-weight:600;cursor:pointer;transition-property:scale;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
 .v4-g .foot button:active{scale:.96}
-.v4-g .prev{width:56px;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center}
+.v4-g .prev{width:52px;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center}
 .v4-g .prev svg{width:20px;height:20px}
 .v4-g .prev[disabled]{opacity:.35}
 .v4-g .next{flex:1;background:var(--ink);color:#fff}
 .v4-g.last .next{background:var(--green)}
 /* UCB-LIVRET-V4-ARRDAY-V1 : page Venir du pas a pas + panneaux au-dessus du pas a pas */
 .sheet.v4-sheet,#wifiSheet{z-index:400}
-.v4-g .v4g-pin{margin:28px 20px 0;width:64px;height:64px;border-radius:20px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center}
-.v4-g .v4g-pin svg{width:30px;height:30px}
+.v4-g .v4g-pin{margin:12px 20px 0;width:52px;height:52px;border-radius:16px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center}
+.v4-g .v4g-pin svg{width:24px;height:24px} /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
 .v4-g .v4g-ph{height:24vh}
 /* UCB-LIVRET-V4-NOPVBAR-V1 (16/11, demande de Yann) : pas de bandeau flottant « Aperçu du livret » (injecte par livret-serve en mode apercu) */
 .ucbpv-bar{display:none!important}
@@ -1110,7 +1111,7 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     g.innerHTML='<div class="top"><div class="bars">'+steps.map(function(){return'<i></i>';}).join('')+'</div><button type="button" class="x" aria-label="'+T.close+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="body"></div><div class="foot"><button type="button" class="prev" aria-label="'+T.prev+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6l-6 6 6 6"/></svg></button><button type="button" class="next">'+T.next+'</button></div>';
     app.appendChild(g);var i=0,body=g.querySelector('.body');
     function showGo(s){var c=s.querySelector('.n.ic').nextElementSibling||s;var h=c.querySelector('.h'),d=c.querySelector('.d'),lk=c.querySelector('.v4-lnk'),an=c.querySelector('.v4-anss'),bl=c.querySelector('.v4-bag');
-      var nxS=steps[i+1],nxI=nxS?nxS.querySelector('.stp-img'):null; /*UCB-LIVRET-V4-ARRDAY-V2 : photo de facade (1re etape) en tete de la page Venir*/
+      var nxI=null; /*ARRDAY-V4 : retour au picto (la photo de facade faisait doublon avec l'etape suivante)*/ /*UCB-LIVRET-V4-ARRDAY-V2 : photo de facade (1re etape) en tete de la page Venir*/
       body.innerHTML=(nxI&&nxI.src?'<div class="ph v4g-ph" style="background-image:url(\''+nxI.src+'\')"></div>':'<div class="v4g-pin">'+s.querySelector('.n.ic').innerHTML+'</div>')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+(h?h.innerHTML:'')+'</h2><div class="d">'+(d?d.innerHTML:'')+'</div>'+(lk?'<a class="v4g-route" href="'+lk.href+'" target="_blank" rel="noopener">'+lk.innerHTML+'</a>':'')+(an?'<div class="v4g-anss">'+an.innerHTML+'</div>':'')+(bl?'<div class="v4g-bag"></div>':'');
       [].slice.call(body.querySelectorAll('[data-sh]')).forEach(function(b){b.addEventListener('click',function(){var sh=document.getElementById(b.getAttribute('data-sh'));if(sh)sh.classList.add('on');});});
       if(bl){var bc=bl.cloneNode(true);if(document.getElementById('v4BagSheet'))bc.addEventListener('click',function(e){e.preventDefault();document.getElementById('v4BagSheet').classList.add('on');});body.querySelector('.v4g-bag').appendChild(bc);}
