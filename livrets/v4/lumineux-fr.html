@@ -1,4 +1,4 @@
-<!-- BUILT V3 lumineux-fr at 2026-11-16T14:36:56.736Z -->
+<!-- BUILT V3 lumineux-fr at 2026-11-16T14:41:41.759Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -645,6 +645,15 @@
 .v4-g .prev[disabled]{opacity:.35}
 .v4-g .next{flex:1;background:var(--ink);color:#fff}
 .v4-g.last .next{background:var(--green)}
+/* UCB-LIVRET-V4-ARRDAY-V1 : page Venir du pas a pas + panneaux au-dessus du pas a pas */
+.sheet.v4-sheet,#wifiSheet{z-index:400}
+.v4-g .v4g-pin{margin:28px 20px 0;width:64px;height:64px;border-radius:20px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center}
+.v4-g .v4g-pin svg{width:30px;height:30px}
+.v4-g .v4g-route{display:flex;align-items:center;justify-content:center;gap:6px;margin:20px 20px 0;height:52px;border-radius:999px;background:var(--brand);color:#fff;font-size:16px;font-weight:600;text-decoration:none}
+.v4-g .v4g-route svg{width:16px;height:16px}
+.v4-g .v4g-anss{margin:16px 20px 0;border-top:1px solid var(--line-2)}
+.v4-g .v4g-bag{margin:8px 20px 0}
+.v4-g .v4g-bag .v4-bag{font-size:14px}
 /* sejour */
 .v4-dpill .dot{background:var(--ink)}
 .v4-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}
@@ -1091,11 +1100,20 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
   /* ---------- 1. Guidez-moi ---------- */
   var acc=document.querySelector('[data-view="access"]');
   var steps=acc?[].slice.call(acc.querySelectorAll('.v4-trip .step')).filter(function(s){return !s.querySelector('.n.ic');}):[];
+  /*UCB-LIVRET-V4-ARRDAY-V1 : l'etape Venir (adresse, itineraire, voiture ou a pied) devient la 1re page du pas a pas*/
+  var goS=acc?acc.querySelector('.v4-trip .step .n.ic'):null;goS=goS?goS.closest('.step'):null;if(steps.length&&goS)steps.unshift(goS);
   if(steps.length){
     var g=document.createElement('div');g.className='v4-g';
     g.innerHTML='<div class="top"><div class="bars">'+steps.map(function(){return'<i></i>';}).join('')+'</div><button type="button" class="x" aria-label="'+T.close+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="body"></div><div class="foot"><button type="button" class="prev" aria-label="'+T.prev+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6l-6 6 6 6"/></svg></button><button type="button" class="next">'+T.next+'</button></div>';
     app.appendChild(g);var i=0,body=g.querySelector('.body');
-    function show(){var s=steps[i];var img=s.querySelector('.stp-img');var kb=s.querySelector('.kb .kb-code');var vid=s.querySelector('.vidcard');
+    function showGo(s){var c=s.querySelector('.n.ic').nextElementSibling||s;var h=c.querySelector('.h'),d=c.querySelector('.d'),lk=c.querySelector('.v4-lnk'),an=c.querySelector('.v4-anss'),bl=c.querySelector('.v4-bag');
+      body.innerHTML='<div class="v4g-pin">'+s.querySelector('.n.ic').innerHTML+'</div><div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+(h?h.innerHTML:'')+'</h2><div class="d">'+(d?d.innerHTML:'')+'</div>'+(lk?'<a class="v4g-route" href="'+lk.href+'" target="_blank" rel="noopener">'+lk.innerHTML+'</a>':'')+(an?'<div class="v4g-anss">'+an.innerHTML+'</div>':'')+(bl?'<div class="v4g-bag"></div>':'');
+      [].slice.call(body.querySelectorAll('[data-sh]')).forEach(function(b){b.addEventListener('click',function(){var sh=document.getElementById(b.getAttribute('data-sh'));if(sh)sh.classList.add('on');});});
+      if(bl){var bc=bl.cloneNode(true);if(document.getElementById('v4BagSheet'))bc.addEventListener('click',function(e){e.preventDefault();document.getElementById('v4BagSheet').classList.add('on');});body.querySelector('.v4g-bag').appendChild(bc);}
+      body.scrollTop=0;
+      [].slice.call(g.querySelectorAll('.bars i')).forEach(function(b,k){b.classList.toggle('on',k<=i);});
+      g.querySelector('.prev').disabled=(i===0);var last=(i===steps.length-1);g.classList.toggle('last',last);g.querySelector('.next').textContent=last?T.done:T.next;}
+    function show(){var s=steps[i];if(s.querySelector('.n.ic')){showGo(s);return;}var img=s.querySelector('.stp-img');var kb=s.querySelector('.kb .kb-code');var vid=s.querySelector('.vidcard');
       var hb=document.querySelector('.hero .frame .img');var bg=img?"url('"+img.src+"')":(hb?hb.style.backgroundImage:'');body.innerHTML=(bg?'<div class="ph" style="background-image:'+bg.replace(/"/g,"'")+'">'+(kb?'<div class="cov"><span class="cl">'+((s.querySelector('.kb-note')||{}).textContent||'')+'</span><span class="cv">'+kb.textContent+'</span></div>':'')+'</div>':'')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+s.querySelector('.h').innerHTML+'</h2><div class="d">'+s.querySelector('.d').innerHTML+'</div>'+(kb&&!bg?'<div class="code">'+kb.textContent+'<small>'+((s.querySelector('.kb-note')||{}).textContent||'')+'</small></div>':'')+'<div class="vid"></div>';
       /*UCB-LIVRET-V4-GUIDE-VID-V2 : la video du pas a pas passe par playVid (fichier R2, sinon lien YouTube)*/
       if(vid){var vc=vid.cloneNode(true);vc.removeAttribute('data-vp');body.querySelector('.vid').appendChild(vc);}
@@ -1110,6 +1128,17 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     bt.addEventListener('click',function(){i=0;show();g.classList.add('on');});
     if(pill)pill.parentNode.parentNode.insertBefore(bt,pill.parentNode.nextSibling);
     window.__v4guide=function(n){i=n||0;show();g.classList.add('on');};
+    /*UCB-LIVRET-V4-ARRDAY-V1 : le jour J, code revele, l'onglet Arrivee ouvre directement le pas a pas (un seul fil), tant que le voyageur n'a pas confirme son entree ; la croix ramene a la liste*/
+    var cdE=document.getElementById('cd');var revT=cdE?parseInt(cdE.getAttribute('data-reveal')||'0',10):0;
+    var pday=function(t){try{return new Date(t).toLocaleDateString('fr-CA',{timeZone:'Europe/Paris'});}catch(e){return '';}};
+    var IK='ucb_v4_in_'+revT;
+    var arrived=function(){try{return localStorage.getItem(IK)==='1';}catch(e){return false;}};
+    var setArrived=function(){try{localStorage.setItem(IK,'1');}catch(e){}};
+    var jDay=function(){return !!(revT&&document.querySelector('.app.is-open')&&pday(revT)===pday(Date.now()));};
+    if(typeof window.go==='function'){var go0=window.go;window.go=function(v,a){go0(v,a);if(v==='access'&&!a&&jDay()&&!arrived()){i=0;show();g.classList.add('on');}};}
+    g.querySelector('.next').addEventListener('click',function(){if(!g.classList.contains('on'))setArrived();});
+    var swA=document.getElementById('swipeArrival');if(swA&&window.MutationObserver)new MutationObserver(function(){if(swA.classList.contains('done'))setArrived();}).observe(swA,{attributes:true,attributeFilter:['class']});
+    var vAcc=document.querySelector('.view.active[data-view="access"]');if(vAcc&&jDay()&&!arrived()){i=0;show();g.classList.add('on');}
   }
 
   /* ---------- 2. Sejour ---------- */
