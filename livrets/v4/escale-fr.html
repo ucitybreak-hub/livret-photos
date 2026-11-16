@@ -1,4 +1,4 @@
-<!-- BUILT V3 escale-fr at 2026-11-16T16:08:56.903Z -->
+<!-- BUILT V3 escale-fr at 2026-11-16T16:16:41.259Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -665,7 +665,9 @@
 /* UCB-LIVRET-V4-VIEWPORT-V1 (16/11) : hauteur = zone visible (dvh) et barre d'onglets en position fixe -> elle ne passe plus sous la barre d'adresse de Safari */
 .phone{min-height:100dvh}
 .scroll{height:100dvh}
-.tabbar{position:fixed;left:max(12px,calc(50% - 198px));right:max(12px,calc(50% - 198px))} /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
+.tabbar{position:fixed;left:max(12px,calc(50% - 198px));right:max(12px,calc(50% - 198px))}
+/* UCB-LIVRET-V4-HERO-V1 (16/11, Yann : encart « Votre arrivée » caché par la barre d'onglets a l'ouverture) : photo d'en-tete proportionnelle a l'ecran visible ; la carte tient au-dessus de la barre sur iPhone 12, SE et Pro Max */
+.hero .frame{height:clamp(260px,40dvh,430px)} /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
 .v4-g .v4g-ph{height:24vh}
 /* UCB-LIVRET-V4-NOPVBAR-V1 (16/11, demande de Yann) : pas de bandeau flottant « Aperçu du livret » (injecte par livret-serve en mode apercu) */
 .ucbpv-bar{display:none!important}
