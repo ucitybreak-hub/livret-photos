@@ -1,4 +1,4 @@
-<!-- BUILT V3 bellevue-fr at 2026-11-16T15:46:27.680Z -->
+<!-- BUILT V3 bellevue-fr at 2026-11-16T15:50:05.540Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -649,8 +649,10 @@
 .sheet.v4-sheet,#wifiSheet{z-index:400}
 .v4-g .v4g-pin{margin:28px 20px 0;width:64px;height:64px;border-radius:20px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center}
 .v4-g .v4g-pin svg{width:30px;height:30px}
-.v4-g .v4g-ph{height:30vh}
-.v4-g .v4g-route{display:flex;align-items:center;justify-content:center;gap:6px;margin:20px 20px 0;height:52px;border-radius:999px;background:var(--brand);color:#fff;font-size:16px;font-weight:600;text-decoration:none}
+.v4-g .v4g-ph{height:24vh}
+/* UCB-LIVRET-V4-NOPVBAR-V1 (16/11, demande de Yann) : pas de bandeau flottant « Aperçu du livret » (injecte par livret-serve en mode apercu) */
+.ucbpv-bar{display:none!important}
+.v4-g .v4g-route{display:flex;align-items:center;justify-content:center;gap:6px;margin:16px 20px 0;height:46px;border-radius:999px;background:var(--brand-soft);color:var(--brand);font-size:15px;font-weight:600;text-decoration:none} /* UCB-LIVRET-V4-ARRDAY-V3 : itineraire en bouton secondaire, Suivant seul bouton principal */
 .v4-g .v4g-route svg{width:16px;height:16px}
 .v4-g .v4g-anss{margin:16px 20px 0;border-top:1px solid var(--line-2)}
 .v4-g .v4g-bag{margin:8px 20px 0}
