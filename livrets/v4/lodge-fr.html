@@ -1,4 +1,4 @@
-<!-- BUILT V3 lodge-fr at 2026-11-16T21:35:40.996Z -->
+<!-- BUILT V3 lodge-fr at 2026-11-16T21:42:53.530Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -1185,7 +1185,7 @@ button.v4-arr .s.v4-s-ups b{margin-left:auto;font-weight:650;font-variant-numeri
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',upsl);else upsl();})();
 
 /*UCB-LIVRET-V4-SEJTABS-V1 (16/11, Yann : « un systeme d'onglets boutons en haut pour Sejour, comme pour Decouvrir ») : les rubriques visibles de Sejour (Comment ca marche, Le depart, Bon a savoir) deviennent des boutons en haut ; la rubrique en tete de page (Depart le jour du depart) est ouverte par defaut ; la pastille de depart ouvre « Le depart ». Retour arriere : supprimer ce bloc et le CSS SEJTABS.*/
-(function(){var tries=0;function st(){try{
+(function(){var tries=0,TL="Le logement";function st(){try{
   var v=document.querySelector('[data-view="stay"]');var ph=v&&v.querySelector('.phead');
   if(!v||!ph||!v.querySelector('.v4-grid')){if(++tries<40)setTimeout(st,150);return;}
   if(v.querySelector('.v4-seg'))return;
@@ -1197,6 +1197,7 @@ button.v4-arr .s.v4-s-ups b{margin-left:auto;font-weight:650;font-variant-numeri
   var bar=document.createElement('div');bar.className='v4-seg';var bts=[];
   function pick(i){bts.forEach(function(b,j){b.classList.toggle('on',j===i);});kids.forEach(function(el){var g=el.getAttribute('data-sg');if(g!==null)el.classList.toggle('sg-on',+g===i);});}
   subs.forEach(function(sb,i){var em=sb.querySelector('.em');var lab=(sb.textContent||'').replace(em?em.textContent:'','').trim();
+    /*SEJTABS-V2 (16/11, Yann : plus court que « Comment ca marche ») : rubrique des tuiles = « Le logement »*/if(TL&&sb.nextElementSibling&&sb.nextElementSibling.classList.contains('v4-grid'))lab=TL;
     var b=document.createElement('button');b.type='button';b.textContent=lab;b.addEventListener('click',function(){pick(i);});bar.appendChild(b);bts.push(b);});
   ph.parentNode.insertBefore(bar,ph.nextSibling);v.classList.add('v4-sgtabs');pick(0);
   var di=subs.indexOf(v.querySelector('#sec-depart'));var pill=ph.querySelector('.v4-pill');
