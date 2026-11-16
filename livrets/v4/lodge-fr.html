@@ -1,4 +1,4 @@
-<!-- BUILT V3 lodge-fr at 2026-11-16T14:41:33.987Z -->
+<!-- BUILT V3 lodge-fr at 2026-11-16T15:46:10.889Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -649,6 +649,7 @@
 .sheet.v4-sheet,#wifiSheet{z-index:400}
 .v4-g .v4g-pin{margin:28px 20px 0;width:64px;height:64px;border-radius:20px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center}
 .v4-g .v4g-pin svg{width:30px;height:30px}
+.v4-g .v4g-ph{height:30vh}
 .v4-g .v4g-route{display:flex;align-items:center;justify-content:center;gap:6px;margin:20px 20px 0;height:52px;border-radius:999px;background:var(--brand);color:#fff;font-size:16px;font-weight:600;text-decoration:none}
 .v4-g .v4g-route svg{width:16px;height:16px}
 .v4-g .v4g-anss{margin:16px 20px 0;border-top:1px solid var(--line-2)}
@@ -1107,7 +1108,8 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     g.innerHTML='<div class="top"><div class="bars">'+steps.map(function(){return'<i></i>';}).join('')+'</div><button type="button" class="x" aria-label="'+T.close+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="body"></div><div class="foot"><button type="button" class="prev" aria-label="'+T.prev+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6l-6 6 6 6"/></svg></button><button type="button" class="next">'+T.next+'</button></div>';
     app.appendChild(g);var i=0,body=g.querySelector('.body');
     function showGo(s){var c=s.querySelector('.n.ic').nextElementSibling||s;var h=c.querySelector('.h'),d=c.querySelector('.d'),lk=c.querySelector('.v4-lnk'),an=c.querySelector('.v4-anss'),bl=c.querySelector('.v4-bag');
-      body.innerHTML='<div class="v4g-pin">'+s.querySelector('.n.ic').innerHTML+'</div><div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+(h?h.innerHTML:'')+'</h2><div class="d">'+(d?d.innerHTML:'')+'</div>'+(lk?'<a class="v4g-route" href="'+lk.href+'" target="_blank" rel="noopener">'+lk.innerHTML+'</a>':'')+(an?'<div class="v4g-anss">'+an.innerHTML+'</div>':'')+(bl?'<div class="v4g-bag"></div>':'');
+      var nxS=steps[i+1],nxI=nxS?nxS.querySelector('.stp-img'):null; /*UCB-LIVRET-V4-ARRDAY-V2 : photo de facade (1re etape) en tete de la page Venir*/
+      body.innerHTML=(nxI&&nxI.src?'<div class="ph v4g-ph" style="background-image:url(\''+nxI.src+'\')"></div>':'<div class="v4g-pin">'+s.querySelector('.n.ic').innerHTML+'</div>')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+(h?h.innerHTML:'')+'</h2><div class="d">'+(d?d.innerHTML:'')+'</div>'+(lk?'<a class="v4g-route" href="'+lk.href+'" target="_blank" rel="noopener">'+lk.innerHTML+'</a>':'')+(an?'<div class="v4g-anss">'+an.innerHTML+'</div>':'')+(bl?'<div class="v4g-bag"></div>':'');
       [].slice.call(body.querySelectorAll('[data-sh]')).forEach(function(b){b.addEventListener('click',function(){var sh=document.getElementById(b.getAttribute('data-sh'));if(sh)sh.classList.add('on');});});
       if(bl){var bc=bl.cloneNode(true);if(document.getElementById('v4BagSheet'))bc.addEventListener('click',function(e){e.preventDefault();document.getElementById('v4BagSheet').classList.add('on');});body.querySelector('.v4g-bag').appendChild(bc);}
       body.scrollTop=0;
