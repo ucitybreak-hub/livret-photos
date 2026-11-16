@@ -964,13 +964,15 @@
     if(el.getAttribute('data-vp'))return; el.setAttribute('data-vp','1'); el.onclick=null; el.removeAttribute('onclick'); el.style.cursor='default';
     var orig=el.innerHTML, po=el.querySelector('.poster'), inG=!!(el.closest&&el.closest('.v4-g')), fb=false;
     var v=document.createElement('video'); v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); v.controls=true; v.preload='auto'; if(po&&po.src)v.poster=po.src;
-    function yt(){ if(fb)return; fb=true; try{v.pause();v.removeAttribute('src');v.load();}catch(e){}
+    /*UCB-LIVRET-V4-R2VID-V2 (16/11) : repli YouTube seulement sur une vraie erreur media (iOS rejetait play() avant le chargement et partait sur YouTube) ; en apercu, la raison s'affiche sous la video*/
+    function yt(why){ if(fb)return; fb=true; try{v.pause();v.removeAttribute('src');v.load();}catch(e){}
+      try{if(document.querySelector('.ucbpv-bar')&&el.parentNode){var w=document.createElement('div');w.style.cssText='font-size:12px;line-height:1.4;color:#8A5B12;margin-top:6px';w.textContent='Aperçu : lecture R2 impossible ('+(why||'?')+'), repli YouTube';el.parentNode.insertBefore(w,el.nextSibling);}}catch(e){}
       if(inG){ el.innerHTML=orig; var t=el.querySelector('.vv2'); if(t)t.textContent='YouTube ↗'; el.style.cursor='pointer'; el.onclick=function(){window.open('https://www.youtube.com/watch?v='+id,'_blank');}; }
       else { el.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; } }
-    v.addEventListener('error',yt);
+    v.addEventListener('error',function(){yt('erreur media '+((v.error&&v.error.code)||'?'));});
     v.src='https://auto.u-citybreak.fr/webhook/livret-video?yt='+encodeURIComponent(id);
     el.innerHTML=''; el.appendChild(v);
-    var p=v.play(); if(p&&p.catch)p.catch(function(err){ if(err&&err.name==='NotAllowedError')return; if(!v.error&&v.readyState>0)return; yt(); });
+    var p=v.play(); if(p&&p.catch)p.catch(function(err){ if(v.error)yt('lecture '+((err&&err.name)||'?')+' / media '+v.error.code); });
   }
   function pick(el){
     var p=el.parentNode.querySelectorAll('.chip');
