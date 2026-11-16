@@ -1,4 +1,4 @@
-<!-- BUILT V3 bellevue-fr at 2026-11-16T14:04:47.046Z -->
+<!-- BUILT V3 bellevue-fr at 2026-11-16T14:15:17.150Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -471,14 +471,14 @@
   .v4-hello{font-size:15px;font-weight:500;color:var(--ink-2);margin-bottom:6px}
   .v4-sum{margin-top:10px;font-size:15px;color:var(--ink-2);font-variant-numeric:tabular-nums;text-wrap:pretty}
   .v4-times{margin-top:3px;font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
-  .v4-arr{position:relative;z-index:6;display:flex;align-items:center;gap:14px;width:calc(100% - 32px);margin:18px 16px 0;padding:18px 18px 16px;border:0;border-radius:24px;background:var(--surface);box-shadow:var(--ring-lg);text-align:left;font-family:var(--font);color:var(--ink);cursor:pointer}
-  .v4-arr .b{flex:1;min-width:0}
-  .v4-arr .k{display:block;font-size:13.5px;font-weight:600;color:var(--brand)}
-  .v4-arr .t{display:block;font-size:18px;font-weight:700;letter-spacing:-.015em;line-height:1.25;margin-top:3px;text-wrap:balance} /* UCB-LIVRET-V4-ARRSIZE-V1 */
+  .v4-arr{position:relative;z-index:6;display:block;width:calc(100% - 32px);margin:18px 16px 0;padding:18px 18px 16px;border:0;border-radius:24px;background:var(--surface);box-shadow:var(--ring-lg);text-align:left;font-family:var(--font);color:var(--ink);cursor:pointer}
+  .v4-arr .b{display:block;min-width:0}
+  .v4-arr .k{display:flex;align-items:center;min-height:36px;padding-right:46px;font-size:13.5px;font-weight:600;color:var(--brand)}
+  .v4-arr .t{display:block;font-size:18px;font-weight:700;letter-spacing:-.015em;line-height:1.25;margin-top:4px;text-wrap:balance} /* UCB-LIVRET-V4-ARRSIZE-V1, -V2 : titre pleine largeur, cadenas en haut a droite */
   .v4-arr .s{display:flex;align-items:center;gap:3px;font-size:14.5px;font-weight:600;color:var(--brand);margin-top:12px;padding-top:12px;border-top:1px solid var(--line-2)}
   .v4-arr .s::after{content:"";width:15px;height:15px;flex:none;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.5 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.5 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
-  .v4-arr .r{width:44px;height:44px;border-radius:999px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;flex:none;align-self:flex-start}
-  .v4-arr .r svg{width:20px;height:20px}
+  .v4-arr .r{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:999px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center}
+  .v4-arr .r svg{width:18px;height:18px}
   .app.is-locked .t-open,.app.is-open .t-lock{display:none!important}
   .upsell.v4-ups{margin:12px 16px 0;padding:16px;border-radius:22px}
   .upsell.v4-ups h3{color:var(--ink);font-size:16px}
