@@ -132,6 +132,17 @@
     "v4_tr_row": "Transports en commun",
     "v4_vid_chip": "Voir la vidéo",
     "v4_vid_badge": "Vidéo",
-    "v4_tab_logement": "Le logement"
+    "v4_tab_logement": "Le logement",
+    "v4_ups_req_early": "Arrivée à {h}",
+    "v4_ups_req_late": "Départ à {h}",
+    "v4_ups_st_answered": "Voir vos messages",
+    "v4_ups_st_ok": "Validé ✓",
+    "v4_ups_st_pending": "En attente",
+    "v4_ups_st_refused": "Pas possible",
+    "v4_ups_tx_answered": "Nous vous avons répondu par message, sur votre plateforme de réservation.",
+    "v4_ups_tx_ok_early": "C’est validé : vous pouvez arriver à partir de cette heure-là.",
+    "v4_ups_tx_ok_late": "C’est validé : prenez votre temps, vous pouvez partir à cette heure-là.",
+    "v4_ups_tx_pending": "Nous vérifions avec l’équipe ménage et vous répondons par message, sur votre plateforme de réservation.",
+    "v4_ups_tx_refused": "Ce n’est pas possible cette fois, désolés."
   }
 }
