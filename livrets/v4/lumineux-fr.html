@@ -1,4 +1,4 @@
-<!-- BUILT V3 lumineux-fr at 2026-11-16T21:55:15.074Z -->
+<!-- BUILT V3 lumineux-fr at 2026-11-16T22:08:14.676Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -721,7 +721,20 @@ button.v4-arr .s.v4-s-ups b{margin-left:auto;font-weight:650;font-variant-numeri
 /* UCB-LIVRET-V4-ARRSIZE-V4 (16/11, Yann : « j'aimais bien quand le cadenas etait a droite ») : cadenas de nouveau en haut a droite, rond 32 px (36 avant) ; « Voir l'acces en detail › » se place juste a sa gauche quand l'offre occupe le pied */
 button.v4-arr .r{top:14px;right:16px;left:auto;width:32px;height:32px}
 button.v4-arr .r svg{width:16px;height:16px}
-button.v4-arr .k{min-height:32px;padding:0 42px 0 0} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
+button.v4-arr .k{min-height:32px;padding:0 42px 0 0}
+/* UCB-LIVRET-V4-UPSTATE-V1 : etat de la demande (ligne + tiroir) */
+b.ust{margin-left:auto;padding:3px 9px;border-radius:999px;font-size:12.5px;font-weight:650;white-space:nowrap}
+b.ust-pending,.v4-ust .ic.ust-pending{color:#8A5A00;background:#FFF1D6}
+b.ust-ok,.v4-ust .ic.ust-ok{color:var(--green);background:var(--green-soft)}
+b.ust-refused,.v4-ust .ic.ust-refused{color:var(--ink-2);background:var(--line-2)}
+b.ust-answered,.v4-ust .ic.ust-answered{color:var(--brand);background:var(--brand-soft)}
+.v4-upsheet.st-on .v4us-box .upsell{display:none!important}
+.v4-ust{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center;padding:6px 0 16px}
+.v4-ust .ic{grid-row:1/3;width:44px;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center}
+.v4-ust .ic svg{width:22px;height:22px}
+.v4-ust .tt{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.v4-ust b.ust{justify-self:start;margin:4px 0 0}
+.v4-ust p{grid-column:1/3;margin:14px 0 0;font-size:14px;line-height:1.45;color:var(--ink-2);text-wrap:pretty} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
 .v4-g .v4g-ph{height:24vh}
 /* UCB-LIVRET-V4-NOPVBAR-V1 (16/11, demande de Yann) : pas de bandeau flottant « Aperçu du livret » (injecte par livret-serve en mode apercu) */
 .ucbpv-bar{display:none!important}
@@ -1167,6 +1180,53 @@ button.v4-arr .k{min-height:32px;padding:0 42px 0 0} /* -V2 : cale sur les captu
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',v4arr);else v4arr();})();
 
 
+/*UCB-LIVRET-V4-UPSTATE-V1 (16/11, Yann : « fais les 2 ») : suivi de la demande d'upsell horaire (arrivee anticipee / depart tardif).
+ - serveur : POST /webhook/upsell-status {t: jeton du livret} (workflow upsell-request, UCB-UPSELL-STATUS-V1) -> derniere demande de la resa : pending | ok | refused | answered ;
+ - telephone : la reponse de /webhook/upsell-request est interceptee (fetch) et gardee 15 min (localStorage), le temps que le serveur l'enregistre ;
+ - apercu seulement : &ust=pending|ok|refused|answered simule un etat.
+ La ligne d'offre (Accueil, Arrivee, Sejour > Le depart) devient « Arrivee a 14h · En attente › » et le tiroir montre l'etat a la place des creneaux.
+ Branche dans UPSHEET et LATESHEET par window.UCBST (paint / reg). Retour arriere : supprimer ce bloc (les deux autres continuent sans lui).*/
+(function(){
+var TX={req_early:"Arrivée à {h}",req_late:"Départ à {h}",st_pending:"En attente",st_ok:"Validé ✓",st_refused:"Pas possible",st_answered:"Voir vos messages",tx_pending:"Nous vérifions avec l’équipe ménage et vous répondons par message, sur votre plateforme de réservation.",tx_ok_early:"C’est validé : vous pouvez arriver à partir de cette heure-là.",tx_ok_late:"C’est validé : prenez votre temps, vous pouvez partir à cette heure-là.",tx_refused:"Ce n’est pas possible cette fois, désolés.",tx_answered:"Nous vous avons répondu par message, sur votre plateforme de réservation."};
+var ST={early:null,late:null},REG={},RID='';
+var CH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg>';
+var SV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">';
+var IC={pending:SV+'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',ok:SV+'<path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',refused:SV+'<path d="M7 7l10 10M17 7L7 17"/></svg>',answered:SV+'<path d="M5 6.5h14v9H10l-5 3.5z"/></svg>'};
+function tok(){return (window.WIFI_CFG&&WIFI_CFG.token)||'';}
+function rid(){if(RID)return RID;try{var p=tok().split('.')[0].replace(/-/g,'+').replace(/_/g,'/');while(p.length%4)p+='=';RID=JSON.parse(atob(p)).resa_uuid||'';}catch(e){}return RID;}
+function K(t){return 'ucb_ust_'+rid()+'_'+t;}
+function lsGet(t){try{var o=JSON.parse(localStorage.getItem(K(t))||'null');if(o&&Date.now()-o.ts<900000)return o;}catch(e){}return null;}
+function lsSet(t,o){try{localStorage.setItem(K(t),JSON.stringify({etat:o.etat,heure:o.heure,ts:Date.now()}));}catch(e){}}
+function hfmt(h){var m=String(h||'').match(/(\d{1,2})\s*[h:]\s*(\d{0,2})/);if(!m)return String(h||'');return parseInt(m[1],10)+'h'+(m[2]&&m[2]!=='00'?m[2]:'');}
+function set(t,o){ST[t]=o;if(REG[t]){try{REG[t]();}catch(e){}}}
+function paint(t,rows,w,card){
+  var s=ST[t],sheet=(card&&card.closest)?card.closest('.sheet'):null;
+  if(!s){if(sheet)sheet.classList.remove('st-on');return false;}
+  var h=s.heure;if(!h&&card){var c=card.querySelector('.chips .chip .h');h=c?c.textContent:'';}
+  var title=String(TX['req_'+t]||'').replace('{h}',hfmt(h)),pill=TX['st_'+s.etat]||'';
+  var html='<span class="u">'+title+'</span><b class="ust ust-'+s.etat+'">'+pill+'</b>'+CH;
+  rows.forEach(function(r){if(!r)return;if(r.innerHTML!==html)r.innerHTML=html;r.style.display='';});
+  if(w)w.classList.add('has-ups');
+  if(sheet){var bx=sheet.querySelector('.v4us-box');if(bx){var u=bx.querySelector('.v4-ust');if(!u){u=document.createElement('div');u.className='v4-ust';bx.insertBefore(u,bx.firstChild);}
+    var tx=s.etat==='ok'?TX['tx_ok_'+t]:TX['tx_'+s.etat];
+    var uh='<span class="ic ust-'+s.etat+'">'+(IC[s.etat]||'')+'</span><div class="tt">'+title+'</div><b class="ust ust-'+s.etat+'">'+pill+'</b><p>'+(tx||'')+'</p>';
+    if(u.innerHTML!==uh)u.innerHTML=uh;sheet.classList.add('st-on');}}
+  return true;}
+window.UCBST={paint:paint,set:set,reg:function(t,f){REG[t]=f;try{f();}catch(e){}}};
+if(window.fetch){var _f=window.fetch;window.fetch=function(i,o){var pr=_f.apply(this,arguments);try{var url=(typeof i==='string')?i:((i&&i.url)||'');
+  if(url.indexOf('/webhook/upsell-request')>=0){var bd={};try{bd=JSON.parse((o&&o.body)||'{}');}catch(e){}var ty=(bd.type==='late_checkout')?'late':'early';
+    pr.then(function(r){return r.clone().json();}).then(function(j){if(j&&j.ok&&j.action==='pending'){var s={etat:'pending',heure:bd.heure||''};lsSet(ty,s);set(ty,s);}}).catch(function(){});}}catch(e){}return pr;};}
+function load(){
+  var q='';try{q=new URLSearchParams(location.search).get('ust')||'';}catch(e){}
+  if(document.querySelector('.ucbpv-bar')&&/^(pending|ok|refused|answered)$/.test(q)){set('early',{etat:q,heure:''});set('late',{etat:q,heure:''});return;}
+  ['early','late'].forEach(function(t){var l=lsGet(t);if(l)set(t,l);});
+  if(!tok())return;
+  fetch('https://auto.u-citybreak.fr/webhook/upsell-status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({t:tok()})})
+    .then(function(r){return r.json();}).then(function(j){if(!j||!j.ok)return;['early','late'].forEach(function(t){var v=j[t];if(v&&v.etat)set(t,{etat:v.etat,heure:v.heure||''});else if(!lsGet(t))set(t,null);});}).catch(function(){});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(load,60);});else setTimeout(load,60);
+})();
+
 /*UCB-LIVRET-V4-UPSLINE-V1 + UPSHEET-V1 (16/11 soir, Yann : « bizarre de devoir retaper sur un bouton sur une autre page ») : l'offre d'arrivee anticipee s'ouvre dans un tiroir du bas, depuis le pied de la carte « Votre arrivee » (Accueil) ou depuis une ligne en haut de l'onglet Arrivee. Le haut de la carte mene toujours a l'onglet Arrivee. Libelle en dur (FR) : a passer en cle ui v4_ups_early_line. Retour arriere : remettre la carte dans [data-view="home"] et supprimer ce bloc.*/
 (function(){var UL="Arriver plus tôt ?",CL="Fermer";function upsl(){try{
   var card=document.querySelector('[data-view="home"] .upsell.v4-ups:not(.ucbpv-late)');
@@ -1183,13 +1243,13 @@ button.v4-arr .k{min-height:32px;padding:0 42px 0 0} /* -V2 : cale sur les captu
   var shut=function(){S.classList.remove('on');},open=function(){S.classList.add('on');};
   S.querySelector('.veil').addEventListener('click',shut);S.querySelector('.v4-close').addEventListener('click',shut);
   row.addEventListener('click',open);line.addEventListener('click',open);
-  function sync(){var c=card.querySelector('.chips .chip');var vis=!card.classList.contains('is-hidden')&&card.style.display!=='none'&&!!c;
+  function sync(){if(window.UCBST&&UCBST.paint('early',[row,line],w,card))return;var c=card.querySelector('.chips .chip');var vis=!card.classList.contains('is-hidden')&&card.style.display!=='none'&&!!c;
     if(!vis){w.classList.remove('has-ups');line.style.display='none';return;}
     var h=((c.querySelector('.h')||{}).textContent||'').trim(),p=((c.querySelector('.p')||{}).textContent||'').trim();
     var txt='<span class="u">'+UL+'</span><b>'+h+(p?' · '+p:'')+'</b>'+CH;
     if(row.innerHTML!==txt)row.innerHTML=txt;if(line.innerHTML!==txt)line.innerHTML=txt;
     w.classList.add('has-ups');line.style.display='';}
-  sync();if(window.MutationObserver)new MutationObserver(sync).observe(card,{childList:true,subtree:true,attributes:true,attributeFilter:['class','style']});
+  sync();if(window.UCBST)UCBST.reg('early',sync);if(window.MutationObserver)new MutationObserver(sync).observe(card,{childList:true,subtree:true,attributes:true,attributeFilter:['class','style']});
 }catch(e){}}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',upsl);else upsl();})();
 
@@ -1228,10 +1288,11 @@ button.v4-arr .k{min-height:32px;padding:0 42px 0 0} /* -V2 : cale sur les captu
     if(!card){slot.classList.remove('has-row');return;}
     if(!row){row=document.createElement('button');row.type='button';row.className='v4-late-row';row.addEventListener('click',function(){S.classList.add('on');});}
     if(row.parentNode!==slot)slot.appendChild(row);
+    if(window.UCBST&&UCBST.paint('late',[row],null,card)){slot.classList.add('has-row');return;}
     var ch=card.querySelector('.chips .chip');if(!ch){row.style.display='none';slot.classList.remove('has-row');return;}
     var t=((card.querySelector('h3')||{}).textContent||'').trim(),h=((ch.querySelector('.h')||{}).textContent||'').trim(),p=((ch.querySelector('.p')||{}).textContent||'').trim();
     var txt='<span class="u">'+t+'</span><b>'+h+(p?' · '+p:'')+'</b>'+CH;if(row.innerHTML!==txt)row.innerHTML=txt;row.style.display='';slot.classList.add('has-row');}
-  sync();if(window.MutationObserver)new MutationObserver(sync).observe(slot,{childList:true});
+  sync();if(window.UCBST)UCBST.reg('late',sync);if(window.MutationObserver)new MutationObserver(sync).observe(slot,{childList:true});
 }catch(e){}}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(ls,300);});else setTimeout(ls,300);})();
 
