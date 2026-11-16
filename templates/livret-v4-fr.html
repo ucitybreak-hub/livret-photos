@@ -707,7 +707,11 @@ button.v4-arr .s.v4-s-ups b{margin-left:auto;font-weight:650;font-variant-numeri
 .v4-arr-ups:active{opacity:.6}
 .v4-arr-ups b{margin-left:auto;color:var(--brand);font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap}
 .v4-arr-ups svg{width:15px;height:15px;color:var(--brand);flex:none}
-.v4-upsheet .v4us-box .upsell{display:block;margin:0 0 4px;padding:0;background:none;box-shadow:none;border:0} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
+.v4-upsheet .v4us-box .upsell{display:block;margin:0 0 4px;padding:0;background:none;box-shadow:none;border:0}
+/* UCB-LIVRET-V4-SEJTABS-V1 : Sejour par rubriques (boutons en haut, comme Decouvrir) */
+[data-view="stay"].v4-sgtabs .sub[data-sg]{display:none!important}
+[data-view="stay"].v4-sgtabs [data-sg]:not(.sg-on){display:none!important}
+[data-view="stay"].v4-sgtabs .v4-seg{margin-bottom:6px} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
 .v4-g .v4g-ph{height:24vh}
 /* UCB-LIVRET-V4-NOPVBAR-V1 (16/11, demande de Yann) : pas de bandeau flottant « Aperçu du livret » (injecte par livret-serve en mode apercu) */
 .ucbpv-bar{display:none!important}
@@ -1178,6 +1182,26 @@ button.v4-arr .s.v4-s-ups b{margin-left:auto;font-weight:650;font-variant-numeri
   sync();if(window.MutationObserver)new MutationObserver(sync).observe(card,{childList:true,subtree:true,attributes:true,attributeFilter:['class','style']});
 }catch(e){}}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',upsl);else upsl();})();
+
+/*UCB-LIVRET-V4-SEJTABS-V1 (16/11, Yann : « un systeme d'onglets boutons en haut pour Sejour, comme pour Decouvrir ») : les rubriques visibles de Sejour (Comment ca marche, Le depart, Bon a savoir) deviennent des boutons en haut ; la rubrique en tete de page (Depart le jour du depart) est ouverte par defaut ; la pastille de depart ouvre « Le depart ». Retour arriere : supprimer ce bloc et le CSS SEJTABS.*/
+(function(){var tries=0;function st(){try{
+  var v=document.querySelector('[data-view="stay"]');var ph=v&&v.querySelector('.phead');
+  if(!v||!ph||!v.querySelector('.v4-grid')){if(++tries<40)setTimeout(st,150);return;}
+  if(v.querySelector('.v4-seg'))return;
+  var kids=Array.prototype.slice.call(v.children),subs=[],cur=-1;
+  kids.forEach(function(el){if(el===ph)return;
+    if(el.classList.contains('sub')&&!el.classList.contains('v4-hide')&&!el.classList.contains('is-hidden')){subs.push(el);cur=subs.length-1;}
+    if(cur>=0)el.setAttribute('data-sg',cur);});
+  if(subs.length<2){kids.forEach(function(el){el.removeAttribute('data-sg');});return;}
+  var bar=document.createElement('div');bar.className='v4-seg';var bts=[];
+  function pick(i){bts.forEach(function(b,j){b.classList.toggle('on',j===i);});kids.forEach(function(el){var g=el.getAttribute('data-sg');if(g!==null)el.classList.toggle('sg-on',+g===i);});}
+  subs.forEach(function(sb,i){var em=sb.querySelector('.em');var lab=(sb.textContent||'').replace(em?em.textContent:'','').trim();
+    var b=document.createElement('button');b.type='button';b.textContent=lab;b.addEventListener('click',function(){pick(i);});bar.appendChild(b);bts.push(b);});
+  ph.parentNode.insertBefore(bar,ph.nextSibling);v.classList.add('v4-sgtabs');pick(0);
+  var di=subs.indexOf(v.querySelector('#sec-depart'));var pill=ph.querySelector('.v4-pill');
+  if(pill&&di>=0){pill.style.cursor='pointer';pill.addEventListener('click',function(){pick(di);});}
+}catch(e){}}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(st,200);});else setTimeout(st,200);})();
 
 /*UCB-LIVRET-V4-SEJ-V1*/
 document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){try{
