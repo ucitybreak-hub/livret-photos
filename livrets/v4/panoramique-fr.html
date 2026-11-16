@@ -1,4 +1,4 @@
-<!-- BUILT V3 panoramique-fr at 2026-11-16T15:57:40.859Z -->
+<!-- BUILT V3 panoramique-fr at 2026-11-16T16:06:01.343Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#FBFAF8">
 <meta name="format-detection" content="telephone=no">
+<script>try{if(/[?&]net=1(&|$)/.test(location.search))document.documentElement.classList.add('pv-net');}catch(e){}</script>
 <title>{{property_name}}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -649,7 +650,18 @@
 /* UCB-LIVRET-V4-ARRDAY-V1 : page Venir du pas a pas + panneaux au-dessus du pas a pas */
 .sheet.v4-sheet,#wifiSheet{z-index:400}
 .v4-g .v4g-pin{margin:12px 20px 0;width:52px;height:52px;border-radius:16px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center}
-.v4-g .v4g-pin svg{width:24px;height:24px} /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
+.v4-g .v4g-pin svg{width:24px;height:24px}
+/* UCB-LIVRET-V4-GUIDE-PHVID-V1 : photo qui lance la video */
+.v4-g .ph.v4g-hasvid{cursor:pointer}
+.v4-g .v4g-play{position:absolute;top:12px;left:12px;display:flex;align-items:center;gap:6px;height:34px;padding:0 13px 0 10px;border-radius:999px;background:rgba(0,0,0,.58);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font-size:13.5px;font-weight:600;pointer-events:none}
+.v4-g .v4g-play svg{width:14px;height:14px;transform:translateX(1px)}
+.v4-g .ph.playing{background:#000!important}
+.v4-g .ph.playing .v4g-play{display:none}
+.v4-g .ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;border-radius:inherit;background:#000}
+.v4-g .cov.v4g-covout{position:relative;left:auto;right:auto;bottom:auto;margin:10px 16px 0;border-radius:16px;background:var(--green-soft);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.v4-g .v4g-yt{display:inline-flex;align-items:center;min-height:44px;margin:4px 20px 0;font-size:14px;font-weight:600;color:var(--brand);text-decoration:none}
+/* UCB-LIVRET-V4-PVNET-V1 : &net=1 dans l'URL d'apercu masque les etiquettes « Aperçu … » (voir le livret comme un voyageur) */
+.pv-net .ucbpv-tag{display:none!important} /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
 .v4-g .v4g-ph{height:24vh}
 /* UCB-LIVRET-V4-NOPVBAR-V1 (16/11, demande de Yann) : pas de bandeau flottant « Aperçu du livret » (injecte par livret-serve en mode apercu) */
 .ucbpv-bar{display:none!important}
@@ -1108,10 +1120,27 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
   var steps=acc?[].slice.call(acc.querySelectorAll('.v4-trip .step')).filter(function(s){return !s.querySelector('.n.ic');}):[];
   /*UCB-LIVRET-V4-ARRDAY-V1 : l'etape Venir (adresse, itineraire, voiture ou a pied) devient la 1re page du pas a pas*/
   var goS=acc?acc.querySelector('.v4-trip .step .n.ic'):null;goS=goS?goS.closest('.step'):null;if(steps.length&&goS)steps.unshift(goS);
+  /*UCB-LIVRET-V4-GUIDE-PHVID-V1 : on note l'id YouTube de chaque video d'etape (l'attribut onclick disparait une fois la video lancee dans la liste)*/
+  steps.forEach(function(s){var vc=s.querySelector('.vidcard');if(vc&&!vc.getAttribute('data-yt')){var m=(vc.getAttribute('onclick')||'').match(/'([A-Za-z0-9_-]{6,20})'/);if(m)vc.setAttribute('data-yt',m[1]);}});
   if(steps.length){
     var g=document.createElement('div');g.className='v4-g';
     g.innerHTML='<div class="top"><div class="bars">'+steps.map(function(){return'<i></i>';}).join('')+'</div><button type="button" class="x" aria-label="'+T.close+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="body"></div><div class="foot"><button type="button" class="prev" aria-label="'+T.prev+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6l-6 6 6 6"/></svg></button><button type="button" class="next">'+T.next+'</button></div>';
     app.appendChild(g);var i=0,body=g.querySelector('.body');
+    /*UCB-LIVRET-V4-GUIDE-PHVID-V1 (16/11) : dans le pas a pas, la photo de l'etape lance la video (badge Video) ; le code de la boite passe sous le cadre pendant la lecture ; la photo revient a la fin. Retour arriere : remettre la carte video (branche else).*/
+    var VB="Vidéo";
+    function phVid(ph,id,poster){
+      if(ph.getAttribute('data-vp'))return;ph.setAttribute('data-vp','1');
+      var cov=ph.querySelector('.cov');if(cov){cov.classList.add('v4g-covout');ph.parentNode.insertBefore(cov,ph.nextSibling);}
+      var v=document.createElement('video');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.controls=true;v.preload='auto';if(poster)v.poster=poster;
+      var failed=false;
+      function back(){try{v.pause();}catch(e){}if(v.parentNode)v.parentNode.removeChild(v);ph.classList.remove('playing');ph.removeAttribute('data-vp');if(cov){cov.classList.remove('v4g-covout');ph.appendChild(cov);}}
+      function fail(why){if(failed)return;failed=true;back();if(ph.parentNode.querySelector('.v4g-yt'))return;var a=document.createElement('a');a.className='v4g-yt';a.href='https://www.youtube.com/watch?v='+id;a.target='_blank';a.rel='noopener';a.textContent='YouTube ↗'+(document.querySelector('.ucbpv-bar')?' (aperçu : '+why+')':'');var ref=(cov&&cov.parentNode===ph.parentNode)?cov:ph;ph.parentNode.insertBefore(a,ref.nextSibling);}
+      v.addEventListener('ended',back);
+      v.addEventListener('error',function(){fail('erreur media '+((v.error&&v.error.code)||'?'));});
+      v.src='https://auto.u-citybreak.fr/webhook/livret-video?yt='+encodeURIComponent(id);
+      ph.classList.add('playing');ph.appendChild(v);
+      var p=v.play();if(p&&p.catch)p.catch(function(err){if(v.error)fail('lecture '+((err&&err.name)||'?'));});
+    }
     function showGo(s){var c=s.querySelector('.n.ic').nextElementSibling||s;var h=c.querySelector('.h'),d=c.querySelector('.d'),lk=c.querySelector('.v4-lnk'),an=c.querySelector('.v4-anss'),bl=c.querySelector('.v4-bag');
       var nxI=null; /*ARRDAY-V4 : retour au picto (la photo de facade faisait doublon avec l'etape suivante)*/ /*UCB-LIVRET-V4-ARRDAY-V2 : photo de facade (1re etape) en tete de la page Venir*/
       body.innerHTML=(nxI&&nxI.src?'<div class="ph v4g-ph" style="background-image:url(\''+nxI.src+'\')"></div>':'<div class="v4g-pin">'+s.querySelector('.n.ic').innerHTML+'</div>')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+(h?h.innerHTML:'')+'</h2><div class="d">'+(d?d.innerHTML:'')+'</div>'+(lk?'<a class="v4g-route" href="'+lk.href+'" target="_blank" rel="noopener">'+lk.innerHTML+'</a>':'')+(an?'<div class="v4g-anss">'+an.innerHTML+'</div>':'')+(bl?'<div class="v4g-bag"></div>':'');
@@ -1123,7 +1152,9 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     function show(){var s=steps[i];if(s.querySelector('.n.ic')){showGo(s);return;}var img=s.querySelector('.stp-img');var kb=s.querySelector('.kb .kb-code');var vid=s.querySelector('.vidcard');
       var hb=document.querySelector('.hero .frame .img');var bg=img?"url('"+img.src+"')":(hb?hb.style.backgroundImage:'');body.innerHTML=(bg?'<div class="ph" style="background-image:'+bg.replace(/"/g,"'")+'">'+(kb?'<div class="cov"><span class="cl">'+((s.querySelector('.kb-note')||{}).textContent||'')+'</span><span class="cv">'+kb.textContent+'</span></div>':'')+'</div>':'')+'<div class="k">'+fmt(T.stepof,{i:i+1,n:steps.length})+'</div><h2>'+s.querySelector('.h').innerHTML+'</h2><div class="d">'+s.querySelector('.d').innerHTML+'</div>'+(kb&&!bg?'<div class="code">'+kb.textContent+'<small>'+((s.querySelector('.kb-note')||{}).textContent||'')+'</small></div>':'')+'<div class="vid"></div>';
       /*UCB-LIVRET-V4-GUIDE-VID-V2 : la video du pas a pas passe par playVid (fichier R2, sinon lien YouTube)*/
-      if(vid){var vc=vid.cloneNode(true);vc.removeAttribute('data-vp');body.querySelector('.vid').appendChild(vc);}
+      var vyt=vid?vid.getAttribute('data-yt'):'',vph=body.querySelector('.ph');
+      if(vid&&img&&vyt&&vph){vph.classList.add('v4g-hasvid');vph.insertAdjacentHTML('beforeend','<span class="v4g-play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>'+VB+'</span>');vph.addEventListener('click',function(){phVid(vph,vyt,img.src);});}
+      else if(vid){var vc=vid.cloneNode(true);vc.removeAttribute('data-vp');body.querySelector('.vid').appendChild(vc);}
       body.scrollTop=0;
       [].slice.call(g.querySelectorAll('.bars i')).forEach(function(b,k){b.classList.toggle('on',k<=i);});
       g.querySelector('.prev').disabled=(i===0);var last=(i===steps.length-1);g.classList.toggle('last',last);g.querySelector('.next').textContent=last?T.done:T.next;}
