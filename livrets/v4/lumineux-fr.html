@@ -1,4 +1,4 @@
-<!-- BUILT V3 lumineux-fr at 2026-11-17T13:06:34.813Z -->
+<!-- BUILT V3 lumineux-fr at 2026-11-17T13:13:06.548Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -1192,7 +1192,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
  La ligne d'offre (Accueil, Arrivee, Sejour > Le depart) devient « Arrivee a 14h · En attente › » et le tiroir montre l'etat a la place des creneaux.
  Branche dans UPSHEET et LATESHEET par window.UCBST (paint / reg). Retour arriere : supprimer ce bloc (les deux autres continuent sans lui).*/
 (function(){
-var TX={req_early:"Arrivée à {h}",req_late:"Départ à {h}",st_pending:"En attente",st_ok:"Validé ✓",st_refused:"Pas possible",st_answered:"Voir vos messages",tx_pending:"Nous vérifions avec l’équipe ménage et vous répondons par message, sur votre plateforme de réservation.",tx_ok_early:"C’est validé : vous pouvez arriver à partir de cette heure-là.",tx_ok_late:"C’est validé : prenez votre temps, vous pouvez partir à cette heure-là.",tx_refused:"Ce n’est pas possible cette fois, désolés.",tx_answered:"Nous vous avons répondu par message, sur votre plateforme de réservation.",st_topay:"À régler",tx_topay:"C’est accepté ! Il reste à régler le supplément pour confirmer cet horaire.",tx_topay_msg:"Le lien de paiement vous a aussi été envoyé par message.",pay_btn:"Payer {p} €"};/*UPSTATE-V2 (17/11) : etat topay = accord payant de Yann (page d arbitrage), bouton Payer dans le tiroir*/
+var TX={req_early:"Arrivée à {h}",req_late:"Départ à {h}",st_pending:"En attente",st_ok:"Validé ✓",st_refused:"Pas possible",st_answered:"Voir vos messages",tx_pending:"Nous vérifions avec l’équipe ménage et vous répondons par message, sur votre plateforme de réservation.",tx_ok_early:"C’est validé : vous pouvez arriver à partir de cette heure-là.",tx_ok_late:"C’est validé : prenez votre temps, vous pouvez partir à cette heure-là.",tx_refused:"Ce n’est pas possible cette fois, désolés.",tx_answered:"Nous vous avons répondu par message, sur votre plateforme de réservation.",st_topay:"À régler",tx_topay:"C’est possible, avec un supplément à régler. Votre horaire sera confirmé dès le paiement.",tx_topay_msg:"Le lien de paiement vous a aussi été envoyé par message.",pay_btn:"Payer {p} €"};/*UPSTATE-V2 (17/11) : etat topay = accord payant de Yann (page d arbitrage), bouton Payer dans le tiroir*/
 var ST={early:null,late:null},REG={},RID='';
 var CH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg>';
 var SV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">';
