@@ -1,4 +1,4 @@
-<!-- BUILT V3 lumineux-fr at 2026-11-16T22:08:14.676Z -->
+<!-- BUILT V3 lumineux-fr at 2026-11-17T13:06:34.813Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
 <head>
@@ -734,7 +734,12 @@ b.ust-answered,.v4-ust .ic.ust-answered{color:var(--brand);background:var(--bran
 .v4-ust .ic svg{width:22px;height:22px}
 .v4-ust .tt{font-size:17px;font-weight:700;letter-spacing:-.01em}
 .v4-ust b.ust{justify-self:start;margin:4px 0 0}
-.v4-ust p{grid-column:1/3;margin:14px 0 0;font-size:14px;line-height:1.45;color:var(--ink-2);text-wrap:pretty} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
+.v4-ust p{grid-column:1/3;margin:14px 0 0;font-size:14px;line-height:1.45;color:var(--ink-2);text-wrap:pretty}
+/* UCB-LIVRET-V4-UPSTATE-V2 : a regler + bouton Payer */
+b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft)}
+.v4-ust .v4-ust-pay{grid-column:1/3;display:flex;align-items:center;justify-content:center;min-height:52px;margin-top:16px;border-radius:14px;background:var(--brand);color:#fff;font-size:16px;font-weight:650;text-decoration:none;font-variant-numeric:tabular-nums;transition-property:scale;transition-duration:150ms;transition-timing-function:cubic-bezier(.2,0,0,1)}
+.v4-ust .v4-ust-pay:active{scale:.96}
+.v4-ust p.v4-ust-note{margin-top:10px;font-size:13px;text-align:center} /* -V2 : cale sur les captures iPhone 12 de Yann (430 px = carte coupee, 40dvh = trop haut) */ /* UCB-LIVRET-V4-GUIDE-PROP-V1 (16/11) : proportions du pas a pas */
 .v4-g .v4g-ph{height:24vh}
 /* UCB-LIVRET-V4-NOPVBAR-V1 (16/11, demande de Yann) : pas de bandeau flottant « Aperçu du livret » (injecte par livret-serve en mode apercu) */
 .ucbpv-bar{display:none!important}
@@ -1187,11 +1192,11 @@ b.ust-answered,.v4-ust .ic.ust-answered{color:var(--brand);background:var(--bran
  La ligne d'offre (Accueil, Arrivee, Sejour > Le depart) devient « Arrivee a 14h · En attente › » et le tiroir montre l'etat a la place des creneaux.
  Branche dans UPSHEET et LATESHEET par window.UCBST (paint / reg). Retour arriere : supprimer ce bloc (les deux autres continuent sans lui).*/
 (function(){
-var TX={req_early:"Arrivée à {h}",req_late:"Départ à {h}",st_pending:"En attente",st_ok:"Validé ✓",st_refused:"Pas possible",st_answered:"Voir vos messages",tx_pending:"Nous vérifions avec l’équipe ménage et vous répondons par message, sur votre plateforme de réservation.",tx_ok_early:"C’est validé : vous pouvez arriver à partir de cette heure-là.",tx_ok_late:"C’est validé : prenez votre temps, vous pouvez partir à cette heure-là.",tx_refused:"Ce n’est pas possible cette fois, désolés.",tx_answered:"Nous vous avons répondu par message, sur votre plateforme de réservation."};
+var TX={req_early:"Arrivée à {h}",req_late:"Départ à {h}",st_pending:"En attente",st_ok:"Validé ✓",st_refused:"Pas possible",st_answered:"Voir vos messages",tx_pending:"Nous vérifions avec l’équipe ménage et vous répondons par message, sur votre plateforme de réservation.",tx_ok_early:"C’est validé : vous pouvez arriver à partir de cette heure-là.",tx_ok_late:"C’est validé : prenez votre temps, vous pouvez partir à cette heure-là.",tx_refused:"Ce n’est pas possible cette fois, désolés.",tx_answered:"Nous vous avons répondu par message, sur votre plateforme de réservation.",st_topay:"À régler",tx_topay:"C’est accepté ! Il reste à régler le supplément pour confirmer cet horaire.",tx_topay_msg:"Le lien de paiement vous a aussi été envoyé par message.",pay_btn:"Payer {p} €"};/*UPSTATE-V2 (17/11) : etat topay = accord payant de Yann (page d arbitrage), bouton Payer dans le tiroir*/
 var ST={early:null,late:null},REG={},RID='';
 var CH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg>';
 var SV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">';
-var IC={pending:SV+'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',ok:SV+'<path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',refused:SV+'<path d="M7 7l10 10M17 7L7 17"/></svg>',answered:SV+'<path d="M5 6.5h14v9H10l-5 3.5z"/></svg>'};
+var IC={pending:SV+'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',ok:SV+'<path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',refused:SV+'<path d="M7 7l10 10M17 7L7 17"/></svg>',answered:SV+'<path d="M5 6.5h14v9H10l-5 3.5z"/></svg>',topay:SV+'<rect x="3.5" y="6" width="17" height="12" rx="2.5"/><path d="M3.5 10h17M7 14.5h3"/></svg>'};
 function tok(){return (window.WIFI_CFG&&WIFI_CFG.token)||'';}
 function rid(){if(RID)return RID;try{var p=tok().split('.')[0].replace(/-/g,'+').replace(/_/g,'/');while(p.length%4)p+='=';RID=JSON.parse(atob(p)).resa_uuid||'';}catch(e){}return RID;}
 function K(t){return 'ucb_ust_'+rid()+'_'+t;}
@@ -1203,13 +1208,13 @@ function paint(t,rows,w,card){
   var s=ST[t],sheet=(card&&card.closest)?card.closest('.sheet'):null;
   if(!s){if(sheet)sheet.classList.remove('st-on');return false;}
   var h=s.heure;if(!h&&card){var c=card.querySelector('.chips .chip .h');h=c?c.textContent:'';}
-  var title=String(TX['req_'+t]||'').replace('{h}',hfmt(h)),pill=TX['st_'+s.etat]||'';
+  var title=String(TX['req_'+t]||'').replace('{h}',hfmt(h)),pill=TX['st_'+s.etat]||'';var pz=s.prix?String(s.prix).replace('.',','):'';if(s.etat==='topay'&&pz)pill+=' · '+pz+' €';
   var html='<span class="u">'+title+'</span><b class="ust ust-'+s.etat+'">'+pill+'</b>'+CH;
   rows.forEach(function(r){if(!r)return;if(r.innerHTML!==html)r.innerHTML=html;r.style.display='';});
   if(w)w.classList.add('has-ups');
   if(sheet){var bx=sheet.querySelector('.v4us-box');if(bx){var u=bx.querySelector('.v4-ust');if(!u){u=document.createElement('div');u.className='v4-ust';bx.insertBefore(u,bx.firstChild);}
     var tx=s.etat==='ok'?TX['tx_ok_'+t]:TX['tx_'+s.etat];
-    var uh='<span class="ic ust-'+s.etat+'">'+(IC[s.etat]||'')+'</span><div class="tt">'+title+'</div><b class="ust ust-'+s.etat+'">'+pill+'</b><p>'+(tx||'')+'</p>';
+    var uh='<span class="ic ust-'+s.etat+'">'+(IC[s.etat]||'')+'</span><div class="tt">'+title+'</div><b class="ust ust-'+s.etat+'">'+pill+'</b><p>'+(tx||'')+'</p>'+(s.etat==='topay'?((s.url&&/^(https:\/\/|#$)/.test(s.url))?'<a class="v4-ust-pay" href="'+s.url+'" target="_blank" rel="noopener">'+String(TX.pay_btn||'').replace('{p}',pz)+'</a><p class="v4-ust-note">'+(TX.tx_topay_msg||'')+'</p>':'<p class="v4-ust-note">'+(TX.tx_topay_msg||'')+'</p>'):'');
     if(u.innerHTML!==uh)u.innerHTML=uh;sheet.classList.add('st-on');}}
   return true;}
 window.UCBST={paint:paint,set:set,reg:function(t,f){REG[t]=f;try{f();}catch(e){}}};
@@ -1218,11 +1223,11 @@ if(window.fetch){var _f=window.fetch;window.fetch=function(i,o){var pr=_f.apply(
     pr.then(function(r){return r.clone().json();}).then(function(j){if(j&&j.ok&&j.action==='pending'){var s={etat:'pending',heure:bd.heure||''};lsSet(ty,s);set(ty,s);}}).catch(function(){});}}catch(e){}return pr;};}
 function load(){
   var q='';try{q=new URLSearchParams(location.search).get('ust')||'';}catch(e){}
-  if(document.querySelector('.ucbpv-bar')&&/^(pending|ok|refused|answered)$/.test(q)){set('early',{etat:q,heure:''});set('late',{etat:q,heure:''});return;}
+  if(document.querySelector('.ucbpv-bar')&&/^(pending|ok|refused|answered|topay)$/.test(q)){var sx=(q==='topay')?{prix:50,url:'#'}:{};set('early',{etat:q,heure:'',prix:sx.prix,url:sx.url});set('late',{etat:q,heure:'',prix:sx.prix,url:sx.url});return;}
   ['early','late'].forEach(function(t){var l=lsGet(t);if(l)set(t,l);});
   if(!tok())return;
   fetch('https://auto.u-citybreak.fr/webhook/upsell-status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({t:tok()})})
-    .then(function(r){return r.json();}).then(function(j){if(!j||!j.ok)return;['early','late'].forEach(function(t){var v=j[t];if(v&&v.etat)set(t,{etat:v.etat,heure:v.heure||''});else if(!lsGet(t))set(t,null);});}).catch(function(){});
+    .then(function(r){return r.json();}).then(function(j){if(!j||!j.ok)return;['early','late'].forEach(function(t){var v=j[t];if(v&&v.etat)set(t,{etat:v.etat,heure:v.heure||'',prix:v.prix||null,url:v.url||''});else if(!lsGet(t))set(t,null);});}).catch(function(){});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(load,60);});else setTimeout(load,60);
 })();
