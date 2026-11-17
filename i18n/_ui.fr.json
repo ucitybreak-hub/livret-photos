@@ -143,6 +143,10 @@
     "v4_ups_tx_ok_early": "C’est validé : vous pouvez arriver à partir de cette heure-là.",
     "v4_ups_tx_ok_late": "C’est validé : prenez votre temps, vous pouvez partir à cette heure-là.",
     "v4_ups_tx_pending": "Nous vérifions avec l’équipe ménage et vous répondons par message, sur votre plateforme de réservation.",
-    "v4_ups_tx_refused": "Ce n’est pas possible cette fois, désolés."
+    "v4_ups_tx_refused": "Ce n’est pas possible cette fois, désolés.",
+    "v4_ups_pay_btn": "Payer {p} €",
+    "v4_ups_st_topay": "À régler",
+    "v4_ups_tx_topay": "C’est accepté ! Il reste à régler le supplément pour confirmer cet horaire.",
+    "v4_ups_tx_topay_msg": "Le lien de paiement vous a aussi été envoyé par message."
   }
 }
