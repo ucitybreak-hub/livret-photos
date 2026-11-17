@@ -34,7 +34,7 @@
         "keep_photo": true,
         "photo": "lodge/porte-entree-lodge.jpg",
         "photo_caption": "La porte vitrée de l'immeuble",
-        "text": "La porte vitrée est <b>généralement ouverte</b>. Si elle est fermée, tapez « On » puis le digicode sur le clavier à droite.",
+        "text": "La porte vitrée est <b>généralement ouverte</b>. Si elle est fermée, tapez ce code sur le clavier à droite :",
         "title": "La porte de l'immeuble",
         "video": "glassdoor"
       },
