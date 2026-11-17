@@ -1,4 +1,4 @@
-<!-- BUILT V4 lodge-en (translated) at 2026-11-17T16:53:09.323Z -->
+<!-- BUILT V4 lodge-en (translated) at 2026-11-17T17:03:23.017Z -->
 <!-- BUILT V3 lodge-fr at 2026-11-17T15:57:35.901Z -->
 <!DOCTYPE html>
 <html lang="{{lang_code}}">
@@ -814,12 +814,12 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
         <div class="v4-hello">Hello {{guest_first_name}}</div>
         <h1>{{property_name}}</h1>
         <div class="v4-sum" id="v4sum"><span class="d1">{{checkin_date_label}}</span> → <span class="d2">{{checkout_date_label}}</span> · {{nights_label}} · {{guests_label}}</div>
-        <div class="v4-times">Check-in from {{checkin_time}} · Check-out before {{checkout_time}}</div>
+        <div class="v4-times">Check-in from {{checkin_time}} · Check-out by {{checkout_time}}</div>
       </div>
 
       <button class="v4-arr" onclick="go('access')">
         <span class="b">
-          <span class="k">Your arrival</span>
+          <span class="k">Getting here</span>
           <span class="t"><span class="t-lock">{{access_sub}}</span><span class="t-open">Your code is ready</span></span>
           <span class="s"><span class="t-lock">See access details</span><span class="t-open">See code and directions</span></span>
         </span>
@@ -827,7 +827,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
       </button>
 
       <div class="upsell v4-ups {{upsell_early_hidden}}">
-        <h3>Arrive earlier?</h3>
+        <h3>Arriving earlier?</h3>
         <p>Subject to housekeeping availability · instant response.</p>
         <div class="chips">{{upsell_early_chips}}</div>
       </div>
@@ -845,27 +845,27 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
       </div>
     </section>
 
-    <!-- ============= HELP (V4) ============= -->
+    <!-- ============= HELP ============= -->
     <section class="view v4-help" data-view="help">
       <div class="phead"><h2>Need help?</h2><p>We're here for you throughout your stay.</p></div>
       <div class="v4-card qa-body">{{contact_block_v3}}</div>
       <div class="v4-card v4-list">
         <div class="row"><span class="t"><b>I can't get in</b><span>Review the step-by-step directions</span></span><button type="button" onclick="go('access')">Review</button></div>
-        <div class="row"><span class="t"><b>Wifi isn't working</b><span>{{wifi_ssid}} · check the network, then restart the box if needed.</span></span><button type="button" id="v4WifiBtn" data-l="Copy" onclick="copyWifi()">Copy</button></div>
+        <div class="row"><span class="t"><b>Wifi isn't working</b><span>{{wifi_ssid}} · check the network, then restart the router if needed.</span></span><button type="button" id="v4WifiBtn" data-l="Copy" onclick="copyWifi()">Copy</button></div>
       </div>
       <div class="v4-card">
         <div class="v4-sh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2.8 19.5h18.4z"/><path d="M12 10v4.5M12 17.2v.3"/></svg>Emergencies</div>
-        <div class="v4-sos"><a href="tel:112"><b>112</b><span>Emergencies</span></a><a href="tel:15"><b>15</b><span>Medical</span></a><a href="tel:18"><b>18</b><span>Fire</span></a><a href="tel:17"><b>17</b><span>Police</span></a></div>
+        <div class="v4-sos"><a href="tel:112"><b>112</b><span>Emergency</span></a><a href="tel:15"><b>15</b><span>Medical</span></a><a href="tel:18"><b>18</b><span>Fire</span></a><a href="tel:17"><b>17</b><span>Police</span></a></div>
       </div>
     </section>
 
     <!-- ============= ACCESS ============= -->
     
 <section class="view" data-view="access">
-      <div class="phead"><h2>Your arrival</h2><p>Everything you need to get in on your check-in day.</p></div>
+      <div class="phead"><h2>Getting here</h2><p>Everything you need to enter on arrival day.</p></div>
 
       <!-- DIRECTIONS (always visible, first) -->
-      <div class="sub"><span class="em">📍</span>Getting there</div>
+      <div class="sub"><span class="em">📍</span>Directions</div>
       <div class="wide" style="margin-top:0">
         <a class="wide-btn" href="{{maps_url}}" target="_blank" rel="noopener" style="text-decoration:none">
           <span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2C6.5 2 4.5 4 4.5 6.5c0 3.5 4.5 8 4.5 8s4.5-4.5 4.5-8C13.5 4 11.5 2 9 2z" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="6.5" r="1.6" stroke="#3A2A5E" stroke-width="1.4"/></svg></span>
@@ -873,7 +873,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
           <span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
-      <details class="fold"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 12V6.5h2.4a1.8 1.8 0 010 3.6H7" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">Where to park</span><span class="v2">Free parking + private garage available</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body"><p><b>Drop-off zone</b>: there's almost always space to unload on rue Roger Radisson, in front of the building.</p><p><b>Free</b>: parking often available on rue Roger Radisson, rue Jaricot, rue du Cardinal Gerlier, Montée du Télégraphe and Place du 158e RI. Free on Sundays, public holidays and in August.</p><p><b>Private garage</b>: available at 29 rue Roger Radisson (garage n°1 out of 4, door on street) for <b>€10 per stay</b> — ask us.</p></div></details>
+      <details class="fold"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 12V6.5h2.4a1.8 1.8 0 010 3.6H7" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">Where to park</span><span class="v2">Free parking + private garage available</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body"><p><b>Drop-off zone</b> : there's almost always space to unload on rue Roger Radisson, in front of the building.</p><p><b>Free</b> : parking often available on rue Roger Radisson, rue Jaricot, rue du Cardinal Gerlier, Montée du Télégraphe and Place du 158e RI. Free on Sundays, public holidays and in August.</p><p><b>Private garage</b> : available at 29 rue Roger Radisson (garage n°1 of 4, street-facing door) for <b>€10 per stay</b> — ask us.</p></div></details>
       <div class="ups-slot {{upsell_garage_hidden}}" data-ups="garage">{{upsell_garage_card}}</div>
       <div class="wide" style="margin-top:10px;margin-bottom:8px"><a class="wide-btn" href="https://www.nannybag.com/en/luggage-storage/lyon/gare-part-dieu" target="_blank" rel="noopener" style="text-decoration:none"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="5.5" width="10" height="9" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 5.5v-1a1.5 1.5 0 011.5-1.5h1A1.5 1.5 0 0111 4.5v1M7.5 8.5v3M10.5 8.5v3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Store your luggage</span><span class="v2">Nannybag lockers at Part-Dieu · from €4.50/day</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
       <div class="ups-slot {{upsell_bagages_hidden}}" data-ups="bagages">{{upsell_bagages_card}}</div>
@@ -890,7 +890,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
 
       <div class="acc-open">
         <div class="sub"><span class="em">🚪</span>Step-by-step directions</div>
-        <div class="steps"><div class="step gate-show"><span class="n">1</span><div><div class="h">Find the building</div><div class="d">You're arriving at <b>44 rue Roger Radisson</b>, on Fourvière hill — at the corner of rue Jaricot, facing Hôtel Fourvière.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lodge/immeuble-lodge-2.jpg" alt="Find the building"><div class="vidcard vidrow" onclick="playVid(this,'NgiZIhqTbDE')"><span class="vic">🎬</span><span class="vb"><span class="vv">The way to the apartment</span><span class="vv2">Video · tap to play</span></span><span class="vchev">›</span></div></div></div><div class="step"><span class="n">2</span><div><div class="h">The building entrance</div><div class="d">The glass door is <b>usually open</b>. If it's locked, enter this code on the keypad to the right:</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lodge/porte-entree-lodge.jpg" alt="The building entrance"><div class="stp-cap">The building's glass door</div><div class="vidcard vidrow" onclick="playVid(this,'3rhg3eOWAz4')"><span class="vic">🎬</span><span class="vb"><span class="vv">Opening the glass door</span><span class="vv2">Video · tap to play</span></span><span class="vchev">›</span></div><div class="kb"><span class="kb-dots">• • • •</span><span class="kb-code">{{building_digicode}}</span></div></div></div><div class="step"><span class="n">3</span><div><div class="h">The key box</div><div class="d">It's attached next to the apartment door. Place your palm on the keypad to light it up, enter your code then press the lock button. Wait for the beep, then pull the side to open the box and retrieve the key.</div><div class="kb"><span class="kb-dots">••• ••• •••</span><span class="kb-code">{{algopin_code_grouped}}</span></div><div class="kb-note">Your code · active until check-out</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lodge/keybox.jpg" alt="The key box"><div class="stp-cap">The key box, next to the apartment door</div><div class="vidcard vidrow" onclick="playVid(this,'V-5kXRTPRko')"><span class="vic">🎬</span><span class="vb"><span class="vv">Opening the key box</span><span class="vv2">Video · tap to play</span></span><span class="vchev">›</span></div></div></div><div class="step"><span class="n">4</span><div><div class="h">You're in</div><div class="d">The key opens the door. Welcome to the Lodge ✨</div></div></div></div>
+        <div class="steps"><div class="step gate-show"><span class="n">1</span><div><div class="h">Find the building</div><div class="d">You're arriving at <b>44 rue Roger Radisson</b>, on Fourvière hill — at the corner of rue Jaricot, facing Hôtel Fourvière.</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lodge/immeuble-lodge-2.jpg" alt="Find the building"><div class="vidcard vidrow" onclick="playVid(this,'NgiZIhqTbDE')"><span class="vic">🎬</span><span class="vb"><span class="vv">The way to the apartment</span><span class="vv2">Video · tap to play</span></span><span class="vchev">›</span></div></div></div><div class="step"><span class="n">2</span><div><div class="h">The building entrance</div><div class="d">The glass door is <b>usually open</b>. If it's locked, enter this code on the keypad to the right:</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lodge/porte-entree-lodge.jpg" alt="The building entrance"><div class="stp-cap">The glass building entrance</div><div class="vidcard vidrow" onclick="playVid(this,'3rhg3eOWAz4')"><span class="vic">🎬</span><span class="vb"><span class="vv">Opening the glass door</span><span class="vv2">Video · tap to play</span></span><span class="vchev">›</span></div><div class="kb"><span class="kb-dots">• • • •</span><span class="kb-code">{{building_digicode}}</span></div></div></div><div class="step"><span class="n">3</span><div><div class="h">The key box</div><div class="d">It's attached next to the apartment door. Place your palm on the keypad to turn it on, enter your code then press the lock. Wait for the beep, then pull the side to open the box and retrieve the key.</div><div class="kb"><span class="kb-dots">••• ••• •••</span><span class="kb-code">{{algopin_code_grouped}}</span></div><div class="kb-note">Your code · active until checkout</div><img class="stp-img" src="https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/lodge/keybox.jpg" alt="The key box"><div class="stp-cap">The key box, next to the apartment door</div><div class="vidcard vidrow" onclick="playVid(this,'V-5kXRTPRko')"><span class="vic">🎬</span><span class="vb"><span class="vv">Opening the key box</span><span class="vv2">Video · tap to play</span></span><span class="vchev">›</span></div></div></div><div class="step"><span class="n">4</span><div><div class="h">You're in</div><div class="d">The key opens the door. Welcome to the Lodge ✨</div></div></div></div>
 
         
 
@@ -907,12 +907,12 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
       </div>
     </section>
 
-    <!-- ============= STAY ============= -->
+    <!-- ============= YOUR STAY ============= -->
     <section class="view" data-view="stay">
-      <div class="phead"><h2>Your stay</h2><p>Everything you need day-to-day.</p></div>
+      <div class="phead"><h2>Your stay</h2><p>Everything you need, day to day.</p></div>
 
       <!-- TOUR at top: proof (video if available, otherwise photos) -->
-      <div class="sub "><span class="em">📸</span>The apartment in pictures</div>
+      <div class="sub "><span class="em">📸</span>Apartment photos</div>
       <details class="revoir ">
         <summary>
           <span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4.5" width="13" height="9.5" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="9" cy="9.2" r="2.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M6 4.5l1-1.5h4l1 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
@@ -925,19 +925,19 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
       </details>
 
       <div class="sub "><span class="em">📋</span>Good to know</div>
-      <div class="sec-intro ">A few guidelines to make sure everything goes smoothly.</div>
-      <div class="rules "><div class="rule"><span class="rc">🪜</span><div class="t"><div class="v">Ground-floor apartment</div><div class="v2">The entrance is ground-level. Living area, kitchenette, bathroom and separate toilet. <b>3 steps</b> to access the bed.</div></div></div><div class="rule"><span class="rc">🚭</span><div class="t"><div class="v">Non-smoking apartment</div><div class="v2">Smoking is not permitted inside. A CO₂ detector triggers an alarm if moved — remediation costs up to €65.</div></div></div><div class="rule"><span class="rc">🎉</span><div class="t"><div class="v">No parties or loud gatherings</div><div class="v2">A decibel detector and camera monitor the <b>hallway</b> (no conversations are recorded).</div></div></div><div class="rule"><span class="rc">🐾</span><div class="t"><div class="v">No pets allowed</div><div class="v2">Please respect this: some guests may have allergies.</div></div></div><div class="rule"><span class="rc">🌙</span><div class="t"><div class="v">Quiet after 10 PM</div><div class="v2">This is a residential building — please be considerate of neighbors.</div></div></div></div>
+      <div class="sec-intro ">A few guidelines to make your stay smooth.</div>
+      <div class="rules "><div class="rule"><span class="rc">🪜</span><div class="t"><div class="v">Ground-floor apartment</div><div class="v2">The entrance is ground-level. Living area, kitchenette, bathroom and separate WC. <b>3 steps</b> to access the bed.</div></div></div><div class="rule"><span class="rc">🚭</span><div class="t"><div class="v">Non-smoking apartment</div><div class="v2">Smoking is not allowed inside. A CO₂ detector triggers an alarm if moved — remediation costs up to €65.</div></div></div><div class="rule"><span class="rc">🎉</span><div class="t"><div class="v">No parties or gatherings</div><div class="v2">A decibel detector and camera monitor the <b>hallway</b> (no conversations recorded).</div></div></div><div class="rule"><span class="rc">🐾</span><div class="t"><div class="v">No pets allowed</div><div class="v2">Please respect this: some guests may have allergies.</div></div></div><div class="rule"><span class="rc">🌙</span><div class="t"><div class="v">Quiet after 10 PM</div><div class="v2">This is a residential building — please be considerate of neighbors.</div></div></div></div>
 
       <div class="sub "><span class="em">⚙️</span>How it works</div>
-      <div class="how "><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 13.5a.9.9 0 100-1.8.9.9 0 000 1.8z" fill="#3A2A5E"/><path d="M5.8 10.3a4.5 4.5 0 016.4 0M3.5 8a7.5 7.5 0 0111 0" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Wifi</div><div class="v2">Network "{{wifi_ssid}}" · password on the welcome page</div></div></div><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4" width="13" height="9" rx="1.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 16h4" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Television</div><div class="v2">In the living area</div></div></div><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="6.8" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="6.8" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/></svg></span><div class="t"><div class="v">Kitchen</div><div class="v2">See equipment</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body">Kitchenette with <b>cooking hob</b> (instructions: howdens.fr). The <b>microwave</b>, <b>kettle</b> and <b>coffee maker</b> are in the <b>entrance cupboard</b>, opposite the kitchenette.</div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3.5 6.5h11l-1 8h-9l-1-8z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/><path d="M6.5 6.5V5a2.5 2.5 0 015 0v1.5" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">What we provide</div><div class="v2">See the list</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><b>To get started</b> — coffee and tea (first night), <b>2 to 3 rolls</b> of toilet paper. <b>For your whole stay</b> — sheets and towels, hair dryer. Tap water is safe to drink.</div></details></div>
+      <div class="how "><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 13.5a.9.9 0 100-1.8.9.9 0 000 1.8z" fill="#3A2A5E"/><path d="M5.8 10.3a4.5 4.5 0 016.4 0M3.5 8a7.5 7.5 0 0111 0" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Wifi</div><div class="v2">Network "{{wifi_ssid}}" · password on the welcome page</div></div></div><div class="howrow"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4" width="13" height="9" rx="1.4" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 16h4" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><div class="t"><div class="v">Television</div><div class="v2">In the living area</div></div></div><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#3A2A5E" stroke-width="1.4"/><circle cx="6.8" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="6.8" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="6.8" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/><circle cx="11.2" cy="11.2" r="1.6" stroke="#3A2A5E" stroke-width="1.3"/></svg></span><div class="t"><div class="v">Kitchen</div><div class="v2">See equipment</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body">Kitchenette with <b>cooking hob</b> (manual: howdens.fr). The <b>microwave</b>, <b>kettle</b> and <b>coffee maker</b> are in the <b>entrance cupboard</b>, across from the kitchenette.</div></details><details class="hx"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M3.5 6.5h11l-1 8h-9l-1-8z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/><path d="M6.5 6.5V5a2.5 2.5 0 015 0v1.5" stroke="#3A2A5E" stroke-width="1.4"/></svg></span><div class="t"><div class="v">What we provide</div><div class="v2">See the list</div></div><span class="chev"><svg width="16" height="16" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="hx-body"><b>To get started</b> — coffee and tea (first night), <b>2 to 3 rolls</b> of toilet paper. <b>For your entire stay</b> — sheets and towels, hair dryer. Tap water is safe to drink.</div></details></div>
       <div class="ups-slot {{upsell_cot_hidden}}" data-ups="cot">{{upsell_cot_card}}</div>
 
       <div class="sub"><span class="em">🧭</span>Getting around</div>
       <details class="fold first"><summary><span class="ic"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2l6 3.5v7L9 16l-6-3.5v-7L9 2z" stroke="#3A2A5E" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="b"><span class="v">City transport</span><span class="v2">Funicular, metro, bus — see details</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><div class="fold-body" style="padding-top:2px"><div class="tr"><span class="em">🚡</span><div class="t"><div class="v">Funicular &amp; Metro D</div><div class="v2">Station <b>Fourvière</b> (F2) 600 m away or <b>Saint-Just</b> (F1) 400 m away — direct access to Old Town and metro D.</div></div><span class="d">400 m</span></div><div class="tr"><span class="em">🚌</span><div class="t"><div class="v">Bus</div><div class="v2">Stop <b>Jaricot</b> (line 90) just below; stop St Alexandre (55, C21) 700 m away → Perrache.</div></div><span class="d">50 m</span></div><div class="tr"><span class="em">🚆</span><div class="t"><div class="v">Train stations</div><div class="v2">Perrache in 15 min (bus C21 or 55); Part-Dieu in 45 min (metro B then D + funicular).</div></div></div><div class="tr"><span class="em">✈️</span><div class="t"><div class="v">Airport</div><div class="v2">Rhônexpress to Vaulx-en-Velin La Soie, then metro A → Bellecour, metro D → Old Town and funicular. Uber or taxi possible, similar travel time.</div></div></div></div></details>
 
-      <div class="sub" id="sec-depart"><span class="em">🧳</span>Check-out</div>
-      <div class="wide" style="margin-top:0"><div class="wide-btn"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 5.5v4l2.5 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Check-out instructions</span><span class="v2">Before {{checkout_time}} · windows closed, key in the key box</span></span></div></div>
-      <div class="wide" style="margin-top:10px;margin-bottom:8px"><a class="wide-btn" href="https://www.nannybag.com/en/luggage-storage/lyon/gare-part-dieu" target="_blank" rel="noopener" style="text-decoration:none"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="5.5" width="10" height="9" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 5.5v-1a1.5 1.5 0 011.5-1.5h1A1.5 1.5 0 0111 4.5v1M7.5 8.5v3M10.5 8.5v3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Luggage after check-out?</span><span class="v2">Store your bags and enjoy Lyon until your train · from €4.50/day</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+      <div class="sub" id="sec-depart"><span class="em">🧳</span>Checkout</div>
+      <div class="wide" style="margin-top:0"><div class="wide-btn"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="#3A2A5E" stroke-width="1.4"/><path d="M9 5.5v4l2.5 1.5" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Checkout instructions</span><span class="v2">By {{checkout_time}} · close windows, key in the key box</span></span></div></div>
+      <div class="wide" style="margin-top:10px;margin-bottom:8px"><a class="wide-btn" href="https://www.nannybag.com/en/luggage-storage/lyon/gare-part-dieu" target="_blank" rel="noopener" style="text-decoration:none"><span class="ic"><svg viewBox="0 0 18 18" fill="none"><rect x="4" y="5.5" width="10" height="9" rx="1.6" stroke="#3A2A5E" stroke-width="1.4"/><path d="M7 5.5v-1a1.5 1.5 0 011.5-1.5h1A1.5 1.5 0 0111 4.5v1M7.5 8.5v3M10.5 8.5v3" stroke="#3A2A5E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="b"><span class="v">Luggage after checkout?</span><span class="v2">Store your bags and enjoy Lyon until your train · from €4.50/day</span></span><span class="chev"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4l4 4.5-4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
 
       <div class="swipe {{checkout_swipe_hidden}}" data-url="{{checkout_confirm_url}}" data-done="Departure confirmed ✓" data-thanks="Thanks, see you soon!">
         <div class="swipe-track">
@@ -947,7 +947,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
             <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </div>
-        <div class="swipe-hint">Housekeeping can start — it helps us a lot.</div>
+        <div class="swipe-hint">Housekeeping can start — it really helps us.</div>
       </div>
       <div style="height:16px"></div>
     </section>
@@ -957,10 +957,10 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
       <div class="phead"><h2>Explore</h2><p>Our favorite spots, just around the corner.</p></div>
 
       <div class="sub "><span class="em">🍷</span>Where to eat</div>
-      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/hotel-fourviere.jpg')"></div><div class="rc"><span class="tag coeur">Our pick</span><span class="n">Hôtel Fourvière</span><span class="desc">The "Les Collections" bar and "Les Téléphones" fine dining restaurant, right across the street.</span><a class="rl" href="https://www.fourviere-hotel.com/en/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/esprit-bistrot.jpg')"></div><div class="rc"><span class="tag spot">350 m away</span><span class="n">L'Esprit Bistrot</span><span class="desc">Shaded terrace and dining room with fireplace, 350 m away. Refined bistro cuisine.</span><a class="rl" href="https://www.lespritbistrot.com/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/gastro-tete-oie.jpg')"></div><div class="rc"><span class="tag gastronomique">Fine dining</span><span class="n">Christian Têtedoie</span><span class="desc">Fine dining with panoramic views, 700 m away. The "Phosphore" wine bar and its tapas below.</span><a class="rl" href="https://tetedoie.fr/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/table-st-just.jpg')"></div><div class="rc"><span class="tag spot">500 m away</span><span class="n">La Table de Saint Just</span><span class="desc">Warm welcome, refined seasonal cuisine.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/chez-grand-mere.jpg')"></div><div class="rc"><span class="tag bouchon">Bouchon</span><span class="n">Chez Grand-Mère</span><span class="desc">Authentic Lyonnais bouchon (traditional restaurant), rue du Bœuf in Old Town — about 1.2 km away, or by funicular.</span><a class="rl" href="https://chezgrandmere.fr/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/la-petite-auberge.jpg')"></div><div class="rc"><span class="tag spot">Local favorite</span><span class="n">La Petite Auberge</span><span class="desc">Large summer terrace, fondue by the fireplace in winter, 650 m away.</span><a class="rl" href="https://lapetiteaubergelyon.fr/" target="_blank" rel="noopener">Visit website →</a></div></div></div>
+      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/hotel-fourviere.jpg')"></div><div class="rc"><span class="tag coeur">Our pick</span><span class="n">Hôtel Fourvière</span><span class="desc">The "Les Collections" bar and "Les Téléphones" bistro table, right across the street.</span><a class="rl" href="https://www.fourviere-hotel.com/en/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/esprit-bistrot.jpg')"></div><div class="rc"><span class="tag spot">350 m away</span><span class="n">L'Esprit Bistrot</span><span class="desc">Shaded terrace and dining room with fireplace, 350 m away. Refined bistro cuisine.</span><a class="rl" href="https://www.lespritbistrot.com/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/gastro-tete-oie.jpg')"></div><div class="rc"><span class="tag gastronomique">Fine dining</span><span class="n">Christian Têtedoie</span><span class="desc">Fine dining with panoramic views, 700 m away. The "Phosphore" wine bar and tapas downstairs.</span><a class="rl" href="https://tetedoie.fr/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/table-st-just.jpg')"></div><div class="rc"><span class="tag spot">500 m away</span><span class="n">La Table de Saint Just</span><span class="desc">Warm welcome, refined seasonal cuisine.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/chez-grand-mere.jpg')"></div><div class="rc"><span class="tag bouchon">Bouchon</span><span class="n">Chez Grand-Mère</span><span class="desc">Authentic Lyonnais bouchon (traditional restaurant), rue du Bœuf in Old Town — about 1.2 km away, or via funicular.</span><a class="rl" href="https://chezgrandmere.fr/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/la-petite-auberge.jpg')"></div><div class="rc"><span class="tag spot">Local favorite</span><span class="n">La Petite Auberge</span><span class="desc">Large summer terrace, fondue by the fireplace in winter, 650 m away.</span><a class="rl" href="https://lapetiteaubergelyon.fr/" target="_blank" rel="noopener">Visit website →</a></div></div></div>
 
       <div class="sub "><span class="em">🏛️</span>To visit</div>
-      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/lugdunum.jpg')"></div><div class="rc"><span class="tag patrimoine">350 m away</span><span class="n">Lugdunum</span><span class="desc">Gallo-Roman museum and ancient theaters, very close by. Free access to the theaters.</span><a class="rl" href="https://lugdunum.grandlyon.com/en/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/basilique.jpg')"></div><div class="rc"><span class="tag patrimoine">Must-see</span><span class="n">Fourvière Basilica</span><span class="desc">Crypt and panoramic views over all of Lyon, about 700 m away. Stunning views from the esplanade.</span><a class="rl" href="https://www.fourviere.org/en/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg')"></div><div class="rc"><span class="tag patrimoine">UNESCO heritage</span><span class="n">Old Town</span><span class="desc">Renaissance district with UNESCO status, about 1.1 km away via Montée du Gourguillon or funicular. Don't miss the traboules (covered passageways).</span><a class="rl" href="https://www.visiterlyon.com/en/discover/sites-and-monuments/renaissance/old-town" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/terrreaux.jpg')"></div><div class="rc"><span class="tag spot">2 km away</span><span class="n">Place des Terreaux</span><span class="desc">The Bartholdi fountain and City Hall, in the heart of the Peninsula.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-musee-confluence.jpg')"></div><div class="rc"><span class="tag spot">4 km away</span><span class="n">Musée des Confluences</span><span class="desc">Spectacular architecture at the tip of the Peninsula, varied exhibitions.</span><a class="rl" href="https://museedesconfluences.fr/en" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Les-berges.jpg')"></div><div class="rc"><span class="tag spot">Walk</span><span class="n">Rhône Riverbanks</span><span class="desc">5 km promenade along the water. Allow ~15-20 min to walk down from the hill (or funicular + metro D).</span></div></div></div>
+      <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/lugdunum.jpg')"></div><div class="rc"><span class="tag patrimoine">350 m away</span><span class="n">Lugdunum</span><span class="desc">Gallo-Roman museum and ancient theaters, very close by. Theater access is free.</span><a class="rl" href="https://lugdunum.grandlyon.com/en/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/basilique.jpg')"></div><div class="rc"><span class="tag patrimoine">Must-see</span><span class="n">Fourvière Basilica</span><span class="desc">Crypt and panoramic views over all of Lyon, about 700 m away. Stunning views from the esplanade.</span><a class="rl" href="https://www.fourviere.org/en/" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-vieux-lyon.jpg')"></div><div class="rc"><span class="tag patrimoine">UNESCO heritage</span><span class="n">Old Town</span><span class="desc">Renaissance district with UNESCO status, about 1.1 km away via Montée du Gourguillon or funicular. Don't miss the traboules (passageways).</span><a class="rl" href="https://www.visiterlyon.com/en/discover/sites-and-monuments/renaissance/old-town" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/terrreaux.jpg')"></div><div class="rc"><span class="tag spot">2 km away</span><span class="n">Place des Terreaux</span><span class="desc">The Bartholdi fountain and City Hall, in the heart of the Peninsula.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Le-musee-confluence.jpg')"></div><div class="rc"><span class="tag spot">4 km away</span><span class="n">Musée des Confluences</span><span class="desc">Striking architecture at the tip of the Peninsula, varied exhibitions.</span><a class="rl" href="https://museedesconfluences.fr/en" target="_blank" rel="noopener">Visit website →</a></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/Les-berges.jpg')"></div><div class="rc"><span class="tag spot">Walk</span><span class="n">Rhône Riverbanks</span><span class="desc">5 km riverside promenade. Allow ~15-20 min to walk down from the hill (or funicular + metro D).</span></div></div></div>
 
       <div class="sub "><span class="em">🛒</span>Shops</div>
       <div class=""><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/casino.jpg')"></div><div class="rc"><span class="tag proche">500 m away</span><span class="n">Le Petit Casino</span><span class="desc">Convenience store, 1 rue de la Favorite.</span></div></div><div class="reco"><div class="th" style="background-image:url('https://raw.githubusercontent.com/ucitybreak-hub/livret-photos/main/canut/boulangerie-gay.jpg')"></div><div class="rc"><span class="tag proche">For breakfast</span><span class="n">Boulangerie Henri Gay</span><span class="desc">Bread and pastries 550 m away, 12 rue de la Favorite.</span></div></div></div>
@@ -977,7 +977,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
       <div class="lead">The connection is provided for <b>personal and legal use</b>. A quick reminder before you connect.</div>
       <ul>
         <li><span class="b">⚖️</span><span>French law prohibits <b>downloading or sharing protected works</b> (films, series, music, software) without authorization.</span></li>
-        <li><span class="b">🚫</span><span>Access to <b>illegal content</b> is of course prohibited.</span></li>
+        <li><span class="b">🚫</span><span><b>Access to illegal content</b> is of course prohibited.</span></li>
         <li><span class="b">👤</span><span>You are <b>responsible for how you use</b> this connection during your stay.</span></li>
       </ul>
       <div class="fine">The line is registered to U-citybreak: any violation detected is reported to us and may be forwarded to authorities. Thank you for your understanding.</div>
@@ -988,8 +988,8 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
 
   <nav class="tabbar">
     <button class="tab on" data-tab="home" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11l8-6 8 6v8a1 1 0 01-1 1h-4v-5h-6v5H5a1 1 0 01-1-1v-8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Home</span></button>
-    <button class="tab" data-tab="access" onclick="go('access')"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="15" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M11 12l7-7M15.5 7.5l1.8 1.8M17.5 5.5l1.8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Arrival</span></button>
-    <button class="tab" data-tab="stay" onclick="go('stay')"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7" stroke="currentColor" stroke-width="1.7"/></svg><span>Stay</span></button>
+    <button class="tab" data-tab="access" onclick="go('access')"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="15" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M11 12l7-7M15.5 7.5l1.8 1.8M17.5 5.5l1.8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Getting here</span></button>
+    <button class="tab" data-tab="stay" onclick="go('stay')"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7" stroke="currentColor" stroke-width="1.7"/></svg><span>Your stay</span></button>
     <button class="tab" data-tab="explore" onclick="go('explore')"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M15 9l-2 4-4 2 2-4 4-2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Explore</span></button>
   </nav>
 
@@ -1017,7 +1017,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
     });
   }
   // Wifi: password only revealed AFTER explicit charter acceptance.
-  // Checkbox (affirmative action) + server timestamp — without the timestamp, acceptance
+  // Checkbox (positive act) + server-timestamped trace — without the trace, acceptance
   // only exists in the browser and proves nothing.
   var wifiAccepted = false;
   function copyWifi(){
@@ -1052,11 +1052,11 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
     if(chk && btn) chk.addEventListener('change', function(){ btn.disabled = !chk.checked; });
   })();
   function playVid(el,id){
-    /*UCB-LIVRET-V4-R2VID-V1 : plays file from R2 first (Videos page of guide), native player ; without file, falls back to YouTube player*/
+    /*UCB-LIVRET-V4-R2VID-V1 : plays file from R2 first (Videos page in livret), native player; no file, falls back to YouTube player*/
     if(el.getAttribute('data-vp'))return; el.setAttribute('data-vp','1'); el.onclick=null; el.removeAttribute('onclick'); el.style.cursor='default';
     var orig=el.innerHTML, po=el.querySelector('.poster'), inG=!!(el.closest&&el.closest('.v4-g')), fb=false;
     var v=document.createElement('video'); v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); v.controls=true; v.preload='auto'; if(po&&po.src)v.poster=po.src;
-    /*UCB-LIVRET-V4-R2VID-V2 (16/11) : fallback to YouTube only on real media error (iOS rejected play() before loading and went to YouTube) ; in preview, reason shows under video*/
+    /*UCB-LIVRET-V4-R2VID-V2 (16/11) : fallback to YouTube only on real media error (iOS rejected play() before loading and went to YouTube); in preview, reason shows under video*/
     function yt(why){ if(fb)return; fb=true; try{v.pause();v.removeAttribute('src');v.load();}catch(e){}
       try{if(document.querySelector('.ucbpv-bar')&&el.parentNode){var w=document.createElement('div');w.style.cssText='font-size:12px;line-height:1.4;color:#8A5B12;margin-top:6px';w.textContent='Preview: R2 playback unavailable ('+(why||'?')+'), falling back to YouTube';el.parentNode.insertBefore(w,el.nextSibling);}}catch(e){}
       if(inG){ el.innerHTML=orig; var t=el.querySelector('.vv2'); if(t)t.textContent='YouTube ↗'; el.style.cursor='pointer'; el.onclick=function(){window.open('https://www.youtube.com/watch?v='+id,'_blank');}; }
@@ -1118,7 +1118,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
 
 /*UCB-LIVRET-V4-ARR-V1*/
 (function(){function v4arr(){try{
-  var T={go:"Come",route:"Open directions",park:"Parking",nocar:"Without a car",early:"Arrive early?",bags:"Store your luggage",close:"Close",codeat:"Code at",coderd:"Your code",in:"in",dshort:"d",at:"at",latern:"{n} steps to the door",later1:"Last step to the door",laters:"Shown with your code",parkrow:"Parking",trrow:"Public transport"}; /*UCB-LIVRET-V4-FIX3*/
+  var T={go:"Getting here",route:"Open directions",park:"Parking",nocar:"Without a car",early:"Arriving early?",bags:"Store your luggage",close:"Close",codeat:"Code at",coderd:"Your code",in:"in",dshort:"d",at:"at",latern:"{n} steps to the door",later1:"Last step to the door",laters:"Shown with your code",parkrow:"Parking",trrow:"City transport"}; /*UCB-LIVRET-V4-FIX3*/
   var v=document.querySelector('[data-view="access"]');if(!v)return;
   var I={pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>',
     park:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 16.5v-9h3a2.6 2.6 0 0 1 0 5.2h-3"/></svg>',
@@ -1139,7 +1139,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
   // 1. status badge under title
   var ph=v.querySelector('.phead p');
   if(ph){ph.outerHTML='<div class="v4-pill"><span class="dot"><span class="t-lock">'+I.lock+'</span><span class="t-open">'+I.check+'</span></span><span class="t-lock">'+T.codeat+' '+shortWhen()+' <small id="v4left">'+(left()?'· '+left():'')+'</small></span><span class="t-open">'+T.coderd+' <b class="v4-code">'+((v.querySelector('.kb .kb-code')||{}).textContent||'')+'</b></span></div>';var pl=v.querySelector('.v4-pill');pl.addEventListener('click',function(){if(!document.querySelector('.app.is-open'))return;var k=v.querySelector('.kb');if(k)k.scrollIntoView({behavior:'smooth',block:'center'});});}
-  // 2. single journey: come, park, then existing steps
+  // 2. single route: directions, parking, then existing steps
   var open=v.querySelector('.acc-open'),steps=open&&open.querySelector('.steps');if(!steps)return;
   I.bus='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3.5" width="13" height="14" rx="3"/><path d="M5.5 11h13M9 17.5v2.5M15 17.5v2.5"/><circle cx="9" cy="14.2" r=".6" fill="currentColor"/><circle cx="15" cy="14.2" r=".6" fill="currentColor"/></svg>';
   // transport: reuse list from Stay page
@@ -1160,7 +1160,7 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
   if(fold){var pb=mkSheet('v4ParkSheet',T.parkrow,'<b>'+parkS+'</b>');[].slice.call(parkB.childNodes).forEach(function(n){pb.appendChild(n);});var gs=v.querySelector('.ups-slot[data-ups="garage"]');if(gs)pb.appendChild(gs);}
   if(trs.length){var tb=mkSheet('v4TrSheet',T.trrow,'');var tl=document.createElement('div');tl.className='v4-tr';trs.forEach(function(t){tl.appendChild(t.cloneNode(true));});tb.appendChild(tl);}
   [].slice.call(st.querySelectorAll('.v4-ans')).forEach(function(bt){bt.addEventListener('click',function(){var sh=document.getElementById(bt.getAttribute('data-sh'));if(sh)sh.classList.add('on');});});
-  /*UCB-LIVRET-V4-ARRLIGHT-V1 : luggage cards move to a panel opened by the "Arrive early?" line*/
+  /*UCB-LIVRET-V4-ARRLIGHT-V1 : luggage cards move to a panel opened by "Arriving early?" line*/
   var bslot=v.querySelector('.ups-slot[data-ups="bagages"]');
   if(bslot&&bslot.textContent.trim()&&getComputedStyle(bslot).display!=='none'){
     var bsb=mkSheet('v4BagSheet',T.bags,'');bsb.appendChild(bslot);
@@ -1172,10 +1172,10 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
   // 3. numbering of apartment steps
   var real=[].slice.call(steps.querySelectorAll('.step')).filter(function(s){return !s.querySelector('.n.ic');});
   real.forEach(function(s,i){var n=s.querySelector('.n');if(n)n.textContent=i+1;});
-  // 4. hidden steps: one line announcing the rest
+  // 4. hidden steps: a line announcing what's next
   var hidden=real.filter(function(s){return !s.classList.contains('gate-show');}).length;
   if(hidden){steps.insertAdjacentHTML('beforeend','<div class="v4-later"><span class="n">'+I.lock+'</span><div><div class="h">'+(hidden>1?T.latern.replace('{n}',hidden):T.later1)+'</div><div class="d">'+T.laters+' '+whenTxt+'.</div></div></div>');}
-  /*UCB-LIVRET-V4-ARRLIGHT-V1 : last step without photo or code or video ("You're in") = hidden from list (swipe to confirm takes over), kept in Guide me*/
+  /*UCB-LIVRET-V4-ARRLIGHT-V1 : last step without photo, code or video ("You're in") = hidden from list (swipe to confirm takes over), kept in Guide me*/
   var lastS=real[real.length-1];
   if(real.length>1&&lastS&&!lastS.querySelector('.stp-img,.kb,.vidcard,.stp-seq,.stp-warn'))lastS.classList.add('v4-fin');
   // 5. wrap in a card
@@ -1187,13 +1187,13 @@ b.ust-topay,.v4-ust .ic.ust-topay{color:var(--brand);background:var(--brand-soft
 
 
 /*UCB-LIVRET-V4-UPSTATE-V1 (16/11, Yann: "do both"): tracking upsell request status (early arrival / late departure).
- - server: POST /webhook/upsell-status {t: guide token} (workflow upsell-request, UCB-UPSELL-STATUS-V1) -> latest booking request: pending | ok | refused | answered ;
- - phone: response from /webhook/upsell-request is intercepted (fetch) and cached 15 min (localStorage), time for server to register it ;
+ - server: POST /webhook/upsell-status {t: livret token} (upsell-request workflow, UCB-UPSELL-STATUS-V1) -> latest booking request: pending | ok | refused | answered ;
+ - phone: /webhook/upsell-request response intercepted (fetch) and cached 15 min (localStorage), while server registers it ;
  - preview only: &ust=pending|ok|refused|answered simulates a state.
- The offer line (Home, Arrival, Stay > Departure) becomes "Check-in at 2 PM · Pending ›" and the drawer shows the state instead of time slots.
+ The offer line (Home, Getting here, Your stay > Checkout) becomes "Check-in at 2 PM · Pending ›" and the drawer shows status instead of time slots.
  Wired into UPSHEET and LATESHEET via window.UCBST (paint / reg). Rollback: delete this block (the other two continue without it).*/
 (function(){
-var TX={req_early:"Check-in at {h}",req_late:"Check-out at {h}",st_pending:"Pending",st_ok:"Confirmed ✓",st_refused:"Not available",st_answered:"See your messages",tx_pending:"We're checking with housekeeping and will reply via message on your booking platform.",tx_ok_early:"Confirmed: you can check in at this time.",tx_ok_late:"Confirmed: take your time, you can check out at this time.",tx_refused:"Not available this time, sorry.",tx_answered:"We've replied via message on your booking platform.",st_topay:"To pay",tx_topay:"This is possible, with an additional fee. Your time will be confirmed once payment is made.",tx_topay_msg:"The payment link was also sent to you via message.",pay_btn:"Pay {p} €"};/*UPSTATE-V2 (17/11): topay state = Yann's paid agreement (arbitration page), Pay button in drawer*/
+var TX={req_early:"Check-in at {h}",req_late:"Check-out at {h}",st_pending:"Pending",st_ok:"Confirmed ✓",st_refused:"Not available",st_answered:"See your messages",tx_pending:"We're checking with housekeeping and will reply via message on your booking platform.",tx_ok_early:"Confirmed: you can check in from this time.",tx_ok_late:"Confirmed: take your time, you can check out at this time.",tx_refused:"Not available this time, sorry.",tx_answered:"We've replied via message on your booking platform.",st_topay:"To pay",tx_topay:"Available with an additional fee. Your time will be confirmed once payment is made.",tx_topay_msg:"The payment link was also sent to you via message.",pay_btn:"Pay {p} €"};/*UPSTATE-V2 (17/11): topay state = Yann's paid agreement (arbitration page), Pay button in drawer*/
 var ST={early:null,late:null},REG={},RID='';
 var CH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg>';
 var SV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">';
@@ -1233,8 +1233,8 @@ function load(){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(load,60);});else setTimeout(load,60);
 })();
 
-/*UCB-LIVRET-V4-UPSLINE-V1 + UPSHEET-V1 (16/11 evening, Yann: "weird to have to tap a button on another page"): early arrival offer opens in a bottom drawer from the foot of the "Your arrival" card (Home) or from a line at the top of the Arrival tab. The top of the card always leads to the Arrival tab. Label hardcoded (FR): to be passed as key ui v4_ups_early_line. Rollback: put card back in [data-view="home"] and delete this block.*/
-(function(){var UL="Arrive earlier?",CL="Close";function upsl(){try{
+/*UCB-LIVRET-V4-UPSLINE-V1 + UPSHEET-V1 (16/11 evening, Yann: "weird to have to tap a button on another page"): early arrival offer opens in a bottom drawer from the "Getting here" card footer (Home) or from a line at the top of Getting here tab. Top of card always leads to Getting here tab. Label hardcoded (FR): to pass as ui key v4_ups_early_line. Rollback: put card back in [data-view="home"] and delete this block.*/
+(function(){var UL="Arriving early?",CL="Close";function upsl(){try{
   var card=document.querySelector('[data-view="home"] .upsell.v4-ups:not(.ucbpv-late)');
   var acc=document.querySelector('[data-view="access"]');var arr=document.querySelector('.v4-arr');if(!card||!acc||!arr)return;
   var app=document.querySelector('.app')||document.body;
@@ -1259,8 +1259,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }catch(e){}}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',upsl);else upsl();})();
 
-/*UCB-LIVRET-V4-SEJTABS-V1 (16/11, Yann: "a tab button system at the top for Stay, like for Explore"): visible Stay sections (How it works, Departure, Good to know) become buttons at the top; the section at the top of the page (Departure on departure day) is open by default; the departure badge opens "Departure". Rollback: delete this block and the SEJTABS CSS.*/
-(function(){var tries=0,TL="The apartment";function st(){try{
+/*UCB-LIVRET-V4-SEJTABS-V1 (16/11, Yann: "a button tab system at top for Your stay, like Explore"): visible Your stay sections (How it works, Checkout, Good to know) become buttons at top; section at page top (Checkout on checkout day) opened by default; checkout badge opens "Checkout". Rollback: delete this block and SEJTABS CSS.*/
+(function(){var tries=0,TL="Apartment";function st(){try{
   var v=document.querySelector('[data-view="stay"]');var ph=v&&v.querySelector('.phead');
   if(!v||!ph||!v.querySelector('.v4-grid')){if(++tries<40)setTimeout(st,150);return;}
   if(v.querySelector('.v4-seg'))return;
@@ -1272,7 +1272,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   var bar=document.createElement('div');bar.className='v4-seg';var bts=[];
   function pick(i){bts.forEach(function(b,j){b.classList.toggle('on',j===i);});kids.forEach(function(el){var g=el.getAttribute('data-sg');if(g!==null)el.classList.toggle('sg-on',+g===i);});}
   subs.forEach(function(sb,i){var em=sb.querySelector('.em');var lab=(sb.textContent||'').replace(em?em.textContent:'','').trim();
-    /*SEJTABS-V2 (16/11, Yann: shorter than "How it works"): tile section = "The apartment"*/if(TL&&sb.nextElementSibling&&sb.nextElementSibling.classList.contains('v4-grid'))lab=TL;
+    /*SEJTABS-V2 (16/11, Yann: shorter than "How it works"): equipment tiles section = "Apartment"*/if(TL&&sb.nextElementSibling&&sb.nextElementSibling.classList.contains('v4-grid'))lab=TL;
     var b=document.createElement('button');b.type='button';b.textContent=lab;b.addEventListener('click',function(){pick(i);});bar.appendChild(b);bts.push(b);});
   ph.parentNode.insertBefore(bar,ph.nextSibling);v.classList.add('v4-sgtabs');pick(0);
   var di=subs.indexOf(v.querySelector('#sec-depart'));var pill=ph.querySelector('.v4-pill');
@@ -1280,7 +1280,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }catch(e){}}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(st,200);});else setTimeout(st,200);})();
 
-/*UCB-LIVRET-V4-LATESHEET-V1 (16/11, Yann: "not great having boxes in boxes"): in Stay > Departure, the late departure offer is no longer a card in a card: a line "Check out later? 1 PM · €20 ›" (title and time slot from the card) opens a drawer containing the card. Rollback: delete this block and the LATESHEET CSS.*/
+/*UCB-LIVRET-V4-LATESHEET-V1 (16/11, Yann: "not great having boxes in boxes"): in Your stay > Checkout, late checkout offer no longer a card in card: a line "Check out later? 1 PM · €20 ›" (title and slot from card) opens a drawer with the card. Rollback: delete this block and LATESHEET CSS.*/
 (function(){var CL="Close",tries=0;function ls(){try{
   var slot=document.querySelector('.v4-late-slot');if(!slot){if(++tries<40)setTimeout(ls,250);return;}
   var app=document.querySelector('.app')||document.body,S=null,row=null,card=null;
@@ -1304,7 +1304,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 /*UCB-LIVRET-V4-SEJ-V1*/
 document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){try{
-  var T={guide:"Guide me to the door",stepof:"Step {i} of {n}",next:"Next",done:"I'm in ✓",prev:"Previous",close:"Close",wcopy:"Copy password",photos:"Apartment photos",transp:"Transport",dpill:"Check-out on {d} before {t}",dhead:"Before you leave",dsub:"On {d} before {t}",train:"Catch a later train?",bags:"Store your luggage"};
+  var T={guide:"Guide me to the door",stepof:"Step {i} of {n}",next:"Next",done:"I'm in ✓",prev:"Back",close:"Close",wcopy:"Copy password",photos:"Apartment photos",transp:"Transport",dpill:"Check-out on {d} by {t}",dhead:"Before you leave",dsub:"On {d} by {t}",train:"Catch a later train?",bags:"Store your luggage"};
   function fmt(x,o){return String(x).replace(/\{(\w+)\}/g,function(m,k){return o[k]!=null?o[k]:m;});}
   var app=document.querySelector('.app')||document.body;
   var CH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg>';
@@ -1313,20 +1313,20 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
   /* ---------- 1. Guide me ---------- */
   var acc=document.querySelector('[data-view="access"]');
   var steps=acc?[].slice.call(acc.querySelectorAll('.v4-trip .step')).filter(function(s){return !s.querySelector('.n.ic');}):[];
-  /*UCB-LIVRET-V4-ARRDAY-V1 : the "Come" step (address, directions, car or on foot) becomes the 1st page of the step-by-step*/
+  /*UCB-LIVRET-V4-ARRDAY-V1 : the Directions step (address, route, car or on foot) becomes the 1st page of step-by-step*/
   var goS=acc?acc.querySelector('.v4-trip .step .n.ic'):null;goS=goS?goS.closest('.step'):null;if(steps.length&&goS)steps.unshift(goS);
-  /*UCB-LIVRET-V4-GUIDE-PHVID-V1 : note the YouTube ID of each step video (onclick attribute disappears once video plays in the list)*/
+  /*UCB-LIVRET-V4-GUIDE-PHVID-V1 : note YouTube id of each step video (onclick attribute disappears once video plays in list)*/
   steps.forEach(function(s){var vc=s.querySelector('.vidcard');if(vc&&!vc.getAttribute('data-yt')){var m=(vc.getAttribute('onclick')||'').match(/'([A-Za-z0-9_-]{6,20})'/);if(m)vc.setAttribute('data-yt',m[1]);}});
-  /*UCB-LIVRET-V4-GUIDE-SEQ-V1 (17/11, Yann: carousels weren't in the step-by-step): each carousel photo becomes a step-by-step page (photo + caption); step text on 1st photo; label Step k of n · photo j/m*/
+  /*UCB-LIVRET-V4-GUIDE-SEQ-V1 (17/11, Yann: carousels weren't in step-by-step): each carousel photo becomes a step-by-step page (photo + caption); step text on 1st photo; label Step k of n · photo j/m*/
   var PG=[];steps.forEach(function(s,k){var fr=[].slice.call(s.querySelectorAll('.stp-seq .stp-frame'));if(fr.length)fr.forEach(function(f,j){PG.push({s:s,k:k,f:f,j:j,m:fr.length});});else PG.push({s:s,k:k});});var NS=steps.length;steps=PG.map(function(p){return p.s;});
   (function(){var st=document.createElement('style');st.textContent='.v4-g .v4g-fc{margin:12px 20px 0;font-size:17px;line-height:1.45;color:var(--ink);text-wrap:pretty}.v4-g .v4g-fc b{font-weight:650}';document.head.appendChild(st);})();
   if(steps.length){
     var g=document.createElement('div');g.className='v4-g';
     g.innerHTML='<div class="top"><div class="bars">'+steps.map(function(){return'<i></i>';}).join('')+'</div><button type="button" class="x" aria-label="'+T.close+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="body"></div><div class="foot"><button type="button" class="prev" aria-label="'+T.prev+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6l-6 6 6 6"/></svg></button><button type="button" class="next">'+T.next+'</button></div>';
     app.appendChild(g);var i=0,body=g.querySelector('.body');
-    /*UCB-LIVRET-V4-GUIDE-PHVID-V1 (16/11): in the step-by-step, the step photo launches the video (Video badge); key box code appears under the frame during playback; photo returns at the end. Rollback: put video card back (else branch).*/
-    /*UCB-LIVRET-V4-GUIDE-VSHEET-V1 (16/11, Yann: video in photo hid the photo -> bottom drawer): in the step-by-step, "Watch video" button under text; video opens in a sliding drawer (photo and code stay visible above); close = pause. Replaces GUIDE-PHVID-V1.*/
-    var VCH="Watch video";
+    /*UCB-LIVRET-V4-GUIDE-PHVID-V1 (16/11): in step-by-step, step photo launches video (Video badge); key box code goes under frame during playback; photo returns at end. Rollback: put video card back (else branch).*/
+    /*UCB-LIVRET-V4-GUIDE-VSHEET-V1 (16/11, Yann: video in photo hid photo -> bottom drawer): in step-by-step, "Watch video" button under text; video opens in sliding drawer (photo and code stay visible above); close = pause. Replaces GUIDE-PHVID-V1.*/
+    var VCH="Watch the video";
     var VS=null,VSB=null;
     function vidSheet(id,poster,title,code){
       if(!VS){VS=document.createElement('div');VS.className='sheet v4-sheet v4-vsheet';VS.id='v4VidSheet';VS.innerHTML='<div class="veil"></div><div class="panel"><div class="grab"></div><h3></h3><div class="v4vs-code"></div><div class="v4vs-box"></div><button type="button" class="v4-close">'+T.close+'</button></div>';app.appendChild(VS);VSB=VS.querySelector('.v4vs-box');
@@ -1341,7 +1341,7 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
       var p=v.play();if(p&&p.catch)p.catch(function(err){if(v.error)fail('playback '+((err&&err.name)||'?'));});
     }
     function showGo(s){var c=s.querySelector('.n.ic').nextElementSibling||s;var h=c.querySelector('.h'),d=c.querySelector('.d'),lk=c.querySelector('.v4-lnk'),an=c.querySelector('.v4-anss'),bl=c.querySelector('.v4-bag');
-      var nxI=null; /*ARRDAY-V4 : back to icon (building photo was duplicate with next step)*/ /*UCB-LIVRET-V4-ARRDAY-V2 : building photo (1st step) at top of Come page*/
+      var nxI=null; /*ARRDAY-V4 : back to icon (building photo was duplicate of next step)*/ /*UCB-LIVRET-V4-ARRDAY-V2 : building photo (1st step) at top of Directions page*/
       body.innerHTML=(nxI&&nxI.src?'<div class="ph v4g-ph" style="background-image:url(\''+nxI.src+'\')"></div>':'<div class="v4g-pin">'+s.querySelector('.n.ic').innerHTML+'</div>')+'<div class="k">'+fmt(T.stepof,{i:PG[i].k+1,n:NS})+'</div><h2>'+(h?h.innerHTML:'')+'</h2><div class="d">'+(d?d.innerHTML:'')+'</div>'+(lk?'<a class="v4g-route" href="'+lk.href+'" target="_blank" rel="noopener">'+lk.innerHTML+'</a>':'')+(an?'<div class="v4g-anss">'+an.innerHTML+'</div>':'')+(bl?'<div class="v4g-bag"></div>':'');
       [].slice.call(body.querySelectorAll('[data-sh]')).forEach(function(b){b.addEventListener('click',function(){var sh=document.getElementById(b.getAttribute('data-sh'));if(sh)sh.classList.add('on');});});
       if(bl){var bc=bl.cloneNode(true);if(document.getElementById('v4BagSheet'))bc.addEventListener('click',function(e){e.preventDefault();document.getElementById('v4BagSheet').classList.add('on');});body.querySelector('.v4g-bag').appendChild(bc);}
@@ -1365,7 +1365,7 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     bt.addEventListener('click',function(){i=0;show();g.classList.add('on');});
     if(pill)pill.parentNode.parentNode.insertBefore(bt,pill.parentNode.nextSibling);
     window.__v4guide=function(n){i=n||0;show();g.classList.add('on');};
-    /*UCB-LIVRET-V4-ARRDAY-V1 : on day J, code revealed, Arrival tab opens step-by-step directly (single thread), until guest confirms entry; X returns to list*/
+    /*UCB-LIVRET-V4-ARRDAY-V1 : on arrival day, code revealed, Getting here tab opens step-by-step directly (single thread), until guest confirms entry; X returns to list*/
     var cdE=document.getElementById('cd');var revT=cdE?parseInt(cdE.getAttribute('data-reveal')||'0',10):0;
     var pday=function(t){try{return new Date(t).toLocaleDateString('en-CA',{timeZone:'Europe/Paris'});}catch(e){return '';}};
     var IK='ucb_v4_in_'+revT;
@@ -1378,13 +1378,13 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
     var vAcc=document.querySelector('.view.active[data-view="access"]');if(vAcc&&jDay()&&!arrived()){i=0;show();g.classList.add('on');}
   }
 
-  /* ---------- 2. Stay ---------- */
+  /* ---------- 2. Your stay ---------- */
   var v=document.querySelector('[data-view="stay"]');if(!v)return;
   var subs=[].slice.call(v.querySelectorAll(':scope > .sub'));
   function nx(e){var n=e.nextElementSibling;if(n&&n.classList.contains('sec-intro'))n=n.nextElementSibling;return n;}
   function secOf(sel){return subs.filter(function(s){var n=nx(s);return n&&n.matches(sel);})[0];}
   var sImg=secOf('details.revoir'),sBon=secOf('.rules'),sHow=secOf('.how'),sMove=subs.filter(function(s){var n=nx(s);return n&&n.querySelector&&n.querySelector('.tr');})[0],sDep=v.querySelector('#sec-depart');
-  // departure badge
+  // checkout badge
   var co=sDep?sDep.nextElementSibling:null;var coTxt=co?(co.querySelector('.v2')||{}).textContent||'':'';
   var tm=(coTxt.match(/\d{1,2}[:h]\d{2}/)||[''])[0].replace(':','h');
   var d2=document.querySelector('#v4sum .d2');var dTxt=d2?d2.textContent.trim():'';
@@ -1399,15 +1399,15 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
   var tour=sImg?sImg.nextElementSibling:null;
   if(tour&&tour.querySelector('.tour')){var shT=sheet(T.photos,'');shT.querySelector('.v4-sb').appendChild(tour.querySelector('.tour'));tiles.unshift({ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="13" rx="2.5"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8.5 6l1.5-2h4l1.5 2"/></svg>',t:T.photos,fn:function(){shT.classList.add('on');}});}
   var trS=document.getElementById('v4TrSheet');
-  if(trS)tiles.push({ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3.5" width="13" height="14" rx="3"/><path d="M5.5 11h13M9 17.5v2.5M15 17.5v2.5"/></svg>',t:T.transp,fn:function(){trS.classList.add('on');}});
+  if(trS)tiles.push({ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3.5" width="13" height="14" rx="3"/><path d="M5.5 11h13M9 17.5v2.5M15 17.5v2.5"/><circle cx="9" cy="14.2" r=".6" fill="currentColor"/><circle cx="15" cy="14.2" r=".6" fill="currentColor"/></svg>',t:T.transp,fn:function(){trS.classList.add('on');}});
   var grid=document.createElement('div');grid.className='v4-grid';
   tiles.forEach(function(x){var b=document.createElement('button');b.type='button';b.innerHTML='<span class="gi">'+x.ic+'</span><span class="gt">'+x.t+(x.s?'<span class="gs">'+x.s+'</span>':'')+'</span>';b.addEventListener('click',x.fn);grid.appendChild(b);});
-  // departure: checklist + late checkout
+  // checkout: checklist + late checkout
   var items=coTxt.split('·').slice(1).join(',').split(',').map(function(s){return s.trim();}).filter(Boolean);
   var bagW=co?co.nextElementSibling:null;var bag=bagW&&bagW.querySelector('a');[co,bagW].forEach(function(e){if(e)e.classList.add('v4-hide');});
   var dep=document.createElement('div');dep.className='v4-dep';
   dep.innerHTML='<div class="dh">'+T.dhead+'</div><div class="ds">'+fmt(T.dsub,{d:dTxt,t:tm})+'</div><div class="v4-chk">'+items.map(function(s){return'<label><input type="checkbox"><span>'+s.charAt(0).toUpperCase()+s.slice(1)+'</span></label>';}).join('')+'</div><div class="v4-late-slot"></div>'+(bag?'<a class="v4-bag2" href="'+bag.href+'" target="_blank" rel="noopener">'+T.train+' <b>'+T.bags+'</b></a>':'');
-  // reassemble: badge, grid, departure, good to know
+  // reassemble: badge, grid, checkout, good to know
   var phead=v.querySelector('.phead');
   var hHow=document.createElement('div');hHow.className='sub';var em=sHow&&sHow.querySelector('.em');hHow.textContent=sHow?sHow.textContent.replace(em?em.textContent:'','').trim():'';
   phead.insertAdjacentElement('afterend',hHow);hHow.insertAdjacentElement('afterend',grid);
@@ -1417,13 +1417,13 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
   var RI={'🪜':'<path d="M4 20h4.5v-4.5H13V11h4.5V6.5H20"/>','🚭':'<circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12M7.5 13.2h6.3v2H7.5z"/>','🎉':'<path d="M5 9.5v5h3l4 3.5V6L8 9.5z"/><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5M18 7a7 7 0 0 1 0 10"/>','🐾':'<circle cx="8" cy="8" r="1.6"/><circle cx="16" cy="8" r="1.6"/><circle cx="5.5" cy="12.5" r="1.5"/><circle cx="18.5" cy="12.5" r="1.5"/><path d="M12 12c-2.5 0-4.5 2.6-4.5 4.5 0 1.6 1.6 2 2.6 2 .8 0 1.2-.4 1.9-.4s1.1.4 1.9.4c1 0 2.6-.4 2.6-2 0-1.9-2-4.5-4.5-4.5z"/>','🌙':'<path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"/>','🗑️':'<path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/>','🗑':'<path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/>'};
   [].slice.call(v.querySelectorAll('.rules .rc')).forEach(function(rc){var k=rc.textContent.trim();if(RI[k]){rc.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px">'+RI[k]+'</svg>';rc.classList.add('v4-ri');}});
   v.classList.add('v4-stay2');
-  // on departure day (departure gesture visible), Departure section moves to top
+  // on checkout day (checkout gesture visible), Checkout section moves to top
   var swd=v.querySelector('.swipe');if(sDep&&swd&&!swd.classList.contains('is-hidden')){phead.insertAdjacentElement('afterend',sDep);sDep.insertAdjacentElement('afterend',dep);dep.insertAdjacentElement('afterend',swd);}
 }catch(e){}},0);});
 
   /*UCB-LIVRET-V4-JS*/
   (function(){
-    // date summary: "11 nov. -> 13 nov." becomes "11 -> 13 nov." when month is the same
+    // date summary: "11 nov. -> 13 nov." becomes "11 -> 13 nov." when month is same
     try{
       var s=document.getElementById('v4sum');
       if(s){var a=s.querySelector('.d1'),b=s.querySelector('.d2');
@@ -1432,7 +1432,7 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){tr
             if(da.slice(1).join(' ')===db.slice(1).join(' ')){a.textContent=da[0];b.textContent=db.join(' ');}
             else{a.textContent=da.join(' ');b.textContent=db.join(' ');}}}}
     }catch(e){}
-    // police card: line icon instead of emoji
+    // police card: stroke icon instead of emoji
     try{
       var pi=document.querySelector('.v4-row .dt .ic');
       if(pi)pi.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.4 1.7-2 3-2s2.4.6 3 2M14 10h4M14 13h3"/></svg>';
